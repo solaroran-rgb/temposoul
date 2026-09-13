@@ -53,3 +53,12 @@
 - 部署：wrangler pages deploy --branch main → Production 046ebf70（首部署 promotion 未生效，二次 70feeecd 触发切换），www.temposoul.com 已生效（sw=v7、时区冲突返回 400）
 - 验收：repro_503 3 轮 → 5xx 未清零。诊断：500 全消（T4 修复生效）；剩余 503 为 CF Free 10ms CPU 限制（qimen/ziwei/bazi 重端点间歇性，liuren 基本稳定；200 响应内容正确）。**需用户决策：升级 CF Workers Paid（US$5/月，CPU 30s）**
 - 待办：**阿里云免备案迁移（正式上线时执行，用户已拍板）**——CF Paid 不可行（无美元支付），方案=中国站+香港地域（轻量 ¥24-34/月 或 FC ¥0），详见 AI地图 部署日志 2026-09-13_阿里云免备案迁移方案；qizheng 验收 case 参数（repro 脚本 hour 字段）；sky /sky v2 **已 promote 生产（09-13，www.temposoul.com/sky，deploy 155745ce）**；四项开发全部完成并合并生产（32cbb16）：南半球月令✅实现 / 城市库✅扩容108525城 / Swiss Ephemeris⏸不迁移 / 出生范围⏸不放开（后两项保守收口待签字）；GSC/Bing
+
+## 2026-09-14 · /sky 首页星空系统 四专家代码全量集成（本地就绪，待部署）
+- **背景**：外部四专家会诊（E1 天体可视化 / E2 城市数字孪生 / E3 实时图形性能 / E4 沉浸视觉）三轮交付 + 修复回执，用户下令全量执行
+- **集成**：E1-E4 全部代码落库并组装（SkyScene class→createSkyScene 函数式架构重组、E2 OSM 城市管线、E3 渲染模块+gate、E4 token/HUD）；PATCH-1~6 应用；sw bump v8
+- **验证（真实执行）**：vite build ✅ / tsc sky/city 零错误 ✅ / selftest ALL PASS ✅ / playwright 双视口渲染 ✅（星点/星座线/标签/网格/城市线稿/人形全渲染）/ baseline diff 0.96% ✅
+- **门禁**：G1 性能 PASS（O(n²)→O(n) 修复 + 预热 render 后 desktop full P95≤16.9ms）/ G3 checklist PASS / G4 PASS / G5 0err PASS / G6 sw v8 PASS；**G2 天文对拍 skip（参考 CSV 未提供）**
+- **git**：HEAD 561545e（7f12004 全量集成 + 561545e 性能/门禁修正），分支 thread/t3-i18n-accuracy，未 push
+- **部署状态（审计）**：**未部署**。线上 www.temposoul.com 实查 sw.js = v6（旧版），/sky 仍为 09-13 v2（155745ce）；本地 v8 已就绪待 `npx vite build && npx wrangler pages deploy dist --project-name temposoul --branch main`
+- **待补**：G2 对拍参考数据（stellarium-stars.csv 6城×12时点×20星 J2000 + nasa-moon.csv 24点）待用户导出；E2 离线运维三脚本源稿被 markdown 破坏未纳入（不影响构建链）；月相视觉确认（截图时段在地平线下）
