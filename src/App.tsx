@@ -47,6 +47,11 @@ const LexiconPage = lazy(async () => {
   return { default: module.LexiconPage };
 });
 
+const SkyPage = lazy(async () => {
+  const module = await import('./pages/SkyPage/SkyPage');
+  return { default: module.SkyPage };
+});
+
 function RouteFallback() {
   return (
     <div className="route-loading" aria-hidden="true">
@@ -67,6 +72,7 @@ function RouteFallback() {
 export default function App() {
   const { t } = useI18n();
   const location = useLocation();
+  const isSkyImmersive = location.pathname === '/sky';
 
   useEffect(() => {
     initAnalyticsFromRuntime();
@@ -78,15 +84,16 @@ export default function App() {
 
   return (
     <>
-      <StarfieldBackground />
-      <GlobalControlCluster />
+      {!isSkyImmersive && <StarfieldBackground />}
+      {!isSkyImmersive && <GlobalControlCluster />}
       {/* P1-2 Trust Engine: global mount — T1 tutorial / T6 result (no-op on other routes). */}
-      <TrustBanner />
+      {!isSkyImmersive && <TrustBanner />}
       <Suspense fallback={<RouteFallback />}>
         <ErrorBoundary>
           <main>
           <Routes>
             <Route path="/" element={<InputPage />} />
+            <Route path="/sky" element={<SkyPage />} />
             <Route path="/tutorial" element={<TutorialPage />} />
             <Route path="/records" element={<RecordsPage />} />
             <Route path="/result" element={<ResultPage />} />
@@ -98,25 +105,27 @@ export default function App() {
           </Routes>
           </main>
         </ErrorBoundary>
-        <footer
-          className="global-disclaimer"
-          style={{
-            position: 'fixed',
-            bottom: 0,
-            left: 0,
-            right: 0,
-            zIndex: 50,
-            padding: '6px 12px',
-            fontSize: 11,
-            lineHeight: 1.4,
-            textAlign: 'center',
-            color: '#d8cfe0',
-            background: 'rgba(19, 16, 25, 0.92)',
-            borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-          }}
-        >
-          {t('disclaimer')}
-        </footer>
+        {!isSkyImmersive && (
+          <footer
+            className="global-disclaimer"
+            style={{
+              position: 'fixed',
+              bottom: 0,
+              left: 0,
+              right: 0,
+              zIndex: 50,
+              padding: '6px 12px',
+              fontSize: 11,
+              lineHeight: 1.4,
+              textAlign: 'center',
+              color: '#d8cfe0',
+              background: 'rgba(19, 16, 25, 0.92)',
+              borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+            }}
+          >
+            {t('disclaimer')}
+          </footer>
+        )}
       </Suspense>
     </>
   );

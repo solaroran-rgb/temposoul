@@ -27,6 +27,11 @@ id = "4561e72198ea4b9c9582a9826303e3d2"
 binding = "newsletter_emails"
 id = "b2119365c5ce4357ab33dc2a2c58580a"
 
+# ── 城市线稿 OSM 缓存（IP 定位 + 城市线稿）──
+[[kv_namespaces]]
+binding = "GEO_CACHE"
+id = "c2637a406a8c4e99aab3b1aa364d6770"
+
 # ── 非机密运行时变量 ──
 [vars]
 # 是否启用账户认证（置 true 前，必须先绑定上面的 AUTH_KV 并设置 AUTH_SECRET）

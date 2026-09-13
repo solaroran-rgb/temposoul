@@ -1,0 +1,23 @@
+{
+  "overall": true,
+  "results": [
+    {
+      "name": "desktop",
+      "pass": true,
+      "currentFile": "E:\\KnowledgeOS\\项目库\\TempoSoul 命律 网站建设系统\\docs\\sky\\audit\\screenshot-20260914-desktop.png",
+      "diffPixels": 7852,
+      "totalPixels": 2073600,
+      "diffRatio": "0.0038",
+      "reason": "diffRatio 0.0038 <= 0.03, presumed token-level only（仍需人工确认）"
+    },
+    {
+      "name": "mobile",
+      "pass": true,
+      "currentFile": "E:\\KnowledgeOS\\项目库\\TempoSoul 命律 网站建设系统\\docs\\sky\\audit\\screenshot-20260914-mobile.png",
+      "diffPixels": 3150,
+      "totalPixels": 329160,
+      "diffRatio": "0.0096",
+      "reason": "diffRatio 0.0096 <= 0.03, presumed token-level only（仍需人工确认）"
+    }
+  ]
+}

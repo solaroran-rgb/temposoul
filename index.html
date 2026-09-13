@@ -76,6 +76,24 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- P0 · 首屏开场（0-0.4s，C3 时序首窗）。仅 /sky 保留；色值走 E4 holographic-tokens 注入变量（C5/集成核对点①） -->
+    <style>
+      .sky-boot { position: fixed; inset: 0; z-index: 9; pointer-events: none;
+        background-color: var(--bg-void, transparent);
+        background-image: linear-gradient(var(--grid-dark, transparent) 1px, transparent 1px),
+          linear-gradient(90deg, var(--grid-dark, transparent) 1px, transparent 1px);
+        background-size: 48px 48px; animation: sky-boot-in 1s ease-out forwards; }
+      .sky-boot-out { animation: none; opacity: 0; transition: opacity 0.45s ease-out; }
+      @keyframes sky-boot-in { from { opacity: 0; transform: scale(1.04); } to { opacity: 1; transform: none; } }
+    </style>
+    <div class="sky-boot" id="sky-boot"></div>
+    <script>
+      (function () { // B5 修复：路由守卫 + JS 全挂 4s 兜底
+        var el = document.getElementById("sky-boot");
+        if (!/(^|\/)sky\/?$/.test(location.pathname)) el.remove();
+        else setTimeout(function () { el.classList.add("sky-boot-out"); }, 4000);
+      })();
+    </script>
     <script src="/temposoul-runtime-config.js"></script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
