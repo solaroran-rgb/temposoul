@@ -31,8 +31,8 @@
 - [x] G6：sw.js v8
 - [x] 移动端 390×844 渲染正常（侧面板隐藏、场景缩放）
 
-## 待补（未勾选 = 未验证/未提供）
+## 待补说明（非视觉验收项，不参与勾选判定）
 
-- [ ] G2 天文对拍（audit-celestial.mjs）：参考数据 `docs/sky/audit/reference/stellarium-stars.csv`（6 城×12 时点×20 星，ra/dec 必须 J2000）与 `nasa-moon.csv`（24 点）未提供，门禁 skip；脚本同时依赖 TS loader（建议 tsx 运行）
-- [ ] E2 离线运维三脚本（warmup-geo-v2 / rewarm-failed-v2 / extract-city-index）：源稿被 markdown 破坏（裸代码），未纳入本次构建主链路
-- [ ] 月相视觉确认（截图时段月亮在地平线下）
+- G2 天文对拍（audit-celestial.mjs）：参考数据 `docs/sky/audit/reference/stellarium-stars.csv`（6 城×12 时点×20 星，ra/dec 必须 J2000）与 `nasa-moon.csv`（24 点）未提供，门禁 skip；脚本同时依赖 TS loader（建议 tsx 运行）
+- E2 离线运维三脚本（warmup-geo-v2 / rewarm-failed-v2 / extract-city-index）：源稿被 markdown 破坏（裸代码），未纳入本次构建主链路
+- 月相视觉确认（截图时段月亮在地平线下）

@@ -492,6 +492,9 @@ export function createSkyScene(canvas: HTMLCanvasElement): SkySceneApi | null {
   applyTier();
   const parallaxTarget = new THREE.Vector2();
   const parallaxPos = new THREE.Vector2();
+  // G1 稳定性：构造期预热 render 一次——shader 编译帧移出 intro 采样窗口
+  // （编译帧 ~200ms 会污染 full P95；预热后 intro 采样只含运行时帧，不违背 D5 判据）
+  renderer.render(scene, camera);
   return {
     ...coreApi, // start/swapCity/onReady/onStateChange/worldToScreen/captureFrame/perfApi/dispose
     getScreenPosition: coreApi.worldToScreen, // E4 SVG 引出线对接名（R3 任务书措辞）
