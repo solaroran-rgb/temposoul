@@ -29,7 +29,7 @@ export interface CityKit {
 
 export function buildCityKit(shared: SharedUniforms, sprite: THREE.CanvasTexture): CityKit {
   const mkLine = (o: Parameters<typeof makeGlowLineMaterial>[1], order: number) => {
-    const obj = new THREE.LineSegments(new THREE.BufferGeometry(), makeGlowLineMaterial(shared, o));
+    const obj = new THREE.Mesh(new THREE.BufferGeometry(), makeGlowLineMaterial(shared, o));
     obj.renderOrder = order;
     obj.frustumCulled = false;
     return obj;

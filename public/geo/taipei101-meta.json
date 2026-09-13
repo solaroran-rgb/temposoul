@@ -1,0 +1,42 @@
+{
+  "id": "taipei101",
+  "name": "台北101",
+  "version": "0.1-p1",
+  "center": {
+    "lat": 25.033,
+    "lon": 121.5654
+  },
+  "unit": "meter",
+  "lod": {
+    "L0": "near<1200m",
+    "L1": "mid 1200-2200m",
+    "L2": "far>2200m+natural"
+  },
+  "source": "OpenStreetMap (Overpass API, 2026-09-14)",
+  "bbox": [
+    25.022,
+    121.554,
+    25.044,
+    121.577
+  ],
+  "counts": {
+    "L0": {
+      "landmarks": 350,
+      "roads": 380
+    },
+    "L1": {
+      "landmarks": 260,
+      "roads": 160
+    },
+    "L2": {
+      "landmarks": 0,
+      "water": 61,
+      "trails": 51
+    }
+  },
+  "sizes": {
+    "L0": "178.1KB",
+    "L1": "96.1KB",
+    "L2": "19.3KB"
+  }
+}

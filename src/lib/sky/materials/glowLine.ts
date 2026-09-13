@@ -128,7 +128,7 @@ export function makeGlowLineMaterial(shared: SharedUniforms, o: GlowLineOptions)
       uFadeNear: { value: o.fadeNear ?? 1e9 },
       uFadeFar: { value: o.fadeFar ?? 1e10 },
     },
-    transparent: true, depthWrite: false, depthTest: o.depthTest ?? true,
+    transparent: true, depthWrite: false, depthTest: o.depthTest ?? true, side: THREE.DoubleSide,
     blending: THREE.AdditiveBlending,
   });
 }

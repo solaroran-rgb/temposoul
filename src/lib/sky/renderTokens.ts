@@ -67,8 +67,8 @@ export function managedColor(): THREE.Color {
 export const aliasAlpha = (a: AliasName): number => tok(TOKEN_ALIAS[a]).a;
 
 /* ---- 线 profile（D3：核心窄峰 + 光晕宽峰） ---- */
-export const LINE = { coreWidthPx: 1.0, glowRadiusPx: 2.6, coreAlpha: 0.9, glowAlpha: 0.32 } as const;
-export const LANDMARK_LINE = { coreWidthPx: 1.4, glowRadiusPx: 3.2 } as const; // C2：地标独立宽度
+export const LINE = { coreWidthPx: 1.6, glowRadiusPx: 4.0, coreAlpha: 0.9, glowAlpha: 0.32 } as const;
+export const LANDMARK_LINE = { coreWidthPx: 2.6, glowRadiusPx: 6.0 } as const; // C2：地标独立宽度
 
 /* ---- 城市参数（B4：单一全局排序列表；景深为 per-seg layer） ---- */
 export const CITY_LAYER = { near: 0.85, mid: 0.5, far: 0.28 } as const;
