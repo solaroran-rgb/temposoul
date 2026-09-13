@@ -19,12 +19,15 @@ export interface CityPayload {
   water?: GlowSeg[];
   roads?: GlowSeg[];
   landmarks?: GlowSeg[];
+  terrain?: GlowSeg[];       // P1b：山体等高线线稿（远景地貌）
+  vegetation?: PointPart[];  // P1b：植被粒子（山地区域，dim 色）
 }
 export type SceneState = "intro" | "ambient" | "idle";
 
 export interface CityKit {
-  lines: THREE.LineSegments; points: THREE.Points;
-  water: THREE.LineSegments; roads: THREE.LineSegments; landmarks: THREE.LineSegments;
+  lines: THREE.Mesh; points: THREE.Points;
+  water: THREE.Mesh; roads: THREE.Mesh; landmarks: THREE.Mesh;
+  terrain: THREE.Mesh; vegetation: THREE.Points;
 }
 
 export function buildCityKit(shared: SharedUniforms, sprite: THREE.CanvasTexture): CityKit {
@@ -39,13 +42,19 @@ export function buildCityKit(shared: SharedUniforms, sprite: THREE.CanvasTexture
     makeSimplePointsMaterial(shared, sprite, { base: "uColorCore", ...fade }));
   points.renderOrder = RENDER_ORDER.cityPoints;
   points.frustumCulled = false;
+  const vegetation = new THREE.Points(new THREE.BufferGeometry(),
+    makeSimplePointsMaterial(shared, sprite, { base: "uColorCore", ...fade }));
+  vegetation.renderOrder = RENDER_ORDER.cityPoints;
+  vegetation.frustumCulled = false;
   return {
     lines: mkLine({ core: "uColorCore", opacity: CITY_OPACITY.lines, ...fade }, RENDER_ORDER.cityLines),
     water: mkLine({ core: "uColorDim", opacity: CITY_OPACITY.water, ...fade }, RENDER_ORDER.water),
     roads: mkLine({ core: "uColorDim", opacity: CITY_OPACITY.roads, ...fade }, RENDER_ORDER.roads),
     landmarks: mkLine({ core: "uColorCore", opacity: CITY_OPACITY.landmarks,
       coreWidthPx: LANDMARK_LINE.coreWidthPx, glowRadiusPx: LANDMARK_LINE.glowRadiusPx, ...fade }, RENDER_ORDER.landmarks),
+    terrain: mkLine({ core: "uColorCore", opacity: 1.0, coreWidthPx: 3.6, glowRadiusPx: 8.0, ...fade }, RENDER_ORDER.water),
     points,
+    vegetation,
   };
 }
 
@@ -106,7 +115,7 @@ export function createSceneCore(d: SceneCoreDeps): SceneCoreApi {
 
   /* ---- 城市材质基准透明度注册（dip 动画倍率基准） ---- */
   const baseOpacity = new Map<THREE.ShaderMaterial, number>();
-  for (const o of [kit.lines, kit.water, kit.roads, kit.landmarks, kit.points]) {
+  for (const o of [kit.lines, kit.water, kit.roads, kit.landmarks, kit.points, kit.terrain]) {
     const m = o.material as THREE.ShaderMaterial;
     baseOpacity.set(m, m.uniforms.uOpacity.value as number);
   }
@@ -115,7 +124,7 @@ export function createSceneCore(d: SceneCoreDeps): SceneCoreApi {
   };
 
   /* ---- 城市挂载（材质持久不 dispose —— G4 黑屏防线；仅换几何） ---- */
-  function rebuild(obj: THREE.LineSegments | THREE.Points, geo: THREE.BufferGeometry) {
+  function rebuild(obj: { geometry: THREE.BufferGeometry }, geo: THREE.BufferGeometry) {
     obj.geometry.dispose();
     obj.geometry = geo;
   }
@@ -131,6 +140,10 @@ export function createSceneCore(d: SceneCoreDeps): SceneCoreApi {
     rebuild(kit.roads, buildGlowLineGeometry(p.roads ?? []));
     applySegDrawRange(kit.roads.geometry, countSegments(p.roads ?? []), t.roadsRatio);
     rebuild(kit.landmarks, buildGlowLineGeometry(p.landmarks ?? []));
+    rebuild(kit.terrain, buildGlowLineGeometry(p.terrain ?? []));
+    const vegSpec = mergePointSpecs(p.vegetation ?? []);
+    rebuild(kit.vegetation, buildPointsGeometry(vegSpec));
+    kit.vegetation.geometry.setDrawRange(0, Math.floor(vegSpec.count * t.cityRatio));
   }
 
   /* ---- G7：降级治理（仅全速帧采样；30 帧均值超阈 → 静默降一档，会话内单向） ---- */
@@ -324,7 +337,7 @@ export function createSceneCore(d: SceneCoreDeps): SceneCoreApi {
       document.removeEventListener("visibilitychange", onVis);
       canvas.removeEventListener("webglcontextlost", onLost);
       canvas.removeEventListener("webglcontextrestored", onRestored);
-      for (const o of [kit.lines, kit.points, kit.water, kit.roads, kit.landmarks]) o.geometry.dispose();
+      for (const o of [kit.lines, kit.points, kit.water, kit.roads, kit.landmarks, kit.terrain, kit.vegetation]) o.geometry.dispose();
       readyCbs.clear();
       stateCbs.clear();
     },

@@ -35,6 +35,7 @@ import { createSceneCore, buildCityKit, type SceneCoreApi } from './sceneCore';
 import { createRecomputeTask, type RecomputeTask } from './starField';
 import { STAR_GLSL } from './starShader';
 import { buildLandmarkPayload, loadTilePayload } from '../geo/geoEngine';
+import { constInfoOf } from './constellationInfo';
 import type { CityPayload } from './sceneCore';
 
 const R = 500;
@@ -96,8 +97,9 @@ export function createSkyScene(canvas: HTMLCanvasElement): SkySceneApi | null {
   const scene = new THREE.Scene();
   scene.fog = new THREE.FogExp2(0x020204, 0.0016); // 既有（class 版；自定义 shader 均 fog:false 不受影响）
   const camera = new THREE.PerspectiveCamera(58, 1, 0.1, 2000);
-  camera.position.set(0, 34, -95);
-  camera.lookAt(0, 18, 120);
+  // P1b：俯瞰构图看向南方（象山/四兽山方向）——城市在前、山脊在后（jinan-v2 基准）
+  camera.position.set(0, 58, 200);
+  camera.lookAt(0, 20, -160);
 
   const sprite = bakeRadialSprite();
   const moonTextures = makeMoonTextures();
@@ -120,26 +122,31 @@ export function createSkyScene(canvas: HTMLCanvasElement): SkySceneApi | null {
       const aa = radecToAltAz(raH * 15 * DEG, decD * DEG, lst, latRad);
       if (aa.alt < -2 * DEG) continue;
       const v = altAzToVec3(aa.alt, aa.az, R); // 与星点/星座线同坐标系（+X 东/+Y 天顶/+Z 北）
+      const zh = constInfoOf(name)?.zh ?? name;
       const c = document.createElement('canvas');
-      c.width = 512; c.height = 96;
+      c.width = 820; c.height = 116;
       const ctx = c.getContext('2d')!;
       ctx.fillStyle = 'rgba(120,230,255,0.95)';
       ctx.shadowColor = 'rgba(0,200,255,0.9)';
       ctx.shadowBlur = 10;
       ctx.beginPath();
-      ctx.moveTo(28, 48); ctx.lineTo(38, 38); ctx.lineTo(48, 48); ctx.lineTo(38, 58); ctx.closePath();
+      ctx.moveTo(34, 58); ctx.lineTo(46, 46); ctx.lineTo(58, 58); ctx.lineTo(46, 70); ctx.closePath();
       ctx.fill();
-      ctx.font = '600 42px "Courier New", monospace';
       ctx.textAlign = 'left';
       ctx.textBaseline = 'middle';
-      ctx.shadowBlur = 14;
-      ctx.fillStyle = 'rgba(196,240,255,0.92)';
-      ctx.fillText(name.toUpperCase(), 66, 50);
+      ctx.font = '600 50px "Microsoft YaHei", "PingFang SC", "Noto Sans SC", sans-serif';
+      ctx.shadowBlur = 16;
+      ctx.fillStyle = 'rgba(196,240,255,0.94)';
+      ctx.fillText(zh, 84, 56);
+      ctx.font = '400 22px "Courier New", monospace';
+      ctx.shadowBlur = 8;
+      ctx.fillStyle = 'rgba(143,232,255,0.8)';
+      ctx.fillText(name.toUpperCase().replace(/ /g, ''), 84 + 50 * Math.max(2, zh.length), 62);
       const tex = new THREE.CanvasTexture(c);
       const mat = new THREE.SpriteMaterial({ map: tex, transparent: true, opacity: 0.92, depthWrite: false, depthTest: false, fog: false });
       const sp = new THREE.Sprite(mat);
       sp.position.set(v.x, v.y, v.z);
-      sp.scale.set(96, 18, 1);
+      sp.scale.set(168, 24, 1);
       sp.renderOrder = 999;
       sp.userData.name = name;
       scene.add(sp);
@@ -207,7 +214,7 @@ export function createSkyScene(canvas: HTMLCanvasElement): SkySceneApi | null {
     });
     moonSprite = new THREE.Sprite(mat);
     moonSprite.position.set(moon.vec.x, moon.vec.y, moon.vec.z);
-    moonSprite.scale.set(12, 12, 1);
+    moonSprite.scale.set(26, 26, 1); // P1b：12→26 对齐基准弯月视觉权重
     scene.add(moonSprite);
   }
   function rebuildMoon() {
@@ -218,7 +225,7 @@ export function createSkyScene(canvas: HTMLCanvasElement): SkySceneApi | null {
   /* ===== D1-A · 观测者粒子剪影（P1；替代旧火柴人；半透明青色粒子填充 + 边缘辉光线） ===== */
   let silLine: THREE.LineLoop | undefined;
   let silPts: THREE.Points | undefined;
-  const SIL_BASE_OP = 0.8, SIL_PTS_BASE = 0.16;
+  const SIL_BASE_OP = 1.0, SIL_PTS_BASE = 0.5; // P1b：剪影提亮（0.8/0.16→1.0/0.5）对齐基准发光人形
   function buildSilhouette() {
     // 正面站姿剪影轮廓（units，人高 ≈9.3；原点在脚底；面朝 +Z 星空）
     const P: [number, number][] = [];
@@ -241,7 +248,7 @@ export function createSkyScene(canvas: HTMLCanvasElement): SkySceneApi | null {
     const lineGeo = new THREE.BufferGeometry();
     lineGeo.setAttribute('position', new THREE.Float32BufferAttribute(P.flatMap(([x, y]) => [x, y, 0]), 3));
     const lineMat = new THREE.LineBasicMaterial({
-      color: 0x8fe8ff, transparent: true, opacity: SIL_BASE_OP,
+      color: 0xf2fbff, transparent: true, opacity: SIL_BASE_OP,
       blending: THREE.AdditiveBlending, depthWrite: false,
     });
     silLine = new THREE.LineLoop(lineGeo, lineMat);
@@ -251,8 +258,8 @@ export function createSkyScene(canvas: HTMLCanvasElement): SkySceneApi | null {
     // 内部粒子填充（ray-cast 点在多边形内采样，青色半透明呼吸）
     const xs: number[] = [];
     let guard = 0;
-    while (xs.length < 150 && guard++ < 4000) {
-      const x = (Math.random() - 0.5) * 4.4;
+    while (xs.length < 210 && guard++ < 6000) {
+      const x = (Math.random() - 0.5) * 5.0;
       const y = 0.2 + Math.random() * 9.2;
       // 点在多边形内（射线法，忽略 y）
       let inside = false;
@@ -265,7 +272,7 @@ export function createSkyScene(canvas: HTMLCanvasElement): SkySceneApi | null {
     const ptsGeo = new THREE.BufferGeometry();
     ptsGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(xs), 3));
     const ptsMat = new THREE.PointsMaterial({
-      color: 0x7fd8ff, size: 0.55, map: dotTex, transparent: true, opacity: SIL_PTS_BASE,
+      color: 0xf2fbff, size: 1.0, map: dotTex, transparent: true, opacity: SIL_PTS_BASE * 0.9,
       blending: THREE.AdditiveBlending, depthWrite: false,
     });
     silPts = new THREE.Points(ptsGeo, ptsMat);
@@ -273,8 +280,17 @@ export function createSkyScene(canvas: HTMLCanvasElement): SkySceneApi | null {
     silPts.renderOrder = RENDER_ORDER.avatar + 1;
 
     const group = new THREE.Group();
-    group.position.set(0, 0, -25); // 相机与 101 之间的前景观测位，面向北（星空）
-    group.add(silLine, silPts);
+    group.position.set(0, 0, 50); // 前景观测位（P1b：前移避塔身，面向南方星空）
+    group.scale.setScalar(4.0); // P1b：对齐 jinan-v2 中央发光人形
+    // P1b：径向光晕（基准"发光人形"质感；暖白低透明度大光斑）
+    const halo = new THREE.Sprite(new THREE.SpriteMaterial({
+      map: dotTex, color: 0xbfe9ff, transparent: true, opacity: 0.22,
+      blending: THREE.AdditiveBlending, depthWrite: false, depthTest: false,
+    }));
+    halo.scale.set(42, 58, 1);
+    halo.position.set(0, 17, -2);
+    halo.renderOrder = RENDER_ORDER.avatar - 1;
+    group.add(halo, silLine, silPts);
     scene.add(group);
   }
 
@@ -313,7 +329,7 @@ export function createSkyScene(canvas: HTMLCanvasElement): SkySceneApi | null {
 
   /* ===== P4 · 城市五对象（材质持久）+ 尘埃（替换既有 320 尘埃实现，G8） ===== */
   const cityKit = buildCityKit(shared, sprite);
-  scene.add(cityKit.lines, cityKit.points, cityKit.water, cityKit.roads, cityKit.landmarks);
+  scene.add(cityKit.lines, cityKit.points, cityKit.water, cityKit.roads, cityKit.landmarks, cityKit.terrain, cityKit.vegetation);
   const dust = new THREE.Points(buildPointsGeometry(mergePointSpecs([buildDustSpec(DUST_MAX)])),
     makeSimplePointsMaterial(shared, sprite, { base: 'uColorDim', twinkleAmp: TIER[tier].twinkleAmp }));
   dust.renderOrder = RENDER_ORDER.dust;
@@ -322,7 +338,7 @@ export function createSkyScene(canvas: HTMLCanvasElement): SkySceneApi | null {
 
   /* ===== P5 · 地面合并（2→1 batch；B13：z 向线段不跨相机平面，相机 z=-95） ===== */
   const ground = new THREE.Mesh(
-    buildGlowLineGeometry([{ pts: gridSegs, layer: 0.55 }, { pts: horizonSegs, layer: 1.0 }]),
+    buildGlowLineGeometry([{ pts: gridSegs, layer: 0.32 }, { pts: horizonSegs, layer: 0.9 }]),
     makeGlowLineMaterial(shared, { core: 'uColorDim' }),
   );
   ground.renderOrder = RENDER_ORDER.ground;
@@ -334,6 +350,7 @@ export function createSkyScene(canvas: HTMLCanvasElement): SkySceneApi | null {
   buildMoon();
   buildSilhouette();
   // 渐进时序注册（地标最后稳定；剪影单独驱动呼吸不在此列）
+  registerProgressive(cityKit.terrain, 1500);
   registerProgressive(cityKit.water, 1500);
   registerProgressive(cityKit.roads, 1500);
   registerProgressive(cityKit.lines, 1500);
@@ -471,12 +488,35 @@ export function createSkyScene(canvas: HTMLCanvasElement): SkySceneApi | null {
     if (req !== geoReq) return; // 过期结果丢弃
     lastCityLines = payload.lines;
     lastCityRoads = payload.roads ?? [];
+    coreApi.swapCity(payload);
+  }
 
+  /* ===== core 装配（P1b：视差阻尼 + 剪影呼吸 + 星座标签更新） ===== */
+  let coreApi: SceneCoreApi;
+  const parallaxTarget = new THREE.Vector2();
+  const parallaxPos = new THREE.Vector2();
+  coreApi = createSceneCore({
+    canvas, renderer, scene, camera, shared,
+    city: cityKit,
+    currentTier: () => tier,
+    onTierDowngrade: (t) => { tier = t; applyTier(); }, // G7：单向
+    startRecompute,
+    frameExtras: (now) => {
+      const t = now / 1000;
+      parallaxPos.lerp(parallaxTarget, 0.08);
+      if (parallaxPos.lengthSq() > 1e-6) {
+        camera.position.x = parallaxPos.x * 6;
+        camera.position.y = 58 + parallaxPos.y * 4;
+        camera.lookAt(0, 20, -160);
+      }
+      if (silPts) (silPts.material as THREE.PointsMaterial).opacity = 0.5 + 0.12 * Math.sin(t * 1.4); // P1b：呼吸基准 0.14→0.5（对齐剪影粒子亮度）
+      updateConstellationLabels();
+    },
+    onContextRestored: () => { coreApi.requestRecompute(); }, // B9：恢复后重算
+  });
 
   /* ===== P8 · 对外 API 与 dispose 组装 ===== */
   applyTier();
-  const parallaxTarget = new THREE.Vector2();
-  const parallaxPos = new THREE.Vector2();
   // G1 稳定性：构造期预热 render 一次——shader 编译帧移出 intro 采样窗口
   // （编译帧 ~200ms 会污染 full P95；预热后 intro 采样只含运行时帧，不违背 D5 判据）
   renderer.render(scene, camera);

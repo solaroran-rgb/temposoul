@@ -19,7 +19,7 @@ export const MAX_RADIUS_M = 3500;   // 地标检索半径（米）
 export const MAX_RADIUS_U = 170;    // 场景半径（units）
 export const METER_TO_U = MAX_RADIUS_U / MAX_RADIUS_M; // ≈0.0486 units/m
 /** 建筑高度艺术夸张（线稿素描语言：小建筑垂直拉伸以获得天际线轮廓，非精确比例尺） */
-export const HEIGHT_SCALE = 4;
+export const HEIGHT_SCALE = 1.8; // P1b：4→1.8（塔过高遮挡山脊天际线，缩小塔体让山露出）
 export const HEIGHT_CAP_U = 60;     // 塔尖视觉高度上限（101 高耸入画面上缘）
 
 /** 等距局部平面投影：经纬度 → 场景坐标（东=x，北=z，高=y） */
@@ -154,7 +154,7 @@ export function buildLandmarkPayload(lat: number, lon: number, _mobile = false):
   if (peaks.length) lines.push({ pts: new Float32Array(peaks), layer: CITY_LAYER.far });
 
   const points: PointPart[] = [];
-  if (pWarm.length) points.push({ positions: new Float32Array(pWarm), size: 1.8, warm: 1 });
+  if (pWarm.length) points.push({ positions: new Float32Array(pWarm), size: 3.2, warm: 1 });
   if (pCool.length) points.push({ positions: new Float32Array(pCool), size: 0.9, warm: 0 });
 
   return {
@@ -289,6 +289,7 @@ export function buildTilePayload(tiles: GeoTileJson[]): CityPayload {
       if (lm.warm) {
         const S = METER_TO_U;
         pWarm.push(lm.ring[0][0] * S, h, lm.ring[0][1] * S); // 塔尖暖橙焦点
+        pWarm.push(lm.ring[0][0] * S, h * 0.55, lm.ring[0][1] * S); // P1b：塔身暖橙焦点（增强单点聚焦）
       } else if (isL0) {
         const S = METER_TO_U;
         pCool.push(lm.ring[0][0] * S, h * 0.5, lm.ring[0][1] * S); // 建筑顶部节点
@@ -308,7 +309,7 @@ export function buildTilePayload(tiles: GeoTileJson[]): CityPayload {
   if (midLines.length) lines.push({ pts: new Float32Array(midLines), layer: CITY_LAYER.mid });
   if (farLines.length) lines.push({ pts: new Float32Array(farLines), layer: CITY_LAYER.far });
   const points: PointPart[] = [];
-  if (pWarm.length) points.push({ positions: new Float32Array(pWarm), size: 3.4, warm: 1 });
+  if (pWarm.length) points.push({ positions: new Float32Array(pWarm), size: 6.0, warm: 1 });
   if (pCool.length) points.push({ positions: new Float32Array(pCool), size: 1.0, warm: 0 });
   return {
     lines,
@@ -326,13 +327,58 @@ export function inTaipei101Tile(lat: number, lon: number): boolean {
   return Math.hypot(dLat, dLon) <= TILE101.radiusM;
 }
 
-/** 运行时：拉取台北101 LOD 三级 tile → payload（CDN 静态，零边缘计算）；范围外返回 null */
+/** DEM 地形 tile 结构（build-terrain-tiles.mjs 产物） */
+export interface GeoTerrainJson {
+  id: string;
+  level: 'DEM';
+  unit: 'meter';
+  contours: { level: number; segments: number[] }[]; // 段流 x1,z1,x2,z2,...
+  vegetation: [number, number, number][];             // [x,z,h] 米制
+}
+
+/**
+ * P1b · DEM 地形 → 山体等高线线稿 + 植被粒子
+ * 等高线按海拔分三段亮度（近山亮、远山暗；jinan-v2 近亮远暗）；y 按海拔抬升形成层叠山形。
+ */
+export function buildTerrainPayload(t: GeoTerrainJson): { terrain: GlowSeg[]; vegetation: PointPart[] } {
+  const S = METER_TO_U;
+  const bands: { segs: number[]; layer: number }[] = [
+    { segs: [], layer: 1.0 },
+    { segs: [], layer: 0.92 },
+    { segs: [], layer: 0.78 },
+  ];
+  for (const c of t.contours) {
+    const band = c.level <= 85 ? 0 : c.level <= 175 ? 1 : 2;
+    const segs = bands[band].segs;
+    const y = c.level * S * 2.0; // 山体层叠抬升（P1b 艺术化：2.0，山脊天际线露出塔顶）
+    if (y < 14) continue; // P1b 精化：只留高海拔山脊段（y≥14 ≈ 海拔144m+），形成 2-3 层清晰轮廓
+    for (let k = 0; k + 3 < c.segments.length; k += 4) {
+      // P1b：只保留南方远景段（z < -20m），近处贴地段剔除（避免与城市线稿重叠淹没）
+      if (c.segments[k + 1] > -20 || c.segments[k + 3] > -20) continue;
+      segs.push(c.segments[k] * S, y, c.segments[k + 1] * S, c.segments[k + 2] * S, y, c.segments[k + 3] * S);
+    }
+  }
+  const terrain: GlowSeg[] = [];
+  for (const b of bands) if (b.segs.length >= 6) terrain.push({ pts: new Float32Array(b.segs), layer: b.layer });
+  const veg: number[] = [];
+  for (const [x, z] of t.vegetation) veg.push(x * S, 0.6, z * S);
+  return {
+    terrain,
+    vegetation: veg.length ? [{ positions: new Float32Array(veg), size: 2.2, warm: 0 }] : [],
+  };
+}
+
+/** 运行时：拉取台北101 LOD 三级 tile + DEM 地形 → payload（CDN 静态，零边缘计算）；范围外返回 null */
 export async function loadTilePayload(lat: number, lon: number): Promise<CityPayload | null> {
   if (!inTaipei101Tile(lat, lon)) return null;
-  const [l0, l1, l2] = await Promise.all([
+  const [l0, l1, l2, dem] = await Promise.all([
     fetch('/geo/taipei101-L0.json').then((r) => r.json() as Promise<GeoTileJson>),
     fetch('/geo/taipei101-L1.json').then((r) => r.json() as Promise<GeoTileJson>),
     fetch('/geo/taipei101-L2.json').then((r) => r.json() as Promise<GeoTileJson>),
+    fetch('/geo/taipei101-dem.json').then((r) => r.json() as Promise<GeoTerrainJson>).catch(() => null),
   ]);
-  return buildTilePayload([l0, l1, l2]);
+  const base = buildTilePayload([l0, l1, l2]);
+  if (!dem) return base;
+  const ter = buildTerrainPayload(dem);
+  return { ...base, terrain: ter.terrain, vegetation: ter.vegetation };
 }

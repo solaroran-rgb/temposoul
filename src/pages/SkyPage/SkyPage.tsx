@@ -15,12 +15,26 @@ import { injectHolographicTokens } from '@/theme/holographic-tokens';
 import { SpatioTemporalPanel, City } from './SpatioTemporalPanel';
 import { constInfoOf } from '../../lib/sky/constellationInfo';
 import { toJulianDay, localSiderealTime, radecToAltAz, DEG } from '../../lib/sky/astro';
+import { isTaipeiCovered, GEO_ENGINE_META } from '../../lib/geo/geoEngine';
+import { NebulaOverlay } from './NebulaOverlay';
+
+/** cities.json 最近城市名（IP/GPS 定位结果 → 可读名；无匹配则坐标文本） */
+function nearestCityName(cities: City[], lat: number, lon: number): string {
+  let best: City | null = null, bd = 1e18;
+  for (const c of cities) {
+    const d = (c.lat - lat) ** 2 + (c.lon - lon) ** 2;
+    if (d < bd) { bd = d; best = c; }
+  }
+  if (best && bd < 9) return best.n; // 约 ±3° 内视为命中
+  return `${lat.toFixed(2)},${lon.toFixed(2)}`;
+}
 
 export function SkyPage() {
   const mountRef = useRef<HTMLDivElement>(null);
   const sceneRef = useRef<SkySceneApi | null>(null);
   const [cities, setCities] = useState<City[]>([]);
   const [currentCity, setCurrentCity] = useState<City | null>(null);
+  const [locSrc, setLocSrc] = useState<'boot' | 'ip' | 'gps' | 'manual'>('boot');
   const [currentDateTime, setCurrentDateTime] = useState(new Date().toISOString().slice(0, 16));
   const [isPanelOpen, setIsPanelOpen] = useState(false);
   const [err, setErr] = useState('');
@@ -30,8 +44,11 @@ export function SkyPage() {
     sceneRef.current?.setTimeLocation(date, { lat, lon });
   }, []);
 
+  /* 渐进式渲染第一层：挂载即创建场景（宇宙背景/粒子/星空立即可见，不等待定位）。
+   * 定位结果随后到达 → setTimeLocation（星空重算 + 地标加载）→ 稳定。
+   * （2026-09-14 改造：原实现依赖 currentCity 才创建 canvas，导致定位慢时黑屏。） */
   useEffect(() => {
-    if (!mountRef.current || !currentCity) return; // 城市确定后挂载点才存在（loading 分支无 mountRef）
+    if (!mountRef.current) return;
     injectHolographicTokens(); // E4：token → CSS Variables（DOM 层与 WebGL 层同源）
     const canvas = document.createElement('canvas');
     canvas.style.position = 'absolute';
@@ -45,56 +62,65 @@ export function SkyPage() {
       if (!api) { setErr('WebGL2 不可用，已切换静态降级路径'); return; }
       sceneRef.current = api;
       setConstellationHoverHandler(setHoveredConst);
-      api.start(null); // 城市数据到达后经 setTimeLocation → swapCity
-      // 初始对齐（城市加载先于场景创建时，此前 applySpatioTemporal 已空转）
-      api.setTimeLocation(new Date(), { lat: currentCity.lat, lon: currentCity.lon });
+      api.start(null); // 无城市 payload 启动：星空/粒子/地面网格即刻渲染
+      // 初始时空：默认济南（intro 淡入期 500ms 内被 IP/GPS 定位覆盖，视觉无感知）
+      api.setTimeLocation(new Date(), { lat: 36.65, lon: 117.12 });
       return () => { setConstellationHoverHandler(null); api.dispose(); canvas.remove(); };
     } catch (e: any) {
       setErr(e?.stack || String(e));
     }
-  }, [currentCity]);
+  }, []);
 
+  /* 三层定位管线：① URL 参数（调试/演示）→ ② IP 城市级（/api/locate）→ ③ 浏览器 Geolocation 精确 GPS。
+   * 渐进语义：IP 先到 → 星空/地标按城市级渲染；GPS 后到 → 微调场景至精确位置；未授权则停留 IP 级。 */
+  useEffect(() => {
+    let cancelled = false;
+    const apply = (lat: number, lon: number, src: 'ip' | 'gps' | 'manual') => {
+      if (cancelled) return;
+      setLocSrc(src);
+      // 城市名：URL 指定 > cities.json 最近匹配 > 坐标文本
+      const usp = new URLSearchParams(window.location.search);
+      const pName = usp.get('name');
+      const name = pName || (cities.length ? nearestCityName(cities, lat, lon) : `${lat.toFixed(2)},${lon.toFixed(2)}`);
+      setCurrentCity({ n: name, lat, lon, py: name.toLowerCase(), prov: 'auto' });
+      applySpatioTemporal(lat, lon, new Date());
+    };
+    // ① URL 参数优先（?lat=..&lon=..&name=..，POC 演示/审计用）
+    const usp = new URLSearchParams(window.location.search);
+    const pLat = parseFloat(usp.get('lat') || '');
+    const pLon = parseFloat(usp.get('lon') || '');
+    if (pLat && pLon) { apply(pLat, pLon, 'manual'); return; }
+    // ② IP 城市级
+    (async () => {
+      try {
+        const lr = await fetch('/api/locate');
+        const lj = await lr.json();
+        if (lj.lat && lj.lon && !cancelled) apply(lj.lat, lj.lon, 'ip');
+      } catch { /* 静默：GPS/默认兜底 */ }
+    })();
+    // ③ 浏览器 Geolocation 精确 GPS（可选授权；成功即覆盖为精确坐标）
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (pos) => apply(pos.coords.latitude, pos.coords.longitude, 'gps'),
+        () => { /* 用户拒绝/超时 → 保持 IP 级 */ },
+        { timeout: 5000, maximumAge: 60000, enableHighAccuracy: true },
+      );
+    }
+    return () => { cancelled = true; };
+  }, [cities, applySpatioTemporal]);
+
+  /* 城市下拉数据（独立加载；不阻塞场景） */
   useEffect(() => {
     fetch('/data/cities.json')
       .then(r => r.json())
-      .then(async (data: City[]) => {
-        setCities(data);
-        // URL 参数优先：?lat=..&lon=..&name=..
-        const usp = new URLSearchParams(window.location.search);
-        const pLat = parseFloat(usp.get('lat') || '');
-        const pLon = parseFloat(usp.get('lon') || '');
-        const pName = usp.get('name') || '自定义观测点';
-        if (pLat && pLon) {
-          const manual: City = { n: pName, lat: pLat, lon: pLon, py: pName.toLowerCase(), prov: '自定义' };
-          setCurrentCity(manual);
-          applySpatioTemporal(pLat, pLon, new Date());
-          return;
-        }
-        // 先默认济南
-        let jn = data.find(c => c.n === '济南') || data[0];
-        // 再尝试 IP 定位
-        try {
-          const lr = await fetch('/api/locate');
-          const lj = await lr.json();
-          if (lj.lat && lj.lon) {
-            // 在 cities.json 里找最近的城市
-            let best = jn, bd = 1e9;
-            for (const c of data) {
-              const d = (c.lat - lj.lat) ** 2 + (c.lon - lj.lon) ** 2;
-              if (d < bd) { bd = d; best = c; }
-            }
-            jn = best;
-          }
-        } catch {}
-        setCurrentCity(jn);
-        applySpatioTemporal(jn.lat, jn.lon, new Date());
-      })
-      .catch(e => setErr(String(e)));
-  }, [applySpatioTemporal]);
+      .then(setCities)
+      .catch(() => { /* 城市面板降级为空 */ });
+  }, []);
 
   const handleApply = useCallback((city: City, dateTime: string) => {
     setCurrentCity(city);
     setCurrentDateTime(dateTime);
+    setLocSrc('manual');
     applySpatioTemporal(city.lat, city.lon, new Date(dateTime));
   }, [applySpatioTemporal]);
 
@@ -105,7 +131,7 @@ export function SkyPage() {
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `temposoul-${currentCity?.n || 'sky'}-${Date.now()}.png`;
+      a.download = `temposoul-${city.n || 'sky'}-${Date.now()}.png`;
       a.click();
       URL.revokeObjectURL(url);
     });
@@ -122,17 +148,19 @@ export function SkyPage() {
   if (err) {
     return <div style={{ color: '#f66', padding: 20, background: '#000', height: '100vh', whiteSpace: 'pre-wrap' }}>{err}</div>;
   }
-  if (!currentCity) {
-    return <div style={{ color: '#00e5ff', background: '#030305', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>加载星域数据...</div>;
-  }
 
+  // 定位未完成时仍渲染场景（渐进第一层：宇宙背景+粒子+星空立即可见）
+  const city = currentCity ?? { n: '定位中', lat: 36.65, lon: 117.12, py: 'locating', prov: 'auto' };
+  const geoCovered = isTaipeiCovered(city.lat, city.lon);
   const hour = new Date(currentDateTime).getHours();
 
   return (
     <div className="sky-root" style={{ position: 'fixed', inset: 0, background: '#030305', overflow: 'hidden', fontFamily: 'monospace' }}>
       <div ref={mountRef} style={{ position: 'absolute', inset: 0 }} />
+      <NebulaOverlay />
       <style>{`
         .sky-root { font-family: 'Inter', 'Noto Sans SC', system-ui, sans-serif; letter-spacing: 0.05em; }
+        @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.25; } }
         .sky-root .hud-btn { background: transparent; border: 1px solid rgba(0,229,255,0.35); color: #8fe8ff; padding: 8px 18px; border-radius: 2px; cursor: pointer; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 300; transition: all 0.3s; }
         .sky-root .hud-btn:hover { border-color: #00e5ff; color: #fff; box-shadow: 0 0 12px rgba(0,229,255,0.4), inset 0 0 8px rgba(0,229,255,0.1); background: rgba(0,229,255,0.08); }
         .panel-overlay { position: fixed; inset: 0; z-index: 50; background: rgba(0,0,0,0.6); opacity: 0; pointer-events: none; transition: opacity 300ms ease; backdrop-filter: blur(2px); }
@@ -168,10 +196,14 @@ export function SkyPage() {
         }
       `}</style>
 
-      {/* 左上：标题面板 */}
+      {/* 左上：标题面板 + 定位状态徽标 */}
       <div className="top-title" style={{ position: 'absolute', top: 24, left: 24, zIndex: 10, padding: '16px 22px', border: '1px solid rgba(0,229,255,0.5)', background: 'rgba(2,10,18,0.85)', backdropFilter: 'blur(8px)', boxShadow: '0 0 20px rgba(0,229,255,0.15)' }}>
         <h1 style={{ margin: 0, fontSize: 18, letterSpacing: 6, color: '#e0f7ff', fontWeight: 300 }}>命律 · TEMPOSOUL</h1>
         <div className="sub" style={{ fontSize: 10, color: 'rgba(0,229,255,0.7)', marginTop: 6, letterSpacing: 3 }}>CELESTIAL OBSERVATION SYSTEM</div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 10, fontSize: 9, letterSpacing: 2, color: locSrc === 'gps' ? '#4dffb8' : locSrc === 'ip' ? '#00e5ff' : 'rgba(143,232,255,0.6)' }}>
+          <span style={{ width: 6, height: 6, borderRadius: '50%', background: locSrc === 'gps' ? '#4dffb8' : locSrc === 'ip' ? '#00e5ff' : 'rgba(143,232,255,0.6)', boxShadow: `0 0 8px ${locSrc === 'gps' ? '#4dffb8' : locSrc === 'ip' ? '#00e5ff' : 'rgba(143,232,255,0.6)'}`, animation: 'pulse 1.6s infinite' }} />
+          POSITION · {locSrc === 'gps' ? 'GPS PRECISE' : locSrc === 'ip' ? 'IP CITY-LEVEL' : locSrc === 'manual' ? 'MANUAL' : 'ACQUIRING...'}
+        </div>
       </div>
 
       {/* 右上：按钮组 */}
@@ -185,9 +217,10 @@ export function SkyPage() {
       <div className="side-panel" style={{ position: 'absolute', left: 24, top: '50%', transform: 'translateY(-50%)', zIndex: 10, padding: '20px 22px', border: '1px solid rgba(0,229,255,0.45)', background: 'rgba(2,10,18,0.85)', backdropFilter: 'blur(8px)', width: 220, boxShadow: '0 0 20px rgba(0,229,255,0.12)' }}>
         <div style={{ fontSize: 10, color: '#00e5ff', letterSpacing: 3, marginBottom: 12, borderBottom: '1px solid rgba(0,229,255,0.3)', paddingBottom: 8 }}>OBSERVATION DATA</div>
         <div style={{ fontSize: 13, color: 'rgba(220,245,255,0.9)', lineHeight: 2.1 }}>
-          <div>位置 <span style={{ float: 'right', color: '#00e5ff', fontWeight: 400 }}>{currentCity.n}</span></div>
-          <div>纬度 <span style={{ float: 'right', color: '#00e5ff' }}>{currentCity.lat.toFixed(2)}°N</span></div>
-          <div>经度 <span style={{ float: 'right', color: '#00e5ff' }}>{currentCity.lon.toFixed(2)}°E</span></div>
+          <div>位置 <span style={{ float: 'right', color: '#00e5ff', fontWeight: 400 }}>{city.n}</span></div>
+          <div>纬度 <span style={{ float: 'right', color: '#00e5ff' }}>{city.lat.toFixed(2)}°N</span></div>
+          <div>经度 <span style={{ float: 'right', color: '#00e5ff' }}>{city.lon.toFixed(2)}°E</span></div>
+          <div>定位源 <span style={{ float: 'right', color: locSrc === 'gps' ? '#4dffb8' : '#00e5ff' }}>{locSrc === 'gps' ? 'GPS 精确' : locSrc === 'ip' ? 'IP 城市级' : locSrc === 'manual' ? '手动' : '获取中'}</span></div>
           <div>时间 <span style={{ float: 'right', color: '#00e5ff' }}>{currentDateTime.slice(5,16).replace('T',' ')}</span></div>
         </div>
       </div>
@@ -213,13 +246,21 @@ export function SkyPage() {
         <div style={{ fontSize: 9, color: 'rgba(143,232,255,0.5)', letterSpacing: 2 }}>N ↑</div>
       </div>
 
+      {/* 观测点标注（jinan-v2：中央人形下方地名） */}
+      {currentCity && (
+        <div style={{ position: 'absolute', left: '50%', top: '60%', transform: 'translate(-50%, -50%)', zIndex: 6, textAlign: 'center', fontFamily: 'monospace', pointerEvents: 'none' }}>
+          <div style={{ fontSize: 17, color: 'rgba(224,247,255,0.96)', letterSpacing: 8, textShadow: '0 0 14px rgba(0,229,255,0.85), 0 0 40px rgba(0,229,255,0.3)', fontWeight: 300 }}>{currentCity.n}</div>
+          <div style={{ fontSize: 10, color: 'rgba(143,232,255,0.62)', letterSpacing: 3, marginTop: 8 }}>{currentCity.lat.toFixed(4)}°N {currentCity.lon.toFixed(4)}°E · {currentDateTime.slice(11, 16)} CST · 此刻星空</div>
+        </div>
+      )}
+
       {/* 星座信息卡（悬停星座标签显示） */}
       {hoveredConst && (() => {
         const info = constInfoOf(hoveredConst);
         if (!info) return null;
         const jd = toJulianDay(new Date(currentDateTime).getTime());
-        const lst = localSiderealTime(jd, currentCity.lon);
-        const altAz = radecToAltAz(info.raH * 15 * DEG, info.decD * DEG, lst, currentCity.lat * DEG);
+        const lst = localSiderealTime(jd, city.lon);
+        const altAz = radecToAltAz(info.raH * 15 * DEG, info.decD * DEG, lst, city.lat * DEG);
         const altDeg = altAz.alt / DEG;
         const visible = altDeg > 0;
         return (
@@ -245,12 +286,15 @@ export function SkyPage() {
         <span style={{ fontSize: 10, color: 'rgba(143,232,255,0.5)', letterSpacing: 2 }}>23</span>
       </div>
 
-      {/* 右下角：版本标记 */}
-      <div style={{ position: 'absolute', bottom: 24, right: 24, zIndex: 10, fontSize: 9, color: 'rgba(143,232,255,0.4)', letterSpacing: 2 }}>v1.0 · REAL-TIME CELESTIAL RENDER</div>
+      {/* 右下角：版本标记 + 地理引擎徽标 */}
+      <div style={{ position: 'absolute', bottom: 24, right: 24, zIndex: 10, textAlign: 'right', fontSize: 9, color: 'rgba(143,232,255,0.4)', letterSpacing: 2, lineHeight: 2 }}>
+        <div>v1.0 · REAL-TIME CELESTIAL RENDER</div>
+        <div>GEO ENGINE · {geoCovered ? 'TAIPEI POC' : 'PROCEDURAL SKYLINE'} · {GEO_ENGINE_META.version}</div>
+      </div>
 
       <SpatioTemporalPanel
         cities={cities} isOpen={isPanelOpen} onClose={() => setIsPanelOpen(false)}
-        initialCity={currentCity} initialDateTime={currentDateTime}
+        initialCity={city} initialDateTime={currentDateTime}
         onApply={handleApply}
       />
     </div>
