@@ -2,8 +2,8 @@
  * A 域详情页（通用组件，按 kind + id 渲染）
  * id 归一化：路由 :id 为记录 id 去掉前缀（ten_god_/shen_sha_/four_transform_/ziwei_pattern_/limit_year_/handwritten_/template_）
  */
-import { Link, Navigate, useParams } from 'react-router-dom';
-import { KIND_META, type B2Kind } from './registry';
+import { Link, Navigate, useLocation, useParams } from 'react-router-dom';
+import { KIND_META, STATIC_DETAIL_SLUG, type B2Kind } from './registry';
 import { useDocumentMeta } from '@/lib/use-document-meta';
 import './b2.css';
 
@@ -23,9 +23,16 @@ const PREFIX: Record<string, string> = {
 
 export default function B2Detail({ kind }: B2DetailProps) {
   const { id = '' } = useParams();
+  const location = useLocation();
   const meta = KIND_META[kind];
+
+  // 静态详情（transits/solar-return/detail 等无 :id 路由）
+  const staticHit = STATIC_DETAIL_SLUG[location.pathname];
+  const staticId = staticHit && staticHit.kind === kind ? staticHit.id : '';
   const fullId = PREFIX[kind] ? `${PREFIX[kind]}${id}` : id;
-  const record = meta.records.find((r) => r.id === fullId || r.id === id);
+  const record =
+    (staticId && meta.records.find((r) => r.id === staticId)) ||
+    meta.records.find((r) => r.id === fullId || r.id === id || r.seo.slug.endsWith(`/${id}`));
 
   if (!record) return <Navigate to={meta.listSlug} replace />;
 

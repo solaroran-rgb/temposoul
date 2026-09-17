@@ -26,7 +26,7 @@ export default function B2List({ kind, title, desc }: B2ListProps) {
       </header>
       <div className="b2-grid">
         {meta.records.map((r) => (
-          <Link key={r.id} to={`${meta.base}/${r.id.split('_').slice(1).join('_')}`} className="b2-card">
+          <Link key={r.id} to={r.seo.slug} className="b2-card">
             <h3>{r.seo.title.replace(/详解$/, '')}</h3>
             <p>{r.seo.description}</p>
           </Link>
