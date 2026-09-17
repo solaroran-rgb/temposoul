@@ -12,14 +12,19 @@ const repoRoot = path.resolve(__dirname, '..');
 
 // 引入 A 域口径（模块本身带 280 断言）
 import { A_DOMAIN_TOTAL, A_DOMAIN_COUNTS } from '../src/data/content/bazi-ziwei/route-mapping';
+// B/C/D 域口径（route-mapping-bcd 模块自带 50/384/24/738 断言，R5 数据源声明）
+import { B_DOMAIN_COUNT, C_DOMAIN_COUNT, D_DOMAIN_COUNT, SITE_ALL_URLS } from '../src/data/content/bazi-ziwei/route-mapping-bcd';
 
 const DOMAIN_COUNTS = {
   a: A_DOMAIN_TOTAL, // 280
-  b: 50,
-  c: 384,
-  d: 24,
+  b: B_DOMAIN_COUNT, // 50
+  c: C_DOMAIN_COUNT, // 384
+  d: D_DOMAIN_COUNT, // 24
 };
 const TOTAL_SITEMAP = DOMAIN_COUNTS.a + DOMAIN_COUNTS.b + DOMAIN_COUNTS.c + DOMAIN_COUNTS.d; // 738
+if (TOTAL_SITEMAP !== SITE_ALL_URLS.length) {
+  throw new Error(`[freeze] total mismatch: ${TOTAL_SITEMAP} vs site=${SITE_ALL_URLS.length}`);
+}
 
 function sha256File(p: string): string | undefined {
   try {

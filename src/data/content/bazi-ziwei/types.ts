@@ -4,7 +4,7 @@
  * 说明：域内私有类型，不覆盖既有 src/data/content/types.ts（被 15 文件引用）
  */
 export type ContentDomain = 'bazi-ziwei' | 'calendar-astro' | 'divination' | 'western-name';
-export type SourceSystem = 'bazi' | 'ziwei' | 'western_astrology' | 'hybrid';
+export type SourceSystem = 'bazi' | 'ziwei' | 'western_astrology' | 'iching' | 'tarot' | 'hybrid';
 export type DomainNote = 'none' | 'culture_discussion' | 'lifestyle_only' | 'entertainment_only';
 export type ReviewStatus = 'audited' | 'supplemented' | 'polished' | 'from_scratch';
 
@@ -123,6 +123,78 @@ export interface TransitExtra {
   boundary_note: string;
 }
 
+// ===== B 域（历法星象）extra =====
+export interface SolarTermExtra {
+  kind: 'solar_term';
+  term_index: number;
+  solar_approx: string;
+  five_element: string;
+  wellness_tip: string;
+}
+export interface ZiweiStarBExtra {
+  kind: 'ziwei_star_b';
+  star: string;
+  pinyin: string;
+  element: string;
+  keyword: string;
+}
+export interface PalaceBExtra {
+  kind: 'palace_b';
+  palace: string;
+  pinyin: string;
+  keyword: string;
+  focus: string;
+}
+
+// ===== C 域（占卜民俗）extra =====
+export interface BoneWeightExtra {
+  kind: 'bone_weight';
+  weight_liang: number;
+  weight_qian: number;
+}
+export interface TarotExtra {
+  kind: 'tarot';
+  arcana: 'major' | 'minor';
+  upright: string;
+  reversed: string;
+  confidence: string;
+}
+export interface DreamDictExtra {
+  kind: 'dream_dict';
+  theme: string;
+}
+export interface IchingExtra {
+  kind: 'iching';
+  hexagram_index: number;
+  upper_trigram: string;
+  lower_trigram: string;
+}
+export interface NumberDivinationExtra {
+  kind: 'number_divination';
+  number: number;
+  tone: string;
+}
+export interface LoveDivinationExtra {
+  kind: 'love_divination';
+  result_index: number;
+  tag: string;
+}
+
+// ===== D 域（西占姓名）extra =====
+export interface ZodiacEncyclopediaExtra {
+  kind: 'zodiac_encyclopedia';
+  symbol: string;
+  date_range: string;
+  element: string;
+  ruling_planet: string;
+}
+export interface ZodiacPersonalityExtra {
+  kind: 'zodiac_personality';
+  symbol: string;
+  trait: string;
+  growth: string;
+}
+
 export type AnyExtra =
   | TenGodExtra
   | ShenShaExtra
@@ -131,7 +203,18 @@ export type AnyExtra =
   | ZiweiPatternExtra
   | LimitYearExtra
   | PalaceStarExtra
-  | TransitExtra;
+  | TransitExtra
+  | SolarTermExtra
+  | ZiweiStarBExtra
+  | PalaceBExtra
+  | BoneWeightExtra
+  | TarotExtra
+  | DreamDictExtra
+  | IchingExtra
+  | NumberDivinationExtra
+  | LoveDivinationExtra
+  | ZodiacEncyclopediaExtra
+  | ZodiacPersonalityExtra;
 
 export type ContentCategory = AnyExtra['kind'];
 
@@ -162,6 +245,17 @@ export const WORD_FLOOR: Record<string, number> = {
   limit_year: 150,
   palace_star: 120,
   transit_solar: 150,
+  solar_term: 200,
+  ziwei_star_b: 200,
+  palace_b: 200,
+  bone_weight: 150,
+  tarot: 200,
+  dream_dict: 100,
+  iching: 200,
+  number_divination: 150,
+  love_divination: 150,
+  zodiac_encyclopedia: 200,
+  zodiac_personality: 200,
 };
 
 /** 规范 ID 集合（供校验断言） */
@@ -174,4 +268,15 @@ export const CATEGORIES: readonly ContentCategory[] = [
   'limit_year',
   'palace_star',
   'transit_solar',
+  'solar_term',
+  'ziwei_star_b',
+  'palace_b',
+  'bone_weight',
+  'tarot',
+  'dream_dict',
+  'iching',
+  'number_divination',
+  'love_divination',
+  'zodiac_encyclopedia',
+  'zodiac_personality',
 ] as const;

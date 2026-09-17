@@ -34,7 +34,13 @@ const ALLOWED_FORBIDDEN_FILES = [
 const ALLOWED_KIND_LITERALS = ['retrograde', 'return', 'tiangan', 'dizhi', 'lu', 'floor', 'layout',
   // A 域（bazi-ziwei）判别联合与页面 kind：数据判别键 + 页面路由 kind
   'ten_gods', 'shen_sha', 'four_transform', 'four_transform_pair', 'ziwei_pattern',
-  'limit_year', 'palace_star', 'transit_solar', 'transits', 'ziwei_patterns', 'transit', 'solar_return'];
+  'limit_year', 'palace_star', 'transit_solar', 'transits', 'ziwei_patterns', 'transit', 'solar_return',
+  // B 域（calendar-astro）
+  'solar_term', 'ziwei_star_b', 'palace_b', 'solar_terms', 'ziwei_stars_b', 'palaces_b',
+  // C 域（divination）
+  'bone_weight', 'tarot', 'dream_dict', 'iching', 'number_divination', 'love_divination',
+  // D 域（western-name）
+  'zodiac_encyclopedia', 'zodiac_personality'];
 
 function walk(dir) {
   const out = [];

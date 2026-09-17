@@ -19,6 +19,17 @@ const PREFIX: Record<string, string> = {
   limit_year: 'limit_year_',
   transits: '',
   palace_star: '',
+  solar_terms: 'solar_term_',
+  ziwei_stars_b: 'ziwei_star_b_',
+  palaces_b: 'palace_b_',
+  bone_weight: 'bone_weight_',
+  tarot: 'tarot_',
+  dream_dict: 'dream_',
+  iching: 'iching_',
+  number_divination: 'number_divination_',
+  love_divination: 'love_divination_',
+  zodiac_encyclopedia: 'zodiac_encyclopedia_',
+  zodiac_personality: 'zodiac_personality_',
 };
 
 export default function B2Detail({ kind }: B2DetailProps) {

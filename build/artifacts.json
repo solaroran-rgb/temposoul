@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "frozenAt": "2026-09-17T19:14:38.912Z",
+  "frozenAt": "2026-09-17T19:53:14.994Z",
   "total_sitemap": 738,
   "domain_a_count": 280,
   "domain_b_count": 50,
@@ -18,5 +18,5 @@
     "transits": 2,
     "palace_star": 168
   },
-  "layer3_asset_hash": "fb90d116ae2478358ef1a2a9a72ab5d582bf256eb38eb12095316e5c29e7d88b"
+  "layer3_asset_hash": "3c1117982db96576989bdfc5feeb75e0106b9d0a97543621c46c8b443e73660e"
 }
