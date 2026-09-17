@@ -1,0 +1,17 @@
+{
+  "id": "02_early_zi",
+  "desc": "早子时 00:30·上海",
+  "req": {
+    "gender": "female",
+    "year": 1988,
+    "month": 3,
+    "day": 8,
+    "dateType": "solar",
+    "birthHour": 0,
+    "birthMinute": 30,
+    "birthPlace": "上海",
+    "birthLongitude": 121.473,
+    "timezone": 8,
+    "useTrueSolarTime": true
+  }
+}

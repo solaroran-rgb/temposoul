@@ -7,11 +7,7 @@
  *
  * 覆盖五运六气四大环节：运气基础 → 岁运主气 → 司天在泉 → 客主加临
  */
-import {
-  buildEvidenceTrail,
-  type EvidenceItem,
-  type EvidenceTrail,
-} from '../shared/evidence';
+import { buildEvidenceTrail, type EvidenceItem, type EvidenceTrail } from '../shared/evidence';
 import type { WuyunLiuqiCalculation } from './index';
 
 export function buildWuyunLiuqiEvidenceTrail(result: WuyunLiuqiCalculation): EvidenceTrail {
@@ -68,9 +64,7 @@ export function buildWuyunLiuqiEvidenceTrail(result: WuyunLiuqiCalculation): Evi
       applicableWhen: ['按年干定岁运'],
       cautionWhen: ['岁运强弱为传统判定'],
     },
-    counterEvidence: [
-      { description: '岁运判定口径存在流派差异', severity: 'alternative' },
-    ],
+    counterEvidence: [{ description: '岁运判定口径存在流派差异', severity: 'alternative' }],
     confidence: 'medium',
     depth: 1,
   });
@@ -88,7 +82,9 @@ export function buildWuyunLiuqiEvidenceTrail(result: WuyunLiuqiCalculation): Evi
       {
         name: '在泉',
         reference: 'zaiquan',
-        output: result.zaiquan ? `${result.zaiquan.element ?? ''}${result.zaiquan.name ?? ''}` : null,
+        output: result.zaiquan
+          ? `${result.zaiquan.element ?? ''}${result.zaiquan.name ?? ''}`
+          : null,
       },
       {
         name: '岁气关系',
@@ -101,9 +97,7 @@ export function buildWuyunLiuqiEvidenceTrail(result: WuyunLiuqiCalculation): Evi
       applicableWhen: ['按地支定客气'],
       cautionWhen: ['客气随纪年轮转'],
     },
-    counterEvidence: [
-      { description: '司天在泉对应关系存在版本差异', severity: 'alternative' },
-    ],
+    counterEvidence: [{ description: '司天在泉对应关系存在版本差异', severity: 'alternative' }],
     confidence: 'medium',
     depth: 1,
   });
@@ -117,12 +111,16 @@ export function buildWuyunLiuqiEvidenceTrail(result: WuyunLiuqiCalculation): Evi
         {
           name: '气运步骤',
           reference: 'qiSteps',
-          output: result.qiSteps.map((s) => `${s.label}:${s.hostQi?.qi ?? ''}/${s.guestQi?.qi ?? ''}`).slice(0, 6),
+          output: result.qiSteps
+            .map((s) => `${s.label}:${s.hostQi?.qi ?? ''}/${s.guestQi?.qi ?? ''}`)
+            .slice(0, 6),
         },
         {
           name: '五运步骤',
           reference: 'movementSteps',
-          output: result.movementSteps.map((s) => `${s.label}:${s.hostMovement?.element ?? ''}`).slice(0, 6),
+          output: result.movementSteps
+            .map((s) => `${s.label}:${s.hostMovement?.element ?? ''}`)
+            .slice(0, 6),
         },
       ],
       source: { type: 'classical', name: '五运六气分步（主运/客运/主气/客气）' },
@@ -130,16 +128,11 @@ export function buildWuyunLiuqiEvidenceTrail(result: WuyunLiuqiCalculation): Evi
         applicableWhen: ['按节气分步'],
         cautionWhen: ['分步随节气轮转'],
       },
-      counterEvidence: [
-        { description: '分步起算存在流派差异', severity: 'minor' },
-      ],
+      counterEvidence: [{ description: '分步起算存在流派差异', severity: 'minor' }],
       confidence: 'low',
       depth: 1,
     });
   }
 
-  return buildEvidenceTrail(
-    items,
-    `五运六气证据链（${result.input.yearGanZhi}年）`,
-  );
+  return buildEvidenceTrail(items, `五运六气证据链（${result.input.yearGanZhi}年）`);
 }

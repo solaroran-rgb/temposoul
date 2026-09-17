@@ -1,0 +1,18 @@
+{
+  "id": "10_lunar_leap",
+  "desc": "农历闰月·1987 闰六月初五 卯时",
+  "req": {
+    "gender": "female",
+    "year": 1987,
+    "month": 7,
+    "day": 30,
+    "dateType": "lunar",
+    "isLeapMonth": true,
+    "birthHour": 6,
+    "birthMinute": 0,
+    "birthPlace": "北京",
+    "birthLongitude": 116.407,
+    "timezone": 8,
+    "useTrueSolarTime": true
+  }
+}

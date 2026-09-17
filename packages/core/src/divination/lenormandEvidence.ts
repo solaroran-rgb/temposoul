@@ -7,11 +7,7 @@
  *
  * 覆盖雷诺曼抽牌四大环节：抽牌基础 → 洗牌抽牌 → 牌面抽定 → 组合合读
  */
-import {
-  buildEvidenceTrail,
-  type EvidenceItem,
-  type EvidenceTrail,
-} from '../shared/evidence';
+import { buildEvidenceTrail, type EvidenceItem, type EvidenceTrail } from '../shared/evidence';
 import type { LenormandData } from '../types/divination';
 
 export function buildLenormandEvidenceTrail(result: LenormandData): EvidenceTrail {
@@ -94,9 +90,7 @@ export function buildLenormandEvidenceTrail(result: LenormandData): EvidenceTrai
         applicableWhen: ['按牌阵位置解读'],
         cautionWhen: ['邻近牌会影响单牌含义'],
       },
-      counterEvidence: [
-        { description: '同一张牌与不同邻牌组合含义不同', severity: 'alternative' },
-      ],
+      counterEvidence: [{ description: '同一张牌与不同邻牌组合含义不同', severity: 'alternative' }],
       confidence: 'medium',
       depth: 1,
     });
@@ -111,9 +105,7 @@ export function buildLenormandEvidenceTrail(result: LenormandData): EvidenceTrai
         {
           name: '相邻组合',
           reference: '固定组合/相邻牌义合读',
-          output: result.combinations!.map(
-            (c) => `${c.card1}+${c.card2}:${c.meaning}`,
-          ),
+          output: result.combinations!.map((c) => `${c.card1}+${c.card2}:${c.meaning}`),
         },
       ],
       source: { type: 'modern', name: '雷诺曼组合牌义（固定搭配与位置合读）' },

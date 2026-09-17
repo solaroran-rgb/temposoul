@@ -1,0 +1,37 @@
+.hexagram-detail__symbol {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hexagram-detail__glyph {
+  font-size: 28px;
+  color: var(--neon-cyan, #4dc3ff);
+}
+.hexagram-detail__trigram {
+  font-size: 12px;
+  color: var(--text-secondary, #8b9bb4);
+}
+.hexagram-detail__panel {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.hexagram-detail__h2 {
+  font-size: 14px;
+  color: var(--text-primary, #e0e6ed);
+}
+.hexagram-detail__text,
+.hexagram-detail__list,
+.hexagram-detail__yao {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-primary, #e0e6ed);
+}
+.hexagram-detail__yao,
+.hexagram-detail__list {
+  padding-left: 20px;
+}
+.hexagram-detail__source {
+  font-size: 11px;
+  color: var(--text-secondary, #8b9bb4);
+}

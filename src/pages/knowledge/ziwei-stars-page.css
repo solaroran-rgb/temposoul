@@ -1,0 +1,11 @@
+/* src/pages/knowledge/ziwei-stars-page.css */
+.ziwei-stars-list { color: var(--text-primary,#E0E6ED); padding: 16px; }
+.ziwei-stars-list__grid { list-style: none; padding: 0; display: grid; gap: 8px; }
+.ziwei-stars-list__item a { display: flex; flex-direction: column; border: 1px solid var(--neon-cyan,#4DC3FF); border-radius: 8px; padding: 8px; color: inherit; text-decoration: none; }
+.ziwei-stars-list__title { color: var(--neon-cyan,#4DC3FF); }
+.ziwei-stars-list__summary { color: var(--text-secondary,#8B9BB4); font-size: 12px; }
+.ziwei-stars-list__empty { color: var(--text-secondary,#8B9BB4); }
+.ziwei-star-detail { color: var(--text-primary,#E0E6ED); padding: 16px; }
+.ziwei-star-detail__body { color: var(--text-primary,#E0E6ED); }
+.ziwei-star-detail__sources { color: var(--text-secondary,#8B9BB4); font-size: 12px; }
+.ziwei-star-detail__disclaimer { color: var(--text-secondary,#8B9BB4); font-size: 12px; }

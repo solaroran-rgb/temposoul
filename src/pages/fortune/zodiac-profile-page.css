@@ -1,0 +1,9 @@
+/* src/pages/fortune/zodiac-profile-page.css */
+.zodiac-profile-page { padding: 16px; color: var(--text-primary, #E0E6ED); }
+.zodiac-profile__topics { display: flex; gap: 8px; margin-bottom: 24px; }
+.zodiac-profile__topic-tab { flex: 1; text-align: center; padding: 10px; border-radius: 8px; background: rgba(255,255,255,0.06); color: var(--text-secondary, #8B9BB4); text-decoration: none; font-size: 14px; transition: all 0.2s; }
+.zodiac-profile__topic-tab--active { background: var(--neon-cyan, #4DC3FF); color: #000; font-weight: 600; }
+.zodiac-profile__content { padding: 20px; background: rgba(255,255,255,0.03); border-radius: 12px; margin-bottom: 16px; }
+.zodiac-profile__text { line-height: 1.8; font-size: 15px; color: var(--text-secondary, #8B9BB4); margin-top: 12px; }
+.zodiac-profile__empty, .zodiac-profile__stub { padding: 40px; text-align: center; color: var(--text-secondary, #8B9BB4); }
+.zodiac-profile__guard { margin-top: 24px; padding: 12px; font-size: 12px; color: var(--text-secondary, #8B9BB4); line-height: 1.6; border-top: 1px solid rgba(255,255,255,0.06); }

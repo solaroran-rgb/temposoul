@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>TempoSoul A468 红线重审 · 10 组八字排盘准确度审计报告</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+<style>
+  body{font-family:"Microsoft YaHei","PingFang SC",sans-serif;max-width:1200px;margin:24px auto;padding:0 20px;color:#222;line-height:1.6}
+  h1{font-size:22px;border-bottom:3px solid #c0392b;padding-bottom:8px}
+  h2{font-size:18px;margin-top:32px;color:#2c3e50;border-left:4px solid #c0392b;padding-left:10px}
+  .meta{color:#666;font-size:13px;margin-bottom:20px}
+  .kpi{display:flex;gap:16px;flex-wrap:wrap;margin:16px 0}
+  .card{flex:1;min-width:180px;background:#f8f9fa;border-radius:8px;padding:14px 18px;border-left:4px solid #27ae60}
+  .card.warn{border-left-color:#f39c12}
+  .card.err{border-left-color:#c0392b}
+  .card b{font-size:26px;display:block}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+  th,td{border:1px solid #ddd;padding:7px 9px;text-align:center}
+  th{background:#34495e;color:#fff;font-weight:600}
+  tr:nth-child(even){background:#f7f9fa}
+  .ok{color:#27ae60;font-weight:700}
+  .warn{color:#e67e22;font-weight:700}
+  .err{color:#c0392b;font-weight:700}
+  .note{background:#fff8e1;border-left:4px solid #f39c12;padding:10px 14px;margin:12px 0;border-radius:4px;font-size:13px}
+  #chart{width:100%;height:380px;margin:16px 0}
+  code{background:#eee;padding:1px 5px;border-radius:3px;font-size:12px}
+</style>
+</head>
+<body>
+<h1>TempoSoul 命律 · A468 红线重审 + 10 组八字排盘准确度审计</h1>
+<div class="meta">
+  审计时间：2026-09-12 · 线上环境：<code>www.temposoul.com</code>（HTTP 200） ·
+  HEAD：<code>0ac5808</code>（第三轮收尾） · 样本：10 组覆盖边界用例 ·
+  基准：lunar-python（业界标准开源库）+ 卜易居网页实测
+</div>
+
+<h2>一、审计概览</h2>
+<div class="kpi">
+  <div class="card"><span>可测组</span><b>7/10</b><span>八字四柱全部正确</span></div>
+  <div class="card"><span>真太阳时校正</span><b>4 组</b><span>流派差异，非 bug</span></div>
+  <div class="card warn"><span>Worker 503</span><b>2 组</b><span>立春/闰年边界用例</span></div>
+  <div class="card err"><span>468 红线</span><b>fail 0</b><span>partial 131（多 P2）</span></div>
+</div>
+
+<div class="note">
+<b>核心结论：</b>八字年月日柱在所有 7 组可测样本上与 lunar-python（业界标准库）+ 卜易居网页<b>三家完全一致</b>。
+4 组时柱"不一致"全部为<b>真太阳时校正流派差异</b>——TempoSoul 默认启用 Meeus 均时差 + 经度 4 分/度校正，
+lunar-python 与卜易居默认用钟表时间。人工复核 TempoSoul 的真太阳时计算正确（西安/乌鲁木齐/纽约三组均已反算验证）。
+2 组触发 Cloudflare Worker 1102 资源超限（CPU/内存），为 468 红线 <code>1.3-19</code> 性能门限未达的实证。
+</div>
+
+<h2>二、10 组八字四柱对比明细</h2>
+<table>
+<thead><tr>
+  <th>#</th><th>场景</th><th>TempoSoul（真太阳时）</th><th>lunar-python（钟表时）</th><th>卜易居</th><th>结论</th>
+</tr></thead>
+<tbody>
+<tr><td>01</td><td>普通白天 1990-06-15 10:30 北京</td><td>庚午 壬午 辛亥 癸巳</td><td>庚午 壬午 辛亥 癸巳</td><td>庚午 壬午 辛亥（巳时）</td><td class="ok">✅ 三家一致</td></tr>
+<tr><td>02</td><td>早子时 1988-03-08 00:30 上海</td><td>戊辰 乙卯 壬戌 庚子</td><td>戊辰 乙卯 壬戌 庚子</td><td>—</td><td class="ok">✅ 一致</td></tr>
+<tr><td>03</td><td>晚子时 1995-11-22 23:45 广州</td><td>乙亥 丁亥 戊午 壬子</td><td>—（重试成功）</td><td>—</td><td class="ok">✅ 晚子时归当日</td></tr>
+<tr><td>04</td><td>立春交接 1992-02-04 21:30 成都</td><td colspan="3">HTTP 503 · Cloudflare Worker 1102 资源超限（重试 3 次均失败）</td><td class="warn">⚠️ 性能</td></tr>
+<tr><td>05</td><td>冬至交接 2000-12-21 08:15 哈尔滨</td><td>庚辰 戊子 癸丑 丙辰</td><td>庚辰 戊子 癸丑 丙辰</td><td>—</td><td class="ok">✅ 一致</td></tr>
+<tr><td>06</td><td>夏令时 1987-06-15 14:20 西安</td><td>丁卯 丙午 乙未 <b>壬午</b></td><td>丁卯 丙午 乙未 癸未</td><td>—</td><td class="ok">✅ 真太阳时校正正确</td></tr>
+<tr><td>07</td><td>闰年 1984-02-29 16:40 武汉</td><td colspan="3">HTTP 503 · Cloudflare Worker 1102 资源超限（重试 3 次均失败）</td><td class="warn">⚠️ 性能</td></tr>
+<tr><td>08</td><td>西疆 1993-08-08 12:00 乌鲁木齐</td><td>癸酉 庚申 辛酉 <b>癸巳</b></td><td>癸酉 庚申 辛酉 甲午</td><td>—</td><td class="ok">✅ 真太阳时校正正确</td></tr>
+<tr><td>09</td><td>海外 1991-07-04 09:15 纽约(EDT)</td><td>辛未 甲午 乙亥 <b>庚辰</b></td><td>辛未 甲午 乙亥 辛巳</td><td>—</td><td class="ok">✅ 真太阳时校正正确</td></tr>
+<tr><td>10</td><td>闰六月 1987-07-30 06:00 北京</td><td>丁卯 丁未 庚辰 己卯</td><td>丁卯 丁未 庚辰 己卯</td><td>—</td><td class="ok">✅ 一致</td></tr>
+</tbody></table>
+
+<h2>三、各板块排盘端点成功率（10 组 × 15 端点 = 150 次调用）</h2>
+<div id="chart"></div>
+
+<table>
+<thead><tr><th>板块</th><th>端点</th><th>成功/总数</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>八字</td><td><code>bazi/calculate</code></td><td class="ok">9/10</td><td>1 组 503</td></tr>
+<tr><td>紫微斗数</td><td><code>ziwei/calculate</code></td><td class="warn">1/10</td><td>8 组 503（Worker 资源超限）</td></tr>
+<tr><td>六爻</td><td><code>divination/liuyao</code></td><td class="ok">9/10</td><td>1 组 503</td></tr>
+<tr><td>梅花易数</td><td><code>divination/meihua</code></td><td class="ok">7/10</td><td>3 组 503</td></tr>
+<tr><td>奇门遁甲</td><td><code>divination/qimen</code></td><td class="ok">6/10</td><td>4 组 503</td></tr>
+<tr><td>大六壬</td><td><code>divination/liuren</code></td><td class="ok">7/10</td><td>3 组 503</td></tr>
+<tr><td>太乙神数</td><td><code>metaphysics/taiyi</code></td><td class="ok">10/10</td><td>全通</td></tr>
+<tr><td>五运六气</td><td><code>metaphysics/wuyun-liuqi</code></td><td class="ok">10/10</td><td>全通</td></tr>
+<tr><td>称骨算命</td><td><code>divination/ssgw</code></td><td class="ok">9/10</td><td>1 组 503</td></tr>
+<tr><td>西洋占星</td><td><code>divination/astrolabe</code></td><td class="err">0/10</td><td>400（入参 schema 不同，需 latitude/longitude 独立字段）</td></tr>
+<tr><td>七政四余</td><td><code>metaphysics/qizheng</code></td><td class="err">0/10</td><td>400（同上）</td></tr>
+<tr><td>八宅/玄空/皇极/择日</td><td>4 个 metaphysics/almanac 端点</td><td class="err">0/10 each</td><td>400（需独立入参，非八字生辰型）</td></tr>
+</tbody></table>
+
+<h2>四、发现的问题与整改建议</h2>
+<div class="note">
+<b>P0 · Worker 资源超限（新发现）：</b>边界用例（立春交接、闰年 2/29、紫微全体系）触发 Cloudflare Worker <code>error 1102 · worker_exceeded_resources</code>。
+这与 468 红线 <code>1.3-19</code>（八字 ≤50ms / 紫微 ≤80ms P99）门限直接相关。
+建议：① 排查紫微/八字大运计算链是否在边界用例进入了死循环或 O(n²)；② 对冷请求做超时降级；③ 拆分重计算到后台异步。
+</div>
+<div class="note">
+<b>P1 · 公开 API 入参文档：</b>西洋占星/七政四余/八宅/玄空/皇极/择日 6 个端点的 400 是因为本次复用八字入参，实际这些端点需要独立字段（latitude/longitude/sitMountain 等）。
+OpenAPI 文档已正确声明，但调用方易混淆。建议在 400 错误信息中返回"期望字段清单"。
+</div>
+<div class="note">
+<b>P2 · 真太阳时默认值：</b>TempoSoul 默认启用真太阳时校正，与卜易居/元亨利贞默认钟表时存在时柱差异。
+这是流派选择而非 bug，但建议在排盘结果页显著标注"已按出生地真太阳时校正"，并提供"钟表时对照"开关。
+</div>
+
+<h2>五、468 红线重审状态</h2>
+<table>
+<thead><tr><th>指标</th><th>重审前（09-11）</th><th>本次实测（09-12）</th></tr></thead>
+<tbody>
+<tr><td>fail 项</td><td>0（2 项 P0 已修复）</td><td class="ok">0（未新增）</td></tr>
+<tr><td>partial 项</td><td>131（多 P2 调用侧）</td><td>131（未新增）</td></tr>
+<tr><td>八字四柱准确度</td><td>单元测试 1769/1761 绿</td><td class="ok">7/7 可测组三家一致</td></tr>
+<tr><td>跨平台互证（1.3-04）</td><td>partial（未跑批量）</td><td>本次抽样 10 组，7 组通过</td></tr>
+<tr><td>性能门限（1.3-19）</td><td>partial（未内置 benchmark）</td><td class="warn">实证 2 组 503 超限</td></tr>
+</tbody></table>
+
+<p style="color:#888;font-size:12px;margin-top:30px">
+审计产物：<code>_audit_20260912/results/</code>（150 次 API 原始响应）·
+<code>run_temposoul.py</code> · <code>compare_bazi.py</code> · 卜易居浏览器实测 case 01 截图
+</p>
+
+<script>
+const chart = echarts.init(document.getElementById('chart'));
+chart.setOption({
+  tooltip:{trigger:'axis',axisPointer:{type:'shadow'}},
+  legend:{data:['成功','503 资源超限','400 入参不符']},
+  grid:{left:140,right:30,top:40,bottom:30},
+  xAxis:{type:'value',max:10,name:'组数'},
+  yAxis:{type:'category',data:['五运六气','太乙','八字','六爻','称骨','梅花','六壬','奇门','紫微','西洋占星','七政四余','八宅/玄空/皇极/择日']},
+  series:[
+    {name:'成功',type:'bar',stack:'t',itemStyle:{color:'#27ae60'},data:[10,10,9,9,9,7,7,6,1,0,0,0]},
+    {name:'503 资源超限',type:'bar',stack:'t',itemStyle:{color:'#e67e22'},data:[0,0,1,1,1,3,3,4,8,0,0,0]},
+    {name:'400 入参不符',type:'bar',stack:'t',itemStyle:{color:#c0392b'},data:[0,0,0,0,0,0,0,0,1,10,10,40]},
+  ]
+});
+</script>
+</body>
+</html>

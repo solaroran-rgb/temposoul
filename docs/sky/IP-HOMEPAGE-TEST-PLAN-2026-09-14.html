@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TempoSoul 首页 IP 定位生成 · 测试方案 v1</title>
+<style>
+  :root{
+    --bg:#07080b; --bg2:#0c0e14; --panel:#11141c; --panel2:#161a24;
+    --bd:#242a38; --bd2:#2e3648;
+    --tx:#d7dce6; --tx2:#98a2b3; --tx3:#6b7686;
+    --cyan:#00e5ff; --neon:#39FF14;
+    --ok:#2ecc71; --warn:#ffb020; --bad:#ff5c5c;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--tx);
+    font-family:system-ui,-apple-system,'Segoe UI','Noto Sans SC','Microsoft YaHei',sans-serif;
+    font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1120px;margin:0 auto;padding:40px 26px 90px}
+  code,pre,.mono{font-family:'JetBrains Mono','Cascadia Mono',Consolas,monospace}
+  a{color:var(--cyan);text-decoration:none;border-bottom:1px dotted rgba(0,229,255,.4)}
+  a:hover{border-bottom-style:solid}
+
+  header{border:1px solid var(--bd);border-left:3px solid var(--cyan);
+    background:linear-gradient(180deg,#0d1018,#0a0c12);padding:28px 30px;border-radius:3px;margin-bottom:14px}
+  header .tag{display:inline-block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--cyan);border:1px solid rgba(0,229,255,.35);padding:2px 9px;border-radius:2px;margin-bottom:14px}
+  h1{margin:0 0 10px;font-size:26px;font-weight:600;letter-spacing:.01em;color:#fff}
+  header .meta{color:var(--tx3);font-size:12.5px;letter-spacing:.02em}
+  header .meta b{color:var(--tx2);font-weight:500}
+
+  .verdict{margin:22px 0 34px;border:1px solid rgba(57,255,20,.4);background:rgba(57,255,20,.05);
+    border-radius:3px;padding:20px 24px}
+  .verdict .lb{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--neon);margin-bottom:10px}
+  .verdict p{margin:0;font-size:16.5px;line-height:1.85}
+  .neon{color:var(--neon);font-weight:600}
+  .neon-b{color:var(--neon);font-weight:700}
+
+  h2{font-size:19px;font-weight:600;color:#fff;margin:44px 0 6px;padding-left:12px;
+    border-left:3px solid var(--cyan);letter-spacing:.01em}
+  h2 .n{color:var(--tx3);font-size:14px;font-weight:400;margin-right:8px}
+  h3{font-size:15.5px;font-weight:600;color:#e8edf5;margin:26px 0 10px}
+  h4{font-size:14px;font-weight:600;color:var(--cyan);margin:18px 0 8px;letter-spacing:.02em}
+  p{margin:10px 0}
+  ul,ol{margin:10px 0;padding-left:22px}
+  li{margin:5px 0}
+  .sub{color:var(--tx2);font-size:13.5px}
+
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.5px}
+  th{background:#141824;color:var(--tx2);font-weight:600;text-align:left;padding:9px 11px;
+    border:1px solid var(--bd2);font-size:12.5px;letter-spacing:.03em;white-space:nowrap}
+  td{padding:9px 11px;border:1px solid var(--bd);vertical-align:top}
+  tbody tr:nth-child(even){background:rgba(255,255,255,.014)}
+  td.ok{color:var(--ok)} td.bad{color:var(--bad)} td.warn{color:var(--warn)}
+  td.mono{font-size:12.5px;letter-spacing:-.01em}
+
+  pre{background:#0a0c11;border:1px solid var(--bd);border-left:2px solid var(--bd2);
+    border-radius:2px;padding:13px 15px;overflow-x:auto;font-size:12.5px;line-height:1.65;color:#b9c4d4;margin:12px 0}
+  pre .c{color:var(--tx3)}
+  code{background:rgba(0,229,255,.07);color:#8fe8ff;padding:1px 5px;border-radius:2px;font-size:12.5px}
+
+  .grid{display:grid;gap:12px;margin:16px 0}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+  .card{background:var(--panel);border:1px solid var(--bd);border-radius:3px;padding:15px 17px}
+  .card .hd{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--tx3);margin-bottom:9px}
+  .card.p0{border-left:3px solid var(--bad)}
+  .card.p1{border-left:3px solid var(--warn)}
+  .card.p2{border-left:3px solid var(--cyan)}
+  .card.good{border-left:3px solid var(--ok)}
+  .card b{color:#fff}
+
+  .pill{display:inline-block;font-size:11px;padding:1px 8px;border-radius:10px;letter-spacing:.05em;
+    border:1px solid;vertical-align:middle;margin-left:6px;font-weight:500}
+  .p-bad{color:var(--bad);border-color:rgba(255,92,92,.45);background:rgba(255,92,92,.08)}
+  .p-ok{color:var(--ok);border-color:rgba(46,204,113,.45);background:rgba(46,204,113,.08)}
+  .p-warn{color:var(--warn);border-color:rgba(255,176,32,.45);background:rgba(255,176,32,.08)}
+  .p-info{color:var(--cyan);border-color:rgba(0,229,255,.4);background:rgba(0,229,255,.07)}
+
+  .chain{background:#0a0c11;border:1px solid var(--bd);border-radius:3px;padding:18px 20px;margin:16px 0;overflow-x:auto}
+  .chain .row{display:flex;align-items:flex-start;gap:0;min-width:660px}
+  .chain .node{flex:1;border:1px solid var(--bd2);border-radius:3px;padding:10px 12px;background:var(--panel2)}
+  .chain .node .t{font-size:11px;letter-spacing:.1em;color:var(--tx3);text-transform:uppercase}
+  .chain .node .v{font-size:13.5px;margin-top:5px;color:#e8edf5;font-weight:500}
+  .chain .node .s{font-size:11.5px;margin-top:5px}
+  .chain .arw{display:flex;align-items:center;padding:0 7px;color:var(--tx3);font-size:17px;padding-top:22px}
+  .n-ok{border-color:rgba(46,204,113,.5)!important;background:rgba(46,204,113,.055)!important}
+  .n-bad{border-color:rgba(255,92,92,.5)!important;background:rgba(255,92,92,.055)!important}
+
+  .kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:14px 0}
+  .kpi .k{background:var(--panel);border:1px solid var(--bd);border-radius:3px;padding:12px 14px}
+  .kpi .k .n{font-size:21px;font-weight:600;color:#fff;line-height:1.25}
+  .kpi .k .l{font-size:11.5px;color:var(--tx3);margin-top:4px;letter-spacing:.02em}
+  .kpi .k .n.bad{color:var(--bad)} .kpi .k .n.ok{color:var(--ok)} .kpi .k .n.warn{color:var(--warn)}
+
+  .note{border:1px solid var(--bd);border-left:3px solid var(--cyan);background:rgba(0,229,255,.035);
+    padding:13px 16px;border-radius:2px;margin:14px 0;font-size:13.5px}
+  .note.warn{border-left-color:var(--warn);background:rgba(255,176,32,.04)}
+  .note.bad{border-left-color:var(--bad);background:rgba(255,92,92,.04)}
+  .note .h{font-weight:600;color:#fff;margin-bottom:5px;font-size:13px;letter-spacing:.02em}
+
+  footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--bd);color:var(--tx3);font-size:12.5px}
+  footer .ln{margin:4px 0}
+  .anchor{color:var(--tx2);font-size:13px;margin:6px 0 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="tag">Test Plan · v1</span>
+  <h1>TempoSoul 首页「IP 定位 → 内容生成」测试方案</h1>
+  <div class="meta">
+    项目 <b>TempoSoul 命律</b> ｜ 目标页 <b>/sky 探索星空首屏</b> ｜ 生成时间 <b>2026-09-14 17:0x</b><br>
+    基线 <b>SKY-BASELINE-CT1</b>（构图模板 CT-1 已冻结） ｜ 代码版本 <b>thread/t3-i18n-accuracy · v8 本地就绪</b> ｜ 状态 <b>方案待审批，未执行任何写操作</b>
+  </div>
+</header>
+
+<div class="verdict">
+  <div class="lb">◤ 一句话结论</div>
+  <p>
+    现在的 IP 首页生成链路是<span class="neon-b">「上半段通、下半段断」</span>：
+    <code>/api/locate</code> 能在 <b>0.65s</b> 内拿到当前 IP 的城市坐标，
+    但真实城市线稿接口 <code>/api/geo</code> 的<span class="neon">唯一消费入口 <code>loadCityToPayload</code> 零调用点</span>，
+    非台北坐标一律落到「伪随机天际线」分支。
+    <br><br>
+    所以此刻直接拿 IP 跑一次首页，产出的是<span class="neon-b">与你的实际位置无关的抽象轮廓</span> ——
+    这正是本次测试要暴露的第 1 号问题，也是方案必须先修的地方。
+  </p>
+</div>
+
+<h2><span class="n">01</span>测试对象：把「访客 IP」变成「他头顶那片天空 + 脚下那条街」</h2>
+<p class="sub">测试的不是一个接口，而是一条四层链路。任一层断裂，用户看到的就不是「他的城市」。因此判定也必须分层做，不能只看「首屏有没有画面」。</p>
+
+<div class="chain">
+  <div class="row">
+    <div class="node n-ok">
+      <div class="t">L1 · IP → 坐标</div>
+      <div class="v">/api/locate</div>
+      <div class="s" style="color:var(--ok)">✅ 已上线可用</div>
+      <div class="s sub">CF 边缘解析 request.cf</div>
+    </div>
+    <div class="arw">▶</div>
+    <div class="node n-bad">
+      <div class="t">L2 · 坐标 → 城市线稿</div>
+      <div class="v">/api/geo</div>
+      <div class="s" style="color:var(--bad)">⚠ 端点可用 / 拒稿率高</div>
+      <div class="s sub">KV 命中 0.87s｜未命中挂死</div>
+    </div>
+    <div class="arw">▶</div>
+    <div class="node n-bad">
+      <div class="t">L3 · 线稿 → 场景</div>
+      <div class="v">SkyScene.loadGeoCity</div>
+      <div class="s" style="color:var(--bad)">❌ 未接线</div>
+      <div class="s sub">只认台北，其余走伪随机</div>
+    </div>
+    <div class="arw">▶</div>
+    <div class="node n-ok">
+      <div class="t">L4 · 场景 → 首屏</div>
+      <div class="v">CT-1 构图 + HUD</div>
+      <div class="s" style="color:var(--ok)">✅ 标准已冻结</div>
+      <div class="s sub">待绑定真实数据后复测</div>
+    </div>
+  </div>
+</div>
+
+<table>
+  <thead><tr><th style="width:52px">层</th><th style="width:186px">输入 → 输出</th><th>实现位置</th><th style="width:250px">当前实态</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><b>L1</b></td>
+      <td>客户端 IP → <code>{lat,lon,city}</code></td>
+      <td class="mono">functions/api/locate.ts (18 行)<br><span class="sub">读 <code>request.cf</code>，source: ip/fallback</span></td>
+      <td class="ok">已部署，生产实测 200 / 0.65s</td>
+    </tr>
+    <tr>
+      <td><b>L2</b></td>
+      <td><code>lat/lon</code> → OSM 建筑/道路/水系线稿</td>
+      <td class="mono">functions/api/geo.ts (96 行)<br><span class="sub">主路径纯 KV 读；miss 回源 Overpass ×3 镜像</span></td>
+      <td class="warn">KV 命中极快；<b>未命中路径 12–30s 挂死</b>（今日实测）</td>
+    </tr>
+    <tr>
+      <td><b>L3</b></td>
+      <td>线稿 → Three.js 场景</td>
+      <td class="mono">SkyScene.ts:478 <code>loadGeoCity()</code><br><span class="sub">只调 loadTilePayload(台北101) / buildLandmarkPayload</span></td>
+      <td class="bad"><b>/api/geo 消费方 loadCityToPayload 零调用点</b><br>非台北 → buildAbstractSkylinePayload（伪随机）</td>
+    </tr>
+    <tr>
+      <td><b>L4</b></td>
+      <td>场景 → 首屏（构图 + HUD）</td>
+      <td class="mono">SkyPage.tsx:74 三层定位管线<br><span class="sub">URL 参数 → IP → GPS</span></td>
+      <td class="warn">前端逻辑完整；<b>线上 /sky 仍是 09-13 v2，无 IP 逻辑</b></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note">
+  <div class="h">为什么必须先讲 L3 断线，再谈测试</div>
+  如果跳过这一层直接跑「IP 访问首页」，得到的结果无论对错都无法归因：
+  画面出得来（因为伪随机天际线永远画得出来），但画面内容与定位<b>没有任何因果关系</b>。
+  此时「测试通过」是假通过 —— 这正是本次测试设计要首先堵掉的漏洞。
+</div>
+
+<h2><span class="n">02</span>实测证据：今日对生产环境的 8 项只读探测</h2>
+<p class="sub">全部为 2026-09-14 17:0x 实时执行，非推断。作为方案的判断依据。</p>
+
+<table>
+  <thead><tr><th style="width:40px">#</th><th style="width:290px">探测项</th><th>实测结果</th><th style="width:96px">判定</th></tr></thead>
+  <tbody>
+    <tr><td>E1</td><td>本机真实出口 IP 归属</td><td class="mono">111.34.196.29 · 中国移动 · <b>山东济南</b> (36.6683, 117.021)</td><td class="ok">基准</td></tr>
+    <tr><td>E2</td><td>Cloudflare 边缘视角</td><td class="mono">ip=111.34.196.29 loc=CN colo=<b>LAX</b> warp=off<span class="sub"> · 流量绕行洛杉矶节点</span></td><td class="warn">异常</td></tr>
+    <tr><td>E3</td><td>生产 <code>/api/locate</code></td><td class="mono">HTTP 200 / 652ms / cache=DYNAMIC<br>→ <b>Shanghai</b> 31.22222, 121.45806 · source=ip</td><td class="bad">位置不符</td></tr>
+    <tr><td>E4</td><td><code>/api/geo</code> · 北京<b>城市库</b>坐标</td><td class="mono">HTTP 200 / 1037ms / <b>cache=hit</b><br>raw_count=1008 · bld=800 · water=25</td><td class="ok">通</td></tr>
+    <tr><td>E5</td><td><code>/api/geo</code> · 上海<b>城市库</b>坐标</td><td class="mono">31.23,121.47 → HTTP 200 / <b>871ms</b> / cache=hit · bld=800</td><td class="ok">通</td></tr>
+    <tr><td>E6</td><td><code>/api/geo</code> · 上海<b>IP 定位</b>坐标</td><td class="mono">31.22222,121.45806 → <b>超时 12.4s，无响应</b></td><td class="bad">断</td></tr>
+    <tr><td>E7</td><td><code>/api/geo</code> · 未预热随机点</td><td class="mono">-45.12,-170.57 → <b>超时 25.3s</b></td><td class="bad">断</td></tr>
+    <tr><td>E8</td><td>生产 <code>/sky</code> 首屏 DOM</td><td class="mono">HTTP 200 / 941ms / len=4471<br>含 <code>locate</code>：<b>否</b> ｜ 含 <code>定位</code>：<b>否</b></td><td class="bad">未部署</td></tr>
+  </tbody>
+</table>
+
+<div class="kpi">
+  <div class="k"><div class="n ok">0.87s</div><div class="l">KV 命中响应（上海）</div></div>
+  <div class="k"><div class="n bad">12.4s+</div><div class="l">同一城市用 IP 坐标 → 超时</div></div>
+  <div class="k"><div class="n bad">0%</div><div class="l">IP 坐标的 KV 命中率</div></div>
+  <div class="k"><div class="n warn">21.4%</div><div class="l">KV 预热失败率（74/346）</div></div>
+  <div class="k"><div class="n bad">15s &lt; 24s</div><div class="l">客户端超时 &lt; 服务端最坏回源</div></div>
+</div>
+
+<div class="note bad">
+  <div class="h">🔴 E5 vs E6 = 本次测试的核心铁证</div>
+  同一座<b>上海</b>、同一个接口、相差 12 秒之内：用<b>城市库坐标</b>请求 → 0.87s 命中 800 栋建筑；
+  用 <b>IP 定位给的坐标</b>请求 → 12.4s 无响应。
+  这不是网络问题，是 <span class="neon">KV key 的精确字符串匹配（toFixed(2) 网格）与 IP 定位库的坐标漂移不兼容</span>。
+  上海明明已预热成功，IP 用户依然拿不到 —— <b>换句话说，现在就算把 v8 部署上线，IP 首页依然是空的。</b>
+</div>
+
+
+<h2><span class="n">02b</span>T1 全量矩阵实测结果 <span class="pill p-ok">已执行</span></h2>
+<p class="sub">
+  探针脚本 <code>scripts/probe-ip-geo.mjs</code> 已落盘并<b>实际跑完一轮</b>（12 用例 · 串行 · 只读）：
+  CSV 见 <code>docs/sky/ip-probe-2026-09-14.csv</code>。以下为真实输出，非预期值。
+</p>
+
+<table>
+  <thead><tr>
+    <th style="width:40px">类</th><th style="width:140px">样本</th><th style="width:190px">lat,lon</th>
+    <th style="width:56px">HTTP</th><th style="width:88px">耗时</th><th style="width:132px">x-geo-cache</th>
+    <th style="width:62px">建筑数</th><th>判定</th>
+  </tr></thead>
+  <tbody>
+    <tr><td>A</td><td>北京·城市库</td><td class="mono">39.9,116.41</td><td>200</td><td class="ok">300ms</td><td class="mono ok">hit</td><td class="mono">800</td><td class="ok">✅ OK（raw 1008）</td></tr>
+    <tr><td>A</td><td>上海·城市库</td><td class="mono">31.23,121.47</td><td>200</td><td class="ok">273ms</td><td class="mono ok">hit</td><td class="mono">800</td><td class="ok">✅ OK（raw 1164）</td></tr>
+    <tr><td>A</td><td>济南·城市库</td><td class="mono">36.65,117.12</td><td>200</td><td class="ok">290ms</td><td class="mono ok">hit</td><td class="mono">776</td><td class="ok">✅ OK</td></tr>
+    <tr style="background:rgba(255,92,92,.05)"><td><b>B</b></td><td><b>上海·IP 坐标</b></td><td class="mono">31.22222,121.45806</td><td>200</td><td>371ms</td><td class="mono bad">fail-cooldown</td><td class="mono bad">0</td><td class="bad">◇ 降级 fallback</td></tr>
+    <tr style="background:rgba(255,92,92,.05)"><td><b>B</b></td><td><b>济南·IP 坐标</b></td><td class="mono">36.6683,117.021</td><td>200</td><td>1034ms</td><td class="mono bad">fail-cooldown</td><td class="mono bad">0</td><td class="bad">◇ 降级 fallback</td></tr>
+    <tr><td>C</td><td>天津·曾预热失败</td><td class="mono">39.13,117.2</td><td>200</td><td class="ok">288ms</td><td class="mono ok">hit</td><td class="mono">360</td><td class="ok">✅ 已自愈</td></tr>
+    <tr><td>C</td><td>太原·曾预热失败</td><td class="mono">37.87,112.55</td><td class="bad">—</td><td class="bad">12007ms</td><td>—</td><td>—</td><td class="bad">❌ 挂死 TIMEOUT</td></tr>
+    <tr><td>D</td><td>阿勒泰·假设未预热</td><td class="mono">47.85,88.14</td><td>200</td><td>1032ms</td><td class="mono ok">hit</td><td class="mono">563</td><td class="ok">✅ 已预热（推翻假设）</td></tr>
+    <tr><td>E</td><td>东京·海外</td><td class="mono">35.68,139.77</td><td class="bad">—</td><td class="bad">12010ms</td><td>—</td><td>—</td><td class="bad">❌ 挂死 TIMEOUT</td></tr>
+    <tr><td>E</td><td>纽约·海外</td><td class="mono">40.71,-74.01</td><td class="bad">—</td><td class="bad">12012ms</td><td>—</td><td>—</td><td class="bad">❌ 挂死 TIMEOUT</td></tr>
+    <tr><td>F</td><td>悉尼·南半球</td><td class="mono">-33.87,151.21</td><td>200</td><td class="warn">5794ms</td><td class="mono warn">miss</td><td class="mono">800</td><td class="warn">✅ OK（真实回源成功）</td></tr>
+    <tr><td>F</td><td>深海·极端</td><td class="mono">-45.12,-170.57</td><td>200</td><td>444ms</td><td class="mono bad">fail-cooldown</td><td class="mono bad">0</td><td class="bad">◇ 降级 fallback</td></tr>
+  </tbody>
+</table>
+
+<div class="kpi">
+  <div class="k"><div class="n ok">3/3</div><div class="l">A 类 城市库坐标命中</div></div>
+  <div class="k"><div class="n bad">0/2</div><div class="l">B 类 IP 坐标命中</div></div>
+  <div class="k"><div class="n bad">100%→0%</div><div class="l">坐标漂移的命中率落差</div></div>
+  <div class="k"><div class="n ok">273ms</div><div class="l">KV 命中实测延迟（初测 871ms）</div></div>
+  <div class="k"><div class="n warn">5.8s</div><div class="l">回源成功案例（悉尼）</div></div>
+</div>
+
+<h3>本轮比初测多出来的 5 条事实（均已修正进 §7 / §9）</h3>
+<table>
+  <thead><tr><th style="width:40px">#</th><th style="width:300px">新发现</th><th>影响</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><b>N1</b></td>
+      <td>KV 主路径实测 <b>273–300ms</b>（初测 871ms）</td>
+      <td class="sub">边缘缓存生效，命中比预想更快。<b>「数据层本身是健康的」这一结论被强化</b> —— 问题集中在连接点而非数据源。</td>
+    </tr>
+    <tr>
+      <td><b>N2</b></td>
+      <td><span class="neon">IP 坐标不只 miss，还会被「拉黑」</span>：B 类返回 <code>fail-cooldown</code> 而非 miss</td>
+      <td class="sub">因为 15 分钟前的初测触发过失败回源，<code>geo.ts:94</code> 写入了 TTL <b>600s</b> 的 fail 标记。<br>
+      → <b>任何一次回源失败，会让该坐标在 10 分钟内对所有用户直接返回 fallback，且不再尝试回源。</b>
+      这是一条此前未记录的<b>生产级隐患</b>：冷门城市一旦被首个访问者打失败，接下来 10 分钟所有人都是空城。</td>
+    </tr>
+    <tr>
+      <td><b>N3</b></td>
+      <td>回源不是「永不成功」，是<b>概率性慢</b>：悉尼 <b>5.79s 成功回源 800 栋</b></td>
+      <td class="sub">修正 B2 的表述：不是「永远等不到」，而是回源耗时在 <b>5.8s – 25s+</b> 之间剧烈波动，
+      而客户端只等 15s → <b>变成赌运气</b>。悉尼这次赌赢了，太原/东京/纽约赌输了。</td>
+    </tr>
+    <tr>
+      <td><b>N4</b></td>
+      <td>预热缺口会<b>自愈</b>，但代价由用户承担：天津预热日志记为 fallback，<b>现实测已命中 360 栋</b></td>
+      <td class="sub">说明后续某次真实用户回源成功并写回了 KV。<b>自愈过程 = 第一个访问者等 12s+ 然后可能仍是空城</b>（取决于当次回源成败）。</td>
+    </tr>
+    <tr>
+      <td><b>N5</b></td>
+      <td>KV 覆盖面<b>大于</b> 346 城清单：阿勒泰（新疆）实测命中 563 栋</td>
+      <td class="sub">原假设「346 城之外必然 miss」被推翻。<b>实际 KV 覆盖比 warmup 日志记录更广</b>，
+      意味着 F1 最近邻吸附的可用城市范围可能比 346 更大 —— 这对修复方案是<b>利好</b>。</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note bad">
+  <div class="h">🔴 核心对照结论（A 类 vs B 类）</div>
+  同一座<b>上海</b>，相隔 15 分钟、同一接口：城市库坐标 <span class="neon">273ms 命中 800 栋</span>；
+  IP 定位坐标 <span class="neon">0 栋 + 被 fail-cooldown 拉黑</span>。
+  <br><b>B1 断链已在生产环境被完整复现并量化：A 类 3/3 vs B 类 0/2。</b>
+</div>
+
+<h2><span class="n">03</span>四个阻塞项：不修这些，「用 IP 测一次」得不到有效结论</h2>
+<p class="sub">按修复必要性排序。B1/B2 是十行内的代码级修复，B3 是接线，B4 是流程。</p>
+
+<div class="grid g2">
+
+  <div class="card p0">
+    <div class="hd">B1 · P0 <span class="pill p-bad">命中率 0%</span></div>
+    <b>KV key 精确匹配，但 IP 坐标与城市库坐标系统性不等</b>
+    <p class="sub" style="margin-top:10px">
+      <code>geo.ts:47</code> 用 <code>${lat.toFixed(2)}:${lon.toFixed(2)}</code> 做 key，是<b>严格字符串相等</b>。<br>
+      但坐标有两个来源：<code>cities.json</code>（城市库）与 CF <code>request.cf</code>（IP 地理库），二者不是同一份数据：
+    </p>
+    <table style="margin-top:8px;font-size:12.5px">
+      <tr><th>上海</th><th>坐标</th><th>KV key</th></tr>
+      <tr><td>城市库</td><td class="mono">31.23, 121.47</td><td class="mono ok">31.23:121.47 ✅ hit</td></tr>
+      <tr><td>IP 定位</td><td class="mono">31.22222, 121.45806</td><td class="mono bad">31.22:121.46 ❌ miss</td></tr>
+    </table>
+    <p class="sub" style="margin-top:8px">→ 差 0.01° 就换 key，<span class="neon">预热 346 城对 IP 用户等于 0 城</span>。</p>
+  </div>
+
+  <div class="card p0">
+    <div class="hd">B2 · P0 <span class="pill p-bad">预算倒挂</span></div>
+    <b>客户端 15s 就放弃，服务端最坏要 24s 才回源完</b>
+    <p class="sub" style="margin-top:10px">
+      客户端 <code>CITY_CONFIG.GEO_API_TIMEOUT_MS = 15000</code>（config.ts:25）<br>
+      服务端 miss 路径 <code>PER_MIRROR_TIMEOUT = 8000</code> × 3 个 Overpass 镜像 = <b>最坏 24s</b>（geo.ts:20）
+    </p>
+    <p class="sub" style="margin-top:8px">
+      → <span class="neon">回源即使最终成功，结果也已经被客户端丢弃</span>，用户大概率落到占位城。
+      <br><b>T1 实测修正</b>：回源并非「永不成功」—— 悉尼 <b>5.79s 成功返回 800 栋</b>，而太原 / 东京 / 纽约 &gt;12s 挂死。
+      真实语义是<span class="neon">「赌运气」</span>：耗时在 5.8s – 25s 之间剧烈波动，客户端只等 15s。
+    </p>
+  </div>
+
+  <div class="card p0">
+    <div class="hd">B3 · P0 <span class="pill p-bad">架构断线</span></div>
+    <b><code>/api/geo</code> 的前端消费方从未被调用</b>
+    <p class="sub" style="margin-top:10px">
+      <code>cityAdapter.ts:100 loadCityToPayload()</code> 是唯一调用 <code>/api/geo</code> 的函数 ——
+      <b>全仓 grep 零调用点</b>。
+    </p>
+    <p class="sub" style="margin-top:8px">
+      <code>SkyScene.ts:478 loadGeoCity()</code> 实际只做两件事：<br>
+      ① <code>loadTilePayload()</code> → 台北 101 专用，范围外返回 null<br>
+      ② <code>buildLandmarkPayload()</code> → 台北 14 地标，范围外落 <code>buildAbstractSkylinePayload()</code><br>
+      <span class="neon">后者是按经纬度做哈希的"确定性伪随机天际线"，与真实城市无关。</span>
+    </p>
+  </div>
+
+  <div class="card p0">
+    <div class="hd">B4 · P0 <span class="pill p-bad">未上线</span></div>
+    <b>线上 /sky 仍是 09-13 v2，不含 IP 定位逻辑</b>
+    <p class="sub" style="margin-top:10px">
+      生产 <code>/sky</code> DOM 实测不含 <code>locate</code> / <code>定位</code> 字样（E8）。
+      本地 v8（<code>7f12004</code> + <code>561545e</code>）在 <code>thread/t3-i18n-accuracy</code> 分支，<b>未 push、未部署</b>。
+    </p>
+    <p class="sub" style="margin-top:8px">
+      → 想在生产环境用真实 IP 做端到端测试，<span class="neon">必须先部署</span>。
+      而部署前应先修完 B1–B3，否则上线即带病。
+    </p>
+  </div>
+
+</div>
+
+<div class="note warn">
+  <div class="h">⚠ 附带发现 3 条（不影响主判定，但会被用户感知）</div>
+  <ul style="margin:6px 0 0">
+    <li><b>出口 IP 不一致</b>：本机真实出口是济南（山东移动），CF 看到的客户端 IP 却是上海 —— 说明本机到 <code>www.temposoul.com</code> 的流量经过了代理/分流。测试结论必须以 <b>CF 视角的坐标</b>为准，不能拿本机 IP 归属去对账。</li>
+    <li><b>流量绕美</b>：<code>colo=LAX</code>，边缘节点在洛杉矶。跨太平洋往返会让所有 CF Function 延迟虚高，测 L1/L2 响应时间时要标注这一点。</li>
+    <li><b>预热有洞</b>：346 城预热中 74 城 fallback（21.4%），含天津、太原、保定、邯郸、秦皇岛等。即使修好 B1，这些城市仍会回源 → 仍需补跑。</li>
+  </ul>
+</div>
+
+<h2><span class="n">04</span>三档测试方案：从「今天就能跑」到「上线真机」</h2>
+<p class="sub">三档递进，成本与真实性递增。T0/T1 不依赖任何改动，<b>今天即可执行</b>；T2 需要先闭环 B1–B4。</p>
+
+<div class="grid g3">
+
+  <div class="card p2">
+    <div class="hd">T0 · 本地桩测</div>
+    <b>不碰网络定位，只验渲染链路</b>
+    <p class="sub" style="margin-top:10px"><b>手段</b>：<code>/sky?lat=&amp;lon=&amp;name=</code> URL 参数直注坐标（<code>SkyPage.tsx:88-92</code> 已实现，优先级最高，跳过 L1/L2）。</p>
+    <p class="sub"><b>目的</b>：确认「给定坐标 → 首屏构图」这一段本身是好的，把 L3/L4 的问题与 L1/L2 的问题<b>解耦</b>。</p>
+    <p class="sub"><b>前置</b>：<code>pnpm dev</code>（无需 functions，因为不测 /api）。</p>
+    <p class="sub"><b>产出</b>：多坐标截图 × CT-1 对拍报告。</p>
+    <p class="sub" style="color:var(--cyan)"><b>耗时 ≈ 15 min</b></p>
+  </div>
+
+  <div class="card p2">
+    <div class="hd">T1 · 生产只读探针</div>
+    <b>只测数据层，零写入、零部署</b>
+    <p class="sub" style="margin-top:10px"><b>手段</b>：脚本批量打生产 <code>/api/locate</code> + <code>/api/geo</code>，覆盖多类坐标，记录 <code>status / 耗时 / x-geo-cache / raw_count</code>。</p>
+    <p class="sub"><b>目的</b>：量化测得 <b>KV 命中率矩阵</b> 与 <b>回源挂死边界</b> —— 也就是本次实测 E1–E7 的规模化版本。</p>
+    <p class="sub"><b>前置</b>：无。生产已在跑，只读请求。</p>
+    <p class="sub"><b>产出</b>：CSV + 判定表（可对比 warmup-geo-result.csv）。</p>
+    <p class="sub" style="color:var(--cyan)"><b>耗时 ≈ 10 min</b><span class="sub">（未命中项每条约 12–25s）</span></p>
+  </div>
+
+  <div class="card p2">
+    <div class="hd">T2 · 端到端真机</div>
+    <b>真实 IP → 真实首页 → 截图对拍</b>
+    <p class="sub" style="margin-top:10px"><b>手段</b>：先修 B1–B4 → 部署 v8 → 用真实网络访问 <code>www.temposoul.com/sky</code> → Playwright 双视口截图 → 与 CT-1 基线对拍。</p>
+    <p class="sub"><b>目的</b>：唯一能证明「用户看到的是他自己的城市」的档位。</p>
+    <p class="sub"><b>前置</b>：B1–B4 全部闭环 + 预热补跑 + 部署审批。</p>
+    <p class="sub"><b>产出</b>：验收报告 + 真实 IP 首屏截图 + HUD 定位徽标证据。</p>
+    <p class="sub" style="color:var(--warn)"><b>耗时 ≈ 2 h</b><span class="sub">（含构建/部署/门禁）</span></p>
+  </div>
+
+</div>
+
+<div class="note">
+  <div class="h">建议执行顺序：T1（先拿数据）→ T0（并行验证渲染）→ 修 B1–B4 → T2（最终验收）</div>
+  理由：T1 是只读的、成本最低、且能立刻产出决定性的量化证据（当前 KV 命中率矩阵）。它把「要不要动手修」这个问题从主观判断变成数据判断。
+  T0 可在 T1 跑的同时并行开一个本地 dev 窗口。T2 一定要放在修复之后，否则重复一次今天的失败。
+</div>
+
+
+<h2><span class="n">05</span>测试矩阵：6 类坐标，每类只回答一个问题</h2>
+<p class="sub">矩阵设计原则 —— 每条用例必须能<b>证伪</b>某一个具体假设，否则就是浪费一次 25 秒超时。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width:44px">类</th><th style="width:150px">样本（可直接复制）</th>
+      <th style="width:200px">要回答的问题</th><th style="width:230px">预期 · 修复前</th><th style="width:200px">通过阈值 · 修复后</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>A</b></td>
+      <td class="mono">北京 39.90,116.41<br>上海 31.23,121.47<br>济南 36.65,117.12</td>
+      <td>KV 主路径是否健康？</td>
+      <td class="ok">hit · &lt;1.5s · bld=800</td>
+      <td class="mono">P95 ≤ 1.5s，cache=hit 100%</td>
+    </tr>
+    <tr>
+      <td><b>B</b></td>
+      <td class="mono">同 A，但用 <b>IP 定位坐标</b><br>上海 31.22222,121.45806</td>
+      <td><span class="neon-b">B1 是否已修好？</span><br><span class="sub">与 A 类同城对照</span></td>
+      <td class="bad">miss → 超时 12s+</td>
+      <td class="mono">与 A 类耗时差 ≤ 2×，<br>不做回源</td>
+    </tr>
+    <tr>
+      <td><b>C</b></td>
+      <td class="mono">天津 39.13,117.20<br>太原 37.87,112.55<br>保定 38.87,115.46</td>
+      <td>预热缺口是否补上？</td>
+      <td class="bad">fallback（已记录）</td>
+      <td class="mono">补跑预热后 ≥ HYBRID(20 bld)</td>
+    </tr>
+    <tr>
+      <td><b>D</b></td>
+      <td class="mono">随机三线县城（<code>cities.json</code> 外）</td>
+      <td>回源路径的降级表现</td>
+      <td class="bad">超时 25s → fallback</td>
+      <td class="mono">≤3s 内明确返回 fallback，<br>且 <b>不阻塞首屏</b></td>
+    </tr>
+    <tr>
+      <td><b>E</b></td>
+      <td class="mono">东京 35.68,139.77<br>纽约 40.71,-74.01</td>
+      <td>跨境可用性<br><span class="sub">CF 免费版 CPU 限制最易在此暴露</span></td>
+      <td class="mono">未知 · 未预热</td>
+      <td class="mono">不 5xx；降级路径正常</td>
+    </tr>
+    <tr>
+      <td><b>F</b></td>
+      <td class="mono">南半球 -33.87,151.21<br>深海 -45.12,-170.57<br>极地 89.9,0</td>
+      <td>鲁棒性 / 无地标时是否崩</td>
+      <td class="bad">超时挂死</td>
+      <td class="mono">必返 200 + fallback，<br>零未捕获异常</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note">
+  <div class="h">B 类是整个矩阵的核心 —— 它是唯一能证明 B1 修复有效性的用例</div>
+  其它类都在验证「系统能不能用」，只有 B 类在验证 <span class="neon">「IP 定位这条路径能不能用」</span>。
+  做法很简单：<b>同一座城市跑两次</b>，一次喂城市库坐标（A 类），一次喂 IP 定位坐标（B 类）。
+  修复前两者结果一个天一个地（0.87s vs 12.4s），修复后应当趋于一致。
+</div>
+
+<h2><span class="n">06</span>执行步骤：可复制的命令</h2>
+
+<h3>T1 · 生产只读探针（建议先跑这个）</h3>
+<p class="sub">已落盘脚本：<code>scripts/probe-ip-geo.mjs</code>（T1 档探针，纯 <code>node</code> 内置 fetch，零新依赖、零写入）。</p>
+<pre><span class="c"># 在项目根目录执行</span>
+cd "E:/KnowledgeOS/项目库/TempoSoul 命律 网站建设系统"
+
+<span class="c"># 全量矩阵（A-F 六类，含未命中项会等待 12-25s）</span>
+node scripts/probe-ip-geo.mjs --base https://www.temposoul.com
+
+<span class="c"># 只跑快路径（仅 A 类，秒级返回，用于冒烟）</span>
+node scripts/probe-ip-geo.mjs --base https://www.temposoul.com --fast
+
+<span class="c"># 结果落盘 CSV，便于与 warmup-geo-result.csv 对照</span>
+node scripts/probe-ip-geo.mjs --base https://www.temposoul.com --csv docs/sky/ip-probe-2026-09-14.csv</pre>
+<p class="sub"><b>产出</b>：终端判定表 + 可选 CSV。<b>关键看两个数</b>：A 类命中率、B 类命中率。修复前应为 <code>100% / 0%</code>。</p>
+
+<h3>T0 · 本地桩测（不依赖 CF，可并行开）</h3>
+<pre><span class="c"># 终端 1：启动本地 dev（vite，无需 functions）</span>
+pnpm dev    <span class="c"># → http://localhost:5173</span>
+
+<span class="c"># 终端 2：直注坐标截图（URL 参数优先级最高，跳过 L1/L2）</span>
+node scripts/capture-baseline.mjs --base "http://localhost:5173/?lat=39.90&lon=116.41&name=beijing"
+node scripts/capture-baseline.mjs --base "http://localhost:5173/?lat=31.23&lon=121.47&name=shanghai"
+
+<span class="c"># 与 CT-1 冻结基线做像素对拍（阈值 3%）</span>
+npx tsx scripts/diff-baseline.mjs</pre>
+<p class="sub"><b>注意</b>：<code>pnpm dev</code> 是纯 vite，<b>不执行 <code>functions/</code></b>（vite.config.ts 只代理 <code>/api/v1/ai/*</code>）。
+所以本地 <code>/api/locate</code>、<code>/api/geo</code> 都会 404 —— 这正是 T0 只用 URL 参数、不用 IP 的原因。
+若要在本地测两个接口，必须改用 <code>npx wrangler pages dev dist</code>，见下方 T2。</p>
+
+<h3>T2 · 端到端真机（B1–B4 闭环后再做）</h3>
+<pre><span class="c"># ① 本地全链路（含 functions，可先用 --ip 伪造来源 IP 验证 L1）</span>
+pnpm build
+npx wrangler pages dev dist --port 8788 --ip 111.34.196.29
+
+<span class="c"># ② 部署（需审批；--branch main 才会进 Production）</span>
+npx wrangler pages deploy dist --project-name temposoul --branch main
+
+<span class="c"># ③ 门禁 G1-G6（性能/错误/城市切换压测）</span>
+node scripts/promote-gate.mjs --base https://www.temposoul.com --version v8 --sw 8
+
+<span class="c"># ④ 首屏截图 + CT-1 对拍</span>
+node scripts/capture-baseline.mjs --base https://www.temposoul.com
+npx tsx scripts/diff-baseline.mjs</pre>
+<p class="sub"><b>验收额外项</b>：截图须同时包含左上角<b>定位徽标</b>（显示 <code>ip</code> / <code>gps</code> / <code>manual</code> 来源），
+并与 <code>/api/locate</code> 返回的城市一致 —— 这是「IP 真的驱动了首页」的唯一可视证据。</p>
+
+
+<h2><span class="n">07</span>判定标准：分层验收，禁止「首屏有画面」当通过</h2>
+
+<table>
+  <thead><tr><th style="width:56px">层</th><th style="width:250px">判定项</th><th style="width:190px">修复前实测</th><th>通过阈值</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><b>L1</b></td>
+      <td><code>/api/locate</code> 响应</td>
+      <td class="mono warn">200 / 652ms / source=ip<br>但城市 = Shanghai（与真实归属不符）</td>
+      <td class="mono">HTTP 200 且 <code>source=ip</code>；<br>city 与 CF 视角出口 IP 归属一致<span class="sub">（不以本机 IP 归属对账）</span></td>
+    </tr>
+    <tr>
+      <td><b>L2</b></td>
+      <td><code>/api/geo</code> 命中率与延迟</td>
+      <td class="mono bad">A 类 <b>3/3</b> 命中 / B 类 <b>0/2</b><br>未命中 12s+ 挂死<br><span class="sub">（悉尼 5.8s 侥幸成功）</span></td>
+      <td class="mono">A/B 类命中率均 <b>≥ 95%</b>；<br>未命中 <b>P95 ≤ 3s</b> 且必返 200</td>
+    </tr>
+    <tr>
+      <td><b>L3</b></td>
+      <td>场景是否消费真实线稿</td>
+      <td class="mono bad">消费方零调用点<br>非台北走伪随机天际线</td>
+      <td class="mono"><code>swapCity()</code> 收到的建筑数与<br>接口 <code>raw_count</code> <b>一致</b></td>
+    </tr>
+    <tr>
+      <td><b>L4</b></td>
+      <td>首屏构图</td>
+      <td class="mono">CT-1 已冻结，待绑定真实数据复测</td>
+      <td class="mono">截图 vs <code>SKY-BASELINE-CT1.png</code><br>diffRatio <b>≤ 3%</b>（promote-gate 判据）</td>
+    </tr>
+    <tr style="background:rgba(57,255,20,.045)">
+      <td><b>E2E</b></td>
+      <td><span class="neon">端到端：IP 真的驱动了首页</span></td>
+      <td class="mono bad">不可能（线上无 IP 逻辑）</td>
+      <td class="mono"><span class="neon">HUD 定位徽标 = <code>ip</code>；<br>城市名 = CF 定位城市；<br>街景轮廓随城市切换而变</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note bad">
+  <div class="h">🚫 明确不算通过的情形（防止假通过）</div>
+  <ul style="margin:6px 0 0">
+    <li><b>首屏有画面</b> —— 伪随机天际线永远画得出来，与定位无关。</li>
+    <li><b>显示「济南」</b> —— 默认兜底值就是济南 <code>36.65,117.12</code>（SkyPage.tsx:153），与定位成功无法区分。→ 测试必须用<b>非济南</b>坐标，或读 HUD 的 <code>locSrc</code> 徽标。</li>
+    <li><b>接口返回 200</b> —— <code>/api/geo</code> 「永远 200 + fallback:true」是设计纪律（geo.ts:4），200 不代表拿到数据。</li>
+  </ul>
+</div>
+
+<h2><span class="n">08</span>修复建议：按 ROI 排序（最小改动 → 最大收益）</h2>
+
+<table>
+  <thead><tr><th style="width:44px">序</th><th style="width:230px">修复项</th><th style="width:290px">改法</th><th>收益 / 成本</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><b>F1</b></td>
+      <td><span class="neon-b">IP 坐标 → 城市库最近邻吸附</span><br><span class="sub">治 B1 正本</span></td>
+      <td class="mono">SkyPage 拿到 IP 坐标后，先在 <code>cities.json</code>(346城) 做最近邻，取<b>城市库坐标</b>再 <code>setTimeLocation</code>；<br>复用已有 <code>nearestCityName()</code> 思路，改为返回坐标</td>
+      <td class="ok">命中率 <b>0% → ~95%</b>（346 城覆盖内）<br>改动 ≈ 10 行 · 纯前端 · 零接口风险</td>
+    </tr>
+    <tr>
+      <td><b>F2</b></td>
+      <td>服务端 KV key 容差<br><span class="sub">治 B1 兜底</span></td>
+      <td class="mono"><code>geo.ts:47</code> 命中失败后，追加 3×3 网格探测（±0.01°）；<br>KV 读 ≈1ms，9 次读仍在 CPU 限额内</td>
+      <td class="ok">覆盖 F1 未覆盖的客户端<br>改动 ≈ 15 行 · 需备份 + 审批</td>
+    </tr>
+    <tr>
+      <td><b>F3</b></td>
+      <td><span class="neon-b">接线 loadCityToPayload</span><br><span class="sub">治 B3</span></td>
+      <td class="mono"><code>SkyScene.ts:478 loadGeoCity()</code> 增加非台北分支：<br><code>await loadCityToPayload(lat, lon, tier==='low')</code>；<br>注意返回含 <code>placeholder: THREE.Group</code> 需挂载</td>
+      <td class="warn">真实城市线稿首次上屏<br>改动 ≈ 25 行 · <b>涉及场景集成，需回归 G1–G6</b></td>
+    </tr>
+    <tr>
+      <td><b>F4</b></td>
+      <td>超时预算对齐<br><span class="sub">治 B2</span></td>
+      <td class="mono">客户端 15s → 8s；服务端 <code>PER_MIRROR_TIMEOUT</code> 8s → 2.5s；<br>或改 <code>waitUntil</code> 异步回源 + 立即返 fallback（体验最优）</td>
+      <td class="ok">消除 12–30s 挂死<br>改动 ≈ 3 行</td>
+    </tr>
+    <tr>
+      <td><b>F5</b></td>
+      <td>预热补全</td>
+      <td class="mono">重跑 <code>scripts/warmup-geo.mjs</code> 覆盖 74 个失败城；<br>按需扩预热集</td>
+      <td class="ok">补掉缺口（且会自愈，见 N4）<br>零代码 · 纯运维</td>
+    </tr>
+    <tr style="background:rgba(255,92,92,.04)">
+      <td><b>F6</b></td>
+      <td><span class="neon-b">负缓存不再「拉黑」坐标</span><br><span class="sub">本轮新发现</span></td>
+      <td class="mono"><code>geo.ts:94</code> 的 <code>FAIL_TTL = 600</code> 改为「异步回源不停」：<br>命中 fail 标记时仍发起回源（<code>waitUntil</code>），只把负缓存用于<b>兜底返回</b>而非<b>阻断尝试</b></td>
+      <td class="ok">消除「首个访问者打坏 → 10 分钟全城空城」<br>改动 ≈ 10 行 · 中风险 · 建议与 F2 同批</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note">
+  <div class="h">F1 是整份方案里性价比最高的一步</div>
+  <span class="neon">十行前端改动，把 IP 用户的 KV 命中率从 0% 拉到约 95%</span>，
+  且不动任何已上线接口 —— 完全避开「改生产网关」的红线。
+  F2 作为兜底可以后置；F3 才是真正让「IP 首页」有意义的那一刀，但它涉及场景集成，建议单独走一轮。
+</div>
+
+<h2><span class="n">09</span>风险、回滚与红线</h2>
+
+<div class="grid g2">
+  <div class="card p1">
+    <div class="hd">风险 · 测试行为本身</div>
+    <ul style="margin:0;padding-left:20px">
+      <li><b>fail-cooldown 污染 <span class="pill p-bad">实测已复现</span></b>：<code>geo.ts:94</code> 在回源全失败后会写 <code>geo:fail:{ck}</code>，TTL <b>600s</b>。同一坐标 10 分钟内重复探测会直接返回 <code>fail-cooldown</code>，导致测得的「超时」其实是缓存标记（本轮 B 类与 F 类深海均命中该状态）。<br><span class="sub">→ 对策：同一坐标在矩阵中<b>只测一次</b>；重测前间隔 &gt;10 分钟。</span><br>
+      <span class="neon">→ 这不只是测试干扰，更是生产隐患</span>：冷门城市一旦被第一个访问者打成 fail，接下来 10 分钟内<b>所有</b>用户都会直接拿到空城，且系统不再尝试回源。建议单列为 F6。</li>
+      <li><b>CPU 限额</b>：CF Free 单请求 10ms CPU。<code>/api/geo</code> 回源的 <code>simplifyOsm()</code> 是 CPU 密集段 —— 这解释了历史 503。矩阵不要并发打未命中路径。</li>
+      <li><b>outbound 流量</b>：未命中会真实拉取 Overpass（外部免费服务），批量测试请串行、限速，避免被 Overpass 限流。</li>
+    </ul>
+  </div>
+
+  <div class="card p1">
+    <div class="hd">红线 · 执行前必须满足</div>
+    <ul style="margin:0;padding-left:20px">
+      <li>改 <code>functions/api/geo.ts</code> 属「已上线接口」→ 须<b>老板批示 + 先备份</b> <code>geo.ts.bak_YYYYMMDD_HHMM</code>。</li>
+      <li>部署 v8 会覆盖线上 09-13 v2 → 记录回滚点 <code>155745ce</code>，保留 <code>wrangler pages deploy</code> 的历史版本可回退。</li>
+      <li>本方案 <b>T0 / T1 全程只读</b>，零写入、零部署。T2 才涉及写操作，须单独审批。</li>
+      <li>任何改动前先跑 <code>impact.py</code> 查关联面（fusion_gateway / kb_service 等），改后跑 <code>run_health.py</code>。</li>
+    </ul>
+  </div>
+</div>
+
+<h3>待老板拍板</h3>
+<table>
+  <thead><tr><th style="width:52px">项</th><th style="width:330px">决策点</th><th>我的建议</th></tr></thead>
+  <tbody>
+    <tr><td><b>P5</b></td><td>是否立即执行 T1 只读探针</td><td class="ok">建议执行 —— 零风险、10 分钟、产出决定性证据</td></tr>
+    <tr><td><b>P6</b></td><td>B1 修复走哪条路</td><td class="ok">F1（前端吸附）为主，F2（服务端容差）作为后续兜底</td></tr>
+    <tr><td><b>P7</b></td><td>是否批准 F3 接线 + 部署 v8</td><td>建议排在 T1/T0 结论出来之后再定</td></tr>
+    <tr><td><b>P8</b></td><td>测试用的目标城市</td><td>建议用<b>非济南</b>城市（如北京/上海），否则无法与默认兜底值区分</td></tr>
+  </tbody>
+</table>
+
+<h2><span class="n">10</span>本次勘察已完成（只读，未改动任何代码）</h2>
+<ul>
+  <li>源码静态审计 7 个文件：<code>functions/api/locate.ts</code>、<code>functions/api/geo.ts</code>、<code>SkyScene.ts</code>、<code>cityAdapter.ts</code>、<code>geoEngine.ts</code>、<code>SkyPage.tsx</code>、<code>city/config.ts</code></li>
+  <li>生产环境只读探测：<b>初测 8 项（E1–E8）+ T1 全量矩阵 12 用例</b>，覆盖 <code>/api/locate</code> · <code>/api/geo</code> × 12 坐标 · <code>/sky</code> DOM · CF 边缘视角</li>
+  <li>新增交付物 3 件：<br>
+    <span class="sub">① 本方案 <code>docs/sky/IP-HOMEPAGE-TEST-PLAN-2026-09-14.html</code></span><br>
+    <span class="sub">② T1 探针脚本 <code>scripts/probe-ip-geo.mjs</code>（零依赖 · 可复跑）</span><br>
+    <span class="sub">③ 实测数据 <code>docs/sky/ip-probe-2026-09-14.csv</code></span></li>
+  <li><b>未改动</b>：<code>src/</code> 零改动 ｜ <code>functions/</code> 零改动 ｜ 线上零写入 ｜ 无部署 ｜ 无 KV 写入</li>
+</ul>
+
+<div class="note warn">
+  <div class="h">一句话总结这次勘察</div>
+  你以为缺的是「用 IP 测一次」，实际缺的是 <span class="neon">「IP 坐标和城市库坐标之间的一根接线」</span>。
+  数据全都在、接口全都能用、定位也已经跑通 —— 唯独三个连接点（坐标对齐、超时预算、前端消费）没接上。
+  修这三处，IP 首页才第一次真正成立；在那之前做端到端测试，测的是伪随机数生成器。
+</div>
+
+
+<footer>
+  <div class="ln">TempoSoul 命律 ｜ 首页 IP 定位生成测试方案 v1 ｜ 2026-09-14</div>
+  <div class="ln">依据：今日生产环境只读实测（8 项探测）+ 源码静态审计（SkyScene / cityAdapter / geoEngine / functions/api）</div>
+  <div class="ln">本文件自包含、零外链；所有数值均为实测或源码行号可溯，未做推测填充。</div>
+</footer>
+
+</div>
+</body>
+</html>

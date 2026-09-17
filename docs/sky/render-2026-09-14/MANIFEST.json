@@ -1,0 +1,98 @@
+{
+  "generated": "2026-09-14",
+  "engines": {
+    "home-inline-strict.html": "F100 逐像素 单文件自包含（无损 WebP 1920，1492KB）",
+    "home-inline-visual.html": "F99 视觉无损 单文件自包含（AVIF q75 1920，234KB）",
+    "home-inline-visual-1080.html": "F99 视觉 轻量单文件（AVIF 1080，109KB）",
+    "home-prod-auto.html": "生产版 外链+多格式自适应+档位可切（11.6KB）",
+    "home-mobile-scene-ui.html": "移动/自适应：场景层+HTML UI（外链，7.7KB）",
+    "home-mobile-scene-ui-inline.html": "移动/自适应 单文件自包含（97.8KB）",
+    "home-web.html": "★真网页版 生产候选：背景=场景层 / 文字=真 DOM（h1+p+a），15.1KB",
+    "home-web-fixed1920.html": "同上，锁定 1920/webp（门禁用）",
+    "home-web-inline.html": "真网页版 单文件自包含（场景层内联 base64，1394KB）"
+  },
+  "verified": {
+    "F100_psnr": "∞ (100.0000% 逐像素一致)",
+    "F99_psnr": 44.12,
+    "F95_psnr": 34.11,
+    "perf_prod_good4G_ms": 1395,
+    "perf_prod_weak4G_ms": 727,
+    "perf_prod_slow3G_ms": 2375,
+    "viewport_horizon_dev_max_desktop": "0.41%",
+    "asset_chain_lossless": "PNG->PNG->WebP max diff = 0",
+    "gate_passed": "PASS-F100 (PSNR=inf, exact=100.0000%, maxdiff=0)"
+  },
+  "docs": {
+    "DESIGN-PLATE-RENDERING-PLAN-2026-09-14.html": "DPR 方案书（自包含单文件，10 章，22.5KB，零外链）",
+    "RENDER-TECH-STACK-2026-09-14.md": "渲染技术栈全清单（运行时/生产/验证 三层，含依赖版本与部署前置条件）",
+    "RENDER-STACK-CONSISTENCY-AUDIT-2026-09-14.md": "渲染技术栈一致性审计：结论=不一致且命中项目红线（规范§12 + 交接卡§九 两处明文禁止 AI 生图静态方案）"
+  },
+  "inventory": {
+    "html": 7,
+    "assets": 29,
+    "evidence": 12,
+    "tools": 10,
+    "total_MB": 22
+  },
+  "known_optimizations": [
+    {
+      "id": "P13",
+      "item": "生产版 img 静态占位写死 plate_1080.avif (75KB)",
+      "impact": "好网档下载即废，白耗 6.6% 体积",
+      "fix": "换 390 档占位（约15KB，省80%）",
+      "blocks_release": false
+    }
+  ],
+  "verified_web_dom": {
+    "背景层逐像素一致": "98.8929%（PSNR 55.66，max diff 26；差异仅来自文字剥离的羽化溢出）",
+    "背景带 y[484,969)": "exact = 100.0000%",
+    "全图（含文字层）逐像素一致": "91.0987%",
+    "几何对齐": "标题 645×104 @ (54.818%,16.512%) | 副标题 390×56 @ (50%,25.8%) | CTA 290×104 @ (51.562%,39.628%)",
+    "geometry_vs_design": "标题/副标题/CTA 中心与跨度与设计稿差 = 0.000%",
+    "dom_content": "h1=1、body innerText='命律 TempoSoul 探索命运的节律 立即开始'、文本可选中、含 title/meta/og",
+    "perf_ms": {
+      "good8M": 1234,
+      "weak1.6M": 803,
+      "slow0.4M": 2529,
+      "portrait390": 1251,
+      "tablet834": 1258
+    },
+    "errors": "0（favicon 404 已修）"
+  },
+  "known_gaps": [
+    {
+      "id": "G1",
+      "item": "文字字形（字重/笔形）与设计稿有差",
+      "why": "设计稿是 AI 生成的艺术字，无源字体；已用合成窄化(scaleX)对齐跨度与字高",
+      "fix": "提供设计字体 → 上 web font（P11）可收敛"
+    },
+    {
+      "id": "P13",
+      "item": "生产版 img 占位（旧版遗留）",
+      "why": "真网页版已改为 JS 按档位赋 src，无占位浪费",
+      "state": "已在 home-web.html 解决"
+    }
+  ],
+  "compliance": {
+    "audit_result": "INCONSISTENT_WITH_PROJECT_STACK",
+    "redline_hit": true,
+    "redline_sources": [
+      "docs/design/SKY-VISUAL-STANDARD-v2.md §12：❌ 回归 AI 猜图/生图静态方案",
+      "docs/design/TASK-HANDOVER-20260914.html §九：概念图不可上线，正式落地走 WebGL"
+    ],
+    "project_stack": "React 19 + TypeScript + Vite 7 + Three.js(WebGL) 真实数据驱动",
+    "this_delivery_stack": "零框架静态 HTML + 位图资产装载",
+    "delivery_status": "hold_pending_owner_ruling",
+    "pending_decisions": [
+      "R-A 是否修订 §12 红线",
+      "R-B 100% 一致 vs 规范§7 风格同源自洽",
+      "R-C IP 30km 真实街景是否仍为硬需求"
+    ],
+    "reusable_parts": [
+      "半像素陷阱",
+      "内容门禁(h1/innerText/selectable/SEO)",
+      "AVIF 能力探测陷阱",
+      "资产化降级为素材(基准图/OG/对照基准)"
+    ]
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "http": 200,
+  "ms": 592,
+  "body": {
+    "ok": true,
+    "data": {
+      "number": 92,
+      "title": "第九十二签 · 一本万殊，万殊一本（平安）",
+      "poem": "万紫千红总是春，千山万水归一尘。\n本来无事常清净，何须向外觅通津。",
+      "story": "\"万紫千红总是春\"出自宋代朱熹《春日》——等闲识得东风面，万紫千红总是春。表面说的是春天花开，深层说的是天地万物虽千差万别，但本质相通、大道归一。 作为92签的终签，它和第一签\"明月千山，太平丰年\"形成完美的闭环——始于明月，终于无事。最好的状态，是无事。",
+      "details": {
+        "吉凶": "无事签（平安）",
+        "解签总论": "终签——万法归宗，无事为本！ 此签乃92签之终章，以\"无事\"收束全部签文。总论世间万紫千红、千山万水，终究归于一体。本来就是\"无事\"的状态，何必向外苦苦追寻所谓的答案？ - 万紫千红总是春 —— 花色千万种，但都出自同一个春天 - 千山万水归一尘 —— 再多的山川河流，归根到底都是尘埃 - 本来无事常清净 —— 本来就没有事，心清净才是常态 - 何须向外觅通津 —— 何须到外面去寻找渡口？",
+        "核心寓意": "这支签的意思是：答案不用一直向外找；放下过多追逐，回到眼前的生活和内心真正需要的东西。",
+        "事业": "工作上别被太多方向带着跑，先想清楚自己最重要的价值和目标。",
+        "财运": "钱够用、生活安稳就很好，别因为跟别人比较而不断追求更多。",
+        "感情": "别抓住某个结果不放，真诚相处、把眼前的关系过好更重要。",
+        "学业": "不要只记零散知识，试着找出它们共同的道理。",
+        "健康": "减少过度欲望和内耗，有助于身体和情绪保持平衡。",
+        "行动建议": "先停下向外追的脚步，问问自己当下真正需要什么。",
+        "风险提醒": "别舍近求远，也别被太多选择带偏，忘了最初要解决的问题。"
+      },
+      "timestamp": 1789191808784,
+      "ganzhi": {
+        "year": "丙午",
+        "month": "丁酉",
+        "day": "己丑",
+        "hour": "辛未"
+      },
+      "draw": {
+        "method": "random",
+        "poolSize": 92,
+        "selectedIndex": 91,
+        "selectedNumber": 92
+      },
+      "meta": {
+        "engineVersion": "0.1.26",
+        "schemaVersion": "1.0.0",
+        "algorithm": "ssgw.draw",
+        "calculatedAt": "2026-09-12T05:43:28.784Z",
+        "inputHash": "bf533b78273cfa10",
+        "resultId": "ssgw.draw:8be9f8fc916bec7c",
+        "random": {
+          "mode": "system",
+          "samples": [
+            0.992341472279995
+          ]
+        }
+      },
+      "evidenceTrail": {
+        "items": [
+          {
+            "title": "灵签抽签基础",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "签数",
+                "reference": "draw.poolSize",
+                "output": 92
+              },
+              {
+                "name": "抽得签号",
+                "reference": "number",
+                "output": 92
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "观音灵签（第一百签）体系"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "在签池中随机抽取"
+              ],
+              "cautionWhen": [
+                "签文寓意随求问事由而变化",
+                "不同灵签版本签文有差异"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "不同灵签体系（观音/关帝/吕祖）签文不同",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 0
+          },
+          {
+            "title": "求签时间",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "干支纪时",
+                "reference": "ganzhi",
+                "output": "丙午年丁酉月己丑日"
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "干支纪时（求签时间）"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "记录求签时刻"
+              ],
+              "cautionWhen": [
+                "跨日/跨年转换以当地时间为准"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "干支纪时与公历换算口径存在细微差异",
+                "severity": "minor"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 1
+          },
+          {
+            "title": "签文呈现",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "签题",
+                "reference": "title",
+                "output": "第九十二签 · 一本万殊，万殊一本（平安）"
+              },
+              {
+                "name": "签诗",
+                "reference": "poem",
+                "output": "万紫千红总是春，千山万水归一尘。\n本来无事常清净，何须向外觅通津。"
+              },
+              {
+                "name": "注解",
+                "reference": "details",
+                "output": {
+                  "吉凶": "无事签（平安）",
+                  "解签总论": "终签——万法归宗，无事为本！ 此签乃92签之终章，以\"无事\"收束全部签文。总论世间万紫千红、千山万水，终究归于一体。本来就是\"无事\"的状态，何必向外苦苦追寻所谓的答案？ - 万紫千红总是春 —— 花色千万种，但都出自同一个春天 - 千山万水归一尘 —— 再多的山川河流，归根到底都是尘埃 - 本来无事常清净 —— 本来就没有事，心清净才是常态 - 何须向外觅通津 —— 何须到外面去寻找渡口？",
+                  "核心寓意": "这支签的意思是：答案不用一直向外找；放下过多追逐，回到眼前的生活和内心真正需要的东西。",
+                  "事业": "工作上别被太多方向带着跑，先想清楚自己最重要的价值和目标。",
+                  "财运": "钱够用、生活安稳就很好，别因为跟别人比较而不断追求更多。",
+                  "感情": "别抓住某个结果不放，真诚相处、把眼前的关系过好更重要。",
+                  "学业": "不要只记零散知识，试着找出它们共同的道理。",
+                  "健康": "减少过度欲望和内耗，有助于身体和情绪保持平衡。",
+                  "行动建议": "先停下向外追的脚步，问问自己当下真正需要什么。",
+                  "风险提醒": "别舍近求远，也别被太多选择带偏，忘了最初要解决的问题。"
+                }
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "观音灵签签文与注解"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "按签号呈现签文"
+              ],
+              "cautionWhen": [
+                "签意解读存在多解"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "同一签文不同解签者解读不同",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "low",
+            "depth": 1
+          },
+          {
+            "title": "抽取方式",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "抽取方法",
+                "reference": "draw.method",
+                "output": "random"
+              },
+              {
+                "name": "选中编号",
+                "reference": "draw.selectedNumber",
+                "output": 92
+              }
+            ],
+            "source": {
+              "type": "algorithm",
+              "name": "随机抽样（签池等概率）"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "随机抽签"
+              ],
+              "cautionWhen": [
+                "manual 方式为用户手工录入签号"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "抽签随机性不影响签文内容本身",
+                "severity": "minor"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 1
+          }
+        ],
+        "overallConfidence": "low",
+        "summary": "灵签抽签证据链（第92签·第九十二签 · 一本万殊，万殊一本（平安））",
+        "generatedAt": "2026-09-12T05:43:28.784Z"
+      }
+    },
+    "meta": {
+      "service": "www.temposoul.com",
+      "version": "v1"
+    }
+  }
+}

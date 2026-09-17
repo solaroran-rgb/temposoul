@@ -1,0 +1,86 @@
+.dream__form {
+  display: flex;
+  gap: 8px;
+}
+.dream__input {
+  flex: 1;
+  background: transparent;
+  border: 1px solid rgba(77, 195, 255, 0.3);
+  color: var(--text-primary, #e0e6ed);
+  border-radius: 6px;
+  padding: 8px 10px;
+}
+.dream__submit {
+  border: 1px solid var(--neon-cyan, #4dc3ff);
+  color: var(--neon-cyan, #4dc3ff);
+  background: transparent;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+.dream__hot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.dream__tag {
+  background: transparent;
+  border: 1px solid rgba(139, 155, 180, 0.3);
+  color: var(--text-secondary, #8b9bb4);
+  border-radius: 999px;
+  padding: 4px 12px;
+  cursor: pointer;
+}
+.dream__related-tip {
+  font-size: 12px;
+  color: var(--text-secondary, #8b9bb4);
+}
+.dream__list {
+  display: grid;
+  gap: 8px;
+}
+.dream__card {
+  display: grid;
+  grid-template-columns: 72px 48px 1fr;
+  gap: 8px;
+  align-items: center;
+  text-align: left;
+  padding: 10px;
+  border: 1px solid rgba(77, 195, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(77, 195, 255, 0.04);
+  color: var(--text-primary, #e0e6ed);
+  cursor: pointer;
+}
+.dream__kw {
+  font-size: 14px;
+}
+.dream__cat,
+.dream__brief {
+  font-size: 12px;
+  color: var(--text-secondary, #8b9bb4);
+}
+.dream__detail {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid rgba(139, 155, 180, 0.2);
+  padding-top: 12px;
+}
+.dream__h2 {
+  font-size: 15px;
+  color: var(--text-primary, #e0e6ed);
+}
+.dream__text {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-primary, #e0e6ed);
+}
+.dream__caution {
+  font-size: 12px;
+  color: var(--neon-pink, #ff4d6d);
+}
+.dream__source {
+  font-size: 11px;
+  color: var(--text-secondary, #8b9bb4);
+}

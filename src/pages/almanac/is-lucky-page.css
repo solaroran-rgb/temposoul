@@ -1,0 +1,20 @@
+/* src/pages/almanac/is-lucky-page.css (补充 Link 重置) */
+.is-lucky-page { padding: 16px; color: var(--text-primary, #E0E6ED); }
+.is-lucky__scenes { display: flex; gap: 8px; overflow-x: auto; margin-bottom: 24px; padding-bottom: 8px; }
+.is-lucky__scene-tab { padding: 8px 16px; border-radius: 20px; background: rgba(255,255,255,0.06); color: var(--text-secondary, #8B9BB4); text-decoration: none; white-space: nowrap; font-size: 14px; transition: all 0.2s; }
+.is-lucky__scene-tab--active { background: var(--neon-cyan, #4DC3FF); color: #000; font-weight: 600; }
+.is-lucky__verdict { text-align: center; padding: 32px 16px; border-radius: 16px; margin-bottom: 24px; }
+.is-lucky__verdict--good { background: rgba(77, 195, 255, 0.1); border: 1px solid rgba(77, 195, 255, 0.3); }
+.is-lucky__verdict--bad { background: rgba(255, 77, 109, 0.1); border: 1px solid rgba(255, 77, 109, 0.3); }
+.is-lucky__verdict--neutral { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); }
+.is-lucky__verdict-title { font-size: 32px; font-weight: 700; margin: 0 0 8px; }
+.is-lucky__verdict--good .is-lucky__verdict-title { color: var(--neon-cyan, #4DC3FF); }
+.is-lucky__verdict--bad .is-lucky__verdict-title { color: var(--neon-pink, #FF4D6D); }
+.is-lucky__verdict-score { font-size: 14px; color: var(--text-secondary, #8B9BB4); margin-bottom: 12px; }
+.is-lucky__evidence h3 { font-size: 16px; margin: 0 0 12px; }
+.is-lucky__evidence-list { list-style: none; padding: 0; margin: 0; }
+.is-lucky__evidence-item { padding: 8px 12px; margin-bottom: 6px; background: rgba(255,255,255,0.03); border-radius: 8px; font-size: 14px; color: var(--text-secondary, #8B9BB4); }
+.is-lucky__guard { margin-top: 24px; padding: 12px; font-size: 12px; color: var(--text-secondary, #8B9BB4); line-height: 1.6; border-top: 1px solid rgba(255,255,255,0.06); }
+.is-lucky__skeleton { height: 200px; border-radius: 16px; background: rgba(255,255,255,0.04); animation: pulse 1.5s infinite; }
+.is-lucky__error, .is-lucky__degraded { padding: 24px; text-align: center; color: var(--text-secondary, #8B9BB4); }
+@keyframes pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.8; } }

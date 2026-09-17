@@ -11,11 +11,7 @@
  */
 import { daysInSolarMonth } from '../calendar/date-validation';
 import { buildAstronomicalTimeEvidence } from '../calendar/astronomical-time';
-import {
-  buildVedicAyanamsaInfo,
-  lahiriAyanamsa,
-  tropicalToSidereal,
-} from './ayanamsa';
+import { buildVedicAyanamsaInfo, lahiriAyanamsa, tropicalToSidereal } from './ayanamsa';
 import {
   getDecimalYear,
   grahaBody,
@@ -211,23 +207,22 @@ export function generateVedicChart(input: VedicBirthInput): VedicData {
   });
 
   // 七政（日/月/水/金/火/木/土）
-  const grahas: VedicPoint[] = PLANET_ORDER.filter(
-    (k) => k !== 'Rahu' && k !== 'Ketu',
-  ).map((key) => {
-    const body = grahaBody(key as 'Sun');
-    const tropical = tropicalEclipticLongitude(body, utcMs);
-    return buildPoint({
-      key,
-      tropicalLongitude: tropical,
-      ayanamsaDegrees,
-      lagnaRashiIndex,
-      retrograde: isRetrograde(body, utcMs),
-    });
-  });
+  const grahas: VedicPoint[] = PLANET_ORDER.filter((k) => k !== 'Rahu' && k !== 'Ketu').map(
+    (key) => {
+      const body = grahaBody(key as 'Sun');
+      const tropical = tropicalEclipticLongitude(body, utcMs);
+      return buildPoint({
+        key,
+        tropicalLongitude: tropical,
+        ayanamsaDegrees,
+        lagnaRashiIndex,
+        retrograde: isRetrograde(body, utcMs),
+      });
+    },
+  );
 
   // Rahu / Ketu（平均交点默认；Ketu = Rahu + 180°）
-  const rahuTropical =
-    nodeMode === 'true' ? trueNodeLongitude(utcMs) : meanNodeLongitude(utcMs);
+  const rahuTropical = nodeMode === 'true' ? trueNodeLongitude(utcMs) : meanNodeLongitude(utcMs);
   const ketuTropical = normalizeLongitude(rahuTropical + 180);
   grahas.push(
     buildPoint({
@@ -248,10 +243,7 @@ export function generateVedicChart(input: VedicBirthInput): VedicData {
 
   // 出生月亮 Nakshatra（Dasha 起运锚点）
   const moonNak = longitudeToNakshatra(
-    tropicalToSidereal(
-      tropicalEclipticLongitude(grahaBody('Moon'), utcMs),
-      ayanamsaDegrees,
-    ),
+    tropicalToSidereal(tropicalEclipticLongitude(grahaBody('Moon'), utcMs), ayanamsaDegrees),
   );
   const moonLord = GRAHA_LORD_LABELS[moonNak.nakshatra.lord];
 

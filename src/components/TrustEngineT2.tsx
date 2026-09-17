@@ -1,6 +1,6 @@
 /**
  * TrustEngine T2 — 隐私安全
- * 
+ *
  * 隐私政策页，展示完整的隐私承诺
  * 不显示横幅，信任在此沉淀，避免自我指涉
  */
@@ -9,12 +9,12 @@ import { Link } from 'react-router-dom';
 
 /**
  * T2 信任引擎组件
- * 
+ *
  * 展示完整的隐私政策和数据处理承诺。
  * 这是信任漏斗中"信任沉淀"的阶段——用户主动查阅隐私政策。
- * 
+ *
  * 注意：T2 不显示信任横幅，避免自我指涉。
- * 
+ *
  * 使用方式：
  * - 挂载在 '/privacy' 路由
  */
@@ -23,7 +23,7 @@ export function TrustEngineT2() {
     <div className="trust-engine trust-engine--t2">
       <div className="trust-engine__content">
         <h1 className="trust-engine__title">隐私政策</h1>
-        
+
         <section className="trust-engine__section">
           <h2 className="trust-engine__section-title">数据收集</h2>
           <div className="trust-engine__section-content">

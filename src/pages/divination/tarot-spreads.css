@@ -1,0 +1,61 @@
+/* src/pages/divination/tarot-spreads.css · A11 塔罗牌阵（本地侧补建） */
+@import '../../styles/tempo-shell.css';
+
+/* ---------- 牌阵网格 ---------- */
+.ts-spreads-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ts-spreads-grid__item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  transition: border-color 0.15s, background 0.15s;
+}
+.ts-spreads-grid__item:hover {
+  border-color: rgba(77, 195, 255, 0.4);
+  background: rgba(77, 195, 255, 0.05);
+}
+.ts-spreads-grid__link {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px;
+  color: var(--text-primary, #E0E6ED);
+  text-decoration: none;
+}
+.ts-spreads-grid__name {
+  font-size: 14px;
+  font-weight: 600;
+}
+.ts-spreads-grid__scene {
+  font-size: 12px;
+  color: var(--text-secondary, #8B9BB4);
+  line-height: 1.5;
+}
+.ts-spreads-grid__count {
+  font-size: 11px;
+  color: var(--neon-pink, #FF4D6D);
+}
+
+/* ---------- 牌阵详情 ---------- */
+.ts-spread-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ts-spread-steps {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text-primary, #E0E6ED);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+@media (max-width: 640px) {
+  .ts-spreads-grid { grid-template-columns: 1fr 1fr; }
+}

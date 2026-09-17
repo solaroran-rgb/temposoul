@@ -47,4 +47,4 @@ export function fnv1a(str: string): number {
     h = Math.imul(h, 16777619);
   }
   return h >>> 0;
-}
+}

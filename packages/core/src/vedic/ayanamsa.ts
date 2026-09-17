@@ -20,10 +20,7 @@ export type VedicAyanamsaSystem = 'lahiri';
  */
 function precessionInLongitudeDegrees(t: number): number {
   const arcSeconds =
-    5028.796195 * t +
-    1.1054348 * t * t +
-    0.00007964 * t * t * t -
-    0.000023857 * t * t * t * t;
+    5028.796195 * t + 1.1054348 * t * t + 0.00007964 * t * t * t - 0.000023857 * t * t * t * t;
   return arcSeconds / 3600;
 }
 
@@ -43,10 +40,7 @@ export function lahiriAyanamsa(decimalYear: number): number {
  * 回归黄经 → 恒星黄经（Vedic 口径）。
  * sidereal = tropical − ayanamsa，归一化到 [0, 360)。
  */
-export function tropicalToSidereal(
-  tropicalLongitude: number,
-  ayanamsaDegrees: number,
-): number {
+export function tropicalToSidereal(tropicalLongitude: number, ayanamsaDegrees: number): number {
   if (!Number.isFinite(tropicalLongitude) || !Number.isFinite(ayanamsaDegrees)) {
     throw new Error('黄经与 Ayanamsa 必须是有限数字。');
   }

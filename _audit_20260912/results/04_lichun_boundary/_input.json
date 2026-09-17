@@ -1,0 +1,17 @@
+{
+  "id": "04_lichun_boundary",
+  "desc": "立春交接日 1992-02-04·成都",
+  "req": {
+    "gender": "female",
+    "year": 1992,
+    "month": 2,
+    "day": 4,
+    "dateType": "solar",
+    "birthHour": 21,
+    "birthMinute": 30,
+    "birthPlace": "成都",
+    "birthLongitude": 104.066,
+    "timezone": 8,
+    "useTrueSolarTime": true
+  }
+}

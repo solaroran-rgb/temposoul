@@ -80,10 +80,7 @@ function parseEnabledLocales(env?: AiEnv): Set<string> {
 }
 
 // 术语注入（决策 A）：扫描输入中出现的 tier1 术语，注入「zh→目标语言」对照表（动态 import 控包体）
-async function buildTermInjection(
-  inputText: string,
-  locale: SupportedAiLocale,
-): Promise<string> {
+async function buildTermInjection(inputText: string, locale: SupportedAiLocale): Promise<string> {
   if (locale === 'zh-CN') return '';
   const { TERMS_7LANG } = await import('../../data/terms-7lang');
   const matched: Array<{ term: string; key: string; target: string }> = [];
@@ -137,9 +134,7 @@ export async function handleAiAnalyze(request: Request, env?: AiEnv): Promise<Re
       supported: SUPPORTED_AI_LOCALES as readonly string[],
     });
   }
-  const locale: SupportedAiLocale = rawLang
-    ? (rawLang as SupportedAiLocale)
-    : 'zh-CN';
+  const locale: SupportedAiLocale = rawLang ? (rawLang as SupportedAiLocale) : 'zh-CN';
   // 受限翻译档（决策 A）：mode=translate 时 temperature 固定 0（BP4）
   const translationMode = body.mode === 'translate';
   if (translationMode) {
@@ -212,14 +207,9 @@ export async function handleAiAnalyze(request: Request, env?: AiEnv): Promise<Re
 
   const baseSystemPrompt = isMultiTurn ? SYSTEM_PROMPT_CHAT : SYSTEM_PROMPT_SINGLE;
   const languageDirective =
-    locale !== 'zh-CN' && !translationMode
-      ? ` 请全程使用${LOCALE_LABELS[locale]}撰写解读。`
-      : '';
+    locale !== 'zh-CN' && !translationMode ? ` 请全程使用${LOCALE_LABELS[locale]}撰写解读。` : '';
   const termInjection = translationMode
-    ? await buildTermInjection(
-        chatMessages.map((message) => message.content).join('\n'),
-        locale,
-      )
+    ? await buildTermInjection(chatMessages.map((message) => message.content).join('\n'), locale)
     : '';
   const systemPrompt = translationMode
     ? buildTranslateSystemPrompt(translateLayer, locale, termInjection)
@@ -289,32 +279,32 @@ export async function handleAiAnalyze(request: Request, env?: AiEnv): Promise<Re
           if (!trimmed || !trimmed.startsWith('data:')) continue;
 
           const data = trimmed.slice(5).trim();
-        if (data === '[DONE]') {
-          if (tagFilter) {
-            const tail = tagFilter.flush();
-            if (tail) {
-              await writer.write(
-                encoder.encode(`data: ${JSON.stringify({ content: tail })}\n\n`),
-              );
+          if (data === '[DONE]') {
+            if (tagFilter) {
+              const tail = tagFilter.flush();
+              if (tail) {
+                await writer.write(
+                  encoder.encode(`data: ${JSON.stringify({ content: tail })}\n\n`),
+                );
+              }
             }
+            await writer.write(encoder.encode('data: [DONE]\n\n'));
+            continue;
           }
-          await writer.write(encoder.encode('data: [DONE]\n\n'));
-          continue;
-        }
 
-        try {
-          const parsed = JSON.parse(data);
-          const delta = parsed?.choices?.[0]?.delta?.content;
-          if (typeof delta === 'string' && delta) {
-            const text = tagFilter ? tagFilter.push(delta) : delta;
-            if (text) {
-              const payload = JSON.stringify({ content: text });
-              await writer.write(encoder.encode(`data: ${payload}\n\n`));
+          try {
+            const parsed = JSON.parse(data);
+            const delta = parsed?.choices?.[0]?.delta?.content;
+            if (typeof delta === 'string' && delta) {
+              const text = tagFilter ? tagFilter.push(delta) : delta;
+              if (text) {
+                const payload = JSON.stringify({ content: text });
+                await writer.write(encoder.encode(`data: ${payload}\n\n`));
+              }
             }
+          } catch {
+            // 忽略无法解析的行
           }
-        } catch {
-          // 忽略无法解析的行
-        }
         }
       }
 
@@ -341,9 +331,7 @@ export async function handleAiAnalyze(request: Request, env?: AiEnv): Promise<Re
           } else if (data === '[DONE]' && tagFilter) {
             const tail = tagFilter.flush();
             if (tail) {
-              await writer.write(
-                encoder.encode(`data: ${JSON.stringify({ content: tail })}\n\n`),
-              );
+              await writer.write(encoder.encode(`data: ${JSON.stringify({ content: tail })}\n\n`));
             }
           }
         }

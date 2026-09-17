@@ -14,9 +14,12 @@ export function NebulaOverlay() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
     let raf = 0;
-    let w = 0, h = 0;
+    let w = 0,
+      h = 0;
     const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-    const reduced = typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const reduced =
+      typeof window.matchMedia === 'function' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // 确定性星云团（种子固定 → 每次渲染一致；集中画面上部 70%）
     const blobs = Array.from({ length: 16 }, (_, i) => ({
@@ -24,12 +27,13 @@ export function NebulaOverlay() {
       y: 0.03 + (((i * 73.7) % 46) / 100) * 0.46,
       r: 0.16 + (((i * 31.4) % 42) / 100) * 0.34,
       hue: 188 + ((i * 47) % 52), // 青蓝 188 → 深蓝 240
-      a: 0.10 + (((i * 17) % 28) / 100) * 0.16,
+      a: 0.1 + (((i * 17) % 28) / 100) * 0.16,
       drift: 0.2 + ((i * 11) % 20) / 100,
       squash: 0.5 + ((i * 13) % 30) / 100,
     }));
 
     function resize() {
+      if (!canvas || !ctx) return;
       w = canvas.clientWidth || window.innerWidth;
       h = canvas.clientHeight || window.innerHeight;
       canvas.width = Math.max(1, Math.floor(w * dpr));
@@ -38,6 +42,7 @@ export function NebulaOverlay() {
     }
 
     function frame(now: number) {
+      if (!canvas || !ctx) return;
       const t = now / 1000;
       ctx.clearRect(0, 0, w, h);
       // 上部深空微光（左上为主，jinan-v2 星云偏上）
@@ -71,8 +76,11 @@ export function NebulaOverlay() {
         ctx.beginPath();
         ctx.moveTo(-20, hy + 8 + k * 10);
         for (let x = 0; x <= w + 24; x += 24) {
-          const y = hy + Math.sin(x * 0.008 + t * 0.1 + k * 1.9) * 16
-            + Math.sin(x * 0.021 - t * 0.06 + k) * 9 + k * 6;
+          const y =
+            hy +
+            Math.sin(x * 0.008 + t * 0.1 + k * 1.9) * 16 +
+            Math.sin(x * 0.021 - t * 0.06 + k) * 9 +
+            k * 6;
           ctx.lineTo(x, y);
         }
         ctx.lineTo(w + 20, h + 60);
@@ -90,8 +98,8 @@ export function NebulaOverlay() {
       ctx.save();
       for (let i = 0; i < 26; i++) {
         const px = ((i * 61.8 + t * 4) % (w + 60)) - 30;
-        const py = h * (0.32 + ((i * 37.3) % 22) / 100 * 0.24);
-        ctx.fillStyle = `rgba(120,225,255,${0.10 + ((i * 13) % 12) / 100 * 0.12})`;
+        const py = h * (0.32 + (((i * 37.3) % 22) / 100) * 0.24);
+        ctx.fillStyle = `rgba(120,225,255,${0.1 + (((i * 13) % 12) / 100) * 0.12})`;
         ctx.fillRect(px, py, 1.4, 1.4);
       }
       ctx.restore();
@@ -101,7 +109,11 @@ export function NebulaOverlay() {
 
     resize();
     window.addEventListener('resize', resize);
-    if (reduced) { frame(0); } else { raf = requestAnimationFrame(frame); }
+    if (reduced) {
+      frame(0);
+    } else {
+      raf = requestAnimationFrame(frame);
+    }
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener('resize', resize);
@@ -112,7 +124,14 @@ export function NebulaOverlay() {
     <canvas
       ref={ref}
       aria-hidden
-      style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', zIndex: 5, pointerEvents: 'none' }}
+      style={{
+        position: 'absolute',
+        inset: 0,
+        width: '100%',
+        height: '100%',
+        zIndex: 5,
+        pointerEvents: 'none',
+      }}
     />
   );
 }

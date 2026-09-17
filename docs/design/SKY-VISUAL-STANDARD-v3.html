@@ -1,0 +1,515 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tempo Soul 首页视觉规格书 v3.0c（审计回应版）· 批次 520-C</title><style>
+:root{--bg:#070a0d;--panel:#0d1318;--line:#1c2830;--fg:#c6d4d8;--dim:#7c8f97;
+--acc:#7fe6ea;--neon:#39FF14}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font:15px/1.85 -apple-system,"Segoe UI","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:56px 32px 120px}
+h1{font-size:29px;line-height:1.4;color:#eaf4f6;margin:0 0 6px;letter-spacing:.01em;
+border-bottom:2px solid var(--acc);padding-bottom:20px}
+h2{font-size:21px;color:var(--acc);margin:52px 0 16px;padding-left:12px;
+border-left:4px solid var(--acc);letter-spacing:.02em}
+h3{font-size:17px;color:#a9dfe3;margin:32px 0 12px}
+h4{font-size:15px;color:#8fc8cd;margin:22px 0 10px}
+p{margin:12px 0}
+strong{color:#eaf4f6;font-weight:600}
+em{color:var(--dim);font-style:normal}
+.neon{color:var(--neon);font-weight:600;text-shadow:0 0 12px rgba(57,255,20,.28)}
+.arw{color:var(--acc);font-weight:700;padding:0 2px}
+code{background:#0f1a20;color:#8fe9d0;padding:2px 6px;border-radius:4px;
+font-family:Consolas,"Cascadia Mono",monospace;font-size:13px}
+pre.code{background:#080e12;border:1px solid var(--line);border-left:3px solid var(--acc);
+border-radius:8px;padding:18px 20px;overflow-x:auto;color:#9dc6cd;
+font-family:Consolas,"Cascadia Mono",monospace;font-size:12.5px;line-height:1.7}
+blockquote{margin:18px 0;padding:14px 20px;background:#0e1519;border-left:3px solid #d9a23c;
+border-radius:0 8px 8px 0;color:#cbb98c;font-size:14px}
+blockquote p{margin:9px 0}
+blockquote .bq-h{font-size:17px;font-weight:700;color:#f0c76a;margin:4px 0 10px;
+padding-bottom:8px;border-bottom:1px solid #2b2417}
+/* 引用块内的表格：融入块背景，去掉外框 */
+blockquote .bq-tw{margin:12px 0;border-color:#2b2417;background:#0b1116}
+blockquote .bq-tw table{background:transparent;font-size:13.5px}
+blockquote .bq-tw th{background:#111a20;color:#e3c98a}
+blockquote .bq-tw td{border-bottom-color:#161f26}
+blockquote .bq-tw tr:hover td{background:#101a20}
+blockquote table strong{color:#f2d99b}
+blockquote .neon{color:var(--neon)}
+hr{border:0;border-top:1px solid var(--line);margin:44px 0}
+.tw{overflow-x:auto;margin:20px 0;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:14px;background:var(--panel)}
+th{background:#101a20;color:var(--acc);font-weight:600;text-align:left;
+padding:12px 14px;border-bottom:1px solid var(--line)}
+td{padding:11px 14px;border-bottom:1px solid #131d23;vertical-align:top}
+tr:last-child td{border-bottom:0}
+tr:hover td{background:#0f171d}
+ul,ol{margin:12px 0;padding-left:24px}li{margin:7px 0}
+.tag{display:inline-block;background:#10201a;color:var(--neon);border:1px solid #1f3a28;
+border-radius:999px;padding:2px 11px;font-size:12px;margin-bottom:14px}
+.foot{margin-top:66px;padding-top:22px;border-top:1px solid var(--line);color:#5d7078;font-size:12.5px}
+</style></head><body><div class="wrap"><div class="tag">视觉规格书 v3.0c · 审计回应版 · 2026-09-16</div><h1>Tempo Soul 首页视觉规格书 v3.0（整合版）</h1>
+<blockquote><p><strong>本文档地位</strong>：<code>/sky</code> 首页视觉的<strong>唯一权威</strong>（single source of truth）。</p>
+<p><strong>取代</strong>：<code>SKY-VISUAL-STANDARD-v2.md</code>（构图/色彩/亮度/判据全体继承并修订）、<code>SKY-VISUAL-SPEC-v1.md</code>、<code>SKY-STYLE-DNA-v1.md</code>、<code>SKY-VISUAL-SPEC-v1-ADDENDUM-80-20.md</code>（历史依据）。</p>
+<p><strong>新增吸收</strong>：老板《Tempo Soul 首页视觉规格书 V1.0》（2026-09-16）+ 批次 510 样张实测修正。</p>
+<p><strong>建档</strong>：可吉（WorkBuddy）｜<strong>日期</strong>：2026-09-16｜<strong>批次</strong>：520</p>
+<p><strong>上位纪律</strong>：真实数据管线红线不得触碰；未验收不得部署线上。</p></blockquote>
+<hr>
+<h2>0. 一句话结论</h2>
+<p><span class="neon">把 <code>/sky</code> 首屏从「3D 城市场景」重新定义为「真实地理数据驱动的分层视觉合成系统」——这是正确的。但本批实测挖出了更根本的一件事：项目内部冻结的构图基线 CT-1，是老板参考图（ref-c）下半部被纵向压缩到 73.8% 的版本（两图上 48.8% 逐像素最大差仅 10，属 JPEG 噪声量级；下 51.2% 呈严格仿射关系 y=1.355x−344）。此后三个独立批次（440 / 480 / 490）、数千次迭代，全部在追这个被压缩过的靶子 —— 而且用错的判据把「城市带偏暗」判成了「城市带超亮」，修复方向整体反了。</span></p>
+<p><strong>一句话根因</strong>：<span class="neon"><strong>靶子被改过，而且判据口径跟着一起错。</span></strong> 与技术能力无关。</p>
+<blockquote><p><strong>⚠️ 本结论的证据等级与裁决状态（v3.0c 审计修正）</strong></p>
+<p>该结论现为 <strong>E1（本端可复现实测，方向经 falsify 检验）</strong>，<strong>尚非 E0</strong>（E0 需要独立复核或老板确认）。它<strong>不依赖时间戳</strong>：方向性由「信息损失不可逆」检验确定 —— 5 种标准重采样核中最好的一个（LANCZOS）也只能从 CT-1 复原 ref-c 的 <strong>92.5%</strong> 细节，且下半部逐像素最大差达 <strong>243</strong>（远超「纯重编码」的色差量级），反命题被 falsify。</p>
+<p><strong>但「压缩是有意修改还是无意走样」这一点，文件本身无法回答 —— 只有老板能（§21 Q0）。</strong> 在 Q0/Q1 答复前，本文档凡由 ref-c 导出的全部阈值一律标记为<strong>「临时口径」</strong>（见 §1.4 与 §19.6）。</p></blockquote>
+<hr>
+<h2>1. 文档地位与版本谱系</h2>
+<h3>1.1 本文件是唯一权威</h3>
+<p>本文档是 <code>/sky</code> 首页视觉的 <strong>single source of truth</strong>。任何与本文件冲突的既有文档、代码注释、历史截图说明，<strong>以本文件为准</strong>。</p>
+<h3>1.2 版本谱系（谁被谁取代）</h3>
+<div class="tw"><table><thead><tr><th>文档</th><th>状态</th><th>处置</th></tr></thead><tbody><tr><td><code>SKY-VISUAL-STANDARD-v2.md</code>（CT-1 冻结版）</td><td><strong>降级为历史冻结基线</strong></td><td>其 §1 北极星、§5 亮度体系、§6 元素模块、§7 风格基因 S1–S14、§8 排印、§12 红线 <strong>全数继承</strong>；其 §3 构图（CT-1 = 68.01%）<strong>被本文 §7 的 CT-2 取代</strong>，CT-1 资产本身<strong>不得删除、不得覆盖</strong></td></tr><tr><td><code>SKY-VISUAL-SPEC-v1.md</code></td><td>已被 v2 取代，v2 已被本文取代</td><td>保留为档案；其中 §3「亮度层级 L0–L5」是参数推导源，<strong>继续有效</strong></td></tr><tr><td><code>SKY-STYLE-DNA-v1.md</code></td><td>被继承</td><td>§1 风格基因 S1–S14、§3 嫁接矩阵 <strong>全数有效</strong></td></tr><tr><td><code>SKY-VISUAL-SPEC-v1-ADDENDUM-80-20.md</code></td><td><strong>部分废止</strong></td><td>其「天 80 / 地 20」构图 <strong>废止</strong>（与 CT-2 的 57 / 43 冲突）；其 §3 能量连接场、§4 地标可辨识度约束、§8 判据 V19–V28 <strong>继续有效</strong></td></tr><tr><td>老板《Tempo Soul 首页视觉规格书 V1.0》（2026-09-16）</td><td><strong>主体采纳</strong>，8 处修正</td><td>见 §2 审计总表</td></tr></tbody></table></div>
+<h3>1.3 上位纪律（不可触碰）</h3>
+<ol><li><strong>真实数据管线红线</strong>：禁止回归 AI 猜图 / AI 生图静态方案；禁止以位图整幅贴图作为默认路径。</li><li><strong>未验收不得部署线上</strong>。</li><li><strong>不得删除基准资产</strong>：<code>docs/design/</code> 下全部基准图、<code>D:\专家论证稿\</code>、AI 地图主文件。</li><li><strong>不得以「待老板确认的口径」签发硬判据</strong>（v3.0c 新增）。任何阈值在被确认前，必须显式标注「临时口径」，且不得用它做出「达标 / 不达标」的终局判决。</li></ol>
+<h3>1.4 证据等级与复核制度（v3.0c 新增 · 制度性修复）</h3>
+<blockquote><p><strong>本节的由来</strong>：v3.0 在 §2 写下「实测证据 &gt; 老板原文 &gt; 既有规范 &gt; 我的推断」，但「本端实测」恰恰是<strong>我自己做的实验</strong> —— 等于把「我的推断」换了个名字排到第二位。这构成一个循环：<strong>用自己未复核的实测去推翻别人的说法，再用「实测优先」这条自己定的规则为自己背书。</strong> 本节把这个漏洞制度化堵住。</p></blockquote>
+<div class="tw"><table><thead><tr><th>等级</th><th>定义</th><th>可否用于推翻他人结论</th><th>可否写入硬判据</th></tr></thead><tbody><tr><td><strong>E0</strong></td><td>有<strong>确定性脚本</strong> + 原始资产 + <strong>第三方（含老板）复现成功</strong></td><td>✅ 可以</td><td>✅ 可以</td></tr><tr><td><strong>E1</strong></td><td>有确定性脚本 + 原始资产，<strong>本端单方复现</strong>（无外部复核）</td><td>✅ 可以（但须标 E1）</td><td>⚠️ <strong>仅可作「临时口径」</strong>，须同步给出复核路径</td></tr><tr><td><strong>E2</strong></td><td>估算 / 类比推理 / 未跑脚本的肉眼判断</td><td>❌ 不可以</td><td>❌ 不可以</td></tr><tr><td><strong>E3</strong></td><td>我的推断、记忆、直觉</td><td>❌ 不可以</td><td>❌ 不可以</td></tr></tbody></table></div>
+<p><strong>强制要求（写入流程，不写在别处）</strong>：</p>
+<ol><li><strong>每一处关键测量必须注明</strong>：① 脚本路径 ② 输入资产路径（含哈希）③ 随机性（确定性 / 种子）④ 证据等级 ⑤ <strong>复核路径</strong>（谁能怎样复现）。</li><li><strong>关键测量清单</strong>（下列 5 项为「靶子级」测量，改一项等于改整张判据表）：</li></ol>
+<ul><li>两图地平线位置｜ref-c 三区 mean｜下半部仿射参数｜p99.9 与近白占比｜层面积配额</li></ul>
+<ol><li><strong>「靶子级」测量在 E0 之前不得单独支撑终局判决</strong>；可写为<strong>趋势判决</strong>（偏高 / 偏低 / 方向反转），不得写为<strong>精确倍数判决</strong>（见 §19.6 稳定域）。</li><li><strong>自我纠错同样需要外部校验</strong>：§2.4 所列「被实测推翻的结论」全部出自本端前批结论，属 E1 自纠。<strong>每条自纠须附「外部可复核的最小步骤」</strong>，否则降级为「待复核」。</li></ol>
+<blockquote><p><strong>本次已执行</strong>：§3.1c 的基准链溯源已按本节要求补齐脚本与证据等级，脚本 <code>proto2d/verify_baseline_chain.py</code>（确定性、无随机），输出 <code>assets-520/verify-baseline-chain.json</code> + <code>.log.txt</code> + <code>VERIFY-baseline-chain.png</code>，<strong>复核路径见 §3.1e</strong>。</p></blockquote>
+<hr>
+<h2>2. 审计总表：老板 V1.0 规格书 × 既有规范 × 实测证据</h2>
+<blockquote><p><strong>审计口径（v3.0c 修订）</strong>：<strong>E0 实测 &gt; 老板原文 &gt; 既有规范 &gt; E1 本端实测 &gt; E2/E3 推断</strong>。</p>
+<p><strong>修订说明</strong>：v3.0 原文写的是「实测证据 &gt; 老板原文 &gt; 既有规范 &gt; 我的推断」，其中「实测证据」被隐含等同为 E0。但本批全部实测均为<strong>本端单方复现（E1）</strong>，把它排在老板原文之上，等于「用自己的实验推翻老板、再用自己定的规则背书」。现改为：<strong>E1 本端实测与老板原文并列，冲突时不自行判决，走 §21 开放问题。</strong>（老板原文若被 E1 实测挑战，须在 §21 立 Q，不得在正文直接推翻。）</p>
+<p><strong>本节状态</strong>：§2.1–§2.4 的条目本身<strong>不变</strong>，但其「依据」列的等级按 §1.4 重新标注。</p></blockquote>
+<h3>2.1 采纳（12 条 · 直接成为 v3 正文）</h3>
+<div class="tw"><table><thead><tr><th>#</th><th>老板 V1.0 条目</th><th>采纳理由</th></tr></thead><tbody><tr><td>1</td><td>页面定义为「实时视觉场景」而非「3D 城市」</td><td>与 500/510 批实测结论一致；单相机追不出目标构图</td></tr><tr><td>2</td><td><strong>7 层结构必须独立控制</strong>，不做成一个 3D Scene</td><td>510 批实测：样张可分离出 <strong>9 层</strong>，层间零依赖 <span class="arw">⇒</span> 工程上成立</td></tr><tr><td>3</td><td>「不还原参考图，只继承构图 / 光线 / 气质 / 线条语言」</td><td>这是全篇最重要的一句，直接解掉「1:1 与红线互斥」的死结</td></tr><tr><td>4</td><td>星空必须真实天文计算（位置+时间+算法），禁随机撒点 / 禁图</td><td>项目已有 Astronomical Engine，属继承而非新建</td></tr><tr><td>5</td><td>地平线辉光是<strong>视觉锚点</strong>，且「极薄、极柔、不形成明显横线」</td><td>与 v2 §3.6 已知残留（辉光带）一致，v3 定为必须解决项</td></tr><tr><td>6</td><td>城市表现 = 高度 + 轮廓 + 极细线 + 局部辉光，<strong>不需要完整实体</strong></td><td>直接推翻 480 批「5803 栋实体化」的错误路线</td></tr><tr><td>7</td><td>权重表：构图 ★5 / 氛围 ★5 / 轮廓 ★4 / 真实数据 ★4 / <strong>建筑细节 ★2 / 真实 3D ★1</strong></td><td>这张权重表是资源分配的唯一依据，写进 §9 作为调参优先级</td></tr><tr><td>8</td><td>城市肌理 = 「地图 × 星图 × 建筑线稿 × 粒子艺术」，禁 Google Maps / 3D 游戏感</td><td>与 §12 硬禁令一致</td></tr><tr><td>9</td><td><strong>数据真实，表现艺术化</strong>（允许非线性视觉映射，不得虚构建筑）</td><td>推翻我 500 批自设的「尺度天花板」约束 —— 老板是对的</td></tr><tr><td>10</td><td>小城市三级降级（真实建筑 → 真实路网+地形 → 抽象粒子结构）</td><td>诸暨实测（8km 内仅 10 栋建筑）证明这是必需品，不是可选项</td></tr><tr><td>11</td><td>双引擎架构：Astronomical Engine + Geo-Luminous Engine + Visual Engine</td><td>与项目现有模块边界吻合</td></tr><tr><td>12</td><td><strong>POC 五问验收</strong>（像不像那个世界 / 人在宇宙中 / 真实城市 / 生命节律 / 有无游戏赛博朋克感）</td><td>用「人的眼睛」替代「机器数字」，正是 440 事故的根治药</td></tr></tbody></table></div>
+<h3>2.2 修正（8 条 · 采纳其意，改其形）</h3>
+<div class="tw"><table><thead><tr><th>#</th><th>老板 V1.0 写法</th><th>v3 修正后</th><th>依据</th></tr></thead><tbody><tr><td>M1</td><td>「双视点合成是最值得保留的核心」</td><td><span class="neon"><strong>降级为「结果」，不是「核心」。</strong></span> 正确表述：<strong>每层只保留一个投影假设</strong>，⑦⑧ 拆成两个独立图层后，「双视点」自然涌现 —— <strong>不需要「相机」这个概念存在</strong>。把它当核心追，就会重回「怎么让一台相机同时做两件事」的死循环</td><td>510 批；我的 v3/v4 原型正是死于此</td></tr><tr><td>M2</td><td>「荧光<strong>粒子</strong>视觉世界」</td><td>精确为 <strong>线框 + 稀点光 + Bloom</strong>。城市主体是<strong>连续线框</strong>不是散点</td><td>实测：样张 ⑦城市天际线 12.7% + ⑧城市肌理 33.6% = <strong>46.3% 是连续结构</strong>，非点云</td></tr><tr><td>M3</td><td>§20 技术栈「Three.js + WebGL」</td><td>方向对，但<span class="neon"><strong>阶段 0 用不上 Three.js</strong></span>。阶段 0 是纯 2D 图层合成（Python/numpy 即可）。引入 3D 引擎会让人本能去建 3D 场景 —— <strong>那正是卡死机制本身</strong></td><td>500 批实验：v3 单相机原型失败、v4 分层原型骨架成立</td></tr><tr><td>M4</td><td>§12「Glow 宁可弱，不要强」</td><td><strong>加限定条件</strong>：弱的是 <strong>Glow 半径与溢散</strong>，不是结构层亮度。样张实测下半区<strong>平均亮度 34.9 / p95 94.0 / 63.6% 像素 &gt; 20</strong> —— 它是「<strong>亮而细</strong>」，不是「暗而糊」。我 480/490 批按「暗而糊」做，方向反了</td><td>510 批实测</td></tr><tr><td>M5</td><td>§22「天空占 50–60%」</td><td>采纳，但必须<strong>同步裁定与 CT-1（68.01%）的冲突</strong> → 定义新模板 <strong>CT-2</strong>，地平线 <strong>56 ± 2%</strong>。详见 §7</td><td>实测：老板参考图地平线 <strong>56.2%</strong>，落在 50–60% 内，与其 V1.0 自洽；与 CT-1 不自洽</td></tr><tr><td>M6</td><td>§26「三天 POC」</td><td><strong>移出规范</strong>（规范不写工期），改写入执行计划 §19–§21，并拆成 <strong>Day 1/2/3 可验收的层</strong></td><td>工期属计划域，不属标准域</td></tr><tr><td>M7</td><td>§25「第一阶段砍掉 GPS / IP 定位」</td><td>阶段 0 采纳；但<span class="neon"><strong>项目现有 IP→坐标 L1 链路不得删除、不得改动</strong></span>，只是阶段 0 不接入</td><td>已有能力；「砍掉」应读作「暂不接入」，不是「拆掉」</td></tr><tr><td>M8</td><td>§18「可以把 10/20/30 映射成 10/25/50」</td><td>采纳原则，<strong>但必须落成代码约束</strong>（每图元带 <code>source</code> 字段），不能只是口头原则；否则「艺术合成引擎」会自然滑向「我画了一张好看的黑青插画」= 手绘 / AI 生图，<strong>再次触红线</strong></td><td>510 批 §补充1</td></tr></tbody></table></div>
+<blockquote><p><span class="neon"><strong>关于 M1 / M2 / M4 的等级声明（v3.0c）</strong>：这三条是用<strong>本端 E1 实测</strong>去修改老板 V1.0 原文的<strong>表述</strong>。按 §2 修订后的口径，E1 不得直接推翻老板原文 —— 故这三条定位为「<strong>表述修正</strong>」而非「结论推翻」：它们没有改变老板的<strong>意图</strong>，只是把表述精确到可实现的层级（M1：双视点由「核心」变「结果」；M2：粒子由「散点」精确为「线框+稀点光」；M4：弱化的是「Glow 半径」而非「结构亮度」）。<strong>若老板认为这三条改动有违本意，请在 §21 立 Q 覆写。</strong></span></p></blockquote>
+<h3>2.3 驳回（2 条）</h3>
+<div class="tw"><table><thead><tr><th>#</th><th>条目</th><th>驳回理由</th></tr></thead><tbody><tr><td>R1</td><td>§3「不要明显的银河 / 不要大面积紫红」 → 若读作「<strong>完全不要星云层</strong>」</td><td>实测样张存在第 ② 层「星野·银河雾」占 <strong>1.0%</strong> 面积。<strong>驳回「完全不要」，保留「极弱、只作背景存在」的原文限定</strong></td></tr><tr><td>R2</td><td>§20「不建议把 Cesium 作为核心渲染器」 → 若读作「Cesium 完全不可用」</td><td>Cesium <strong>不用于首屏渲染</strong>是对的；但它可作为<strong>离线数据生产工具</strong>（地形/影像瓦片处理）候选之一。<strong>驳回「完全不可用」，保留「不作核心渲染器」</strong></td></tr></tbody></table></div>
+<h3>2.4 既有规范中被实测推翻的结论（必须作废）</h3>
+<blockquote><p>本表全部条目均为 <strong>E1（本端自纠）</strong> —— 即「我推翻我自己前批的结论」。按 §1.4 纪律 4，每条附「外部复核路径」。<strong>这些自纠本身不享受 E0 待遇。</strong></p></blockquote>
+<div class="tw"><table><thead><tr><th>结论</th><th>出处</th><th>实测</th><th>外部复核路径</th><th>处置</th></tr></thead><tbody><tr><td>地平线在 <strong>69.76%</strong></td><td>480 批及之前的误读</td><td>该值来自<strong>标注面板的拼接缝</strong>（相邻行均值跳变最大处 50.88%，幅度 100.97）。<span class="neon"><strong>v3.0c 更正归属：这条缝属于 <code>SKY-BASELINE-CT1-annotated.png</code>（2580×969 = 1920 画面 + 660 面板），不属于 ref-c。</strong></span> ref-c（7.11）与 CT-1（7.98）均无拼接缝</td><td>跑 <code>proto2d/verify_baseline_chain.py</code> §B；或直接量三图行跳变</td><td><span class="neon"><strong>作废。真值 56.2%（行剖面）/ 58.4%（梯度法）。</strong></span></td></tr><tr><td>「样张是<strong>暗色剪影</strong>，我在画灯珠，方向错了」</td><td>490 批我自己的结论</td><td>下半区 63.6% 像素亮度 &gt; 20、最大连续亮块 479,805px。样张是<strong>中高亮度、纹理极密的青蓝色连续结构</strong></td><td><code>zone_probe_ct2.py</code> / <code>decompose_layers.py</code></td><td><strong>作废。上一批我因此把城市做得更暗更糊，方向反了。</strong></td></tr><tr><td>「尺度天花板：诸暨最高 60m <span class="arw">⇒</span> 数学上做不出天际线」</td><td>500 批我自己的结论</td><td>「数据真实，视觉艺术化」允许非线性视觉高度映射</td><td>无需脚本，属原则性判断（E1→原则）</td><td><strong>降级为「物理真实天际线不成立」</strong>；Tempo Soul 不受此限</td></tr><tr><td>「双视点合成是核心技术」</td><td>500 / 510 批</td><td>拆层后每层只有一个投影假设</td><td><code>decompose_layers.py</code> 九层分离</td><td><strong>降级为结果描述</strong>，见 M1</td></tr></tbody></table></div>
+<hr>
+<h2>3. 基准资产裁定（本批最重要的一个决定）</h2>
+<h3>3.1 事实</h3>
+<div class="tw"><table><thead><tr><th>资产</th><th>尺寸</th><th>地平线（两法实测）</th><th>暖色（月）</th><th>来源</th></tr></thead><tbody><tr><td><strong>CT-1 冻结基线</strong></td><td>1920×969</td><td><strong>69.14%</strong> / 68.01%</td><td>0.0485%</td><td><code>docs/design/baseline/SKY-BASELINE-CT1.png</code></td></tr><tr><td><strong>老板参考图 ref-c</strong></td><td>1920×969</td><td><strong>58.41%</strong> / 56.2%</td><td>0.0485%</td><td><code>docs/design/redraw-20260914/_refs/ref-c-老板参考构图.jpg</code></td></tr><tr><td>老板 V1.0 §22 文字</td><td>—</td><td>「天空 50–60%」</td><td>—</td><td>2026-09-16 规格书</td></tr></tbody></table></div>
+<p><strong>三者中，老板 V1.0 的文字与自己的参考图（56–58%）自洽；CT-1（68–69%）是内部产物。</strong></p>
+<blockquote><p>两种测量法：<strong>行剖面法</strong>（找地平线辉光峰值）与<strong>梯度法</strong>（行均值上升斜率最大处）。两法在两张图上系统性相差约 1–2 个百分点，故每个值给出两法结果。CT-2 取值见 §3.2。</p></blockquote>
+<h3>3.1b 两靶的同口径硬对照（1920×969，CT-2 口径）</h3>
+<div class="tw"><table><thead><tr><th>指标</th><th>CT-1（旧靶）</th><th>ref-c（真实目标）</th><th>差异</th></tr></thead><tbody><tr><td>地平线</td><td>69.14%</td><td>58.41%</td><td><strong>−10.7 pt</strong></td></tr><tr><td>天空区 mean（0–54%）</td><td>7.96</td><td>8.06</td><td>+1.3% ✅ 基本一致</td></tr><tr><td><span class="neon"><strong>带区 mean（54–60%）</strong></span></td><td><span class="neon"><strong>10.54</strong></span></td><td><span class="neon"><strong>26.73</strong></span></td><td><span class="neon"><strong>+153.6%</strong></span></td></tr><tr><td><span class="neon"><strong>带区 &gt;20 亮度像素占比</strong></span></td><td><span class="neon"><strong>7.1%</strong></span></td><td><span class="neon"><strong>54.5%</strong></span></td><td><span class="neon"><strong>+47.4 pt</strong></span></td></tr><tr><td>地貌区 mean（60–100%）</td><td>30.69</td><td>35.27</td><td>+14.9%</td></tr><tr><td>纯黑 &lt;12</td><td>59.5%</td><td>54.4%</td><td>−5.1 pt</td></tr><tr><td>下半区青蓝（&gt;R+6 且 G&gt;R+2）</td><td>81.0%</td><td>89.2%</td><td>+8.2 pt</td></tr><tr><td>全域 mean</td><td>17.22</td><td>20.07</td><td>+16.6%</td></tr></tbody></table></div>
+<blockquote><p><strong>带区差异是这张表的核心</strong>：CT-1 的地平线在 68–69%，所以它的「54–60% 带区」<strong>仍然全是暗天空</strong>（mean 10.54、仅 7.1% 像素 &gt; 20）。而 ref-c 的地平线在 57–58%，同样的 54–60% 区间<strong>已经是真实城市</strong>（26.73、54.5% 像素 &gt; 20）。</p>
+<p><span class="neon"><strong>用 CT-1 当靶子测「带区」，等于拿天空去比城市。</strong></span></p></blockquote>
+<h3>3.1c 变形链溯源：CT-1 是 ref-c 下半部的纵向压缩版（v3.0c 重写 · 已补 falsify 检验）</h3>
+<blockquote><p><span class="neon"><strong>v3.0c 重写说明</strong>：v3.0 原文把「时间戳（16:33 → 16:39，+6 分钟）」当作主要证据。<strong>这条证据强度不足</strong> —— 文件 mtime 可被复制 / 导出 / 保存动作改写，它只能证明「同一会话内先后生成」，不能证明发生了「压缩」这个具体变换；而且仿射拟合本身对方向不敏感（无论谁是谁的缩放，都能拟合出高相关）。本节据此重写：<strong>以「信息损失不可逆」为主证据，时间戳降为旁证。</strong> 全部数据由 <code>proto2d/verify_baseline_chain.py</code> 确定性复算产出。</span></p></blockquote>
+<h4>① 事实一：上半部同源（逐像素）</h4>
+<div class="tw"><table><thead><tr><th>区段</th><th>逐像素最大差</th></tr></thead><tbody><tr><td>y &lt; 473px（&lt; 48.81%）</td><td><strong>10</strong>（JPEG 量化噪声量级）</td></tr><tr><td>y ≥ 473px（≥ 48.81%）</td><td><strong>243</strong>（内容已错位）</td></tr></tbody></table></div>
+<blockquote><p>v3.0 原文记「上半部最大差 = 0」。<strong>v3.0c 更正为 ≤ 10</strong> —— 原值系按 5% 间隔抽样测量所致（抽样带恰好避开了那几行），全行扫描后真实上界为 10。<strong>在 JPEG 噪声量级内，「同源」结论不变。</strong></p></blockquote>
+<h4>② 事实二：下半部呈严格纵向仿射</h4>
+<p>独立复算（枚举 <code>a∈[0.60,1.60]</code>、<code>b∈[−400,400]</code>，最小化下半部行剖面残差）：</p>
+<pre class="code">y(ref-c)px = 1.355 × y(CT-1)px − 344        （H = 969，行剖面残差 = 0.7793）
+等价：y(ref-c)% = 1.355 × y(CT-1)% − 35.5%
+反解：CT-1 下半部 = ref-c 下半部 × 0.7380（压缩到 73.8%）</pre>
+<blockquote><p>v3.0 原文记 <code>1.36 / −348</code>、73.5%。<strong>v3.0c 复算为 <code>1.355 / −344</code>、73.8%</strong> —— 差异来自步长（原步长 0.01，本次 0.005）与插值方式（本次用 <code>np.interp</code> 而非最近邻）。两版结论一致，<strong>本版为准</strong>。</p></blockquote>
+<h4>③ 事实三（新主证据）：<strong>信息损失不可逆 <span class="arw">⇒</span> 方向确定</strong></h4>
+<p>这是本次补上的、真正能 falsify 反命题的检验。设两个假说：</p>
+<ul><li><strong>H1</strong>：<code>CT-1下半部 = 降采样(ref-c下半部, 0.738)</code> —— ref-c 是源，CT-1 丢失细节</li><li><strong>H2</strong>：<code>ref-c下半部 = 升采样(CT-1下半部, 1.355)</code> —— CT-1 是源，ref-c 只是被拉大</li></ul>
+<p><strong>检验法</strong>：把 CT-1 下半块按各标准核放大回 ref-c 几何，看能否复现 ref-c。</p>
+<div class="tw"><table><thead><tr><th>重采样核</th><th>MAE(放大的CT-1, ref-c)</th><th>梯度能量比（vs ref-c）</th></tr></thead><tbody><tr><td>NEAREST</td><td>4.26</td><td>88.0%</td></tr><tr><td>BILINEAR</td><td>3.98</td><td>80.2%</td></tr><tr><td>BICUBIC</td><td>3.93</td><td>88.2%</td></tr><tr><td><strong>LANCZOS（最佳）</strong></td><td><strong>3.94</strong></td><td><strong>92.5%</strong></td></tr><tr><td>BOX</td><td>4.26</td><td>88.0%</td></tr></tbody></table></div>
+<p><span class="neon"><strong>5 种标准重采样核里最好的一个，也只能复原 ref-c 的 92.5% 细节。</strong></span></p>
+<ul><li>若 H2 成立，则<strong>必然存在</strong>某个核使放大结果 ≈ ref-c（比值应 ≈ 100%、MAE ≈ 0）—— 实测最高仅 92.5%。</li><li>且 CT-1 原始下半块的梯度能量（4.226）<strong>高于</strong> ref-c（3.934）：这是<strong>降采样</strong>的典型指纹（特征被压进更少像素 <span class="arw">⇒</span> 相邻像素差变大）。</li><li><span class="neon"><strong><span class="arw">⇒</span> H2 被 falsify，H1 是唯一成立的解释：CT-1 下半部 = ref-c 下半部的降采样产物。</strong></span></li></ul>
+<h4>④ 事实四（新）：排除「只是重新编码」</h4>
+<p>若 CT-1 只是 ref-c 的再编码（同尺寸、仅色差），下半部逐像素差应 &lt; 30。<strong>实测最大差 243 <span class="arw">⇒</span> 内容位置已改变 <span class="arw">⇒</span> 排除纯重编码。</strong>（这条同时回应审计意见 1 提出的「可能是导出工具的一次重新编码」假说。）</p>
+<h4>⑤ 旁证（非主证据）：时间戳与文件指纹</h4>
+<div class="tw"><table><thead><tr><th>项</th><th>ref-c</th><th>CT-1</th><th>CT-1-annotated</th></tr></thead><tbody><tr><td>格式 / 尺寸</td><td>JPG 1920×969</td><td>PNG 1920×969</td><td>PNG <strong>2580×969</strong></td></tr><tr><td>EXIF</td><td>空</td><td>空</td><td>空</td></tr><tr><td>ICC</td><td><strong>456B <code>sRGB</code> / <code>Google Inc. 2016</code></strong></td><td>无</td><td>无</td></tr><tr><td>mtime</td><td>16:33:46</td><td>16:39:53（+366s）</td><td>16:41:21（+88s）</td></tr></tbody></table></div>
+<blockquote><p><span class="neon"><strong>新发现（v3.0c）</strong>：ref-c 内嵌的 ICC profile 描述为 <code>sRGB</code>、info 含 <code>Google Inc. 2016</code> —— 这是 <strong>Chromium/Chrome 内嵌的 sRGB profile 指纹</strong> <span class="arw">⇒</span> ref-c 由 <strong>Chromium 系产出</strong>（浏览器截图 / 浏览器「另存图像」）。</span> <span class="neon"><strong>这意味着 ref-c 的 mtime 记录的是「保存动作」的时间，不是内容生成时间 —— 因此 mtime 单证不足以定方向（审计意见 1 成立）。</strong></span> 方向由 ③ 的信息损失检验确定。</p></blockquote>
+<h3>3.1e 复核路径（v3.0c 新增 · 按 §1.4 纪律 1）</h3>
+<div class="tw"><table><thead><tr><th>项</th><th>内容</th></tr></thead><tbody><tr><td><strong>脚本</strong></td><td><code>D:\workbuddy\2026-09-15-00-01-41\sky-build\proto2d\verify_baseline_chain.py</code></td></tr><tr><td><strong>输入</strong></td><td><code>docs/design/redraw-20260914/_refs/ref-c-老板参考构图.jpg</code>（262,699 B）&lt;br&gt;<code>docs/design/baseline/SKY-BASELINE-CT1.png</code>（1,626,873 B）&lt;br&gt;<code>docs/design/baseline/SKY-BASELINE-CT1-annotated.png</code>（1,807,857 B）</td></tr><tr><td><strong>随机性</strong></td><td><strong>无</strong>（全确定性计算，无抽样、无随机种子）</td></tr><tr><td><strong>输出</strong></td><td><code>docs/sky/assets-520/verify-baseline-chain.json</code>（全部数值）&lt;br&gt;<code>docs/sky/assets-520/verify-baseline-chain.log.txt</code>（全文报告）&lt;br&gt;<code>docs/sky/assets-520/VERIFY-baseline-chain.png</code>（证据图）</td></tr><tr><td><strong>复现命令</strong></td><td><code>&lt;python 3.13&gt; proto2d/verify_baseline_chain.py</code>（依赖 numpy / Pillow）</td></tr><tr><td><strong>当前等级</strong></td><td><strong>E1</strong> —— 待任一方复跑成功即升 E0</td></tr><tr><td><strong>要老板做的</strong></td><td>若您愿意，跑一次上面的命令并看一眼控制台 §D 段；或直接答复 §21 Q0</td></tr></tbody></table></div>
+<p>同一个脚本还顺带回答了审计意见 2 的两项（ref-c 纯净度、JPEG 量化敏感度），见 §3.1f。</p>
+<h3>3.1f 靶子纯净度与判据稳定性（v3.0c 新增 · 直接回应审计意见 2）</h3>
+<blockquote><p>审计指出两个隐患：<strong>(a)</strong> ref-c 疑似「画面 + 标注面板」复合 <span class="arw">⇒</span> 用作亮度基准会被污染；<strong>(b)</strong> V44/V45 的推导基于对一张 JPEG 的 p99.9 测量 <span class="arw">⇒</span> JPEG 量化本身会削峰，精确倍数不可靠。两项均已实查。</p></blockquote>
+<p><strong>(a) 拼接缝归属 —— v3.0 原文张冠李戴，已更正</strong></p>
+<div class="tw"><table><thead><tr><th>文件</th><th>尺寸</th><th>最大<strong>行</strong>跳变</th><th>最大<strong>列</strong>跳变</th></tr></thead><tbody><tr><td>ref-c</td><td>1920×969</td><td>7.11 @y=34.47%</td><td>10.11 @x=976</td></tr><tr><td>CT-1</td><td>1920×969</td><td>7.98 @y=88.44%</td><td>9.78 @x=976</td></tr><tr><td><span class="neon"><strong>CT-1-annotated</strong></span></td><td><span class="neon"><strong>2580×969</strong></span></td><td><span class="neon"><strong>100.97 @y=50.88%</strong></span></td><td><span class="neon"><strong>51.00 @x=1921</strong></span></td></tr></tbody></table></div>
+<p><span class="neon"><strong>结论：那条「50.9% 拼接缝」属于 <code>SKY-BASELINE-CT1-annotated.png</code>，不属于 ref-c。</strong></span> 该文件是 <strong>2580 = 1920（画面）+ 660（标注面板）的横向复合图</strong>：列均值在 <code>x=1919→1920</code> 处由 12.83 跳到 60.00（面板左边框），面板底色 9.00–12.30。<strong>50.88% 的强行跳变由面板内容在纵向上的起止造成，与画面地平线无关。</strong> 历史「地平线 69.76%」正是在这张 2580px 复合图上误测的 —— 这解释了该错误的确切来源。</p>
+<p><strong><span class="arw">⇒</span> v3.0 原 D13「ref-c 在 50.9% 处有拼接缝」为错误归属，已在 §23.3 更正。</strong></p>
+<p><strong>(b) ref-c 纯净度四查 —— 全部通过</strong></p>
+<div class="tw"><table><thead><tr><th>查项</th><th>方法</th><th>实测</th><th>判定</th></tr></thead><tbody><tr><td>上下边带 UI 条</td><td>行标准差（UI 条带=极低）</td><td>上 5% 带 3.98（min 2.47）/ 下 5% 带 36.49 vs 全图 18.96</td><td>✅ 无条带</td></tr><tr><td>左右边带滚动条</td><td>列标准差</td><td>左 3% 6.80（min 5.85）/ 右 3% 6.79 vs 全图 22.5</td><td>✅ 无滚动条</td></tr><tr><td>纯色面板底</td><td>最长「同值水平游程」（阈值 25% 宽）</td><td>318px = <strong>16.56%</strong> @y=9.39%</td><td>✅ 无面板</td></tr><tr><td>四角 logo / 水印</td><td>6% 方块亮度统计</td><td>TL max 2.7 / TR max 2.0（纯黑，且 std 0.2–0.3）</td><td>✅ 无浮层</td></tr></tbody></table></div>
+<p><span class="neon"><strong><span class="arw">⇒</span> ref-c 是单幅画面，不含标注面板 / UI 控件。§19 全部由 ref-c 导出的基准值未被污染，审计意见 2(a) 的风险排除。</strong></span></p>
+<p><strong>(c) JPEG 量化敏感度 —— 结论方向可信，但精确倍数不可写死</strong></p>
+<p>把 CT-1（PNG 无损）按各质量重编码后重测：</p>
+<div class="tw"><table><thead><tr><th>JPEG 质量</th><th>p99.9</th><th>Δp99.9</th><th>近白 <code>L&gt;200</code> 占比</th><th>Δ倍数</th></tr></thead><tbody><tr><td>95</td><td>163.00</td><td>+0.00</td><td>0.0071%</td><td>0.97×</td></tr><tr><td>90</td><td>163.33</td><td>+0.33</td><td>0.0074%</td><td>1.01×</td></tr><tr><td>80</td><td>163.33</td><td>+0.33</td><td>0.0075%</td><td>1.03×</td></tr><tr><td>70</td><td>163.67</td><td>+0.67</td><td>0.0078%</td><td>1.07×</td></tr><tr><td>50</td><td>163.00</td><td>+0.00</td><td>0.0082%</td><td><strong>1.12×</strong></td></tr></tbody></table></div>
+<p>对 ref-c（本身即 JPEG）重编码：p99.9 落在 164.0–165.67（Δ ≤ 1.34），近白占比 0.0060–0.0074%。</p>
+<p><span class="neon"><strong><span class="arw">⇒</span> JPEG 量化对 p99.9 与近白占比的影响仅为「个位数点位」量级，而 480 批与目标的差距是 ~70 点 / ~130 倍量级。判据方向与量级完全可信；但「134 倍」「18.8 倍」这类精确倍数不得写成硬阈值。</strong></span> §19.4b 的阈值已按此改为<strong>稳定域判据</strong>（见 §19.6）。</p>
+<h3>3.1d 这就是「两千次卡住」的真正根因</h3>
+<p><span class="neon"><strong>项目把老板的参考图下半部纵向压缩了 26.2%（压到 73.8%），并把这个压缩版冻结成「CT-1 基线」。此后 440 / 480 / 490 三个批次、数千次迭代，全部在追这个被压缩过的靶子。</strong></span></p>
+<blockquote><p><strong>⚠️ 两处必须由老板裁决、本端不得自行断定的地方（v3.0c 补）</strong></p>
+<ol><li><strong>意图未知</strong>：文件本身只能证明「发生了压缩」，<strong>不能证明这是有意修改还是无意走样</strong>（例如：某个上屏 / 截图 / 导出环节做了纵向适配，而产物被直接归档为基线）。<span class="neon"><strong>只有老板能回答（§21 Q0）。</strong></span></li><li><strong>若压缩是有意为之</strong>，则 CT-1 本身就是「老板要的效果」，全部判据须回 CT-1 口径重算 —— 这是一个会翻转所有数字的岔路，必须以 Q0 为唯一开关。</li></ol>
+<p>在 Q0 答复前：<strong>§19 全部阈值标记为「临时口径」，不得用于终局判决</strong>（详见 §19.6）。</p></blockquote>
+<p>三层错误叠加：</p>
+<div class="tw"><table><thead><tr><th>层</th><th>错误</th><th>后果</th></tr></thead><tbody><tr><td><strong>① 靶子被改</strong></td><td>CT-1 = ref-c 压缩到 73.8% <span class="neon">（<strong>是否为有意修改待 Q0 裁定</strong>）</span></td><td>若为无意走样：城市永远比老板要的矮 26.2%</td></tr><tr><td><strong>② 判据口径错</strong></td><td>用 CT-1 的 54–60% 带区（实际是暗天空，mean 10.54）去判定真实城市（ref-c 同区间 mean 26.73）</td><td>「带区超标 +74.7%」判决方向<strong>完全反了</strong></td></tr><tr><td><strong>③ 自我加强</strong></td><td>480 批据②继续把城市压暗、压扁（<code>winGain</code> 收敛、高度幂压缩、<code>TILE_Z_SCALE</code> 调整）</td><td>越修离目标越远</td></tr></tbody></table></div>
+<p><strong>证据图</strong>：<code>docs/sky/assets-520/PROOF-ct1-is-compressed-refc.png</code>（含两图城市体等高缩放对照 —— 压缩后两块内容一致）</p>
+<p><strong>对照图</strong>：<code>docs/sky/assets-520/TARGET-OFFSET-ct1-vs-refc.png</code>（含 CT-2 分区线与实测地平线标注）</p>
+<h3>3.2 裁定（v3.0c 修订：区分「建表」与「施工」）</h3>
+<p><strong>候选模板 CT-2</strong>：<span class="neon"><strong>地平线 57 ± 3%</strong></span>（实测两法 56.2% / 58.4%）；分区 天空区 0–54%、带区 54–60%、地貌区 60–100%。</p>
+<ul><li><strong>CT-1 冻结资产保留不动</strong>（作为历史基线继续对拍用），但<strong>拟不再作为新批次的验收靶子</strong>。</li><li>全部三区量化判据<strong>拟按 CT-2 口径重算</strong>（已算，见 §19）。</li></ul>
+<p><strong>门禁的两道闸（v3.0c 新增，解决原版自相矛盾）</strong></p>
+<blockquote><p>v3.0 原文写「确认前不进入实施阶段」，但同一批又「同批完成」了 S0 回填 —— 而回填确实是实施的第一步。<strong>这是自相矛盾，现拆成两道闸：</strong></p></blockquote>
+<div class="tw"><table><thead><tr><th>闸</th><th>允许做什么</th><th>禁止做什么</th><th>当前状态</th></tr></thead><tbody><tr><td><strong>闸 1 · 建表闸</strong>（不触碰 renderer，可逆，纯测量）</td><td>重算基准值、建判据表、出证据图、写文档</td><td>写任何渲染 / 合成代码</td><td>✅ <strong>已通过</strong>（S0 已执行，产物可一键回退）</td></tr><tr><td><strong>闸 2 · 施工闸</strong>（会产出画面与代码，方向性投入）</td><td>执行阶段 0 的 S1–S12</td><td>在 Q0/Q1 未答复时动手</td><td><span class="neon"><strong>🔒 关闭中</strong> —— 等 §21 Q0 / Q1 / Q2</span></td></tr></tbody></table></div>
+<p><strong>理由</strong>：建表闸的产物是<strong>数字与文档</strong>，即使 CT-2 被否，也只需重跑一次 probe（§28 已列此回退）；施工闸的产物是<strong>画面方向</strong>，一旦押错方向就会重演 440–490 那种「数千次迭代全废」。<strong>把两道闸分开，才能既不等死、也不押错。</strong></p>
+<p><span class="neon"><strong>闸 2 的唯一开关是老板的一句话（§21 Q0 与 Q1）。在拿到之前，本端不写任何渲染代码。</strong></span></p>
+<h3>3.3 为什么这是本批最重要的发现</h3>
+<p>前三个独立批次（440 LED 点阵墙 / 480 青色栅栏 / 490 竖柱阵）<strong>全部</strong>被判定为「不达标」，而判定所用的数字，是拿 <strong>CT-1（68–69%）</strong> 当靶子算的。真实目标（ref-c，老板参考图）在 <strong>56–58%</strong>。</p>
+<p><strong>靶子偏了约 11 个百分点 <span class="arw">⇒</span> 所有「超标 / 达标」判决都失去意义。</strong> 这是「两千次仍卡住」的第一个根因，与技术能力无关。</p>
+<p><strong>而且判决方向是反的。</strong> 以 480 批的带区为例：</p>
+<div class="tw"><table><thead><tr><th></th><th>数值</th><th>对 CT-1（10.54）的判定</th><th>对 ref-c（26.73）的判定</th></tr></thead><tbody><tr><td>480 批实测带区</td><td>20.77</td><td>「超标 +74.7%」⚠️</td><td><span class="neon"><strong>「偏低 −22.3%」⚠️</strong></span></td></tr></tbody></table></div>
+<p><span class="neon">同一个实测值，换个靶子，从「太亮」变成「太暗」，结论 180° 反转。</span></p>
+<p><strong>这意味着 480 批的修复方向可能一直是错的</strong> —— 当时为「降带区亮度」做的多轮调参（<code>TILE_Z_SCALE</code> / 高度系数 / <code>winGain</code> 收敛），是在把已经偏暗的城市继续压暗，而真实目标是一块<strong>更亮、更密、更连续</strong>的城市带（ref-c 带区 54.5% 的像素亮度 &gt; 20）。</p>
+<p>这与 §2.4 中「样张是暗色剪影」的错误认知互为因果 —— <strong>两者共同构成了 440–490 三批失败的真实原因。</strong></p>
+<hr>
+<h2>4. 视觉北极星（North Star）—— 唯一裁判</h2>
+<blockquote><p><strong>让用户站在自己的此时此地，面对宇宙，看见自己的生命节律。</strong></p></blockquote>
+<h3>4.1 三条不可让渡的气质判据</h3>
+<div class="tw"><table><thead><tr><th>代号</th><th>判据</th><th>反例（出现即失败）</th></tr></thead><tbody><tr><td><strong>A1</strong></td><td><strong>层级分明，无平铺</strong></td><td>所有元素同一亮度平铺；城市与天空糊成一片</td></tr><tr><td><strong>A2</strong></td><td><strong>暗空间是主体</strong>，亮是稀缺资源</td><td>全屏泛亮；大面积霓虹</td></tr><tr><td><strong>A3</strong></td><td><strong>减法优先</strong></td><td>元素堆砌；为了"丰富"而加层</td></tr></tbody></table></div>
+<h3>4.2 风格关键词（给设计 / 给 AI 的唯一口径）</h3>
+<blockquote><p><strong>Cosmic + Human + Reality + Rhythm + Luminous Wireframe + Particle + Minimal + Deep Space + Real-Time Sky + Abstract Geography</strong></p></blockquote>
+<p>中文：<strong>宇宙、人在其中、真实世界、生命节律、荧光线稿、粒子、极简、深空、实时星空、抽象地理。</strong></p>
+<p><span class="neon">关键词<strong>不是</strong> "3D City"。任何以 "3D City" 为目标的实现路径，一律视为方向性错误。</span></p>
+<hr>
+<h2>5. 分层结构与面积配额</h2>
+<h3>5.1 九层模型（实测口径 · 权威）</h3>
+<p>样张经多尺度分解后得到 <strong>9 个可独立提取的层</strong>，层间零依赖。v3 采用此 9 层为实施口径。</p>
+<div class="tw"><table><thead><tr><th>#</th><th>层</th><th>实测面积</th><th>类别</th><th>与老板 V1.0 七层的映射</th></tr></thead><tbody><tr><td>①</td><td>天空底·大气渐变</td><td>25.8%</td><td>工程层</td><td>= 老板① 深空</td></tr><tr><td>②</td><td>星野·银河雾</td><td>1.0%</td><td>气质层</td><td>= 老板① / ②</td></tr><tr><td>③</td><td>星座网络·连线</td><td>2.2%</td><td>气质层</td><td>= 老板② 星座</td></tr><tr><td>④</td><td>月牙</td><td>0.04%</td><td>气质层</td><td>= 老板 §17 月亮（单列）</td></tr><tr><td>⑤</td><td><strong>中轴光柱 + 辐射网</strong></td><td>6.0%</td><td><strong>气质层 · 骨架</strong></td><td><span class="neon"><strong>老板 V1.0 缺此项</strong></span></td></tr><tr><td>⑥</td><td>山脉框景·左右对称</td><td>3.2%</td><td>气质层</td><td>隐含在老板④，v3 单列</td></tr><tr><td>⑦</td><td>城市天际线·密集塔群</td><td>12.7%</td><td>工程层</td><td>= 老板④</td></tr><tr><td>⑧</td><td>俯视城市肌理·路网街区</td><td>33.6%</td><td>工程层</td><td>= 老板⑤</td></tr><tr><td>⑨</td><td>前景·人影与地光</td><td>2.8%</td><td>气质层</td><td>= 老板⑥ + ⑦</td></tr></tbody></table></div>
+<h3>5.2 两条由实测得出的配额铁律</h3>
+<p><strong>铁律一：工程层撑体量，气质层定成败。</strong></p>
+<p><span class="neon">① ⑤ ⑦ ⑧ 合计 <strong>78.1%</strong>，是画面的体量；② ③ ④ ⑥ ⑨ 合计 <strong>9.2%</strong>，是画面的「气质」。后者任何一个缺失，画面从「作品」退化为「图表」。</span></p>
+<p><strong>前三个批次的全部工作量都投在 78% 的工程层里，那 9.2% 的气质层从未立起来。</strong> 这是「两千次仍卡住」的第二个根因。</p>
+<p><strong>铁律二：画面真正的构图骨架是第 ⑤ 层「辐射网」，不是城市。</strong></p>
+<p>它只占 <strong>6.0%</strong> 面积，却把月亮、人影、城市、道路全串在一条中轴线上。<span class="neon"><strong>而且它可以直接由真实路网驱动</strong> —— 这是真实地理数据在整个画面里最优雅的落点：既是构图骨架，又是数据落点，又是鼠标视差的载体。</span></p>
+<h3>5.3 分层实现约束</h3>
+<ol><li>每层<strong>独立可开关、独立可调</strong>，禁止耦合进一个 3D Scene 后指望相机给出理想构图。</li><li><strong>每层只保留一个投影假设</strong>（M1）。⑦ 用低视点剪影假设；⑧ 用高视点俯视假设；两者通过带融合拼接，无需「两台相机」这个概念。</li><li>层间通过 <strong>seam 位置</strong> 对齐，seam = 目标地平线（CT-2：56%）。</li></ol>
+<hr>
+<h2>6. 逐层规范</h2>
+<h3>6.1 ① 天空底 · 大气渐变（25.8%）</h3>
+<ul><li>基础接近纯黑，极低亮度蓝黑渐变。</li><li><strong>禁止</strong>明显科幻银河、禁止五颜六色、禁止大面积紫 / 红 / 橙。</li><li>星云仅作<strong>极弱背景存在</strong>：blob 数 ≤ 9；alpha 上限 0.15；必须叠<strong>分形噪声遮罩</strong>（禁 <code>createRadialGradient</code> 直填的硬边贴片感）。</li></ul>
+<h3>6.2 ② 星野 · 银河雾（1.0%）</h3>
+<p>保留（驳回 R1 的「完全不要」），但<strong>严格限幅</strong>：面积 ≤ 1.5%，亮度不超过相邻天空 +8。</p>
+<h3>6.3 ③ 真实星空 · 星座（2.2%）</h3>
+<p><strong>数据来源（硬性）</strong>：恒星位置必须由 <code>用户位置 + 当前时间 + 天文算法</code> 计算。<strong>不是随机撒点，不是背景图，不是 AI 生成。</strong></p>
+<div class="tw"><table><thead><tr><th>项</th><th>规范</th></tr></thead><tbody><tr><td>恒星</td><td>微小光点；<strong>不均匀</strong>分布；亮度有差异；极少数亮星明显突出；轻微呼吸</td></tr><tr><td>禁止</td><td>满屏均匀小点；游戏式星空；大量闪烁；彩色星星</td></tr><tr><td>星座</td><td>只显示<strong>重要星座</strong>（不全显）；极细线；低亮度；线要像「有人用极细荧光笔在宇宙里轻轻画了一笔」</td></tr><tr><td>连线角度</td><td>相邻夹角标准差 ≤ 5°；总张角 ≤ 120°；禁止抖动 &gt; 5°（继承 v2 §6）</td></tr><tr><td>衍射星芒</td><td><strong>禁止</strong>（继承 v2）</td></tr></tbody></table></div>
+<h3>6.4 ④ 月牙（0.04%）</h3>
+<ul><li>位置由 <code>真实时间 + 用户位置</code> 计算。</li><li><strong>极其小、极其克制</strong>；亮度<strong>低于</strong>主要视觉元素。</li><li>唯一允许的暖色焦点（暖色配额见 §8）。</li><li>480 批状态：<strong>缺失</strong>，为必须补齐项。</li></ul>
+<h3>6.5 ⑤ 中轴光柱 + 辐射网（6.0%）<span class="arw">←</span> 全图骨架</h3>
+<p><strong>这是 v3 相对老板 V1.0 的新增层，优先级最高。</strong></p>
+<div class="tw"><table><thead><tr><th>项</th><th>规范</th></tr></thead><tbody><tr><td>形态</td><td>中轴一条<strong>光柱</strong> + 由它辐射出的细网</td></tr><tr><td>骨架作用</td><td>串联月亮、人影、城市、道路；画面视觉重心落在此轴</td></tr><tr><td><strong>数据驱动</strong></td><td><span class="neon"><strong>用真实路网生成辐射网</strong></span>：以用户所在位置为原点，取 N 条主干道方向作为辐射线（N = 5–7，与 v2 §6 能量连接场条数一致）</td></tr><tr><td>亮度</td><td>低于城市主体；不占 L1/L2 名额（焦点唯一律）</td></tr><tr><td>禁止</td><td>在辉光带内形成横向连续亮带；抖动 &gt; 5°</td></tr></tbody></table></div>
+<h3>6.6 ⑥ 山脉框景 · 左右对称（3.2%）</h3>
+<ul><li>左右两侧形成<strong>天然视觉框架</strong>，对称性由样张实测确认。</li><li>由 <strong>DEM 高程</strong>驱动，程序化生成山脊线（禁 AI 生图）。</li><li>480 批状态：<strong>缺失</strong>，为必须补齐项。</li><li>山体只略高于地平线，主体向下（500 批原型 v4 已验证此参数方向）。</li></ul>
+<h3>6.7 ⑦ 城市天际线 · 密集塔群（12.7%）</h3>
+<p><strong>表现优先级（严格按老板 V1.0 §7 权重表）</strong>：整体构图 ★5 &gt; 光线氛围 ★5 &gt; 城市轮廓 ★4 &gt; 真实数据 ★4 &gt; 建筑细节 ★2 &gt; 真实 3D ★1。</p>
+<div class="tw"><table><thead><tr><th>项</th><th>规范</th></tr></thead><tbody><tr><td>图元</td><td>高度 + 轮廓 + 极细线 + 局部辉光。<strong>线框，非实体</strong></td></tr><tr><td>禁止</td><td>实体填充；完整建筑模型；CAD / Google Earth / 游戏城市感</td></tr><tr><td>塔身</td><td>纯线框 + 窗格点阵（点径 1px / 间距 4px / α ≤ L5）；<strong>禁止实体填充</strong>（继承 v2）</td></tr><tr><td>地标高亮槽位</td><td><span class="neon"><strong>必须留</strong>。让人一眼认出「这是我的城市」的只有具体地标</span>（样张右下有环形建筑、超出天际线一个量级的超高塔）</td></tr><tr><td>480 批状态</td><td><span class="neon">判定「带区超亮 +74.7%」<strong>方向反了</strong> —— 按 ref-c 应为「偏低 −22.3%」（§3.3）；城市体纵高尚不足（目标 ≥ 40 pt）；形态为「竖柱阵」，需重做</span></td></tr></tbody></table></div>
+<h3>6.8 ⑧ 俯视城市肌理 · 路网街区（33.6%）</h3>
+<p><strong>视觉目标</strong>：<code>地图 × 星图 × 建筑线稿 × 粒子艺术</code>。<strong>不是</strong> <code>Google Maps × 3D 游戏</code>。</p>
+<div class="tw"><table><thead><tr><th>元素</th><th>表现</th></tr></thead><tbody><tr><td>道路</td><td>极细发光曲线</td></tr><tr><td>建筑</td><td>低亮度几何轮廓</td></tr><tr><td>河流</td><td>连续柔和线条</td></tr><tr><td>地形</td><td>等高线 / 粒子轮廓</td></tr><tr><td>大型地标</td><td>明显但克制的轮廓</td></tr></tbody></table></div>
+<blockquote><p><strong>像素级事实</strong>：样张下半区实测 <strong>平均亮度 34.9、p95 = 94.0、亮度 &gt; 20 的像素占 63.6%、最大连续亮块 479,805 px（占下半区 24%）、青蓝像素 96–98%</strong>。</p>
+<p><span class="neon"><strong>即：⑧ 层是「亮而细」，不是「暗而糊」。</strong></span> 480 / 490 批按「暗而糊」做，方向反了（见 §2.4）。</p></blockquote>
+<h3>6.9 ⑨ 前景 · 人影与地光（2.8%）</h3>
+<p><strong>人物是页面的情绪核心</strong>，但：</p>
+<ul><li>不是具体的人、不是真实照片、不是写实 3D 人物 → 是「<strong>一个正在面对宇宙的人</strong>」。</li><li>位置：画面底部<strong>中央附近</strong>；身体不需完整（背影 / 肩 / 头 / 上半身）。</li><li>表现：<strong>半透明深色剪影 + 青蓝色粒子边缘</strong>；轮廓不能太亮。</li><li><strong>暗剪影 + 亮背景</strong>：人形是相对更暗的形体，被背后辉光托出。<strong>禁止</strong>渲染成「一根亮白立柱」（v1 R4 历史事故）。</li><li>禁止：写实脸 / 衣服细节 / 摄影感 / 超级英雄感 / 游戏角色感。</li></ul>
+<p><strong>前景环境代表「人的现实世界」</strong>，语义链：宇宙 = 无限；城市 = 现实；人物 = 我；前景 = 我所处的人生环境。表现用几何线条、曲折结构、粒子、微弱荧光、不完整轮廓 —— 形成「复杂、曲折、但仍可向前走」的空间。</p>
+<hr>
+<h2>7. 构图硬指标（CT-2）</h2>
+<h3>7.1 分区（相对画面高度 y%）</h3>
+<div class="tw"><table><thead><tr><th>分区</th><th>区间（CT-2）</th><th>内容</th></tr></thead><tbody><tr><td>天空区</td><td>0 – 54%</td><td>① ② ③ ④ 天空底 / 星野 / 星座 / 月</td></tr><tr><td>带区（地平线）</td><td>54 – 60%</td><td>③' 地平线辉光 · ⑤ 中轴光柱 · ⑥ 山脉</td></tr><tr><td>地貌区</td><td>60 – 100%</td><td>⑦ 天际线 · ⑧ 肌理 · ⑨ 人影前景</td></tr></tbody></table></div>
+<h3>7.2 硬指标</h3>
+<div class="tw"><table><thead><tr><th>项</th><th>指标</th></tr></thead><tbody><tr><td>画幅</td><td>16:9 横向 Hero（基准 1920×969；须设计移动端降级，见 §13 Q4）</td></tr><tr><td><strong>地平线位置</strong></td><td><span class="neon"><strong>57 ± 3%</strong></span>（实测 ref-c：行剖面法 56.2% / 梯度法 58.4%）</td></tr><tr><td>城市集中区</td><td>画面<strong>中下部</strong></td></tr><tr><td><span class="neon"><strong>城市体纵高</strong></span></td><td><span class="neon"><strong>≥ 40 pt</strong></span>（判定口径：<code>&gt;20</code> 亮度像素占比 &gt; 35% 的连续行段；ref-c 实测 <strong>44.2 pt</strong>，CT-1 仅 32.5 pt —— 这是两靶的核心差异）</td></tr><tr><td>人物位置</td><td>底部<strong>中央附近</strong></td></tr><tr><td>两侧环境</td><td>形成<strong>天然视觉框架</strong></td></tr><tr><td>天空区占比</td><td>50–60%（即上半部分为「黑色宇宙 + 星空」主体）</td></tr><tr><td>暗区占比</td><td><strong>≥ 50% 区域保持非常暗</strong>（黑色是本页重要的留白）</td></tr></tbody></table></div>
+<blockquote><p><span class="neon"><strong>🔒 临时口径</strong>：本表的「地平线 57±3%」与「城市体纵高 ≥ 40 pt」均由 ref-c 导出，在 §21 Q0/Q1 答复前为临时口径（§19.6）。<strong>Q1 若选 (B)</strong>，地平线须改回 CT-1 的 68–69%，纵高判据随之作废（CT-1 只有 32.5 pt）。</span></p></blockquote>
+<h3>7.3 地平线辉光规范（视觉锚点）</h3>
+<ul><li>位置：地平线附近，<strong>极薄、极柔、低亮度</strong>。</li><li>从中心向两侧<strong>逐渐减弱</strong>；<strong>不形成明显横线</strong>。</li><li><strong>禁止</strong>：激光线 / Neon 横线 / 赛博朋克效果 / 强烈 Bloom。</li><li>v2 §3.6 已承认此残留，v3 定为必须解决项。</li></ul>
+<hr>
+<h2>8. 色彩规范</h2>
+<h3>8.1 色板（严格克制）</h3>
+<div class="tw"><table><thead><tr><th>角色</th><th>色</th><th>配额</th><th>说明</th></tr></thead><tbody><tr><td>主色</td><td><strong>黑</strong></td><td>≥ 50% 面积</td><td>留白，不是「空」</td></tr><tr><td>第一视觉色</td><td><strong>青蓝 / 电光蓝</strong></td><td>画面主体结构</td><td>样张实测青蓝像素占 96–98%（下半区）</td></tr><tr><td>第二视觉色</td><td><strong>极淡白蓝</strong></td><td>辅助</td><td>最亮线、关键轮廓</td></tr><tr><td>强调色</td><td><strong>极少量暖色</strong></td><td><strong>≤ 0.5%</strong></td><td>仅限：极少数重要地标 / 特殊光点 / 用户交互反馈 / 月亮</td></tr></tbody></table></div>
+<h3>8.2 硬禁令</h3>
+<p><strong>暖色禁止大面积使用。</strong> 480 批实测暖色 0.008%（月亮缺失），需补齐至设计值但<strong>不得超过 0.5%</strong>。</p>
+<hr>
+<h2>9. 亮度层级与光效体系（一切参数的推导源）</h2>
+<h3>9.1 层级（L0–L5，继承 v2 / SPEC-v1）</h3>
+<div class="tw"><table><thead><tr><th>级</th><th>用途</th><th>相对峰值</th></tr></thead><tbody><tr><td>L0</td><td>天光 / 地平线辉光底</td><td>最高</td></tr><tr><td>L1</td><td>焦点唯一律 · 主焦点</td><td>1 名额</td></tr><tr><td>L2</td><td>焦点唯一律 · 次焦点</td><td>1 名额</td></tr><tr><td>L3</td><td>城市主体结构</td><td>—</td></tr><tr><td>L4</td><td>次级线框 / 道路</td><td>—</td></tr><tr><td>L5</td><td>窗格点阵 / 粒子 / 星座线</td><td><strong>α ≤ 0.14</strong></td></tr></tbody></table></div>
+<p><strong>层级判据（A1）</strong>：必须一眼读出「星空 &gt; 地貌 &gt; 城市 &gt; 人物 &gt; 细节」五级层次，相邻两级峰值亮度差 <strong>≥ 25%</strong>。禁止平铺。</p>
+<h3>9.2 Glow 规范 —— 本页最容易做坏之处</h3>
+<p><strong>原则（M4 修正版）</strong>：<span class="neon"><strong>弱的是「Glow 半径与溢散」，不是「结构层亮度」。宁可弱，不要强 —— 但不要因此把结构本身压暗。</strong></span></p>
+<pre class="code">核心线
+████
+
+第一层 Glow
+░░████░░
+
+第二层 Glow
+░░░░████░░░░</pre>
+<p><strong>禁止</strong> <code>████████████████</code> —— 一旦出现立即变成赛博朋克 / 游戏 UI / 科幻宣传片。</p>
+<h3>9.2b 硬指标：禁止近白核（V44 / V45 · 🔒 临时口径）</h3>
+<p><span class="neon"><strong>目标画面在数值上「亮而不爆」：均值高（地貌区 35.27）、尾部低（p99.9 = 164.3），近白 <code>L&gt;200</code> 占比仅 0.0062%。</strong></span></p>
+<p>正确的 Glow 做法：</p>
+<div class="tw"><table><thead><tr><th></th><th>错误做法（480 批）</th><th>正确做法</th></tr></thead><tbody><tr><td>能量形态</td><td>少数像素饱和成硬核（p99.9 235、近白 0.940%）</td><td>大范围中亮度连续结构（p99.9 164、近白 0.0062%）</td></tr><tr><td>观感</td><td>「LED 点阵墙」/ 竖柱阵</td><td>「一整块亮起来的城市」</td></tr><tr><td>数值特征</td><td><strong>尖峰</strong>（尾部极高 + 均值偏低）</td><td><strong>平台</strong>（均值高 + 尾部低）</td></tr></tbody></table></div>
+<p><span class="neon"><strong>一句话：靠「面」亮起来，不靠「点」爆出来。</strong></span></p>
+<p><strong>操作禁令（v3.0c 按稳定域修订）</strong>：</p>
+<div class="tw"><table><thead><tr><th>项</th><th>规定</th></tr></thead><tbody><tr><td>p99.9</td><td><strong>≤ 185</strong>（目标 164.3；实测编解码噪声 ≤ ±1.4 <span class="arw">⇒</span> 阈值留有 ~15 倍噪声余量）</td></tr><tr><td>近白 <code>L&gt;200</code> 占比</td><td><strong>≤ 0.06%</strong>（目标 0.0062%；噪声最大 ×1.12 <span class="arw">⇒</span> 阈值留有 ~10 倍余量）</td></tr><tr><td>例外</td><td>仅<strong>月亮</strong>与<strong>地标辉光槽位</strong>允许超出；两者合计 ≤ 0.5% 面积，且<strong>不得形成 <code>L&gt;230</code> 的饱和像素簇</strong></td></tr></tbody></table></div>
+<blockquote><p><span class="neon"><strong>v3.0c 修订说明</strong>：原版写「任何图层不得产生 <code>L &gt; 200</code> 的像素（月亮除外）」—— 这与实测不符（目标 ref-c 自身就有 0.0062% 的 <code>L&gt;200</code> 像素）。<strong>禁令的对象不是「&gt;200 的存在」，而是「&gt;200 的规模与形态」</strong> —— 即「少量离散点可以，成片硬核不行」。现按稳定域重写。此数值在 Q0/Q1 答复前为<strong>临时口径</strong>（§19.6）。</span></p></blockquote>
+<h3>9.3 调参优先级（来自老板 V1.0 §7 权重表）</h3>
+<div class="tw"><table><thead><tr><th>项</th><th>权重</th><th>说明</th></tr></thead><tbody><tr><td>整体构图</td><td>★★★★★</td><td>先对构图，再谈其他</td></tr><tr><td>光线氛围</td><td>★★★★★</td><td>与构图同级</td></tr><tr><td>城市轮廓</td><td>★★★★</td><td></td></tr><tr><td>真实数据</td><td>★★★★</td><td></td></tr><tr><td><strong>建筑细节</strong></td><td><strong>★★</strong></td><td><strong>不要再在细节上耗预算</strong></td></tr><tr><td><strong>真实 3D</strong></td><td><strong>★</strong></td><td><strong>已证伪的方向</strong></td></tr></tbody></table></div>
+<hr>
+<h2>10. 粒子规范</h2>
+<h3>10.1 四类粒子（必须有意义，不能只是撒点）</h3>
+<div class="tw"><table><thead><tr><th>类</th><th>来源</th><th>说明</th></tr></thead><tbody><tr><td>A 星空粒子</td><td>真实恒星</td><td>天文计算</td></tr><tr><td>B 城市粒子</td><td>建筑 / 道路 / 地标数据转换</td><td>数据真实，艺术化表达</td></tr><tr><td>C 人物粒子</td><td>人物轮廓</td><td>青蓝边缘</td></tr><tr><td>D 环境粒子</td><td>—</td><td>制造空间感</td></tr></tbody></table></div>
+<h3>10.2 行为白名单 / 黑名单</h3>
+<div class="tw"><table><thead><tr><th>允许</th><th>禁止</th></tr></thead><tbody><tr><td>极慢漂移</td><td>爆炸</td></tr><tr><td>呼吸</td><td>大幅飞散</td></tr><tr><td>微弱闪烁</td><td>快速旋转</td></tr><tr><td>鼠标产生轻微扰动</td><td>游戏粒子效果</td></tr><tr><td>局部聚集</td><td>粒子雨</td></tr></tbody></table></div>
+<hr>
+<h2>11. 动画与交互</h2>
+<h3>11.1 动画速度（整体必须慢）</h3>
+<div class="tw"><table><thead><tr><th>元素</th><th>速度</th></tr></thead><tbody><tr><td>星云 / 恒星 / 星座</td><td>极慢</td></tr><tr><td>城市粒子</td><td>慢</td></tr><tr><td>人物</td><td>极慢</td></tr><tr><td>环境</td><td>极慢</td></tr><tr><td>鼠标视差</td><td>即时但<strong>阻尼</strong></td></tr><tr><td>Glow</td><td>缓慢呼吸</td></tr></tbody></table></div>
+<p><strong>禁止快速动画。</strong></p>
+<h3>11.2 鼠标交互（必须非常轻）</h3>
+<div class="tw"><table><thead><tr><th>对象</th><th>反应</th></tr></thead><tbody><tr><td>星空</td><td>极轻微视差</td></tr><tr><td>城市</td><td>轻微空间偏移</td></tr><tr><td>人物</td><td>极小幅度跟随</td></tr><tr><td>粒子</td><td>微弱扰动</td></tr><tr><td>地标</td><td>局部响应</td></tr></tbody></table></div>
+<p><strong>核心原则</strong>：用户应感觉「<strong>这个世界在呼吸</strong>」，而不是「<strong>我在操作一个 3D 游戏</strong>」。</p>
+<h3>11.3 交互层的技术定位（吸收老板 §4 的 2.5D 主张）</h3>
+<blockquote><p><strong>3D 数据源 + 2.5D/2D GPU 合成 + WebGL 交互层</strong></p></blockquote>
+<p>即：数据是 3D 的，合成是 2D 的，交互层挂 WebGL。这样既有视差 / 呼吸 / 响应，又不掉进「真正 3D 城市必须物理正确」的陷阱。</p>
+<hr>
+<h2>12. 硬禁令（合并 v2 红线 + 老板 V1.0 §23）</h2>
+<h3>12.1 视觉层禁止</h3>
+<p>赛博朋克 · 科幻城市 · 游戏地图 · Google Earth 风格 · 写实 3D 建筑 · 大面积霓虹 · 大量彩色粒子 · 紫红色银河 · 强 Bloom · 机械 HUD · 雷达 · 数据面板 · 科技 UI · 大量文字 · 复杂按钮 · 普通网页渐变背景</p>
+<h3>12.2 实现层禁止（红线 · 不可触碰）</h3>
+<div class="tw"><table><thead><tr><th>#</th><th>禁令</th></tr></thead><tbody><tr><td>❌</td><td>回归 AI 猜图 / AI 生图静态方案</td></tr><tr><td>❌</td><td>以位图整幅贴图作为<strong>默认</strong>路径（<code>?plate=1</code> 仅留档）</td></tr><tr><td>❌</td><td>stock 星空图片 / 普通 Three.js 星空模板</td></tr><tr><td>❌</td><td>引入实体材质 / 阴影 / 道路光带 / 大面积暖色</td></tr><tr><td>❌</td><td>破坏已解决能力（真实星空 / 星座标签 / 山脊 / 渐进时序 / 三层定位）</td></tr><tr><td>❌</td><td>删除 <code>docs/design/</code> 基准资产、<code>D:\专家论证稿\</code>、AI 地图主文件</td></tr><tr><td>❌</td><td>绕过 <code>:8083</code> 代理直连裸引擎</td></tr><tr><td>❌</td><td>未验收就部署线上</td></tr><tr><td>❌</td><td><span class="neon"><strong>把阶段 0 / 阶段 1 的沙箱产物（<code>layer-<em>.png</code> / <code>compose-</em>.png</code> / numpy 脚本）直接搬进线上前端</strong></span>（v3.0c 新增）。阶段 0 产物是<strong>语法样张</strong>，只用于与老板对拍；进入线上必须经阶段 2 的 WebGL 重写 + 五问复核。产物出口仅限 §25.1 的工作目录与 <code>docs/sky/</code></td></tr><tr><td>❌</td><td><span class="neon"><strong>把复合 / 标注图用作测量基准</strong></span>（v3.0c 新增）。基准必须是<strong>单一画面</strong>文件；<code>*-annotated.png</code>（2580×969 等横向复合）<strong>只能用于人工阅读，禁止入任何 probe 脚本</strong> —— 历史「地平线 69.76%」事故的直接成因即此</td></tr></tbody></table></div>
+<hr>
+<h2>13. 系统架构</h2>
+<h3>13.1 三引擎架构</h3>
+<pre class="code">                      Tempo Soul
+                           │
+          ┌────────────────┴────────────────┐
+          ↓                                 ↓
+ Astronomical Engine              Geo-Luminous Engine
+ （天文引擎 · 已有）              （地理灵境引擎 · 新建）
+          │                                 │
+ 真实星空 / 月亮 / 星座            城市 / 建筑 / 山河 / 地标
+          │                                 │
+          └────────────────┬────────────────┘
+                           ↓
+                    Visual Engine
+              （Shader / Particle / 分层合成）
+                           ↓
+                      合成场景
+                           ↓
+                    Hero 首屏</pre>
+<p><strong>引擎间唯一契约</strong>：两者各自输出<strong>图层</strong>，不共享坐标系、不共享相机。Visual Engine 只负责按 §7 分区融合。</p>
+<h3>13.2 引擎内部数据流</h3>
+<pre class="code">用户位置 + 当前时间
+        ↓
+真实地理数据（建筑 / 道路 / 河流 / 山脉 / 地标 / 高度）
+        ↓
+城市高度场 + 矢量数据
+        ↓
+ ┌──────────────┬──────────────┐
+ ↓                              ↓
+投影假设 A                    投影假设 B
+低视点                        高视点
+ ↓                              ↓
+⑦ 城市天际线剪影              ⑧ 城市俯视肌理
+ ↓                              ↓
+ └──────────────┬──────────────┘
+                ↓
+         GPU 分层合成
+                ↓
+ ①②③④⑤⑥ + ⑦⑧⑨ + Bloom + 调色
+                ↓
+          Tempo Soul 首屏</pre>
+<p><span class="neon">注意：图中「投影假设 A / B」<strong>不实现为两个相机对象</strong>（M1）。它们是两个独立的<strong>图层生成函数</strong>，各自只保留一个投影假设。</span></p>
+<h3>13.3 技术栈（分阶段）</h3>
+<div class="tw"><table><thead><tr><th>层</th><th>阶段 0</th><th>阶段 1+</th></tr></thead><tbody><tr><td>定位</td><td><strong>不接入</strong></td><td>Browser Geolocation + IP 兜底</td></tr><tr><td>城市数据</td><td>OSM（已有）+ DEM（已有）</td><td>+ 政府开放数据 + 地标库</td></tr><tr><td>建筑</td><td>Footprint + Height</td><td>同</td></tr><tr><td>地形</td><td>DEM → 山脊线</td><td>同</td></tr><tr><td>数据预处理</td><td>Python / numpy</td><td>Python / Node.js</td></tr><tr><td>城市数据格式</td><td>自定义 Geo Tile JSON / Binary</td><td>同</td></tr><tr><td>高度场</td><td>Raster / Heightmap（<code>4000² @ 5 m/px</code>）</td><td>同</td></tr><tr><td>合成</td><td><strong>Python / numpy（2D 图层）</strong></td><td><strong>Three.js + WebGL</strong></td></tr><tr><td>Shader</td><td>—</td><td>GLSL</td></tr><tr><td>粒子</td><td>—</td><td>GPU Particle</td></tr><tr><td>荧光</td><td>—</td><td>Bloom + 双层线条（RenderTarget）</td></tr><tr><td>星空</td><td>已有 Astronomical Engine</td><td>同</td></tr><tr><td>前端</td><td>不碰</td><td>现有 Tempo Soul 前端</td></tr></tbody></table></div>
+<blockquote><p><strong>为什么阶段 0 刻意不用 Three.js（M3）</strong>：阶段 0 是纯 2D 图层语法复刻，不需要 3D 引擎。引入它会产生「我该建一个 3D 场景」的本能，而那正是导致 440–490 三批卡死的机制。Python/numpy 也更快 —— 改一行、0.2 秒出图，适合逐层对拍。</p></blockquote>
+<hr>
+<h2>14. 「数据真实，表现艺术化」的代码约束</h2>
+<blockquote><p><strong>原则（老板 V1.0 §18）</strong>：允许非线性视觉映射；<strong>不能把虚假的建筑说成真实建筑</strong>。</p></blockquote>
+<h3>14.1 强制字段</h3>
+<p><span class="neon">每一个图元（建筑 / 道路 / 河流 / 山脊 / 地标）<strong>必须</strong>携带 <code>source</code> 字段。</span></p>
+<pre class="code">{
+  &quot;id&quot;: &quot;b_1042&quot;,
+  &quot;kind&quot;: &quot;building&quot;,
+  &quot;source&quot;: &quot;osm:way/123456789&quot;,     // 真实来源；合成数据则为 &quot;synth:roadside/v1&quot;
+  &quot;h_real_m&quot;: 60.0,                  // 真实高度（米）—— 永不改写
+  &quot;h_visual&quot;: 138.0,                 // 视觉高度（单位）—— 可非线性映射
+  &quot;lat&quot;: 29.7271, &quot;lon&quot;: 120.2345,
+  &quot;footprint&quot;: [[...]],
+  &quot;synth&quot;: false
+}</pre>
+<h3>14.2 三条硬规则</h3>
+<div class="tw"><table><thead><tr><th>#</th><th>规则</th></tr></thead><tbody><tr><td>1</td><td><code>h_real_m</code> / <code>lat</code> / <code>lon</code> / <code>footprint</code> <strong>只能来自数据源，禁止在任何渲染阶段被改写或估算</strong></td></tr><tr><td>2</td><td>视觉映射（<code>h_real_m → h_visual</code>）必须是<strong>单一、可审计、全局一致</strong>的函数，不得逐栋随机</td></tr><tr><td>3</td><td>合成图元（<code>synth: true</code>）<strong>必须在图层中可区分</strong>，且合成规则必须可复现（固定种子）；不得用合成数据冒充实测数据</td></tr></tbody></table></div>
+<h3>14.3 推荐视觉高度映射</h3>
+<pre class="code">h_visual = clamp( pow(h_real_m, 0.35) * k , h_min , h_max )</pre>
+<ul><li>幂压缩：保留高度<strong>排序关系</strong>（高的仍更高），同时压缩量级差。</li><li><code>k</code> / <code>h_min</code> / <code>h_max</code> 为<strong>全局常量</strong>，写在本文件，改动需记变更记录。</li><li><span class="neon"><strong>禁止</strong>：给一栋实测 60m 的楼渲染出数值上等同 300m 楼的高度（那等于伪造城市事实）。允许的是「让 60m 的楼在画面里更有轮廓存在感」—— 即增强<strong>轮廓与辉光</strong>，不虚构<strong>楼体高度数值、数量与位置</strong>。</span></li></ul>
+<hr>
+<h2>15. 数据不足的三级降级（老板 V1.0 §19）</h2>
+<h3>15.1 分级定义</h3>
+<div class="tw"><table><thead><tr><th>级</th><th>触发条件</th><th>表现</th></tr></thead><tbody><tr><td><strong>Level 1</strong></td><td>半径 R 内带高度建筑 ≥ 200 栋</td><td>真实建筑数据 → ⑦⑧ 完整</td></tr><tr><td><strong>Level 2</strong></td><td>带高度建筑 &lt; 200 栋，但路网 ≥ 100 段</td><td>真实道路 + 地形 → ⑧ 降级为「路网光带肌理」，⑦ 由路网+地形推断轮廓</td></tr><tr><td><strong>Level 3</strong></td><td>路网也 &lt; 100 段</td><td>抽象城市粒子结构（<strong>不做成「真实城市」</strong>），视觉语言不变</td></tr></tbody></table></div>
+<h3>15.2 实测案例（决定此节存在的证据）</h3>
+<div class="tw"><table><thead><tr><th>城市</th><th>半径</th><th>建筑</th><th>道路</th><th>水系</th><th>判定</th></tr></thead><tbody><tr><td>北京·朝阳区</td><td>3 km</td><td><strong>5803</strong></td><td>1232</td><td>47</td><td>Level 1</td></tr><tr><td>诸暨·暨阳</td><td>8 km</td><td><span class="neon"><strong>10</strong></span></td><td>403</td><td>31</td><td><strong>Level 2</strong>（路网充足、建筑近零）</td></tr></tbody></table></div>
+<blockquote><p>诸暨市中心在开放地图上只有 10 栋建筑。<strong>中国中小城市的建筑数据基本空白</strong> —— 路有人画，楼没人画。这不是渲染问题，是数据源事实。V1.0 的三级降级不是可选项，是必需品。</p></blockquote>
+<h3>15.3 Level 2 的合成纪律</h3>
+<ul><li>合成建筑位置<strong>必须锚定真实路网</strong>两侧（沿路采样），不得凭空散落。</li><li>高度按<strong>道路等级 + 距中心距离</strong>推断，伪随机<strong>固定种子可复现</strong>。</li><li>全部打 <code>synth: true</code> 标记。</li><li><span class="neon"><strong>不得对用户宣称这是该城市的真实建筑。</strong></span></li></ul>
+<hr>
+<h2>16. Geo Tile 资产格式（全球化的实现基础）</h2>
+<h3>16.1 目录约定</h3>
+<pre class="code">/geo/&lt;city-slug&gt;/
+  ├── height.bin        高度场（raster）
+  ├── buildings.bin     建筑 footprint + height
+  ├── roads.bin         路网
+  ├── water.bin         水系
+  ├── dem.json          地形高程（生成 ⑥ 山脊）
+  ├── landmarks.json    地标（⑦ 高亮槽位数据源）
+  └── meta.json         { slug, name, lat, lon, radiusM, level, source, built_at }</pre>
+<p><strong>渲染器完全一样，只更换 Geo Tile。</strong> 这是全球化成立的前提 —— 每个城市不再需要「生成一个场景」。</p>
+<h3>16.2 阶段边界</h3>
+<blockquote><p>阶段 0 <strong>不生产任何 Geo Tile</strong>，不碰全球城市、不碰 GPS、不碰网页。</p></blockquote>
+<hr>
+<h2>17. 性能预算（v3.0c：标注等级与依据）</h2>
+<blockquote><p><span class="neon"><strong>本节的数字分两档，不得混用</strong>：一档是<strong>实测量级</strong>（可作判据），一档是<strong>估算（E2）</strong>（只作设计目标，不作验收判据）。v3.0 原文把二者都写成了硬指标，现更正。</span></p></blockquote>
+<div class="tw"><table><thead><tr><th>环节</th><th>目标</th><th>依据</th><th>等级</th></tr></thead><tbody><tr><td>离线数据拉取 + 烘焙</td><td><strong>一次性</strong>，可 20 分钟</td><td>实测：诸暨 8km / 16 片拉取实测 ~20 min；高度场 <code>4000² @ 5 m/px</code> 实测 ~0.2 s / 城市</td><td><strong>E1 实测</strong></td></tr><tr><td>首屏加载 + 合成</td><td>~~≤ 300 ms~~ → <strong>≤ 300 ms（设计目标）</strong></td><td><span class="neon"><strong>E2 估算，非测量</strong></span>：由「CPU numpy 光线投射 10–20 s」类比推算「fragment shader &lt; 10 ms 可达」。<strong>这是类比推理，不是实测</strong> —— 阶段 2 必须以真实 profile 替换</td><td><strong>E2 估算</strong></td></tr><tr><td>运行帧率</td><td>60 FPS</td><td>行业基线；阶段 2 实测</td><td>E2 → 待测</td></tr><tr><td>交互延迟</td><td>即时 + 阻尼</td><td>视觉需求，非性能指标</td><td>定性</td></tr></tbody></table></div>
+<blockquote><p><strong>关于「3 秒」的概念纠正</strong>：老板 V1.0 提到的「3 秒」混了「拉数据」与「首屏出图」两件事。拉取 + 烘焙留在<strong>离线</strong>（overpass 拉取可 20 分钟）；首屏只做加载 + 合成。</p>
+<p><span class="neon"><strong>阶段 2 的强制动作</strong>：在真实 GPU 上 profile 首屏，把 E2 估算替换为 E1 实测，再决定 ≤300 ms 能否作为验收判据。<strong>在那之前，任何「首屏性能达标」的声明都无效。</strong></span></p></blockquote>
+<h3>17.1 验收显示环境（v3.0c 新增 · 回应审计遗漏项）</h3>
+<blockquote><p>审计意见 5 指出：全部亮度测量都在 sRGB 数值域上做，而<strong>五问由老板的眼睛裁决</strong> —— 若验收显示器未校准，「亮而不爆」（V44/V45）与「暗剪影」的观感判断可能互相打架。</p></blockquote>
+<div class="tw"><table><thead><tr><th>项</th><th>规定</th></tr></thead><tbody><tr><td>测量域</td><td>一律 <strong>sRGB 数值域</strong>（<code>L = RGB 均值</code>，0–255），不做任何显示器补偿</td></tr><tr><td>验收环境</td><td><span class="neon"><strong>老板的验收结论只在同一台显示器 + 同一亮度设置下有效</strong></span>；换设备后五问需重答</td></tr><tr><td>记录</td><td>每轮交付的 ROUND 文档须记「验收设备 / 亮度 / 是否夜间模式」</td></tr><tr><td>已知风险</td><td>若显示器偏冷 / 偏亮，V44「禁止近白核」的观感会更严；若偏暗，会放松 —— <strong>以数值判据为硬约束，观感判据为软约束</strong>，两者冲突时按 §18.1 以眼睛为准，但<strong>须记录冲突</strong></td></tr></tbody></table></div>
+<hr>
+<h2>18. 验收判据总则 —— POC 五问（最高优先级）</h2>
+<p><span class="neon"><strong>不再用「代码完成了吗」作为验收。只问下面 5 个问题。</strong></span></p>
+<div class="tw"><table><thead><tr><th>#</th><th>问题</th><th>判定</th></tr></thead><tbody><tr><td>①</td><td>第一眼<strong>像不像那个世界</strong>？</td><td>是 / 否</td></tr><tr><td>②</td><td>有没有「<strong>人在宇宙中</strong>」的感觉？</td><td>是 / 否</td></tr><tr><td>③</td><td>有没有<strong>真实城市</strong>的感觉？</td><td>是 / 否</td></tr><tr><td>④</td><td>有没有<strong>生命探索 / 命运 / 节律</strong>的感觉？</td><td>是 / 否</td></tr><tr><td>⑤</td><td>有没有明显的<strong>游戏 / 赛博朋克 / 地图产品感</strong>？</td><td>有 / 没有</td></tr></tbody></table></div>
+<p><strong>通过条件</strong>：① ② ③ ④ = <strong>是</strong>，且 ⑤ = <strong>没有</strong>。</p>
+<h3>18.1 判据层级与优先级</h3>
+<p><span class="neon"><strong>当机器数字与人的眼睛冲突时，以眼睛为准。</strong></span></p>
+<div class="tw"><table><thead><tr><th>优先级</th><th>判据</th><th>性质</th></tr></thead><tbody><tr><td>P0</td><td><strong>五问</strong></td><td>人之裁决 · 最高</td></tr><tr><td>P1</td><td>§19 量化判据（🔒 临时口径）</td><td>机器辅助 · 失敏风险</td></tr><tr><td>P2</td><td>层面积配额（§5.1）</td><td>结构核查</td></tr></tbody></table></div>
+<blockquote><p><span class="neon"><strong>五问的显示环境要求（v3.0c 新增 · 回应审计遗漏项）</strong>：五问由眼睛裁决，故必须<strong>同一台显示器 + 同一亮度设置</strong>下作答；换设备后需重答。每轮 ROUND 文档须记录「验收设备 / 亮度 / 是否夜间模式」。详见 §17.1。</span></p>
+<p><strong>冲突处理</strong>：若数值判据（P1）与眼睛（P0）冲突 —— 按本节以眼睛为准，但<strong>必须把冲突写进 ROUND 文档</strong>，不得静默忽略（这是 440 事故「用失敏指标自我打勾」的制度性防范）。</p></blockquote>
+<h3>18.2 机器判据的三条使用纪律（吸取 440/480 教训）</h3>
+<ol><li><strong>不得自我打勾</strong>：任一口径被推翻后，<strong>必须换口径重测</strong>，不得沿用旧数字。</li><li><strong>不得用失敏指标</strong>：「分区均亮」已被批判为失敏指标（440 就是被它判成达标的）。</li><li><strong>迭代必须给人看</strong>：<span class="neon">每完成一层 / 一轮，<strong>必须出图给需求方看</strong>，由他说行不行 —— 不得靠数字自我判定「在进步」。</span>（440 与 480 两次事故的共同形态：8 轮迭代一次都没出图给人看。）</li></ol>
+<hr>
+<h2>19. 量化判据（CT-2 口径）</h2>
+<blockquote><div class="bq-h"><span class="neon">⚠️ 全部阈值为「临时口径」—— 不得用于终局判决</span></div>
+<p><span class="neon"><strong>本节所有由 ref-c 导出的基准值（V41–V48 的阈值列）成立于「CT-2 取代 CT-1」这一裁定之上，而该裁定尚未获老板确认（§21 Q0 / Q1）。</strong></span> 因此：</p>
+<div class="tw bq-tw"><table><thead><tr><th>允许</th><th>禁止</th></tr></thead><tbody><tr><td>报<strong>趋势判决</strong>：偏高 / 偏低 / 方向反转</td><td>报<strong>终局判决</strong>：「达标」「不达标」</td></tr><tr><td>用作<strong>迭代时的相对刻度</strong>（这版比上版更接近目标）</td><td>用作<strong>放行依据</strong>（据此宣布某批通过验收）</td></tr><tr><td>在 Q1 答复后一键转正</td><td>在 Q0/Q1 悬空时对外声称「按规格书达标」</td></tr></tbody></table></div>
+<p><strong>转正条件</strong>：§21 Q0 与 Q1 答复 + §3.1e 的复核路径被执行（E1 → E0）。</p>
+<p><strong>一键回退</strong>：若 Q1 选 (B)（仍以 CT-1 为准），本节全部数字作废，重跑 probe 即可（工作量：1 个脚本 + 本节表格）。</p></blockquote>
+<h3>19.1 分区口径变更</h3>
+<div class="tw"><table><thead><tr><th>口径</th><th>天空区</th><th>带区</th><th>地貌区</th></tr></thead><tbody><tr><td>旧（CT-1 / v2）</td><td>0 – 51%</td><td>51 – 68%</td><td>68 – 100%</td></tr><tr><td><strong>新（CT-2 / v3）</strong></td><td><strong>0 – 54%</strong></td><td><strong>54 – 60%</strong></td><td><strong>60 – 100%</strong></td></tr></tbody></table></div>
+<h3>19.2 参考值对照表（本批实测，单一方法学）</h3>
+<blockquote><p>方法学：全部图像统一 resize 到 <strong>1920×969</strong>；<code>L = RGB 均值</code>；亮度阈值为 <code>L</code> 值。口径一旦固定不得混用（§18.2 纪律一）。</p>
+<p><strong>基准纯净度</strong>：ref-c 已做四项纯净度检查（边带 / 游程 / 边角 / 元数据），<strong>确认不含面板或 UI</strong>，数值未经污染 —— 详见 §3.1f(b)。</p>
+<p><strong>基准抗噪性</strong>：ref-c 为 JPEG，已实测量化敏感度：p99.9 在 q=50–95 区间波动 ≤ 1.34，<strong>基准值抗 JPEG 噪声</strong> —— 详见 §3.1f(c)。</p>
+<p><strong>等级</strong>：全部为 <strong>E1（本端单方复现）</strong>，脚本 <code>verify_baseline_chain.py</code> / <code>zone_probe_ct2.py</code> / <code>target_offset.py</code>。</p></blockquote>
+<div class="tw"><table><thead><tr><th>指标</th><th>CT-1（旧靶）</th><th><span class="neon">ref-c（新靶）</span></th><th>480 批实测</th><th>判定</th></tr></thead><tbody><tr><td>地平线位置</td><td>69.14% / 68.01%</td><td><strong>58.41% / 56.2%</strong></td><td>~70%</td><td>靶子本身偏 11 pt</td></tr><tr><td>天空区 mean（0–54%）</td><td>7.96</td><td><strong>8.06</strong></td><td>7.28</td><td>✅ 接近</td></tr><tr><td><strong>带区 mean（54–60%）</strong></td><td>10.54</td><td><span class="neon"><strong>26.73</strong></span></td><td>20.77</td><td><span class="neon"><strong>偏低 −22.3%</strong> ⚠️</span></td></tr><tr><td><strong>带区 &gt;20 亮度占比</strong></td><td>7.1%</td><td><span class="neon"><strong>54.5%</strong></span></td><td>—</td><td>480 未测此项</td></tr><tr><td>地貌区 mean（60–100%）</td><td>30.69</td><td><strong>35.27</strong></td><td>28.60</td><td>偏低 −18.9% ⚠️</td></tr><tr><td>地貌区 p95</td><td>—</td><td><strong>95.67</strong></td><td>—</td><td>—</td></tr><tr><td>下半区最大连续亮块</td><td>—</td><td><strong>479,805 px（占下半区 24%）</strong></td><td>—</td><td>—</td></tr><tr><td>青蓝占比（下半区 · 严格）</td><td>81.0%</td><td><strong>89.2%</strong></td><td>—</td><td>口径：<code>B&gt;R+6 且 G&gt;R+2</code></td></tr><tr><td>青蓝占比（下半区 · 宽松）</td><td>—</td><td><strong>97.4%</strong></td><td>—</td><td>口径：<code>B&gt;R</code>（旧记录「96–98%」即此口径）</td></tr><tr><td>纯黑 &lt;12</td><td>59.5%</td><td><strong>54.4%</strong></td><td>45.4%</td><td>偏低 −9.0 pt ⚠️</td></tr><tr><td>暖色（月亮）</td><td>0.0485%</td><td><strong>0.0485%</strong></td><td>0.008%</td><td>✗ 月亮缺失</td></tr><tr><td>全域 mean</td><td>17.22</td><td><strong>20.07</strong></td><td>—</td><td>—</td></tr><tr><td><span class="neon"><strong>p99.9（最亮尾部）</strong></span></td><td>163.0</td><td><span class="neon"><strong>164.3</strong></span></td><td><span class="neon"><strong>235.0</strong></span></td><td><span class="neon"><strong>✗ 硬高光核</strong></span></td></tr><tr><td><span class="neon"><strong>近白 &gt;200 占比</strong></span></td><td>0.0073%</td><td><span class="neon"><strong>0.0062%</strong></span></td><td><span class="neon"><strong>0.940%</strong>（约为目标的 <strong>150 倍</strong>量级）</span></td><td><span class="neon"><strong>✗ 差两个数量级</strong></span></td></tr><tr><td>近白 &gt;230 占比</td><td>0.0004%</td><td><strong>0.0001%</strong></td><td><strong>0.245%</strong></td><td>✗</td></tr><tr><td>画面 max</td><td>246.0</td><td>232.0</td><td>245.7</td><td>—</td></tr></tbody></table></div>
+<blockquote><p><strong>数值来源（v3.0c 校准）</strong>：p99.9 与近白占比取 <code>verify_baseline_chain.py</code> §E 的确定性复算值（ref-c p99.9=164.33 / 近白 0.0062%；CT-1 p99.9=163.00 / 近白 0.0073%）。v3.0 原文记 «164.3 / 0.006%» 与 «163.0 / 0.007%»，<strong>结论一致，小数位以本节为准</strong>。</p></blockquote>
+<blockquote><p><strong>两个新发现（本批首次量化）</strong></p>
+<p><strong>发现一（带区方向反了）</strong>：480 批实测带区 20.77，对 CT-1（10.54）判「超标 +74.7%」，对 ref-c（26.73）应判「<strong>偏低 −22.3%</strong>」。同一数值，<strong>结论 180° 反转</strong>（详见 §3.3）。</p>
+<p><strong>发现二（硬高光核）</strong>：<span class="neon"><strong>目标图（CT-1 与 ref-c）几乎没有近白像素 —— &gt;200 占比仅 0.006–0.007%，p99.9 ≈ 163。而 480 批 &gt;200 占比 0.940%、p99.9 = 235。</strong></span></p>
+<p>这说明目标画面的城市是<strong>「亮而不爆」</strong>：均值高（35.27）、尾部低（p99.9 164）。480 批做成了相反的形态 —— <strong>均值偏低（28.60）但尾部极高（235）</strong>，即「大面积偏暗 + 少量爆亮硬核」。</p>
+<p><span class="neon"><strong>这直接定义了 Glow 的正确做法：靠「面」亮起来（大范围中亮度的连续结构），不是靠「点」爆出来（少数饱和硬核）。</strong></span> 这条同时修正了 §9.2 —— 不只是「降 Glow 亮度」，而是<strong>禁止出现近白核</strong>。</p>
+<p><strong>抗噪性声明（v3.0c 补，回应审计意见 2(b)）</strong>：审计质疑「对一张 JPEG 测 p99.9，JPEG 会削峰 <span class="arw">⇒</span> 精确倍数不可靠」。<strong>已实查并结论如下</strong>：把 CT-1 按 JPEG q=50–95 重编码，p99.9 波动仅 163.0–163.67（Δ ≤ 0.67），近白占比波动 0.0071–0.0082%（≤ 1.12×）；ref-c 自身重编码波动 ≤ 1.34。<strong><span class="arw">⇒</span> 编解码器噪声为「个位点数」量级，而 480 批与目标的差距是 ~70 点 / 两个数量级 <span class="arw">⇒</span> 判据方向与量级不受 JPEG 影响。</strong></p>
+<p><span class="neon"><strong>但审计是对的：不得把「134 倍」这类精确倍数写进硬阈值。</strong></span> §19.4b 已据此改为<strong>稳定域判据</strong>（见 §19.6）。</p></blockquote>
+<h3>19.3 逐层量化判据（V32–V40 · 新增）</h3>
+<div class="tw"><table><thead><tr><th>代号</th><th>层</th><th>判据</th><th>阈值</th></tr></thead><tbody><tr><td><strong>V32</strong></td><td>① 天空底</td><td>面积占比</td><td>24–28%</td></tr><tr><td><strong>V33</strong></td><td>② 星野雾</td><td>面积占比</td><td>≤ 1.5%</td></tr><tr><td><strong>V34</strong></td><td>③ 星座</td><td>面积占比 + 连线夹角标准差</td><td>2–3% / ≤ 5°</td></tr><tr><td><strong>V35</strong></td><td>④ 月牙</td><td>存在性 + 暖色占比</td><td>必须存在 / ≤ 0.5%</td></tr><tr><td><strong>V36</strong></td><td>⑤ 中轴辐射网</td><td>面积 + 条数</td><td>5–7% / 5–7 条</td></tr><tr><td><strong>V37</strong></td><td>⑥ 山脉框景</td><td>面积 + 左右对称性</td><td>3–4% / 双侧呼应</td></tr><tr><td><strong>V38</strong></td><td>⑦ 城市天际线</td><td>面积</td><td>11–14%</td></tr><tr><td><strong>V39</strong></td><td>⑧ 城市肌理</td><td>面积 + 平均亮度</td><td>32–36% / <strong>≥ 32</strong>（防「暗而糊」）</td></tr><tr><td><strong>V40</strong></td><td>⑨ 人影地光</td><td>面积 + 人物相对亮度</td><td>2–4% / <strong>暗于背景</strong></td></tr></tbody></table></div>
+<h3>19.4 三区数值判据（V41–V43 · 按 CT-2 口径重算 · <strong>🔒 临时口径</strong>）</h3>
+<blockquote><p><strong>判据列已改名为「趋势判决」</strong> —— 在 §21 Q0/Q1 答复前，不允许出「达标 / 不达标」的终局判决（见 §19.6 规则 1）。</p></blockquote>
+<div class="tw"><table><thead><tr><th>代号</th><th>判据</th><th>ref-c 基准</th><th>允许区间</th><th>480 批</th><th>趋势判决</th></tr></thead><tbody><tr><td><strong>V41</strong></td><td>天空区 mean（0–54%）</td><td><strong>8.06</strong></td><td>7.09 – 9.03（±12%）</td><td>7.28</td><td>✅ 同量级</td></tr><tr><td><strong>V42</strong></td><td>带区 mean（54–60%）</td><td><strong>26.73</strong></td><td>22.72 – 30.74（±15%）</td><td>20.77</td><td><span class="neon"><strong>偏低</strong>（−22.3%）</span></td></tr><tr><td><strong>V43</strong></td><td>地貌区 mean（60–100%）</td><td><strong>35.27</strong></td><td>31.04 – 39.50（±12%）</td><td>28.60</td><td>偏低（−18.9%）</td></tr></tbody></table></div>
+<blockquote><p><strong>V42 是「靶子偏了 <span class="arw">⇒</span> 结论反转」的直接体现</strong>：同一实测值 20.77，对旧靶（10.54）判「超标 +74.7%」，对新靶（26.73）判「偏低 −22.3%」。</p>
+<p><strong>容差 ±12% / ±15% 的依据</strong>：<span class="neon"><strong>E3 经验值</strong>（本端设定，非从数据推出）</span> —— 阶段 0 期间须用真实样本方差校准，见 §19.6 残余风险 3。</p></blockquote>
+<h3>19.4b 尾部判据（V44–V45 · 本批新增 · <strong>稳定域版本</strong>）</h3>
+<blockquote><p>依据 §19.2 发现二：目标画面<strong>没有近白像素</strong>，城市是「亮而不爆」。</p>
+<p><span class="neon"><strong>v3.0c 修订</strong>：原版阈值 <code>≤ 180</code> / <code>≤ 0.05%</code> 建立在单点测量 + 「134 倍 / 18.8 倍」的精确倍数论证上。审计指出 JPEG 量化会削峰 <span class="arw">⇒</span> 精确倍数不可靠。<strong>现改为稳定域判据</strong> —— 阈值与目标值的余量放宽到编解码噪声的 10 倍以上，结论不再依赖精确倍数。</span></p></blockquote>
+<div class="tw"><table><thead><tr><th>代号</th><th>判据</th><th>ref-c 基准</th><th>稳定域阈值</th><th>编解码噪声（实测）</th><th>480 批</th><th>趋势判决</th></tr></thead><tbody><tr><td><strong>V44</strong></td><td>p99.9（最亮尾部）</td><td>164.3</td><td><strong>≤ 185</strong></td><td>±1.4（q50–95）</td><td><strong>235.0</strong></td><td><span class="neon"><strong>严重偏高（+~70 点）</strong></span></td></tr><tr><td><strong>V45</strong></td><td>近白 <code>L&gt;200</code> 占比</td><td>0.0062%</td><td><strong>≤ 0.06%</strong></td><td>×1.12（最差）</td><td><strong>0.940%</strong></td><td><span class="neon"><strong>高约两个数量级</strong></span></td></tr><tr><td><strong>V46</strong></td><td>纯黑 <code>L&lt;12</code> 占比</td><td>54.4%</td><td>50 – 58%</td><td>—</td><td>45.4%</td><td>⚠️ 偏低</td></tr><tr><td><strong>V47</strong></td><td>暖色（月亮）占比</td><td>0.0485%</td><td>0.02 – 0.5%</td><td>—</td><td>0.008%</td><td>月亮缺失</td></tr><tr><td><strong>V48</strong></td><td>青蓝占比（下半区 · 严格口径）</td><td>89.2%</td><td>≥ 85%</td><td>—</td><td>—</td><td>待测</td></tr></tbody></table></div>
+<blockquote><p><strong>稳定域阈值的设计逻辑（重要）</strong>：V45 阈值 0.06% 与目标 0.0062% 之间留了 <strong>~10 倍</strong>余量，而实测编解码噪声的最大漂移仅 <strong>1.12 倍</strong>。<span class="arw">⇒</span> <span class="neon"><strong>阈值比噪声宽一个数量级，结论不依赖「精确倍数」这种脆弱论证。</strong></span> 480 批的 0.940% 即便打满噪声折扣，仍是阈值的 ~15 倍以上。<strong>结论稳健，但表述必须用「两个数量级」，不写「150 倍」这类精确倍数。</strong></p>
+<p><strong>V44/V45 的操作含义</strong>：<span class="neon"><strong>禁止出现近白硬核。</strong></span> 城市层要「整体提亮 + 消除爆点」，即把能量从「少数饱和像素」重新分配到「大范围中亮度连续结构」。</p>
+<p>这是 480 批「竖柱阵」在数值上的真面目 —— 柱阵不是"太亮"，是<strong>能量分布形态错误</strong>（尖峰而非平台）。</p></blockquote>
+<h3>19.5 状态标记（v3.0c 改版）</h3>
+<div class="tw"><table><thead><tr><th>标记</th><th>含义</th><th>可作放行依据</th></tr></thead><tbody><tr><td>✅</td><td>与目标同量级（趋势一致）</td><td>❌（临时口径期）</td></tr><tr><td>⚠️</td><td>偏离但方向正确，可接受为中间态</td><td>❌</td></tr><tr><td>✗</td><td>明显偏离</td><td>❌</td></tr><tr><td><span class="neon">🔒</span></td><td><span class="neon"><strong>临时口径</strong>：数值可用，判据待 Q0/Q1 转正</span></td><td>—</td></tr></tbody></table></div>
+<blockquote><p><strong>一句话</strong>：临时口径期内，本节的任何标记<strong>只是迭代刻度，不是验收结论</strong>。</p></blockquote>
+<h3>19.6 临时口径与稳定域（v3.0c 新增 · 直接回应审计核心意见）</h3>
+<blockquote><p><strong>审计原文</strong>：<span class="neon">「这份文档最大的优点是『用证据推翻自己』，最大的隐患是 —— 它正在用同样自信的口吻，把一批尚未经老板确认（Q0/Q1）的数字写成硬判据。CT-1 的教训是『靶子被悄悄改了』；下一个教训可能就是『新靶子未经确认就被当成了铁律』。」</span></p>
+<p><strong>本节即为堵此漏洞而设。</strong> 三条硬规则：</p></blockquote>
+<div class="tw"><table><thead><tr><th>#</th><th>规则</th></tr></thead><tbody><tr><td><strong>1</strong></td><td><span class="neon"><strong>临时口径声明</strong>：§19 全部由 ref-c 导出的阈值，在 §21 Q0 与 Q1 答复前一律为「临时口径」。任何报告不得据此写「达标 / 通过 / 放行」。</span></td></tr><tr><td><strong>2</strong></td><td><span class="neon"><strong>稳定域优先于精确值</strong>：判据须满足「阈值与目标值的余量 ≥ 编解码 / 采样噪声的 10 倍」。不满足者只能作趋势指标，不得作硬阈值。已按此修订 V44/V45。</span></td></tr><tr><td><strong>3</strong></td><td><span class="neon"><strong>基准纯净性是使用前提</strong>：任何基准图进入 probe 脚本前，必须先过 §3.1f(b) 的四项纯净度检查（边带 / 游程 / 边角 / 元数据）。<strong>复合图（annotated）永久禁入</strong>（§12.2）。</span></td></tr></tbody></table></div>
+<p><strong>残余风险（诚实列出，不掩饰）</strong>：</p>
+<div class="tw"><table><thead><tr><th>#</th><th>残余风险</th><th>现状</th><th>处置</th></tr></thead><tbody><tr><td><strong>1</strong></td><td><strong>Q0 意图未知</strong> —— 若那个压缩是老板有意要的，则 CT-2 方向本身错误，全部数字需翻转</td><td><strong>未解</strong></td><td>等 §21 Q0；这是唯一的开关</td></tr><tr><td><strong>2</strong></td><td><strong>全部测量为 E1</strong>（本端单方复现），无外部复核 <span class="arw">⇒</span> 存在「自己推翻自己、自己确认自己」的结构性弱点</td><td><strong>未解</strong></td><td>等 §3.1e 复核路径被执行（任一方复跑成功即升 E0）</td></tr><tr><td><strong>3</strong></td><td><strong>容差区间（±12% / ±15%）为依据不明</strong> —— 系本端设定的工程容差，非从数据推出</td><td><strong>未解</strong></td><td>标 <strong>E3 经验值</strong>；阶段 0 期间用真实样本方差校准后再定为硬阈值</td></tr><tr><td><strong>4</strong></td><td><strong>「地平线」两法差异 1–2 pt 未收敛</strong></td><td>已知</td><td>全文一律并列两法结果；CT-2 取 57±3% 已覆盖该差异</td></tr></tbody></table></div>
+<hr>
+<h2>20. 门禁与对拍流程</h2>
+<h3>20.1 对拍基准</h3>
+<ul><li><strong>新靶（拟）</strong>：<code>docs/design/redraw-20260914/_refs/ref-c-老板参考构图.jpg</code>（1920×969）<span class="neon">— 🔒 待 §21 Q1 转正</span></li><li><strong>历史对照</strong>：<code>docs/design/baseline/</code> CT-1 冻结资产（保留，不覆盖，仅作历史对照）</li><li><strong>拟禁止</strong>：用 CT-1 作为新批次的通过 / 不通过判据（§3.2；若 Q1 选 (B) 则此条作废）</li><li><span class="neon"><strong>永久禁止（v3.0c 新增）</strong>：<code>SKY-BASELINE-CT1-annotated.png</code> 及任何复合 / 标注图进入 probe 脚本或任何测量管线（§12.2）。</span> 该类文件<strong>只允许人工阅读</strong>。</li><li><span class="neon"><strong>基准图只读</strong>：任何工具、脚本、导出流程<strong>不得覆盖 <code>docs/design/</code> 下的基准资产</strong>。每次使用前可用 §3.1e 的脚本核一次尺寸与行跳变，确认未被改写。</span></li></ul>
+<blockquote><p><strong>基准健康检查（v3.0c 新增，每次开批前 30 秒可跑）</strong>：三张图的 (尺寸, 最大行跳变) 应为</p>
+<p><code>ref-c: 1920×969 / 7.11</code>、<code>CT-1: 1920×969 / 7.98</code>、<code>CT-1-annotated: 2580×969 / 100.97</code>。</p>
+<p><strong>任一项不符 <span class="arw">⇒</span> 基准已被改写 <span class="arw">⇒</span> 立即停批、重跑 §3.1e 脚本、按 §28「基准资产被再次改写」处置。</strong></p></blockquote>
+<h3>20.2 每轮出图纪律（强制）</h3>
+<pre class="code">改一层 → 出图 → 给需求方看 → 记「是/否」 → 下一层</pre>
+<ol><li>每轮产出物：<code>&lt;layer&gt;-v&lt;n&gt;.png</code> + 与 ref-c 的<strong>同尺寸叠放对照图</strong>。</li><li>每轮必须在报告中回答 <strong>五问</strong>，不得只报数字。</li><li>跨批交付物：<code>docs/sky/ROUND-YYYYMMDD-&lt;批号&gt;-&lt;主题&gt;.md</code> + 同内容深色 HTML。</li></ol>
+<h3>20.3 部署门禁</h3>
+<div class="tw"><table><thead><tr><th>条件</th><th>要求</th></tr></thead><tbody><tr><td>本地预览</td><td>允许（<code>127.0.0.1</code> 端口，需说明端口）</td></tr><tr><td>线上部署</td><td><strong>必须五问全过 + 老板明示放行</strong></td></tr><tr><td>worktree 提交</td><td>按老板指令；默认<strong>不提交</strong></td></tr><tr><td>主仓 <code>src/</code> / <code>functions/</code></td><td><strong>零改动</strong>，除非老板明示</td></tr></tbody></table></div>
+<hr>
+<h2>21. 开放问题（待老板拍板）</h2>
+<blockquote><p><strong>门禁提示</strong>：<span class="neon"><strong>Q0 与 Q1 是 §3.2「施工闸」的唯一开关。在二者有明确答复前，本端不写任何渲染代码。</strong></span>（纪律来源：480 批「需求裁决悬空时自行默认选路」的教训。）</p></blockquote>
+<div class="tw"><table><thead><tr><th>#</th><th>问题</th><th>选项</th><th>我的建议</th></tr></thead><tbody><tr><td><strong>Q0</strong></td><td><span class="neon"><strong>CT-1 对 ref-c 的那个压缩（下半部缩到 73.8%、地平线下移 11 pt），是你当时要求的修改，还是一次无意的走样？</strong></span>&lt;br&gt;（v3.0c 补：本端已用信息损失检验证实「压缩」这一事实，<strong>但无法从文件推断意图</strong> —— 只有你能回答）</td><td>(A) 我要的就是 ref-c 那种（城市更高更饱满）→ 按 CT-2 走&lt;br&gt;(B) 压缩是我要的（城市更矮更含蓄）→ 按 CT-1 走，但判据口径必须同步改&lt;br&gt;<strong>(C) 那是一次无意走样 / 我不记得有这个改动</strong> → 按 CT-2 走，并把「基线产生环节」当作事故复盘&lt;br&gt;(D) 两者都不完全是，我另说</td><td><strong>A 或 C</strong> —— 无论哪个，结论都指向 CT-2；<strong>但只有你点头，它才从「临时口径」转正</strong></td></tr><tr><td><strong>Q1</strong></td><td>CT-2（地平线 57±3%）是否取代 CT-1（69.14%）成为新验收靶子？</td><td>(A) 是，CT-2 转正，CT-1 存档 (B) 否，仍以 CT-1 为准 (C) 另定</td><td><strong>A</strong> —— 与老板 V1.0 §22「天空 50–60%」及 ref-c 实测（56.2% / 58.4%）自洽</td></tr><tr><td><strong>Q2</strong></td><td>是否现在开工阶段 0（纯沙箱样张生成器）？</td><td>(A) 是 (B) 先看计划</td><td>A</td></tr><tr><td><strong>Q3</strong></td><td>视觉高度映射的边界</td><td>真实 60m 的楼，轮廓 / 辉光最多增强到什么程度？</td><td>增强<strong>轮廓与辉光</strong>；不虚构<strong>高度数值、数量、位置</strong></td></tr><tr><td><strong>Q4</strong></td><td>移动端竖屏（390×844）是否在阶段 0 处理？</td><td>(A) 阶段 0 只做桌面 (B) 同步做</td><td>A（老板 V1.0 §25 亦明确砍掉）</td></tr><tr><td><strong>Q5</strong></td><td>小城市无数据时的对外表述</td><td>(A) 不提示，静默降级 (B) 页面标注「数据稀疏」</td><td>B（符合「不得把合成说成真实」）</td></tr><tr><td><strong>Q6</strong></td><td><span class="neon"><strong>验收显示环境</strong>（v3.0c 新增）</span>：五问在什么设备 / 亮度下作答？</td><td>(A) 就用你现在这台，以后每轮都在同一台 (B) 我再指定一台校准过的</td><td><strong>A</strong> —— 只要前后一致即可；§17.1 已把「同设备」写成硬约束</td></tr><tr><td><strong>Q7</strong></td><td><span class="neon"><strong>关键测量的独立复核</strong>（v3.0c 新增）</span>：是否要指定一方复跑 §3.1e 的脚本？</td><td>(A) 不必，我信你的实测 (B) 我会跑一次 / 让 Codex 跑一次 (C) 先放着，等有空</td><td><strong>B</strong> —— 这是把 §3.1c 从 E1 升到 E0 的唯一途径；<strong>否则本文件的核心结论永远停在「待复核」</strong></td></tr></tbody></table></div>
+<hr>
+<h2>22. 变更记录</h2>
+<div class="tw"><table><thead><tr><th>日期</th><th>版本</th><th>变更</th><th>作者</th></tr></thead><tbody><tr><td>2026-09-16</td><td><strong>v3.0</strong></td><td>建档。整合 <code>SKY-VISUAL-STANDARD-v2.md</code>、<code>SKY-VISUAL-SPEC-v1.md</code>、<code>SKY-STYLE-DNA-v1.md</code>、<code>SKY-VISUAL-SPEC-v1-ADDENDUM-80-20.md</code>，并审计吸收老板《Tempo Soul 首页视觉规格书 V1.0》。核心变更：① 定义 CT-2 构图模板（地平线 57±3%），与 CT-1 冲突裁定；② 确立九层模型与面积配额；③ 纠正「样张是暗色剪影」的错误认知（实为高亮密纹连续结构）；④ 双视点降级为「结果」；⑤ 新增第 ⑤ 层中轴辐射网为构图骨架；⑥ 「数据真实，表现艺术化」落成代码约束</td><td>可吉（WorkBuddy）· 批次 520</td></tr><tr><td>2026-09-16</td><td><strong>v3.0a</strong></td><td><strong>S0 测量回填（同批完成）</strong>。按 CT-2 口径重算 ref-c 三区基准（天空 8.06 / 带 26.73 / 地貌 35.27）；确认 <strong>CT-1 与 ref-c 地平线相差 10.7 pt</strong>（69.14% vs 58.41%）；<strong>发现带区判定方向反转</strong>（480 批 20.77：对旧靶「超标 +74.7%」→ 对新靶「偏低 −22.3%」）；<strong>新增尾部判据 V44/V45</strong>（目标 p99.9 = 164.3、近白 0.006%；480 批实测 235.0 / 0.940%，超标 18.8 倍）→ 确立「禁止近白核」硬指标（§9.2b）；地平线取值由 56±2% 修订为 <strong>57±3%</strong>（两法实测 56.2% / 58.4%）</td><td>可吉（WorkBuddy）· 批次 520</td></tr><tr><td>2026-09-16</td><td><strong>v3.0b</strong></td><td><strong>变形链溯源（同批完成，本批最硬的一条证据）</strong>。逐像素差分证明 <strong>CT-1 的上半部（y&lt;48.8%）与 ref-c 完全一致（最大差 = 0）</strong>，下半部呈严格纵向仿射 <code>y_refc = 1.36 × y_CT1 − 348</code>，三点边界全部命中（误差 &lt;0.2 pt）<span class="arw">⇒</span> <span class="neon"><strong>CT-1 = ref-c 下半部压缩到 73.5% 的版本</strong></span>；时间戳（16:33 输入 → 16:39 产出，+6 分钟）钉死方向。据此确立「两千次卡住」的完整根因链（§3.1d）。证据图 <code>PROOF-ct1-is-compressed-refc.png</code></td><td>可吉（WorkBuddy）· 批次 520</td></tr><tr><td>2026-09-16</td><td><strong>v3.0c</strong></td><td><span class="neon"><strong>审计回应批 —— 把「用未确认的数字写硬判据」这个新教训堵住。</strong></span> 外部审计提出 5 类问题，本版逐条修复：&lt;br&gt;<strong>① 证据强度</strong>：§3.1c <strong>重写</strong> —— 时间戳降为旁证（新发现 ref-c 的 ICC = <code>Google Inc. 2016</code>，系 Chromium 指纹 <span class="arw">⇒</span> mtime 只记「保存动作」），主证据换为<strong>信息损失不可逆检验</strong>（5 种重采样核最高仅能复原 ref-c 的 92.5% <span class="arw">⇒</span> 反命题 H2 被 falsify）；新增「排除纯重编码」检验（下半部最大差 243）。仿射参数复算为 <code>1.355 / −344 / 73.8%</code>。&lt;br&gt;<strong>② 基准纯净度</strong>：<span class="neon"><strong>发现那条「50.9% 拼接缝」属于 <code>SKY-BASELINE-CT1-annotated.png</code>（2580×969 = 1920 画面 + 660 面板），不属 ref-c</strong></span> —— 原 D13 属张冠李戴，已更正；ref-c 四项纯净度检查全通过。&lt;br&gt;<strong>③ 判据稳定性</strong>：实查 JPEG 量化敏感度（q50–95 下 p99.9 波动 ≤ 1.4、近白占比 ≤ 1.12×）<span class="arw">⇒</span> 结论方向可信、<strong>但精确倍数不可写死</strong>；V44/V45 改为<strong>稳定域判据</strong>（余量 ≥ 噪声 10 倍），表述由「134 倍」改为「两个数量级」。&lt;br&gt;<strong>④ 制度补漏</strong>：新增 <strong>§1.4 证据等级（E0–E3）与复核制度</strong>，修正 §2 审计口径（E1 本端实测不再高于老板原文，冲突走 §21）；§19 抬头加 <span class="neon"><strong>「全部阈值 = 临时口径，禁止终局判决」</strong></span> 横幅，新增 §19.6 稳定域与残余风险表；§3.2 拆成 <strong>「建表闸 / 施工闸」两道闸</strong>（解决原版「确认前不作为」与「S0 已回填」的自相矛盾）；§12.2 增两条红线（阶段 0 产物禁入线上前端 / 复合图禁作测量基准）。&lt;br&gt;<strong>⑤ 工程与遗漏</strong>：§17 把「≤300 ms」由硬指标降为 <strong>E2 估算</strong>并新增 §17.1 验收显示环境；§18.1 给五问加显示环境约束；§25.2 补 <strong>S7 稀疏高度场填充技术要点</strong> 与 <strong>S0b 复核步</strong>；§26 补 <strong>阶段 0→1 量化回归闸</strong>；§21 新增 Q6（显示环境）/ Q7（独立复核），Q0 增 (C) 「无意走样」选项。&lt;br&gt;<strong>新增可复现产物</strong>：<code>proto2d/verify_baseline_chain.py</code> + <code>assets-520/VERIFY-baseline-chain.png</code> + <code>.json</code> + <code>.log.txt</code></td><td>可吉（WorkBuddy）· 批次 520-C</td></tr></tbody></table></div>
+<hr>
+<h2>23. 执行计划 · 困难清单</h2>
+<blockquote><p>先摆困难，再谈路径。以下每条都有实测依据，不是预判。</p></blockquote>
+<h3>23.1 一级困难（会导致路线失效，必须先解）</h3>
+<div class="tw"><table><thead><tr><th>#</th><th>困难</th><th>实测依据</th><th>严重度</th><th>缓解</th></tr></thead><tbody><tr><td><strong>D1</strong></td><td><span class="neon"><strong>验收靶子偏了 11 个百分点</strong></span> —— 内部冻结 CT-1（68.01%）与老板参考图（56.2%）不是同一个资产</td><td>本批实测（§3.1）</td><td><strong>致命</strong></td><td>裁定 CT-2（Q1）；本批已默认按 CT-2 建判据，等老板一句话确认</td></tr><tr><td><strong>D2</strong></td><td><strong>我自己的靶子认知曾两次搞反</strong>（把「亮而细的连续密纹」当成「暗剪影」）→ 480/490 把城市做得更暗更糊</td><td>实测量化（§6.8）</td><td><strong>致命</strong></td><td>本文 §6.8 已写死「亮而细，非暗而糊」；V39 加下限 ≥ 32 防回归</td></tr><tr><td><strong>D3</strong></td><td><span class="neon"><strong>真实建筑数据在中国中小城市基本空白</strong></span> —— 诸暨市中心 8km 仅 <strong>10 栋</strong>建筑</td><td>Overpass 实测</td><td><strong>高</strong></td><td>§15 三级降级；Level 2 = 真实路网 + 程序化建筑（带 <code>synth</code> 标记）</td></tr><tr><td><strong>D4</strong></td><td><strong>逐栋建筑材质 → 必然产出「柱阵 / LED 点阵墙」</strong></td><td>440 / 480 / 490 三批同一病征</td><td><strong>高</strong></td><td>⑦⑧ 改为<strong>整层剪影 / 连续线框</strong>生成，禁止逐栋独立发光；Voxel-Space 式高度场光线投射天然一体遮挡</td></tr></tbody></table></div>
+<h3>23.2 二级困难（拖慢但不致命）</h3>
+<div class="tw"><table><thead><tr><th>#</th><th>困难</th><th>实测依据</th><th>缓解</th></tr></thead><tbody><tr><td><strong>D5</strong></td><td><strong>参数在两极摆动</strong>：亮 → 柱阵；暗 → 细带</td><td>490 三版实测</td><td>根因是 D4。分层后每层独立出图、独立验收，不再全局调参</td></tr><tr><td><strong>D6</strong></td><td><strong>环境极不稳定</strong></td><td>Overpass 一次性 3km 查询被 <strong>504</strong>；<strong>Chrome 被系统策略拦</strong>（改 Edge headless 成功）；CDP 每次截图后浏览器退出需重启；预览端口需常驻</td><td>固化脚本：Edge headless CDP + 端口探活（<code>ProxyHandler({})</code> 禁代理）+ 截图后自动重启</td></tr><tr><td><strong>D7</strong></td><td><strong>线上 <code>/api/geo</code> 全部超时</strong>（25–28 s）</td><td>今日实测</td><td>完全走<strong>本地离线烘焙</strong> Geo Tile 路径，不依赖运行时 API</td></tr><tr><td><strong>D8</strong></td><td><strong>大气透视 / 纵深感</strong>参数陌生（色比、衰减曲线）</td><td>500 批原型 v4 下半部「仍需美术调校」</td><td>按 §9.3 权重表：氛围 ★5 优先，先定辉光与透视再抠轮廓</td></tr><tr><td><strong>D9</strong></td><td><span class="neon"><strong>气质层（②③④⑤⑥⑨）无法用工程指标验收</strong></span> —— 它们是美术判断</td><td>510 批：这 6 层合计仅 9.2% 面积，却是成败所在</td><td><strong>必须由老板的眼睛裁决</strong>，这正是五问存在的理由；工程侧只保证「层存在 + 面积达标 + 不违反硬禁令」</td></tr><tr><td><strong>D10</strong></td><td><strong>迭代成本高</strong> —— 前几批每次 8 轮调参、数千次工具调用</td><td>批次 440–490 实况</td><td>阶段 0 改逐层交付：一层一图一验收，单层失败不牵连全局</td></tr></tbody></table></div>
+<h3>23.3 认知类困难（最容易被忽略）</h3>
+<div class="tw"><table><thead><tr><th>#</th><th>问题</th><th>说明</th></tr></thead><tbody><tr><td><strong>D11</strong></td><td><strong>「3 秒渲染」是概念错位</strong></td><td>拉取 + 烘焙（可 20 分钟）与首屏出图（≤ 300 ms）是两件事。把它们混在一起会得出「做不到」的错误结论</td></tr><tr><td><strong>D12</strong></td><td><strong>「街景地图」不可用于此</strong></td><td>街景是地面视角 360° 照片：与「高空远眺」差 90°、<strong>无几何、无高度</strong>、本质是贴图（触红线）。可用素材只有三类：矢量建筑轮廓+高度 / DEM 高程 / 卫星影像（仅参考，不作底图）</td></tr><tr><td><strong>D13</strong></td><td><strong>测量基准可能是复合图</strong>（v3.0c 更正归属）</td><td><span class="neon"><strong>原 v3.0 写「ref-c 在 50.9% 处有拼接缝」—— 错误归属。</strong></span> 实测：那条缝属于 <code>SKY-BASELINE-CT1-annotated.png</code>（<strong>2580×969</strong> = 1920 画面 + 660 标注面板，列边界在 x=1920）。ref-c 行跳变 7.11、CT-1 行跳变 7.98，<strong>均无拼接缝</strong>。<span class="arw">⇒</span> 历史「地平线 69.76%」是在 2580px 复合图上误测的。<strong>新增红线：复合图永久禁入 probe 脚本（§12.2）。</strong> 详见 §3.1f(a)</td></tr><tr><td><strong>D15</strong></td><td><span class="neon"><strong>「本端实测」被当成「客观事实」</strong>（v3.0c 新增）</span></td><td>v3.0 审计口径把「实测证据」置于老板原文之上，但本批全部实测均为<strong>本端单方（E1）</strong> <span class="arw">⇒</span> 构成循环论证。<strong>已制度性修复：§1.4 证据等级 + §2 口径修订 + §19 临时口径横幅 + §21 Q7 独立复核。</strong></td></tr><tr><td><strong>D14</strong></td><td><strong>「1:1 像素一致」与红线物理互斥</strong></td><td>只有贴图或 AI 生图能做到；真实几何渲染数学上不可能。本文件 §4.2 已把它转为「同一套世界观」，不再追像素</td></tr></tbody></table></div>
+<hr>
+<h2>24. 阶段划分与总路线</h2>
+<pre class="code">阶段 0  语法复刻（不碰数据、不碰网页、不碰 GPS）
+   ↓    目标：稳定复刻视觉语言，五问通过
+阶段 1  真实数据映射（只接一个城市：真实建筑 → 高度场 → ⑦⑧）
+   ↓    目标：数据进来后视觉语言不塌
+阶段 2  工程化（WebGL/Three.js 重写 + GPU 合成 + 交互 + 性能）
+   ↓    目标：60 FPS、≤300ms 首屏、可交前端
+阶段 3  全球化（Geo Tile 生产流水线 + 多城市）</pre>
+<h3>24.1 为什么阶段 0 必须「不碰数据」</h3>
+<p><span class="neon"><strong>因为一旦同时引入「数据」和「语法」两个变量，失败时就无法判断是语法错了还是数据错了。</strong></span> 490 批同时背真实数据 + 语法探索，结果在「数据稀疏」与「形态不对」之间反复纠结 —— 这是双变量陷阱。</p>
+<p>阶段 0 的产物是<strong>一块纯语法样张</strong>（不含任何地理信息），它必须先独立通过五问。</p>
+<h3>24.2 阶段路线对照（老板 V1.0 §26 三天口径）</h3>
+<div class="tw"><table><thead><tr><th>日</th><th>老板 V1.0 原定</th><th>v3 细化（按九层收敛）</th><th>交付</th></tr></thead><tbody><tr><td>Day 1</td><td>画面骨架：黑宇宙 / 星云 / 星空 / 星座 / 地平线 / Glow / 城市抽象轮廓</td><td>层 ①②③ + 带区辉光 + ⑦ 抽象轮廓</td><td><code>L1-day1.png</code> + 五问</td></tr><tr><td>Day 2</td><td>城市肌理 / 山体 / 道路 / 人物 / 粒子 / 双层空间</td><td>层 ④⑤⑥ + ⑧ + ⑨</td><td><code>L2-day2.png</code> + 五问</td></tr><tr><td>Day 3</td><td>鼠标视差 / 粒子呼吸 / 星星动态 / 地标响应 / UI / 性能</td><td>交互层 + 性能</td><td><code>L3-day3.png</code> + 五问</td></tr></tbody></table></div>
+<blockquote><p>工期是<strong>叙述性</strong>的，不是承诺 —— 只作为收敛刻度。<strong>验收按五问，按层，不按时间。</strong></p></blockquote>
+<hr>
+<h2>25. 阶段 0 详细计划（下一步实际动作）</h2>
+<h3>25.1 工作环境（全部在沙箱，不碰 worktree）</h3>
+<div class="tw"><table><thead><tr><th>项</th><th>值</th></tr></thead><tbody><tr><td>工作目录</td><td><code>D:\workbuddy\2026-09-15-00-01-41\sky-build\stage0\</code></td></tr><tr><td>语言</td><td>Python 3.13 + numpy（已就绪）</td></tr><tr><td>输入</td><td><code>ref-c-老板参考构图.jpg</code>（1920×969）作构图与气质基准</td></tr><tr><td>输出</td><td><code>layer-NN-&lt;name&gt;.png</code> 逐层 + <code>compose-v&lt;N&gt;.png</code> 合成</td></tr><tr><td>主仓</td><td><strong>零改动</strong></td></tr><tr><td>未验收前</td><td><strong>不接前端、不部署、不提交</strong></td></tr></tbody></table></div>
+<blockquote><p>阶段 0 <strong>不使用 Three.js / WebGL / 任何 3D 引擎</strong>（M3）。理由见 §13.3。</p></blockquote>
+<h3>25.2 执行步骤（每步一图一验收）</h3>
+<div class="tw"><table><thead><tr><th>步</th><th>动作</th><th>技术要点</th><th>产出</th><th>验收</th></tr></thead><tbody><tr><td><strong>S0</strong></td><td>用 CT-2 口径重算 ref-c 三区基准值（<strong>已执行 · 🔒 临时口径</strong>）</td><td><code>zone_probe_ct2.py</code> + <code>target_offset.py</code>；排除拼接缝干扰（三图行跳变实测：ref-c 7.11 / CT-1 7.98 / <strong>annotated 100.97 <span class="arw">⇒</span> 复合图禁入</strong>）</td><td>回填 §19.2 / §19.4；证据图 <code>assets-520/TARGET-OFFSET-ct1-vs-refc.png</code></td><td>数值已落表，<strong>待 Q0/Q1 转正</strong> 🔒</td></tr><tr><td><strong>S0b</strong></td><td><span class="neon"><strong>基准链复核（v3.0c 新增）</strong></span></td><td>跑 <code>verify_baseline_chain.py</code>（确定性、无随机）：溯源 / 拼接缝归属 / ref-c 纯净度 / 方向性 falsify / JPEG 抗噪</td><td><code>assets-520/VERIFY-baseline-chain.png</code> + <code>.json</code> + <code>.log.txt</code></td><td>任一方复跑成功即 <strong>E1 → E0</strong>（§21 Q7）</td></tr><tr><td><strong>S1</strong></td><td>① 天空底 + 大气渐变</td><td>垂直渐变 + 分形噪声；纯黑 ≥ 50%</td><td><code>layer-01-sky.png</code></td><td>V32</td></tr><tr><td><strong>S2</strong></td><td>② 星野银河雾</td><td>分形噪声遮罩 + ≤ 9 blob，α ≤ 0.15</td><td><code>layer-02-nebula.png</code></td><td>V33</td></tr><tr><td><strong>S3</strong></td><td>③ 真实星空 + 星座</td><td><strong>接现有 Astronomical Engine</strong>；只显重要星座；夹角标准差 ≤ 5°</td><td><code>layer-03-star.png</code></td><td>V34</td></tr><tr><td><strong>S4</strong></td><td>④ 月牙</td><td>位置由时间+天文算；极小克制</td><td><code>layer-04-moon.png</code></td><td>V35</td></tr><tr><td><strong>S5</strong></td><td>带区：地平线辉光</td><td>极薄极柔；中心向两侧衰减；<strong>不形成明显横线</strong></td><td><code>layer-05-glow.png</code></td><td>目视 + 无横线</td></tr><tr><td><strong>S6</strong></td><td><strong>⑤ 中轴光柱 + 辐射网</strong></td><td><span class="neon">本阶段<strong>骨架层</strong>，用 5–7 条射线串联月 / 人 / 城市</span></td><td><code>layer-06-axis.png</code></td><td>V36</td></tr><tr><td><strong>S7</strong></td><td><strong>⑦ 城市天际线（抽象）</strong></td><td><strong>高度场光线投射</strong>（Voxel-Space 式）→ 一体剪影 + 边缘光；留地标高亮槽位。&lt;span style="color:#39FF14"&gt;<strong>稀疏高度场填充（v3.0c 补，回应审计意见 4）</strong>：Level 2 城市（如诸暨）的真实 footprint 极稀疏，直接栅格化会得到「塌陷的剪影」。须按序补：① 以真实 footprint 为<strong>种子</strong>，沿真实路网两侧做<strong>各向异性膨胀</strong>（沿街方向权重高、垂直方向低），使建筑呈「沿街连续」而非「孤立孤岛」；② 对膨胀后仍低于 <code>h_min</code> 的区域，用<strong>低频噪声底床</strong>填充至 <code>h_min</code>（保证剪影连续、不塌）；③ 全部填充体标注 <code>synth:true</code> 与 `fill:expand</td><td>bed`，与实测建筑在图层中可区分（§14.2 规则 3）。<strong>④ 剪影的「连续性」判据：单行连通段数 ≤ 8、最长连通段 ≥ 15% 宽</strong>&lt;/span&gt;</td><td><code>layer-07-skyline.png</code></td><td>V38 + 五问 + 连通性</td></tr><tr><td><strong>S8</strong></td><td>⑧ 城市肌理</td><td>俯视路网光带 + 街区低亮轮廓 + 河流柔和线</td><td><code>layer-08-texture.png</code></td><td>V39（均值 ≥ 32）</td></tr><tr><td><strong>S9</strong></td><td>⑥ 山脉框景</td><td>程序化山脊（DEM 留到阶段 1）；左右对称</td><td><code>layer-09-mountain.png</code></td><td>V37</td></tr><tr><td><strong>S10</strong></td><td>⑨ 人影 + 前景</td><td>暗剪影 + 青蓝粒子边缘；<strong>禁亮白立柱</strong></td><td><code>layer-10-figure.png</code></td><td>V40</td></tr><tr><td><strong>S11</strong></td><td>合成 + Glow + 调色</td><td>按 seam = 56% 融合；Bloom 双层线；<strong>Glow 只加半径不加亮度</strong></td><td><code>compose-v1.png</code></td><td>五问</td></tr><tr><td><strong>S12</strong></td><td>交互（可选，Day 3）</td><td>视差 + 呼吸 + 扰动（2D 近似即可）</td><td><code>compose-v2.gif</code></td><td>目视</td></tr></tbody></table></div>
+<p><strong>每完成 S1–S11 任一步，立即出图 + 报五问。老板说不行就停在那一步改，不往下走。</strong></p>
+<h3>25.3 阶段 0 通过条件</h3>
+<p><span class="neon"><strong>五问：① 是 ② 是 ③ 是（此处指「有城市感」，阶段 0 无真实数据，判据放宽为「抽象城市是否成立」）④ 是 ⑤ 没有。</strong></span></p>
+<p>全过 → 进阶段 1（换真实数据）。任一不过 → 停，回报，等指令。</p>
+<hr>
+<h2>26. 阶段 1 计划（真实数据映射）</h2>
+<p><strong>只做一个城市：台北 101 × 3 km</strong>（不东京、不纽约、不全球）。</p>
+<div class="tw"><table><thead><tr><th>步</th><th>动作</th><th>验收</th></tr></thead><tbody><tr><td>1</td><td>台北 101 3km 真实建筑 footprint + height → 高度场 raster（<code>4000² @ 5 m/px</code>）</td><td>高度场可视化出图</td></tr><tr><td>2</td><td>真实路网 → 驱动 ⑤ 辐射网 + ⑧ 路网光带</td><td>骨架与原城市肌理吻合</td></tr><tr><td>3</td><td>真实 DEM → 驱动 ⑥ 山脊</td><td>山形合理</td></tr><tr><td>4</td><td>地标（台北 101）→ ⑦ 高亮槽位</td><td>一眼可辨识</td></tr><tr><td>5</td><td>五问复核</td><td>① ② ③ ④ 是 / ⑤ 没有</td></tr></tbody></table></div>
+<p><strong>为什么选台北 101</strong>：项目已有台北数据与 Geo Tile 资产（<code>taipei101-{L0,L1,L2,dem}.json</code>），无需新拉数据；且 101 是「超出天际线一个量级」的地标样板，最能验证地标槽位。</p>
+<h3>26.1 阶段 0 → 阶段 1 的量化回归闸（v3.0c 新增 · 回应审计意见 4）</h3>
+<blockquote><p><strong>审计原文</strong>：<span class="neon">「§25 的 layer-NN 逐层产物与 §26 阶段 1 的 Geo Tile 格式之间缺少对拍方案 —— 阶段 1『数据进来后视觉语言不塌』的验收标准只有一句五问，没有量化回归。<strong>这是下一个『方向漂移』最可能发生的位置。</strong>」</span></p>
+<p><strong>本节即为补此缺口。</strong> 五问回答「像不像」，量化回归回答「有没有在换数据时把已经对好的东西弄坏」。</p></blockquote>
+<div class="tw"><table><thead><tr><th>#</th><th>回归判据（阶段 1 产物 vs 阶段 0 达标的 <code>compose-v1.png</code>）</th><th>阈值</th><th>性质</th></tr></thead><tbody><tr><td><strong>G1</strong></td><td>九层<strong>面积配额</strong>逐层偏移（§5.1 的 9 个占比）</td><td>每层 <strong>≤ ±20% 相对偏移</strong></td><td>结构不塌</td></tr><tr><td><strong>G2</strong></td><td>三区 mean（天空 / 带 / 地貌）</td><td>每区 <strong>≤ ±12% 相对偏移</strong></td><td>光度不塌（与 §19.4 同容差）</td></tr><tr><td><strong>G3</strong></td><td><strong>地平线位置</strong></td><td><strong>仍在 57 ± 3%</strong></td><td>构图不塌</td></tr><tr><td><strong>G4</strong></td><td>p99.9 / 近白占比（V44 / V45）</td><td><strong>仍满足稳定域阈值</strong></td><td>能量形态不塌（防「竖柱阵」复发）</td></tr><tr><td><strong>G5</strong></td><td>⑤ 中轴辐射网</td><td>仍存在、条数 <strong>5–7</strong></td><td>骨架不塌（最易被真实数据挤掉的一层）</td></tr><tr><td><strong>G6</strong></td><td>青蓝占比（下半区 · 严格口径，V48）</td><td><strong>≥ 85%</strong></td><td>色调不塌</td></tr></tbody></table></div>
+<p><strong>执行纪律</strong>：</p>
+<ol><li><strong>本闸只比「阶段 1 vs 阶段 0」，不与 ref-c 比绝对值</strong> —— 因为阶段 0 已经过了五问，它是「已知合格」的内部参照。这样可把「换数据导致的语言漂移」与「阶段 0 本身就还差的差距」分开。</li><li>任一 G 判据超差 <span class="arw">⇒</span> <strong>不追加新功能，先定位是哪一层的哪一步引入的</strong>（逐层比对 <code>layer-NN</code> 前后）。</li><li><span class="neon"><strong>G1–G6 全部通过 + 五问全过，才允许进阶段 2。</strong></span> 只过五问而 G 超差 <span class="arw">⇒</span> 视为「偶然像」，必须回退查因。</li></ol>
+<hr>
+<h2>27. 阶段 2 计划（工程化）</h2>
+<div class="tw"><table><thead><tr><th>步</th><th>动作</th><th>技术</th><th>验收</th></tr></thead><tbody><tr><td>1</td><td>把阶段 0/1 的 numpy 图层逻辑移植到 GLSL fragment shader</td><td>Three.js + WebGL + RenderTarget</td><td>逐层与 numpy 版<strong>零重采样对拍</strong>一致</td></tr><tr><td>2</td><td>GPU 粒子（四类）</td><td>GPU Particle</td><td>60 FPS</td></tr><tr><td>3</td><td>Bloom 双层线荧光</td><td>Shader / RenderTarget</td><td>弱 Glow，无赛博朋克感</td></tr><tr><td>4</td><td>交互层</td><td>鼠标视差 + 阻尼 + 呼吸</td><td>「世界在呼吸」而非「操作 3D 游戏」</td></tr><tr><td>5</td><td>首屏性能</td><td>加载 + 合成</td><td>≤ 300 ms；稳定 60 FPS</td></tr><tr><td>6</td><td>接前端</td><td>现有 Tempo Soul 前端</td><td>老板验收后才部署</td></tr></tbody></table></div>
+<hr>
+<h2>28. 风险与回退</h2>
+<div class="tw"><table><thead><tr><th>风险</th><th>触发信号</th><th>回退 / 处置</th></tr></thead><tbody><tr><td>阶段 0 五问不过</td><td>老板说「不像」</td><td>停在当前层，只改该层；<strong>不进入下一层，不接数据</strong></td></tr><tr><td>又陷入「柱阵 / 细带」摆动</td><td>出现竖条纹或模糊细带</td><td>立即检查是否违反 D4（逐栋材质）→ 改整层剪影；并查 V44/V45（近白核）</td></tr><tr><td>真实数据稀疏导致城市塌陷</td><td>⑦⑧ 面积 &lt; 判据</td><td>触发 §15 三级降级；<strong>S7 的稀疏填充三序处理</strong>（膨胀 → 底床 → 标记）；对外表述按 Q5</td></tr><tr><td>环境不可用（浏览器 / 网络）</td><td>截图失败 / Overpass 504</td><td>用 Edge headless；数据走离线烘焙，运行时零依赖</td></tr><tr><td>CT-2 裁定被否</td><td>老板选 Q1(B)</td><td>全部判据回 CT-1 口径重算（工作量：重跑 probe + 改 §19 表 + §3.2 两道闸重判）</td></tr><tr><td><span class="neon"><strong>Q0 裁定「压缩是有意的」</strong>（v3.0c 新增）</span></td><td>老板选 Q0(B)</td><td><strong>CT-2 方向本身错误</strong> <span class="arw">⇒</span> 按 CT-1 重算全部基准，并把「CT-1 = ref-c 压缩版」这一发现<strong>降级为「老板的设计选择」</strong>而非事故；§3.1d 的根因叙述需改写</td></tr><tr><td><span class="neon"><strong>关键测量被独立复核推翻</strong>（v3.0c 新增）</span></td><td>§21 Q7 的复核结果与本文不符</td><td>以复核结果为准，修正 §3.1c / §19 全部相关数字，并在 §22 记一条 v3.0d；<strong>不得辩解，直接改</strong></td></tr><tr><td><span class="neon"><strong>阶段 1 语言漂移</strong>（v3.0c 新增）</span></td><td>G1–G6 任一超差</td><td>逐层二分定位（哪一层引入的偏移）→ 只回退该层；<strong>禁止在漂移未定位时叠加新功能</strong></td></tr><tr><td><span class="neon"><strong>验收设备 / 亮度变更</strong>（v3.0c 新增）</span></td><td>老板换显示器或改了亮度</td><td>五问<strong>必须重答</strong>（§17.1）；历史五问结论标注为「旧设备下有效」</td></tr><tr><td><span class="neon"><strong>基准资产被再次改写</strong>（v3.0c 新增）</span></td><td><code>docs/design/</code> 下基准图 mtime 变化 / 尺寸变化</td><td>立即重跑 <code>verify_baseline_chain.py</code>；<strong>基准图为只读资产，禁止任何工具覆盖</strong>（§12.2 / §1.3 纪律 3）</td></tr></tbody></table></div>
+<p><strong>任何阶段的主仓改动</strong>：默认零。需改动前<strong>先出清单 + 备份 + 二次确认</strong>。</p>
+<hr>
+<h2>29. 下一步实际动作（等老板一句话）</h2>
+<div class="tw"><table><thead><tr><th>#</th><th>待办</th><th>依赖</th><th>闸</th></tr></thead><tbody><tr><td>1</td><td><strong>裁定 Q0</strong>（那个压缩是有意的还是走样）</td><td><strong>老板</strong></td><td>闸 2 开关</td></tr><tr><td>2</td><td><strong>裁定 Q1</strong>（CT-2 是否转正）</td><td><strong>老板</strong></td><td>闸 2 开关</td></tr><tr><td>3</td><td>放行阶段 0（Q2）</td><td><strong>老板</strong></td><td>闸 2 开关</td></tr><tr><td>4</td><td>复核基准链（Q7）：跑一次 <code>verify_baseline_chain.py</code></td><td>老板 / 任一方</td><td>E1 → E0</td></tr><tr><td>5</td><td>~~重算 ref-c 三区基准（S0）~~ <strong>已执行 · 🔒 临时口径</strong></td><td>—</td><td>闸 1 ✅</td></tr><tr><td>6</td><td>执行 S1–S11，逐层出图</td><td>Q0 / Q1 / Q2</td><td>闸 2</td></tr><tr><td>7</td><td>复核五问（同一显示器，§17.1）</td><td>老板</td><td>—</td></tr><tr><td>8</td><td>阶段 1 过量化回归闸 G1–G6</td><td>阶段 0 通过</td><td>闸 3</td></tr></tbody></table></div>
+<p><span class="neon"><strong>在 Q0 / Q1 / Q2 有明确答复前，我不动手写任何渲染代码。</strong></span>（纪律来源：需求裁决悬空时不得自行默认选路 —— 480 批的教训。）</p>
+<blockquote><p><strong>本批（520-C）已做的，全部落在「闸 1（建表闸）」之内</strong>：重测、复核、修订文档、补证据脚本。<strong>一行渲染代码都没有写。</strong></p></blockquote>
+<hr><div class="foot">视觉规格书 v3.0c · 审计回应版 · 2026-09-16 ｜ 主仓零改动 · 未提交 · 未部署</div></div></body></html>

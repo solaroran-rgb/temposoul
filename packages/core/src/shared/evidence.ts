@@ -160,10 +160,7 @@ export function assertEvidenceItem(item: unknown): asserts item is EvidenceItem 
 }
 
 /** 构建证据链，自动限制深度并计算整体置信度 */
-export function buildEvidenceTrail(
-  items: EvidenceItem[],
-  summary: string,
-): EvidenceTrail {
+export function buildEvidenceTrail(items: EvidenceItem[], summary: string): EvidenceTrail {
   // 深度限制：超过 MAX_EVIDENCE_DEPTH 的证据被截断
   const filtered = items
     .filter((item) => item.depth <= MAX_EVIDENCE_DEPTH)

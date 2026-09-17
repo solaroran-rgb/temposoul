@@ -32,7 +32,7 @@ interface KVNamespace {
   ): Promise<void>;
 }
 
-interface ConfirmEnv extends MailerEnv {
+export interface ConfirmEnv extends MailerEnv {
   newsletter_emails?: KVNamespace;
   AUTH_SECRET?: string;
   /** 可选：用于拼接确认链接的站点根 URL；缺省取请求 origin */

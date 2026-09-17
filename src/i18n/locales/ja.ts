@@ -23,6 +23,7 @@ export const ja: Dict = {
     close: '閉じる',
     search: '検索',
     optional: '任意',
+    explanationBoundary: '解釈の境界：この解釈は伝統文化モデルに基づくものであり、文化的な参考と自己内省のみを目的とし、いかなる意思決定の根拠にもなりません。',
     required: '必須',
   },
   auth: {
@@ -165,7 +166,27 @@ export const ja: Dict = {
     faq3Q: '以前に作った内容をもう一度見られますか？',
     faq3A: 'はい。ホーム画面と占卜ページの両方から履歴にアクセスできます。',
   },
-  theme: {
+  bazi: {
+    dayun: { title: 'Bazi Dayun', birthInfo: 'Birth Info', startInfo: 'Start', timeline: 'Dayun Timeline', selectHint: 'Click dayun entry to set AI target year', tenGods: 'Ten Gods', evidence: 'Pillar Evidence', aiBtn: 'AI Deep Reading', aiBusy: 'AI Reading...', cancel: 'Cancel' },
+    liunian: { title: 'Bazi Liunian', timeline: 'Liunian Timeline', targetTenGods: 'Target Ten Gods', evidence: 'Pillar Evidence' },
+    compat: { title: 'Bazi Compatibility', dayMaster: 'Day Master', spousePalace: 'Spouse Palace', summary: 'Evidence Summary' },
+    topics: { title: 'Bazi Topics', tab: { career: 'Career', wealth: 'Wealth', marriage: 'Marriage', health: 'Health' }, evidenceHeader: 'Evidence', aiHeader: 'AI Reading' },
+  },
+  ziwei: {
+    palaces: { title: 'Ziwei Palaces', palacesHeader: '12 Palaces', aiHeader: 'AI Reading', algoDefault: 'Traditional', algoZhongzhou: 'Zhongzhou', schoolSanhe: 'Sanhe', schoolFeixing: 'Feixing', schoolSihua: 'Sihua', scopeDecadal: 'Decadal', scopeYearly: 'Yearly', degraded: 'Online deep computation unavailable, local engine shown' },
+  },
+  astrolabe: {
+    natal: { title: 'Western Natal Chart', planets: 'Planets', houses: 'Houses', aspects: 'Aspects', transitP2: 'Transit: Coming Soon (P2)', degraded: 'Online deep computation unavailable, local engine shown' },
+  },
+  almanac: {
+    today_rhythm: 'Daily Rhythm', yi: 'Yi', ji: 'Ji', all_yi: 'All Auspicious', all_ji: 'No Taboo', evidence_trace: 'Trace', traditional_rhythm: 'Traditional Rhythm', rhythm_advice: 'Follow the seasons...', rhythm_compliance: 'Based on traditional wellness rhythm models...', evidence_title: 'Evidence', sync_error: 'Sync failed, please refresh.', share_rhythm: 'Share', copied: 'Copied', select_title: 'Smart Date Selection', select_date: 'Select Date', calculating: 'Calculating...', disclaimer: 'For cultural reference only.', comp: { yi: 'Yi', ji: 'Ji' },
+  },
+  search: {
+    placeholder: 'Search lexicon, features...', aria_label: 'Global Search', title: 'Results: "{query}"', tab_lexicon: 'Lexicon', tab_feature: 'Features', tab_article: 'Articles (P1)', zero_title_with_query: 'No results for "{query}"', zero_title_empty: 'Type to search', disclaimer: 'For cultural exploration and entertainment reference only.', rec_title: 'Popular Features',
+  },
+  pricing: {
+    title: 'Choose a plan', disclaimer: 'Test prices, subject to final checkout.', free: { name: 'Free', feature_1: '3 free AI reads / day', feature_2: 'Basic charts', feature_3: '1180+ lexicon', btn: 'Current Plan' }, single: { name: 'Single Report', unit: '/report', btn: 'Buy Now' }, pro: { badge: 'Recommended', name: 'Pro Subscription', unit: '/month', btn: 'Subscribe', auto_renew: 'Auto-renews; cancel anytime.' },
+  },  theme: {
     label: 'テーマ',
   },
 };

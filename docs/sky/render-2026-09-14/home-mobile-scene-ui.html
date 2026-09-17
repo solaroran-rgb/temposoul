@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>命律 TempoSoul · 探索命运的节律</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;background:#000;overflow:hidden;color:#dfeaee;
+  -webkit-font-smoothing:antialiased}
+#stage{position:relative;width:100vw;height:100vh;overflow:hidden;background:#000}
+#plate{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  object-position:50% var(--focal,62%);display:block;user-select:none;-webkit-user-drag:none}
+#fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0;transition:opacity .35s}
+#fx.on{opacity:1}
+/* ---------- HTML UI 层（响应式排版，永不裁切） ---------- */
+#ui{position:absolute;inset:0;pointer-events:none;z-index:5}
+#ui .in{position:absolute;transform:translate(-50%,-50%)}
+#title{top:16.5119%;left:54.818%;font-family:"Noto Serif SC","Source Han Serif SC","Songti SC",
+  "SimSun",Georgia,serif;font-weight:600;letter-spacing:.06em;line-height:1.16;
+  font-size:clamp(30px,4.5vw,86px);color:#e8f3f6;
+  text-shadow:0 0 28px rgba(0,229,255,.28),0 0 60px rgba(0,120,160,.18);
+  white-space:nowrap;text-align:center}
+#title .en{margin-left:.28em;font-size:.94em;letter-spacing:.10em}
+#sub{top:25.7998%;left:50.0%;font-family:"Noto Serif SC","Songti SC","SimSun",serif;
+  font-weight:400;letter-spacing:.26em;line-height:1.5;
+  font-size:clamp(13px,2.3333vw,36px);color:#bcd6dd;
+  text-shadow:0 0 20px rgba(0,229,255,.20);white-space:nowrap}
+#ctawrap{top:39.6285%;left:51.562%;pointer-events:auto}
+#cta{display:inline-flex;align-items:center;justify-content:center;
+  width:clamp(150px,15.1042vw,266px);height:clamp(44px,10.7327vh,104px);
+  border:1px solid rgba(150,230,255,.55);border-radius:clamp(8px,1.1vw,16px);
+  font-family:"Noto Serif SC","Songti SC",serif;letter-spacing:.28em;text-indent:.28em;
+  font-size:clamp(13px,1.45vw,28px);color:#cfeaf3;background:rgba(4,22,30,.30);
+  box-shadow:0 0 24px rgba(0,229,255,.16),inset 0 0 22px rgba(0,229,255,.07);
+  backdrop-filter:blur(2px);cursor:pointer;text-decoration:none;
+  transition:box-shadow .25s,border-color .25s,background .25s}
+#cta:hover{border-color:rgba(190,245,255,.9);background:rgba(0,60,80,.35);
+  box-shadow:0 0 34px rgba(0,229,255,.34),inset 0 0 26px rgba(0,229,255,.13)}
+#hud{position:absolute;left:10px;bottom:10px;font:10px/1.55 ui-monospace,Consolas,monospace;
+  color:#39FF14;background:rgba(0,0,0,.6);border:1px solid rgba(57,255,20,.3);border-radius:6px;
+  padding:7px 9px;z-index:9;max-width:min(70vw,420px);pointer-events:none}
+#hud .k{color:#7fd7ff}
+</style>
+</head>
+<body>
+<div id="stage">
+  <img id="plate" alt="" src="assets/scene_1080.avif" decoding="sync" fetchpriority="high">
+  <canvas id="fx"></canvas>
+  <div id="ui">
+    <h1 id="title" class="in">命律<span class="en">TempoSoul</span></h1>
+    <p id="sub" class="in">探索命运的节律</p>
+    <div id="ctawrap" class="in"><a id="cta" href="#start">立即开始</a></div>
+  </div>
+  <div id="hud">…</div>
+</div>
+<script>
+(function(){
+"use strict";
+var T0=performance.now(),M={nav:T0};
+var AR=1.981424, HZ=0.680083, TIERS=[1920,1440,1080,768,390];
+var ASSETS={"1920": {"avif": "assets/scene_1920.avif", "webp": "assets/scene_1920.webp"}, "1440": {"avif": "assets/scene_1440.avif", "webp": "assets/scene_1440.webp"}, "1080": {"avif": "assets/scene_1080.avif", "webp": "assets/scene_1080.webp"}, "768": {"avif": "assets/scene_768.avif", "webp": "assets/scene_768.webp"}, "390": {"avif": "assets/scene_390.avif", "webp": "assets/scene_390.webp"}};
+var plate=document.getElementById('plate'), fx=document.getElementById('fx'),
+    fxc=fx.getContext('2d'), hudEl=document.getElementById('hud');
+var cur={tier:0,ext:''}, stars=[],raf=null,live=false;
+
+function net(){
+  var c=navigator.connection||{};
+  var et=c.effectiveType||'';
+  return {et:et, weak:!!c.saveData||et==='slow-2g'||et==='2g'||et==='3g'};
+}
+function pickTier(weak){
+  var dpr=Math.min(window.devicePixelRatio||1,2);
+  var need=Math.round(Math.max(window.innerWidth,window.innerHeight*AR)*dpr);
+  if(weak) need=Math.round(need*0.55);
+  for(var i=TIERS.length-1;i>=0;i--) if(TIERS[i]>=need) return TIERS[i];
+  return TIERS[0];
+}
+function apply(){
+  var n=net(), t=pickTier(n.weak), tt=performance.now();
+  cur.tier=t; cur.ext='avif';
+  var url=(ASSETS[t]||ASSETS['1920']).avif || (ASSETS[t]||ASSETS['1920']).webp;
+  var pre=new Image();
+  pre.onload=function(){
+    plate.src=url;
+    var d=function(){ M.decode=performance.now()-tt; M.first=performance.now()-T0;
+      M.url=url; requestAnimationFrame(function(){ M.settled=performance.now()-T0; hud(); }); };
+    plate.decode?plate.decode().then(d).catch(d):(plate.onload=d);
+  };
+  pre.src=url; hud();
+}
+function updateFocal(){
+  var arv=window.innerWidth/window.innerHeight,f=62;
+  if(arv>AR) f=66; else if(arv>1.4) f=62; else if(arv>1.0) f=58; else f=54;
+  document.getElementById('stage').style.setProperty('--focal',f+'%');
+}
+function initStars(){
+  stars=[];var W=fx.width,H=fx.height,N=Math.round(W*0.45);
+  for(var i=0;i<N;i++) stars.push({x:Math.random()*W,y:Math.pow(Math.random(),1.5)*H*HZ,
+    r:0.4+Math.random()*1.1,p:Math.random()*6.283,s:0.5+Math.random()*1.5,a:0.09+Math.random()*0.26});
+}
+function resizeFx(){
+  var d=Math.min(window.devicePixelRatio||1,2);
+  fx.width=Math.round(fx.clientWidth*d); fx.height=Math.round(fx.clientHeight*d); initStars();
+}
+function drawFx(t){
+  fxc.clearRect(0,0,fx.width,fx.height);
+  var W=fx.width,H=fx.height;
+  fxc.globalCompositeOperation='lighter';
+  for(var i=0;i<stars.length;i++){var s=stars[i],k=0.55+0.45*Math.sin(t*0.001*s.s+s.p);
+    fxc.fillStyle='rgba(198,242,255,'+(s.a*k).toFixed(3)+')';
+    fxc.beginPath();fxc.arc(s.x,s.y,s.r*k,0,6.2832);fxc.fill();}
+  var cx=W*0.5,cy=H*0.935,R=H*0.11,ga=0.036+0.020*Math.sin(t*0.0011);
+  var rg=fxc.createRadialGradient(cx,cy,0,cx,cy,R);
+  rg.addColorStop(0,'rgba(210,248,255,'+ga.toFixed(3)+')');
+  rg.addColorStop(0.45,'rgba(0,229,255,'+(ga*0.42).toFixed(3)+')');
+  rg.addColorStop(1,'rgba(0,229,255,0)');
+  fxc.fillStyle=rg;fxc.beginPath();fxc.arc(cx,cy,R,0,6.2832);fxc.fill();
+  fxc.globalCompositeOperation='source-over';
+  raf=requestAnimationFrame(drawFx);
+}
+function hud(){
+  var f=function(v){return (typeof v==='number'&&isFinite(v))?v.toFixed(1)+'ms':'—';};
+  var arv=window.innerWidth/window.innerHeight;
+  hudEl.innerHTML='<b>场景层+HTML UI</b> ｜ <span class="k">档</span> '+cur.tier+
+    ' ｜ <span class="k">首帧</span> '+f(M.first)+' ｜ <span class="k">从导航</span> '+f((M.nav||0)+M.first)+
+    '<br><span class="k">视口</span> '+window.innerWidth+'×'+window.innerHeight+' AR '+arv.toFixed(3)+
+    ' ｜ <span class="k">自然尺寸</span> '+plate.naturalWidth+'×'+plate.naturalHeight;
+  window.__PERF={first:M.first,settled:M.settled,decode:M.decode,firstFromNav:(M.nav||0)+M.first,
+    settleFromNav:(M.nav||0)+M.settled,arv:arv,tier:cur.tier,ext:cur.ext,url:M.url||'',
+    nav:M.nav,dpr:window.devicePixelRatio||1,w:window.innerWidth,h:window.innerHeight,
+    natural:plate.naturalWidth+'x'+plate.naturalHeight,mode:'scene-ui'};
+}
+document.getElementById('cta').addEventListener('click',function(e){
+  e.preventDefault(); hudEl.innerHTML+='<br><span class="k">CTA clicked</span>';
+});
+window.__SETLIVE=function(on){ if(on!==live){ live=on;
+  if(live){fx.className='on';resizeFx();raf=requestAnimationFrame(drawFx);}
+  else{fx.className='';if(raf){cancelAnimationFrame(raf);raf=null;}fxc.clearRect(0,0,fx.width,fx.height);} } };
+window.__HIDEUI=function(){ document.getElementById('hud').style.display='none'; };
+window.addEventListener('resize',function(){updateFocal();if(live)resizeFx();hud();});
+updateFocal(); apply();
+})();
+</script>
+</body>
+</html>

@@ -48,10 +48,7 @@ export function getShichenByIndex(index: number): ShichenPeriod | null {
  * 23:00-24:00 统一归晚子时（索引 12）。日柱分界口径（forward / current）不在此区分——
  * 它由调用方 calculateCoreBazi 依据 Person.dayDivide 另行处理。详见 docs/day-divide.md。
  */
-export function getTimeIndexFromClock(
-  hour: number,
-  minute = 0,
-): number {
+export function getTimeIndexFromClock(hour: number, minute = 0): number {
   if (
     !Number.isInteger(hour) ||
     !Number.isInteger(minute) ||
@@ -69,9 +66,6 @@ export function getTimeIndexFromClock(
   return Math.floor((hour + 1) / 2);
 }
 
-export function getShichenFromClock(
-  hour: number,
-  minute = 0,
-): ShichenPeriod | null {
+export function getShichenFromClock(hour: number, minute = 0): ShichenPeriod | null {
   return getShichenByIndex(getTimeIndexFromClock(hour, minute));
 }

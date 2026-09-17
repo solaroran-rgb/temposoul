@@ -358,7 +358,9 @@ export class BaziCalculator {
         0,
         30,
         0,
-      ).getLunarHour().getEightChar();
+      )
+        .getLunarHour()
+        .getEightChar();
       dayColumn = sameDayEarlyZi.getDay();
       hourColumn = sameDayEarlyZi.getHour();
     }

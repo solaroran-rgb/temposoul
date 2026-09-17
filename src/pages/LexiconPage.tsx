@@ -14,11 +14,20 @@ const CATEGORY_GROUPS: { label: string; items: LexiconCategory[] }[] = [
   { label: '神煞格局', items: ['神煞', '八字格局', '紫微四化', '紫微格局'] },
   { label: '紫微斗数', items: ['紫微星曜', '十二宫'] },
   { label: '周易八卦', items: ['八卦', '六十四卦', '十二消息卦', '九宫', '河洛'] },
-  { label: '星象历法', items: ['二十八宿', '北斗七星', '七政四余', '节气', '三元九运', '二十四山'] },
-  { label: '术数流派', items: ['奇门遁甲', '六壬', '择日', '风水', '三才四象', '推命体系', '命理流派', '命理典籍'] },
+  {
+    label: '星象历法',
+    items: ['二十八宿', '北斗七星', '七政四余', '节气', '三元九运', '二十四山'],
+  },
+  {
+    label: '术数流派',
+    items: ['奇门遁甲', '六壬', '择日', '风水', '三才四象', '推命体系', '命理流派', '命理典籍'],
+  },
 ];
 
-const ALL_ITEMS: ('全部' | LexiconCategory)[] = ['全部', ...CATEGORY_GROUPS.flatMap((g) => g.items)];
+const ALL_ITEMS: ('全部' | LexiconCategory)[] = [
+  '全部',
+  ...CATEGORY_GROUPS.flatMap((g) => g.items),
+];
 type CatFilter = (typeof ALL_ITEMS)[number];
 
 export function LexiconPage() {

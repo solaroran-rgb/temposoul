@@ -1,0 +1,111 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>批次 520 · 规范整合与执行计划 · 2026-09-16</title><style>
+:root{--bg:#070a0d;--panel:#0d1318;--line:#1c2830;--fg:#c6d4d8;--dim:#7c8f97;
+--acc:#7fe6ea;--neon:#39FF14}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font:15px/1.85 -apple-system,"Segoe UI","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:56px 32px 120px}
+h1{font-size:29px;line-height:1.4;color:#eaf4f6;margin:0 0 6px;letter-spacing:.01em;
+border-bottom:2px solid var(--acc);padding-bottom:20px}
+h2{font-size:21px;color:var(--acc);margin:52px 0 16px;padding-left:12px;
+border-left:4px solid var(--acc);letter-spacing:.02em}
+h3{font-size:17px;color:#a9dfe3;margin:32px 0 12px}
+h4{font-size:15px;color:#8fc8cd;margin:22px 0 10px}
+p{margin:12px 0}
+strong{color:#eaf4f6;font-weight:600}
+em{color:var(--dim);font-style:normal}
+.neon{color:var(--neon);font-weight:600;text-shadow:0 0 12px rgba(57,255,20,.28)}
+.arw{color:var(--acc);font-weight:700;padding:0 2px}
+code{background:#0f1a20;color:#8fe9d0;padding:2px 6px;border-radius:4px;
+font-family:Consolas,"Cascadia Mono",monospace;font-size:13px}
+pre.code{background:#080e12;border:1px solid var(--line);border-left:3px solid var(--acc);
+border-radius:8px;padding:18px 20px;overflow-x:auto;color:#9dc6cd;
+font-family:Consolas,"Cascadia Mono",monospace;font-size:12.5px;line-height:1.7}
+blockquote{margin:18px 0;padding:14px 20px;background:#0e1519;border-left:3px solid #d9a23c;
+border-radius:0 8px 8px 0;color:#cbb98c;font-size:14px}
+hr{border:0;border-top:1px solid var(--line);margin:44px 0}
+.tw{overflow-x:auto;margin:20px 0;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:14px;background:var(--panel)}
+th{background:#101a20;color:var(--acc);font-weight:600;text-align:left;
+padding:12px 14px;border-bottom:1px solid var(--line)}
+td{padding:11px 14px;border-bottom:1px solid #131d23;vertical-align:top}
+tr:last-child td{border-bottom:0}
+tr:hover td{background:#0f171d}
+ul,ol{margin:12px 0;padding-left:24px}li{margin:7px 0}
+.tag{display:inline-block;background:#10201a;color:var(--neon);border:1px solid #1f3a28;
+border-radius:999px;padding:2px 11px;font-size:12px;margin-bottom:14px}
+.foot{margin-top:66px;padding-top:22px;border-top:1px solid var(--line);color:#5d7078;font-size:12.5px}
+</style></head><body><div class="wrap"><div class="tag">批次 520 · 规范整合 + 执行计划 · 2026-09-16</div><h1>批次 520 · 规范整合 + 执行计划</h1>
+<p><strong>日期</strong>：2026-09-16｜<strong>批次</strong>：520｜<strong>性质</strong>：规范整合批 + 测量批（<strong>零渲染代码改动</strong>）</p>
+<p><strong>上位输入</strong>：老板《Tempo Soul 首页视觉规格书 V1.0》+ 项目既有 4 份规范</p>
+<hr>
+<h2>一、本批最重要的一件事（先说结论）</h2>
+<p><span class="neon"><strong>项目冻结的构图基线 CT-1，就是老板参考图 ref-c 的下半部被纵向压缩到 73.5% 的版本。</strong></span></p>
+<h3>证据链（三层，逐层加硬）</h3>
+<p><strong>证据一 · 上半部逐像素完全相同</strong></p>
+<div class="tw"><table><thead><tr><th>区段</th><th>逐像素最大差</th></tr></thead><tbody><tr><td>y &lt; 48.8%</td><td><strong>0</strong></td></tr><tr><td>y = 50% 带</td><td>16</td></tr><tr><td>y ≥ 55%</td><td>148 – 243</td></tr></tbody></table></div>
+<p>两张图在天空 / 星云 / 星座 / 月牙 / 标题 / 按钮区域<strong>一模一样</strong> <span class="arw">⇒</span> 同一份源。</p>
+<p><strong>证据二 · 下半部呈严格纵向仿射关系</strong></p>
+<pre class="code">y(ref-c)px = 1.36 × y(CT-1)px − 348        （H = 969）</pre>
+<p>三个边界点全部命中，误差 &lt; 0.2 pt：</p>
+<div class="tw"><table><thead><tr><th>检验点</th><th>预测</th><th>实测</th></tr></thead><tbody><tr><td>CT-1 城市体起点 67.4%</td><td>→ 55.7%</td><td><strong>55.7%</strong> ✅</td></tr><tr><td>CT-1 底边 100%</td><td>→ 99.9%</td><td><strong>100%</strong> ✅</td></tr><tr><td>ref-c 地平线 58.4%</td><td>→ 69.3%</td><td><strong>69.14%</strong> ✅</td></tr></tbody></table></div>
+<p><strong>证据三 · 时间戳钉死方向</strong></p>
+<div class="tw"><table><thead><tr><th>文件</th><th>位置</th><th>时间</th></tr></thead><tbody><tr><td><code>_refs/ref-c-老板参考构图.jpg</code></td><td><strong>输入</strong></td><td>2026-09-14 <strong>16:33</strong></td></tr><tr><td><code>baseline/SKY-BASELINE-CT1.png</code></td><td><strong>产出</strong></td><td>2026-09-14 <strong>16:39</strong>（+6 分钟）</td></tr></tbody></table></div>
+<h3>后果</h3>
+<p>城市体纵高：ref-c <strong>44.2 pt</strong> → CT-1 <strong>32.5 pt</strong>（压掉 26.5%）。</p>
+<p><span class="neon"><strong>此后 440 / 480 / 490 三个批次、数千次迭代，全部在追这个被压缩过的靶子。</strong></span></p>
+<hr>
+<h2>二、第二件事：判据口径也错了，而且判反了</h2>
+<p>用 CT-1 的「54–60% 带区」去判定城市 —— 但 CT-1 地平线在 69.14%，它的 54–60% <strong>仍然是暗天空</strong>（mean 10.54、仅 7.1% 像素 &gt; 20）；而 ref-c 地平线在 58.4%，同一区间<strong>已经是真实城市</strong>（mean 26.73、54.5% 像素 &gt; 20）。</p>
+<div class="tw"><table><thead><tr><th>指标</th><th>CT-1（旧靶）</th><th>ref-c（真实目标）</th><th>差异</th></tr></thead><tbody><tr><td>带区 mean</td><td>10.54</td><td><strong>26.73</strong></td><td><strong>+153.6%</strong></td></tr><tr><td>带区 &gt;20 占比</td><td>7.1%</td><td><strong>54.5%</strong></td><td>+47.4 pt</td></tr></tbody></table></div>
+<p><strong>480 批实测带区 20.77：</strong></p>
+<div class="tw"><table><thead><tr><th>对旧靶判定</th><th>对新靶判定</th></tr></thead><tbody><tr><td>「超标 <strong>+74.7%</strong>」⚠️</td><td><span class="neon"><strong>「偏低 −22.3%」⚠️</strong></span></td></tr></tbody></table></div>
+<p><span class="neon"><strong>同一个实测值，换靶子，结论 180° 反转。</strong> 480 批为「降带区亮度」做的多轮调参，方向一直是错的。</span></p>
+<hr>
+<h2>三、第三件事：新量化发现 —— 禁止近白核</h2>
+<div class="tw"><table><thead><tr><th>指标</th><th>CT-1</th><th>ref-c</th><th>480 批</th><th>判定</th></tr></thead><tbody><tr><td><strong>p99.9（最亮尾部）</strong></td><td>163.0</td><td><strong>164.3</strong></td><td><strong>235.0</strong></td><td>✗</td></tr><tr><td><strong>近白 <code>L&gt;200</code> 占比</strong></td><td>0.007%</td><td><strong>0.006%</strong></td><td><strong>0.940%</strong></td><td>✗ 超标 18.8 倍</td></tr><tr><td>近白 <code>L&gt;230</code> 占比</td><td>0.000%</td><td>0.000%</td><td>0.245%</td><td>✗</td></tr></tbody></table></div>
+<p><span class="neon"><strong>目标画面根本没有近白像素</strong>（p99.9 ≈ 164），城市是「亮而不爆」：均值高（35.27）、尾部低。480 批做成相反的形态 —— 均值偏低（28.60）但尾部极高（235），即「大面积偏暗 + 少量爆亮硬核」。</span></p>
+<p><strong>这条直接定义了 Glow 的正确做法</strong>：<span class="neon">靠「面」亮起来（大范围中亮度连续结构），不靠「点」爆出来（少数饱和硬核）。</span>柱阵不是「太亮」，是<strong>能量分布形态错误</strong>（尖峰 vs 平台）。</p>
+<hr>
+<h2>四、规范整合成果</h2>
+<p><strong>产出</strong>：<code>docs/design/SKY-VISUAL-STANDARD-v3.md</code>（<strong>1059 行 / 64 KB / 30 章</strong>）+ 同内容深色 HTML（59.5 KB）</p>
+<h3>4.1 文档谱系处置</h3>
+<div class="tw"><table><thead><tr><th>文档</th><th>处置</th></tr></thead><tbody><tr><td><code>SKY-VISUAL-STANDARD-v2.md</code>（CT-1）</td><td><strong>降级为历史冻结基线</strong>；§3 构图被 CT-2 取代，其余（北极星 / 亮度体系 / 元素模块 / S1–S14 / 排印 / 红线）全数继承</td></tr><tr><td><code>SKY-VISUAL-SPEC-v1.md</code></td><td>档案；§3 亮度层级 L0–L5 继续有效</td></tr><tr><td><code>SKY-STYLE-DNA-v1.md</code></td><td>全数继承（S1–S14、嫁接矩阵）</td></tr><tr><td><code>SKY-VISUAL-SPEC-v1-ADDENDUM-80-20.md</code></td><td><strong>部分废止</strong>（「天 80/地 20」废止，与 CT-2 的 57/43 冲突）；能量连接场、地标约束、V19–V28 继续有效</td></tr><tr><td>老板《视觉规格书 V1.0》</td><td><strong>主体采纳</strong>（12 条），8 处修正，2 处驳回</td></tr></tbody></table></div>
+<h3>4.2 老板 V1.0 的审计结果</h3>
+<p><strong>采纳 12 条</strong>：7 层独立控制｜不还原参考图只继承语法｜星空真实天文计算｜地平线辉光是视觉锚点｜城市=高度+轮廓+细线（不需实体）｜权重表（构图★5 / 真实3D★1）｜肌理=地图×星图×线稿×粒子｜数据真实表现艺术化｜小城市三级降级｜双引擎架构｜POC 五问验收</p>
+<p><strong>修正 8 条</strong>（要点）：</p>
+<ul><li>M1 「双视点」<span class="neon"><strong>降级为结果不是核心</strong></span> —— 拆层后每层只有一个投影假设，不需要「相机」这个概念</li><li>M2 「粒子」→ 精确为<span class="neon"><strong>线框 + 稀点光 + Bloom</strong></span>（实测 ⑦⑧ 共 46.3% 是连续结构，非点云）</li><li>M3 技术栈 Three.js → <span class="neon"><strong>阶段 0 用不上</strong></span>（引入 3D 引擎会重现卡死机制）</li><li>M4 「Glow 宁可弱」→ 弱的是<strong>半径</strong>不是<strong>结构亮度</strong>；目标是「亮而细」不是「暗而糊」</li><li>M5 「天空 50–60%」→ 与 CT-1 冲突，裁定 CT-2 = <strong>57 ± 3%</strong></li><li>M7 「砍掉 GPS」→ 读作「暂不接入」，现有 L1 链路<strong>不得删除</strong></li></ul>
+<p><strong>驳回 2 条</strong>：R1「完全不要星云层」（实测存在，占 1.0%）｜R2「Cesium 完全不可用」（可作离线数据生产工具）</p>
+<h3>4.3 既有规范中被实测推翻的结论（已作废）</h3>
+<div class="tw"><table><thead><tr><th>结论</th><th>实测</th><th>处置</th></tr></thead><tbody><tr><td>地平线在 69.76%</td><td>该值来自标注面板拼接缝</td><td><strong>作废，真值 56.2–58.4%</strong></td></tr><tr><td>「样张是暗色剪影，我在画灯珠」</td><td>下半区 63% 像素 &gt; 20、最大连续亮块 479,805 px</td><td><strong>作废，方向反了</strong></td></tr><tr><td>「尺度天花板：小城市做不出天际线」</td><td>「数据真实，视觉艺术化」允许非线性映射</td><td><strong>降级为「物理真实天际线不成立」</strong></td></tr><tr><td>「双视点合成是核心技术」</td><td>拆层后无需相机概念</td><td><strong>降级为结果描述</strong></td></tr></tbody></table></div>
+<hr>
+<h2>五、新增的规范内容（v3 相对既有规范）</h2>
+<div class="tw"><table><thead><tr><th>项</th><th>内容</th></tr></thead><tbody><tr><td><strong>CT-2 构图模板</strong></td><td>地平线 57±3%；天空 0–54% / 带 54–60% / 地貌 60–100%</td></tr><tr><td><strong>城市体纵高</strong></td><td><span class="neon"><strong>≥ 40 pt</strong></span>（ref-c 44.2，CT-1 仅 32.5）</td></tr><tr><td><strong>九层模型 + 面积配额</strong></td><td>①25.8 ②1.0 ③2.2 ④0.04 ⑤6.0 ⑥3.2 ⑦12.7 ⑧33.6 ⑨2.8（%）</td></tr><tr><td><strong>两条配额铁律</strong></td><td>① 工程层（①⑤⑦⑧ = 78.1%）撑体量，气质层（②③④⑥⑨ = 9.2%）定成败 ② <span class="neon">画面骨架是第 ⑤ 层辐射网（6% 面积），可直接由真实路网驱动</span></td></tr><tr><td><strong>⑨ 层中轴辐射网</strong></td><td><span class="neon">老板 V1.0 缺失的一层，v3 补入并定为最高优先级</span></td></tr><tr><td><strong>禁止近白核</strong></td><td><code>L &gt; 200</code> 像素占比 ≤ 0.05%（§9.2b）</td></tr><tr><td><strong>数据真实代码化</strong></td><td>每图元带 <code>source</code> 字段；<code>h_real_m</code> 永不改写；合成图元打 <code>synth: true</code></td></tr><tr><td><strong>三级降级判据</strong></td><td>L1 ≥200 栋 / L2 &lt;200 栋但路网 ≥100 段 / L3 路网 &lt;100 段</td></tr><tr><td><strong>判据 V32–V48</strong></td><td>逐层面积（V32–V40）+ 三区亮度（V41–V43）+ 尾部（V44–V45）+ 纯黑/暖色/青蓝（V46–V48）</td></tr></tbody></table></div>
+<hr>
+<h2>六、执行计划（摘要）</h2>
+<h3>6.1 困难（分级）</h3>
+<p><strong>一级（会致路线失效）</strong></p>
+<ul><li><strong>D1 靶子偏了</strong>（CT-1 vs ref-c 差 11 pt + 纵向压缩 26.5%）</li><li><strong>D2 我自己两次把靶子认知搞反</strong>（把「亮而细的连续密纹」当成「暗剪影」）</li><li><strong>D3 小城市建筑数据基本空白</strong>（诸暨 8 km 仅 <strong>10 栋</strong>）</li><li><strong>D4 逐栋建筑材质 → 必然产出柱阵 / LED 点阵墙</strong>（三批同一病征）</li></ul>
+<p><strong>二级（拖慢）</strong>：D5 参数两极摆动｜D6 环境不稳（Overpass 504 / Chrome 被拦 / CDP 需重启）｜D7 线上 <code>/api/geo</code> 全挂 25–28 s｜D8 大气透视参数陌生｜<span class="neon"><strong>D9 气质层（②③④⑤⑥⑨，仅 9.2% 面积）无法用工程指标验收，只能靠眼睛</strong></span>｜D10 迭代成本高</p>
+<p><strong>认知类</strong>：D11「3 秒」是概念错位｜D12 街景<strong>不可用</strong>（地面视角、无几何、无高度、本质是贴图）｜D13 样张含标注面板 | D14「1:1 像素一致」与红线物理互斥</p>
+<h3>6.2 四阶段路线</h3>
+<pre class="code">阶段 0  语法复刻（不碰数据 / 不碰网页 / 不碰 GPS） → 五问通过
+阶段 1  真实数据映射（只接台北 101 × 3 km）
+阶段 2  工程化（Three.js + GLSL + GPU 粒子 + 交互 + 性能）
+阶段 3  全球化（Geo Tile 流水线 + 多城市）</pre>
+<p><span class="neon"><strong>阶段 0 必须「不碰数据」</strong> —— 同时引入「数据」和「语法」两个变量，失败时无法判断是谁错了（490 批就死在双变量陷阱）。</span></p>
+<h3>6.3 阶段 0 执行步骤（S0–S12，每步一图一验收）</h3>
+<div class="tw"><table><thead><tr><th>步</th><th>动作</th><th>验收</th></tr></thead><tbody><tr><td><strong>S0</strong></td><td>用 CT-2 口径重算 ref-c 三区基准</td><td>✅ <strong>本批已完成</strong>（天空 8.06 / 带 26.73 / 地貌 35.27）</td></tr><tr><td>S1</td><td>① 天空底 + 大气渐变</td><td>V32</td></tr><tr><td>S2</td><td>② 星野银河雾（≤9 blob，α ≤ 0.15）</td><td>V33</td></tr><tr><td>S3</td><td>③ 真实星空 + 星座（接现有天文引擎）</td><td>V34</td></tr><tr><td>S4</td><td>④ 月牙</td><td>V35</td></tr><tr><td>S5</td><td>带区地平线辉光（<strong>不得形成明显横线</strong>）</td><td>目视</td></tr><tr><td>S6</td><td><strong>⑤ 中轴光柱 + 辐射网</strong>（本阶段骨架层）</td><td>V36</td></tr><tr><td>S7</td><td><strong>⑦ 城市天际线（高度场光线投射 → 一体剪影）</strong></td><td>V38 + 五问</td></tr><tr><td>S8</td><td>⑧ 城市肌理（<strong>均值 ≥ 32，防「暗而糊」</strong>）</td><td>V39</td></tr><tr><td>S9</td><td>⑥ 山脉框景（左右对称）</td><td>V37</td></tr><tr><td>S10</td><td>⑨ 人影（暗剪影，<strong>禁亮白立柱</strong>）</td><td>V40</td></tr><tr><td>S11</td><td>合成 + Glow + 调色（seam = 57%）</td><td><strong>五问</strong></td></tr><tr><td>S12</td><td>交互（视差 / 呼吸 / 扰动）</td><td>目视</td></tr></tbody></table></div>
+<p><strong>技术栈</strong>：Python 3.13 + numpy（<strong>阶段 0 不用 3D 引擎</strong>）。工作目录 <code>D:\workbuddy\2026-09-15-00-01-41\sky-build\stage0\</code>，主仓零改动。</p>
+<hr>
+<h2>七、要老板拍的板</h2>
+<div class="tw"><table><thead><tr><th>#</th><th>问题</th><th>我的建议</th></tr></thead><tbody><tr><td><strong>Q0</strong></td><td><span class="neon"><strong>CT-1 对 ref-c 的那个压缩（下半部缩到 73.5%、地平线下移 11 pt），是你当时要求的，还是一次无意的走样？</strong></span></td><td>我无法从文件推断意图，只能你回答</td></tr><tr><td><strong>Q1</strong></td><td>CT-2（57±3%）取代 CT-1（69.14%）成为新靶子？</td><td><strong>A 是</strong></td></tr><tr><td><strong>Q2</strong></td><td>现在开工阶段 0？</td><td>A 是</td></tr><tr><td>Q3</td><td>视觉高度映射边界</td><td>增强轮廓 / 辉光；不虚构高度数值、数量、位置</td></tr><tr><td>Q4</td><td>移动端竖屏是否阶段 0 处理</td><td>A 只做桌面</td></tr><tr><td>Q5</td><td>小城市无数据对外表述</td><td>B 标注「数据稀疏」</td></tr></tbody></table></div>
+<hr>
+<h2>八、产物</h2>
+<div class="tw"><table><thead><tr><th>文件</th><th>内容</th></tr></thead><tbody><tr><td><code>docs/design/SKY-VISUAL-STANDARD-v3.md</code></td><td><strong>主交付</strong>：1059 行 / 64 KB / 30 章（MD）</td></tr><tr><td><code>docs/design/SKY-VISUAL-STANDARD-v3.html</code></td><td>同内容深色 HTML（59.5 KB，核心结论荧光绿，已内联零外链）</td></tr><tr><td><code>docs/sky/assets-520/TARGET-OFFSET-ct1-vs-refc.png</code></td><td>两靶同口径对照 + CT-2 分区线 + 实测地平线标注</td></tr><tr><td><code>docs/sky/assets-520/PROOF-ct1-is-compressed-refc.png</code></td><td><strong>压缩变形证据图</strong>（含城市体等高缩放对照）</td></tr><tr><td><code>D:\workbuddy\...\sky-build\proto2d\zone_probe_ct2.py</code></td><td>CT-2 三区探针</td></tr><tr><td><code>D:\workbuddy\...\sky-build\proto2d\target_offset.py</code></td><td>两靶硬对照</td></tr><tr><td><code>D:\workbuddy\...\sky-build\proto2d\prove_compression.py</code></td><td>仿射拟合证明</td></tr></tbody></table></div>
+<hr>
+<h2>九、纪律</h2>
+<ul><li><strong>本批为规范整合 + 测量批</strong>：主仓 <code>src/</code>、<code>functions/</code> <strong>零改动</strong>；worktree 未提交；未部署；CT-1 冻结资产<strong>未覆盖</strong>（只读）。</li><li>新增仅分析 / 测量脚本（<code>proto2d/*.py</code>）与规范文档。</li><li><span class="neon"><strong>Q0 / Q1 / Q2 有明确答复前，不动手写任何渲染代码。</strong></span></li></ul>
+<hr>
+<h2>十、下一批入口</h2>
+<ol><li>老板回答 Q0 / Q1 / Q2</li><li>建 <code>stage0/</code> 沙箱，执行 S1（天空底）→ 出图 → 报五问</li></ol><div class="foot">批次 520 · 规范整合 + 执行计划 · 2026-09-16 ｜ 主仓零改动 · 未提交 · 未部署</div></div></body></html>

@@ -8,10 +8,17 @@ export interface ChunkedJob {
   run(i0: number, i1: number): void;
   done?(): void;
 }
-export interface RecomputeTask { tick(): boolean; finished: boolean }
+export interface RecomputeTask {
+  tick(): boolean;
+  finished: boolean;
+}
 
 export function createRecomputeTask(jobs: ChunkedJob[], totalChunks: number): RecomputeTask {
-  const perJob = jobs.map((j) => ({ j, chunk: Math.max(1, Math.ceil(j.count / totalChunks)), i: 0 }));
+  const perJob = jobs.map((j) => ({
+    j,
+    chunk: Math.max(1, Math.ceil(j.count / totalChunks)),
+    i: 0,
+  }));
   const t: RecomputeTask = {
     finished: false,
     tick() {

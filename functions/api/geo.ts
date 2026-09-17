@@ -17,7 +17,10 @@ const MIRRORS = [
   "https://overpass-api.de/api/interpreter",
   "https://overpass.private.coffee/api/interpreter",
 ];
-const PER_MIRROR_TIMEOUT = 8000;
+// B2 修复（F4）：镜像超时 8000→4000，最坏 3×4s=12s < 客户端 GEO_API_TIMEOUT_MS(15s)，
+// 消除超时倒挂（原 3×8s=24s > 15s，回源成功也被客户端 abort 丢弃）。
+// 回源仅发生预热外城市；B1 吸附后 KV 命中 ~95%，主路径纯 KV ≈1ms 不触回源。
+const PER_MIRROR_TIMEOUT = 4000;
 const KV_TTL = 2592000;       // 30d
 const FAIL_TTL = 600;         // 10min
 const MAX_KV_BYTES = 500_000; // F5：按 UTF-8 字节计，非字符串长度

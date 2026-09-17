@@ -1,0 +1,37 @@
+/* src/pages/astrology/zodiac-wiki-page.css */
+.zodiac-wiki-page { padding: 16px; color: var(--text-primary, #E0E6ED); }
+.zodiac-wiki__section-title { font-size: 18px; margin: 0 0 16px; }
+
+/* 矩阵网格 */
+.zodiac-wiki__matrix-grid { display: grid; grid-template-columns: 60px repeat(3, 1fr); gap: 4px; margin-bottom: 32px; }
+.zodiac-wiki__matrix-header { display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--text-secondary, #8B9BB4); padding: 8px; }
+.zodiac-wiki__matrix-row-header { display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--text-secondary, #8B9BB4); font-weight: 600; }
+.zodiac-wiki__matrix-cell { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 12px 4px; background: rgba(255,255,255,0.03); border-radius: 8px; text-decoration: none; color: var(--text-primary, #E0E6ED); transition: background 0.2s; }
+.zodiac-wiki__matrix-cell:hover { background: rgba(255,255,255,0.08); }
+.zodiac-wiki__matrix-cell--stub { opacity: 0.4; pointer-events: none; }
+.zodiac-wiki__matrix-symbol { font-size: 20px; margin-bottom: 4px; }
+.zodiac-wiki__matrix-name { font-size: 12px; }
+
+/* 卡片列表 */
+.zodiac-wiki__cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.zodiac-wiki__card { display: flex; align-items: center; gap: 12px; padding: 12px; background: rgba(255,255,255,0.03); border-radius: 12px; text-decoration: none; color: var(--text-primary, #E0E6ED); transition: background 0.2s; }
+.zodiac-wiki__card:hover { background: rgba(255,255,255,0.08); }
+.zodiac-wiki__card--stub { opacity: 0.5; }
+.zodiac-wiki__card-symbol { font-size: 24px; }
+.zodiac-wiki__card-info { display: flex; flex-direction: column; }
+.zodiac-wiki__card-name { font-size: 14px; font-weight: 600; }
+.zodiac-wiki__card-date { font-size: 11px; color: var(--text-secondary, #8B9BB4); }
+.zodiac-wiki__card-badge { font-size: 10px; color: var(--neon-cyan, #4DC3FF); margin-left: auto; }
+
+/* 详情页 Hero */
+.zodiac-wiki__hero { text-align: center; padding: 24px 0; margin-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.zodiac-wiki__hero-symbol { font-size: 48px; display: block; margin-bottom: 8px; }
+.zodiac-wiki__hero-name { font-size: 24px; margin: 0 0 12px; }
+.zodiac-wiki__hero-meta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; font-size: 13px; color: var(--text-secondary, #8B9BB4); margin-bottom: 12px; }
+
+/* 内容区 */
+.zodiac-wiki__content h2 { font-size: 16px; margin: 0 0 12px; }
+.zodiac-wiki__content p { line-height: 1.8; color: var(--text-secondary, #8B9BB4); }
+.zodiac-wiki__stub { padding: 24px; text-align: center; color: var(--text-secondary, #8B9BB4); background: rgba(255,255,255,0.02); border-radius: 12px; }
+.zodiac-wiki__empty { padding: 40px; text-align: center; color: var(--text-secondary, #8B9BB4); }
+.zodiac-wiki__guard { margin-top: 24px; padding: 12px; font-size: 12px; color: var(--text-secondary, #8B9BB4); line-height: 1.6; border-top: 1px solid rgba(255,255,255,0.06); }

@@ -1,0 +1,11 @@
+/* src/pages/knowledge/ziwei-palaces-page.css */
+.ziwei-palaces-list { color: var(--text-primary,#E0E6ED); padding: 16px; }
+.ziwei-palaces-list__grid { list-style: none; padding: 0; display: grid; gap: 8px; }
+.ziwei-palaces-list__item a { display: flex; flex-direction: column; border: 1px solid var(--neon-cyan,#4DC3FF); border-radius: 8px; padding: 8px; color: inherit; text-decoration: none; }
+.ziwei-palaces-list__title { color: var(--neon-cyan,#4DC3FF); }
+.ziwei-palaces-list__summary { color: var(--text-secondary,#8B9BB4); font-size: 12px; }
+.ziwei-palaces-list__empty { color: var(--text-secondary,#8B9BB4); }
+.ziwei-palace-detail { color: var(--text-primary,#E0E6ED); padding: 16px; }
+.ziwei-palace-detail__body { color: var(--text-primary,#E0E6ED); }
+.ziwei-palace-detail__sources { color: var(--text-secondary,#8B9BB4); font-size: 12px; }
+.ziwei-palace-detail__disclaimer { color: var(--text-secondary,#8B9BB4); font-size: 12px; }

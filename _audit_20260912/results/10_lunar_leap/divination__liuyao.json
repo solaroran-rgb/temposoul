@@ -1,0 +1,2695 @@
+{
+  "http": 200,
+  "ms": 1084,
+  "body": {
+    "ok": true,
+    "data": {
+      "originalName": "山水蒙",
+      "changedName": "坤为地",
+      "interName": "地雷复",
+      "yaoArray": [
+        8,
+        9,
+        8,
+        8,
+        8,
+        9
+      ],
+      "changingYaos": [
+        {
+          "position": 2,
+          "isChanging": true,
+          "type": "老阳"
+        },
+        {
+          "position": 6,
+          "isChanging": true,
+          "type": "老阳"
+        }
+      ],
+      "sixGods": [
+        "螣蛇",
+        "白虎",
+        "玄武",
+        "青龙",
+        "朱雀",
+        "勾陈"
+      ],
+      "sixRelatives": [
+        "父母",
+        "子孙",
+        "兄弟",
+        "子孙",
+        "官鬼",
+        "父母"
+      ],
+      "najiaDizhi": [
+        "寅",
+        "辰",
+        "午",
+        "戌",
+        "子",
+        "寅"
+      ],
+      "wuxing": [
+        "木",
+        "土",
+        "火",
+        "土",
+        "水",
+        "木"
+      ],
+      "worldAndResponse": [
+        "应",
+        "",
+        "",
+        "世",
+        "",
+        ""
+      ],
+      "voidBranches": [
+        "午",
+        "未"
+      ],
+      "palace": {
+        "name": "离",
+        "wuxing": "火"
+      },
+      "palaceStage": "四世",
+      "ganzhi": {
+        "year": "丙午",
+        "month": "丁酉",
+        "day": "己丑",
+        "hour": "辛未"
+      },
+      "isChaotic": false,
+      "yaosDetail": [
+        {
+          "position": 1,
+          "rawValue": 8,
+          "yaoType": "阴",
+          "isChanging": false,
+          "changeType": "静爻",
+          "sixGod": "螣蛇",
+          "sixRelative": "父母",
+          "najiaDizhi": "寅",
+          "wuxing": "木",
+          "isWorld": false,
+          "isResponse": true,
+          "isVoid": false,
+          "isDayBreak": false,
+          "isMonthBreak": false,
+          "isHiddenMove": false,
+          "seasonState": "死",
+          "changeDirection": null,
+          "changeRelation": null,
+          "changeRelations": [],
+          "isSanxing": false,
+          "sanxingType": "无恩之刑",
+          "isLiuhe": false,
+          "isLiuhai": false,
+          "isRuMu": false,
+          "shiErGong": "临官",
+          "isYueMu": false,
+          "isRiMu": false,
+          "changedYao": null
+        },
+        {
+          "position": 2,
+          "rawValue": 9,
+          "yaoType": "阳",
+          "isChanging": true,
+          "changeType": "老阳",
+          "sixGod": "白虎",
+          "sixRelative": "子孙",
+          "najiaDizhi": "辰",
+          "wuxing": "土",
+          "isWorld": false,
+          "isResponse": false,
+          "isVoid": false,
+          "isDayBreak": false,
+          "isMonthBreak": false,
+          "isHiddenMove": false,
+          "seasonState": "休",
+          "changeDirection": null,
+          "changeRelation": "回头生",
+          "changeRelations": [
+            "回头生"
+          ],
+          "isSanxing": false,
+          "sanxingType": "自刑",
+          "isLiuhe": true,
+          "liuhePartner": "酉",
+          "isLiuhai": false,
+          "isRuMu": false,
+          "shiErGong": "墓",
+          "isYueMu": false,
+          "isRiMu": false,
+          "changedYao": {
+            "dizhi": "巳",
+            "wuxing": "火",
+            "liuqin": "兄弟",
+            "isVoid": false
+          }
+        },
+        {
+          "position": 3,
+          "rawValue": 8,
+          "yaoType": "阴",
+          "isChanging": false,
+          "changeType": "静爻",
+          "sixGod": "玄武",
+          "sixRelative": "兄弟",
+          "najiaDizhi": "午",
+          "wuxing": "火",
+          "isWorld": false,
+          "isResponse": false,
+          "isVoid": true,
+          "isDayBreak": false,
+          "isMonthBreak": false,
+          "isHiddenMove": false,
+          "seasonState": "囚",
+          "changeDirection": null,
+          "changeRelation": null,
+          "changeRelations": [],
+          "isSanxing": false,
+          "sanxingType": "自刑",
+          "isLiuhe": false,
+          "isLiuhai": true,
+          "isRuMu": false,
+          "shiErGong": "帝旺",
+          "isYueMu": false,
+          "isRiMu": false,
+          "changedYao": null
+        },
+        {
+          "position": 4,
+          "rawValue": 8,
+          "yaoType": "阴",
+          "isChanging": false,
+          "changeType": "静爻",
+          "sixGod": "青龙",
+          "sixRelative": "子孙",
+          "najiaDizhi": "戌",
+          "wuxing": "土",
+          "isWorld": true,
+          "isResponse": false,
+          "isVoid": false,
+          "isDayBreak": false,
+          "isMonthBreak": false,
+          "isHiddenMove": false,
+          "seasonState": "休",
+          "changeDirection": null,
+          "changeRelation": null,
+          "changeRelations": [],
+          "isSanxing": true,
+          "sanxingType": "恃势之刑",
+          "isLiuhe": false,
+          "isLiuhai": true,
+          "isRuMu": false,
+          "shiErGong": "冠带",
+          "isYueMu": false,
+          "isRiMu": false,
+          "changedYao": null
+        },
+        {
+          "position": 5,
+          "rawValue": 8,
+          "yaoType": "阴",
+          "isChanging": false,
+          "changeType": "静爻",
+          "sixGod": "朱雀",
+          "sixRelative": "官鬼",
+          "najiaDizhi": "子",
+          "wuxing": "水",
+          "isWorld": false,
+          "isResponse": false,
+          "isVoid": false,
+          "isDayBreak": false,
+          "isMonthBreak": false,
+          "isHiddenMove": false,
+          "seasonState": "相",
+          "changeDirection": null,
+          "changeRelation": null,
+          "changeRelations": [],
+          "isSanxing": false,
+          "sanxingType": "无礼之刑",
+          "isLiuhe": true,
+          "liuhePartner": "丑",
+          "isLiuhai": false,
+          "isRuMu": false,
+          "shiErGong": "帝旺",
+          "isYueMu": false,
+          "isRiMu": false,
+          "changedYao": null
+        },
+        {
+          "position": 6,
+          "rawValue": 9,
+          "yaoType": "阳",
+          "isChanging": true,
+          "changeType": "老阳",
+          "sixGod": "勾陈",
+          "sixRelative": "父母",
+          "najiaDizhi": "寅",
+          "wuxing": "木",
+          "isWorld": false,
+          "isResponse": false,
+          "isVoid": false,
+          "isDayBreak": false,
+          "isMonthBreak": false,
+          "isHiddenMove": false,
+          "seasonState": "死",
+          "changeDirection": null,
+          "changeRelation": "回头克",
+          "changeRelations": [
+            "回头克"
+          ],
+          "isSanxing": false,
+          "sanxingType": "无恩之刑",
+          "isLiuhe": false,
+          "isLiuhai": false,
+          "isRuMu": false,
+          "shiErGong": "临官",
+          "isYueMu": false,
+          "isRiMu": false,
+          "changedYao": {
+            "dizhi": "酉",
+            "wuxing": "金",
+            "liuqin": "妻财",
+            "isVoid": false
+          }
+        }
+      ],
+      "hiddenSpirits": [
+        {
+          "sixRelative": "妻财",
+          "position": 4,
+          "najiaDizhi": "酉",
+          "wuxing": "金",
+          "isVoid": false,
+          "underYao": {
+            "position": 4,
+            "sixRelative": "子孙",
+            "najiaDizhi": "戌",
+            "wuxing": "土"
+          }
+        }
+      ],
+      "hexagramRelations": {
+        "original": null,
+        "changed": "六冲卦",
+        "transition": null
+      },
+      "fanfuRelations": {
+        "fanyin": [
+          {
+            "kind": "卦反吟",
+            "scope": "外卦",
+            "label": "外卦反吟",
+            "description": "外卦艮变坤，按乾巽、坎离、震兑、坤艮相变"
+          }
+        ],
+        "fuyin": [],
+        "labels": [
+          "外卦反吟"
+        ]
+      },
+      "sanheWithDay": {
+        "group": "金局",
+        "members": [
+          "巳",
+          "酉",
+          "丑"
+        ],
+        "description": "日辰丑引动三合金局，三合局成，事势增强"
+      },
+      "sanheWithMonth": null,
+      "sanxingInYaos": [],
+      "guaShen": null,
+      "generation": {
+        "method": "time",
+        "coinThrows": [
+          {
+            "coins": [
+              3,
+              2,
+              3
+            ],
+            "total": 8
+          },
+          {
+            "coins": [
+              3,
+              3,
+              3
+            ],
+            "total": 9
+          },
+          {
+            "coins": [
+              3,
+              2,
+              3
+            ],
+            "total": 8
+          },
+          {
+            "coins": [
+              2,
+              3,
+              3
+            ],
+            "total": 8
+          },
+          {
+            "coins": [
+              2,
+              3,
+              3
+            ],
+            "total": 8
+          },
+          {
+            "coins": [
+              3,
+              3,
+              3
+            ],
+            "total": 9
+          }
+        ]
+      },
+      "timestamp": 1789191929271,
+      "meta": {
+        "engineVersion": "0.1.26",
+        "schemaVersion": "1.0.0",
+        "algorithm": "liuyao",
+        "calculatedAt": "2026-09-12T05:45:29.271Z",
+        "inputHash": "35020e45492f7047",
+        "resultId": "liuyao:4e8f42b1d2680094",
+        "random": {
+          "mode": "seeded",
+          "seed": "时间起卦:1789191929271",
+          "samples": [
+            0.7090127635747194,
+            0.31855798279866576,
+            0.7674298048950732,
+            0.8060024867299944,
+            0.9342162893153727,
+            0.8880474346224219,
+            0.842828948283568,
+            0.20604506530798972,
+            0.6490482597146183,
+            0.03982965601608157,
+            0.6438872390426695,
+            0.5320772717241198,
+            0.2471942650154233,
+            0.9931811983697116,
+            0.9251682322937995,
+            0.6768295660149306,
+            0.7024476930964738,
+            0.9879414276219904
+          ]
+        }
+      },
+      "evidenceAnalysis": {
+        "key": "liuyao:evidence",
+        "status": "已计算",
+        "topic": "general",
+        "monthBranch": "酉",
+        "dayBranch": "丑",
+        "candidates": [
+          {
+            "key": "liuyao:candidate:1:通用主轴",
+            "status": "已匹配",
+            "sourceStatus": "盘面补齐",
+            "label": "通用主轴",
+            "position": 4,
+            "reason": "未另指定用神时，以世爻为求测者主轴。",
+            "references": [
+              {
+                "key": "liuyao:reference:line:4",
+                "factKey": "本卦:第4爻",
+                "source": "本卦",
+                "status": "已匹配",
+                "position": 4,
+                "sixRelative": "子孙",
+                "branch": "戌",
+                "wuxing": "土",
+                "isWorld": true,
+                "isResponse": false,
+                "isChanging": false,
+                "isVoid": false,
+                "support": [
+                  "临世"
+                ],
+                "constraints": [
+                  "月令休"
+                ]
+              }
+            ],
+            "referenceKeys": [
+              "liuyao:reference:line:4"
+            ],
+            "support": [
+              "临世"
+            ],
+            "constraints": [
+              "月令休"
+            ],
+            "promptText": "通用主轴由盘面补齐提出：未另指定用神时，以世爻为求测者主轴。；匹配本卦4爻子孙戌土；支持临世；限制月令休",
+            "sources": [
+              "当前问题取用范围",
+              "本卦与伏神六亲、爻位及五行逐项匹配"
+            ],
+            "limitation": "用神候选只记录由明确指定、问题主题或世应动爻提出的取用范围及其盘面匹配；候选不等于已证明现实事项，也不得按候选顺序、数量或匹配数量换算吉凶分与成功率"
+          },
+          {
+            "key": "liuyao:candidate:2:应爻辅轴",
+            "status": "已匹配",
+            "sourceStatus": "盘面补齐",
+            "label": "应爻辅轴",
+            "position": 1,
+            "reason": "应爻用于观察对方与外部条件。",
+            "references": [
+              {
+                "key": "liuyao:reference:line:1",
+                "factKey": "本卦:第1爻",
+                "source": "本卦",
+                "status": "已匹配",
+                "position": 1,
+                "sixRelative": "父母",
+                "branch": "寅",
+                "wuxing": "木",
+                "isWorld": false,
+                "isResponse": true,
+                "isChanging": false,
+                "isVoid": false,
+                "support": [
+                  "临应"
+                ],
+                "constraints": [
+                  "月令死"
+                ]
+              }
+            ],
+            "referenceKeys": [
+              "liuyao:reference:line:1"
+            ],
+            "support": [
+              "临应"
+            ],
+            "constraints": [
+              "月令死"
+            ],
+            "promptText": "应爻辅轴由盘面补齐提出：应爻用于观察对方与外部条件。；匹配本卦1爻父母寅木；支持临应；限制月令死",
+            "sources": [
+              "当前问题取用范围",
+              "本卦与伏神六亲、爻位及五行逐项匹配"
+            ],
+            "limitation": "用神候选只记录由明确指定、问题主题或世应动爻提出的取用范围及其盘面匹配；候选不等于已证明现实事项，也不得按候选顺序、数量或匹配数量换算吉凶分与成功率"
+          },
+          {
+            "key": "liuyao:candidate:3:动爻触发第2爻",
+            "status": "已匹配",
+            "sourceStatus": "盘面补齐",
+            "label": "动爻触发第2爻",
+            "position": 2,
+            "reason": "动爻作为事件变化触发点，并回扣世应主线。",
+            "references": [
+              {
+                "key": "liuyao:reference:line:2",
+                "factKey": "本卦:第2爻",
+                "source": "本卦",
+                "status": "已匹配",
+                "position": 2,
+                "sixRelative": "子孙",
+                "branch": "辰",
+                "wuxing": "土",
+                "isWorld": false,
+                "isResponse": false,
+                "isChanging": true,
+                "isVoid": false,
+                "support": [
+                  "发动",
+                  "合月建",
+                  "回头生"
+                ],
+                "constraints": [
+                  "月令休"
+                ],
+                "changedYao": {
+                  "sixRelative": "兄弟",
+                  "branch": "巳",
+                  "wuxing": "火",
+                  "isVoid": false,
+                  "relation": "回头生",
+                  "relations": [
+                    "回头生"
+                  ],
+                  "direction": null
+                }
+              }
+            ],
+            "referenceKeys": [
+              "liuyao:reference:line:2"
+            ],
+            "support": [
+              "发动",
+              "合月建",
+              "回头生"
+            ],
+            "constraints": [
+              "月令休"
+            ],
+            "promptText": "动爻触发第2爻由盘面补齐提出：动爻作为事件变化触发点，并回扣世应主线。；匹配本卦2爻子孙辰土→兄弟巳火（回头生）；支持发动、合月建、回头生；限制月令休",
+            "sources": [
+              "当前问题取用范围",
+              "本卦与伏神六亲、爻位及五行逐项匹配"
+            ],
+            "limitation": "用神候选只记录由明确指定、问题主题或世应动爻提出的取用范围及其盘面匹配；候选不等于已证明现实事项，也不得按候选顺序、数量或匹配数量换算吉凶分与成功率"
+          },
+          {
+            "key": "liuyao:candidate:4:动爻触发第6爻",
+            "status": "已匹配",
+            "sourceStatus": "盘面补齐",
+            "label": "动爻触发第6爻",
+            "position": 6,
+            "reason": "动爻作为事件变化触发点，并回扣世应主线。",
+            "references": [
+              {
+                "key": "liuyao:reference:line:6",
+                "factKey": "本卦:第6爻",
+                "source": "本卦",
+                "status": "已匹配",
+                "position": 6,
+                "sixRelative": "父母",
+                "branch": "寅",
+                "wuxing": "木",
+                "isWorld": false,
+                "isResponse": false,
+                "isChanging": true,
+                "isVoid": false,
+                "support": [
+                  "发动"
+                ],
+                "constraints": [
+                  "月令死",
+                  "回头克"
+                ],
+                "changedYao": {
+                  "sixRelative": "妻财",
+                  "branch": "酉",
+                  "wuxing": "金",
+                  "isVoid": false,
+                  "relation": "回头克",
+                  "relations": [
+                    "回头克"
+                  ],
+                  "direction": null
+                }
+              }
+            ],
+            "referenceKeys": [
+              "liuyao:reference:line:6"
+            ],
+            "support": [
+              "发动"
+            ],
+            "constraints": [
+              "月令死",
+              "回头克"
+            ],
+            "promptText": "动爻触发第6爻由盘面补齐提出：动爻作为事件变化触发点，并回扣世应主线。；匹配本卦6爻父母寅木→妻财酉金（回头克）；支持发动；限制月令死、回头克",
+            "sources": [
+              "当前问题取用范围",
+              "本卦与伏神六亲、爻位及五行逐项匹配"
+            ],
+            "limitation": "用神候选只记录由明确指定、问题主题或世应动爻提出的取用范围及其盘面匹配；候选不等于已证明现实事项，也不得按候选顺序、数量或匹配数量换算吉凶分与成功率"
+          }
+        ],
+        "selectedCandidate": {
+          "key": "liuyao:candidate:1:通用主轴",
+          "status": "已匹配",
+          "sourceStatus": "盘面补齐",
+          "label": "通用主轴",
+          "position": 4,
+          "reason": "未另指定用神时，以世爻为求测者主轴。",
+          "references": [
+            {
+              "key": "liuyao:reference:line:4",
+              "factKey": "本卦:第4爻",
+              "source": "本卦",
+              "status": "已匹配",
+              "position": 4,
+              "sixRelative": "子孙",
+              "branch": "戌",
+              "wuxing": "土",
+              "isWorld": true,
+              "isResponse": false,
+              "isChanging": false,
+              "isVoid": false,
+              "support": [
+                "临世"
+              ],
+              "constraints": [
+                "月令休"
+              ]
+            }
+          ],
+          "referenceKeys": [
+            "liuyao:reference:line:4"
+          ],
+          "support": [
+            "临世"
+          ],
+          "constraints": [
+            "月令休"
+          ],
+          "promptText": "通用主轴由盘面补齐提出：未另指定用神时，以世爻为求测者主轴。；匹配本卦4爻子孙戌土；支持临世；限制月令休",
+          "sources": [
+            "当前问题取用范围",
+            "本卦与伏神六亲、爻位及五行逐项匹配"
+          ],
+          "limitation": "用神候选只记录由明确指定、问题主题或世应动爻提出的取用范围及其盘面匹配；候选不等于已证明现实事项，也不得按候选顺序、数量或匹配数量换算吉凶分与成功率"
+        },
+        "godChain": [
+          {
+            "key": "liuyao:god-chain:用神",
+            "role": "用神",
+            "status": "盘中有对应",
+            "wuxing": "土",
+            "relation": "本次用神五行",
+            "references": [
+              {
+                "key": "liuyao:reference:line:2",
+                "factKey": "本卦:第2爻",
+                "source": "本卦",
+                "status": "已匹配",
+                "position": 2,
+                "sixRelative": "子孙",
+                "branch": "辰",
+                "wuxing": "土",
+                "isWorld": false,
+                "isResponse": false,
+                "isChanging": true,
+                "isVoid": false,
+                "support": [
+                  "发动",
+                  "合月建",
+                  "回头生"
+                ],
+                "constraints": [
+                  "月令休"
+                ],
+                "changedYao": {
+                  "sixRelative": "兄弟",
+                  "branch": "巳",
+                  "wuxing": "火",
+                  "isVoid": false,
+                  "relation": "回头生",
+                  "relations": [
+                    "回头生"
+                  ],
+                  "direction": null
+                }
+              },
+              {
+                "key": "liuyao:reference:line:4",
+                "factKey": "本卦:第4爻",
+                "source": "本卦",
+                "status": "已匹配",
+                "position": 4,
+                "sixRelative": "子孙",
+                "branch": "戌",
+                "wuxing": "土",
+                "isWorld": true,
+                "isResponse": false,
+                "isChanging": false,
+                "isVoid": false,
+                "support": [
+                  "临世"
+                ],
+                "constraints": [
+                  "月令休"
+                ]
+              }
+            ],
+            "referenceKeys": [
+              "liuyao:reference:line:2",
+              "liuyao:reference:line:4"
+            ],
+            "promptText": "用神土：本次用神五行；盘中对应本卦2爻子孙辰土→兄弟巳火（回头生）、本卦4爻子孙戌土",
+            "sources": [
+              "当前选定候选五行",
+              "五行生克公共关系",
+              "本卦与伏神逐爻五行"
+            ],
+            "limitation": "原神、忌神与仇神只按已选候选五行的生克链定义，并记录盘中是否有对应爻；盘中有无对应不直接证明现实助力、阻碍、吉凶或结果"
+          },
+          {
+            "key": "liuyao:god-chain:原神",
+            "role": "原神",
+            "status": "盘中有对应",
+            "wuxing": "火",
+            "relation": "火生土",
+            "references": [
+              {
+                "key": "liuyao:reference:line:3",
+                "factKey": "本卦:第3爻",
+                "source": "本卦",
+                "status": "已匹配",
+                "position": 3,
+                "sixRelative": "兄弟",
+                "branch": "午",
+                "wuxing": "火",
+                "isWorld": false,
+                "isResponse": false,
+                "isChanging": false,
+                "isVoid": true,
+                "support": [],
+                "constraints": [
+                  "本爻空亡",
+                  "月令囚"
+                ]
+              }
+            ],
+            "referenceKeys": [
+              "liuyao:reference:line:3"
+            ],
+            "promptText": "原神火：火生土；盘中对应本卦3爻兄弟午火",
+            "sources": [
+              "当前选定候选五行",
+              "五行生克公共关系",
+              "本卦与伏神逐爻五行"
+            ],
+            "limitation": "原神、忌神与仇神只按已选候选五行的生克链定义，并记录盘中是否有对应爻；盘中有无对应不直接证明现实助力、阻碍、吉凶或结果"
+          },
+          {
+            "key": "liuyao:god-chain:忌神",
+            "role": "忌神",
+            "status": "盘中有对应",
+            "wuxing": "木",
+            "relation": "木克土",
+            "references": [
+              {
+                "key": "liuyao:reference:line:1",
+                "factKey": "本卦:第1爻",
+                "source": "本卦",
+                "status": "已匹配",
+                "position": 1,
+                "sixRelative": "父母",
+                "branch": "寅",
+                "wuxing": "木",
+                "isWorld": false,
+                "isResponse": true,
+                "isChanging": false,
+                "isVoid": false,
+                "support": [
+                  "临应"
+                ],
+                "constraints": [
+                  "月令死"
+                ]
+              },
+              {
+                "key": "liuyao:reference:line:6",
+                "factKey": "本卦:第6爻",
+                "source": "本卦",
+                "status": "已匹配",
+                "position": 6,
+                "sixRelative": "父母",
+                "branch": "寅",
+                "wuxing": "木",
+                "isWorld": false,
+                "isResponse": false,
+                "isChanging": true,
+                "isVoid": false,
+                "support": [
+                  "发动"
+                ],
+                "constraints": [
+                  "月令死",
+                  "回头克"
+                ],
+                "changedYao": {
+                  "sixRelative": "妻财",
+                  "branch": "酉",
+                  "wuxing": "金",
+                  "isVoid": false,
+                  "relation": "回头克",
+                  "relations": [
+                    "回头克"
+                  ],
+                  "direction": null
+                }
+              }
+            ],
+            "referenceKeys": [
+              "liuyao:reference:line:1",
+              "liuyao:reference:line:6"
+            ],
+            "promptText": "忌神木：木克土；盘中对应本卦1爻父母寅木、本卦6爻父母寅木→妻财酉金（回头克）",
+            "sources": [
+              "当前选定候选五行",
+              "五行生克公共关系",
+              "本卦与伏神逐爻五行"
+            ],
+            "limitation": "原神、忌神与仇神只按已选候选五行的生克链定义，并记录盘中是否有对应爻；盘中有无对应不直接证明现实助力、阻碍、吉凶或结果"
+          },
+          {
+            "key": "liuyao:god-chain:仇神",
+            "role": "仇神",
+            "status": "盘中有对应",
+            "wuxing": "水",
+            "relation": "水生木并克火",
+            "references": [
+              {
+                "key": "liuyao:reference:line:5",
+                "factKey": "本卦:第5爻",
+                "source": "本卦",
+                "status": "已匹配",
+                "position": 5,
+                "sixRelative": "官鬼",
+                "branch": "子",
+                "wuxing": "水",
+                "isWorld": false,
+                "isResponse": false,
+                "isChanging": false,
+                "isVoid": false,
+                "support": [
+                  "月令相",
+                  "合日辰"
+                ],
+                "constraints": []
+              }
+            ],
+            "referenceKeys": [
+              "liuyao:reference:line:5"
+            ],
+            "promptText": "仇神水：水生木并克火；盘中对应本卦5爻官鬼子水",
+            "sources": [
+              "当前选定候选五行",
+              "五行生克公共关系",
+              "本卦与伏神逐爻五行"
+            ],
+            "limitation": "原神、忌神与仇神只按已选候选五行的生克链定义，并记录盘中是否有对应爻；盘中有无对应不直接证明现实助力、阻碍、吉凶或结果"
+          }
+        ],
+        "traditionalSymbols": [
+          {
+            "key": "liuyao:traditional-symbol:父母",
+            "status": "已映射",
+            "relative": "父母",
+            "positions": [
+              1,
+              6
+            ],
+            "originalText": "传统常取文书、消息、单位、房屋、长辈、辛劳等类象",
+            "promptText": "传统常取文书、消息、单位、房屋、长辈、辛劳等类象，须先结合问题主题。",
+            "source": "传统六亲类象表与当前六亲排布",
+            "sources": [
+              "传统六亲类象表",
+              "当前本卦与伏神六亲排布"
+            ],
+            "limitation": "六亲只提供随问题变化的事项候选，不证明现实身份、疾病、官非、财运或关系结果"
+          },
+          {
+            "key": "liuyao:traditional-symbol:子孙",
+            "status": "已映射",
+            "relative": "子孙",
+            "positions": [
+              2,
+              4
+            ],
+            "originalText": "传统常取产出、子女、放松、解忧、医药、财源等类象",
+            "promptText": "传统常取产出、子女、放松、解忧、医药、财源等类象，须先结合问题主题。",
+            "source": "传统六亲类象表与当前六亲排布",
+            "sources": [
+              "传统六亲类象表",
+              "当前本卦与伏神六亲排布"
+            ],
+            "limitation": "六亲只提供随问题变化的事项候选，不证明现实身份、疾病、官非、财运或关系结果"
+          },
+          {
+            "key": "liuyao:traditional-symbol:兄弟",
+            "status": "已映射",
+            "relative": "兄弟",
+            "positions": [
+              3
+            ],
+            "originalText": "传统常取同辈、竞争、合作分配、朋友、资源消耗等类象",
+            "promptText": "传统常取同辈、竞争、合作分配、朋友、资源消耗等类象，须先结合问题主题。",
+            "source": "传统六亲类象表与当前六亲排布",
+            "sources": [
+              "传统六亲类象表",
+              "当前本卦与伏神六亲排布"
+            ],
+            "limitation": "六亲只提供随问题变化的事项候选，不证明现实身份、疾病、官非、财运或关系结果"
+          },
+          {
+            "key": "liuyao:traditional-symbol:官鬼",
+            "status": "已映射",
+            "relative": "官鬼",
+            "positions": [
+              5
+            ],
+            "originalText": "传统常取职责、职位、压力、忧虑、疾病、官非等类象",
+            "promptText": "传统常取职责、职位、压力、忧虑、疾病、官非等类象，须先结合问题主题。",
+            "source": "传统六亲类象表与当前六亲排布",
+            "sources": [
+              "传统六亲类象表",
+              "当前本卦与伏神六亲排布"
+            ],
+            "limitation": "六亲只提供随问题变化的事项候选，不证明现实身份、疾病、官非、财运或关系结果"
+          },
+          {
+            "key": "liuyao:traditional-symbol:妻财",
+            "status": "已映射",
+            "relative": "妻财",
+            "positions": [
+              4
+            ],
+            "originalText": "传统常取财物、交易、资源、伴侣或关系对象等类象",
+            "promptText": "传统常取财物、交易、资源、伴侣或关系对象等类象，须先结合问题主题。",
+            "source": "传统六亲类象表与当前六亲排布",
+            "sources": [
+              "传统六亲类象表",
+              "当前本卦与伏神六亲排布"
+            ],
+            "limitation": "六亲只提供随问题变化的事项候选，不证明现实身份、疾病、官非、财运或关系结果"
+          }
+        ],
+        "structureFacts": [
+          {
+            "key": "liuyao:structure:hexagram-relation",
+            "kind": "整卦六合六冲",
+            "status": "已计算",
+            "originalText": "变卦六冲卦",
+            "promptText": "变卦六冲卦",
+            "sources": [
+              "主卦与变卦六支六合、六冲完整性核验"
+            ],
+            "limitation": "整卦六合六冲、反吟伏吟、特殊卦象与日月三合只描述已计算的卦内结构；不得直接写成现实和合、冲散、反复、成功、失败或固定应期"
+          },
+          {
+            "key": "liuyao:structure:fanfu:1:卦反吟:外卦",
+            "kind": "反吟伏吟",
+            "status": "已计算",
+            "originalText": "外卦反吟：外卦艮变坤，按乾巽、坎离、震兑、坤艮相变",
+            "promptText": "外卦反吟：外卦艮变坤，按乾巽、坎离、震兑、坤艮相变",
+            "sources": [
+              "主卦与变卦内外卦纳甲地支反吟伏吟核验"
+            ],
+            "limitation": "整卦六合六冲、反吟伏吟、特殊卦象与日月三合只描述已计算的卦内结构；不得直接写成现实和合、冲散、反复、成功、失败或固定应期"
+          },
+          {
+            "key": "liuyao:structure:sanhe-day",
+            "kind": "日辰三合",
+            "status": "已计算",
+            "originalText": "日辰丑引动三合金局，三合局成，事势增强",
+            "promptText": "日辰丑引动三合金局，三合局成，传统上视为合局条件较集中",
+            "sources": [
+              "当前动爻、变爻与日支三合成员完整性核验"
+            ],
+            "limitation": "整卦六合六冲、反吟伏吟、特殊卦象与日月三合只描述已计算的卦内结构；不得直接写成现实和合、冲散、反复、成功、失败或固定应期"
+          }
+        ],
+        "lineCoverageFact": {
+          "key": "liuyao:line-coverage",
+          "status": "完整",
+          "expectedPositions": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "actualPositions": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "missingPositions": [],
+          "duplicatePositions": [],
+          "invalidPositions": [],
+          "lineFactKeys": [
+            "本卦:第1爻",
+            "本卦:第2爻",
+            "本卦:第3爻",
+            "本卦:第4爻",
+            "本卦:第5爻",
+            "本卦:第6爻"
+          ],
+          "promptText": "六爻资料完整覆盖初爻至上爻，可逐爻核验",
+          "sources": [
+            "当前逐爻详情的位置、数量与唯一性核验"
+          ],
+          "limitation": "六爻覆盖状态只说明当前结果能否完整核验初爻至上爻；缺少、重复或越界爻位时不得反推纳甲、六亲、六神、世应、空破墓或动变内容"
+        },
+        "lineFacts": [
+          {
+            "key": "本卦:第1爻",
+            "status": "已计算",
+            "position": 1,
+            "rawValue": 8,
+            "yaoType": "阴",
+            "changeType": "静爻",
+            "sixGod": "螣蛇",
+            "sixRelative": "父母",
+            "najia": {
+              "branch": "寅",
+              "wuxing": "木"
+            },
+            "roles": [
+              "应爻"
+            ],
+            "activity": "静爻",
+            "monthState": {
+              "branch": "酉",
+              "seasonState": "死",
+              "relations": []
+            },
+            "dayState": {
+              "branch": "丑",
+              "relations": []
+            },
+            "traditionalRelations": {
+              "twelveStage": "临官",
+              "isLiuhai": false,
+              "isRuMu": false
+            },
+            "isVoid": false,
+            "support": [
+              "临应"
+            ],
+            "constraints": [
+              "月令死"
+            ],
+            "promptText": "第1爻父母寅木；六神螣蛇；应爻；静爻；月令死；十二宫临官",
+            "sources": [
+              "京房八宫纳甲与六亲排布",
+              "日干起六神与八宫安世应",
+              "起卦月建、日辰、旬空与动变计算"
+            ],
+            "limitation": "逐爻字段是纳甲、世应、月日旺衰与动变规则的计算事实，只限定六爻取证条件，不单独证明现实吉凶、事件、身份、疾病、官非、关系或财务结果"
+          },
+          {
+            "key": "本卦:第2爻",
+            "status": "已计算",
+            "position": 2,
+            "rawValue": 9,
+            "yaoType": "阳",
+            "changeType": "老阳",
+            "sixGod": "白虎",
+            "sixRelative": "子孙",
+            "najia": {
+              "branch": "辰",
+              "wuxing": "土"
+            },
+            "roles": [],
+            "activity": "明动",
+            "monthState": {
+              "branch": "酉",
+              "seasonState": "休",
+              "relations": [
+                "合月建"
+              ]
+            },
+            "dayState": {
+              "branch": "丑",
+              "relations": []
+            },
+            "traditionalRelations": {
+              "twelveStage": "墓",
+              "liuhePartner": "酉",
+              "isLiuhai": false,
+              "isRuMu": false
+            },
+            "isVoid": false,
+            "support": [
+              "发动",
+              "合月建",
+              "回头生"
+            ],
+            "constraints": [
+              "月令休"
+            ],
+            "changedYao": {
+              "sixRelative": "兄弟",
+              "branch": "巳",
+              "wuxing": "火",
+              "isVoid": false,
+              "relation": "回头生",
+              "relations": [
+                "回头生"
+              ],
+              "direction": null
+            },
+            "promptText": "第2爻子孙辰土；六神白虎；明动；月令休；合月建；十二宫墓；化兄弟巳火、回头生",
+            "sources": [
+              "京房八宫纳甲与六亲排布",
+              "日干起六神与八宫安世应",
+              "起卦月建、日辰、旬空与动变计算"
+            ],
+            "limitation": "逐爻字段是纳甲、世应、月日旺衰与动变规则的计算事实，只限定六爻取证条件，不单独证明现实吉凶、事件、身份、疾病、官非、关系或财务结果"
+          },
+          {
+            "key": "本卦:第3爻",
+            "status": "已计算",
+            "position": 3,
+            "rawValue": 8,
+            "yaoType": "阴",
+            "changeType": "静爻",
+            "sixGod": "玄武",
+            "sixRelative": "兄弟",
+            "najia": {
+              "branch": "午",
+              "wuxing": "火"
+            },
+            "roles": [],
+            "activity": "静爻",
+            "monthState": {
+              "branch": "酉",
+              "seasonState": "囚",
+              "relations": []
+            },
+            "dayState": {
+              "branch": "丑",
+              "relations": [
+                "与日辰相害"
+              ]
+            },
+            "traditionalRelations": {
+              "twelveStage": "帝旺",
+              "isLiuhai": true,
+              "isRuMu": false
+            },
+            "isVoid": true,
+            "support": [],
+            "constraints": [
+              "本爻空亡",
+              "月令囚"
+            ],
+            "promptText": "第3爻兄弟午火；六神玄武；静爻；月令囚；与日辰相害；本爻空亡；十二宫帝旺",
+            "sources": [
+              "京房八宫纳甲与六亲排布",
+              "日干起六神与八宫安世应",
+              "起卦月建、日辰、旬空与动变计算"
+            ],
+            "limitation": "逐爻字段是纳甲、世应、月日旺衰与动变规则的计算事实，只限定六爻取证条件，不单独证明现实吉凶、事件、身份、疾病、官非、关系或财务结果"
+          },
+          {
+            "key": "本卦:第4爻",
+            "status": "已计算",
+            "position": 4,
+            "rawValue": 8,
+            "yaoType": "阴",
+            "changeType": "静爻",
+            "sixGod": "青龙",
+            "sixRelative": "子孙",
+            "najia": {
+              "branch": "戌",
+              "wuxing": "土"
+            },
+            "roles": [
+              "世爻"
+            ],
+            "activity": "静爻",
+            "monthState": {
+              "branch": "酉",
+              "seasonState": "休",
+              "relations": [
+                "与月建相害"
+              ]
+            },
+            "dayState": {
+              "branch": "丑",
+              "relations": [
+                "与日辰成刑"
+              ]
+            },
+            "traditionalRelations": {
+              "twelveStage": "冠带",
+              "sanxingType": "恃势之刑",
+              "isLiuhai": true,
+              "isRuMu": false
+            },
+            "isVoid": false,
+            "support": [
+              "临世"
+            ],
+            "constraints": [
+              "月令休"
+            ],
+            "promptText": "第4爻子孙戌土；六神青龙；世爻；静爻；月令休；与月建相害；与日辰成刑；十二宫冠带",
+            "sources": [
+              "京房八宫纳甲与六亲排布",
+              "日干起六神与八宫安世应",
+              "起卦月建、日辰、旬空与动变计算"
+            ],
+            "limitation": "逐爻字段是纳甲、世应、月日旺衰与动变规则的计算事实，只限定六爻取证条件，不单独证明现实吉凶、事件、身份、疾病、官非、关系或财务结果"
+          },
+          {
+            "key": "本卦:第5爻",
+            "status": "已计算",
+            "position": 5,
+            "rawValue": 8,
+            "yaoType": "阴",
+            "changeType": "静爻",
+            "sixGod": "朱雀",
+            "sixRelative": "官鬼",
+            "najia": {
+              "branch": "子",
+              "wuxing": "水"
+            },
+            "roles": [],
+            "activity": "静爻",
+            "monthState": {
+              "branch": "酉",
+              "seasonState": "相",
+              "relations": []
+            },
+            "dayState": {
+              "branch": "丑",
+              "relations": [
+                "合日辰"
+              ]
+            },
+            "traditionalRelations": {
+              "twelveStage": "帝旺",
+              "liuhePartner": "丑",
+              "isLiuhai": false,
+              "isRuMu": false
+            },
+            "isVoid": false,
+            "support": [
+              "月令相",
+              "合日辰"
+            ],
+            "constraints": [],
+            "promptText": "第5爻官鬼子水；六神朱雀；静爻；月令相；合日辰；十二宫帝旺",
+            "sources": [
+              "京房八宫纳甲与六亲排布",
+              "日干起六神与八宫安世应",
+              "起卦月建、日辰、旬空与动变计算"
+            ],
+            "limitation": "逐爻字段是纳甲、世应、月日旺衰与动变规则的计算事实，只限定六爻取证条件，不单独证明现实吉凶、事件、身份、疾病、官非、关系或财务结果"
+          },
+          {
+            "key": "本卦:第6爻",
+            "status": "已计算",
+            "position": 6,
+            "rawValue": 9,
+            "yaoType": "阳",
+            "changeType": "老阳",
+            "sixGod": "勾陈",
+            "sixRelative": "父母",
+            "najia": {
+              "branch": "寅",
+              "wuxing": "木"
+            },
+            "roles": [],
+            "activity": "明动",
+            "monthState": {
+              "branch": "酉",
+              "seasonState": "死",
+              "relations": []
+            },
+            "dayState": {
+              "branch": "丑",
+              "relations": []
+            },
+            "traditionalRelations": {
+              "twelveStage": "临官",
+              "isLiuhai": false,
+              "isRuMu": false
+            },
+            "isVoid": false,
+            "support": [
+              "发动"
+            ],
+            "constraints": [
+              "月令死",
+              "回头克"
+            ],
+            "changedYao": {
+              "sixRelative": "妻财",
+              "branch": "酉",
+              "wuxing": "金",
+              "isVoid": false,
+              "relation": "回头克",
+              "relations": [
+                "回头克"
+              ],
+              "direction": null
+            },
+            "promptText": "第6爻父母寅木；六神勾陈；明动；月令死；十二宫临官；化妻财酉金、回头克",
+            "sources": [
+              "京房八宫纳甲与六亲排布",
+              "日干起六神与八宫安世应",
+              "起卦月建、日辰、旬空与动变计算"
+            ],
+            "limitation": "逐爻字段是纳甲、世应、月日旺衰与动变规则的计算事实，只限定六爻取证条件，不单独证明现实吉凶、事件、身份、疾病、官非、关系或财务结果"
+          }
+        ],
+        "hiddenSpiritCoverageFact": {
+          "key": "liuyao:hidden-spirit-coverage",
+          "status": "有伏神",
+          "hiddenSpiritFactKeys": [
+            "伏神:第4爻:妻财"
+          ],
+          "promptText": "当前记录1条伏神与飞神配对事实",
+          "sources": [
+            "当前伏神字段存在性与伏神事实数量核验"
+          ],
+          "limitation": "伏神覆盖状态只说明当前结果是否明确保存伏神数组以及是否检出伏神；字段缺失时不得把无记录解释为无伏神，也不得反推伏神位置与六亲"
+        },
+        "hiddenSpiritFacts": [
+          {
+            "key": "伏神:第4爻:妻财",
+            "status": "已计算",
+            "position": 4,
+            "sixRelative": "妻财",
+            "najia": {
+              "branch": "酉",
+              "wuxing": "金"
+            },
+            "isVoid": false,
+            "coveringLine": {
+              "position": 4,
+              "sixRelative": "子孙",
+              "najiaDizhi": "戌",
+              "wuxing": "土"
+            },
+            "support": [],
+            "constraints": [
+              "伏藏待透",
+              "受飞神子孙戌土覆盖"
+            ],
+            "promptText": "第4爻伏神妻财酉金，飞神子孙戌土覆盖",
+            "sources": [
+              "本宫首卦六亲全集与当前本卦六亲差集",
+              "当前爻位飞伏配对与旬空计算"
+            ],
+            "limitation": "伏神结构只证明本卦六亲排布中存在伏藏关系；透出、受制或得助仍须结合飞神、月日、动变与现实进展复核"
+          }
+        ],
+        "selectionFact": {
+          "key": "liuyao:useful-god-selection",
+          "status": "已选定候选",
+          "topic": "general",
+          "requestedRelative": null,
+          "selectedCandidateKey": "liuyao:candidate:1:通用主轴",
+          "candidateKeys": [
+            "liuyao:candidate:1:通用主轴",
+            "liuyao:candidate:2:应爻辅轴",
+            "liuyao:candidate:3:动爻触发第2爻",
+            "liuyao:candidate:4:动爻触发第6爻"
+          ],
+          "promptText": "本次用神取通用主轴；盘面匹配本卦4爻子孙戌土",
+          "sources": [
+            "候选顺序、匹配状态与逐爻引用核验"
+          ],
+          "limitation": "用神选择状态只说明当前候选是否在本卦或伏神中找到匹配；缺少匹配时不得硬取用神，已有匹配也仍须结合具体问题语义、求测者身份与现实资料复核"
+        },
+        "generationFact": {
+          "key": "generation:liuyao:time",
+          "status": "可核验",
+          "method": "time",
+          "methodLabel": "时间起卦",
+          "yaoValues": [
+            8,
+            9,
+            8,
+            8,
+            8,
+            9
+          ],
+          "coinThrows": [
+            {
+              "coins": [
+                3,
+                2,
+                3
+              ],
+              "total": 8
+            },
+            {
+              "coins": [
+                3,
+                3,
+                3
+              ],
+              "total": 9
+            },
+            {
+              "coins": [
+                3,
+                2,
+                3
+              ],
+              "total": 8
+            },
+            {
+              "coins": [
+                2,
+                3,
+                3
+              ],
+              "total": 8
+            },
+            {
+              "coins": [
+                2,
+                3,
+                3
+              ],
+              "total": 8
+            },
+            {
+              "coins": [
+                3,
+                3,
+                3
+              ],
+              "total": 9
+            }
+          ],
+          "expectedLineCount": 6,
+          "recordedLineCount": 6,
+          "promptText": "起卦方式为时间起卦；第1爻计算样本3+2+3=8（少阴）；第2爻计算样本3+3+3=9（老阳）；第3爻计算样本3+2+3=8（少阴）；第4爻计算样本2+3+3=8（少阴）；第5爻计算样本2+3+3=8（少阴）；第6爻计算样本3+3+3=9（老阳）",
+          "sources": [
+            "六爻逐爻三钱生成记录",
+            "六爻起卦方式与原始爻值结果"
+          ],
+          "limitation": "起卦来源只说明卦象如何生成以及六个爻值如何录入或生成，不提高卦象证据等级，也不证明预测有效性或现实结果"
+        },
+        "generationFacts": [
+          "起卦方式：时间起卦",
+          "第1爻计算样本：3+2+3=8（少阴）",
+          "第2爻计算样本：3+3+3=9（老阳）",
+          "第3爻计算样本：3+2+3=8（少阴）",
+          "第4爻计算样本：2+3+3=8（少阴）",
+          "第5爻计算样本：2+3+3=8（少阴）",
+          "第6爻计算样本：3+3+3=9（老阳）"
+        ],
+        "randomFact": {
+          "key": "random:liuyao:time",
+          "status": "可重放",
+          "mode": "seeded",
+          "seed": "时间起卦:1789191929271",
+          "samples": [
+            0.7090127635747194,
+            0.31855798279866576,
+            0.7674298048950732,
+            0.8060024867299944,
+            0.9342162893153727,
+            0.8880474346224219,
+            0.842828948283568,
+            0.20604506530798972,
+            0.6490482597146183,
+            0.03982965601608157,
+            0.6438872390426695,
+            0.5320772717241198,
+            0.2471942650154233,
+            0.9931811983697116,
+            0.9251682322937995,
+            0.6768295660149306,
+            0.7024476930964738,
+            0.9879414276219904
+          ],
+          "sampleCount": 18,
+          "promptText": "时间起卦的六爻生成过程采用seeded随机模式，已记录18个原始随机样本，可用于重放生成过程；随机种子保留在结构化结果中，种子值和原始样本不写入自然语言提示词。",
+          "sources": [
+            "六爻起卦方式记录",
+            "逐次随机投币样本与重放元数据"
+          ],
+          "limitation": "随机轨迹只用于核验或重放生成过程，不表示可信度或预测有效性，也不证明任何现实结论。"
+        },
+        "randomFacts": [
+          "随机模式：seeded",
+          "原始随机样本数：18",
+          "随机种子：时间起卦:1789191929271"
+        ],
+        "timingFacts": [
+          {
+            "key": "liuyao:timing:changing-line:2",
+            "type": "动爻触发",
+            "sourceStatus": "由盘面生成",
+            "ownerFactKeys": [
+              "本卦:第2爻"
+            ],
+            "promptText": "第2爻子孙辰发动化兄弟巳",
+            "sources": [
+              "当前逐爻明动与变爻事实"
+            ],
+            "limitation": "六爻应期事实只提供动爻、出空冲实、伏神透出与静卦复核等触发条件；未给期限时不得把爻位、支序或卦数换算唯一日期，也不证明事件必然发生"
+          },
+          {
+            "key": "liuyao:timing:changing-line:6",
+            "type": "动爻触发",
+            "sourceStatus": "由盘面生成",
+            "ownerFactKeys": [
+              "本卦:第6爻"
+            ],
+            "promptText": "第6爻父母寅发动化妻财酉",
+            "sources": [
+              "当前逐爻明动与变爻事实"
+            ],
+            "limitation": "六爻应期事实只提供动爻、出空冲实、伏神透出与静卦复核等触发条件；未给期限时不得把爻位、支序或卦数换算唯一日期，也不证明事件必然发生"
+          },
+          {
+            "key": "liuyao:timing:void",
+            "type": "空亡填实",
+            "sourceStatus": "由盘面生成",
+            "ownerFactKeys": [
+              "本卦:第3爻"
+            ],
+            "promptText": "空亡午、未，传统以出空、冲实或透出为应期触发",
+            "sources": [
+              "日柱旬空地支",
+              "本卦与伏神空亡标记"
+            ],
+            "limitation": "六爻应期事实只提供动爻、出空冲实、伏神透出与静卦复核等触发条件；未给期限时不得把爻位、支序或卦数换算唯一日期，也不证明事件必然发生"
+          },
+          {
+            "key": "liuyao:timing:hidden-spirit",
+            "type": "伏神透出",
+            "sourceStatus": "由盘面生成",
+            "ownerFactKeys": [
+              "伏神:第4爻:妻财"
+            ],
+            "promptText": "伏神传统以透出、飞神受冲或得月日生扶为应期触发",
+            "sources": [
+              "伏神与飞神配对事实",
+              "伏神透出及得助触发口径"
+            ],
+            "limitation": "六爻应期事实只提供动爻、出空冲实、伏神透出与静卦复核等触发条件；未给期限时不得把爻位、支序或卦数换算唯一日期，也不证明事件必然发生"
+          },
+          {
+            "key": "liuyao:timing:fanfu",
+            "type": "反吟伏吟节奏",
+            "sourceStatus": "由盘面生成",
+            "ownerFactKeys": [
+              "liuyao:structure:fanfu:1:卦反吟:外卦"
+            ],
+            "promptText": "反吟伏吟传统取象为反复、停滞或原地重复的节奏",
+            "sources": [
+              "当前反吟伏吟结构事实"
+            ],
+            "limitation": "六爻应期事实只提供动爻、出空冲实、伏神透出与静卦复核等触发条件；未给期限时不得把爻位、支序或卦数换算唯一日期，也不证明事件必然发生"
+          },
+          {
+            "key": "liuyao:timing:deadline-boundary",
+            "type": "期限边界",
+            "sourceStatus": "统一边界",
+            "ownerFactKeys": [],
+            "promptText": "未给现实期限时，不把爻位、地支序、卦数或旬空机械换算成唯一日期",
+            "sources": [
+              "盘内触发条件与现实日期分离原则"
+            ],
+            "limitation": "六爻应期事实只提供动爻、出空冲实、伏神透出与静卦复核等触发条件；未给期限时不得把爻位、支序或卦数换算唯一日期，也不证明事件必然发生"
+          }
+        ],
+        "timingSummaryFact": {
+          "key": "liuyao:timing-summary",
+          "status": "已提供触发条件",
+          "factKeys": [
+            "liuyao:timing:changing-line:2",
+            "liuyao:timing:changing-line:6",
+            "liuyao:timing:void",
+            "liuyao:timing:hidden-spirit",
+            "liuyao:timing:fanfu",
+            "liuyao:timing:deadline-boundary"
+          ],
+          "promptText": "应期状态：已记录6项触发与边界条件，未给期限时不换算唯一日期",
+          "sources": [
+            "逐项应期事实汇总"
+          ],
+          "limitation": "应期汇总只说明当前盘面保存了哪些触发与边界条件；不得按条件数量、爻位或地支序换算固定天数、绝对日期或事件概率"
+        },
+        "timingConditions": [
+          "第2爻子孙辰发动化兄弟巳",
+          "第6爻父母寅发动化妻财酉",
+          "空亡午、未，传统以出空、冲实或透出为应期触发",
+          "伏神传统以透出、飞神受冲或得月日生扶为应期触发",
+          "反吟伏吟传统取象为反复、停滞或原地重复的节奏",
+          "未给现实期限时，不把爻位、地支序、卦数或旬空机械换算成唯一日期"
+        ],
+        "counterEvidenceFacts": [
+          {
+            "key": "liuyao:counter:1:1",
+            "ownerCandidateKey": "liuyao:candidate:1:通用主轴",
+            "candidateLabel": "通用主轴",
+            "status": "已触发",
+            "detail": "月令休",
+            "referenceKeys": [
+              "liuyao:reference:line:4"
+            ],
+            "promptText": "通用主轴限制：月令休",
+            "sources": [
+              "当前用神候选匹配结果",
+              "对应本卦或伏神支持与限制字段"
+            ],
+            "limitation": "反证事实只表示候选用神命中空亡、月破、日破、休囚死、入墓、回头克冲、化空、化退或未匹配等限制；不得把单项反证直接写成现实失败、灾祸或必然结果"
+          },
+          {
+            "key": "liuyao:counter:2:1",
+            "ownerCandidateKey": "liuyao:candidate:2:应爻辅轴",
+            "candidateLabel": "应爻辅轴",
+            "status": "已触发",
+            "detail": "月令死",
+            "referenceKeys": [
+              "liuyao:reference:line:1"
+            ],
+            "promptText": "应爻辅轴限制：月令死",
+            "sources": [
+              "当前用神候选匹配结果",
+              "对应本卦或伏神支持与限制字段"
+            ],
+            "limitation": "反证事实只表示候选用神命中空亡、月破、日破、休囚死、入墓、回头克冲、化空、化退或未匹配等限制；不得把单项反证直接写成现实失败、灾祸或必然结果"
+          },
+          {
+            "key": "liuyao:counter:3:1",
+            "ownerCandidateKey": "liuyao:candidate:3:动爻触发第2爻",
+            "candidateLabel": "动爻触发第2爻",
+            "status": "已触发",
+            "detail": "月令休",
+            "referenceKeys": [
+              "liuyao:reference:line:2"
+            ],
+            "promptText": "动爻触发第2爻限制：月令休",
+            "sources": [
+              "当前用神候选匹配结果",
+              "对应本卦或伏神支持与限制字段"
+            ],
+            "limitation": "反证事实只表示候选用神命中空亡、月破、日破、休囚死、入墓、回头克冲、化空、化退或未匹配等限制；不得把单项反证直接写成现实失败、灾祸或必然结果"
+          },
+          {
+            "key": "liuyao:counter:4:1",
+            "ownerCandidateKey": "liuyao:candidate:4:动爻触发第6爻",
+            "candidateLabel": "动爻触发第6爻",
+            "status": "已触发",
+            "detail": "月令死",
+            "referenceKeys": [
+              "liuyao:reference:line:6"
+            ],
+            "promptText": "动爻触发第6爻限制：月令死",
+            "sources": [
+              "当前用神候选匹配结果",
+              "对应本卦或伏神支持与限制字段"
+            ],
+            "limitation": "反证事实只表示候选用神命中空亡、月破、日破、休囚死、入墓、回头克冲、化空、化退或未匹配等限制；不得把单项反证直接写成现实失败、灾祸或必然结果"
+          },
+          {
+            "key": "liuyao:counter:4:2",
+            "ownerCandidateKey": "liuyao:candidate:4:动爻触发第6爻",
+            "candidateLabel": "动爻触发第6爻",
+            "status": "已触发",
+            "detail": "回头克",
+            "referenceKeys": [
+              "liuyao:reference:line:6"
+            ],
+            "promptText": "动爻触发第6爻限制：回头克",
+            "sources": [
+              "当前用神候选匹配结果",
+              "对应本卦或伏神支持与限制字段"
+            ],
+            "limitation": "反证事实只表示候选用神命中空亡、月破、日破、休囚死、入墓、回头克冲、化空、化退或未匹配等限制；不得把单项反证直接写成现实失败、灾祸或必然结果"
+          }
+        ],
+        "counterSummaryFact": {
+          "key": "liuyao:counter-summary",
+          "status": "有明确反证",
+          "factKeys": [
+            "liuyao:counter:1:1",
+            "liuyao:counter:2:1",
+            "liuyao:counter:3:1",
+            "liuyao:counter:4:1",
+            "liuyao:counter:4:2"
+          ],
+          "promptText": "当前5项候选限制已逐项记录，须与支持证据同时核验",
+          "sources": [
+            "候选 constraints 字段逐项汇总"
+          ],
+          "limitation": "反证汇总只说明当前候选核验是否发现明确限制；未见明确反证不代表现实风险为零，也不得按反证数量换算吉凶分或成功率"
+        },
+        "counterEvidence": [
+          "月令休",
+          "月令死",
+          "回头克"
+        ],
+        "calculationSteps": [
+          {
+            "key": "liuyao:calculation:generation",
+            "stage": "起卦来源核验",
+            "status": "已计算",
+            "inputs": {
+              "method": "time",
+              "expectedLineCount": 6
+            },
+            "result": {
+              "generationStatus": "可核验",
+              "recordedLineCount": 6,
+              "randomTraceStatus": "可重放",
+              "randomSampleCount": 18
+            },
+            "dependsOnStepKeys": [],
+            "promptText": "起卦方式为时间起卦；第1爻计算样本3+2+3=8（少阴）；第2爻计算样本3+3+3=9（老阳）；第3爻计算样本3+2+3=8（少阴）；第4爻计算样本2+3+3=8（少阴）；第5爻计算样本2+3+3=8（少阴）；第6爻计算样本3+3+3=9（老阳）；随机轨迹可重放",
+            "sources": [
+              "六爻逐爻三钱生成记录",
+              "六爻起卦方式与原始爻值结果",
+              "六爻起卦方式记录",
+              "逐次随机投币样本与重放元数据"
+            ],
+            "limitation": "计算步骤只证明起卦来源、逐爻、伏神、用神候选、五行作用链、反证与应期事实如何形成当前证据；不证明现实吉凶、预测有效性、事件概率或固定应期"
+          },
+          {
+            "key": "liuyao:calculation:lines",
+            "stage": "六爻逐爻计算",
+            "status": "已计算",
+            "inputs": {
+              "expectedPositions": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6"
+              ],
+              "recordedLineCount": 6
+            },
+            "result": {
+              "coverageStatus": "完整",
+              "actualPositions": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6"
+              ],
+              "missingPositions": []
+            },
+            "dependsOnStepKeys": [
+              "liuyao:calculation:generation"
+            ],
+            "promptText": "六爻资料完整覆盖初爻至上爻，可逐爻核验；已形成6项逐爻纳甲、世应、月日与动变事实",
+            "sources": [
+              "起卦六个爻值",
+              "当前逐爻详情的位置、数量与唯一性核验",
+              "逐爻纳甲与动变计算"
+            ],
+            "limitation": "计算步骤只证明起卦来源、逐爻、伏神、用神候选、五行作用链、反证与应期事实如何形成当前证据；不证明现实吉凶、预测有效性、事件概率或固定应期"
+          },
+          {
+            "key": "liuyao:calculation:hidden-spirits",
+            "stage": "伏神资料核验",
+            "status": "已计算",
+            "inputs": {
+              "lineFactCount": 6
+            },
+            "result": {
+              "coverageStatus": "有伏神",
+              "hiddenSpiritFactCount": 1
+            },
+            "dependsOnStepKeys": [
+              "liuyao:calculation:lines"
+            ],
+            "promptText": "当前记录1条伏神与飞神配对事实",
+            "sources": [
+              "当前伏神字段存在性与伏神事实数量核验"
+            ],
+            "limitation": "计算步骤只证明起卦来源、逐爻、伏神、用神候选、五行作用链、反证与应期事实如何形成当前证据；不证明现实吉凶、预测有效性、事件概率或固定应期"
+          },
+          {
+            "key": "liuyao:calculation:candidates",
+            "stage": "用神候选筛选",
+            "status": "已计算",
+            "inputs": {
+              "candidateCount": 4,
+              "candidateKeys": [
+                "liuyao:candidate:1:通用主轴",
+                "liuyao:candidate:2:应爻辅轴",
+                "liuyao:candidate:3:动爻触发第2爻",
+                "liuyao:candidate:4:动爻触发第6爻"
+              ]
+            },
+            "result": {
+              "selectionStatus": "已选定候选",
+              "matchedCandidateCount": 4,
+              "selectedCandidateKey": "liuyao:candidate:1:通用主轴"
+            },
+            "dependsOnStepKeys": [
+              "liuyao:calculation:lines",
+              "liuyao:calculation:hidden-spirits"
+            ],
+            "promptText": "本次用神取通用主轴；盘面匹配本卦4爻子孙戌土",
+            "sources": [
+              "候选顺序、匹配状态与逐爻引用核验"
+            ],
+            "limitation": "计算步骤只证明起卦来源、逐爻、伏神、用神候选、五行作用链、反证与应期事实如何形成当前证据；不证明现实吉凶、预测有效性、事件概率或固定应期"
+          },
+          {
+            "key": "liuyao:calculation:god-chain",
+            "stage": "原忌仇神作用链",
+            "status": "已计算",
+            "inputs": {
+              "selectionStatus": "已选定候选"
+            },
+            "result": {
+              "godChainFactCount": 4,
+              "roles": [
+                "用神",
+                "原神",
+                "忌神",
+                "仇神"
+              ]
+            },
+            "dependsOnStepKeys": [
+              "liuyao:calculation:candidates"
+            ],
+            "promptText": "按所选候选五行建立用神、原神、忌神、仇神作用链",
+            "sources": [
+              "所选候选五行与五行生克关系",
+              "本卦与伏神逐项五行匹配"
+            ],
+            "limitation": "计算步骤只证明起卦来源、逐爻、伏神、用神候选、五行作用链、反证与应期事实如何形成当前证据；不证明现实吉凶、预测有效性、事件概率或固定应期"
+          },
+          {
+            "key": "liuyao:calculation:counter-timing",
+            "stage": "反证与应期核验",
+            "status": "已计算",
+            "inputs": {
+              "candidateCount": 4,
+              "lineFactCount": 6
+            },
+            "result": {
+              "counterEvidenceCount": 5,
+              "timingFactCount": 6
+            },
+            "dependsOnStepKeys": [
+              "liuyao:calculation:lines",
+              "liuyao:calculation:candidates",
+              "liuyao:calculation:god-chain"
+            ],
+            "promptText": "逐项核验候选限制5项，并记录应期触发与边界6项",
+            "sources": [
+              "候选空破墓退等限制",
+              "动爻、旬空、伏神与反吟伏吟触发条件"
+            ],
+            "limitation": "计算步骤只证明起卦来源、逐爻、伏神、用神候选、五行作用链、反证与应期事实如何形成当前证据；不证明现实吉凶、预测有效性、事件概率或固定应期"
+          },
+          {
+            "key": "liuyao:calculation:summary",
+            "stage": "证据汇总",
+            "status": "已计算",
+            "inputs": {
+              "factCount": 47
+            },
+            "result": {
+              "summaryStatus": "证据链完整",
+              "lineFactCount": 6,
+              "candidateCount": 4,
+              "counterEvidenceCount": 5,
+              "timingFactCount": 6
+            },
+            "dependsOnStepKeys": [
+              "liuyao:calculation:generation",
+              "liuyao:calculation:lines",
+              "liuyao:calculation:hidden-spirits",
+              "liuyao:calculation:candidates",
+              "liuyao:calculation:god-chain",
+              "liuyao:calculation:counter-timing"
+            ],
+            "promptText": "证据状态证据链完整：逐爻6项、伏神1项、用神候选4项（匹配4项）、五行作用链4项、卦内结构3项、反证5项、应期6项",
+            "sources": [
+              "全部起卦、逐爻、伏神、候选、五行作用链、卦内结构、反证与应期事实逐项汇总"
+            ],
+            "limitation": "计算步骤只证明起卦来源、逐爻、伏神、用神候选、五行作用链、反证与应期事实如何形成当前证据；不证明现实吉凶、预测有效性、事件概率或固定应期"
+          }
+        ],
+        "calculationChain": [
+          "起卦方式为时间起卦；第1爻计算样本3+2+3=8（少阴）；第2爻计算样本3+3+3=9（老阳）；第3爻计算样本3+2+3=8（少阴）；第4爻计算样本2+3+3=8（少阴）；第5爻计算样本2+3+3=8（少阴）；第6爻计算样本3+3+3=9（老阳）；随机轨迹可重放",
+          "六爻资料完整覆盖初爻至上爻，可逐爻核验；已形成6项逐爻纳甲、世应、月日与动变事实",
+          "当前记录1条伏神与飞神配对事实",
+          "本次用神取通用主轴；盘面匹配本卦4爻子孙戌土",
+          "按所选候选五行建立用神、原神、忌神、仇神作用链",
+          "逐项核验候选限制5项，并记录应期触发与边界6项",
+          "证据状态证据链完整：逐爻6项、伏神1项、用神候选4项（匹配4项）、五行作用链4项、卦内结构3项、反证5项、应期6项"
+        ],
+        "summaryFact": {
+          "key": "liuyao:evidence-summary",
+          "status": "证据链完整",
+          "factKeys": [
+            "liuyao:calculation:generation",
+            "liuyao:calculation:lines",
+            "liuyao:calculation:hidden-spirits",
+            "liuyao:calculation:candidates",
+            "liuyao:calculation:god-chain",
+            "liuyao:calculation:counter-timing",
+            "liuyao:calculation:summary",
+            "generation:liuyao:time",
+            "random:liuyao:time",
+            "liuyao:line-coverage",
+            "本卦:第1爻",
+            "本卦:第2爻",
+            "本卦:第3爻",
+            "本卦:第4爻",
+            "本卦:第5爻",
+            "本卦:第6爻",
+            "liuyao:hidden-spirit-coverage",
+            "伏神:第4爻:妻财",
+            "liuyao:useful-god-selection",
+            "liuyao:candidate:1:通用主轴",
+            "liuyao:reference:line:4",
+            "liuyao:candidate:2:应爻辅轴",
+            "liuyao:reference:line:1",
+            "liuyao:candidate:3:动爻触发第2爻",
+            "liuyao:reference:line:2",
+            "liuyao:candidate:4:动爻触发第6爻",
+            "liuyao:reference:line:6",
+            "liuyao:god-chain:用神",
+            "liuyao:god-chain:原神",
+            "liuyao:reference:line:3",
+            "liuyao:god-chain:忌神",
+            "liuyao:god-chain:仇神",
+            "liuyao:reference:line:5",
+            "liuyao:traditional-symbol:父母",
+            "liuyao:traditional-symbol:子孙",
+            "liuyao:traditional-symbol:兄弟",
+            "liuyao:traditional-symbol:官鬼",
+            "liuyao:traditional-symbol:妻财",
+            "liuyao:structure:hexagram-relation",
+            "liuyao:structure:fanfu:1:卦反吟:外卦",
+            "liuyao:structure:sanhe-day",
+            "liuyao:counter-summary",
+            "liuyao:counter:1:1",
+            "liuyao:counter:2:1",
+            "liuyao:counter:3:1",
+            "liuyao:counter:4:1",
+            "liuyao:counter:4:2",
+            "liuyao:timing-summary",
+            "liuyao:timing:changing-line:2",
+            "liuyao:timing:changing-line:6",
+            "liuyao:timing:void",
+            "liuyao:timing:hidden-spirit",
+            "liuyao:timing:fanfu",
+            "liuyao:timing:deadline-boundary"
+          ],
+          "lineFactCount": 6,
+          "hiddenSpiritFactCount": 1,
+          "candidateCount": 4,
+          "matchedCandidateCount": 4,
+          "godChainFactCount": 4,
+          "structureFactCount": 3,
+          "counterEvidenceCount": 5,
+          "timingFactCount": 6,
+          "promptText": "证据状态证据链完整：逐爻6项、伏神1项、用神候选4项（匹配4项）、五行作用链4项、卦内结构3项、反证5项、应期6项",
+          "sources": [
+            "全部起卦、逐爻、伏神、候选、五行作用链、卦内结构、反证与应期事实逐项汇总"
+          ],
+          "limitation": "六爻证据汇总只统计起卦、逐爻、伏神、候选、五行作用链、卦内结构、反证与应期事实的覆盖情况；不得按数量生成吉凶总分、成功率、超自然判断或唯一日期"
+        },
+        "limitations": [
+          "起卦来源与随机轨迹只用于核验六个爻值如何录入、生成或重放；模拟三钱和随机重放只记录生成过程，不等同于现实投掷，也不提高预测有效性",
+          "逐爻与伏神事实只记录纳甲、六亲、六神、世应、月日、空破墓及动变条件；资料缺失时不得补造爻位或伏神，资料完整也不单独证明现实吉凶",
+          "主题默认用神只是候选；实际问题语义、求测者身份与所问对象可能改变取用。原神、忌神和仇神只按候选五行建立盘内关系，不证明现实助力、阻碍或结果",
+          "整卦六合六冲、反吟伏吟、三合、特殊卦象与六亲类象只提供盘内结构和传统事项候选；不得直接写成现实和合冲散、疾病官非、财运关系或固定应期",
+          "空亡、月破、日破、休囚死、入墓、回头克冲、化空化退等反证须与支持证据并列；应期只保留触发条件，未给期限时不得换算唯一日期或事件概率",
+          "不得按候选、支持、反证或动爻数量生成吉凶总分与成功率；不得仅凭官鬼、白虎、螣蛇等单项证明疾病、灾祸或超自然原因，也不得替代医疗、法律、财务与安全核验"
+        ],
+        "limitationFacts": [
+          {
+            "key": "liuyao:limitation:generation-random",
+            "type": "起卦与随机来源边界",
+            "ownerFactKeys": [
+              "generation:liuyao:time",
+              "random:liuyao:time"
+            ],
+            "promptText": "起卦来源与随机轨迹只用于核验六个爻值如何录入、生成或重放；模拟三钱和随机重放只记录生成过程，不等同于现实投掷，也不提高预测有效性",
+            "sources": [
+              "起卦方式、原始爻值、三钱记录与随机轨迹"
+            ],
+            "status": "适用",
+            "limitation": "限制事实用于约束六爻起卦、逐爻、伏神、用神、传统类象与应期资料能够支持的解释范围，不得被反向当作现实吉凶、疾病灾祸、超自然原因、事件概率或固定应期的证据"
+          },
+          {
+            "key": "liuyao:limitation:lines-hidden-spirits",
+            "type": "逐爻与伏神资料边界",
+            "ownerFactKeys": [
+              "liuyao:line-coverage",
+              "本卦:第1爻",
+              "本卦:第2爻",
+              "本卦:第3爻",
+              "本卦:第4爻",
+              "本卦:第5爻",
+              "本卦:第6爻",
+              "liuyao:hidden-spirit-coverage",
+              "伏神:第4爻:妻财"
+            ],
+            "promptText": "逐爻与伏神事实只记录纳甲、六亲、六神、世应、月日、空破墓及动变条件；资料缺失时不得补造爻位或伏神，资料完整也不单独证明现实吉凶",
+            "sources": [
+              "六爻覆盖、逐爻计算与伏神飞神配对事实"
+            ],
+            "status": "适用",
+            "limitation": "限制事实用于约束六爻起卦、逐爻、伏神、用神、传统类象与应期资料能够支持的解释范围，不得被反向当作现实吉凶、疾病灾祸、超自然原因、事件概率或固定应期的证据"
+          },
+          {
+            "key": "liuyao:limitation:candidates-god-chain",
+            "type": "用神候选与五行链边界",
+            "ownerFactKeys": [
+              "liuyao:useful-god-selection",
+              "liuyao:candidate:1:通用主轴",
+              "liuyao:candidate:2:应爻辅轴",
+              "liuyao:candidate:3:动爻触发第2爻",
+              "liuyao:candidate:4:动爻触发第6爻",
+              "liuyao:god-chain:用神",
+              "liuyao:god-chain:原神",
+              "liuyao:god-chain:忌神",
+              "liuyao:god-chain:仇神"
+            ],
+            "promptText": "主题默认用神只是候选；实际问题语义、求测者身份与所问对象可能改变取用。原神、忌神和仇神只按候选五行建立盘内关系，不证明现实助力、阻碍或结果",
+            "sources": [
+              "用神候选来源、候选匹配与五行生克作用链"
+            ],
+            "status": "适用",
+            "limitation": "限制事实用于约束六爻起卦、逐爻、伏神、用神、传统类象与应期资料能够支持的解释范围，不得被反向当作现实吉凶、疾病灾祸、超自然原因、事件概率或固定应期的证据"
+          },
+          {
+            "key": "liuyao:limitation:structure-tradition",
+            "type": "卦内结构与传统类象边界",
+            "ownerFactKeys": [
+              "liuyao:structure:hexagram-relation",
+              "liuyao:structure:fanfu:1:卦反吟:外卦",
+              "liuyao:structure:sanhe-day",
+              "liuyao:traditional-symbol:父母",
+              "liuyao:traditional-symbol:子孙",
+              "liuyao:traditional-symbol:兄弟",
+              "liuyao:traditional-symbol:官鬼",
+              "liuyao:traditional-symbol:妻财"
+            ],
+            "promptText": "整卦六合六冲、反吟伏吟、三合、特殊卦象与六亲类象只提供盘内结构和传统事项候选；不得直接写成现实和合冲散、疾病官非、财运关系或固定应期",
+            "sources": [
+              "卦内结构事实与传统六亲类象条件化映射"
+            ],
+            "status": "适用",
+            "limitation": "限制事实用于约束六爻起卦、逐爻、伏神、用神、传统类象与应期资料能够支持的解释范围，不得被反向当作现实吉凶、疾病灾祸、超自然原因、事件概率或固定应期的证据"
+          },
+          {
+            "key": "liuyao:limitation:counter-timing",
+            "type": "反证与应期边界",
+            "ownerFactKeys": [
+              "liuyao:counter-summary",
+              "liuyao:counter:1:1",
+              "liuyao:counter:2:1",
+              "liuyao:counter:3:1",
+              "liuyao:counter:4:1",
+              "liuyao:counter:4:2",
+              "liuyao:timing-summary",
+              "liuyao:timing:changing-line:2",
+              "liuyao:timing:changing-line:6",
+              "liuyao:timing:void",
+              "liuyao:timing:hidden-spirit",
+              "liuyao:timing:fanfu",
+              "liuyao:timing:deadline-boundary"
+            ],
+            "promptText": "空亡、月破、日破、休囚死、入墓、回头克冲、化空化退等反证须与支持证据并列；应期只保留触发条件，未给期限时不得换算唯一日期或事件概率",
+            "sources": [
+              "候选反证汇总、逐项应期触发与期限边界"
+            ],
+            "status": "适用",
+            "limitation": "限制事实用于约束六爻起卦、逐爻、伏神、用神、传统类象与应期资料能够支持的解释范围，不得被反向当作现实吉凶、疾病灾祸、超自然原因、事件概率或固定应期的证据"
+          },
+          {
+            "key": "liuyao:limitation:high-risk",
+            "type": "高风险输出边界",
+            "ownerFactKeys": [
+              "liuyao:evidence-summary"
+            ],
+            "promptText": "不得按候选、支持、反证或动爻数量生成吉凶总分与成功率；不得仅凭官鬼、白虎、螣蛇等单项证明疾病、灾祸或超自然原因，也不得替代医疗、法律、财务与安全核验",
+            "sources": [
+              "六爻证据汇总与高风险解释约束"
+            ],
+            "status": "适用",
+            "limitation": "限制事实用于约束六爻起卦、逐爻、伏神、用神、传统类象与应期资料能够支持的解释范围，不得被反向当作现实吉凶、疾病灾祸、超自然原因、事件概率或固定应期的证据"
+          }
+        ],
+        "evidence": {
+          "title": "六爻用神作用链结构化证据",
+          "items": [
+            {
+              "level": "主证",
+              "title": "通用主轴",
+              "detail": "通用主轴由盘面补齐提出：未另指定用神时，以世爻为求测者主轴。；匹配本卦4爻子孙戌土；支持临世；限制月令休；边界：用神候选只记录由明确指定、问题主题或世应动爻提出的取用范围及其盘面匹配；候选不等于已证明现实事项，也不得按候选顺序、数量或匹配数量换算吉凶分与成功率",
+              "source": "当前问题取用范围、本卦与伏神六亲、爻位及五行逐项匹配",
+              "tags": [
+                "爻位候选",
+                "已匹配",
+                "盘面补齐"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "应爻辅轴",
+              "detail": "应爻辅轴由盘面补齐提出：应爻用于观察对方与外部条件。；匹配本卦1爻父母寅木；支持临应；限制月令死；边界：用神候选只记录由明确指定、问题主题或世应动爻提出的取用范围及其盘面匹配；候选不等于已证明现实事项，也不得按候选顺序、数量或匹配数量换算吉凶分与成功率",
+              "source": "当前问题取用范围、本卦与伏神六亲、爻位及五行逐项匹配",
+              "tags": [
+                "爻位候选",
+                "已匹配",
+                "盘面补齐"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "动爻触发第2爻",
+              "detail": "动爻触发第2爻由盘面补齐提出：动爻作为事件变化触发点，并回扣世应主线。；匹配本卦2爻子孙辰土→兄弟巳火（回头生）；支持发动、合月建、回头生；限制月令休；边界：用神候选只记录由明确指定、问题主题或世应动爻提出的取用范围及其盘面匹配；候选不等于已证明现实事项，也不得按候选顺序、数量或匹配数量换算吉凶分与成功率",
+              "source": "当前问题取用范围、本卦与伏神六亲、爻位及五行逐项匹配",
+              "tags": [
+                "爻位候选",
+                "已匹配",
+                "盘面补齐"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "动爻触发第6爻",
+              "detail": "动爻触发第6爻由盘面补齐提出：动爻作为事件变化触发点，并回扣世应主线。；匹配本卦6爻父母寅木→妻财酉金（回头克）；支持发动；限制月令死、回头克；边界：用神候选只记录由明确指定、问题主题或世应动爻提出的取用范围及其盘面匹配；候选不等于已证明现实事项，也不得按候选顺序、数量或匹配数量换算吉凶分与成功率",
+              "source": "当前问题取用范围、本卦与伏神六亲、爻位及五行逐项匹配",
+              "tags": [
+                "爻位候选",
+                "已匹配",
+                "盘面补齐"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "六爻计算链",
+              "detail": "起卦方式为时间起卦；第1爻计算样本3+2+3=8（少阴）；第2爻计算样本3+3+3=9（老阳）；第3爻计算样本3+2+3=8（少阴）；第4爻计算样本2+3+3=8（少阴）；第5爻计算样本2+3+3=8（少阴）；第6爻计算样本3+3+3=9（老阳）；随机轨迹可重放；六爻资料完整覆盖初爻至上爻，可逐爻核验；已形成6项逐爻纳甲、世应、月日与动变事实；当前记录1条伏神与飞神配对事实；本次用神取通用主轴；盘面匹配本卦4爻子孙戌土；按所选候选五行建立用神、原神、忌神、仇神作用链；逐项核验候选限制5项，并记录应期触发与边界6项；证据状态证据链完整：逐爻6项、伏神1项、用神候选4项（匹配4项）、五行作用链4项、卦内结构3项、反证5项、应期6项；统一边界：计算步骤只证明起卦来源、逐爻、伏神、用神候选、五行作用链、反证与应期事实如何形成当前证据；不证明现实吉凶、预测有效性、事件概率或固定应期",
+              "source": "六爻逐爻三钱生成记录、六爻起卦方式与原始爻值结果、六爻起卦方式记录、逐次随机投币样本与重放元数据、起卦六个爻值、当前逐爻详情的位置、数量与唯一性核验、逐爻纳甲与动变计算、当前伏神字段存在性与伏神事实数量核验、候选顺序、匹配状态与逐爻引用核验、所选候选五行与五行生克关系、本卦与伏神逐项五行匹配、候选空破墓退等限制、动爻、旬空、伏神与反吟伏吟触发条件、全部起卦、逐爻、伏神、候选、五行作用链、卦内结构、反证与应期事实逐项汇总",
+              "tags": [
+                "计算链",
+                "证据链完整"
+              ]
+            },
+            {
+              "level": "主证",
+              "title": "用神候选选择状态",
+              "detail": "本次用神取通用主轴；盘面匹配本卦4爻子孙戌土；边界：用神选择状态只说明当前候选是否在本卦或伏神中找到匹配；缺少匹配时不得硬取用神，已有匹配也仍须结合具体问题语义、求测者身份与现实资料复核",
+              "source": "候选顺序、匹配状态与逐爻引用核验",
+              "tags": [
+                "用神选择",
+                "已选定候选",
+                "general"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "六爻资料覆盖状态",
+              "detail": "六爻资料完整覆盖初爻至上爻，可逐爻核验；边界：六爻覆盖状态只说明当前结果能否完整核验初爻至上爻；缺少、重复或越界爻位时不得反推纳甲、六亲、六神、世应、空破墓或动变内容",
+              "source": "当前逐爻详情的位置、数量与唯一性核验",
+              "tags": [
+                "六爻覆盖",
+                "完整"
+              ]
+            },
+            {
+              "level": "主证",
+              "title": "六爻逐爻计算事实",
+              "detail": "第1爻父母寅木；六神螣蛇；应爻；静爻；月令死；十二宫临官；第2爻子孙辰土；六神白虎；明动；月令休；合月建；十二宫墓；化兄弟巳火、回头生；第3爻兄弟午火；六神玄武；静爻；月令囚；与日辰相害；本爻空亡；十二宫帝旺；第4爻子孙戌土；六神青龙；世爻；静爻；月令休；与月建相害；与日辰成刑；十二宫冠带；第5爻官鬼子水；六神朱雀；静爻；月令相；合日辰；十二宫帝旺；第6爻父母寅木；六神勾陈；明动；月令死；十二宫临官；化妻财酉金、回头克；统一边界：逐爻字段是纳甲、世应、月日旺衰与动变规则的计算事实，只限定六爻取证条件，不单独证明现实吉凶、事件、身份、疾病、官非、关系或财务结果",
+              "source": "京房八宫纳甲、安世应、月日旺衰、旬空与动变规则逐爻计算",
+              "tags": [
+                "逐爻事实",
+                "纳甲",
+                "世应",
+                "月日",
+                "动变"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "伏神资料覆盖状态",
+              "detail": "当前记录1条伏神与飞神配对事实；边界：伏神覆盖状态只说明当前结果是否明确保存伏神数组以及是否检出伏神；字段缺失时不得把无记录解释为无伏神，也不得反推伏神位置与六亲",
+              "source": "当前伏神字段存在性与伏神事实数量核验",
+              "tags": [
+                "伏神覆盖",
+                "有伏神"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "伏神与飞神配对事实",
+              "detail": "第4爻伏神妻财酉金，飞神子孙戌土覆盖；统一边界：伏神结构只证明本卦六亲排布中存在伏藏关系；透出、受制或得助仍须结合飞神、月日、动变与现实进展复核",
+              "source": "本宫首卦六亲全集、当前六亲差集与飞伏配对",
+              "tags": [
+                "伏神",
+                "飞神",
+                "伏藏条件"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "六亲传统类象映射（非事实结论）",
+              "detail": "父母见于第1、6爻：传统常取文书、消息、单位、房屋、长辈、辛劳等类象，须先结合问题主题。；边界：六亲只提供随问题变化的事项候选，不证明现实身份、疾病、官非、财运或关系结果；子孙见于第2、4爻：传统常取产出、子女、放松、解忧、医药、财源等类象，须先结合问题主题。；边界：六亲只提供随问题变化的事项候选，不证明现实身份、疾病、官非、财运或关系结果；兄弟见于第3爻：传统常取同辈、竞争、合作分配、朋友、资源消耗等类象，须先结合问题主题。；边界：六亲只提供随问题变化的事项候选，不证明现实身份、疾病、官非、财运或关系结果；官鬼见于第5爻：传统常取职责、职位、压力、忧虑、疾病、官非等类象，须先结合问题主题。；边界：六亲只提供随问题变化的事项候选，不证明现实身份、疾病、官非、财运或关系结果；妻财见于第4爻：传统常取财物、交易、资源、伴侣或关系对象等类象，须先结合问题主题。；边界：六亲只提供随问题变化的事项候选，不证明现实身份、疾病、官非、财运或关系结果",
+              "source": "传统六亲类象表与当前六亲排布逐项映射",
+              "tags": [
+                "六亲类象",
+                "条件化表达",
+                "非事实结论"
+              ]
+            },
+            {
+              "level": "限制",
+              "title": "整卦六合六冲结构事实",
+              "detail": "变卦六冲卦；边界：整卦六合六冲、反吟伏吟、特殊卦象与日月三合只描述已计算的卦内结构；不得直接写成现实和合、冲散、反复、成功、失败或固定应期",
+              "source": "主卦与变卦六支六合、六冲完整性核验",
+              "tags": [
+                "卦内结构",
+                "整卦六合六冲"
+              ]
+            },
+            {
+              "level": "限制",
+              "title": "反吟伏吟结构事实",
+              "detail": "外卦反吟：外卦艮变坤，按乾巽、坎离、震兑、坤艮相变；边界：整卦六合六冲、反吟伏吟、特殊卦象与日月三合只描述已计算的卦内结构；不得直接写成现实和合、冲散、反复、成功、失败或固定应期",
+              "source": "主卦与变卦内外卦纳甲地支反吟伏吟核验",
+              "tags": [
+                "卦内结构",
+                "反吟伏吟"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "日辰三合结构事实",
+              "detail": "日辰丑引动三合金局，三合局成，传统上视为合局条件较集中；边界：整卦六合六冲、反吟伏吟、特殊卦象与日月三合只描述已计算的卦内结构；不得直接写成现实和合、冲散、反复、成功、失败或固定应期",
+              "source": "当前动爻、变爻与日支三合成员完整性核验",
+              "tags": [
+                "卦内结构",
+                "日辰三合"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "用神原神忌神仇神五行作用链",
+              "detail": "用神土：本次用神五行；盘中对应本卦2爻子孙辰土→兄弟巳火（回头生）、本卦4爻子孙戌土；原神火：火生土；盘中对应本卦3爻兄弟午火；忌神木：木克土；盘中对应本卦1爻父母寅木、本卦6爻父母寅木→妻财酉金（回头克）；仇神水：水生木并克火；盘中对应本卦5爻官鬼子水；统一边界：原神、忌神与仇神只按已选候选五行的生克链定义，并记录盘中是否有对应爻；盘中有无对应不直接证明现实助力、阻碍、吉凶或结果",
+              "source": "当前选定候选五行、五行生克关系与逐爻五行匹配",
+              "tags": [
+                "五行作用链",
+                "用神",
+                "原神",
+                "忌神",
+                "仇神"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "起卦来源：时间起卦",
+              "detail": "起卦方式为时间起卦；第1爻计算样本3+2+3=8（少阴）；第2爻计算样本3+3+3=9（老阳）；第3爻计算样本3+2+3=8（少阴）；第4爻计算样本2+3+3=8（少阴）；第5爻计算样本2+3+3=8（少阴）；第6爻计算样本3+3+3=9（老阳）；边界：起卦来源只说明卦象如何生成以及六个爻值如何录入或生成，不提高卦象证据等级，也不证明预测有效性或现实结果",
+              "source": "六爻逐爻三钱生成记录、六爻起卦方式与原始爻值结果",
+              "tags": [
+                "起卦来源",
+                "time",
+                "可核验"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "六爻随机重放记录",
+              "detail": "时间起卦的六爻生成过程采用seeded随机模式，已记录18个原始随机样本，可用于重放生成过程；随机种子保留在结构化结果中，种子值和原始样本不写入自然语言提示词。；边界：随机轨迹只用于核验或重放生成过程，不表示可信度或预测有效性，也不证明任何现实结论。",
+              "source": "六爻起卦方式记录、逐次随机投币样本与重放元数据",
+              "tags": [
+                "随机轨迹",
+                "可重放",
+                "不代表预测有效性"
+              ]
+            },
+            {
+              "level": "反证",
+              "title": "候选反证覆盖状态",
+              "detail": "当前5项候选限制已逐项记录，须与支持证据同时核验；边界：反证汇总只说明当前候选核验是否发现明确限制；未见明确反证不代表现实风险为零，也不得按反证数量换算吉凶分或成功率",
+              "source": "候选 constraints 字段逐项汇总",
+              "tags": [
+                "反证汇总",
+                "有明确反证"
+              ]
+            },
+            {
+              "level": "应期",
+              "title": "六爻触发与应期边界",
+              "detail": "应期状态：已记录6项触发与边界条件，未给期限时不换算唯一日期；第2爻子孙辰发动化兄弟巳；第6爻父母寅发动化妻财酉；空亡午、未，传统以出空、冲实或透出为应期触发；伏神传统以透出、飞神受冲或得月日生扶为应期触发；反吟伏吟传统取象为反复、停滞或原地重复的节奏；未给现实期限时，不把爻位、地支序、卦数或旬空机械换算成唯一日期；统一边界：应期汇总只说明当前盘面保存了哪些触发与边界条件；不得按条件数量、爻位或地支序换算固定天数、绝对日期或事件概率",
+              "source": "当前逐爻明动与变爻事实、日柱旬空地支、本卦与伏神空亡标记、伏神与飞神配对事实、伏神透出及得助触发口径、当前反吟伏吟结构事实、盘内触发条件与现实日期分离原则",
+              "tags": [
+                "应期",
+                "触发条件",
+                "不换算固定日期"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "六爻证据汇总：证据链完整",
+              "detail": "证据状态证据链完整：逐爻6项、伏神1项、用神候选4项（匹配4项）、五行作用链4项、卦内结构3项、反证5项、应期6项；边界：六爻证据汇总只统计起卦、逐爻、伏神、候选、五行作用链、卦内结构、反证与应期事实的覆盖情况；不得按数量生成吉凶总分、成功率、超自然判断或唯一日期",
+              "source": "全部起卦、逐爻、伏神、候选、五行作用链、卦内结构、反证与应期事实逐项汇总",
+              "tags": [
+                "证据汇总",
+                "证据链完整"
+              ]
+            },
+            {
+              "level": "限制",
+              "title": "六爻取用与作用链解释边界",
+              "detail": "起卦来源与随机轨迹只用于核验六个爻值如何录入、生成或重放；模拟三钱和随机重放只记录生成过程，不等同于现实投掷，也不提高预测有效性；逐爻与伏神事实只记录纳甲、六亲、六神、世应、月日、空破墓及动变条件；资料缺失时不得补造爻位或伏神，资料完整也不单独证明现实吉凶；主题默认用神只是候选；实际问题语义、求测者身份与所问对象可能改变取用。原神、忌神和仇神只按候选五行建立盘内关系，不证明现实助力、阻碍或结果；整卦六合六冲、反吟伏吟、三合、特殊卦象与六亲类象只提供盘内结构和传统事项候选；不得直接写成现实和合冲散、疾病官非、财运关系或固定应期；空亡、月破、日破、休囚死、入墓、回头克冲、化空化退等反证须与支持证据并列；应期只保留触发条件，未给期限时不得换算唯一日期或事件概率；不得按候选、支持、反证或动爻数量生成吉凶总分与成功率；不得仅凭官鬼、白虎、螣蛇等单项证明疾病、灾祸或超自然原因，也不得替代医疗、法律、财务与安全核验；统一边界：限制事实用于约束六爻起卦、逐爻、伏神、用神、传统类象与应期资料能够支持的解释范围，不得被反向当作现实吉凶、疾病灾祸、超自然原因、事件概率或固定应期的证据",
+              "source": "起卦方式、原始爻值、三钱记录与随机轨迹、六爻覆盖、逐爻计算与伏神飞神配对事实、用神候选来源、候选匹配与五行生克作用链、卦内结构事实与传统六亲类象条件化映射、候选反证汇总、逐项应期触发与期限边界、六爻证据汇总与高风险解释约束"
+            }
+          ]
+        },
+        "promptText": "【六爻用神作用链结构化证据】\n【主证】通用主轴｜通用主轴由盘面补齐提出：未另指定用神时，以世爻为求测者主轴。；匹配本卦4爻子孙戌土；支持临世；限制月令休；边界：用神候选只记录由明确指定、问题主题或世应动爻提出的取用范围及其盘面匹配；候选不等于已证明现实事项，也不得按候选顺序、数量或匹配数量换算吉凶分与成功率｜来源：当前问题取用范围、本卦与伏神六亲、爻位及五行逐项匹配｜标签：爻位候选、已匹配、盘面补齐\n【主证】用神候选选择状态｜本次用神取通用主轴；盘面匹配本卦4爻子孙戌土；边界：用神选择状态只说明当前候选是否在本卦或伏神中找到匹配；缺少匹配时不得硬取用神，已有匹配也仍须结合具体问题语义、求测者身份与现实资料复核｜来源：候选顺序、匹配状态与逐爻引用核验｜标签：用神选择、已选定候选、general\n【主证】六爻逐爻计算事实｜第1爻父母寅木；六神螣蛇；应爻；静爻；月令死；十二宫临官；第2爻子孙辰土；六神白虎；明动；月令休；合月建；十二宫墓；化兄弟巳火、回头生；第3爻兄弟午火；六神玄武；静爻；月令囚；与日辰相害；本爻空亡；十二宫帝旺；第4爻子孙戌土；六神青龙；世爻；静爻；月令休；与月建相害；与日辰成刑；十二宫冠带；第5爻官鬼子水；六神朱雀；静爻；月令相；合日辰；十二宫帝旺；第6爻父母寅木；六神勾陈；明动；月令死；十二宫临官；化妻财酉金、回头克；统一边界：逐爻字段是纳甲、世应、月日旺衰与动变规则的计算事实，只限定六爻取证条件，不单独证明现实吉凶、事件、身份、疾病、官非、关系或财务结果｜来源：京房八宫纳甲、安世应、月日旺衰、旬空与动变规则逐爻计算｜标签：逐爻事实、纳甲、世应、月日、动变\n【辅证】应爻辅轴｜应爻辅轴由盘面补齐提出：应爻用于观察对方与外部条件。；匹配本卦1爻父母寅木；支持临应；限制月令死；边界：用神候选只记录由明确指定、问题主题或世应动爻提出的取用范围及其盘面匹配；候选不等于已证明现实事项，也不得按候选顺序、数量或匹配数量换算吉凶分与成功率｜来源：当前问题取用范围、本卦与伏神六亲、爻位及五行逐项匹配｜标签：爻位候选、已匹配、盘面补齐\n【辅证】动爻触发第2爻｜动爻触发第2爻由盘面补齐提出：动爻作为事件变化触发点，并回扣世应主线。；匹配本卦2爻子孙辰土→兄弟巳火（回头生）；支持发动、合月建、回头生；限制月令休；边界：用神候选只记录由明确指定、问题主题或世应动爻提出的取用范围及其盘面匹配；候选不等于已证明现实事项，也不得按候选顺序、数量或匹配数量换算吉凶分与成功率｜来源：当前问题取用范围、本卦与伏神六亲、爻位及五行逐项匹配｜标签：爻位候选、已匹配、盘面补齐\n【辅证】动爻触发第6爻｜动爻触发第6爻由盘面补齐提出：动爻作为事件变化触发点，并回扣世应主线。；匹配本卦6爻父母寅木→妻财酉金（回头克）；支持发动；限制月令死、回头克；边界：用神候选只记录由明确指定、问题主题或世应动爻提出的取用范围及其盘面匹配；候选不等于已证明现实事项，也不得按候选顺序、数量或匹配数量换算吉凶分与成功率｜来源：当前问题取用范围、本卦与伏神六亲、爻位及五行逐项匹配｜标签：爻位候选、已匹配、盘面补齐\n【辅证】六爻计算链｜起卦方式为时间起卦；第1爻计算样本3+2+3=8（少阴）；第2爻计算样本3+3+3=9（老阳）；第3爻计算样本3+2+3=8（少阴）；第4爻计算样本2+3+3=8（少阴）；第5爻计算样本2+3+3=8（少阴）；第6爻计算样本3+3+3=9（老阳）；随机轨迹可重放；六爻资料完整覆盖初爻至上爻，可逐爻核验；已形成6项逐爻纳甲、世应、月日与动变事实；当前记录1条伏神与飞神配对事实；本次用神取通用主轴；盘面匹配本卦4爻子孙戌土；按所选候选五行建立用神、原神、忌神、仇神作用链；逐项核验候选限制5项，并记录应期触发与边界6项；证据状态证据链完整：逐爻6项、伏神1项、用神候选4项（匹配4项）、五行作用链4项、卦内结构3项、反证5项、应期6项；统一边界：计算步骤只证明起卦来源、逐爻、伏神、用神候选、五行作用链、反证与应期事实如何形成当前证据；不证明现实吉凶、预测有效性、事件概率或固定应期｜来源：六爻逐爻三钱生成记录、六爻起卦方式与原始爻值结果、六爻起卦方式记录、逐次随机投币样本与重放元数据、起卦六个爻值、当前逐爻详情的位置、数量与唯一性核验、逐爻纳甲与动变计算、当前伏神字段存在性与伏神事实数量核验、候选顺序、匹配状态与逐爻引用核验、所选候选五行与五行生克关系、本卦与伏神逐项五行匹配、候选空破墓退等限制、动爻、旬空、伏神与反吟伏吟触发条件、全部起卦、逐爻、伏神、候选、五行作用链、卦内结构、反证与应期事实逐项汇总｜标签：计算链、证据链完整\n【辅证】六爻资料覆盖状态｜六爻资料完整覆盖初爻至上爻，可逐爻核验；边界：六爻覆盖状态只说明当前结果能否完整核验初爻至上爻；缺少、重复或越界爻位时不得反推纳甲、六亲、六神、世应、空破墓或动变内容｜来源：当前逐爻详情的位置、数量与唯一性核验｜标签：六爻覆盖、完整\n【辅证】伏神资料覆盖状态｜当前记录1条伏神与飞神配对事实；边界：伏神覆盖状态只说明当前结果是否明确保存伏神数组以及是否检出伏神；字段缺失时不得把无记录解释为无伏神，也不得反推伏神位置与六亲｜来源：当前伏神字段存在性与伏神事实数量核验｜标签：伏神覆盖、有伏神\n【辅证】伏神与飞神配对事实｜第4爻伏神妻财酉金，飞神子孙戌土覆盖；统一边界：伏神结构只证明本卦六亲排布中存在伏藏关系；透出、受制或得助仍须结合飞神、月日、动变与现实进展复核｜来源：本宫首卦六亲全集、当前六亲差集与飞伏配对｜标签：伏神、飞神、伏藏条件\n【辅证】六亲传统类象映射（非事实结论）｜父母见于第1、6爻：传统常取文书、消息、单位、房屋、长辈、辛劳等类象，须先结合问题主题。；边界：六亲只提供随问题变化的事项候选，不证明现实身份、疾病、官非、财运或关系结果；子孙见于第2、4爻：传统常取产出、子女、放松、解忧、医药、财源等类象，须先结合问题主题。；边界：六亲只提供随问题变化的事项候选，不证明现实身份、疾病、官非、财运或关系结果；兄弟见于第3爻：传统常取同辈、竞争、合作分配、朋友、资源消耗等类象，须先结合问题主题。；边界：六亲只提供随问题变化的事项候选，不证明现实身份、疾病、官非、财运或关系结果；官鬼见于第5爻：传统常取职责、职位、压力、忧虑、疾病、官非等类象，须先结合问题主题。；边界：六亲只提供随问题变化的事项候选，不证明现实身份、疾病、官非、财运或关系结果；妻财见于第4爻：传统常取财物、交易、资源、伴侣或关系对象等类象，须先结合问题主题。；边界：六亲只提供随问题变化的事项候选，不证明现实身份、疾病、官非、财运或关系结果｜来源：传统六亲类象表与当前六亲排布逐项映射｜标签：六亲类象、条件化表达、非事实结论\n【辅证】日辰三合结构事实｜日辰丑引动三合金局，三合局成，传统上视为合局条件较集中；边界：整卦六合六冲、反吟伏吟、特殊卦象与日月三合只描述已计算的卦内结构；不得直接写成现实和合、冲散、反复、成功、失败或固定应期｜来源：当前动爻、变爻与日支三合成员完整性核验｜标签：卦内结构、日辰三合\n【辅证】用神原神忌神仇神五行作用链｜用神土：本次用神五行；盘中对应本卦2爻子孙辰土→兄弟巳火（回头生）、本卦4爻子孙戌土；原神火：火生土；盘中对应本卦3爻兄弟午火；忌神木：木克土；盘中对应本卦1爻父母寅木、本卦6爻父母寅木→妻财酉金（回头克）；仇神水：水生木并克火；盘中对应本卦5爻官鬼子水；统一边界：原神、忌神与仇神只按已选候选五行的生克链定义，并记录盘中是否有对应爻；盘中有无对应不直接证明现实助力、阻碍、吉凶或结果｜来源：当前选定候选五行、五行生克关系与逐爻五行匹配｜标签：五行作用链、用神、原神、忌神、仇神\n【辅证】起卦来源：时间起卦｜起卦方式为时间起卦；第1爻计算样本3+2+3=8（少阴）；第2爻计算样本3+3+3=9（老阳）；第3爻计算样本3+2+3=8（少阴）；第4爻计算样本2+3+3=8（少阴）；第5爻计算样本2+3+3=8（少阴）；第6爻计算样本3+3+3=9（老阳）；边界：起卦来源只说明卦象如何生成以及六个爻值如何录入或生成，不提高卦象证据等级，也不证明预测有效性或现实结果｜来源：六爻逐爻三钱生成记录、六爻起卦方式与原始爻值结果｜标签：起卦来源、time、可核验\n【辅证】六爻随机重放记录｜时间起卦的六爻生成过程采用seeded随机模式，已记录18个原始随机样本，可用于重放生成过程；随机种子保留在结构化结果中，种子值和原始样本不写入自然语言提示词。；边界：随机轨迹只用于核验或重放生成过程，不表示可信度或预测有效性，也不证明任何现实结论。｜来源：六爻起卦方式记录、逐次随机投币样本与重放元数据｜标签：随机轨迹、可重放、不代表预测有效性\n【辅证】六爻证据汇总：证据链完整｜证据状态证据链完整：逐爻6项、伏神1项、用神候选4项（匹配4项）、五行作用链4项、卦内结构3项、反证5项、应期6项；边界：六爻证据汇总只统计起卦、逐爻、伏神、候选、五行作用链、卦内结构、反证与应期事实的覆盖情况；不得按数量生成吉凶总分、成功率、超自然判断或唯一日期｜来源：全部起卦、逐爻、伏神、候选、五行作用链、卦内结构、反证与应期事实逐项汇总｜标签：证据汇总、证据链完整\n【反证】候选反证覆盖状态｜当前5项候选限制已逐项记录，须与支持证据同时核验；边界：反证汇总只说明当前候选核验是否发现明确限制；未见明确反证不代表现实风险为零，也不得按反证数量换算吉凶分或成功率｜来源：候选 constraints 字段逐项汇总｜标签：反证汇总、有明确反证\n【限制】整卦六合六冲结构事实｜变卦六冲卦；边界：整卦六合六冲、反吟伏吟、特殊卦象与日月三合只描述已计算的卦内结构；不得直接写成现实和合、冲散、反复、成功、失败或固定应期｜来源：主卦与变卦六支六合、六冲完整性核验｜标签：卦内结构、整卦六合六冲\n【限制】反吟伏吟结构事实｜外卦反吟：外卦艮变坤，按乾巽、坎离、震兑、坤艮相变；边界：整卦六合六冲、反吟伏吟、特殊卦象与日月三合只描述已计算的卦内结构；不得直接写成现实和合、冲散、反复、成功、失败或固定应期｜来源：主卦与变卦内外卦纳甲地支反吟伏吟核验｜标签：卦内结构、反吟伏吟\n【限制】六爻取用与作用链解释边界｜起卦来源与随机轨迹只用于核验六个爻值如何录入、生成或重放；模拟三钱和随机重放只记录生成过程，不等同于现实投掷，也不提高预测有效性；逐爻与伏神事实只记录纳甲、六亲、六神、世应、月日、空破墓及动变条件；资料缺失时不得补造爻位或伏神，资料完整也不单独证明现实吉凶；主题默认用神只是候选；实际问题语义、求测者身份与所问对象可能改变取用。原神、忌神和仇神只按候选五行建立盘内关系，不证明现实助力、阻碍或结果；整卦六合六冲、反吟伏吟、三合、特殊卦象与六亲类象只提供盘内结构和传统事项候选；不得直接写成现实和合冲散、疾病官非、财运关系或固定应期；空亡、月破、日破、休囚死、入墓、回头克冲、化空化退等反证须与支持证据并列；应期只保留触发条件，未给期限时不得换算唯一日期或事件概率；不得按候选、支持、反证或动爻数量生成吉凶总分与成功率；不得仅凭官鬼、白虎、螣蛇等单项证明疾病、灾祸或超自然原因，也不得替代医疗、法律、财务与安全核验；统一边界：限制事实用于约束六爻起卦、逐爻、伏神、用神、传统类象与应期资料能够支持的解释范围，不得被反向当作现实吉凶、疾病灾祸、超自然原因、事件概率或固定应期的证据｜来源：起卦方式、原始爻值、三钱记录与随机轨迹、六爻覆盖、逐爻计算与伏神飞神配对事实、用神候选来源、候选匹配与五行生克作用链、卦内结构事实与传统六亲类象条件化映射、候选反证汇总、逐项应期触发与期限边界、六爻证据汇总与高风险解释约束\n【应期】六爻触发与应期边界｜应期状态：已记录6项触发与边界条件，未给期限时不换算唯一日期；第2爻子孙辰发动化兄弟巳；第6爻父母寅发动化妻财酉；空亡午、未，传统以出空、冲实或透出为应期触发；伏神传统以透出、飞神受冲或得月日生扶为应期触发；反吟伏吟传统取象为反复、停滞或原地重复的节奏；未给现实期限时，不把爻位、地支序、卦数或旬空机械换算成唯一日期；统一边界：应期汇总只说明当前盘面保存了哪些触发与边界条件；不得按条件数量、爻位或地支序换算固定天数、绝对日期或事件概率｜来源：当前逐爻明动与变爻事实、日柱旬空地支、本卦与伏神空亡标记、伏神与飞神配对事实、伏神透出及得助触发口径、当前反吟伏吟结构事实、盘内触发条件与现实日期分离原则｜标签：应期、触发条件、不换算固定日期\n计算链：起卦方式为时间起卦；第1爻计算样本3+2+3=8（少阴）；第2爻计算样本3+3+3=9（老阳）；第3爻计算样本3+2+3=8（少阴）；第4爻计算样本2+3+3=8（少阴）；第5爻计算样本2+3+3=8（少阴）；第6爻计算样本3+3+3=9（老阳）；随机轨迹可重放 → 六爻资料完整覆盖初爻至上爻，可逐爻核验；已形成6项逐爻纳甲、世应、月日与动变事实 → 当前记录1条伏神与飞神配对事实 → 本次用神取通用主轴；盘面匹配本卦4爻子孙戌土 → 按所选候选五行建立用神、原神、忌神、仇神作用链 → 逐项核验候选限制5项，并记录应期触发与边界6项 → 证据状态证据链完整：逐爻6项、伏神1项、用神候选4项（匹配4项）、五行作用链4项、卦内结构3项、反证5项、应期6项。\n证据汇总：证据状态证据链完整：逐爻6项、伏神1项、用神候选4项（匹配4项）、五行作用链4项、卦内结构3项、反证5项、应期6项。\n作用链：用神土：本次用神五行；盘中对应本卦2爻子孙辰土→兄弟巳火（回头生）、本卦4爻子孙戌土；原神火：火生土；盘中对应本卦3爻兄弟午火；忌神木：木克土；盘中对应本卦1爻父母寅木、本卦6爻父母寅木→妻财酉金（回头克）；仇神水：水生木并克火；盘中对应本卦5爻官鬼子水\n触发条件：第2爻子孙辰发动化兄弟巳；第6爻父母寅发动化妻财酉；空亡午、未，传统以出空、冲实或透出为应期触发；伏神传统以透出、飞神受冲或得月日生扶为应期触发；反吟伏吟传统取象为反复、停滞或原地重复的节奏；未给现实期限时，不把爻位、地支序、卦数或旬空机械换算成唯一日期\n解释限制：起卦来源与随机轨迹只用于核验六个爻值如何录入、生成或重放；模拟三钱和随机重放只记录生成过程，不等同于现实投掷，也不提高预测有效性；逐爻与伏神事实只记录纳甲、六亲、六神、世应、月日、空破墓及动变条件；资料缺失时不得补造爻位或伏神，资料完整也不单独证明现实吉凶；主题默认用神只是候选；实际问题语义、求测者身份与所问对象可能改变取用。原神、忌神和仇神只按候选五行建立盘内关系，不证明现实助力、阻碍或结果；整卦六合六冲、反吟伏吟、三合、特殊卦象与六亲类象只提供盘内结构和传统事项候选；不得直接写成现实和合冲散、疾病官非、财运关系或固定应期；空亡、月破、日破、休囚死、入墓、回头克冲、化空化退等反证须与支持证据并列；应期只保留触发条件，未给期限时不得换算唯一日期或事件概率；不得按候选、支持、反证或动爻数量生成吉凶总分与成功率；不得仅凭官鬼、白虎、螣蛇等单项证明疾病、灾祸或超自然原因，也不得替代医疗、法律、财务与安全核验。",
+        "methodology": [
+          "先由明确指定或问题主题提出用神候选，再在本卦与伏神中检索，不把候选当成已证实结论。",
+          "逐爻保留世应、发动、暗动、月令、月日同支合冲、空破墓、回头生克和进退神证据。",
+          "原神取生用神者，忌神取克用神者，仇神取生忌神并克原神者。",
+          "六亲类象保留传统原始范围，提示词只把它作为随问题变化的候选，不把单一持世六亲写成现实事件。",
+          "只输出支持、反证、限制和触发条件，不生成吉凶总分或成功率。"
+        ]
+      },
+      "evidenceTrail": {
+        "items": [
+          {
+            "title": "六爻起卦基础",
+            "system": "liuyao",
+            "computationChain": [
+              {
+                "name": "占卜时间",
+                "reference": "getDivinationTime",
+                "output": {
+                  "year": "丙午",
+                  "month": "丁酉",
+                  "day": "己丑",
+                  "hour": "辛未"
+                }
+              },
+              {
+                "name": "起卦方式",
+                "formula": "时间起卦",
+                "inputs": {
+                  "method": "time"
+                }
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "《增删卜易》起卦法"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "提供占卜时刻或手工爻值"
+              ],
+              "cautionWhen": [
+                "时间起卦以占卜当下时刻为准",
+                "手工爻值必须为 6/7/8/9 且恰好 6 爻"
+              ],
+              "precision": "时辰精度（2 小时）"
+            },
+            "counterEvidence": [
+              {
+                "description": "起卦方式不同（时间/手摇/模拟）可产生不同卦象",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "high",
+            "depth": 0
+          },
+          {
+            "title": "卦象构建",
+            "system": "liuyao",
+            "computationChain": [
+              {
+                "name": "本卦",
+                "reference": "hexagram lookup",
+                "output": "山水蒙"
+              },
+              {
+                "name": "变卦",
+                "formula": "老阳(9)变阴、老阴(6)变阳",
+                "output": "坤为地"
+              },
+              {
+                "name": "互卦",
+                "formula": "二三四爻为下互、三四五爻为上互",
+                "output": "地雷复"
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "《周易》六十四卦体系"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "六爻成卦"
+              ],
+              "cautionWhen": [
+                "卦象查表需二进制符号精确匹配"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "动爻多少决定变卦是否启用",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "high",
+            "depth": 0
+          },
+          {
+            "title": "摇卦过程",
+            "system": "liuyao",
+            "computationChain": [
+              {
+                "name": "三钱投掷",
+                "formula": "三枚铜钱每爻一掷：字背组合定 6/7/8/9（老阴/少阳/少阴/老阳）",
+                "reference": "generateCoinYaos",
+                "output": [
+                  "8（3,2,3）",
+                  "9（3,3,3）",
+                  "8（3,2,3）",
+                  "8（2,3,3）",
+                  "8（2,3,3）",
+                  "9（3,3,3）"
+                ]
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "三钱起卦法（《易冒》钱筮法）"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "逐爻记录三枚铜钱正反"
+              ],
+              "cautionWhen": [
+                "模拟投掷依赖随机种子，需保留随机轨迹以便复现"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "不同随机种子会产生不同爻值，属于占卜本身的随机性",
+                "severity": "minor"
+              }
+            ],
+            "confidence": "high",
+            "depth": 1
+          },
+          {
+            "title": "纳甲装卦",
+            "system": "liuyao",
+            "computationChain": [
+              {
+                "name": "纳甲地支",
+                "reference": "getNaJiaAndLiuQin",
+                "output": [
+                  "寅",
+                  "辰",
+                  "午",
+                  "戌",
+                  "子",
+                  "寅"
+                ]
+              },
+              {
+                "name": "五行属性",
+                "reference": "getNaJiaAndLiuQin",
+                "output": [
+                  "木",
+                  "土",
+                  "火",
+                  "土",
+                  "水",
+                  "木"
+                ]
+              },
+              {
+                "name": "六亲",
+                "formula": "以卦宫五行为我，生克定父母/兄弟/官鬼/妻财/子孙",
+                "output": [
+                  "父母",
+                  "子孙",
+                  "兄弟",
+                  "子孙",
+                  "官鬼",
+                  "父母"
+                ]
+              },
+              {
+                "name": "六神",
+                "formula": "起卦日干定青龙/朱雀/勾陈/螣蛇/白虎/玄武",
+                "output": [
+                  "螣蛇",
+                  "白虎",
+                  "玄武",
+                  "青龙",
+                  "朱雀",
+                  "勾陈"
+                ]
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "纳甲筮法（《火珠林》）"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "纳甲装卦标准流程"
+              ],
+              "cautionWhen": [
+                "变卦六亲以主卦宫位五行为我"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "六神起法以日干定，存在个别口诀差异",
+                "severity": "minor"
+              }
+            ],
+            "confidence": "high",
+            "depth": 1
+          },
+          {
+            "title": "世应定位",
+            "system": "liuyao",
+            "computationChain": [
+              {
+                "name": "世应安布",
+                "formula": "八宫卦序定世爻，世隔两位为应",
+                "reference": "getShiYing",
+                "output": {
+                  "world": "应",
+                  "response": "",
+                  "palace": "离（火）",
+                  "palaceStage": "四世"
+                }
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "八宫卦序（京房纳甲体系）"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "八宫卦世应定位"
+              ],
+              "cautionWhen": [
+                "世应位置由卦宫卦序唯一确定"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "游魂/归魂卦世爻定位易误，需按卦序核对",
+                "severity": "minor"
+              }
+            ],
+            "confidence": "high",
+            "depth": 1
+          },
+          {
+            "title": "动变分析",
+            "system": "liuyao",
+            "computationChain": [
+              {
+                "name": "动爻识别",
+                "reference": "rawYaos",
+                "output": [
+                  "第2爻老阳",
+                  "第6爻老阳"
+                ]
+              },
+              {
+                "name": "卦变关系",
+                "reference": "getLiuyaoHexagramRelations",
+                "output": {
+                  "original": null,
+                  "changed": "六冲卦",
+                  "transition": null
+                }
+              },
+              {
+                "name": "反吟伏吟",
+                "reference": "getLiuyaoFanFuRelations",
+                "output": {
+                  "fanyin": [
+                    {
+                      "kind": "卦反吟",
+                      "scope": "外卦",
+                      "label": "外卦反吟",
+                      "description": "外卦艮变坤，按乾巽、坎离、震兑、坤艮相变"
+                    }
+                  ],
+                  "fuyin": [],
+                  "labels": [
+                    "外卦反吟"
+                  ]
+                }
+              },
+              {
+                "name": "特殊卦象",
+                "output": null
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "《卜筮正宗》动变章"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "以动爻为断卦枢纽"
+              ],
+              "cautionWhen": [
+                "静卦独静卦与全动卦解读不同",
+                "六合/六冲需结合卦变判断"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "动变吉凶解释流派差异较大，证据仅记录卦象结构",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 1
+          }
+        ],
+        "overallConfidence": "medium",
+        "summary": "六爻起卦证据链（山水蒙→坤为地，己丑日）",
+        "generatedAt": "2026-09-12T05:45:29.271Z"
+      }
+    },
+    "meta": {
+      "service": "www.temposoul.com",
+      "version": "v1"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+/* 修正：A4-5 依据（黄历择日组件样式）
+ * 引入位置：由专家 B 在 /almanac/select 页面组装处 import './components/almanac-components.css'
+ * 颜色 token：优先使用 var(--neon-pink) / var(--neon-cyan)；缺失时回退到契约 §6 规范色
+ */
+
+.ts-yiji-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+.ts-yiji-panel__col { background: rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 12px; }
+.ts-yiji-panel__col--yi { border: 1px solid var(--neon-pink, #FF4D6D); }
+.ts-yiji-panel__col--ji { border: 1px solid var(--neon-cyan, #4DC3FF); }
+.ts-yiji-panel__head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.ts-yiji-panel__dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.ts-yiji-panel__dot--yi { background: var(--neon-pink, #FF4D6D); }
+.ts-yiji-panel__dot--ji { background: var(--neon-cyan, #4DC3FF); }
+.ts-yiji-panel__title { font-size: 14px; font-weight: 600; color: var(--text-primary, #E0E0E0); margin: 0; }
+.ts-yiji-panel__list { list-style: none; padding: 0; margin: 0; }
+.ts-yiji-panel__item { padding: 6px 0; border-bottom: 1px dashed rgba(255, 255, 255, 0.08); }
+.ts-yiji-panel__item:last-child { border-bottom: none; }
+.ts-yiji-panel__label { color: var(--text-primary, #E0E0E0); font-size: 13px; }
+.ts-yiji-panel__meta { font-size: 11px; color: var(--text-secondary, #909090); margin-top: 2px; display: flex; gap: 12px; }
+
+.ts-hour-table__row--auspicious td:first-child { color: var(--neon-pink, #FF4D6D); }
+.ts-hour-table__row--inauspicious td:first-child { color: var(--neon-cyan, #4DC3FF); }
+.ts-hour-table__row--neutral td:first-child { color: var(--text-secondary, #909090); }
+
+.ts-date-selection__day { margin-bottom: 24px; padding: 12px; border-radius: 10px; background: rgba(255, 255, 255, 0.02); }
+.ts-date-selection__head { display: flex; gap: 12px; align-items: baseline; padding: 8px 0; background: transparent; border: none; font: inherit; color: inherit; text-align: left; width: 100%; }
+.ts-date-selection__head--interactive { cursor: pointer; }
+.ts-date-selection__head--interactive:focus-visible { outline: 2px solid var(--neon-cyan, #4DC3FF); outline-offset: 2px; }
+.ts-date-selection__date { font-size: 16px; font-weight: 600; color: var(--text-primary, #E0E0E0); }
+.ts-date-selection__lunar, .ts-date-selection__ganzhi { font-size: 12px; color: var(--text-secondary, #909090); }
+
+.ts-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; }
+.ts-badge--verified { background: rgba(78, 201, 176, 0.2); color: #4EC9B0; }
+.ts-badge--probable { background: rgba(86, 156, 214, 0.2); color: #569CD6; }
+.ts-badge--disputed { background: rgba(206, 145, 120, 0.2); color: #CE9178; }
+.ts-badge--legendary { background: rgba(255, 77, 109, 0.2); color: #FF4D6D; }

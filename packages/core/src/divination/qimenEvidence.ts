@@ -7,11 +7,7 @@
  *
  * 覆盖奇门排盘五大环节：排盘基础 → 定局 → 值符值使 → 九宫布局 → 格局标注
  */
-import {
-  buildEvidenceTrail,
-  type EvidenceItem,
-  type EvidenceTrail,
-} from '../shared/evidence';
+import { buildEvidenceTrail, type EvidenceItem, type EvidenceTrail } from '../shared/evidence';
 import type { QimenData } from '../types/divination';
 
 export function buildQimenEvidenceTrail(result: QimenData): EvidenceTrail {
@@ -173,9 +169,7 @@ export function buildQimenEvidenceTrail(result: QimenData): EvidenceTrail {
         applicableWhen: ['宫位天地盘组合定格局'],
         cautionWhen: ['吉凶格局需结合用神宫与旺衰', '格局仅供参考不构成必然断语'],
       },
-      counterEvidence: [
-        { description: '格局吉凶判断流派差异较大', severity: 'alternative' },
-      ],
+      counterEvidence: [{ description: '格局吉凶判断流派差异较大', severity: 'alternative' }],
       confidence: 'medium',
       depth: 1,
     });

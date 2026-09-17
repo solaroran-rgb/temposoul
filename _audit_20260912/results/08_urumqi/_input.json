@@ -1,0 +1,17 @@
+{
+  "id": "08_urumqi",
+  "desc": "西疆经度·乌鲁木齐 1993-08-08 12:00",
+  "req": {
+    "gender": "female",
+    "year": 1993,
+    "month": 8,
+    "day": 8,
+    "dateType": "solar",
+    "birthHour": 12,
+    "birthMinute": 0,
+    "birthPlace": "乌鲁木齐",
+    "birthLongitude": 87.617,
+    "timezone": 8,
+    "useTrueSolarTime": true
+  }
+}

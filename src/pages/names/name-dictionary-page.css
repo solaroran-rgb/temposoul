@@ -1,0 +1,57 @@
+.name-dict__toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.name-dict__search {
+  background: transparent;
+  border: 1px solid rgba(77, 195, 255, 0.3);
+  color: var(--text-primary, #e0e6ed);
+  border-radius: 6px;
+  padding: 8px 10px;
+}
+.name-dict__tabs,
+.name-dict__grid {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.name-dict__tab {
+  background: transparent;
+  border: 1px solid rgba(139, 155, 180, 0.3);
+  color: var(--text-secondary, #8b9bb4);
+  border-radius: 999px;
+  padding: 4px 12px;
+  cursor: pointer;
+}
+.name-dict__tab--active {
+  border-color: var(--neon-cyan, #4dc3ff);
+  color: var(--neon-cyan, #4dc3ff);
+}
+.name-dict__note {
+  font-size: 11px;
+  color: var(--text-secondary, #8b9bb4);
+}
+.name-dict__cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 84px;
+  padding: 8px;
+  border: 1px solid rgba(77, 195, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(77, 195, 255, 0.04);
+  color: var(--text-primary, #e0e6ed);
+  cursor: pointer;
+}
+.name-dict__cell--stub {
+  opacity: 0.5;
+}
+.name-dict__char {
+  font-size: 20px;
+}
+.name-dict__meta {
+  font-size: 10px;
+  color: var(--text-secondary, #8b9bb4);
+}

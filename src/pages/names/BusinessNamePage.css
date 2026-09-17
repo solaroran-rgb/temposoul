@@ -1,0 +1,26 @@
+/* src/pages/names/BusinessNamePage.css */
+.business-name-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px;
+}
+.business-name-page .disclaimer {
+  color: #888;
+  font-size: 12px;
+}
+.business-name-page select, .business-name-page input {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.business-name-page button {
+  padding: 8px 16px;
+  background: #4a6fa5;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

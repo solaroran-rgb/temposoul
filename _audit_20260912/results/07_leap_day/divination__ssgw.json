@@ -1,0 +1,227 @@
+{
+  "http": 200,
+  "ms": 701,
+  "body": {
+    "ok": true,
+    "data": {
+      "number": 27,
+      "title": "第二十七签 · 瑞雪兆丰，岁稔时和（大吉）",
+      "poem": "瑞雪飘飘兆岁丰，农家处处乐融融。\n今年更比去年好，人寿年丰百事通。",
+      "story": "\"瑞雪兆丰年\"是流传千年的农业谚语。大雪覆盖大地，既能保暖又能杀虫，雪水融化还能滋润土壤。古人以此象征先付出后收获的自然因果律。",
+      "details": {
+        "吉凶": "上签（大吉）",
+        "解签总论": "此签乃丰收在望、年年更好之象，总论耕耘必有收获。象征付出即将得到回报，且前景一年比一年好。瑞雪虽然带来严寒，但冻死了害虫、滋润了庄稼，预示来年的丰收。 - 瑞雪飘飘兆岁丰 —— 大雪纷飞，预示着明年农作物大丰收 - 农家处处乐融融 —— 家家户户喜气洋洋 - 今年更比去年好 —— 一年更比一年强，持续向上 - 人寿年丰百事通 —— 人健康、年景好、诸事顺通",
+        "事业/农业": "大吉！辛勤付出即将迎来丰硕成果",
+        "投资/理财": "现在是播种期，将来的回报会超过预期",
+        "提醒": "瑞雪虽好，但也提醒你：丰收不会凭空而来，基础打得越扎实，收成越好",
+        "此签核心": "瑞雪兆丰年，岁稔人更安。今年胜去年，一切都在向上走。",
+        "核心寓意": "瑞雪兆丰年，岁稔人更安。今年胜去年，一切都在向上走。",
+        "事业": "环境趋稳，过去耕耘进入收获期。",
+        "财运": "稳定收入丰足，适合储备与稳妥地再投入。",
+        "感情": "家庭安稳，关系可共享成果。",
+        "学业": "努力见效，适合总结并准备下一阶段。",
+        "健康": "总体康宁，注意冬季保暖。",
+        "行动建议": "收好成果、补足储备，为未来留余粮。",
+        "风险提醒": "别有了收获就浪费，或者从此不再继续积累。"
+      },
+      "timestamp": 1789191884471,
+      "ganzhi": {
+        "year": "丙午",
+        "month": "丁酉",
+        "day": "己丑",
+        "hour": "辛未"
+      },
+      "draw": {
+        "method": "random",
+        "poolSize": 92,
+        "selectedIndex": 26,
+        "selectedNumber": 27
+      },
+      "meta": {
+        "engineVersion": "0.1.26",
+        "schemaVersion": "1.0.0",
+        "algorithm": "ssgw.draw",
+        "calculatedAt": "2026-09-12T05:44:44.471Z",
+        "inputHash": "e75a5b988c6f7197",
+        "resultId": "ssgw.draw:24d6739cc945c572",
+        "random": {
+          "mode": "system",
+          "samples": [
+            0.2852557067540846
+          ]
+        }
+      },
+      "evidenceTrail": {
+        "items": [
+          {
+            "title": "灵签抽签基础",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "签数",
+                "reference": "draw.poolSize",
+                "output": 92
+              },
+              {
+                "name": "抽得签号",
+                "reference": "number",
+                "output": 27
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "观音灵签（第一百签）体系"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "在签池中随机抽取"
+              ],
+              "cautionWhen": [
+                "签文寓意随求问事由而变化",
+                "不同灵签版本签文有差异"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "不同灵签体系（观音/关帝/吕祖）签文不同",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 0
+          },
+          {
+            "title": "求签时间",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "干支纪时",
+                "reference": "ganzhi",
+                "output": "丙午年丁酉月己丑日"
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "干支纪时（求签时间）"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "记录求签时刻"
+              ],
+              "cautionWhen": [
+                "跨日/跨年转换以当地时间为准"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "干支纪时与公历换算口径存在细微差异",
+                "severity": "minor"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 1
+          },
+          {
+            "title": "签文呈现",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "签题",
+                "reference": "title",
+                "output": "第二十七签 · 瑞雪兆丰，岁稔时和（大吉）"
+              },
+              {
+                "name": "签诗",
+                "reference": "poem",
+                "output": "瑞雪飘飘兆岁丰，农家处处乐融融。\n今年更比去年好，人寿年丰百事通。"
+              },
+              {
+                "name": "注解",
+                "reference": "details",
+                "output": {
+                  "吉凶": "上签（大吉）",
+                  "解签总论": "此签乃丰收在望、年年更好之象，总论耕耘必有收获。象征付出即将得到回报，且前景一年比一年好。瑞雪虽然带来严寒，但冻死了害虫、滋润了庄稼，预示来年的丰收。 - 瑞雪飘飘兆岁丰 —— 大雪纷飞，预示着明年农作物大丰收 - 农家处处乐融融 —— 家家户户喜气洋洋 - 今年更比去年好 —— 一年更比一年强，持续向上 - 人寿年丰百事通 —— 人健康、年景好、诸事顺通",
+                  "事业/农业": "大吉！辛勤付出即将迎来丰硕成果",
+                  "投资/理财": "现在是播种期，将来的回报会超过预期",
+                  "提醒": "瑞雪虽好，但也提醒你：丰收不会凭空而来，基础打得越扎实，收成越好",
+                  "此签核心": "瑞雪兆丰年，岁稔人更安。今年胜去年，一切都在向上走。",
+                  "核心寓意": "瑞雪兆丰年，岁稔人更安。今年胜去年，一切都在向上走。",
+                  "事业": "环境趋稳，过去耕耘进入收获期。",
+                  "财运": "稳定收入丰足，适合储备与稳妥地再投入。",
+                  "感情": "家庭安稳，关系可共享成果。",
+                  "学业": "努力见效，适合总结并准备下一阶段。",
+                  "健康": "总体康宁，注意冬季保暖。",
+                  "行动建议": "收好成果、补足储备，为未来留余粮。",
+                  "风险提醒": "别有了收获就浪费，或者从此不再继续积累。"
+                }
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "观音灵签签文与注解"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "按签号呈现签文"
+              ],
+              "cautionWhen": [
+                "签意解读存在多解"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "同一签文不同解签者解读不同",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "low",
+            "depth": 1
+          },
+          {
+            "title": "抽取方式",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "抽取方法",
+                "reference": "draw.method",
+                "output": "random"
+              },
+              {
+                "name": "选中编号",
+                "reference": "draw.selectedNumber",
+                "output": 27
+              }
+            ],
+            "source": {
+              "type": "algorithm",
+              "name": "随机抽样（签池等概率）"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "随机抽签"
+              ],
+              "cautionWhen": [
+                "manual 方式为用户手工录入签号"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "抽签随机性不影响签文内容本身",
+                "severity": "minor"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 1
+          }
+        ],
+        "overallConfidence": "low",
+        "summary": "灵签抽签证据链（第27签·第二十七签 · 瑞雪兆丰，岁稔时和（大吉））",
+        "generatedAt": "2026-09-12T05:44:44.471Z"
+      }
+    },
+    "meta": {
+      "service": "www.temposoul.com",
+      "version": "v1"
+    }
+  }
+}

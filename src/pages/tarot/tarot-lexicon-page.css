@@ -1,0 +1,60 @@
+.tarot-lexicon__toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.tarot-lexicon__search {
+  background: transparent;
+  border: 1px solid rgba(77, 195, 255, 0.3);
+  color: var(--text-primary, #e0e6ed);
+  border-radius: 6px;
+  padding: 8px 10px;
+}
+.tarot-lexicon__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tarot-lexicon__tab {
+  background: transparent;
+  border: 1px solid rgba(139, 155, 180, 0.3);
+  color: var(--text-secondary, #8b9bb4);
+  border-radius: 999px;
+  padding: 4px 12px;
+  cursor: pointer;
+}
+.tarot-lexicon__tab--active {
+  border-color: var(--neon-cyan, #4dc3ff);
+  color: var(--neon-cyan, #4dc3ff);
+}
+.tarot-lexicon__count {
+  font-size: 12px;
+  color: var(--text-secondary, #8b9bb4);
+}
+.tarot-lexicon__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+}
+.tarot-lexicon__card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+  padding: 10px;
+  border: 1px solid rgba(77, 195, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(77, 195, 255, 0.04);
+  color: var(--text-primary, #e0e6ed);
+  cursor: pointer;
+}
+.tarot-lexicon__card--stub {
+  opacity: 0.55;
+}
+.tarot-lexicon__card-title {
+  font-size: 14px;
+}
+.tarot-lexicon__card-tag {
+  font-size: 11px;
+  color: var(--text-secondary, #8b9bb4);
+}

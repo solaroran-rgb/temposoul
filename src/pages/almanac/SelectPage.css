@@ -1,0 +1,82 @@
+.almanac-select-page {
+  min-height: 100vh;
+  background: var(--bg-app, #0b0f19);
+  color: var(--text-primary, #e0e6ed);
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+}
+.almanac-select-page__controls {
+  padding: 20px 24px;
+  display: flex;
+  gap: 16px;
+  border-bottom: 1px solid var(--border-dim, rgba(255, 255, 255, 0.05));
+}
+.date-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-secondary, #8b9bb4);
+  font-size: 0.95rem;
+}
+/* 优化：原生 Date Input 深色模式适配 */
+.date-input {
+  background: var(--bg-glass-dark, rgba(15, 20, 35, 0.85));
+  border: 1px solid var(--border-neon-cyan-dim, rgba(77, 195, 255, 0.2));
+  color: var(--text-primary, #e0e6ed);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 1rem;
+  color-scheme: dark; /* 强制原生日历弹窗使用深色模式 */
+  -webkit-appearance: none;
+  appearance: none;
+}
+.date-input:focus {
+  outline: none;
+  border-color: var(--neon-cyan, #4dc3ff);
+  box-shadow: 0 0 0 2px rgba(77, 195, 255, 0.2);
+}
+/* 抹平 Safari 日期输入框内部图标颜色 */
+.date-input::-webkit-calendar-picker-indicator {
+  filter: invert(1) brightness(0.8);
+  cursor: pointer;
+}
+
+.almanac-select-page__content {
+  flex: 1;
+  padding: 24px;
+}
+.almanac-select-page__loading,
+.almanac-select-page__error {
+  padding: 40px 0;
+  text-align: center;
+  color: var(--text-secondary, #8b9bb4);
+}
+.almanac-select-page__error {
+  color: var(--neon-pink, #ff4d6d);
+  background: rgba(255, 77, 109, 0.1);
+  padding: 16px;
+  border-radius: 8px;
+}
+.almanac-select-page__results {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+.almanac-select-page__footer {
+  padding: 40px 24px 20px;
+  text-align: center;
+  margin-top: auto;
+}
+.almanac-select-page__disclaimer {
+  font-size: 0.8rem;
+  color: var(--text-tertiary, #a0aec0);
+  margin-top: 12px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+}

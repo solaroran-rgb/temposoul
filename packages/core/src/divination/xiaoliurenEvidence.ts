@@ -7,11 +7,7 @@
  *
  * 覆盖小六壬占卜四大环节：占卜基础 → 推算过程 → 三宫定位 → 主卦定局
  */
-import {
-  buildEvidenceTrail,
-  type EvidenceItem,
-  type EvidenceTrail,
-} from '../shared/evidence';
+import { buildEvidenceTrail, type EvidenceItem, type EvidenceTrail } from '../shared/evidence';
 import type { XiaoliurenData } from '../types/divination';
 
 export function buildXiaoliurenEvidenceTrail(result: XiaoliurenData): EvidenceTrail {
@@ -75,9 +71,7 @@ export function buildXiaoliurenEvidenceTrail(result: XiaoliurenData): EvidenceTr
         applicableWhen: ['六掌诀顺数'],
         cautionWhen: ['数满一周循环顺数'],
       },
-      counterEvidence: [
-        { description: '六掌诀顺序存在不同排列版本', severity: 'alternative' },
-      ],
+      counterEvidence: [{ description: '六掌诀顺序存在不同排列版本', severity: 'alternative' }],
       confidence: 'high',
       depth: 1,
     });
@@ -110,9 +104,7 @@ export function buildXiaoliurenEvidenceTrail(result: XiaoliurenData): EvidenceTr
         applicableWhen: ['月日时三宫顺推'],
         cautionWhen: ['三宫组合综合断事'],
       },
-      counterEvidence: [
-        { description: '三宫主次权重不同流派不同', severity: 'alternative' },
-      ],
+      counterEvidence: [{ description: '三宫主次权重不同流派不同', severity: 'alternative' }],
       confidence: 'high',
       depth: 1,
     });
@@ -138,9 +130,7 @@ export function buildXiaoliurenEvidenceTrail(result: XiaoliurenData): EvidenceTr
         applicableWhen: ['以最终落宫定吉凶'],
         cautionWhen: ['掌诀解读需结合所问事项'],
       },
-      counterEvidence: [
-        { description: '掌诀吉凶解释存在流派差异', severity: 'alternative' },
-      ],
+      counterEvidence: [{ description: '掌诀吉凶解释存在流派差异', severity: 'alternative' }],
       confidence: 'medium',
       depth: 0,
     });

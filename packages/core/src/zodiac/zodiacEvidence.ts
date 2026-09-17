@@ -7,11 +7,7 @@
  *
  * 覆盖生肖流年四大环节：生肖流年基础 → 干支关系 → 犯太岁冲刑 → 吉凶信号
  */
-import {
-  buildEvidenceTrail,
-  type EvidenceItem,
-  type EvidenceTrail,
-} from '../shared/evidence';
+import { buildEvidenceTrail, type EvidenceItem, type EvidenceTrail } from '../shared/evidence';
 import type { ZodiacYearFortune } from './index';
 
 export function buildZodiacEvidenceTrail(result: ZodiacYearFortune): EvidenceTrail {
@@ -38,9 +34,7 @@ export function buildZodiacEvidenceTrail(result: ZodiacYearFortune): EvidenceTra
       applicableWhen: ['提供生肖与流年'],
       cautionWhen: ['仅限生肖与流年关系', '不构成现实预测'],
     },
-    counterEvidence: [
-      { description: '生肖流年吉凶缺乏实证验证', severity: 'alternative' },
-    ],
+    counterEvidence: [{ description: '生肖流年吉凶缺乏实证验证', severity: 'alternative' }],
     confidence: 'low',
     depth: 0,
   });
@@ -66,9 +60,7 @@ export function buildZodiacEvidenceTrail(result: ZodiacYearFortune): EvidenceTra
       applicableWhen: ['按五行生克判断'],
       cautionWhen: ['关系为传统五行归类'],
     },
-    counterEvidence: [
-      { description: '五行关系归类存在版本差异', severity: 'alternative' },
-    ],
+    counterEvidence: [{ description: '五行关系归类存在版本差异', severity: 'alternative' }],
     confidence: 'medium',
     depth: 1,
   });
@@ -94,9 +86,7 @@ export function buildZodiacEvidenceTrail(result: ZodiacYearFortune): EvidenceTra
       applicableWhen: ['按流年地支判断'],
       cautionWhen: ['犯太岁仅为传统说法'],
     },
-    counterEvidence: [
-      { description: '犯太岁说法不同版本口径不同', severity: 'alternative' },
-    ],
+    counterEvidence: [{ description: '犯太岁说法不同版本口径不同', severity: 'alternative' }],
     confidence: 'low',
     depth: 1,
   });
@@ -127,15 +117,10 @@ export function buildZodiacEvidenceTrail(result: ZodiacYearFortune): EvidenceTra
       applicableWhen: ['综合三合六合'],
       cautionWhen: ['贵人/三会仅为关系记录'],
     },
-    counterEvidence: [
-      { description: '吉凶信号断法主观性强', severity: 'alternative' },
-    ],
+    counterEvidence: [{ description: '吉凶信号断法主观性强', severity: 'alternative' }],
     confidence: 'low',
     depth: 1,
   });
 
-  return buildEvidenceTrail(
-    items,
-    `生肖流年证据链（${result.zodiac}遇${result.yearGanZhi}年）`,
-  );
+  return buildEvidenceTrail(items, `生肖流年证据链（${result.zodiac}遇${result.yearGanZhi}年）`);
 }

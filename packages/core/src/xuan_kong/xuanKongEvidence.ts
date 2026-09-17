@@ -7,11 +7,7 @@
  *
  * 覆盖玄空飞星五大环节：排盘基础 → 坐向定盘 → 飞星布局 → 格局组合 → 到山到向
  */
-import {
-  buildEvidenceTrail,
-  type EvidenceItem,
-  type EvidenceTrail,
-} from '../shared/evidence';
+import { buildEvidenceTrail, type EvidenceItem, type EvidenceTrail } from '../shared/evidence';
 import type { XuanKongResult } from './index';
 
 export function buildXuanKongEvidenceTrail(result: XuanKongResult): EvidenceTrail {
@@ -71,9 +67,7 @@ export function buildXuanKongEvidenceTrail(result: XuanKongResult): EvidenceTrai
       applicableWhen: ['按罗盘山向定盘'],
       cautionWhen: ['山向度数误差影响飞星'],
     },
-    counterEvidence: [
-      { description: '坐向测量精度影响排盘结果', severity: 'minor' },
-    ],
+    counterEvidence: [{ description: '坐向测量精度影响排盘结果', severity: 'minor' }],
     confidence: 'high',
     depth: 1,
   });
@@ -87,7 +81,9 @@ export function buildXuanKongEvidenceTrail(result: XuanKongResult): EvidenceTrai
         {
           name: '九宫飞星',
           reference: 'palaces',
-          output: result.palaces.map((p) => `${p.name}:${p.yunStar}/${p.shanStar}/${p.xiangStar}`).slice(0, 9),
+          output: result.palaces
+            .map((p) => `${p.name}:${p.yunStar}/${p.shanStar}/${p.xiangStar}`)
+            .slice(0, 9),
         },
       ],
       source: { type: 'classical', name: '洛书九宫飞布（运盘/山盘/向盘）' },
@@ -95,9 +91,7 @@ export function buildXuanKongEvidenceTrail(result: XuanKongResult): EvidenceTrai
         applicableWhen: ['按运盘入中顺逆飞布'],
         cautionWhen: ['山向星顺逆飞依阴阳'],
       },
-      counterEvidence: [
-        { description: '阴阳顺逆判定不同流派有差异', severity: 'alternative' },
-      ],
+      counterEvidence: [{ description: '阴阳顺逆判定不同流派有差异', severity: 'alternative' }],
       confidence: 'high',
       depth: 1,
     });
@@ -158,9 +152,7 @@ export function buildXuanKongEvidenceTrail(result: XuanKongResult): EvidenceTrai
         applicableWhen: ['判断山向星是否得位'],
         cautionWhen: ['旺山旺向需兼看峦头'],
       },
-      counterEvidence: [
-        { description: '到山到向吉凶断存在流派差异', severity: 'alternative' },
-      ],
+      counterEvidence: [{ description: '到山到向吉凶断存在流派差异', severity: 'alternative' }],
       confidence: 'medium',
       depth: 1,
     });

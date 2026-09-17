@@ -1,0 +1,75 @@
+/* 修正：IT-5.5 依据；补 ts-segmented 定义，不依赖全局未交付类 */
+.ts-ziwei-palace-table {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.ts-ziwei-palace {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(77, 195, 255, 0.18);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.ts-ziwei-palace__head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 8px; padding-bottom: 6px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+}
+
+.ts-ziwei-palace__name { font-weight: 600; color: var(--text-primary, #E0E6ED); }
+.ts-ziwei-palace__ganzhi { font-size: 12px; color: var(--text-secondary, #8B9BB4); }
+.ts-ziwei-palace__row { display: flex; gap: 8px; padding: 3px 0; font-size: 13px; }
+.ts-ziwei-palace__label { color: var(--text-secondary, #8B9BB4); flex: 0 0 42px; }
+.ts-ziwei-palace__value { color: var(--text-primary, #E0E6ED); flex: 1; word-break: break-word; }
+
+.ts-sihua {
+  display: inline-block; padding: 1px 6px; border-radius: 4px;
+  font-size: 11px; margin-right: 4px;
+}
+.ts-sihua--lu { background: rgba(77, 195, 255, 0.18); color: var(--neon-cyan, #4DC3FF); }
+.ts-sihua--quan { background: rgba(255, 77, 109, 0.18); color: var(--neon-pink, #FF4D6D); }
+.ts-sihua--ke { background: rgba(78, 201, 176, 0.18); color: #4EC9B0; }
+.ts-sihua--ji { background: rgba(206, 145, 120, 0.18); color: #CE9178; }
+
+.ts-ziwei-switcher { display: flex; flex-direction: column; gap: 10px; margin: 8px 0; }
+.ts-ziwei-switcher__group { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.ts-ziwei-switcher__label { color: var(--text-secondary, #8B9BB4); font-size: 13px; }
+
+/* 局部补齐：ts-segmented（避免依赖全局未交付类） */
+.ts-segmented { display: inline-flex; gap: 4px; }
+.ts-segmented button {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-primary, #E0E6ED);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.ts-segmented button:hover { border-color: rgba(77, 195, 255, 0.4); }
+.ts-segmented button.is-active {
+  border-color: var(--neon-cyan, #4DC3FF);
+  color: var(--neon-cyan, #4DC3FF);
+  background: rgba(77, 195, 255, 0.08);
+}
+.ts-segmented button:focus-visible {
+  outline: 2px solid var(--neon-cyan, #4DC3FF);
+  outline-offset: 2px;
+}
+
+.ts-ai-actions { display: flex; gap: 8px; margin-top: 8px; }
+.ts-btn--ghost { background: transparent; border: 1px solid rgba(255, 255, 255, 0.2); }
+
+.ts-alert--info {
+  background: rgba(77, 195, 255, 0.1);
+  border-left: 3px solid var(--neon-cyan, #4DC3FF);
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: var(--text-primary, #E0E6ED);
+  font-size: 13px;
+  margin-bottom: 12px;
+}

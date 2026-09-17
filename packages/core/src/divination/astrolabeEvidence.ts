@@ -7,11 +7,7 @@
  *
  * 覆盖西洋占星五大环节：星盘基础 → 真太阳时 → 星体相位 → 宫位四轴 → 星盘摘要
  */
-import {
-  buildEvidenceTrail,
-  type EvidenceItem,
-  type EvidenceTrail,
-} from '../shared/evidence';
+import { buildEvidenceTrail, type EvidenceItem, type EvidenceTrail } from '../shared/evidence';
 import type { AstrolabeData } from '../types/divination';
 
 export function buildAstrolabeEvidenceTrail(result: AstrolabeData): EvidenceTrail {
@@ -42,7 +38,10 @@ export function buildAstrolabeEvidenceTrail(result: AstrolabeData): EvidenceTrai
       precision: '出生时间精度（分钟级）',
     },
     counterEvidence: [
-      { description: '宫位制（Placidus/Whole Sign 等）不同导致宫位分布不同', severity: 'alternative' },
+      {
+        description: '宫位制（Placidus/Whole Sign 等）不同导致宫位分布不同',
+        severity: 'alternative',
+      },
     ],
     confidence: 'high',
     depth: 0,
@@ -67,9 +66,7 @@ export function buildAstrolabeEvidenceTrail(result: AstrolabeData): EvidenceTrai
         applicableWhen: ['提供出生经度'],
         cautionWhen: ['历史夏令时期间'],
       },
-      counterEvidence: [
-        { description: '跨时区出生需按实际时区重新校正', severity: 'alternative' },
-      ],
+      counterEvidence: [{ description: '跨时区出生需按实际时区重新校正', severity: 'alternative' }],
       confidence: 'medium',
       depth: 1,
     });
@@ -97,9 +94,7 @@ export function buildAstrolabeEvidenceTrail(result: AstrolabeData): EvidenceTrai
         applicableWhen: ['按黄道经度计算相位'],
         cautionWhen: ['容许度（orb）设置不同影响相位判定'],
       },
-      counterEvidence: [
-        { description: '相位容许度不同流派设置不同', severity: 'alternative' },
-      ],
+      counterEvidence: [{ description: '相位容许度不同流派设置不同', severity: 'alternative' }],
       confidence: 'high',
       depth: 1,
     });

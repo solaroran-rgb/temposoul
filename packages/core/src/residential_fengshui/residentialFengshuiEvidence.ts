@@ -7,11 +7,7 @@
  *
  * 覆盖住宅风水四大环节：综合评估基础 → 八宅分析 → 玄空分析 → 宅命配合
  */
-import {
-  buildEvidenceTrail,
-  type EvidenceItem,
-  type EvidenceTrail,
-} from '../shared/evidence';
+import { buildEvidenceTrail, type EvidenceItem, type EvidenceTrail } from '../shared/evidence';
 import type { ResidentialFengshuiResult } from './index';
 
 export function buildResidentialFengshuiEvidenceTrail(
@@ -41,9 +37,7 @@ export function buildResidentialFengshuiEvidenceTrail(
       applicableWhen: ['提供居住人出生年/性别或住宅山向'],
       cautionWhen: ['至少需提供山向或居住人信息'],
     },
-    counterEvidence: [
-      { description: '风水评估缺乏实证验证', severity: 'alternative' },
-    ],
+    counterEvidence: [{ description: '风水评估缺乏实证验证', severity: 'alternative' }],
     confidence: 'low',
     depth: 0,
   });
@@ -75,9 +69,7 @@ export function buildResidentialFengshuiEvidenceTrail(
         applicableWhen: ['八宅可排时'],
         cautionWhen: ['命卦推算依出生年'],
       },
-      counterEvidence: [
-        { description: '八宅流派对命卦起例有差异', severity: 'alternative' },
-      ],
+      counterEvidence: [{ description: '八宅流派对命卦起例有差异', severity: 'alternative' }],
       confidence: 'medium',
       depth: 1,
     });
@@ -105,9 +97,7 @@ export function buildResidentialFengshuiEvidenceTrail(
         applicableWhen: ['有山向且知建造年'],
         cautionWhen: ['玄空排盘需建造年'],
       },
-      counterEvidence: [
-        { description: '玄空派别盘法有差异', severity: 'alternative' },
-      ],
+      counterEvidence: [{ description: '玄空派别盘法有差异', severity: 'alternative' }],
       confidence: 'medium',
       depth: 1,
     });
@@ -135,9 +125,7 @@ export function buildResidentialFengshuiEvidenceTrail(
         applicableWhen: ['综合两法结论'],
         cautionWhen: ['建议为风水参考，非科学结论'],
       },
-      counterEvidence: [
-        { description: '宅命配合建议主观性强', severity: 'alternative' },
-      ],
+      counterEvidence: [{ description: '宅命配合建议主观性强', severity: 'alternative' }],
       confidence: 'low',
       depth: 1,
     });

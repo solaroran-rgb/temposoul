@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>方案评审：从 3D 城市场景转向分层视觉合成 · 批次 510</title><style>
+:root{--bg:#070a0d;--panel:#0d1318;--line:#1c2830;--fg:#c6d4d8;--dim:#7c8f97;
+--acc:#7fe6ea;--neon:#39FF14}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font:15px/1.85 -apple-system,"Segoe UI","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:56px 32px 120px}
+h1{font-size:29px;line-height:1.4;color:#eaf4f6;margin:0 0 6px;letter-spacing:.01em;
+border-bottom:2px solid var(--acc);padding-bottom:20px}
+h2{font-size:21px;color:var(--acc);margin:52px 0 16px;padding-left:12px;
+border-left:4px solid var(--acc);letter-spacing:.02em}
+h3{font-size:17px;color:#a9dfe3;margin:32px 0 12px}
+h4{font-size:15px;color:#8fc8cd;margin:22px 0 10px}
+p{margin:12px 0}
+strong{color:#eaf4f6;font-weight:600}
+em{color:var(--dim);font-style:normal}
+.neon{color:var(--neon);font-weight:600;text-shadow:0 0 12px rgba(57,255,20,.28)}
+.arw{color:var(--acc);font-weight:700;padding:0 2px}
+code{background:#0f1a20;color:#8fe9d0;padding:2px 6px;border-radius:4px;
+font-family:Consolas,"Cascadia Mono",monospace;font-size:13px}
+pre.code{background:#080e12;border:1px solid var(--line);border-left:3px solid var(--acc);
+border-radius:8px;padding:18px 20px;overflow-x:auto;color:#9dc6cd;
+font-family:Consolas,"Cascadia Mono",monospace;font-size:12.5px;line-height:1.7}
+blockquote{margin:18px 0;padding:14px 20px;background:#0e1519;border-left:3px solid #d9a23c;
+border-radius:0 8px 8px 0;color:#cbb98c;font-size:14px}
+hr{border:0;border-top:1px solid var(--line);margin:44px 0}
+.tw{overflow-x:auto;margin:20px 0;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:14px;background:var(--panel)}
+th{background:#101a20;color:var(--acc);font-weight:600;text-align:left;
+padding:12px 14px;border-bottom:1px solid var(--line)}
+td{padding:11px 14px;border-bottom:1px solid #131d23;vertical-align:top}
+tr:last-child td{border-bottom:0}
+tr:hover td{background:#0f171d}
+ul,ol{margin:12px 0;padding-left:24px}li{margin:7px 0}
+.tag{display:inline-block;background:#10201a;color:var(--neon);border:1px solid #1f3a28;
+border-radius:999px;padding:2px 11px;font-size:12px;margin-bottom:14px}
+.foot{margin-top:66px;padding-top:22px;border-top:1px solid var(--line);color:#5d7078;font-size:12.5px}
+</style></head><body><div class="wrap"><div class="tag">批次 510 · 方案评审 · 2026-09-16</div><h1>方案评审 · 从「3D 城市场景」转向「分层视觉合成」</h1>
+<p><strong>批次 510</strong> ｜ 2026-09-16 ｜ 类型：<strong>纯分析批，零代码改动</strong></p>
+<hr>
+<h2>结论（先给判断）</h2>
+<p><span class="neon">你这份方案的主干是对的，而且它恰好命中了我们连续三批卡死的真正原因。但方案里有四处需要修正 —— 其中一处若不修正，会把你重新带回「两台相机」那个错误框架里。</span></p>
+<p>三句话总结：</p>
+<ol><li><strong>"先拆解参考图成可控视觉层 → 建艺术合成引擎 → 再映射真实数据"</strong> —— 这是全程最重要的一条，顺序完全正确，且已被实测证实可行。</li><li><strong>"双视点合成是最值得保留的核心"</strong> —— 这一条要<strong>降级</strong>。它不是核心，是<strong>结果</strong>。当城市被拆成独立图层后，"两个视点"自动退化为"两个图层各自的投影约定"，<strong>不再需要"相机"这个概念</strong>。继续用相机隐喻，就是你说的"被错误框架带着跑"。</li><li><strong>"数据真实，视觉艺术化"</strong> —— 这条<strong>推翻了我上一批的"尺度天花板"结论</strong>。你是对的：一旦脱离物理相机，高度只是一个可自由映射的构图参数。</li></ol>
+<hr>
+<h2>一、先说一件我必须承认的事：我对样张的理解错了</h2>
+<p>在评审你的方案之前，先纠正我自己。看完原图并做像素级测量后，我此前对样张的描述有<strong>两处硬错误</strong>：</p>
+<div class="tw"><table><thead><tr><th>我说过</th><th>实测真值</th><th>后果</th></tr></thead><tbody><tr><td>「地平线在 70%」</td><td><span class="neon">56.2%</span></td><td>前三批所有构图定位全部偏了 14 个百分点</td></tr><tr><td>「CT-1 是<strong>暗色剪影块</strong>，只有轮廓亮；我在画灯珠，方向错了」</td><td><span class="neon"><strong>完全反了</strong></span></td><td>480 之后我一直在把城市做得<strong>更暗、更糊</strong> —— 往反方向努力</td></tr></tbody></table></div>
+<p>实测数据（地平线以下区域，约占画面 44%）：</p>
+<div class="tw"><table><thead><tr><th>指标</th><th>实测</th></tr></thead><tbody><tr><td>平均亮度</td><td><strong>34.9</strong>（不是"接近黑"）</td></tr><tr><td>第 95 百分位</td><td><strong>94.0</strong></td></tr><tr><td>亮度 &gt;20 像素占比</td><td><strong>63.6%</strong></td></tr><tr><td><strong>最大连续亮块</strong></td><td><span class="neon"><strong>479,805 px</strong>（占下半区 24%）</span></td></tr><tr><td>暗区（&lt;14）占比</td><td>仅 23.7%</td></tr><tr><td>青蓝色像素占比（下半）</td><td><strong>96–98%</strong></td></tr></tbody></table></div>
+<p>也就是说：<span class="neon">样张的城市区是<strong>一大片青蓝色、中高亮度、纹理极密的连续区域</strong>，塔群是<strong>个体清晰、轮廓分明</strong>的高楼 —— 完全不是"暗色剪影"。</span></p>
+<p>我 490 那批"柱阵 → 细带"的两极摆动，根因不是"画法不对"，而是<strong>我把目标本身看错了</strong>：我以为要压暗，实际样张的城市<strong>比我做的亮得多</strong>。</p>
+<blockquote>这条修正比任何参数都有价值 —— 它说明前三批的失败<strong>不在工程能力，在靶子瞄错了</strong>。</blockquote>
+<hr>
+<h2>二、样张的真实解剖：9 个可分离层</h2>
+<p>我把原图做了多尺度分解（大尺度=天空底 / 中尺度=线面结构 / 小尺度=星点与细节），分离结果如下。</p>
+<p><strong>这一节是你方案第一句"先把参考图拆解成可控视觉层"的实证执行。</strong></p>
+<div class="tw"><table><thead><tr><th>#</th><th>视觉层</th><th>面积占比</th><th>构成要素</th><th>提取依据</th></tr></thead><tbody><tr><td>①</td><td>天空底 · 大气渐变</td><td>25.8%</td><td>暗蓝渐变，左上最黑 L≈3</td><td>低通 σ=45</td></tr><tr><td>②</td><td>星野 · 银河雾</td><td>1.0%</td><td>数百颗 1–3px 星点 + 上方青色雾团</td><td>小尺度高通 σ1.2 − σ5</td></tr><tr><td>③</td><td>星座网络 · 连线</td><td>2.2%</td><td>亮点 + 细连线，几何网络</td><td>中尺度线性结构</td></tr><tr><td>④</td><td>月牙 · 唯一暖焦点</td><td><strong>0.04%</strong></td><td>金色月牙，<strong>仅 926 像素</strong></td><td>暖色掩膜</td></tr><tr><td>⑤</td><td><strong>中轴光柱 + 辐射网</strong></td><td>6.0%</td><td>垂直光柱（x=50%）+ 8–12 条辐射线</td><td>中央线性结构</td></tr><tr><td>⑥</td><td>山脉框景 · 左右对称</td><td>3.2%</td><td>左右各一条山脊线，构成取景框</td><td>两侧中尺度剪影</td></tr><tr><td>⑦</td><td><strong>城市天际线 · 密集塔群</strong></td><td><strong>12.7%</strong></td><td>塔个体清晰，塔尖高出地平线</td><td>y 46–63% 中尺度</td></tr><tr><td>⑧</td><td><strong>俯视城市肌理 · 路网/街区</strong></td><td><strong>33.6%</strong></td><td>道路网格 + 街区 + 环形地标 + 水系</td><td>y &gt; 60% 中尺度</td></tr><tr><td>⑨</td><td>前景 · 人影与地光</td><td>2.8%</td><td>中心人影 + 脚下发光圆盘</td><td>底部中央</td></tr></tbody></table></div>
+<h3>这张表揭示的三个关键事实</h3>
+<p><strong>事实一：<span class="neon">九层之间没有相互依赖 —— 层 i 的生成不需要知道层 j 的内容。</span></strong></p>
+<p>这在工程上意味着分层合成不只是"可能"，而是<strong>天然可并行</strong>。你的方案成立，有实证支撑。</p>
+<p><strong>事实二：真正撑起画面的面积只有 4 层。</strong></p>
+<p>⑦ 城市天际线（12.7%）+ ⑧ 俯视肌理（33.6%）+ ① 天空底（25.8%）+ ⑤ 辐射网（6.0%）≈ <strong>78% 的画面</strong>。</p>
+<p>其余五层（②③④⑥⑨）合计不到 10% 面积，但<strong>全都是"气质层"</strong> —— 去掉它们画面立刻从"作品"变成"图表"。这解释了为什么单靠调城市参数永远调不出感觉：<strong>我一直在 78% 的工程层里打转，从未立起那 10% 的气质层。</strong></p>
+<p><strong>事实三：<span class="neon">画面真正的构图骨架是第 ⑤ 层"中轴光柱 + 辐射网"，不是城市。</span></strong></p>
+<p>它只占 6.0% 面积，却把月亮（52.4%）、人影（画面底部中央）、城市（两侧）、道路（向外扩散）<strong>全部串在一条中轴线上</strong>。这一层我此前<strong>完全没有发现</strong>。</p>
+<p><strong>而它恰好是真实数据最优雅的落点</strong> —— 可以用<strong>真实路网</strong>投影成辐射网。</p>
+<hr>
+<h2>三、逐条评审你的方案</h2>
+<h3>✅ 完全成立（4 条）</h3>
+<div class="tw"><table><thead><tr><th>你的判断</th><th>为什么成立</th></tr></thead><tbody><tr><td>不再定义为「3D 城市场景」，改为「真实地理数据驱动的实时视觉合成系统」</td><td>样张是<strong>构图作品</strong>不是<strong>场景快照</strong>；九层可分离已证明这一点</td></tr><tr><td><strong>先拆解参考图 → 建艺术合成引擎 → 再映射真实数据</strong></td><td><span class="neon"><strong>这是整个困局的解。</strong></span>前面三批失败的机制就是<strong>从数据出发往效果上凑</strong>；正确顺序是<strong>从效果出发建立语法，再让数据填进语法槽位</strong></td></tr><tr><td>先做「样张生成器」，不碰全球 / GPS / 网页</td><td>变量隔离。全球化和实时化都是<strong>数据生产与工程优化问题</strong>，与"能不能复刻这种视觉语言"无关，混在一起会把两者都拖死</td></tr><tr><td><strong>"数据真实，视觉艺术化"</strong> + 视觉高度映射</td><td><span class="neon"><strong>这条推翻了我上一批的结论。</strong></span>我说的"诸暨 60m 做不出天际线"只在<strong>物理真实渲染</strong>前提下成立。一旦脱离物理相机，高度就只是构图参数 —— <strong>是我自己加了不必要的约束</strong></td></tr></tbody></table></div>
+<h3>⚠️ 需要修正（4 条）</h3>
+<p><strong>修正一：「双视点合成」不是核心，是结果 —— 建议放弃"相机"这个隐喻</strong></p>
+<p>你原文有两句：前面说"双视点合成是整个方案最值得保留的核心"，后面说"你不会再被'两台相机'这个错误的框架带着跑"。<span class="neon">这两句其实是矛盾的，而后者才是对的。</span></p>
+<p>真相是：当城市被拆成 <strong>⑦ 天际线层</strong> + <strong>⑧ 肌理层</strong> 两个独立图层后：</p>
+<pre class="code">旧的错误框架：  一个 3D 场景 ← 两台相机 ← 物理上互斥 ← 无解
+正确的框架：    两个独立图层，各自有自己的「投影假设」
+                 ⑦ 层：假设视点低 → 塔群遮挡关系向上堆叠
+                 ⑧ 层：假设视点高 → 路网向下透视收敛
+                 ↓
+                 合成时按带融合，不需要任何&quot;相机&quot;存在</pre>
+<p><strong>"双视点"是拆层之后的自然结果，把它当成核心来追求，就会重新掉进"怎么让一台相机同时做到两件事"的死循环。</strong> 我 v3/v4 两个原型就是在这个框架里打转的。</p>
+<p><strong>修正二：「荧光粒子」需要精确化 —— 城市不是粒子云</strong></p>
+<p>样张城市的构成是三层叠加，不是粒子系统：</p>
+<div class="tw"><table><thead><tr><th>成分</th><th>实测占比</th><th>说明</th></tr></thead><tbody><tr><td><strong>线框</strong></td><td>⑦⑧ 两层共 <strong>46.3%</strong></td><td>道路、建筑轮廓、辐射线 —— <strong>大面积连续结构</strong></td></tr><tr><td><strong>点光</strong></td><td>②④ 等 &lt;1.5%</td><td>星点、窗点、月亮 —— 稀疏、粒度 1–3px</td></tr><tr><td><strong>Bloom</strong></td><td>全局</td><td>所有亮元素的辉光扩散</td></tr></tbody></table></div>
+<p><span class="neon">城市主体是<strong>连续线框</strong>，不是散点。</span>如果用 GPU 粒子系统去实现，会<strong>重新掉进 440 那批「LED 点阵墙」的坑</strong>。建议措辞改为「<strong>荧光线条 + 稀点光 + Bloom</strong>」。</p>
+<p><strong>修正三：技术栈方向对，但阶段划分要改 —— 阶段 0 用不上 Three.js</strong></p>
+<p>你建议的核心栈是 <strong>Three.js + WebGL + GLSL + GPU Particle</strong>。方向我认同，但：</p>
+<p><span class="neon">阶段 0（语法复刻）根本用不上 Three.js。</span> 它是纯 2D 图层合成，一个全屏 quad 的 fragment shader 就够了。<strong>引入 3D 引擎会让人本能地去建 3D 场景</strong> —— 这正是前面卡死的机制本身。</p>
+<ul><li><strong>阶段 0</strong>：Python/numpy 图层合成器（秒级，便于调参）</li><li><strong>阶段 1</strong>：同上，输入换成真实数据</li><li><strong>阶段 2</strong>：才 GLSL 化 + Three.js 交互层</li></ul>
+<p><strong>修正四：方案里有两个互相矛盾的下一步，建议按后者走</strong></p>
+<p>你前面建议「下一步做<strong>台北 101 × 3km POC</strong>」，后面说「先做<strong>样张生成器</strong>，不碰全球城市、不碰 GPS、不管网页」。</p>
+<p><span class="neon">建议按后者。</span> 台北 POC 仍要背真实数据 —— 一旦数据形态与语法不匹配，立刻又会陷入"改数据还是改语法"的双变量纠结。<strong>先纯语法（零数据），再映射（有数据）</strong>，是唯一能隔离变量的顺序。台北 101 留到阶段 1 的第一个样本。</p>
+<h3>➕ 我要补充（3 条，方案里没有）</h3>
+<p><strong>补充一：必须钉死一条代码级设计公理</strong></p>
+<p>「语法层可以自由，但<strong>每个进入画面的城市元素必须可追溯到真实数据</strong>」。</p>
+<p><span class="neon">这条不是审美要求，是红线防御。</span> 你的"艺术合成引擎"如果做得太自由，会自然滑向"我画一张好看的黑青插画" —— 那就是 AI 生图/纯手绘，<strong>再次触项目红线</strong>。</p>
+<p>正确做法：每个图元带 <code>source</code> 字段（<code>osm:way/12345</code> 或 <code>synth:seed=7</code>），合成器可随时输出"画面构成溯源表"。你说的"不能伪造城市事实"，要变成<strong>代码约束</strong>而不是口头原则。</p>
+<p><strong>补充二：样张里有两个"可识别性锚点"，引擎必须留槽位</strong></p>
+<p>让用户"一眼认出这是我的城市"的，不是整体轮廓，而是<strong>具体地标</strong>：</p>
+<ul><li>右侧<strong>环形建筑</strong>（体育场/体育场式，样张右下角）</li><li>塔群中<strong>个别超高塔</strong>（高出天际线一个量级）</li></ul>
+<p>引擎必须预留"地标高亮槽位" —— 用真实地标的 footprint 单独渲染 + 加强 Bloom。这是"这是我的城市"的唯一来源。</p>
+<p><strong>补充三：第 ⑤ 层（辐射网）是真实数据的最佳落点</strong></p>
+<p>前面提到，⑤ 是画面真正的构图骨架。它天然可由<strong>真实路网</strong>驱动：把真实道路按距离中心分级 → 投影成辐射网格 → 越近中心越亮。</p>
+<p>这一层同时解决了三个问题：构图骨架有了、真实数据有落点了、"空间感"有了（视差就作用在这一层）。</p>
+<hr>
+<h2>四、修正后的路线</h2>
+<pre class="code">阶段 0 · 语法复刻器            ← 现在做这个
+  输入：无（零真实数据）
+  输出：一张「同一个产品世界观」的画面
+  构成：9 层独立生成器 + 合成器 + 调色/Bloom
+  技术：Python/numpy（不碰 Three.js、不碰 worktree）
+  验收：你的眼睛（世界观一致，非像素一致）
+
+阶段 1 · 真实数据映射
+  ⑦ 层 ← 真实建筑 footprint + 高度（含视觉高度映射）
+  ⑧ 层 ← 真实路网 + 街区 + 水系
+  ⑤ 层 ← 真实路网投影成辐射网
+  地标槽位 ← 真实地标（台北 101 / 北京中国尊）
+  样本：台北 101 × 3km（有真数据）+ 诸暨（弱数据，验证高度映射）
+  验收：你的眼睛 + 「我能不能认出这是哪个城市」
+
+阶段 2 · 实时化与交互        ← 才引入 WebGL/Three.js
+  GLSL 化、60 FPS、鼠标视差、点击地标
+
+阶段 3 · 全球化
+  纯数据生产问题（Geo Tile 流水线），非核心技术问题</pre>
+<hr>
+<h2>五、要你拍的三个板</h2>
+<div class="tw"><table><thead><tr><th>#</th><th>问题</th><th>选项</th></tr></thead><tbody><tr><td>1</td><td><strong>阶段 0 的验收标准</strong></td><td>(A) "同一套设计语言/世界观" —— 可做，上限高 · (B) 像素级像 —— 只有贴图一条路</td></tr><tr><td>2</td><td><strong>是否现在开工阶段 0</strong></td><td>零数据、零 worktree 改动、纯沙箱出样张</td></tr><tr><td>3</td><td><strong>视觉高度映射的边界</strong></td><td>真实 60m 的楼，允许把轮廓存在感增强到什么程度？（我建议：增强<strong>轮廓与辉光</strong>，不虚构<strong>楼体数量与位置</strong>）</td></tr></tbody></table></div>
+<hr>
+<h2>六、本轮产物与纪律</h2>
+<p><strong>产物</strong>：</p>
+<ul><li><code>assets-510/LAYERS-ct1-decomposition.png</code> —— 样张 9 层拆解图（本分析的核心证据）</li><li>本文档 <code>ROUND-20260916-510-方案评审.md</code> + 同内容 HTML</li></ul>
+<p><strong>纪律</strong>：本批为<strong>纯分析批</strong>。</p>
+<ul><li>主仓 <code>src/</code>、<code>functions/</code> <strong>零改动</strong></li><li>worktree <strong>未提交、未部署</strong></li><li>线上 <code>/sky</code> 仍为 09-13 v2</li><li>CT-1 冻结基线<strong>未覆盖</strong></li><li>新增仅为分析脚本 <code>proto2d/analyze_ref.py</code>、<code>proto2d/decompose_layers.py</code></li></ul>
+<p><strong>关键修正记录</strong>（供后续批次引用）：</p>
+<ol><li>样张地平线真值 <strong>56.2%</strong>（此前误用 69.76%，源于标注面板拼接缝）</li><li>样张城市区<strong>不是暗色剪影</strong>，是青蓝色中高亮连续结构（下半平均 L=34.9，最大连续亮块 47.98 万 px）——<strong>推翻 490 批及之前的靶子设定</strong></li><li>"诸暨 60m 做不出天际线" 是<strong>过度约束</strong>，仅成立于物理真实渲染前提；艺术化映射下不成立</li><li>画面构图骨架是第 ⑤ 层辐射网（6.0% 面积），非城市本体</li></ol><div class="foot">批次 510 · 方案评审 · 2026-09-16 ｜ 主仓零改动 · 未提交 · 未部署</div></div></body></html>

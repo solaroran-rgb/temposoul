@@ -1,0 +1,15 @@
+{
+  "http": 400,
+  "ms": 624,
+  "body": {
+    "ok": false,
+    "error": {
+      "code": "BAD_REQUEST",
+      "message": "startDate 不能为空。"
+    },
+    "meta": {
+      "service": "www.temposoul.com",
+      "version": "v1"
+    }
+  }
+}

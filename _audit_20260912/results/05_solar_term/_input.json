@@ -1,0 +1,17 @@
+{
+  "id": "05_solar_term",
+  "desc": "冬至交接 2000-12-21·哈尔滨",
+  "req": {
+    "gender": "male",
+    "year": 2000,
+    "month": 12,
+    "day": 21,
+    "dateType": "solar",
+    "birthHour": 8,
+    "birthMinute": 15,
+    "birthPlace": "哈尔滨",
+    "birthLongitude": 126.534,
+    "timezone": 8,
+    "useTrueSolarTime": true
+  }
+}

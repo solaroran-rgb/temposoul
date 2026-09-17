@@ -1,0 +1,207 @@
+/* 姓名 / 字档案板块样式（契约 v3.2 §6：深色未来科技风 + 霓虹；token 名称以 holographic-tokens.ts 为准，fallback 值与全站基调一致） */
+:root {
+  --name-bg: var(--holo-bg, #0b0f1a);
+  --name-panel: var(--holo-panel, #121826);
+  --name-border: var(--holo-border, rgba(120, 200, 255, 0.18));
+  --name-text: var(--holo-text, #d8e2f2);
+  --name-muted: var(--holo-muted, #7f8ca6);
+  --name-accent: var(--holo-accent, #4dc3ff);
+  --name-warn: var(--holo-warn, #ff4d6d);
+}
+
+.name-test-page,
+.kangxi-page,
+.kangxi-char-page {
+  min-height: 100vh;
+  background: var(--name-bg);
+  color: var(--name-text);
+}
+
+.name-test-page__main,
+.kangxi-page__main,
+.kangxi-char-page__main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+.name-test-page__title,
+.kangxi-page__title {
+  font-size: 24px;
+  margin: 0 0 8px;
+  letter-spacing: 0.04em;
+}
+
+.name-test-page__lead,
+.kangxi-page__lead {
+  color: var(--name-muted);
+  margin: 0 0 16px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.name-test-page__error {
+  color: var(--name-warn);
+  font-size: 14px;
+}
+
+.name-test-page__provenance,
+.kangxi-page__provenance {
+  margin-top: 24px;
+  font-size: 12px;
+  color: var(--name-muted);
+  line-height: 1.6;
+}
+
+/* 断言治理条 */
+.name-guard-bar {
+  display: flex;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--name-border);
+  border-left: 3px solid var(--name-accent);
+  border-radius: 8px;
+  background: var(--name-panel);
+  margin-bottom: 16px;
+}
+
+.name-guard-bar__icon { color: var(--name-accent); }
+.name-guard-bar__title { display: block; font-size: 14px; margin-bottom: 4px; }
+.name-guard-bar__text { margin: 0; font-size: 12px; color: var(--name-muted); line-height: 1.7; }
+
+/* 表单 */
+.name-test-form { display: grid; gap: 14px; }
+.name-test-form__row { display: grid; gap: 6px; }
+.name-test-form__label { font-size: 13px; color: var(--name-muted); }
+.name-test-form__hint { display: block; font-size: 11px; opacity: 0.8; }
+.name-test-form__input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--name-border);
+  background: var(--name-panel);
+  color: var(--name-text);
+  font-size: 15px;
+}
+.name-test-form__error { color: var(--name-warn); font-size: 13px; }
+.name-test-form__submit {
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--name-accent);
+  background: transparent;
+  color: var(--name-accent);
+  font-size: 15px;
+  cursor: pointer;
+}
+.name-test-form__submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* 冲突提示 */
+.name-conflict {
+  margin: 16px 0;
+  padding: 12px 14px;
+  border: 1px solid var(--name-warn);
+  border-radius: 8px;
+  background: var(--name-panel);
+}
+.name-conflict__title { font-size: 14px; color: var(--name-warn); }
+.name-conflict__list { margin: 8px 0; padding-left: 18px; }
+.name-conflict__dims { font-size: 12px; color: var(--name-muted); }
+.name-conflict__desc { margin: 4px 0; font-size: 13px; line-height: 1.7; }
+.name-conflict__foot { margin: 0; font-size: 12px; color: var(--name-muted); }
+
+/* 档案三层 */
+.name-dossier__layer { margin: 24px 0; }
+.name-dossier__layer-title {
+  font-size: 16px;
+  margin: 0 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.name-dossier__badge {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--name-border);
+  color: var(--name-muted);
+}
+.name-dossier__grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.name-dossier__pinyin { font-size: 18px; letter-spacing: 0.06em; }
+.name-dossier__list { margin: 6px 0; padding-left: 18px; font-size: 13px; line-height: 1.9; }
+.name-dossier__muted { color: var(--name-muted); font-size: 12px; }
+
+.name-dim-card {
+  padding: 12px 14px;
+  border: 1px solid var(--name-border);
+  border-radius: 10px;
+  background: var(--name-panel);
+}
+.name-dim-card--folk { border-top: 2px solid var(--name-warn); }
+.name-dim-card__head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.name-dim-card__title { font-size: 14px; margin: 0; flex: 1; }
+.name-dim-card__status { font-size: 11px; color: var(--name-muted); }
+.name-dim-card__tag { font-size: 11px; padding: 1px 6px; border-radius: 4px; border: 1px solid var(--name-border); }
+.name-dim-card__tag.is-legendary { color: var(--name-warn); border-color: var(--name-warn); }
+.name-dim-card__tag.is-verified { color: var(--name-accent); border-color: var(--name-accent); }
+.name-dim-card__body { margin-top: 8px; font-size: 13px; line-height: 1.8; }
+.name-dim-card__empty { color: var(--name-muted); font-size: 13px; }
+.name-dim-card__note { margin: 8px 0 0; font-size: 12px; color: var(--name-muted); line-height: 1.7; }
+.name-dim-card__evidence { margin-top: 10px; }
+.name-dim-card__toggle {
+  background: none;
+  border: none;
+  color: var(--name-accent);
+  font-size: 12px;
+  cursor: pointer;
+  padding: 0;
+}
+.name-dim-card__evidence-list { margin: 8px 0 0; padding-left: 16px; font-size: 12px; line-height: 1.8; }
+.name-dim-card__evidence-item { margin-bottom: 6px; }
+.name-dim-card__evidence-source { display: block; color: var(--name-muted); }
+.name-dim-card__evidence-note { display: block; color: var(--name-muted); }
+
+/* AI 解读 */
+.name-insight { margin-top: 20px; padding: 14px; border: 1px solid var(--name-border); border-radius: 10px; background: var(--name-panel); }
+.name-insight__head { display: flex; align-items: center; justify-content: space-between; }
+.name-insight__title { font-size: 14px; margin: 0; }
+.name-insight__run { background: none; border: 1px solid var(--name-accent); color: var(--name-accent); border-radius: 6px; padding: 6px 12px; cursor: pointer; font-size: 13px; }
+.name-insight__content { margin-top: 10px; font-size: 13px; line-height: 1.9; white-space: pre-wrap; }
+.name-insight__error { color: var(--name-warn); font-size: 13px; }
+.name-insight__muted { color: var(--name-muted); font-size: 12px; }
+.name-insight__boundary { margin: 10px 0 0; font-size: 12px; color: var(--name-muted); }
+
+/* 康熙查字 */
+.kangxi-page__search { display: flex; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+.kangxi-page__input {
+  flex: 1 1 200px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--name-border);
+  background: var(--name-panel);
+  color: var(--name-text);
+}
+.kangxi-page__input--stroke { flex: 0 0 120px; }
+.kangxi-page__grid { list-style: none; display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); padding: 0; margin: 12px 0; }
+.kangxi-page__cell { border: 1px solid var(--name-border); border-radius: 8px; background: var(--name-panel); }
+.kangxi-page__link { display: block; padding: 12px; text-decoration: none; color: inherit; }
+.kangxi-page__char { display: block; font-size: 26px; }
+.kangxi-page__meta { display: block; margin-top: 4px; font-size: 12px; color: var(--name-muted); }
+.kangxi-page__muted, .kangxi-page__empty { color: var(--name-muted); font-size: 13px; }
+
+/* 字卡 */
+.char-card { padding: 16px; border: 1px solid var(--name-border); border-radius: 10px; background: var(--name-panel); }
+.char-card__head { display: flex; align-items: baseline; gap: 12px; }
+.char-card__char { font-size: 48px; line-height: 1.1; }
+.char-card__pinyin { font-size: 16px; color: var(--name-accent); }
+.char-card__tone { font-size: 12px; color: var(--name-muted); }
+.char-card__list { margin: 16px 0; display: grid; gap: 10px; }
+.char-card__item { display: grid; grid-template-columns: 96px 1fr; gap: 10px; font-size: 13px; }
+.char-card__item dt { color: var(--name-muted); }
+.char-card__item dd { margin: 0; line-height: 1.8; }
+.char-card__muted { color: var(--name-muted); font-size: 12px; }
+.char-card__foot { border-top: 1px solid var(--name-border); padding-top: 10px; font-size: 12px; color: var(--name-muted); line-height: 1.8; }
+
+@media (max-width: 640px) {
+  .name-dossier__grid { grid-template-columns: 1fr; }
+  .kangxi-page__grid { grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); }
+  .char-card__item { grid-template-columns: 80px 1fr; }
+}

@@ -1,0 +1,15 @@
+{
+  "http": 400,
+  "ms": 1228,
+  "body": {
+    "ok": false,
+    "error": {
+      "code": "BAD_REQUEST",
+      "message": "latitude 必须是数字。"
+    },
+    "meta": {
+      "service": "www.temposoul.com",
+      "version": "v1"
+    }
+  }
+}

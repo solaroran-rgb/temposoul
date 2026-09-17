@@ -1,0 +1,18 @@
+/* src/pages/ziwei/pattern-page.css */
+.pattern-list, .pattern-detail { max-width: 900px; margin: 0 auto; padding: 16px; color: var(--text-primary, #E0E6ED); background: #05070d; }
+.pattern-list__skeleton, .pattern-detail__skeleton { height: 100px; border-radius: 8px; background: linear-gradient(90deg, #0d1220, #131a2c, #0d1220); animation: pattern-pulse 1.6s ease-in-out infinite; }
+@keyframes pattern-pulse { 0%, 100% { opacity: 0.7; } 50% { opacity: 1; } }
+.pattern-list__grid { list-style: none; padding: 0; margin: 16px 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.pattern-list__item { margin: 0; }
+.pattern-list__link { display: flex; flex-direction: column; gap: 6px; padding: 14px; border: 1px solid rgba(77, 195, 255, 0.25); border-radius: 10px; text-decoration: none; color: inherit; background: rgba(77, 195, 255, 0.04); }
+.pattern-list__title { font-size: 17px; font-weight: 600; color: var(--neon-cyan, #4DC3FF); }
+.pattern-list__summary { font-size: 13px; color: var(--text-secondary, #8B9BB4); line-height: 1.55; }
+.pattern-list__tier { align-self: flex-start; font-size: 11px; padding: 1px 8px; border-radius: 999px; background: rgba(255, 77, 109, 0.12); color: var(--neon-pink, #FF4D6D); }
+.pattern-detail__meta { display: flex; gap: 10px; align-items: center; margin: 12px 0; }
+.pattern-detail__tier { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: rgba(255, 77, 109, 0.12); color: var(--neon-pink, #FF4D6D); }
+.pattern-detail__section { margin: 20px 0; }
+.pattern-detail__heading { font-size: 15px; color: var(--neon-cyan, #4DC3FF); margin: 0 0 8px 0; }
+.pattern-detail__ul { margin: 0; padding-left: 20px; color: var(--text-primary, #E0E6ED); font-size: 14px; line-height: 1.75; }
+.pattern-detail__notice { font-size: 13px; color: var(--text-secondary, #8B9BB4); border-left: 3px solid var(--neon-cyan, #4DC3FF); padding: 6px 10px; margin: 12px 0; }
+.pattern-list__empty, .pattern-detail__empty, .pattern-list__error, .pattern-detail__error { color: var(--text-secondary, #8B9BB4); text-align: center; padding: 40px 16px; }
+.pattern-list__disclaimer, .pattern-detail__disclaimer { margin-top: 32px; padding-top: 16px; border-top: 1px solid rgba(139, 155, 180, 0.15); font-size: 12px; color: var(--text-secondary, #8B9BB4); line-height: 1.6; }

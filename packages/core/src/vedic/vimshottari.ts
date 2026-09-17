@@ -157,10 +157,10 @@ export function locateVimshottariAt(
 ): { maha: VimshottariMaha; antar: VimshottariPeriod } | null {
   for (const maha of dasha.mahadashas) {
     if (queryMs >= maha.startMs && queryMs < maha.endMs) {
-      const antar = maha.antardashas.find(
-        (a) => queryMs >= a.startMs && queryMs < a.endMs,
-      );
-      return antar ? { maha, antar } : { maha, antar: maha.antardashas[maha.antardashas.length - 1] };
+      const antar = maha.antardashas.find((a) => queryMs >= a.startMs && queryMs < a.endMs);
+      return antar
+        ? { maha, antar }
+        : { maha, antar: maha.antardashas[maha.antardashas.length - 1] };
     }
   }
   return null;

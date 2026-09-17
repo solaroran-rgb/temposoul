@@ -1,0 +1,12 @@
+.classics-list__main{max-width:960px;margin:0 auto;padding:24px 16px}
+.classics-list__intro{color:var(--ts-text-secondary,#8a8f98);margin-bottom:20px}
+.classics-list__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.classic-card{background:var(--ts-card-bg,rgba(255,255,255,.06));border:1px solid var(--ts-border,rgba(255,255,255,.12));border-radius:12px;padding:16px;cursor:pointer;transition:border-color .2s}
+.classic-card:hover{border-color:var(--ts-accent,#6c8cff)}
+.classic-card__title{font-size:17px;font-weight:600;margin:0 0 8px}
+.classic-card__badge{display:inline-block;font-size:12px;color:#8a8f98;background:rgba(255,255,255,.08);border-radius:99px;padding:2px 10px;margin-bottom:8px}
+.classic-card__description{font-size:14px;line-height:1.6;color:var(--ts-text-secondary,#aab)}
+.classic-card__author{font-size:12px;color:#8a8f98;margin-top:12px}
+.classic-card__footer{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+.classics-list__empty,.classics-list__error{text-align:center;color:#8a8f98;padding:40px 0}
+.classics-list__skeleton{height:120px;border-radius:12px;background:rgba(255,255,255,.05)}

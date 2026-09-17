@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TempoSoul · 命律 · 此刻此地</title>
+<style>
+  :root{
+    --cy:#3ee6ff; --cy-dim:#1aa3c9; --cy-deep:#0a2f4a; --white:#eaf7ff;
+    --panel:rgba(4,16,28,.62); --line:rgba(62,230,255,.38); --line-dim:rgba(62,230,255,.16);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:100%;height:100%;overflow:hidden;background:#01050a;font-family:"Segoe UI","Microsoft YaHei",system-ui,sans-serif;color:var(--white)}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      linear-gradient(rgba(62,230,255,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(62,230,255,0.045) 1px, transparent 1px),
+      radial-gradient(ellipse at 50% 12%,#07223a 0%,#03111f 42%,#01050a 100%);
+    background-size:64px 64px,64px 64px,100% 100%}
+  /* 地图压缩到屏幕下 30% */
+  #map{position:absolute;left:0;right:0;bottom:0;height:30vh;z-index:1}
+  #map .amap-logo,#map .amap-copyright{opacity:.35}
+  #map::after{content:"";position:absolute;left:0;right:0;top:-46px;height:46px;z-index:5;pointer-events:none;
+    background:linear-gradient(180deg,rgba(1,5,10,0),rgba(1,6,12,.72));}
+  #stars{position:absolute;inset:0;z-index:2;pointer-events:none;mix-blend-mode:screen}
+  /* 前景叠加层（星盘/弯月/人形/法阵/河流/山脉） */
+  #overlay{position:absolute;inset:0;z-index:3;pointer-events:none}
+  /* 暗角（上方重、底部轻，保留地图亮度） */
+  #vignette{position:absolute;inset:0;z-index:4;pointer-events:none;
+    background:linear-gradient(180deg,rgba(1,6,12,.5) 0%,rgba(2,12,22,0) 38%,rgba(1,6,12,0) 66%,rgba(1,6,12,.3) 100%)}
+  /* HUD 顶栏（品牌 + 状态 + CTA） */
+  #topbar{position:absolute;top:0;left:0;right:0;z-index:10;display:flex;align-items:flex-start;justify-content:space-between;
+    padding:26px 34px;pointer-events:none}
+  #brand{display:flex;flex-direction:column;gap:2px}
+  #brand .zh{font-size:36px;font-weight:900;letter-spacing:10px;color:var(--white);
+    text-shadow:0 0 18px rgba(62,230,255,.85),0 0 42px rgba(62,230,255,.35)}
+  #brand .en{font-size:12px;letter-spacing:5px;color:var(--cy);margin-top:2px}
+  #brand .sl{font-size:11px;letter-spacing:3px;color:rgba(234,247,255,.55);margin-top:4px}
+  #topstatus{display:flex;align-items:center;gap:14px;font-size:12px;letter-spacing:2px;color:var(--cy);
+    position:absolute;right:200px;top:38px}
+  #cta{pointer-events:auto;background:rgba(4,20,36,.35);border:1px solid var(--cy);color:var(--cy);
+    font-size:14px;letter-spacing:4px;padding:10px 30px;cursor:pointer;font-family:inherit;
+    box-shadow:0 0 14px rgba(62,230,255,.35),inset 0 0 10px rgba(62,230,255,.12);transition:all .25s}
+  #cta:hover{background:rgba(62,230,255,.16);box-shadow:0 0 26px rgba(62,230,255,.65),inset 0 0 14px rgba(62,230,255,.25)}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--cy);box-shadow:0 0 8px var(--cy);animation:pulse 1.6s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  /* HUD 四角框 */
+  .corner{position:absolute;width:44px;height:44px;z-index:9;pointer-events:none;opacity:.85}
+  .corner.tl{top:74px;left:22px;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+  .corner.tr{top:74px;right:22px;border-top:1px solid var(--line);border-right:1px solid var(--line)}
+  .corner.bl{bottom:calc(30vh + 14px);left:22px;border-bottom:1px solid var(--line);border-left:1px solid var(--line)}
+  .corner.br{bottom:calc(30vh + 14px);right:22px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+  /* 左下数据面板 */
+  #panel{position:absolute;left:26px;bottom:calc(30vh + 30px);z-index:10;width:264px;padding:16px 18px;
+    background:var(--panel);border:1px solid var(--line-dim);backdrop-filter:blur(6px);
+    font-size:12px;letter-spacing:1.5px}
+  #panel .ph{font-size:11px;color:var(--cy);letter-spacing:3px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  #panel .ph::before{content:"";width:14px;height:1px;background:var(--cy);box-shadow:0 0 6px var(--cy)}
+  #panel .row{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed rgba(62,230,255,.12)}
+  #panel .row:last-child{border-bottom:none}
+  #panel .k{color:rgba(234,247,255,.55)}
+  #panel .v{color:var(--white);font-family:Consolas,monospace}
+  #panel .v.hl{color:var(--cy);text-shadow:0 0 8px rgba(62,230,255,.6)}
+  /* 右下城市切换 */
+  #citysel{position:absolute;right:26px;bottom:calc(30vh + 30px);z-index:10;pointer-events:auto;
+    background:var(--panel);border:1px solid var(--line-dim);backdrop-filter:blur(6px);padding:10px 12px}
+  #citysel .t{font-size:11px;letter-spacing:3px;color:var(--cy);margin-bottom:8px}
+  #citysel .c{display:flex;gap:6px;flex-wrap:wrap}
+  #citysel button{background:transparent;border:1px solid var(--line-dim);color:rgba(234,247,255,.8);
+    font-size:12px;letter-spacing:1px;padding:5px 10px;cursor:pointer;transition:all .2s}
+  #citysel button:hover,#citysel button.on{border-color:var(--cy);color:var(--cy);box-shadow:0 0 8px rgba(62,230,255,.35)}
+  /* 底部信息条 */
+  #foot{position:absolute;left:0;right:0;bottom:0;z-index:8;display:flex;justify-content:space-between;align-items:center;
+    padding:12px 28px;font-size:10px;letter-spacing:2px;color:rgba(234,247,255,.4);pointer-events:none;
+    background:linear-gradient(180deg,rgba(1,6,12,0),rgba(1,6,12,.85))}
+  #foot .s{color:var(--cy);opacity:.7}
+  /* 西班牙文信息文本块（样本风格） */
+  .textblk{position:absolute;z-index:6;pointer-events:none;font-family:Arial,"Helvetica Neue",sans-serif;
+    color:rgba(235,245,255,.72);font-size:11px;letter-spacing:3px;text-shadow:0 0 8px rgba(62,230,255,.4)}
+  .textblk.t1{top:24%;right:12%}
+  .textblk.t2{left:8%;top:42%}
+  .textblk.t3{right:7%;top:48%}
+  .textblk.t4{bottom:calc(30vh + 62px);left:50%;transform:translateX(-50%)}
+  #loading{position:absolute;inset:0;z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    background:radial-gradient(ellipse at center,#04121f 0%,#010509 70%);transition:opacity .8s}
+  #loading.hide{opacity:0;pointer-events:none}
+  #loading .ring{width:56px;height:56px;border:1px solid rgba(62,230,255,.2);border-top-color:var(--cy);
+    border-radius:50%;animation:spin 1.1s linear infinite;margin-bottom:22px}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  #loading .txt{font-size:13px;letter-spacing:5px;color:var(--cy)}
+  #loading .subtxt{margin-top:10px;font-size:11px;letter-spacing:2px;color:rgba(234,247,255,.5)}
+  .amap-marker-label{background:transparent;border:none;color:rgba(62,230,255,.85);text-shadow:0 0 6px rgba(62,230,255,.5)}
+</style>
+</head>
+<body>
+
+<div id="map"></div>
+<canvas id="stars"></canvas>
+<canvas id="overlay"></canvas>
+<div id="vignette"></div>
+
+<div id="loading">
+  <div class="ring"></div>
+  <div class="txt">TEMP OSOUL</div>
+  <div class="subtxt" id="loadsub">正在定位你的此刻此地 …</div>
+</div>
+
+<div id="topbar">
+  <div id="brand">
+    <div class="zh">命律</div>
+    <div class="en">TempoSoul</div>
+    <div class="sl">探索命运的节律</div>
+  </div>
+  <div id="topstatus"><span class="dot"></span><span id="statusTxt">定位中</span></div>
+  <button id="cta">立即开始</button>
+</div>
+
+<div class="corner tl"></div><div class="corner tr"></div>
+<div class="corner bl"></div><div class="corner br"></div>
+
+<div id="panel">
+  <div class="ph">SPATIAL TELEMETRY</div>
+  <div class="row"><span class="k">所在城市</span><span class="v hl" id="pvCity">--</span></div>
+  <div class="row"><span class="k">经纬度</span><span class="v" id="pvCoord">--</span></div>
+  <div class="row"><span class="k">本地时间</span><span class="v" id="pvTime">--</span></div>
+  <div class="row"><span class="k">定位方式</span><span class="v" id="pvMode">--</span></div>
+  <div class="row"><span class="k">渲染模式</span><span class="v">3D 楼块 · 单色线稿</span></div>
+</div>
+
+<div id="citysel">
+  <div class="t">VIEW PORT</div>
+  <div class="c" id="cityBtns"></div>
+</div>
+
+<div id="foot">
+  <span>TempoSoul® · 基于高德开放平台真实地理数据 · 每个用户看到的是属于自己的此刻此地</span>
+  <span class="s" id="footData">DATA: AMapJS-API v2.0 · HYG v3.8</span>
+</div>
+
+<!-- 样本风格：白色无衬线西班牙文信息文本块 -->
+<div class="textblk t1">ASTRONOMÍA CELESTE</div>
+<div class="textblk t2">EL MAPA DEL DESTINO</div>
+<div class="textblk t3">CONCIENCIA CÓSMICA</div>
+<div class="textblk t4">TIEMPO · ESPACIO · ALMA</div>
+
+<script src="stars-data.js"></script>
+<script>
+window._AMapSecurityConfig = { securityJsCode: 'db6d34fc64f152b4497cf37cce43db2c' };
+</script>
+<script src="https://webapi.amap.com/maps?v=2.0&key=c322315b4ad609930b96ac97be2ae907"></script>
+<script>
+(function(){
+  'use strict';
+  var $ = function(id){ return document.getElementById(id); };
+  var map = null, buildings = null;
+  var cities = {
+    'auto':  {name:'自动定位', mode:'IP 定位'},
+    'jinan': {name:'济南', lng:117.1201, lat:36.6512},
+    'shanghe':{name:'商河', lng:117.1572, lat:37.3109},
+    'beijing':{name:'北京', lng:116.4074, lat:39.9042},
+    'shanghai':{name:'上海', lng:121.4737, lat:31.2304},
+    'taipei': {name:'台北', lng:121.5654, lat:25.0330},
+    'shenzhen':{name:'深圳', lng:114.0579, lat:22.5431}
+  };
+
+  /* ============================================================
+     真实星空层（天文引擎）：HYG 恒星目录 + 深空天体 + 星座 + 月亮
+     ============================================================ */
+  var STAR = window.STAR_CATALOG || [];
+  var canvas = $('stars'), ctx = canvas.getContext('2d');
+  /* 深空天体（Messier 精选，RA/Dec 度） */
+  var DSO = [
+    {n:'M31', ra:10.68, dec:41.27, r:3.4, a:0.11},
+    {n:'M42', ra:83.82, dec:-5.39, r:1.8, a:0.16},
+    {n:'M45', ra:56.75, dec:24.12, r:2.0, a:0.13},
+    {n:'M13', ra:250.42, dec:36.46, r:1.2, a:0.09},
+    {n:'M57', ra:283.40, dec:33.03, r:0.8, a:0.08},
+    {n:'M8',  ra:270.96, dec:-24.38, r:1.6, a:0.10},
+    {n:'M20', ra:271.06, dec:-23.03, r:1.1, a:0.08},
+    {n:'M16', ra:274.70, dec:-13.78, r:1.4, a:0.09},
+    {n:'M81', ra:148.89, dec:69.07, r:1.5, a:0.09},
+    {n:'M82', ra:148.97, dec:69.68, r:1.1, a:0.07},
+    {n:'M104',ra:189.99, dec:-11.62, r:1.3, a:0.07}
+  ];
+  /* 星座成员星（真实 J2000 坐标） */
+  var CONS = [
+    {n:'猎户座', s:[[88.79,-7.41],[81.28,6.35],[85.19,-1.94],[84.05,-1.20],[83.00,-0.30],[78.63,-8.20],[86.94,-9.67]],
+      l:[[0,2],[2,3],[3,4],[4,5],[1,3],[2,6],[5,6]]},
+    {n:'北斗', s:[[165.93,61.75],[165.46,56.38],[178.46,53.69],[183.86,57.03],[193.51,55.96],[200.98,54.93],[206.89,49.31]],
+      l:[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6]]},
+    {n:'仙后座', s:[[10.13,56.54],[1.54,59.15],[14.18,60.72],[17.79,60.25],[23.28,63.67]],
+      l:[[0,1],[1,2],[2,3],[3,4]]}
+  ];
+  var geo = {lat: 36.65, lng: 117.12};  // 默认济南；定位后更新
+
+  /* 恒星时（度） */
+  function lstDeg(lng, d){
+    var jd = d.getTime()/86400000 + 2440587.5;
+    var gmst = 280.46061837 + 360.98564736629*(jd-2451545.0);
+    gmst = ((gmst % 360) + 360) % 360;
+    return (gmst + lng) % 360;
+  }
+  /* 赤道→地平 */
+  function altaz(ra, dec, lat, lst){
+    var H = (((lst - ra*15) % 360) + 360) % 360;
+    var la = lat*Math.PI/180, de = dec*Math.PI/180, hh = H*Math.PI/180;
+    var sinAlt = Math.sin(la)*Math.sin(de) + Math.cos(la)*Math.cos(de)*Math.cos(hh);
+    var alt = Math.asin(Math.max(-1, Math.min(1, sinAlt)));
+    var az = Math.atan2(Math.sin(hh), Math.cos(hh)*Math.sin(la) - Math.tan(de)*Math.cos(la));
+    return {alt: alt, az: az};
+  }
+  /* 横幅全景投影：南向中心，az 60-260°，alt 0-90 → 屏幕上 */
+  var projW = 200, horizonY = 0.70, zenithY = 0.10;
+  function proj(alt, az){
+    var azd = az*180/Math.PI;
+    var x = canvas.width*0.5 + (azd - 180) * (canvas.width*1.15/projW);
+    var y = canvas.height*horizonY - (alt*180/Math.PI) * (canvas.height*(horizonY-zenithY)/90);
+    return {x:x, y:y};
+  }
+  /* 月亮（Meeus 近似） */
+  function moonPos(d){
+    var jd = d.getTime()/86400000 + 2440587.5;
+    var T = jd - 2451545.0;
+    var L = 218.316 + 13.176396*T;
+    var M = 134.963 + 13.064993*T;
+    var D = 297.850 + 12.190749*T;
+    L += 6.289*Math.sin(M*Math.PI/180);
+    var lon = L*Math.PI/180;
+    var obl = (23.439 - 0.0000004*T)*Math.PI/180;
+    var ra = Math.atan2(Math.sin(lon)*Math.cos(obl), Math.cos(lon));
+    var dec = Math.asin(Math.sin(lon)*Math.sin(obl));
+    return {ra: ((ra*180/Math.PI)+360)%360, dec: dec*180/Math.PI, phase: ((D%360)+360)%360};
+  }
+
+  function drawSky(t){
+    var w = canvas.width, h = canvas.height;
+    if(w === 0) return;
+    ctx.clearRect(0,0,w,h);
+    var now = new Date();
+    var lst = lstDeg(geo.lng, now);
+    /* 银河带（银道方向简化：沿赤道带倾斜） */
+    var gx = w*0.52, gy = h*0.22, ga = -0.42;
+    ctx.save();
+    ctx.translate(gx, gy); ctx.rotate(ga);
+    var g = ctx.createRadialGradient(0,0,0, 0,0, w*0.46);
+    g.addColorStop(0,'rgba(150,215,255,0.08)');
+    g.addColorStop(0.45,'rgba(100,175,235,0.035)');
+    g.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.scale(1, 0.34);
+    ctx.fillStyle = g;
+    ctx.fillRect(-w, -w, w*2, w*2);
+    ctx.restore();
+    /* 深空天体（星云） */
+    for(var i=0;i<DSO.length;i++){
+      var dso = DSO[i];
+      var p = altaz(dso.ra, dso.dec, geo.lat, lst);
+      if(p.alt*180/Math.PI <= 0.5) continue;
+      var sp = proj(p.alt, p.az);
+      var r = dso.r/90 * h*(horizonY-zenithY) * 1.15;
+      var gd = ctx.createRadialGradient(sp.x, sp.y, 0, sp.x, sp.y, r);
+      gd.addColorStop(0, 'rgba(120,205,255,'+dso.a+')');
+      gd.addColorStop(0.6, 'rgba(90,170,235,'+(dso.a*0.5)+')');
+      gd.addColorStop(1, 'rgba(60,130,200,0)');
+      ctx.fillStyle = gd;
+      ctx.beginPath(); ctx.arc(sp.x, sp.y, r, 0, Math.PI*2); ctx.fill();
+    }
+    /* 真实恒星（视星等→大小/亮度） */
+    var N = STAR.length;
+    for(var i=0;i<N;i++){
+      var st = STAR[i];
+      var p = altaz(st[0], st[1], geo.lat, lst);
+      var altD = p.alt*180/Math.PI;
+      if(altD <= 0.15) continue;
+      var sp = proj(p.alt, p.az);
+      var m = st[2];
+      var sz = m<-1 ? 4.0 : m<0 ? 3.4 : m<1 ? 2.9 : m<2 ? 2.4 : m<3 ? 2.0 : m<4 ? 1.6 : m<5 ? 1.3 : 1.0;
+      var br = Math.max(0.30, (6.2-m)/6.2);
+      var tw = 0.75 + 0.25*Math.sin(t*0.0012 + st[0]*7);
+      ctx.fillStyle = 'rgba(212,240,255,'+(br*tw).toFixed(3)+')';
+      ctx.fillRect(sp.x - sz/2, sp.y - sz/2, sz, sz);
+      /* 亮星光晕 + 光芒 */
+      if(m < 2.2){
+        var gr = sz*4.6;
+        var gd2 = ctx.createRadialGradient(sp.x, sp.y, 0, sp.x, sp.y, gr);
+        gd2.addColorStop(0, 'rgba(200,238,255,'+(0.42*br*tw).toFixed(3)+')');
+        gd2.addColorStop(1, 'rgba(200,238,255,0)');
+        ctx.fillStyle = gd2;
+        ctx.beginPath(); ctx.arc(sp.x, sp.y, gr, 0, Math.PI*2); ctx.fill();
+        ctx.strokeStyle = 'rgba(200,238,255,'+(0.55*br*tw).toFixed(3)+')';
+        ctx.lineWidth = 0.8;
+        ctx.beginPath();
+        ctx.moveTo(sp.x-sz*2.8, sp.y); ctx.lineTo(sp.x+sz*2.8, sp.y);
+        ctx.moveTo(sp.x, sp.y-sz*2.8); ctx.lineTo(sp.x, sp.y+sz*2.8);
+        ctx.stroke();
+      }
+    }
+    /* 星座连线（真实位置） */
+    for(var c=0;c<CONS.length;c++){
+      var con = CONS[c];
+      var pts = [];
+      for(var k=0;k<con.s.length;k++){
+        var p = altaz(con.s[k][0], con.s[k][1], geo.lat, lst);
+        if(p.alt*180/Math.PI <= 0.3){ pts.push(null); continue; }
+        var sp = proj(p.alt, p.az);
+        pts.push(sp);
+      }
+      ctx.strokeStyle = 'rgba(62,230,255,0.34)';
+      ctx.lineWidth = 1;
+      for(var li=0; li<con.l.length; li++){
+        var a = pts[con.l[li][0]], b = pts[con.l[li][1]];
+        if(!a || !b) continue;
+        ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+      }
+      for(var k=0;k<pts.length;k++){
+        if(!pts[k]) continue;
+        ctx.beginPath(); ctx.arc(pts[k].x, pts[k].y, 1.8, 0, Math.PI*2);
+        ctx.fillStyle = 'rgba(200,242,255,0.95)'; ctx.fill();
+      }
+      if(pts[0]){ ctx.fillStyle='rgba(62,230,255,0.5)'; ctx.font='10px "Microsoft YaHei",sans-serif';
+        ctx.fillText(con.n, pts[0].x-16, pts[0].y-7); }
+    }
+    /* 月亮（真实位置+月相） */
+    var mp = moonPos(now);
+    var pm = altaz(mp.ra, mp.dec, geo.lat, lst);
+    if(pm.alt*180/Math.PI > 0.3){
+      var mps = proj(pm.alt, pm.az);
+      var mr = h*0.026;
+      var ph = mp.phase;  // 0 新月 180 满月
+      var illum = 1 - Math.cos((ph)*Math.PI/180); // 0-2 照亮因子
+      ctx.save();
+      ctx.translate(mps.x, mps.y);
+      var gd3 = ctx.createRadialGradient(0,0,0, 0,0, mr*3.2);
+      gd3.addColorStop(0,'rgba(200,240,255,0.22)'); gd3.addColorStop(1,'rgba(200,240,255,0)');
+      ctx.fillStyle=gd3; ctx.beginPath(); ctx.arc(0,0,mr*3.2,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle = 'rgba(210,242,255,0.85)';
+      ctx.beginPath(); ctx.arc(0,0,mr,0,Math.PI*2); ctx.fill();
+      /* 月相蚀刻：用同色背景遮出月牙 */
+      ctx.globalCompositeOperation = 'destination-out';
+      var kx = (ph<180 ? 1 : -1);
+      ctx.beginPath();
+      ctx.arc(kx*mr*0.55, 0, mr*1.02, -Math.PI/2, Math.PI/2);
+      ctx.fill();
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.restore();
+    }
+  }
+  function loopSky(t){ drawSky(t); requestAnimationFrame(loopSky); }
+  window.addEventListener('resize', function(){ canvas.width=window.innerWidth; canvas.height=window.innerHeight; });
+  canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+  requestAnimationFrame(loopSky);
+  /* 定位后更新星空视点 */
+  function setGeo(lat, lng){ geo.lat = lat; geo.lng = lng; }
+
+  /* ---------- 前景叠加层（星盘/弯月/人形/法阵/河流/山脉） ---------- */
+  var ov = $('overlay'), ox = ov.getContext('2d');
+  function drawOverlay(){
+    var w = ov.width = window.innerWidth, h = ov.height = window.innerHeight;
+    ox.clearRect(0,0,w,h);
+    var CY = '62,230,255';
+    function line(a,b,c,d,col,lw){ ox.strokeStyle=col; ox.lineWidth=lw; ox.beginPath(); ox.moveTo(a,b); ox.lineTo(c,d); ox.stroke(); }
+    /* 弯月（左上） */
+    ox.save();
+    ox.translate(w*0.18, h*0.135);
+    ox.fillStyle = 'rgba(210,242,255,0.8)';
+    ox.beginPath(); ox.arc(0,0,h*0.040,0,Math.PI*2); ox.fill();
+    ox.globalCompositeOperation='destination-out';
+    ox.beginPath(); ox.arc(-h*0.016,-h*0.012,h*0.034,0,Math.PI*2); ox.fill();
+    ox.restore();
+    /* 星盘（右上） */
+    var sx=w*0.755, sy=h*0.205, sr=h*0.115;
+    ox.strokeStyle='rgba('+CY+',0.55)'; ox.lineWidth=1;
+    ox.beginPath(); ox.arc(sx,sy,sr,0,Math.PI*2); ox.stroke();
+    ox.beginPath(); ox.arc(sx,sy,sr*0.9,0,Math.PI*2); ox.stroke();
+    ox.beginPath(); ox.arc(sx,sy,sr*0.42,0,Math.PI*2); ox.stroke();
+    ox.beginPath(); ox.arc(sx,sy,sr*0.2,0,Math.PI*2); ox.stroke();
+    for(var i=0;i<60;i++){
+      var a=i/60*Math.PI*2;
+      var r1=(i%5===0)?sr*0.84:sr*0.9, r2=sr;
+      line(sx+Math.cos(a)*r1, sy+Math.sin(a)*r1, sx+Math.cos(a)*r2, sy+Math.sin(a)*r2, 'rgba('+CY+',0.5)', i%5===0?1.4:0.7);
+    }
+    line(sx-sr*1.12,sy,sx+sr*1.12,sy,'rgba('+CY+',0.4)',1);
+    line(sx,sy-sr*1.12,sx,sy+sr*1.12,'rgba('+CY+',0.4)',1);
+    ox.beginPath(); ox.arc(sx,sy,sr*0.14,0,Math.PI*2); ox.fillStyle='rgba(62,230,255,0.7)'; ox.fill();
+    /* 人形线框剪影（中央，发光增强） */
+    var cx=w*0.50, cy=h*0.632, hh=h*0.112;
+    function glowLine(a,b,c,d,col,lw,gw){
+      for(var g=0;g<2;g++){ ox.strokeStyle='rgba('+CY+','+(0.10-g*0.04)+')'; ox.lineWidth=lw+gw-g*gw*0.5;
+        ox.beginPath(); ox.moveTo(a,b); ox.lineTo(c,d); ox.stroke(); }
+      ox.strokeStyle=col; ox.lineWidth=lw;
+      ox.beginPath(); ox.moveTo(a,b); ox.lineTo(c,d); ox.stroke();
+    }
+    ox.strokeStyle='rgba(215,245,255,0.95)'; ox.lineWidth=1.8;
+    ox.beginPath(); ox.arc(cx,cy,hh*0.09,0,Math.PI*2); ox.stroke();
+    glowLine(cx,cy+hh*0.10,cx,cy+hh*0.52,'rgba(215,245,255,0.95)',1.8,3.5);
+    glowLine(cx-hh*0.16,cy+hh*0.13,cx+hh*0.16,cy+hh*0.13,'rgba(215,245,255,0.8)',1.4,3);
+    glowLine(cx-hh*0.15,cy+hh*0.15,cx-hh*0.12,cy+hh*0.36,'rgba(215,245,255,0.75)',1.3,3);
+    glowLine(cx+hh*0.15,cy+hh*0.15,cx+hh*0.12,cy+hh*0.36,'rgba(215,245,255,0.75)',1.3,3);
+    glowLine(cx,cy+hh*0.52,cx-hh*0.07,cy+hh*0.85,'rgba(215,245,255,0.85)',1.6,3);
+    glowLine(cx,cy+hh*0.52,cx+hh*0.07,cy+hh*0.85,'rgba(215,245,255,0.85)',1.6,3);
+    /* 脚下法阵 */
+    var fy=cy+hh*0.88, fr=h*0.075;
+    ox.strokeStyle='rgba('+CY+',0.5)'; ox.lineWidth=1;
+    [1,0.62,0.32].forEach(function(k){ ox.beginPath(); ox.arc(cx,fy,fr*k,0,Math.PI*2); ox.stroke(); });
+    for(var i=0;i<12;i++){
+      var a=i/12*Math.PI*2;
+      line(cx+Math.cos(a)*fr*0.32, fy+Math.sin(a)*fr*0.32, cx+Math.cos(a)*fr*1.0, fy+Math.sin(a)*fr*1.0, 'rgba('+CY+',0.42)', 1);
+    }
+    line(cx-fr*1.12,fy,cx+fr*1.12,fy,'rgba('+CY+',0.35)',0.8);
+    line(cx,fy-fr*1.12,cx,fy+fr*1.12,'rgba('+CY+',0.35)',0.8);
+    ox.beginPath(); ox.arc(cx,fy,fr*0.12,0,Math.PI*2); ox.fillStyle='rgba(62,230,255,0.8)'; ox.fill();
+    /* 暖橙点缀（样本：仅局部单点极微弱暖橙微光作为焦点） */
+    var warm = ox.createRadialGradient(cx, fy, 0, cx, fy, fr*1.5);
+    warm.addColorStop(0,'rgba(255,170,80,0.10)'); warm.addColorStop(0.4,'rgba(255,160,70,0.05)'); warm.addColorStop(1,'rgba(255,150,60,0)');
+    ox.fillStyle = warm; ox.beginPath(); ox.arc(cx, fy, fr*1.5, 0, Math.PI*2); ox.fill();
+    /* 发光河流（从法阵延伸向城市） */
+    ox.lineCap='round';
+    for(var k=0;k<4;k++){
+      var alpha=0.30-k*0.06, lw=6-k*1.2;
+      ox.strokeStyle='rgba('+CY+','+alpha+')'; ox.lineWidth=lw;
+      ox.beginPath(); ox.moveTo(cx,fy+fr*0.9);
+      ox.bezierCurveTo(cx+h*0.10,h*0.80,cx-h*0.06,h*0.87,cx+h*0.03,h*1.02);
+      ox.stroke();
+    }
+    /* 两侧山脉（等高线） */
+    function ridge(x0,x1,baseY,amp,segs,col){
+      ox.strokeStyle=col; ox.lineWidth=0.9;
+      ox.beginPath(); ox.moveTo(x0,baseY);
+      for(var i=1;i<=segs;i++){
+        var nx=x0+(x1-x0)*i/segs;
+        var ny=baseY - amp*Math.abs(Math.sin(i*0.9))*Math.sin(i*2.1+baseY);
+        ox.lineTo(nx,ny);
+      }
+      ox.stroke();
+    }
+    ridge(w*0.0, w*0.34, h*0.625, h*0.035, 14, 'rgba('+CY+',0.42)');
+    ridge(w*0.02,w*0.33, h*0.658, h*0.03, 14, 'rgba('+CY+',0.30)');
+    ridge(w*0.05,w*0.31, h*0.685, h*0.025, 12, 'rgba('+CY+',0.20)');
+    ridge(w*0.66, w*1.0, h*0.625, h*0.035, 14, 'rgba('+CY+',0.42)');
+    ridge(w*0.67, w*0.98, h*0.658, h*0.03, 14, 'rgba('+CY+',0.30)');
+    ridge(w*0.69, w*0.95, h*0.685, h*0.025, 12, 'rgba('+CY+',0.20)');
+  }
+  window.addEventListener('resize', drawOverlay);
+  drawOverlay();
+
+  /* ---------- 时间 ---------- */
+  function pad(n){ return (n<10?'0':'')+n; }
+  function tickTime(){
+    var d=new Date();
+    $('pvTime').textContent = d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())+' '+pad(d.getHours())+':'+pad(d.getMinutes())+':'+pad(d.getSeconds());
+  }
+  setInterval(tickTime,1000); tickTime();
+
+  /* ---------- 状态 ---------- */
+  function setStatus(txt){ $('statusTxt').textContent = txt; }
+  function setLoading(txt, hide){
+    $('loadsub').textContent = txt||'';
+    if(hide) setTimeout(function(){ $('loading').classList.add('hide'); }, 500);
+  }
+
+  /* ---------- 地图 ---------- */
+  function initMap(center, cityName, mode){
+    if(map){ map.destroy(); map=null; }
+    map = new AMap.Map('map', {
+      viewMode:'3D', pitch:62, zoom:17,
+      center: center,
+      mapStyle:'amap://styles/dark',
+      features:['bg','road'],
+      showLabel:false,
+      zooms:[6,20],
+      preserveDrawingBuffer:true  // R3: 保留 WebGL 前缓冲，使 readPixels/toDataURL 可读取楼块像素
+    });
+    buildings = new AMap.Buildings({map:map, zooms:[15,20], merge:false, sort:false});
+    buildings.setStyle({
+      hideWithoutStyle:false,
+      rejectTexture:true,
+      color1:'#0a3a4a',  // R3: 深青蓝（r 压低，g/b 提高）
+      color2:'#1a7a9f'   // R3: 较亮青蓝
+    });
+    map.add(buildings);
+    map.on('complete', function(){
+      console.log('[ts] map complete');
+      setStatus('已就绪 · ' + ($('pvCity').textContent || cityName || ''));
+      setLoading('', true);
+    });
+    map.on('moveend', function(){
+      var c = map.getCenter();
+      $('pvCoord').textContent = c.lng.toFixed(4)+' , '+c.lat.toFixed(4);
+    });
+    $('pvCity').textContent = cityName||'--';
+    $('pvMode').textContent = mode||'--';
+    var clng = (typeof center === 'object' && center.lng != null) ? center.lng : center[0];
+    var clat = (typeof center === 'object' && center.lat != null) ? center.lat : center[1];
+    $('pvCoord').textContent = clng.toFixed(4)+' , '+clat.toFixed(4);
+  }
+
+  function gotoCity(lng, lat, name, mode){
+    setStatus('定位中 · '+name);
+    initMap([lng,lat], name, mode);
+  }
+
+  /* ---------- IP 定位（fetch 经纬度 → 聚焦；Geocoder 补中文城市名） ---------- */
+  function cnName(en){
+    var m = {'Jinan':'济南','Shanghai':'上海','Beijing':'北京','Taipei':'台北','Shenzhen':'深圳',
+      'Guangzhou':'广州','Hangzhou':'杭州','Nanjing':'南京','Chengdu':'成都','Wuhan':'武汉',
+      'Qingdao':'青岛','Tianjin':'天津','Chongqing':'重庆','Xi\'an':'西安','Zhengzhou':'郑州',
+      'Suzhou':'苏州','Jining':'济宁','Dezhou':'德州','Liaocheng':'聊城','Heze':'菏泽',
+      'Tai\'an':'泰安','Linyi':'临沂','Weifang':'潍坊','Yantai':'烟台','Weihai':'威海',
+      'Dongying':'东营','Binzhou':'滨州','Zaozhuang':'枣庄','Rizhao':'日照','Jiaxing':'嘉兴'};
+    return m[en] || null;
+  }
+  function reverseName(lng, lat){
+    try{
+      AMap.plugin('AMap.Geocoder', function(){
+        new AMap.Geocoder().getAddress([lng, lat], function(st, res){
+          if(st === 'complete' && res && res.regeocode && res.regeocode.addressComponent){
+            var c = res.regeocode.addressComponent.city || res.regeocode.addressComponent.province;
+            if(c) $('pvCity').textContent = c.replace(/市$/,'');
+          }
+        });
+      });
+    }catch(e){}
+  }
+  function ipLocate(){
+    console.log('[ts] ipLocate(fetch) start');
+    setStatus('正在定位 IP …');
+    var t = setTimeout(function(){ setStatus('IP 定位超时 · 保持当前视图'); }, 12000);
+    fetch('https://api.ip.sb/geoip')
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        if(!d.latitude || !d.longitude) throw new Error('no coord');
+        clearTimeout(t);
+        var en = d.city || '';
+        setStatus('已识别 · ' + (cnName(en) || en || d.region || '当前位置'));
+        focus(d.longitude, d.latitude, cnName(en) || en || '当前位置', 'IP 定位');
+        reverseName(d.longitude, d.latitude);
+      })
+      .catch(function(){
+        fetch('https://ipinfo.io/json')
+          .then(function(r){ return r.json(); })
+          .then(function(d){
+            if(!d.loc) throw new Error('no loc');
+            var p = d.loc.split(',');
+            clearTimeout(t);
+            var en = d.city || '';
+            focus(parseFloat(p[1]), parseFloat(p[0]), cnName(en) || en || '当前位置', 'IP 定位');
+            reverseName(parseFloat(p[1]), parseFloat(p[0]));
+          })
+          .catch(function(){ setStatus('IP 定位失败 · 保持当前视图'); });
+      });
+  }
+
+  function focus(lng, lat, name, mode){
+    $('pvCity').textContent = name;
+    $('pvMode').textContent = mode + ' · 实时坐标';
+    map.setCenter([lng, lat]); map.setZoom(16);
+    if(typeof setGeo === 'function') setGeo(lat, lng);   // 星空视点随定位更新
+    setStatus('已就绪 · '+name);
+  }
+
+  /* ---------- 城市按钮 ---------- */
+  var keys = Object.keys(cities), btnBox = $('cityBtns');
+  keys.forEach(function(k){
+    var b = document.createElement('button');
+    b.textContent = cities[k].name;
+    b.dataset.key = k;
+    if(k==='jinan') b.classList.add('on');
+    b.onclick = function(){
+      Array.prototype.forEach.call(btnBox.children, function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      if(k==='auto'){ ipLocate(); return; }
+      var c = cities[k];
+      gotoCity(c.lng, c.lat, c.name, '手动选择');
+    };
+    btnBox.appendChild(b);
+  });
+
+  /* ---------- 启动（默认济南视图；自动定位由按钮触发） ---------- */
+  function boot(){
+    if(!window.AMap){ setStatus('地图引擎加载失败'); setLoading('', true); return; }
+    try{ gotoCity(117.1201, 36.6512, '济南', '默认视图'); }catch(e){ console.log('[ts] initMap err', e && e.message); }
+  }
+  if(window.AMap){ boot(); } else { window.addEventListener('load', boot); }
+})();
+</script>
+</body>
+</html>

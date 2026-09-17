@@ -1,0 +1,197 @@
+/* src/pages/bazi/bazi-topics.css · IT-5.5 依据（token 别名）；BEM kebab-case */
+/* 修正：所有通用类名作用域化到 .ts-page--bazi-topics，避免跨页面污染 */
+
+.ts-page--bazi-topics .ts-page__title {
+  color: var(--text-primary, #E0E6ED);
+}
+
+/* ============ 主题 Tabs ============ */
+.ts-topic-tabs {
+  display: flex;
+  gap: 6px;
+  margin: 12px 0;
+  flex-wrap: wrap;
+}
+
+.ts-topic-tabs--inline {
+  margin: 8px 0;
+}
+
+.ts-topic-tabs__item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-primary, #E0E6ED);
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.ts-topic-tabs__item:hover:not(:disabled) {
+  border-color: rgba(77, 195, 255, 0.4);
+}
+
+.ts-topic-tabs__item.is-active {
+  border-color: var(--neon-cyan, #4DC3FF);
+  color: var(--neon-cyan, #4DC3FF);
+  background: rgba(77, 195, 255, 0.08);
+  cursor: default;
+}
+
+.ts-topic-tabs__item:disabled {
+  cursor: default;
+}
+
+.ts-topic-tabs__item:focus-visible {
+  outline: 2px solid var(--neon-cyan, #4DC3FF);
+  outline-offset: 2px;
+}
+
+/* ============ 证据面板 ============ */
+.ts-topic-evidence {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ts-topic-evidence__block {
+  margin-top: 4px;
+}
+
+.ts-topic-evidence__block .ts-card__subtitle {
+  color: var(--text-primary, #E0E6ED);
+  margin: 0 0 6px;
+  font-size: 13px;
+}
+
+.ts-topic-evidence__list {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  color: var(--text-primary, #E0E6ED);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.ts-topic-evidence__list li {
+  padding: 2px 0;
+}
+
+/* ============ AI 操作区（作用域化到本页，避免与 ziwei-palaces.css 冲突） ============ */
+.ts-page--bazi-topics .ts-ai-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.ts-page--bazi-topics .ts-btn--ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.ts-page--bazi-topics .ts-ai-panel {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(77, 195, 255, 0.04);
+  border: 1px solid rgba(77, 195, 255, 0.18);
+}
+
+.ts-page--bazi-topics .ts-ai-panel__body {
+  color: var(--text-primary, #E0E6ED);
+  font-size: 13px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.ts-page--bazi-topics .ts-ai-panel__boundary {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+  color: var(--text-secondary, #8B9BB4);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* ============ 移动端 ============ */
+@media (max-width: 640px) {
+  .ts-topic-tabs__item {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .ts-page--bazi-topics .ts-ai-actions {
+    flex-wrap: wrap;
+  }
+}
+③路由注册片段
+tsx
+复制
+下载
+// src/App.tsx 顶部 lazy 声明区
+const TopicsPage = lazy(async () => {
+  const m = await import('./pages/bazi/TopicsPage');
+  return { default: m.TopicsPage };
+});
+
+// <Routes> 内，紧接 /result 之后、/privacy 之前
+<Route
+  path="/bazi/topics/:topic"
+  element={<Suspense fallback={<RouteFallback />}><TopicsPage /></Suspense>}
+/>
+
+/bazi/dayun / /bazi/liunian / /result?system=bazi 底部“按主题查看”入口挂载片段：
+
+tsx
+复制
+下载
+// 在 DayunPage / LiunianPage 底部 / ResultPage bazi 视图尾部
+import { TopicTabs } from '../bazi/components/TopicTabs';   // 路径按实际调整
+import { useSearchParams } from 'react-router-dom';
+
+// 若当前页有查询串，TopicTabs 自动读取；若无，用 fallbackSearch 透传出生信息
+const [sp] = useSearchParams();
+const fallback = {
+  gender: birth.gender,
+  dateType: birth.dateType,
+  year: birth.year,
+  month: birth.month,
+  day: birth.day,
+  timeIndex: birth.timeIndex,
+};
+
+<TopicTabs active="career" variant="inline" fallbackSearch={sp.toString() ? undefined : fallback} />
+④自审六项
+审计项    结论
+功能覆盖    4 文件完整交付：TopicsPage（URL 解析 + 首次排盘 + 稳定缓存依赖 + topic 切换 + AI 解读 + 中文标签 + 错误分级 + onBack 兜底 + 非法 topic replace + 无 input 不渲染 tabs）、TopicTabs（4 tab + inline 变体 + fallbackSearch 兜底 + 当前 tab disabled）、TopicEvidencePanel（递归文本提取 + 三块独立占位）、bazi-topics.css（作用域化 + token + 移动端）。
+接口可用    仅调 POST /api/v1/bazi/calculate（出生信息，不携 baziFortuneScope）与 POST /api/v1/bazi/prompt（promptTopic: career|wealth|marriage|health、responseMode:"summary"）；AI 走 useAiChat 真实签名（analyze/status/cancel/streamingContent/turns）；未触碰未声明端点；无 targetYear 残留。
+数据来源    四柱十神 / 四柱关系 / 命理分析来自 /bazi/calculate 实测字段；AI 提示词来自 /bazi/prompt 的 data.prompt；无造数；analysis 字段用递归提取兼容对象/字符串两种形态。
+依赖声明    零新增 npm 依赖；复用 PageTopbar / PrivacyHint / FortuneEvidenceCard / relationsToEvidence / useAiChat（IT-1.1 真实签名）/ useFortuneCache（第 4 轮已交付）/ trackChartSubmit（IT-1.7）。
+边界覆盖    URL 非法 → 提示且不渲染 tabs / 结果区；非法 topic → replace 至 career 保留查询串；ok:false → 展示后端 message；AI 忙碌态禁用 + 取消按钮；AI 面板附解释边界；onBack 兜底 navigate('/')；prompt 缺失 → 明确提示；缓存命中免请求（依赖稳定化后不会无限循环）；无查询串时 fallbackSearch 兜底；analysis 对象/字符串双态；三块证据独立占位。
+工作量    TopicsPage.tsx ≈ 250 行；TopicTabs.tsx ≈ 75 行；TopicEvidencePanel.tsx ≈ 130 行；bazi-topics.css ≈ 120 行 —— 全部 ≤800 行。
+三、契约缺口
+
+缺什么：/api/v1/bazi/calculate 请求体 name 字段是否必填（本版传 ''）。
+影响：若端点将空 name 视为非法，首次排盘 400。
+建议：回填该端点必填字段清单；或确认 name 可空。
+
+缺什么：analysis.dayMasterStrength / mingGe / usefulGod 的精确类型（IT-2.2 只写 {}，未声明内部字段名）。
+影响：本版用 extractText 递归（支持 text/summary/conclusion/note/description/value），但若字段名不同则提取失败。
+建议：回填三个字段的精确结构（如 { key, status, text, sources, limitation }）。
+
+缺什么：useAiChat 返回的 reset / cancel / analyze 是否引用稳定（是否 useCallback 包裹）。
+影响：本版用 resetRef 规避不稳定引用；若 reset 实际稳定，可简化。
+建议：回填 useAiChat 内部 hooks 使用情况。
+
+缺什么：/result?system=bazi 尾部“深化入口”插槽的组件级契约（IT-5.11-11 提及但未给接口）。
+影响：本版给出 <TopicTabs variant="inline" fallbackSearch={...} /> 建议，最终接线由本地侧统一。
+建议：回填 ResultPage 深化入口插槽规范。
+
+缺什么：AI 面板解释边界文案是否统一走 i18n key common.explanationBoundary。
+影响：本版 zh-CN 硬编码，与 i18n key 清单同步。
+建议：回填是否强制走 i18n。
+
+缺什么：useFortuneCache 的 scope: 'bazi-topics' 是否与 IT-5.11-12 命名规范完全匹配（本版未含 topic，因 calculate 输出与 topic 无关）。
+影响：切换 topic 时缓存命中同一份 BaziCalcData（预期行为）。
+建议：确认命名规范。

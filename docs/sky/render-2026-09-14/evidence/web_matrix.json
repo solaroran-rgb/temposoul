@@ -1,0 +1,540 @@
+[
+  {
+    "tag": "W1-fixed1920-good",
+    "kbps": 8000,
+    "lat": 40,
+    "errors": [],
+    "wallLoadMs": 1221,
+    "perf": {
+      "nav": 78.09999999403954,
+      "version": "web-dom-1",
+      "tier": "1920",
+      "ext": "webp",
+      "weak": false,
+      "avifOk": true,
+      "fit": {
+        "target": {
+          "title": 645,
+          "sub": 390,
+          "cta": 190
+        },
+        "mul": {
+          "title": 0.8464,
+          "sub": 0.9545,
+          "cta": 1.1728
+        }
+      },
+      "decode": 1129.199999988079,
+      "url": "assets/scene_1920.webp",
+      "first": 1156.2999999970198,
+      "settled": 1165.2000000029802,
+      "firstFromNav": 1234.3999999910593,
+      "settleFromNav": 1243.2999999970198
+    },
+    "nav": {
+      "responseEnd": 68.6,
+      "load": 1207.3,
+      "transfer": 15794,
+      "res": [
+        {
+          "n": "scene_1920.webp",
+          "sz": 1059408,
+          "dur": 1099
+        }
+      ]
+    },
+    "dom": {
+      "title": {
+        "text": "命律TempoSoul",
+        "present": true,
+        "vw": 671,
+        "vh": 108,
+        "w": 762,
+        "h": 104,
+        "visW": 645,
+        "visH": 104,
+        "x_pct": 54.818,
+        "y_pct": 16.512
+      },
+      "subtitle": {
+        "text": "探索命运的节律",
+        "present": true,
+        "vw": 750,
+        "vh": 222,
+        "w": 420,
+        "h": 56,
+        "visW": 390,
+        "visH": 56,
+        "x_pct": 50,
+        "y_pct": 25.8
+      },
+      "cta": {
+        "text": "立即开始",
+        "present": true,
+        "vw": 845,
+        "vh": 332,
+        "w": 290,
+        "h": 104,
+        "visW": 190,
+        "visH": 44,
+        "x_pct": 51.562,
+        "y_pct": 39.627
+      },
+      "fit": {
+        "target": {
+          "title": 645,
+          "sub": 390,
+          "cta": 190
+        },
+        "mul": {
+          "title": 0.8464,
+          "sub": 0.9545,
+          "cta": 1.1728
+        }
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 1920,
+        "h": 969,
+        "natural": "1920x969",
+        "webW": 1920,
+        "webH": 969,
+        "webX": 0,
+        "webY": 0
+      },
+      "h1Count": 1,
+      "h1Text": "命律TempoSoul",
+      "bodyText": "命律TempoSoul 探索命运的节律 立即开始",
+      "selectable": true,
+      "title_": "命律 TempoSoul · 探索命运的节律",
+      "desc": "命律 TempoSoul —— 探索命运的节律。以东方时间智慧为底，读你此刻的天时。"
+    }
+  },
+  {
+    "tag": "W2-auto-good",
+    "kbps": 8000,
+    "lat": 40,
+    "errors": [],
+    "wallLoadMs": 1230,
+    "perf": {
+      "nav": 76,
+      "version": "web-dom-1",
+      "tier": 1920,
+      "ext": "webp",
+      "weak": false,
+      "avifOk": true,
+      "fit": {
+        "target": {
+          "title": 645,
+          "sub": 390,
+          "cta": 190
+        },
+        "mul": {
+          "title": 0.8464,
+          "sub": 0.9545,
+          "cta": 1.1728
+        }
+      },
+      "decode": 1143.3999999910593,
+      "url": "assets/scene_1920.webp",
+      "first": 1173.2000000029802,
+      "settled": 1176,
+      "firstFromNav": 1249.2000000029802,
+      "settleFromNav": 1252
+    },
+    "nav": {
+      "responseEnd": 64,
+      "load": 1222.2,
+      "transfer": 15790,
+      "res": [
+        {
+          "n": "scene_1920.webp",
+          "sz": 1059408,
+          "dur": 1110
+        }
+      ]
+    },
+    "dom": {
+      "title": {
+        "text": "命律TempoSoul",
+        "present": true,
+        "vw": 671,
+        "vh": 108,
+        "w": 762,
+        "h": 104,
+        "visW": 645,
+        "visH": 104,
+        "x_pct": 54.818,
+        "y_pct": 16.512
+      },
+      "subtitle": {
+        "text": "探索命运的节律",
+        "present": true,
+        "vw": 750,
+        "vh": 222,
+        "w": 420,
+        "h": 56,
+        "visW": 390,
+        "visH": 56,
+        "x_pct": 50,
+        "y_pct": 25.8
+      },
+      "cta": {
+        "text": "立即开始",
+        "present": true,
+        "vw": 845,
+        "vh": 332,
+        "w": 290,
+        "h": 104,
+        "visW": 190,
+        "visH": 44,
+        "x_pct": 51.562,
+        "y_pct": 39.627
+      },
+      "fit": {
+        "target": {
+          "title": 645,
+          "sub": 390,
+          "cta": 190
+        },
+        "mul": {
+          "title": 0.8464,
+          "sub": 0.9545,
+          "cta": 1.1728
+        }
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 1920,
+        "h": 969,
+        "natural": "1920x969",
+        "webW": 1920,
+        "webH": 969,
+        "webX": 0,
+        "webY": 0
+      },
+      "h1Count": 1,
+      "h1Text": "命律TempoSoul",
+      "bodyText": "命律TempoSoul 探索命运的节律 立即开始",
+      "selectable": true,
+      "title_": "命律 TempoSoul · 探索命运的节律",
+      "desc": "命律 TempoSoul —— 探索命运的节律。以东方时间智慧为底，读你此刻的天时。"
+    }
+  },
+  {
+    "tag": "W3-auto-weak",
+    "kbps": 1600,
+    "lat": 150,
+    "errors": [],
+    "wallLoadMs": 799,
+    "perf": {
+      "nav": 254,
+      "version": "web-dom-1",
+      "tier": 1080,
+      "ext": "avif",
+      "weak": true,
+      "avifOk": true,
+      "fit": {
+        "target": {
+          "title": 645,
+          "sub": 390,
+          "cta": 190
+        },
+        "mul": {
+          "title": 0.8464,
+          "sub": 0.9545,
+          "cta": 1.1728
+        }
+      },
+      "decode": 542.5,
+      "url": "assets/scene_1080.avif",
+      "first": 548.7000000029802,
+      "settled": 549.2000000029802,
+      "firstFromNav": 802.7000000029802,
+      "settleFromNav": 803.2000000029802
+    },
+    "nav": {
+      "responseEnd": 253.6,
+      "load": 787.9,
+      "transfer": 15790,
+      "res": [
+        {
+          "n": "scene_1080.avif",
+          "sz": 69536,
+          "dur": 525
+        }
+      ]
+    }
+  },
+  {
+    "tag": "W4-auto-slow",
+    "kbps": 400,
+    "lat": 400,
+    "errors": [],
+    "wallLoadMs": 2531,
+    "perf": {
+      "nav": 727.9000000059605,
+      "version": "web-dom-1",
+      "tier": 1080,
+      "ext": "avif",
+      "weak": true,
+      "avifOk": true,
+      "fit": {
+        "target": {
+          "title": 645,
+          "sub": 390,
+          "cta": 190
+        },
+        "mul": {
+          "title": 0.8464,
+          "sub": 0.9545,
+          "cta": 1.1728
+        }
+      },
+      "decode": 1794.2999999970198,
+      "url": "assets/scene_1080.avif",
+      "first": 1801.2999999970198,
+      "settled": 1802.9000000059605,
+      "firstFromNav": 2529.2000000029802,
+      "settleFromNav": 2530.800000011921
+    },
+    "nav": {
+      "responseEnd": 727.2,
+      "load": 2522.2,
+      "transfer": 15790,
+      "res": [
+        {
+          "n": "scene_1080.avif",
+          "sz": 69536,
+          "dur": 1786
+        }
+      ]
+    }
+  },
+  {
+    "tag": "W5-portrait-390x844",
+    "kbps": 8000,
+    "lat": 40,
+    "errors": [],
+    "wallLoadMs": 1226,
+    "perf": {
+      "nav": 74.90000000596046,
+      "version": "web-dom-1",
+      "tier": 1920,
+      "ext": "webp",
+      "weak": false,
+      "avifOk": true,
+      "fit": {
+        "target": {
+          "title": 645,
+          "sub": 390,
+          "cta": 190
+        },
+        "mul": {
+          "title": 1,
+          "sub": 1,
+          "cta": 1
+        }
+      },
+      "decode": 1152,
+      "url": "assets/scene_1920.webp",
+      "first": 1176.2000000029802,
+      "settled": 1187.9000000059605,
+      "firstFromNav": 1251.1000000089407,
+      "settleFromNav": 1262.800000011921
+    },
+    "nav": {
+      "responseEnd": 66.5,
+      "load": 1219.5,
+      "transfer": 15790,
+      "res": [
+        {
+          "n": "scene_1920.webp",
+          "sz": 1059408,
+          "dur": 1115
+        }
+      ]
+    },
+    "dom": {
+      "title": {
+        "text": "命律\nTempoSoul",
+        "present": true,
+        "vw": 80,
+        "vh": 127,
+        "w": 229,
+        "h": 93,
+        "visW": 229,
+        "visH": 91,
+        "x_pct": 50,
+        "y_pct": 20.526
+      },
+      "subtitle": {
+        "text": "探索命运的节律",
+        "present": true,
+        "vw": 128,
+        "vh": 264,
+        "w": 135,
+        "h": 19,
+        "visW": 131,
+        "visH": 19,
+        "x_pct": 49.998,
+        "y_pct": 32.363
+      },
+      "cta": {
+        "text": "立即开始",
+        "present": true,
+        "vw": 100,
+        "vh": 326,
+        "w": 190,
+        "h": 54,
+        "visW": 81,
+        "visH": 21,
+        "x_pct": 50,
+        "y_pct": 41.871
+      },
+      "fit": {
+        "target": {
+          "title": 645,
+          "sub": 390,
+          "cta": 190
+        },
+        "mul": {
+          "title": 1,
+          "sub": 1,
+          "cta": 1
+        }
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 390,
+        "h": 844,
+        "natural": "1920x969",
+        "webW": 390,
+        "webH": 844,
+        "webX": 0,
+        "webY": 0
+      },
+      "h1Count": 1,
+      "h1Text": "命律\nTempoSoul",
+      "bodyText": "命律 TempoSoul 探索命运的节律 立即开始",
+      "selectable": true,
+      "title_": "命律 TempoSoul · 探索命运的节律",
+      "desc": "命律 TempoSoul —— 探索命运的节律。以东方时间智慧为底，读你此刻的天时。"
+    }
+  },
+  {
+    "tag": "W6-tablet-834x1112",
+    "kbps": 8000,
+    "lat": 40,
+    "errors": [],
+    "wallLoadMs": 1240,
+    "perf": {
+      "nav": 85.90000000596046,
+      "version": "web-dom-1",
+      "tier": 1920,
+      "ext": "webp",
+      "weak": false,
+      "avifOk": true,
+      "fit": {
+        "target": {
+          "title": 645,
+          "sub": 390,
+          "cta": 190
+        },
+        "mul": {
+          "title": 1,
+          "sub": 1,
+          "cta": 1
+        }
+      },
+      "decode": 1144.3999999910593,
+      "url": "assets/scene_1920.webp",
+      "first": 1172.5,
+      "settled": 1174.699999988079,
+      "firstFromNav": 1258.4000000059605,
+      "settleFromNav": 1260.5999999940395
+    },
+    "nav": {
+      "responseEnd": 77.1,
+      "load": 1230.2,
+      "transfer": 15790,
+      "res": [
+        {
+          "n": "scene_1920.webp",
+          "sz": 1059408,
+          "dur": 1112
+        }
+      ]
+    },
+    "dom": {
+      "title": {
+        "text": "命律\nTempoSoul",
+        "present": true,
+        "vw": 172,
+        "vh": 167,
+        "w": 490,
+        "h": 199,
+        "visW": 490,
+        "visH": 195,
+        "x_pct": 49.999,
+        "y_pct": 23.957
+      },
+      "subtitle": {
+        "text": "探索命运的节律",
+        "present": true,
+        "vw": 273,
+        "vh": 424,
+        "w": 288,
+        "h": 40,
+        "visW": 281,
+        "visH": 40,
+        "x_pct": 49.999,
+        "y_pct": 39.915
+      },
+      "cta": {
+        "text": "立即开始",
+        "present": true,
+        "vw": 214,
+        "vh": 522,
+        "w": 406,
+        "h": 115,
+        "visW": 173,
+        "visH": 46,
+        "x_pct": 49.999,
+        "y_pct": 52.109
+      },
+      "fit": {
+        "target": {
+          "title": 645,
+          "sub": 390,
+          "cta": 190
+        },
+        "mul": {
+          "title": 1,
+          "sub": 1,
+          "cta": 1
+        }
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 834,
+        "h": 1112,
+        "natural": "1920x969",
+        "webW": 834,
+        "webH": 1112,
+        "webX": 0,
+        "webY": 0
+      },
+      "h1Count": 1,
+      "h1Text": "命律\nTempoSoul",
+      "bodyText": "命律 TempoSoul 探索命运的节律 立即开始",
+      "selectable": true,
+      "title_": "命律 TempoSoul · 探索命运的节律",
+      "desc": "命律 TempoSoul —— 探索命运的节律。以东方时间智慧为底，读你此刻的天时。"
+    }
+  }
+]

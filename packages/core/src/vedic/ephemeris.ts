@@ -61,8 +61,7 @@ export function tropicalEclipticLongitude(body: Body, utcMs: number): number {
  */
 export function meanNodeLongitude(utcMs: number): number {
   const t = (julianDate(utcMs) - J2000_JD) / JULIAN_CENTURY_DAYS;
-  const omega =
-    125.04452 - 1934.136261 * t + 0.0020708 * t * t + (t * t * t) / 450000;
+  const omega = 125.04452 - 1934.136261 * t + 0.0020708 * t * t + (t * t * t) / 450000;
   return normalizeLongitude(omega);
 }
 

@@ -1,0 +1,8 @@
+.news-detail__main{max-width:720px;margin:0 auto;padding:24px 16px}
+.news-detail__title{font-size:26px;line-height:1.4;margin:0 0 12px}
+.news-detail__meta{font-size:13px;color:#8a8f98;margin-bottom:24px}
+.news-detail__body{font-size:15px;line-height:1.8;color:var(--ts-text,inherit)}
+.news-detail__body p{margin:0 0 16px}
+.news-detail__empty,.news-detail__error{text-align:center;color:#8a8f98;padding:40px 0}
+.news-detail__body-skeleton{height:16px;margin-bottom:12px;border-radius:6px}
+.news-detail__title-skeleton{height:28px;margin-bottom:20px;border-radius:8px}

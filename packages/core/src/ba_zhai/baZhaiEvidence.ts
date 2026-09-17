@@ -7,11 +7,7 @@
  *
  * 覆盖八宅四大环节：命卦推算 → 命宫游年 → 宅卦配合 → 吉凶方位
  */
-import {
-  buildEvidenceTrail,
-  type EvidenceItem,
-  type EvidenceTrail,
-} from '../shared/evidence';
+import { buildEvidenceTrail, type EvidenceItem, type EvidenceTrail } from '../shared/evidence';
 import type { BaZhaiResult } from './index';
 
 export function buildBaZhaiEvidenceTrail(result: Omit<BaZhaiResult, 'prompt'>): EvidenceTrail {
@@ -59,7 +55,9 @@ export function buildBaZhaiEvidenceTrail(result: Omit<BaZhaiResult, 'prompt'>): 
         {
           name: '大游年宫位',
           reference: 'mingPalace',
-          output: result.mingPalace.map((p) => `${p.direction}:${p.label}（${p.luck}）`).slice(0, 8),
+          output: result.mingPalace
+            .map((p) => `${p.direction}:${p.label}（${p.luck}）`)
+            .slice(0, 8),
         },
       ],
       source: { type: 'classical', name: '大游年九星（生气/天医/延年/伏位/绝命/五鬼/六煞/祸害）' },
@@ -102,9 +100,7 @@ export function buildBaZhaiEvidenceTrail(result: Omit<BaZhaiResult, 'prompt'>): 
         applicableWhen: ['提供住宅坐向'],
         cautionWhen: ['坐向以罗盘度数为准'],
       },
-      counterEvidence: [
-        { description: '命宅配合判断存在流派差异', severity: 'alternative' },
-      ],
+      counterEvidence: [{ description: '命宅配合判断存在流派差异', severity: 'alternative' }],
       confidence: 'medium',
       depth: 1,
     });
@@ -131,15 +127,10 @@ export function buildBaZhaiEvidenceTrail(result: Omit<BaZhaiResult, 'prompt'>): 
       applicableWhen: ['按命卦判断方位吉凶'],
       cautionWhen: ['方位吉凶依命卦而异', '仅为风水参考'],
     },
-    counterEvidence: [
-      { description: '风水方位吉凶缺乏实证验证', severity: 'alternative' },
-    ],
+    counterEvidence: [{ description: '风水方位吉凶缺乏实证验证', severity: 'alternative' }],
     confidence: 'low',
     depth: 1,
   });
 
-  return buildEvidenceTrail(
-    items,
-    `八宅风水证据链（命卦${result.mingGua}·${result.mingGroup}）`,
-  );
+  return buildEvidenceTrail(items, `八宅风水证据链（命卦${result.mingGua}·${result.mingGroup}）`);
 }

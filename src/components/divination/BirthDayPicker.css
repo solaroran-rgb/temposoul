@@ -1,0 +1,9 @@
+﻿.birth-day-picker { display: inline-flex; gap: 8px; align-items: center; }
+.birth-day-picker__label { color: #D4D4D4; }
+.birth-day-picker__select {
+  background: #2D2D30;
+  color: #D4D4D4;
+  border: 1px solid #3E3E42;
+  border-radius: 4px;
+  padding: 4px 8px;
+}

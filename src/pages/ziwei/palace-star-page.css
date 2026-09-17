@@ -1,0 +1,12 @@
+/* src/pages/ziwei/palace-star-page.css */
+.palace-star { max-width: 820px; margin: 0 auto; padding: 16px; color: var(--text-primary, #E0E6ED); background: #05070d; }
+.palace-star__skeleton { height: 120px; border-radius: 8px; background: linear-gradient(90deg, #0d1220, #131a2c, #0d1220); animation: palace-star-pulse 1.6s ease-in-out infinite; }
+@keyframes palace-star-pulse { 0%, 100% { opacity: 0.7; } 50% { opacity: 1; } }
+.palace-star__meta { display: flex; gap: 8px; align-items: center; margin: 12px 0 16px 0; }
+.palace-star__tag { font-size: 12px; padding: 2px 10px; border: 1px solid rgba(77, 195, 255, 0.3); border-radius: 999px; color: var(--text-secondary, #8B9BB4); }
+.palace-star__section { margin: 20px 0; }
+.palace-star__heading { font-size: 15px; color: var(--neon-cyan, #4DC3FF); margin: 0 0 8px 0; }
+.palace-star__paragraph { font-size: 14px; line-height: 1.8; margin: 0 0 10px 0; }
+.palace-star__notice { font-size: 13px; color: var(--text-secondary, #8B9BB4); border-left: 3px solid var(--neon-cyan, #4DC3FF); padding: 6px 10px; margin: 12px 0; }
+.palace-star__empty, .palace-star__error { color: var(--text-secondary, #8B9BB4); text-align: center; padding: 40px 16px; font-size: 14px; line-height: 1.75; }
+.palace-star__disclaimer { margin-top: 32px; padding-top: 16px; border-top: 1px solid rgba(139, 155, 180, 0.15); font-size: 12px; color: var(--text-secondary, #8B9BB4); line-height: 1.6; }

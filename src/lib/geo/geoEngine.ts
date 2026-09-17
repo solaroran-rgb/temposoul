@@ -9,21 +9,27 @@
  * 缩放：自适应——观测点周边 MAX_RADIUS_M(3.5km) → MAX_RADIUS_U(170 units)，
  * 使地标始终落在相机视野（fov 58°，z∈[40,300]）与地面网格（±320）内。
  */
-import { DEG_LAT_M, degLonM, TAIPEI_LANDMARKS, TAIPEI_REF, type Landmark } from './landmarks';
+import { DEG_LAT_M, degLonM, TAIPEI_LANDMARKS, TAIPEI_REF } from './landmarks';
 import { CITY_LAYER } from '../sky/renderTokens';
 import type { CityPayload } from '../sky/sceneCore';
 import type { GlowSeg } from '../sky/materials/glowLine';
 import type { PointPart } from '../sky/materials/glowPoint';
 
-export const MAX_RADIUS_M = 3500;   // 地标检索半径（米）
-export const MAX_RADIUS_U = 170;    // 场景半径（units）
+export const MAX_RADIUS_M = 3500; // 地标检索半径（米）
+export const MAX_RADIUS_U = 170; // 场景半径（units）
 export const METER_TO_U = MAX_RADIUS_U / MAX_RADIUS_M; // ≈0.0486 units/m
 /** 建筑高度艺术夸张（线稿素描语言：小建筑垂直拉伸以获得天际线轮廓，非精确比例尺） */
 export const HEIGHT_SCALE = 1.8; // P1b：4→1.8（塔过高遮挡山脊天际线，缩小塔体让山露出）
-export const HEIGHT_CAP_U = 60;     // 塔尖视觉高度上限（101 高耸入画面上缘）
+export const HEIGHT_CAP_U = 60; // 塔尖视觉高度上限（101 高耸入画面上缘）
 
 /** 等距局部平面投影：经纬度 → 场景坐标（东=x，北=z，高=y） */
-export function project(lat0: number, lon0: number, lat: number, lon: number, hM = 0): { x: number; y: number; z: number } {
+export function project(
+  lat0: number,
+  lon0: number,
+  lat: number,
+  lon: number,
+  hM = 0,
+): { x: number; y: number; z: number } {
   const x = (lon - lon0) * degLonM(lat0) * METER_TO_U;
   const z = (lat - lat0) * DEG_LAT_M * METER_TO_U;
   return { x, y: hM * METER_TO_U, z };
@@ -31,7 +37,11 @@ export function project(lat0: number, lon0: number, lat: number, lon: number, hM
 
 /* ---- 段/点构建辅助 ---- */
 
-function pushSeg(out: number[], a: { x: number; y: number; z: number }, b: { x: number; y: number; z: number }) {
+function pushSeg(
+  out: number[],
+  a: { x: number; y: number; z: number },
+  b: { x: number; y: number; z: number },
+) {
   out.push(a.x, a.y, a.z, b.x, b.y, b.z);
 }
 
@@ -39,7 +49,13 @@ function pushSeg(out: number[], a: { x: number; y: number; z: number }, b: { x: 
 function ringToSegs(out: number[], ring: [number, number][], lat0: number, lon0: number, hM = 0) {
   for (let i = 0; i < ring.length; i++) {
     const a = project(lat0, lon0, ring[i][0], ring[i][1], hM);
-    const b = project(lat0, lon0, ring[(i + 1) % ring.length][0], ring[(i + 1) % ring.length][1], hM);
+    const b = project(
+      lat0,
+      lon0,
+      ring[(i + 1) % ring.length][0],
+      ring[(i + 1) % ring.length][1],
+      hM,
+    );
     pushSeg(out, a, b);
   }
 }
@@ -74,15 +90,15 @@ export function buildLandmarkPayload(lat: number, lon: number, _mobile = false):
   const water: number[] = [];
   const roads: number[] = [];
   const peaks: number[] = [];
-  const pWarm: number[] = [];   // 地标焦点（暖橙）
-  const pCool: number[] = [];   // 沿线粒子（冷色）
+  const pWarm: number[] = []; // 地标焦点（暖橙）
+  const pCool: number[] = []; // 沿线粒子（冷色）
 
   let anyInRange = false;
   for (const lm of TAIPEI_LANDMARKS) {
     const d = distM(lat, lon, lm.lat, lm.lon);
     if (d > MAX_RADIUS_M) continue;
     anyInRange = true;
-    const layer = layerByDistM(d);
+    layerByDistM(d);
     const center = project(lat, lon, lm.lat, lm.lon);
     const hM = lm.heightM ?? 0;
     const hU = hM * METER_TO_U;
@@ -162,7 +178,9 @@ export function buildLandmarkPayload(lat: number, lon: number, _mobile = false):
     points,
     water: water.length ? [{ pts: new Float32Array(water), layer: CITY_LAYER.mid }] : [],
     roads: roads.length ? [{ pts: new Float32Array(roads), layer: CITY_LAYER.mid }] : [],
-    landmarks: landmarks.length ? [{ pts: new Float32Array(landmarks), layer: CITY_LAYER.near }] : [],
+    landmarks: landmarks.length
+      ? [{ pts: new Float32Array(landmarks), layer: CITY_LAYER.near }]
+      : [],
   };
 }
 
@@ -190,13 +208,12 @@ export function buildAbstractSkylinePayload(lat: number, lon: number): CityPaylo
     // 局部塔尖粒子（暖橙焦点）
     if (r1 > 0.72) pWarm.push(x, y + 3, 80);
   }
-  const points: PointPart[] = [
-    { positions: new Float32Array(pWarm), size: 1.6, warm: 1 },
-  ];
+  const points: PointPart[] = [{ positions: new Float32Array(pWarm), size: 1.6, warm: 1 }];
   return {
     lines: [{ pts: new Float32Array(segs), layer: CITY_LAYER.mid }],
     points,
-    water: [], roads: [],
+    water: [],
+    roads: [],
     landmarks: [{ pts: new Float32Array(segs), layer: CITY_LAYER.far }],
   };
 }
@@ -225,15 +242,30 @@ export interface GeoTileJson {
   level: 'L0' | 'L1' | 'L2';
   unit: 'meter';
   center: { lat: number; lon: number };
-  landmarks?: { id: string; name?: string; kind: string; ring?: [number, number][]; heightM?: number; warm?: boolean }[];
+  landmarks?: {
+    id: string;
+    name?: string;
+    kind: string;
+    ring?: [number, number][];
+    heightM?: number;
+    warm?: boolean;
+  }[];
   roads?: { id: string; name?: string; polyline?: [number, number][] }[];
   water?: { id: string; name?: string; polyline?: [number, number][] }[];
   trails?: { id: string; name?: string; polyline?: [number, number][] }[];
 }
 
-const TILE101 = { lat: 25.0330, lon: 121.5654, radiusM: 3200 };
+const TILE101 = { lat: 25.033, lon: 121.5654, radiusM: 3200 };
 
-function pushSeg2(out: number[], ax: number, ay: number, az: number, bx: number, by: number, bz: number) {
+function pushSeg2(
+  out: number[],
+  ax: number,
+  ay: number,
+  az: number,
+  bx: number,
+  by: number,
+  bz: number,
+) {
   out.push(ax, ay, az, bx, by, bz);
 }
 
@@ -249,7 +281,8 @@ function mLineToSegs(out: number[], pts: [number, number][], y: number) {
 function mRingToSegs(out: number[], ring: [number, number][], y: number) {
   const S = METER_TO_U;
   for (let i = 0; i < ring.length; i++) {
-    const a = ring[i], b = ring[(i + 1) % ring.length];
+    const a = ring[i],
+      b = ring[(i + 1) % ring.length];
     pushSeg2(out, a[0] * S, y, a[1] * S, b[0] * S, y, b[1] * S);
   }
 }
@@ -260,17 +293,19 @@ function mRingToSegs(out: number[], ring: [number, number][], y: number) {
  *      L2 水系 → water 槽、山径 → lines（远）；101（warm）→ 完整轮廓+垂直棱线+顶环+暖橙焦点
  */
 export function buildTilePayload(tiles: GeoTileJson[]): CityPayload {
-  const nearLines: number[] = [];   // L0 建筑体量（棱线/顶环）
-  const midLines: number[] = [];    // L1 建筑地面环
-  const farLines: number[] = [];    // L2 建筑 + 山径
-  const landSegs: number[] = [];    // L0 建筑地面环（近亮）
+  const nearLines: number[] = []; // L0 建筑体量（棱线/顶环）
+  const midLines: number[] = []; // L1 建筑地面环
+  const farLines: number[] = []; // L2 建筑 + 山径
+  const landSegs: number[] = []; // L0 建筑地面环（近亮）
   const roadSegs: number[] = [];
   const waterSegs: number[] = [];
   const pWarm: number[] = [];
   const pCool: number[] = [];
 
   for (const t of tiles) {
-    const isL0 = t.level === 'L0', isL1 = t.level === 'L1', isL2 = t.level === 'L2';
+    const isL0 = t.level === 'L0',
+      isL1 = t.level === 'L1',
+      isL2 = t.level === 'L2';
     for (const lm of t.landmarks ?? []) {
       if (!lm.ring || lm.ring.length < 3) continue;
       // 视觉高度（HEIGHT_SCALE 夸张 + 塔尖 cap；101 高耸入画面顶部）
@@ -333,14 +368,17 @@ export interface GeoTerrainJson {
   level: 'DEM';
   unit: 'meter';
   contours: { level: number; segments: number[] }[]; // 段流 x1,z1,x2,z2,...
-  vegetation: [number, number, number][];             // [x,z,h] 米制
+  vegetation: [number, number, number][]; // [x,z,h] 米制
 }
 
 /**
  * P1b · DEM 地形 → 山体等高线线稿 + 植被粒子
  * 等高线按海拔分三段亮度（近山亮、远山暗；jinan-v2 近亮远暗）；y 按海拔抬升形成层叠山形。
  */
-export function buildTerrainPayload(t: GeoTerrainJson): { terrain: GlowSeg[]; vegetation: PointPart[] } {
+export function buildTerrainPayload(t: GeoTerrainJson): {
+  terrain: GlowSeg[];
+  vegetation: PointPart[];
+} {
   const S = METER_TO_U;
   const bands: { segs: number[]; layer: number }[] = [
     { segs: [], layer: 1.0 },
@@ -355,11 +393,19 @@ export function buildTerrainPayload(t: GeoTerrainJson): { terrain: GlowSeg[]; ve
     for (let k = 0; k + 3 < c.segments.length; k += 4) {
       // P1b：只保留南方远景段（z < -20m），近处贴地段剔除（避免与城市线稿重叠淹没）
       if (c.segments[k + 1] > -20 || c.segments[k + 3] > -20) continue;
-      segs.push(c.segments[k] * S, y, c.segments[k + 1] * S, c.segments[k + 2] * S, y, c.segments[k + 3] * S);
+      segs.push(
+        c.segments[k] * S,
+        y,
+        c.segments[k + 1] * S,
+        c.segments[k + 2] * S,
+        y,
+        c.segments[k + 3] * S,
+      );
     }
   }
   const terrain: GlowSeg[] = [];
-  for (const b of bands) if (b.segs.length >= 6) terrain.push({ pts: new Float32Array(b.segs), layer: b.layer });
+  for (const b of bands)
+    if (b.segs.length >= 6) terrain.push({ pts: new Float32Array(b.segs), layer: b.layer });
   const veg: number[] = [];
   for (const [x, z] of t.vegetation) veg.push(x * S, 0.6, z * S);
   return {
@@ -375,7 +421,9 @@ export async function loadTilePayload(lat: number, lon: number): Promise<CityPay
     fetch('/geo/taipei101-L0.json').then((r) => r.json() as Promise<GeoTileJson>),
     fetch('/geo/taipei101-L1.json').then((r) => r.json() as Promise<GeoTileJson>),
     fetch('/geo/taipei101-L2.json').then((r) => r.json() as Promise<GeoTileJson>),
-    fetch('/geo/taipei101-dem.json').then((r) => r.json() as Promise<GeoTerrainJson>).catch(() => null),
+    fetch('/geo/taipei101-dem.json')
+      .then((r) => r.json() as Promise<GeoTerrainJson>)
+      .catch(() => null),
   ]);
   const base = buildTilePayload([l0, l1, l2]);
   if (!dem) return base;

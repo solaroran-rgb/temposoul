@@ -86,7 +86,13 @@ export const NAKSHATRAS: NakshatraInfo[] = [
   { index: 22, sanskrit: 'Dhanishta', chinese: '女宿', lord: 'Mangala', deity: 'Vasus' },
   { index: 23, sanskrit: 'Shatabhisha', chinese: '虚宿', lord: 'Rahu', deity: 'Varuna' },
   { index: 24, sanskrit: 'Purva Bhadrapada', chinese: '危宿', lord: 'Guru', deity: 'Ajaikapada' },
-  { index: 25, sanskrit: 'Uttara Bhadrapada', chinese: '室宿', lord: 'Shani', deity: 'Ahirbudhnya' },
+  {
+    index: 25,
+    sanskrit: 'Uttara Bhadrapada',
+    chinese: '室宿',
+    lord: 'Shani',
+    deity: 'Ahirbudhnya',
+  },
   { index: 26, sanskrit: 'Revati', chinese: '壁宿', lord: 'Budha', deity: 'Pushan' },
 ];
 
@@ -132,10 +138,7 @@ export function longitudeToNakshatra(longitude: number): NakshatraPosition {
   const nakshatraIndex = Math.min(NAKSHATRA_COUNT - 1, Math.floor(lon / NAKSHATRA_SPAN_DEG));
   const within = lon - nakshatraIndex * NAKSHATRA_SPAN_DEG;
   const elapsedRatio = Number((within / NAKSHATRA_SPAN_DEG).toFixed(8));
-  const pada = Math.min(
-    PADA_COUNT,
-    Math.floor(within / PADA_SPAN_DEG) + 1,
-  ) as 1 | 2 | 3 | 4;
+  const pada = Math.min(PADA_COUNT, Math.floor(within / PADA_SPAN_DEG) + 1) as 1 | 2 | 3 | 4;
   return {
     nakshatraIndex,
     nakshatra: NAKSHATRAS[nakshatraIndex],
@@ -147,7 +150,7 @@ export function longitudeToNakshatra(longitude: number): NakshatraPosition {
 
 /** Whole Sign 宫位：以 Lagna 所在 Rashi 为第 1 宫，返回 1–12 */
 export function wholeSignBhava(planetRashiIndex: number, lagnaRashiIndex: number): number {
-  const diff = ((planetRashiIndex - lagnaRashiIndex) % 12 + 12) % 12;
+  const diff = (((planetRashiIndex - lagnaRashiIndex) % 12) + 12) % 12;
   return diff + 1;
 }
 

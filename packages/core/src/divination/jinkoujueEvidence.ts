@@ -7,11 +7,7 @@
  *
  * 覆盖金口诀起课四大环节：起课基础 → 月将贵神 → 四课定位 → 旬空旺衰
  */
-import {
-  buildEvidenceTrail,
-  type EvidenceItem,
-  type EvidenceTrail,
-} from '../shared/evidence';
+import { buildEvidenceTrail, type EvidenceItem, type EvidenceTrail } from '../shared/evidence';
 import type { JinkoujueData } from '../types/divination';
 
 export function buildJinkoujueEvidenceTrail(result: JinkoujueData): EvidenceTrail {
@@ -76,9 +72,7 @@ export function buildJinkoujueEvidenceTrail(result: JinkoujueData): EvidenceTrai
       applicableWhen: ['按节气定月将'],
       cautionWhen: ['贵神昼夜取用依起课时刻'],
     },
-    counterEvidence: [
-      { description: '月将加时起用存在流派差异', severity: 'alternative' },
-    ],
+    counterEvidence: [{ description: '月将加时起用存在流派差异', severity: 'alternative' }],
     confidence: 'medium',
     depth: 1,
   });
@@ -104,9 +98,7 @@ export function buildJinkoujueEvidenceTrail(result: JinkoujueData): EvidenceTrai
       applicableWhen: ['按四课五行生克断课'],
       cautionWhen: ['断课五行生克存在流派侧重'],
     },
-    counterEvidence: [
-      { description: '四课生克断法不同流派结论不同', severity: 'alternative' },
-    ],
+    counterEvidence: [{ description: '四课生克断法不同流派结论不同', severity: 'alternative' }],
     confidence: 'medium',
     depth: 1,
   });
@@ -132,9 +124,7 @@ export function buildJinkoujueEvidenceTrail(result: JinkoujueData): EvidenceTrai
       applicableWhen: ['按旬空判虚'],
       cautionWhen: ['旺衰判定依季节五行'],
     },
-    counterEvidence: [
-      { description: '旬空应期与旺衰判定存在流派差异', severity: 'minor' },
-    ],
+    counterEvidence: [{ description: '旬空应期与旺衰判定存在流派差异', severity: 'minor' }],
     confidence: 'low',
     depth: 1,
   });

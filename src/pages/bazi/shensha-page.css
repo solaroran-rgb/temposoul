@@ -1,0 +1,13 @@
+/* src/pages/bazi/shensha-page.css */
+.shensha-page { max-width: 880px; margin: 0 auto; padding: 16px; color: var(--text-primary, #E0E6ED); background: #05070d; }
+.shensha-page__skeleton { height: 100px; border-radius: 8px; background: linear-gradient(90deg, #0d1220, #131a2c, #0d1220); animation: shensha-pulse 1.6s ease-in-out infinite; }
+@keyframes shensha-pulse { 0%, 100% { opacity: 0.7; } 50% { opacity: 1; } }
+.shensha-page__list { margin: 16px 0; }
+.shensha-page__section { border: 1px solid rgba(77, 195, 255, 0.2); border-radius: 12px; padding: 16px; margin-bottom: 16px; background: rgba(77, 195, 255, 0.03); }
+.shensha-page__head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.shensha-page__title { font-size: 18px; margin: 0; color: var(--neon-cyan, #4DC3FF); }
+.shensha-page__dl { margin: 0; display: grid; grid-template-columns: 80px 1fr; row-gap: 8px; column-gap: 12px; }
+.shensha-page__dl dt { color: var(--text-secondary, #8B9BB4); font-size: 13px; }
+.shensha-page__dl dd { margin: 0; font-size: 14px; line-height: 1.7; }
+.shensha-page__empty, .shensha-page__error { color: var(--text-secondary, #8B9BB4); text-align: center; padding: 40px 16px; }
+.shensha-page__disclaimer { margin-top: 32px; padding-top: 16px; border-top: 1px solid rgba(139, 155, 180, 0.15); font-size: 12px; color: var(--text-secondary, #8B9BB4); line-height: 1.6; }

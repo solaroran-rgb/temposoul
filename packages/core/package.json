@@ -182,6 +182,10 @@
       "types": "./dist/calendar/index.d.ts",
       "import": "./dist/calendar/index.js"
     },
+    "./onomastics": {
+      "types": "./dist/onomastics/index.d.ts",
+      "import": "./dist/onomastics/index.js"
+    },
     "./calendar/true-solar-time": {
       "types": "./dist/calendar/true-solar-time.d.ts",
       "import": "./dist/calendar/true-solar-time.js"

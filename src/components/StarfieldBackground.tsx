@@ -33,6 +33,7 @@ export function StarfieldBackground() {
     const stars: Star[] = [];
 
     function resize() {
+      if (!canvas) return;
       width = canvas.clientWidth;
       height = canvas.clientHeight;
       canvas.width = Math.max(1, Math.floor(width * DPR));

@@ -4,24 +4,30 @@
  */
 export const HOLOGRAPHIC_TOKENS = {
   // 1. 背景与网格
-  'bg-void': '#000000',             
-  'grid-dark': 'rgba(0, 229, 255, 0.08)', 
+  'bg-void': '#000000',
+  'grid-dark': 'rgba(0, 229, 255, 0.08)',
 
   // 2. 青蓝发光族
-  'cyan-core': '#00E5FF',           
-  'cyan-glow': 'rgba(0, 229, 255, 0.35)', 
-  'cyan-dim': '#008B99',            
+  'cyan-core': '#00E5FF',
+  'cyan-glow': 'rgba(0, 229, 255, 0.35)',
+  'cyan-dim': '#008B99',
   'cyan-constellation': 'rgba(77, 208, 225, 0.40)', // D2 裁定 alpha 0.40
 
   // 3. 文本
-  'text-bright': '#FFFFFF',         
-  'text-dim': 'rgba(255, 255, 255, 0.60)', 
+  'text-bright': '#FFFFFF',
+  'text-dim': 'rgba(255, 255, 255, 0.60)',
 
   // 4. 暖橙点缀 (C4 裁定：全局 < 1%)
-  'accent-warm': '#FF8C00',         
+  'accent-warm': '#FF8C00',
 
   // 5. 排版 (补齐第 10 键，供 CSS 注入)
   'font-mono': "'JetBrains Mono', 'Space Grotesk', monospace",
+
+  // 6. 专家 A/B CSS 别名（P1-5：供 almanac-components.css / SelectPage.css 引用）
+  'neon-pink': '#FF4D6D',
+  'neon-cyan': '#4DC3FF',
+  'text-primary': '#E0E6ED',
+  'text-secondary': '#8B9BB4',
 } as const;
 
 export type HolographicTokenKey = keyof typeof HOLOGRAPHIC_TOKENS;
@@ -36,7 +42,7 @@ export const UNIFORM_ALIASES = {
   uColorWarm: HOLOGRAPHIC_TOKENS['accent-warm'],
   uColorDim: HOLOGRAPHIC_TOKENS['cyan-dim'],
   uColorConstellation: HOLOGRAPHIC_TOKENS['cyan-constellation'],
-  uColorBlue: HOLOGRAPHIC_TOKENS['cyan-core'], 
+  uColorBlue: HOLOGRAPHIC_TOKENS['cyan-core'],
 } as const;
 
 /**

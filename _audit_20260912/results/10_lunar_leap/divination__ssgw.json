@@ -1,0 +1,227 @@
+{
+  "http": 200,
+  "ms": 748,
+  "body": {
+    "ok": true,
+    "data": {
+      "number": 26,
+      "title": "第二十六签 · 竭泽而渔，焚林而猎（凶）",
+      "poem": "竭泽而渔终无鱼，焚林而猎兽尽去。\n眼前小利不长久，目光长远是真福。",
+      "story": "\"竭泽而渔\"出自《吕氏春秋·义赏》——\"竭泽而渔，岂不获得？而明年无鱼。\"\"焚林而猎\"出自《韩非子·难一》——\"焚林而猎，明年无兽。\"二者都是比喻贪图眼前利益而不顾长远后果的短视行为。",
+      "details": {
+        "吉凶": "下签（凶）",
+        "解签总论": "此签乃急功近利、自断后路之象，总论为了一时的小利而损害长远发展。告诫世人不要贪图眼前利益而做杀鸡取卵的事。短视的贪婪，最终什么也留不住。 - 竭泽而渔终无鱼 —— 把水抽干来捕鱼，鱼是捕到了，但以后再也不会有鱼了 - 焚林而猎兽尽去 —— 烧光森林来狩猎，猎物是抓到了，但生态全毁了 - 眼前小利不长久 —— 贪图一时的好处，注定不能持久 - 目光长远是真福 —— 放长眼光、持续经营，才是真正的福气",
+        "事业/生意": "别为了短期利润伤害品牌和客户！杀鸡取卵的事做不得",
+        "资源/投资": "要有可持续发展的思维，别把本金都花光了",
+        "提醒": "如果你现在正在做一个\"赚快钱但不可持续\"的决定——这签是在拉你刹车",
+        "此签核心": "今天把水抽干，明天就没有鱼吃了。留得青山在，不怕没柴烧。",
+        "核心寓意": "今天把水抽干，明天就没有鱼吃了。留得青山在，不怕没柴烧。",
+        "事业": "透支资源求短利会伤基础，应转向可持续经营。",
+        "财运": "严防一次性收割、借贷扩张与贪婪。",
+        "感情": "索取过度会耗尽关系，需要留有余地。",
+        "学业": "别临时抱佛脚，建立长期学习习惯。",
+        "健康": "过度消耗伤身，立即减负休养。",
+        "行动建议": "停止透支，修复资源、生态与信任。",
+        "风险提醒": "最需要防的是竭泽而渔后无以为继。"
+      },
+      "timestamp": 1789191940511,
+      "ganzhi": {
+        "year": "丙午",
+        "month": "丁酉",
+        "day": "己丑",
+        "hour": "辛未"
+      },
+      "draw": {
+        "method": "random",
+        "poolSize": 92,
+        "selectedIndex": 25,
+        "selectedNumber": 26
+      },
+      "meta": {
+        "engineVersion": "0.1.26",
+        "schemaVersion": "1.0.0",
+        "algorithm": "ssgw.draw",
+        "calculatedAt": "2026-09-12T05:45:40.511Z",
+        "inputHash": "8d55350b776dcff7",
+        "resultId": "ssgw.draw:5ca30a6fd265be68",
+        "random": {
+          "mode": "system",
+          "samples": [
+            0.2806087606118701
+          ]
+        }
+      },
+      "evidenceTrail": {
+        "items": [
+          {
+            "title": "灵签抽签基础",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "签数",
+                "reference": "draw.poolSize",
+                "output": 92
+              },
+              {
+                "name": "抽得签号",
+                "reference": "number",
+                "output": 26
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "观音灵签（第一百签）体系"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "在签池中随机抽取"
+              ],
+              "cautionWhen": [
+                "签文寓意随求问事由而变化",
+                "不同灵签版本签文有差异"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "不同灵签体系（观音/关帝/吕祖）签文不同",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 0
+          },
+          {
+            "title": "求签时间",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "干支纪时",
+                "reference": "ganzhi",
+                "output": "丙午年丁酉月己丑日"
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "干支纪时（求签时间）"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "记录求签时刻"
+              ],
+              "cautionWhen": [
+                "跨日/跨年转换以当地时间为准"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "干支纪时与公历换算口径存在细微差异",
+                "severity": "minor"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 1
+          },
+          {
+            "title": "签文呈现",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "签题",
+                "reference": "title",
+                "output": "第二十六签 · 竭泽而渔，焚林而猎（凶）"
+              },
+              {
+                "name": "签诗",
+                "reference": "poem",
+                "output": "竭泽而渔终无鱼，焚林而猎兽尽去。\n眼前小利不长久，目光长远是真福。"
+              },
+              {
+                "name": "注解",
+                "reference": "details",
+                "output": {
+                  "吉凶": "下签（凶）",
+                  "解签总论": "此签乃急功近利、自断后路之象，总论为了一时的小利而损害长远发展。告诫世人不要贪图眼前利益而做杀鸡取卵的事。短视的贪婪，最终什么也留不住。 - 竭泽而渔终无鱼 —— 把水抽干来捕鱼，鱼是捕到了，但以后再也不会有鱼了 - 焚林而猎兽尽去 —— 烧光森林来狩猎，猎物是抓到了，但生态全毁了 - 眼前小利不长久 —— 贪图一时的好处，注定不能持久 - 目光长远是真福 —— 放长眼光、持续经营，才是真正的福气",
+                  "事业/生意": "别为了短期利润伤害品牌和客户！杀鸡取卵的事做不得",
+                  "资源/投资": "要有可持续发展的思维，别把本金都花光了",
+                  "提醒": "如果你现在正在做一个\"赚快钱但不可持续\"的决定——这签是在拉你刹车",
+                  "此签核心": "今天把水抽干，明天就没有鱼吃了。留得青山在，不怕没柴烧。",
+                  "核心寓意": "今天把水抽干，明天就没有鱼吃了。留得青山在，不怕没柴烧。",
+                  "事业": "透支资源求短利会伤基础，应转向可持续经营。",
+                  "财运": "严防一次性收割、借贷扩张与贪婪。",
+                  "感情": "索取过度会耗尽关系，需要留有余地。",
+                  "学业": "别临时抱佛脚，建立长期学习习惯。",
+                  "健康": "过度消耗伤身，立即减负休养。",
+                  "行动建议": "停止透支，修复资源、生态与信任。",
+                  "风险提醒": "最需要防的是竭泽而渔后无以为继。"
+                }
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "观音灵签签文与注解"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "按签号呈现签文"
+              ],
+              "cautionWhen": [
+                "签意解读存在多解"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "同一签文不同解签者解读不同",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "low",
+            "depth": 1
+          },
+          {
+            "title": "抽取方式",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "抽取方法",
+                "reference": "draw.method",
+                "output": "random"
+              },
+              {
+                "name": "选中编号",
+                "reference": "draw.selectedNumber",
+                "output": 26
+              }
+            ],
+            "source": {
+              "type": "algorithm",
+              "name": "随机抽样（签池等概率）"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "随机抽签"
+              ],
+              "cautionWhen": [
+                "manual 方式为用户手工录入签号"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "抽签随机性不影响签文内容本身",
+                "severity": "minor"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 1
+          }
+        ],
+        "overallConfidence": "low",
+        "summary": "灵签抽签证据链（第26签·第二十六签 · 竭泽而渔，焚林而猎（凶））",
+        "generatedAt": "2026-09-12T05:45:40.511Z"
+      }
+    },
+    "meta": {
+      "service": "www.temposoul.com",
+      "version": "v1"
+    }
+  }
+}

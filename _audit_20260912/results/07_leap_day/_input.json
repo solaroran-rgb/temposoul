@@ -1,0 +1,17 @@
+{
+  "id": "07_leap_day",
+  "desc": "闰年 2/29 1984-02-29 16:40·武汉",
+  "req": {
+    "gender": "male",
+    "year": 1984,
+    "month": 2,
+    "day": 29,
+    "dateType": "solar",
+    "birthHour": 16,
+    "birthMinute": 40,
+    "birthPlace": "武汉",
+    "birthLongitude": 114.305,
+    "timezone": 8,
+    "useTrueSolarTime": true
+  }
+}

@@ -1,0 +1,11 @@
+@import '@/styles/a23-shared.css';
+
+.learn-group-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin: 12px 0; }
+.learn-group-card { display: block; padding: 20px; background: #252526; border-radius: 8px; text-decoration: none; color: #D4D4D4; border: 1px solid #3E3E42; }
+.learn-group-card:hover { border-color: #569CD6; }
+.learn-group-card h2 { margin: 0 0 6px; color: #569CD6; }
+.learn-quiz { margin: 12px 0; }
+.learn-quiz button { margin: 4px; background: #2D2D30; color: #D4D4D4; border: 1px solid #3E3E42; border-radius: 4px; padding: 6px 12px; cursor: pointer; }
+.learn-quiz button:disabled { opacity: .7; cursor: not-allowed; }
+.learn-quiz button[data-correct="true"] { border-color: #4EC9B0; color: #4EC9B0; }
+.learn-nav { display: flex; gap: 8px; margin-top: 12px; }

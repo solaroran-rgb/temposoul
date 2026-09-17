@@ -1,4 +1,12 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+} from 'react';
 import { safeStorage } from '@/lib/safe-storage';
 import { zhCN, type Dict } from './locales/zh-CN';
 import { en } from './locales/en';
@@ -23,25 +31,25 @@ const LOCALE_KEY = 'ts_locale';
 const SUPPORTED_LOCALES: Locale[] = ['zh-CN', 'en', 'ja', 'ko-KN', 'vi-VN', 'th-TH', 'es-ES'];
 function readStoredLocale(): Locale {
   const v = safeStorage.get(LOCALE_KEY);
-  return (SUPPORTED_LOCALES as string[]).includes(v) ? (v as Locale) : 'zh-CN';
+  return v != null && (SUPPORTED_LOCALES as string[]).includes(v) ? (v as Locale) : 'zh-CN';
 }
-function translate(dict: Dict, key: string): string {
+function translate(dict: Dict, key: string, fallback?: string): string {
   const parts = key.split('.');
   let cur: unknown = dict;
   for (const p of parts) {
     if (cur && typeof cur === 'object' && p in (cur as Record<string, unknown>)) {
       cur = (cur as Record<string, unknown>)[p];
     } else {
-      return key;
+      return fallback ?? key;
     }
   }
-  return typeof cur === 'string' ? cur : key;
+  return typeof cur === 'string' ? cur : (fallback ?? key);
 }
 
 type I18nContextValue = {
   locale: Locale;
   setLocale: (l: Locale) => void;
-  t: (key: string) => string;
+  t: (key: string, fallback?: string) => string;
   locales: { id: Locale; label: string }[];
 };
 
@@ -55,7 +63,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     setLocaleState(l);
     safeStorage.set(LOCALE_KEY, l);
   }, []);
-  const t = useCallback((key: string) => translate(DICTS[locale], key), [locale]);
+  const t = useCallback((key: string, fallback?: string) => translate(DICTS[locale], key, fallback), [locale]);
   const value = useMemo<I18nContextValue>(
     () => ({
       locale,

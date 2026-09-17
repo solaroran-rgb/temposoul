@@ -1,0 +1,174 @@
+/* 平台合规/提醒/会员页 BEM 样式（专家 D 第6轮交付节选核心视觉） */
+
+.crisis-banner {
+  background-color: var(--neon-cyan, #4dc3ff);
+  color: #000;
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.crisis-banner__icon {
+  flex-shrink: 0;
+}
+
+.crisis-banner__text {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.compliance-page__layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.reminders-page,
+.membership-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.reminders-page__title,
+.membership-page__title {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.reminders-page__desc {
+  color: var(--text-secondary, #8b9bb4);
+  margin-bottom: 1.5rem;
+}
+
+.push-gate {
+  background: var(--bg-glass-dark, rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--border-dim, rgba(255, 255, 255, 0.1));
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.push-gate__option,
+.push-gate__fallback {
+  display: flex;
+  align-items: center;
+}
+
+.push-gate__toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.push-gate__btn {
+  padding: 10px 24px;
+  background: var(--neon-pink, #ff4d6d);
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.membership-page__card {
+  background: var(--bg-glass-dark, rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--border-dim, rgba(255, 255, 255, 0.1));
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.membership-page__actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--neon-pink, #ff4d6d);
+  color: #fff;
+  border: none;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--border-dim, rgba(255, 255, 255, 0.1));
+}
+
+/* === D7（代码.md D 本人版 L626-682）合规枢纽/DSAR/举报 完整样式 === */
+.compliance-page { padding: 1.5rem; max-width: 1000px; margin: 0 auto; }
+
+.compliance-layout { display: flex; gap: 2rem; margin-top: 1.5rem; }
+.compliance-layout__nav { display: flex; flex-direction: column; gap: 0.5rem; min-width: 160px; }
+.compliance-layout__nav-item {
+  background: transparent; border: none; color: var(--text-secondary, #8B9BB4);
+  text-align: left; padding: 0.75rem 1rem; cursor: pointer; border-radius: 6px; transition: all 0.2s;
+}
+.compliance-layout__nav-item:hover { background: rgba(255,255,255,0.05); color: var(--text-primary, #E0E6ED); }
+.compliance-layout__nav-item--active {
+  background: rgba(255, 77, 109, 0.1); color: var(--neon-pink, #FF4D6D); font-weight: 600;
+}
+.compliance-layout__nav-item:focus-visible { outline: 2px solid var(--neon-cyan, #4DC3FF); outline-offset: 2px; }
+
+.compliance-layout__content {
+  flex: 1; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+  padding: 2rem; border-radius: 8px; min-height: 400px;
+}
+
+.form-title { color: var(--text-primary, #E0E6ED); margin-bottom: 0.5rem; font-size: 1.25rem; }
+.form-notice { color: var(--text-secondary, #8B9BB4); font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.5; }
+
+.form-group { margin-bottom: 1.25rem; }
+.form-label { display: block; color: var(--text-primary, #E0E6ED); margin-bottom: 0.5rem; font-size: 0.9rem; font-weight: 500; }
+.form-input, .form-select, .form-textarea {
+  width: 100%; background: rgba(0,0,0,0.2); border: 1px solid var(--text-secondary, #8B9BB4);
+  color: var(--text-primary, #E0E6ED); padding: 0.75rem; border-radius: 6px; font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  outline: none; border-color: var(--neon-cyan, #4DC3FF); box-shadow: 0 0 0 2px rgba(77, 195, 255, 0.2);
+}
+.form-input--error { border-color: var(--neon-pink, #FF4D6D) !important; }
+.form-input--error:focus { box-shadow: 0 0 0 2px rgba(255, 77, 109, 0.2) !important; }
+.form-textarea { resize: vertical; min-height: 100px; }
+.form-error { display: block; color: var(--neon-pink, #FF4D6D); font-size: 0.8rem; margin-top: 0.4rem; }
+.form-success { color: var(--neon-cyan, #4DC3FF); font-size: 0.9rem; margin-bottom: 1rem; padding: 0.75rem; background: rgba(77, 195, 255, 0.1); border-radius: 6px; }
+
+.dsar-form__actions { display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap; }
+.btn { padding: 0.75rem 1.5rem; border-radius: 6px; cursor: pointer; border: none; font-weight: 600; font-size: 0.95rem; transition: opacity 0.2s, transform 0.1s; }
+.btn:hover { opacity: 0.9; }
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--neon-pink, #FF4D6D); color: #fff; }
+.btn-secondary { background: transparent; border: 1px solid var(--neon-cyan, #4DC3FF); color: var(--neon-cyan, #4DC3FF); }
+
+.text-link { color: var(--neon-cyan, #4DC3FF); text-decoration: underline; }
+.text-link:hover { color: var(--text-primary, #E0E6ED); }
+.text-secondary { color: var(--text-secondary, #8B9BB4); }
+
+@media (max-width: 768px) {
+  .compliance-layout { flex-direction: column; gap: 1rem; }
+  .compliance-layout__nav { flex-direction: row; overflow-x: auto; min-width: unset; padding-bottom: 0.5rem; scrollbar-width: none; }
+  .compliance-layout__nav::-webkit-scrollbar { display: none; }
+  .compliance-layout__nav-item { white-space: nowrap; flex-shrink: 0; }
+  .dsar-form__actions { flex-direction: column; }
+  .btn { width: 100%; }
+}

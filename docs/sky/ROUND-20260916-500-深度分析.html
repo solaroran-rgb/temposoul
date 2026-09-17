@@ -1,0 +1,142 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>深度分析：为什么做不出样张 · 批次 500</title><style>
+:root{--bg:#070a0d;--panel:#0d1318;--line:#1c2830;--fg:#c6d4d8;--dim:#7c8f97;
+--acc:#7fe6ea;--neon:#39FF14}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font:15px/1.85 -apple-system,"Segoe UI","Microsoft YaHei",sans-serif;
+-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:56px 32px 120px}
+h1{font-size:30px;line-height:1.35;color:#eaf4f6;margin:0 0 6px;letter-spacing:.01em;
+border-bottom:2px solid var(--acc);padding-bottom:20px}
+h2{font-size:21px;color:var(--acc);margin:56px 0 16px;padding-left:12px;
+border-left:4px solid var(--acc);letter-spacing:.02em}
+h3{font-size:17px;color:#a9dfe3;margin:34px 0 12px}
+h4{font-size:15px;color:#8fc8cd;margin:24px 0 10px}
+p{margin:12px 0}
+strong{color:#eaf4f6;font-weight:600}
+em{color:var(--dim);font-style:normal}
+.neon{color:var(--neon);font-weight:600;text-shadow:0 0 12px rgba(57,255,20,.28)}
+.arw{color:var(--acc);font-weight:700;padding:0 2px}
+code{background:#0f1a20;color:#8fe9d0;padding:2px 6px;border-radius:4px;
+font-family:Consolas,"Cascadia Mono",monospace;font-size:13px}
+pre.code{background:#080e12;border:1px solid var(--line);border-left:3px solid var(--acc);
+border-radius:8px;padding:18px 20px;overflow-x:auto;color:#9dc6cd;
+font-family:Consolas,"Cascadia Mono",monospace;font-size:12.5px;line-height:1.65}
+blockquote{margin:18px 0;padding:14px 20px;background:#0e1519;border-left:3px solid #d9a23c;
+border-radius:0 8px 8px 0;color:#cbb98c;font-size:14px}
+hr{border:0;border-top:1px solid var(--line);margin:46px 0}
+.tw{overflow-x:auto;margin:20px 0;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:14px;background:var(--panel)}
+th{background:#101a20;color:var(--acc);font-weight:600;text-align:left;
+padding:12px 14px;white-space:nowrap;border-bottom:1px solid var(--line)}
+td{padding:11px 14px;border-bottom:1px solid #131d23;vertical-align:top}
+tr:last-child td{border-bottom:0}
+tr:hover td{background:#0f171d}
+ul{margin:12px 0;padding-left:22px}li{margin:7px 0}
+.tag{display:inline-block;background:#10201a;color:var(--neon);border:1px solid #1f3a28;
+border-radius:999px;padding:2px 11px;font-size:12px;margin-bottom:14px}
+.foot{margin-top:70px;padding-top:22px;border-top:1px solid var(--line);
+color:#5d7078;font-size:12.5px}
+</style></head><body><div class="wrap"><div class="tag">批次 500 · 深度分析 · 2026-09-16</div><h1>深度分析：为什么做不出样张，以及正确的技术路线</h1>
+<p><strong>批次 500 · 2026-09-16 · 纯分析批（主仓 <code>src/</code> / <code>functions/</code> 零改动，未提交未部署）</strong></p>
+<hr>
+<h2>0. 三句话结论</h2>
+<p><strong>【核心结论 1】样张不是一张"照片"，是把两种物理上互斥的视角合成出来的插画。</strong></p>
+<p>它同时具备「平视的塔尖剪影」（要求相机贴近地面）和「俯视的城市肌理」（要求相机在高空）。</p>
+<p>任何单一相机 —— 无论 3D WebGL 还是 2D 光栅 —— 都<strong>永远</strong>渲染不出它。</p>
+<p>这就是 440 / 480 / 490 三批、几十轮调参都不收敛的<strong>根本原因</strong>：我在解一道无解方程。</p>
+<p><strong>【核心结论 2】"每个城市都能做出样张效果"在数据与几何上都不成立。</strong></p>
+<p>天际线出现的物理条件是 <code>建筑高度 ≳ 相机高度</code>。</p>
+<ul><li>诸暨：最高楼 <strong>60 m</strong> → 任何"能看到城市整体"的相机高度下，它的天际线<strong>在数学上等于零</strong>。</li><li>北京：中国尊 <strong>528 m</strong> → 只有它能真的露出地平线。</li></ul>
+<p><strong>【核心结论 3】能达标的技术是「分层合成」，不是「场景渲染」。</strong></p>
+<p>同一份真实建筑高度场，跑<strong>两台不同高度的虚拟相机</strong>，再按带融合成一张图 ——</p>
+<p>这正是插画家的工作方式，不是任何 3D 引擎或地图 SDK 的工作方式。</p>
+<hr>
+<h2>1. 样张的精确测量（本轮实测，修正了此前的误读）</h2>
+<div class="tw"><table><thead><tr><th>参数</th><th>实测值</th><th>备注</th></tr></thead><tbody><tr><td>尺寸 / 均值 / 纯黑占比</td><td>1920×969 / 20.1 / 54.4%</td><td>极暗、大面积留黑</td></tr><tr><td><strong>地平线辉光带</strong></td><td><strong>y = 56.2%</strong></td><td>行均值在 52.5%→57.5% 处跳变</td></tr><tr><td>月牙</td><td>cx 50.5% / cy 52.4%，40×54 px</td><td>唯一暖焦点，仅占画面 <strong>0.049%</strong></td></tr><tr><td>塔群带</td><td>y 54.5% – 67%</td><td><strong>塔顶仅高出地平线约 1.5%（15 px）</strong></td></tr><tr><td>城市肌理带</td><td>y 67% – 100%</td><td>俯视视角，占画面下 33%</td></tr><tr><td>左右框景山</td><td>x 0–28% / 71–100%，y 54%→88%</td><td>带密集脊线纹理</td></tr><tr><td>星座</td><td>10 组几何连线图，全在 y&lt;45%</td><td>标志性元素</td></tr></tbody></table></div>
+<p>分段行均值（实测，这是后续验收的唯一口径）：</p>
+<div class="tw"><table><thead><tr><th>区段</th><th>0–15%</th><th>15–50%</th><th>50–58%</th><th>58–75%</th><th>75–88%</th><th>88–100%</th></tr></thead><tbody><tr><td>CT-1 样张</td><td>4.14</td><td>9.26</td><td>16.56</td><td>35.44</td><td>29.73</td><td>41.56</td></tr></tbody></table></div>
+<blockquote><strong>修正记录</strong>：460 批所用的 <code>地平线 = 69.76%</code>，来自标注面板的<strong>拼接缝</strong>误读（该面板是 2 倍放大的上下两半拼接）。本轮用原图重新标定，正确值为 <strong>56.2%</strong>。此前所有"带区 +75% 超标"的判定，是拿错基准算出来的。</blockquote>
+<hr>
+<h2>2. 为什么做不出来 —— 三层原因，逐层剥开</h2>
+<h3>2.1 物理层：目标本身非物理（决定性）</h3>
+<p>我做了实验。用同一份北京朝阳区真实数据（5803 栋建筑，最高 528 m）：</p>
+<div class="tw"><table><thead><tr><th>相机高度</th><th>结果</th></tr></thead><tbody><tr><td><strong>390 m 俯视</strong>（可以看见整座城市）</td><td><strong>天际线完全消失</strong>。528 m 的中国尊在 2 km 外仍低于视点 138 m；整座城市退化成<strong>一块平坦的暗色地面</strong>，画面里没有任何塔。</td></tr><tr><td>30 m 近地（能看见天际线）</td><td>城市带成型，但视野只剩几百米 —— <strong>看不到样张下半部那片俯视城市肌理</strong>。</td></tr></tbody></table></div>
+<p><strong>这两个视角不可能同时成立。</strong> 样张却同时拥有。</p>
+<p><span class="arw">⇒</span> 样张的"下半部俯视肌理"与"上半部平视塔尖"<strong>不是同一个相机拍出来的</strong>，是画师把两个视角拼在一张画布上。</p>
+<p>这就是为什么我把"发光柱阵"参数从亮调到暗、从高调到矮、从密调到疏，永远出不来那个味 ——</p>
+<p><strong>我一直在用一台相机去追一个两台相机才有的构图。</strong></p>
+<h3>2.2 数据层：中国中小城市的建筑数据天花板</h3>
+<div class="tw"><table><thead><tr><th>城市</th><th>建筑数（同口径）</th><th>最高建筑</th><th>能形成样张式塔群？</th></tr></thead><tbody><tr><td>北京朝阳（3 km）</td><td>5803</td><td>528 m（中国尊）</td><td><strong>能</strong>（局部）</td></tr><tr><td>诸暨暨阳（8 km）</td><td><strong>10 栋</strong>（真实）/ 7114（合成）</td><td>60 m</td><td><strong>不能</strong>（差 8 倍量级）</td></tr><tr><td>台北信义（3 km）</td><td>见 tile</td><td>508 m（101）</td><td>能</td></tr></tbody></table></div>
+<p><strong>中国中小城市在开放地图上基本没有建筑数据</strong>：道路有人画，楼没人画。</p>
+<p>诸暨市中心 8 km 范围内<strong>只有 10 栋真实建筑</strong>。这不是渲染问题，是<strong>源头没料</strong>。</p>
+<p>更关键的是几何天花板：即便用合成数据补足数量，60 m 的高度上限决定了</p>
+<p><strong>这片天际线永远是"低平的"，做不出样张那种刺破天际的塔群</strong>。</p>
+<h3>2.3 架构层：我用"场景渲染"去做"画面构图"</h3>
+<p>我一直在把城市当作一个 <strong>3D 场景</strong>去模拟（建模 → 光照 → 相机 → 渲染），</p>
+<p>而样张是一个 <strong>2D 画面构图</strong>（图层 → 剪影 → 光晕 → 调色）。</p>
+<p>这是两种完全不同的手艺：</p>
+<div class="tw"><table><thead><tr><th></th><th>场景渲染（我做的）</th><th>画面构图（样张要的）</th></tr></thead><tbody><tr><td>基本单元</td><td>一栋楼</td><td>一个图层</td></tr><tr><td>形状来源</td><td>几何投影</td><td>轮廓提取</td></tr><tr><td>立体感来源</td><td>光照模型</td><td>明暗渐变 + 大气透视</td></tr><tr><td>细节来源</td><td>逐物体材质</td><td>纹理叠加</td></tr><tr><td>控制方式</td><td>调物理参数</td><td>调图层与曲线</td></tr></tbody></table></div>
+<p><strong>"亮 → 柱阵；暗 → 细带"两端的摆动，就是用它去做它的必然结果。</strong></p>
+<hr>
+<h2>3. 回答你的问题 ①  —— 技术上能否 1:1？用什么技术？</h2>
+<h3>3.1 先把它拆成四个独立问题，逐条回答</h3>
+<div class="tw"><table><thead><tr><th>问题</th><th>答案</th><th>说明</th></tr></thead><tbody><tr><td><strong>能否像素级 1:1？</strong></td><td>&lt;span style="color:#39FF14"&gt;<strong>能，但只有两条路</strong>&lt;/span&gt;</td><td>① 直接用那张图（或其衍生）当底；② 让 AI 针对每个城市重出一张同风格图。<strong>用真实几何渲染做到像素 1:1，在数学上不可能</strong>（样张是主观构图，不含可反解的相机参数）</td></tr><tr><td><strong>能否做到"人眼认为是同一套设计"？</strong></td><td><strong>能，上限约 85–90%</strong></td><td>靠<strong>复刻视觉语法</strong>（调色板 / 光位 / 形体 / 构图 / 图层），不是复刻像素</td></tr><tr><td><strong>能否任意城市、秒级出图？</strong></td><td><strong>能，且远快于 3 秒</strong></td><td>需先把"3 秒"的语义拆开（见 3.2）</td></tr><tr><td><strong>能否做成"真页面"而非"一张图"？</strong></td><td><strong>能</strong></td><td>剪影层 = 真实数据（可选中、可 SEO）；UI 层 = DOM</td></tr></tbody></table></div>
+<h3>3.2 关于"小于 3 秒"—— 这里有一个概念错位必须澄清</h3>
+<p>"3 秒"其实混了两件完全不同的事：</p>
+<div class="tw"><table><thead><tr><th>阶段</th><th>耗时现状</th><th>能否 3 秒</th></tr></thead><tbody><tr><td><strong>A. 拉取一个城市的原始数据</strong>（Overpass / 商业 API）</td><td>诸暨 16 片：<strong>约 20 分钟</strong>；北京 36 片：约 12 分钟</td><td>❌ 不可能，也不该在首屏做</td></tr><tr><td><strong>B. 从零把城市压成高度场</strong>（离线烘焙）</td><td>4000² 高度场：<strong>0.2 秒</strong></td><td>✅</td></tr><tr><td><strong>C. 首屏出画面</strong>（加载预烘 tile + 合成）</td><td>本原型 CPU 版光线投射 <strong>10–20 秒</strong>；同等算法在 GPU fragment shader 下 <strong>&lt;10 ms</strong></td><td>✅✅ <strong>实际可做到 200 ms</strong></td></tr></tbody></table></div>
+<p><strong>【核心结论】正确做法是把 A、B 留在离线的"一次烘焙"，让 C 变成纯前端合成。</strong></p>
+<p>一个城市只烘一次，之后每次访问都是毫秒级。<strong>"3 秒"从来不是技术瓶颈，"从零拉数据"才是 —— 而它根本不该在首屏发生。</strong></p>
+<h3>3.3 关于"街景地图"—— 一个必须纠正的技术误判</h3>
+<p><strong>街景（Street View）不能用来做这件事</strong>，三个硬理由：</p>
+<p>1. 街景是<strong>地面视角的 360° 照片</strong>，视角与样张要求的"高空远眺"相差 90°；</p>
+<p>2. 街景<strong>没有几何</strong>：拿不到建筑轮廓、拿不到高度、拿不到城市平面布局；</p>
+<p>3. 街景本质是<strong>贴图</strong> —— 既触犯项目红线（禁止贴图），也无法产生"剪影"这种需要轮廓的信息。</p>
+<p><strong>真正可用的素材是三类</strong>（都不是街景）：</p>
+<div class="tw"><table><thead><tr><th>素材</th><th>提供什么</th><th>数据源</th></tr></thead><tbody><tr><td><strong>矢量建筑轮廓 + 高度</strong></td><td>城市的形状与体量（本文全部结论的基础）</td><td>OSM / 天地图 / 高德 / Mapbox</td></tr><tr><td><strong>DEM 数字高程</strong></td><td>山脉、地平线、地形起伏</td><td>SRTM / ASTER / Copernicus</td></tr><tr><td><strong>卫星影像</strong>（可选）</td><td>纹理与密度参考（不作为底图）</td><td>各家影像服务</td></tr></tbody></table></div>
+<h3>3.4 应该用什么技术 —— 正解</h3>
+<p><strong>【核心结论】技术栈应该是「高度场 + 分层合成」，而不是「3D 场景 + 光照模型」。</strong></p>
+<pre class="code">真实建筑 footprint + height
+        │  光栅化（极快，0.2s / 城市）
+        ▼
+   城市高度场 (Height Field, 如 4000² @ 5m/px)
+        │
+        ├──► 相机 A（低视点 ~50-250m）──► 光线投射 ──►  天际线剪影 + 边缘光
+        │                                                  （画面上半部的&quot;塔&quot;）
+        │
+        └──► 相机 B（高视点 ~430m）  ──► 光线投射 ──►  俯视城市肌理
+                                                          （画面下半部的&quot;海&quot;）
+                       │
+                       ▼  按带融合（seam ≈ 58%）
+              ┌──────────────────────────────┐
+              │  10 层 2D 合成                │
+              │  天空/银河/星座/星野/月        │
+              │  → 远山框景 → 地平辉光带       │
+              │  → 剪影层 → 肌理层 → Bloom → 调色 │
+              └──────────────────────────────┘
+                       │
+                       ▼
+                  首屏画面（DOM UI 叠在上层）</pre>
+<p><strong>为什么这套对</strong>：</p>
+<p>1. <strong>高度场光线投射</strong>天然产生"整块剪影 + 真实遮挡"—— 不是"一栋栋发光楼"，而是"一整块地形"。这一条直接终结了 440/480/490 的"柱阵病"。</p>
+<p>2. <strong>双视点</strong>直接对上样张的双视角合成本质。</p>
+<p>3. <strong>纯 2D 合成</strong>天然适合 GPU fragment shader，<strong>单 pass、&lt;10 ms</strong>。</p>
+<p>4. 剪影层是<strong>真实数据</strong>，可点击、可 SEO、换城市只换 tile。</p>
+<hr>
+<h2>4. 回答你的问题 ② —— 打破框架后的完整方案空间</h2>
+<p>我把所有约束都解除（含你定的红线），穷举如下：</p>
+<div class="tw"><table><thead><tr><th>#</th><th>方案</th><th>与样张一致度</th><th>真实性</th><th>首屏</th><th>换城市</th><th>触红线</th></tr></thead><tbody><tr><td><strong>S1</strong></td><td><strong>AI 生图直接出首屏底图</strong>（每城市一张）</td><td><strong>95%</strong></td><td>假几何</td><td>即时</td><td>出图 20–60 s</td><td><strong>是</strong></td></tr><tr><td><strong>S2</strong></td><td><strong>AI 出"通用素材层"（星野/银河/山体/水体，不含城市信息）+ 真实数据出城市剪影 → 合成</strong></td><td><strong>88%</strong></td><td>城市真、素材假</td><td>&lt;300 ms</td><td>自动</td><td>灰区</td></tr><tr><td><strong>S3</strong></td><td><strong>高度场 + 双视点分层合成</strong>（本文推荐）</td><td><strong>85–90%</strong></td><td>全真</td><td>&lt;300 ms</td><td>自动 &lt;30 min</td><td>否</td></tr><tr><td><strong>S4</strong></td><td>商业 3D 地图 SDK 换暗青主题（Mapbox / MapTiler / Cesium / 高德）</td><td>75%</td><td>全真</td><td>~1 s</td><td>零成本</td><td>否（需授权+联网）</td></tr><tr><td><strong>S5</strong></td><td>现有 3D 场景 + 后期描边/色阶（三渲二）</td><td>70%</td><td>全真</td><td>1–2 s</td><td>自动</td><td>否</td></tr><tr><td><strong>S6</strong></td><td>现在的做法（3D 几何 + 逐栋材质）</td><td><strong>50%</strong></td><td>全真</td><td>慢</td><td>自动</td><td>否（<strong>已证明走不通</strong>）</td></tr></tbody></table></div>
+<p><strong>关键提醒</strong>：S4 不解决根本问题 —— 商业地图在中国大陆的<strong>中小城市建筑覆盖同样差</strong>（与 OSM 同源或同缺口）。它能给你"任意城市的真地图"，但给不了"诸暨有塔群"。</p>
+<p><strong>【核心结论】推荐 S3 为主线；同时把 S1/S2 作为"要 100% 像"时的一键切换开关。</strong></p>
+<hr>
+<h2>5. 本轮已完成的实证（不是空谈）</h2>
+<div class="tw"><table><thead><tr><th>实验</th><th>做了什么</th><th>得到什么</th></tr></thead><tbody><tr><td><strong>v3</strong></td><td>用真实数据建高度场，390 m 单一物理相机光线投射</td><td><strong>证明了物理不可能</strong>：整座城市退化为一块平面，零天际线。这是"为什么出不来"的<strong>直接实验证据</strong></td></tr><tr><td><strong>v4</strong></td><td>双视点合成（245 m 剪影相机 + 430 m 肌理相机，按带融合）</td><td><strong>证明了架构可行</strong>：暗天 / 星座 / 月 / 左右框景山 / 上下双层结构全部成立；下半部仍需美术调校（属调参，非可行性问题）</td></tr></tbody></table></div>
+<p>度量对拍（0-15% / 15-50% / 50-58% / 58-75% / 75-88% / 88-100%）：</p>
+<div class="tw"><table><thead><tr><th>版本</th><th>六段行均值</th></tr></thead><tbody><tr><td>CT-1 目标</td><td>4.1 / 9.3 / 16.6 / 35.4 / 29.7 / 41.6</td></tr><tr><td>v3 单相机</td><td>20.3 / 29.8 / 134.1 / 77.5 / 47.4 / 37.0（天空过亮、辉光带饱和）</td></tr><tr><td>v4 双视点</td><td>14.6 / 15.0 / 9.0 / 24.9 / 20.8 / 18.5（骨架对，下半偏暗 ~35%）</td></tr></tbody></table></div>
+<p><strong>诊断图</strong>：<code>docs/sky/assets-500/DIAG-why-not-working.png</code></p>
+<hr>
+<h2>6. 需要你拍板的三件事</h2>
+<div class="tw"><table><thead><tr><th>#</th><th>决策</th><th>选项</th></tr></thead><tbody><tr><td><strong>D-1</strong></td><td><strong>红线</strong>：是否解除"禁止 AI 生图/贴图"？</td><td>解除 → 可走 S1/S2，<strong>今晚就能 95% 像</strong>；不解除 → 走 S3，<strong>上限 85–90%</strong>，2–3 小时</td></tr><tr><td><strong>D-2</strong></td><td><strong>"像"的定义</strong>：像素 1:1，还是"同一套设计语言"？</td><td>像素 1:1 → 只能 S1/S2；同一套语言 → S3 就够</td></tr><tr><td><strong>D-3</strong></td><td><strong>小城市无数据</strong>怎么办？</td><td>① 真实路网 + 程序化建筑（已做）② 接商业地图（需授权）③ 直接声明"该城市数据不足"</td></tr></tbody></table></div>
+<hr>
+<h2>7. 纪律与产物</h2>
+<ul><li><strong>改动范围</strong>：仅新增分析脚本于 <code>D:\workbuddy\2026-09-15-00-01-41\sky-build\proto2d\</code>；<strong>主仓 <code>src/</code>、<code>functions/</code> 零改动</strong>；worktree 未提交；未部署；CT-1 冻结基线未覆盖。</li><li><strong>产物</strong>：</li><li><code>docs/sky/assets-500/DIAG-why-not-working.png</code>（核心诊断图）</li><li><code>proto2d/render_grammar.py</code>（v2 角高度剖面原型）</li><li><code>proto2d/render_v3.py</code>（单相机高度场投射 —— 反证）</li><li><code>proto2d/render_v4.py</code>（双视点合成 —— 正解骨架）</li><li><code>proto2d/compare-v3.png</code>、<code>compare-v4.png</code>（三方对拍）</li><li><strong>回退</strong>：本批无生产改动，无需回退。</li></ul><div class="foot">TempoSoul 命律 · Sky 首屏渲染 · 深度技术分析｜主仓零改动 · 未提交 · 未部署</div></div></body></html>

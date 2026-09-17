@@ -1,0 +1,10 @@
+/* src/pages/astrolabe/retrograde-page.css */
+.retrograde-page { color: var(--text-primary,#E0E6ED); padding: 16px; }
+.retrograde-page__list { list-style: none; padding: 0; display: grid; gap: 8px; }
+.retrograde-page__card { display: flex; justify-content: space-between; border: 1px solid var(--neon-cyan,#4DC3FF); border-radius: 8px; padding: 8px; }
+.retrograde-page__card-note { color: var(--text-secondary,#8B9BB4); }
+.retrograde-page__card-range { color: var(--neon-cyan,#4DC3FF); }
+.retrograde-page__folklore-item { margin-bottom: 12px; }
+.retrograde-page__personal-placeholder { color: var(--text-secondary,#8B9BB4); }
+.retrograde-page__empty, .retrograde-page__error { color: var(--text-secondary,#8B9BB4); }
+.retrograde-page__disclaimer { color: var(--text-secondary,#8B9BB4); font-size: 12px; }

@@ -1,0 +1,227 @@
+{
+  "http": 200,
+  "ms": 675,
+  "body": {
+    "ok": true,
+    "data": {
+      "number": 73,
+      "title": "第七十三签 · 自相矛盾，言行不一（凶）",
+      "poem": "自相矛盾两难全，言行不一事难圆。\n说矛道盾皆自陷，表里如一始安然。",
+      "story": "自相矛盾出自《韩非子·难一》——有个楚国人卖矛和盾。他举起盾说：\"我的盾坚固无比，什么东西都刺不穿！\"又举起矛说：\"我的矛锋利无比，什么东西都能刺穿！\"有人问：\"用你的矛刺你的盾，会怎样？\"楚国人哑口无言。 这就是\"自相矛盾\"这个成语的由来！",
+      "details": {
+        "吉凶": "下签（凶）",
+        "解签总论": "此签乃言行不一、逻辑混乱之象，总论自己说的话前后矛盾，自己做的事情违背自己的承诺。就像那个卖矛和盾的楚国人——先说自己的盾坚不可破，又说自己的矛无坚不摧，结果被人反问\"以子之矛，攻子之盾，何如？\"哑口无言。 - 自相矛盾两难全 —— 自己的矛和盾互相冲突，无法两全 - 言行不一事难圆 —— 说的和做的不一样，事情很难圆满 - 说矛道盾皆自陷 —— 说矛好又说盾好，结果自己掉进自己的坑里 - 表里如一始安然 —— 外表和内心一致，才能心安理得",
+        "做人处事": "言行一致才能被人信任，嘴上说一套做一套，早晚穿帮",
+        "工作/管理": "朝令夕改、前后不一，会让团队无所适从",
+        "提醒": "想想自己有没有说过自相矛盾的话。逻辑清晰、言行一致，是最基本的靠谱",
+        "此签核心": "自相矛盾，两边皆空。言行一致，才能走得远。",
+        "核心寓意": "自相矛盾，两边皆空。言行一致，才能走得远。",
+        "事业": "战略与执行相互冲突，需统一口径。",
+        "财运": "财务承诺前后不一会失信。",
+        "感情": "言行不一致直接损害关系。",
+        "学业": "观点在逻辑上要前后一致，先解决自相矛盾。",
+        "健康": "内在冲突易焦虑，先理清选择。",
+        "行动建议": "核对目标、语言与行动，使三者一致。",
+        "风险提醒": "最需要防的是两边都要、最终两头皆空。"
+      },
+      "timestamp": 1789191772361,
+      "ganzhi": {
+        "year": "丙午",
+        "month": "丁酉",
+        "day": "己丑",
+        "hour": "辛未"
+      },
+      "draw": {
+        "method": "random",
+        "poolSize": 92,
+        "selectedIndex": 72,
+        "selectedNumber": 73
+      },
+      "meta": {
+        "engineVersion": "0.1.26",
+        "schemaVersion": "1.0.0",
+        "algorithm": "ssgw.draw",
+        "calculatedAt": "2026-09-12T05:42:52.361Z",
+        "inputHash": "00cc756792c5f5f3",
+        "resultId": "ssgw.draw:5af2aab83686daa2",
+        "random": {
+          "mode": "system",
+          "samples": [
+            0.7926723176789032
+          ]
+        }
+      },
+      "evidenceTrail": {
+        "items": [
+          {
+            "title": "灵签抽签基础",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "签数",
+                "reference": "draw.poolSize",
+                "output": 92
+              },
+              {
+                "name": "抽得签号",
+                "reference": "number",
+                "output": 73
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "观音灵签（第一百签）体系"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "在签池中随机抽取"
+              ],
+              "cautionWhen": [
+                "签文寓意随求问事由而变化",
+                "不同灵签版本签文有差异"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "不同灵签体系（观音/关帝/吕祖）签文不同",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 0
+          },
+          {
+            "title": "求签时间",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "干支纪时",
+                "reference": "ganzhi",
+                "output": "丙午年丁酉月己丑日"
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "干支纪时（求签时间）"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "记录求签时刻"
+              ],
+              "cautionWhen": [
+                "跨日/跨年转换以当地时间为准"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "干支纪时与公历换算口径存在细微差异",
+                "severity": "minor"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 1
+          },
+          {
+            "title": "签文呈现",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "签题",
+                "reference": "title",
+                "output": "第七十三签 · 自相矛盾，言行不一（凶）"
+              },
+              {
+                "name": "签诗",
+                "reference": "poem",
+                "output": "自相矛盾两难全，言行不一事难圆。\n说矛道盾皆自陷，表里如一始安然。"
+              },
+              {
+                "name": "注解",
+                "reference": "details",
+                "output": {
+                  "吉凶": "下签（凶）",
+                  "解签总论": "此签乃言行不一、逻辑混乱之象，总论自己说的话前后矛盾，自己做的事情违背自己的承诺。就像那个卖矛和盾的楚国人——先说自己的盾坚不可破，又说自己的矛无坚不摧，结果被人反问\"以子之矛，攻子之盾，何如？\"哑口无言。 - 自相矛盾两难全 —— 自己的矛和盾互相冲突，无法两全 - 言行不一事难圆 —— 说的和做的不一样，事情很难圆满 - 说矛道盾皆自陷 —— 说矛好又说盾好，结果自己掉进自己的坑里 - 表里如一始安然 —— 外表和内心一致，才能心安理得",
+                  "做人处事": "言行一致才能被人信任，嘴上说一套做一套，早晚穿帮",
+                  "工作/管理": "朝令夕改、前后不一，会让团队无所适从",
+                  "提醒": "想想自己有没有说过自相矛盾的话。逻辑清晰、言行一致，是最基本的靠谱",
+                  "此签核心": "自相矛盾，两边皆空。言行一致，才能走得远。",
+                  "核心寓意": "自相矛盾，两边皆空。言行一致，才能走得远。",
+                  "事业": "战略与执行相互冲突，需统一口径。",
+                  "财运": "财务承诺前后不一会失信。",
+                  "感情": "言行不一致直接损害关系。",
+                  "学业": "观点在逻辑上要前后一致，先解决自相矛盾。",
+                  "健康": "内在冲突易焦虑，先理清选择。",
+                  "行动建议": "核对目标、语言与行动，使三者一致。",
+                  "风险提醒": "最需要防的是两边都要、最终两头皆空。"
+                }
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "观音灵签签文与注解"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "按签号呈现签文"
+              ],
+              "cautionWhen": [
+                "签意解读存在多解"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "同一签文不同解签者解读不同",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "low",
+            "depth": 1
+          },
+          {
+            "title": "抽取方式",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "抽取方法",
+                "reference": "draw.method",
+                "output": "random"
+              },
+              {
+                "name": "选中编号",
+                "reference": "draw.selectedNumber",
+                "output": 73
+              }
+            ],
+            "source": {
+              "type": "algorithm",
+              "name": "随机抽样（签池等概率）"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "随机抽签"
+              ],
+              "cautionWhen": [
+                "manual 方式为用户手工录入签号"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "抽签随机性不影响签文内容本身",
+                "severity": "minor"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 1
+          }
+        ],
+        "overallConfidence": "low",
+        "summary": "灵签抽签证据链（第73签·第七十三签 · 自相矛盾，言行不一（凶））",
+        "generatedAt": "2026-09-12T05:42:52.361Z"
+      }
+    },
+    "meta": {
+      "service": "www.temposoul.com",
+      "version": "v1"
+    }
+  }
+}

@@ -64,6 +64,57 @@
   color: #fff;
 }
 
+/* 窄屏折叠态：当前语言胶囊 + 下拉列表 */
+.lang-switcher--narrow {
+  position: relative;
+}
+
+.lang-caret {
+  margin-left: 4px;
+  font-size: 10px;
+  opacity: 0.85;
+}
+
+.lang-dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  min-width: 150px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-radius: 12px;
+  background: rgba(19, 16, 25, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.45);
+  z-index: 65;
+}
+
+.lang-dropdown-item {
+  border: none;
+  background: transparent;
+  color: #d8cfe0;
+  font-size: 13px;
+  text-align: left;
+  padding: 7px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.16s ease, color 0.16s ease;
+}
+
+.lang-dropdown-item:hover {
+  background: rgba(77, 195, 255, 0.12);
+  color: var(--neon-cyan, #4dc3ff);
+}
+
+.lang-dropdown-item.is-active {
+  color: var(--neon-pink, #ff4d6d);
+  font-weight: 600;
+}
+
 .auth-login-link {
   font-size: 13px;
   color: #fff;
@@ -398,9 +449,10 @@
 }
 
 /* ===== 信任引擎 TrustBanner（T0–T6 信任漏斗横幅） ===== */
+/* 定位在视口底部：避免遮挡顶部导航与主体操作按钮（2026-09-17 修复） */
 .trust-banner {
   position: fixed;
-  top: 56px;
+  bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 55;
@@ -424,7 +476,7 @@
 @keyframes trust-banner-in {
   from {
     opacity: 0;
-    transform: translateX(-50%) translateY(-8px);
+    transform: translateX(-50%) translateY(8px);
   }
   to {
     opacity: 1;

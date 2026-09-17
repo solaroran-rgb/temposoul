@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TempoSoul · 高德3D楼块 Key 验证</title>
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; background: #000; overflow: hidden; }
+  #map { position: fixed; inset: 0; }
+  #status {
+    position: fixed; top: 12px; left: 50%; transform: translateX(-50%);
+    z-index: 9999; color: #7fe7ff; font: 13px/1.6 "Microsoft YaHei", sans-serif;
+    background: rgba(0,20,40,.8); border: 1px solid rgba(80,210,255,.4);
+    padding: 8px 16px; border-radius: 6px; white-space: pre; max-width: 92vw;
+  }
+</style>
+<script>
+  window._AMapSecurityConfig = { securityJsCode: 'db6d34fc64f152b4497cf37cce43db2c' };
+</script>
+<script src="https://webapi.amap.com/maps?v=2.0&key=c322315b4ad609930b96ac97be2ae907"></script>
+</head>
+<body>
+<div id="map"></div>
+<div id="status">正在加载高德 3D…</div>
+<script>
+  function setStatus(t) { document.getElementById('status').textContent = t; }
+
+  window.onerror = function (msg) { setStatus('JS错误: ' + msg); };
+
+  // 等 AMap 就绪
+  function init() {
+    try {
+      setStatus('AMap 已加载，初始化 3D 视图…');
+      const map = new AMap.Map('map', {
+        viewMode: '3D',
+        center: [117.157, 37.3109],
+        zoom: 17,
+        pitch: 55,
+        mapStyle: 'amap://styles/dark',
+        features: ['bg', 'road', 'building'],
+        showLabel: false
+      });
+      const buildings = new AMap.Buildings({
+        zIndex: 130, merge: false, sort: false, zooms: [15, 20]
+      });
+      buildings.setStyle({
+        hideWithoutStyle: false,
+        rejectTexture: true,
+        color1: 'rgba(80, 210, 255, 0.9)',
+        color2: 'rgba(20, 90, 160, 0.75)'
+      });
+      map.add(buildings);
+      setStatus('✅ Key 验证成功：3D 楼块已渲染（商河县）');
+      console.log('AMAP_OK');
+    } catch (e) {
+      setStatus('初始化失败: ' + e.message);
+    }
+  }
+
+  if (window.AMap && AMap.Map) { init(); }
+  else {
+    let tries = 0;
+    const t = setInterval(function () {
+      tries++;
+      if (window.AMap && AMap.Map) { clearInterval(t); init(); }
+      else if (tries > 40) { setStatus('AMap 加载超时（Key 或网络问题）'); }
+    }, 500);
+  }
+</script>
+</body>
+</html>

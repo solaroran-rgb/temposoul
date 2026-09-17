@@ -7,16 +7,10 @@
  *
  * 覆盖皇极经世四大环节：推算基础 → 元会运世坐标 → 周期换算 → 局限说明
  */
-import {
-  buildEvidenceTrail,
-  type EvidenceItem,
-  type EvidenceTrail,
-} from '../shared/evidence';
+import { buildEvidenceTrail, type EvidenceItem, type EvidenceTrail } from '../shared/evidence';
 import type { HuangjiJingshiCalculation } from './index';
 
-export function buildHuangjiJingshiEvidenceTrail(
-  result: HuangjiJingshiCalculation,
-): EvidenceTrail {
+export function buildHuangjiJingshiEvidenceTrail(result: HuangjiJingshiCalculation): EvidenceTrail {
   const items: EvidenceItem[] = [];
 
   // 1. 推算基础（depth 0 主证）
@@ -45,9 +39,7 @@ export function buildHuangjiJingshiEvidenceTrail(
       applicableWhen: ['提供公历年份'],
       cautionWhen: ['仅实现元会运世数学周期，不含值年卦/卦气/事件预测'],
     },
-    counterEvidence: [
-      { description: '皇极经世数理周期是传统历法模型', severity: 'alternative' },
-    ],
+    counterEvidence: [{ description: '皇极经世数理周期是传统历法模型', severity: 'alternative' }],
     confidence: 'medium',
     depth: 0,
   });
@@ -73,9 +65,7 @@ export function buildHuangjiJingshiEvidenceTrail(
       applicableWhen: ['按元会运世四级坐标'],
       cautionWhen: ['坐标为数学划分'],
     },
-    counterEvidence: [
-      { description: '元会运世换算存在版本差异', severity: 'alternative' },
-    ],
+    counterEvidence: [{ description: '元会运世换算存在版本差异', severity: 'alternative' }],
     confidence: 'medium',
     depth: 1,
   });
@@ -106,9 +96,7 @@ export function buildHuangjiJingshiEvidenceTrail(
       applicableWhen: ['按固定系数换算'],
       cautionWhen: ['换算系数为传统定值'],
     },
-    counterEvidence: [
-      { description: '元会运世系数不同版本有差异', severity: 'alternative' },
-    ],
+    counterEvidence: [{ description: '元会运世系数不同版本有差异', severity: 'alternative' }],
     confidence: 'medium',
     depth: 1,
   });
@@ -136,8 +124,5 @@ export function buildHuangjiJingshiEvidenceTrail(
     });
   }
 
-  return buildEvidenceTrail(
-    items,
-    `皇极经世证据链（${result.input.year}年·${result.input.mode}）`,
-  );
+  return buildEvidenceTrail(items, `皇极经世证据链（${result.input.year}年·${result.input.mode}）`);
 }

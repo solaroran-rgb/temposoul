@@ -1,0 +1,14 @@
+.birth-chart { max-width: 960px; margin: 0 auto; padding: 16px; color: var(--text-primary); }
+.birth-chart__boundary { color: var(--text-secondary); font-size: 13px; margin-bottom: 16px; }
+.birth-chart__canvas { width: 100%; max-width: 720px; border-radius: 8px; }
+.birth-chart__actions { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0; }
+.birth-chart__actions button {
+  background: transparent; border: 1px solid var(--neon-cyan);
+  color: var(--neon-cyan); padding: 8px 16px; border-radius: 6px; cursor: pointer;
+}
+.birth-chart__download { color: var(--neon-cyan); align-self: center; }
+.birth-chart__intent { margin-top: 20px; border-top: 1px solid var(--cyan-dim, #2A3550); padding-top: 12px; }
+@media (max-width: 640px) {
+  .birth-chart { padding: 12px; }
+  .birth-chart__actions { flex-direction: column; }
+}

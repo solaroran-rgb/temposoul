@@ -1,0 +1,153 @@
+/* ============================================================
+ * tempo-shell.css — A11 系新页面共享 ts-* 主题（本地侧补建）
+ * 说明：第10/11轮 A 域多页共用 ts-page/ts-card/ts-btn/ts-empty/
+ *       ts-alert/ts-table 等类，但交付清单漏了共享样式文件；
+ *       本地侧按 BEM + token 补建，作用域统一，供各页面 import。
+ * 用法：页面 css 首行 @import '../../styles/tempo-shell.css';
+ * ============================================================ */
+
+/* ---------- 页面壳 ---------- */
+.ts-page {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 96px 20px 96px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+.ts-page__title {
+  margin: 0 0 4px;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-primary, #E0E6ED);
+  letter-spacing: 0.5px;
+}
+.ts-page__main {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 16px;
+}
+.ts-page__note {
+  margin: 0;
+  color: var(--text-secondary, #8B9BB4);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* ---------- 卡片 ---------- */
+.ts-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ts-card__title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary, #E0E6ED);
+}
+.ts-card__subtitle {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-secondary, #8B9BB4);
+}
+
+/* ---------- 按钮 ---------- */
+.ts-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary, #E0E6ED);
+  font-size: 13px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.ts-btn:hover:not(:disabled) {
+  border-color: rgba(77, 195, 255, 0.45);
+  color: var(--neon-cyan, #4DC3FF);
+}
+.ts-btn:disabled { opacity: 0.45; cursor: default; }
+.ts-btn--primary {
+  background: rgba(77, 195, 255, 0.12);
+  border-color: rgba(77, 195, 255, 0.35);
+  color: var(--neon-cyan, #4DC3FF);
+}
+
+/* ---------- 空态 / 提示 ---------- */
+.ts-empty {
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  color: var(--text-secondary, #8B9BB4);
+  font-size: 13px;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+}
+
+/* ---------- 告警 ---------- */
+.ts-alert {
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.6;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.ts-alert--error {
+  background: rgba(255, 77, 109, 0.08);
+  border-color: rgba(255, 77, 109, 0.35);
+  color: #ffb3c0;
+}
+
+/* ---------- 表格 ---------- */
+.ts-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.ts-table th,
+.ts-table td {
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: left;
+  color: var(--text-primary, #E0E6ED);
+}
+.ts-table th {
+  background: rgba(255, 255, 255, 0.05);
+  font-weight: 600;
+}
+.ts-table__caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 12px;
+  color: var(--text-secondary, #8B9BB4);
+  padding-bottom: 6px;
+}
+
+/* ---------- 免责条 ---------- */
+.ts-page__disclaimer,
+.ts-daily-disclaimer,
+.ts-marriage-disclaimer,
+.ts-zhuge-disclaimer {
+  margin-top: 16px;
+  padding: 10px 14px;
+  border-left: 3px solid rgba(77, 195, 255, 0.5);
+  background: rgba(77, 195, 255, 0.05);
+  border-radius: 0 8px 8px 0;
+  color: var(--text-secondary, #8B9BB4);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+  .ts-page { padding: 88px 14px 96px; }
+  .ts-page__title { font-size: 19px; }
+}

@@ -1,105 +1,130 @@
-/**
- * Lemon Squeezy Webhook 接收端点（Cloudflare Pages Functions，边缘运行）
- * 路由：POST /api/v1/ls-webhook
- *
- * 作用：支付成功闭环。Lemon Squeezy 在此推送订单/订阅事件 → 验签通过后，
- *   把 checkout 时附带的 custom_data.user_id 对应订阅置为 premium（写 AUTH_KV）。
- *
- * 验签：Lemon Squeezy 在请求头 `X-Signature` 放 hex 编码的
- *   HMAC-SHA256(webhookSecret, rawBody)；本端点取原始 body 计算并常量时间比较。
- *
- * 关心的事件（meta.event_name）：
- *   - subscription_created / subscription_payment_success → 订阅成功，置 premium
- *   - order_created → 一次性订单成功，置 premium
- *   - 其它事件一律 200 确认收到（LS 不重试）
- *
- * 环境变量（占位，严禁硬编码）：
- *   LEMONSQUEEZY_WEBHOOK_SECRET  机密（LS Dashboard → Webhook 端点创建后下发）
- *   AUTH_KV                      KV 命名空间绑定（与 /api/v1/subscription 同库）
- *
- * 配置：LS Dashboard → Settings → Webhooks → 端点 https://<域名>/api/v1/ls-webhook，
- *   订阅上述事件，签名密钥填 LEMONSQUEEZY_WEBHOOK_SECRET。
- */
+import { activatePremium } from '../../../src/lib/server/payment';
 
-interface KVNamespace {
-  get(key: string): Promise<string | null>;
-  put(key: string, value: string): Promise<void>;
-}
-
-interface WebhookEnv {
+interface Env {
   LEMONSQUEEZY_WEBHOOK_SECRET?: string;
   AUTH_KV?: KVNamespace;
 }
 
-type PagesContext = {
-  request: Request;
-  env?: WebhookEnv;
-};
+const SUCCESS_EVENTS = new Set([
+  'subscription_created',
+  'subscription_payment_success',
+  'order_created',
+]);
+const REFUND_EVENTS = new Set(['subscription_cancelled', 'order_refunded']);
 
-import { activatePremium } from '../../../src/lib/server/payment';
-
-function json(data: unknown, status = 200): Response {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: { 'Content-Type': 'application/json; charset=utf-8' },
-  });
+function constantTimeEqual(a: string, b: string): boolean {
+  if (a.length !== b.length) return false;
+  let result = 0;
+  for (let i = 0; i < a.length; i++) {
+    result |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  }
+  return result === 0;
 }
 
-function bufToHex(buf: ArrayBuffer): string {
-  const bytes = new Uint8Array(buf);
-  let hex = '';
-  for (const b of bytes) hex += b.toString(16).padStart(2, '0');
-  return hex;
-}
+async function verifyWebhookSignature(
+  rawBody: string,
+  signature: string,
+  secret: string,
+): Promise<boolean> {
+  if (!secret || !signature) return false;
 
-async function hmacHex(secret: string, payload: string): Promise<string> {
+  const encoder = new TextEncoder();
   const key = await crypto.subtle.importKey(
     'raw',
-    new TextEncoder().encode(secret),
+    encoder.encode(secret),
     { name: 'HMAC', hash: 'SHA-256' },
     false,
     ['sign'],
   );
-  const sig = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(payload));
-  return bufToHex(sig);
+  const sigBuf = await crypto.subtle.sign('HMAC', key, encoder.encode(rawBody));
+  const sigHex = [...new Uint8Array(sigBuf)].map((b) => b.toString(16).padStart(2, '0')).join('');
+
+  return constantTimeEqual(sigHex, signature);
 }
 
-/** 这些事件视为「付费成功」，需要回写 premium */
-const SUCCESS_EVENTS = new Set(['subscription_created', 'subscription_payment_success', 'order_created']);
+export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
+  const rawBody = await request.text();
 
-export async function onRequest(ctx: PagesContext): Promise<Response> {
-  if (ctx.request.method.toUpperCase() !== 'POST') return json({ error: 'method_not_allowed' }, 405);
+  // 验签
+  const signature = request.headers.get('X-Signature') || '';
+  const secret = env.LEMONSQUEEZY_WEBHOOK_SECRET || '';
 
-  const env = ctx.env ?? {};
-  if (!env.LEMONSQUEEZY_WEBHOOK_SECRET || !env.AUTH_KV) {
-    return json({ error: 'webhook_unavailable' }, 503);
+  const valid = await verifyWebhookSignature(rawBody, signature, secret);
+  if (!valid) {
+    return Response.json({ received: true, event: 'invalid_signature' }, { status: 200 });
   }
 
-  const signature = (ctx.request.headers.get('x-signature') ?? '').toLowerCase();
-  const rawBody = await ctx.request.text();
-  if (!signature) return json({ error: 'missing_signature' }, 400);
+  // 解析事件
+  let payload: {
+    event_name?: string;
+    meta?: {
+      event_name?: string;
+      custom_data?: {
+        user_id?: string;
+        product_id?: string;
+        order_type?: string;
+        ab_bucket?: Record<string, number>;
+      };
+    };
+    data?: {
+      id?: string;
+    };
+  };
 
-  const expected = await hmacHex(env.LEMONSQUEEZY_WEBHOOK_SECRET, rawBody);
-  if (expected.length !== signature.length) return json({ error: 'invalid_signature' }, 400);
-  let diff = 0;
-  for (let i = 0; i < expected.length; i++) diff |= expected.charCodeAt(i) ^ signature.charCodeAt(i);
-  if (diff !== 0) return json({ error: 'invalid_signature' }, 400);
-
-  let event: { meta?: { event_name?: string; custom_data?: { user_id?: string } } };
   try {
-    event = JSON.parse(rawBody) as typeof event;
+    payload = JSON.parse(rawBody);
   } catch {
-    return json({ error: 'invalid_payload' }, 400);
+    return Response.json({ received: true, event: 'invalid_json' }, { status: 200 });
   }
 
-  const eventName = event.meta?.event_name ?? '';
-  if (!SUCCESS_EVENTS.has(eventName)) return json({ received: true, event: eventName });
+  // 事件名从 meta.event_name 读取（对齐现有实现）
+  const eventName = payload.meta?.event_name || '';
+  const customData = payload.meta?.custom_data || {};
+  const userId = customData.user_id;
 
-  const userId = event.meta?.custom_data?.user_id;
-  if (!userId || userId === 'anonymous') {
-    return json({ received: true, event: eventName, note: 'no_user_link' });
+  if (!userId || !env.AUTH_KV) {
+    return Response.json({ received: true, event: eventName }, { status: 200 });
   }
 
-  await activatePremium(env.AUTH_KV, userId, 'lemonsqueezy');
-  return json({ received: true, event: eventName, tier: 'premium', userId });
-}
+  // 成功事件 → 激活 premium + 记录订单（单一事实源）
+  if (SUCCESS_EVENTS.has(eventName)) {
+    // 订阅类事件解析 subscription_id
+    let subscriptionId: string | undefined;
+    if (eventName === 'subscription_created' || eventName === 'subscription_payment_success') {
+      subscriptionId = payload.data?.id;
+    }
+
+    await activatePremium(env.AUTH_KV, userId, 'lemonsqueezy', {
+      productId: customData.product_id,
+      orderType: customData.order_type,
+      abBucket: customData.ab_bucket,
+      subscriptionId,
+    });
+  }
+
+  // 退款/取消事件 → 更新状态（单一事实源）
+  if (REFUND_EVENTS.has(eventName)) {
+    const subKey = `sub:${userId}`;
+    const existingRaw = await env.AUTH_KV.get(subKey);
+    if (existingRaw) {
+      try {
+        const record = JSON.parse(existingRaw) as Record<string, unknown>;
+        if (eventName === 'subscription_cancelled') {
+          record.tier = 'free';
+          record.cancelledAt = new Date().toISOString();
+        }
+        if (eventName === 'order_refunded') {
+          record.refunded = true;
+          record.refundedAt = new Date().toISOString();
+          record.tier = 'free';
+        }
+        record.updatedAt = new Date().toISOString();
+        await env.AUTH_KV.put(subKey, JSON.stringify(record));
+      } catch {
+        // 记录损坏则忽略
+      }
+    }
+  }
+
+  return Response.json({ received: true, event: eventName }, { status: 200 });
+};

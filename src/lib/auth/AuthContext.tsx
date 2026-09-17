@@ -1,4 +1,12 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+} from 'react';
 import { safeStorage } from '@/lib/safe-storage';
 import { fetchMe, loginAccount, logoutAccount, registerAccount, type AuthUser } from './api';
 import { trackSignup } from '@/lib/analytics';

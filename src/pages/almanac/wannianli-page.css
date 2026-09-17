@@ -1,0 +1,19 @@
+/* src/pages/almanac/wannianli-page.css */
+.wannianli-page { padding: 16px; color: var(--text-primary, #E0E6ED); }
+.wannianli__header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.wannianli__title { font-size: 20px; font-weight: 600; }
+.wannianli__nav-btn { width: 40px; height: 40px; border: none; background: rgba(255,255,255,0.06); border-radius: 50%; color: var(--text-primary, #E0E6ED); font-size: 20px; cursor: pointer; }
+.wannianli__nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.wannianli__grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+.wannianli__weekday { text-align: center; font-size: 12px; color: var(--text-secondary, #8B9BB4); padding: 8px 0; }
+.wannianli__cell { position: relative; aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 8px; background: rgba(255,255,255,0.03); cursor: pointer; transition: background 0.2s; }
+.wannianli__cell:hover { background: rgba(255,255,255,0.08); }
+.wannianli__cell--empty { background: transparent; cursor: default; }
+.wannianli__solar { font-size: 16px; font-weight: 500; }
+.wannianli__lunar { font-size: 10px; color: var(--text-secondary, #8B9BB4); margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%; padding: 0 2px; }
+.wannianli__dot { position: absolute; top: 6px; right: 6px; width: 6px; height: 6px; border-radius: 50%; }
+.wannianli__dot--good { background: var(--neon-cyan, #4DC3FF); }
+.wannianli__dot--bad { background: var(--neon-pink, #FF4D6D); }
+.wannianli__dot--neutral { background: var(--text-secondary, #8B9BB4); }
+.wannianli__empty, .wannianli__error { padding: 40px 16px; text-align: center; color: var(--text-secondary, #8B9BB4); }
+.wannianli__degraded-hint { margin-top: 12px; font-size: 12px; color: var(--text-secondary, #8B9BB4); text-align: center; }

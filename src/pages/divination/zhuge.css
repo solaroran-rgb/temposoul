@@ -1,0 +1,41 @@
+/* src/pages/divination/zhuge.css · A11 诸葛神数（本地侧补建） */
+@import '../../styles/tempo-shell.css';
+
+/* ---------- 签库 Tabs ---------- */
+.ts-zhuge-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+.ts-zhuge-tabs button {
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary, #E0E6ED);
+  font-size: 13px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+.ts-zhuge-tabs button:hover:not(:disabled) {
+  border-color: rgba(77, 195, 255, 0.4);
+}
+.ts-zhuge-tabs button.is-active,
+.ts-zhuge-tabs button[aria-selected='true'] {
+  border-color: var(--neon-cyan, #4DC3FF);
+  color: var(--neon-cyan, #4DC3FF);
+  background: rgba(77, 195, 255, 0.08);
+}
+.ts-zhuge-tabs button:disabled { opacity: 0.45; cursor: default; }
+
+/* ---------- 提示条 ---------- */
+.ts-zhuge-hint {
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(255, 193, 7, 0.07);
+  border: 1px solid rgba(255, 193, 7, 0.25);
+  color: #ffd97a;
+  font-size: 12px;
+  line-height: 1.6;
+}

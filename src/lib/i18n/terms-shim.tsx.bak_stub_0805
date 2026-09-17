@@ -1,0 +1,10 @@
+import React from 'react';
+
+/**
+ * terms-shim：术语国际化的临时兼容垫片。
+ * 在正式 i18n 术语层就位前，直接透传中文 zh，保证引用方（如 ZiweiBoard）可构建；
+ * 后续可由 i18n 模块用真正的多语言实现整体替换本文件，调用方无需改动。
+ */
+export function TermText({ zh, en }: { zh?: string | null; en?: string | null }) {
+  return <>{zh ?? en ?? ''}</>;
+}

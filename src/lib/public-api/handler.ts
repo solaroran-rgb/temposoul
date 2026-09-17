@@ -102,8 +102,7 @@ type ApiMeta = {
  */
 function isMingyuCoreError(error: unknown): error is MingyuCoreError {
   return (
-    error instanceof MingyuCoreError ||
-    (error instanceof Error && error.name === 'MingyuCoreError')
+    error instanceof MingyuCoreError || (error instanceof Error && error.name === 'MingyuCoreError')
   );
 }
 
@@ -2388,7 +2387,7 @@ async function calculateResidentialApi(input: JsonRecord) {
 
   try {
     const { generateResidentialFengshui } = await import('@temposoul/core/residential-fengshui');
-  return generateResidentialFengshui({
+    return generateResidentialFengshui({
       ...(year !== undefined ? { year } : {}),
       ...(birthYear !== undefined ? { birthYear } : {}),
       ...(birthMonth !== undefined ? { birthMonth } : {}),
@@ -2675,9 +2674,8 @@ export async function calculateZiweiRuntime(input: JsonRecord, scopes: ScopeType
         birthMinute: readString(input, 'birthMinute', ''),
         birthLongitude: readString(input, 'birthLongitude', ''),
       };
-  const { buildZiweiChartInput, calculatePublicZiweiChartForScopes } = await import(
-    '@temposoul/core/ziwei'
-  );
+  const { buildZiweiChartInput, calculatePublicZiweiChartForScopes } =
+    await import('@temposoul/core/ziwei');
   return calculatePublicZiweiChartForScopes(
     buildZiweiChartInput({
       name: readString(input, 'name', ''),
@@ -3112,7 +3110,8 @@ async function readAstrolabeSynastryCharts(input: JsonRecord) {
 async function calculateAstrolabeSynastryApi(input: JsonRecord) {
   assertNoRandomOptions(input, '西占双盘是确定性计算，不接受 seed 或 replay。');
   const { chart1, chart2 } = await readAstrolabeSynastryCharts(input);
-  const { analyzeAstrolabeSynastry } = await import('@temposoul/core/divination/astrolabe-synastry');
+  const { analyzeAstrolabeSynastry } =
+    await import('@temposoul/core/divination/astrolabe-synastry');
   const synastry = analyzeAstrolabeSynastry(chart1, chart2);
   return { charts: { person1: chart1, person2: chart2 }, synastry };
 }
@@ -3230,9 +3229,7 @@ async function buildDivinationPromptResult(
       : readRequiredString(input, 'question');
   const rawData = await calculateDivinationData(method, input);
   const promptData =
-    method === 'almanac'
-      ? await shapeAlmanacPromptData(rawData as AlmanacData, input)
-      : rawData;
+    method === 'almanac' ? await shapeAlmanacPromptData(rawData as AlmanacData, input) : rawData;
   const fullResult =
     method === 'almanac'
       ? await shapeAlmanacResult(rawData as AlmanacData, input)
@@ -3690,7 +3687,10 @@ function readAlmanacPageSelection(result: AlmanacData, input: JsonRecord) {
   };
 }
 
-async function shapeAlmanacPromptData(result: AlmanacData, input: JsonRecord): Promise<AlmanacData> {
+async function shapeAlmanacPromptData(
+  result: AlmanacData,
+  input: JsonRecord,
+): Promise<AlmanacData> {
   const { shouldPaginate, selectedDays } = readAlmanacPageSelection(result, input);
   if (!shouldPaginate) return result;
   const shaped = { ...result, days: selectedDays };
@@ -3699,7 +3699,10 @@ async function shapeAlmanacPromptData(result: AlmanacData, input: JsonRecord): P
   return shaped;
 }
 
-async function shapeAlmanacResult(result: AlmanacData, input: JsonRecord): Promise<AlmanacApiResult> {
+async function shapeAlmanacResult(
+  result: AlmanacData,
+  input: JsonRecord,
+): Promise<AlmanacApiResult> {
   const detailMode = readDetailMode(input);
   const { shouldPaginate, selectedDays, pagination } = readAlmanacPageSelection(result, input);
   const days = detailMode === 'compact' ? selectedDays.map(compactAlmanacDay) : selectedDays;

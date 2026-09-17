@@ -27,13 +27,16 @@ function sunEclipticLongitude(jd: number): number {
 /** 月球黄经、黄纬（度），Meeus 47 低精度主项 */
 function moonEcliptic(jd: number): { lon: number; lat: number } {
   const T = (jd - 2451545.0) / 36525.0;
-  const Lp = 218.316 + 481267.881 * T;          // 平黄经
-  const D = 297.8501921 + 445267.1114034 * T;   // 平距角
-  const M = 357.52911 + 35999.05029 * T;        // 太阳平近点角
-  const Mp = 134.963 + 477198.867 * T;          // 月球平近点角
-  const F = 93.272 + 483202.017 * T;            // 升交点角距
+  const Lp = 218.316 + 481267.881 * T; // 平黄经
+  const D = 297.8501921 + 445267.1114034 * T; // 平距角
+  const M = 357.52911 + 35999.05029 * T; // 太阳平近点角
+  const Mp = 134.963 + 477198.867 * T; // 月球平近点角
+  const F = 93.272 + 483202.017 * T; // 升交点角距
 
-  const Dr = D * DEG, Mr = M * DEG, Mpr = Mp * DEG, Fr = F * DEG;
+  const Dr = D * DEG,
+    Mr = M * DEG,
+    Mpr = Mp * DEG,
+    Fr = F * DEG;
 
   // 黄经主项
   const lon =
@@ -56,16 +59,16 @@ function moonEcliptic(jd: number): { lon: number; lat: number } {
 }
 
 /** 黄道 -> 赤道（度），IAU 简化，倾角 23.4392911° */
-function eclipticToEquatorial(
-  lonDeg: number,
-  latDeg: number
-): { ra: number; dec: number } {
+function eclipticToEquatorial(lonDeg: number, latDeg: number): { ra: number; dec: number } {
   const eps = 23.4392911 * DEG;
   const l = lonDeg * DEG;
   const b = latDeg * DEG;
-  const sinL = Math.sin(l), cosL = Math.cos(l);
-  const sinB = Math.sin(b), cosB = Math.cos(b);
-  const sinE = Math.sin(eps), cosE = Math.cos(eps);
+  const sinL = Math.sin(l),
+    cosL = Math.cos(l);
+  const sinB = Math.sin(b),
+    cosB = Math.cos(b);
+  const sinE = Math.sin(eps),
+    cosE = Math.cos(eps);
 
   const x = cosB * cosL;
   const y = cosB * sinL * cosE - sinB * sinE;
@@ -77,26 +80,21 @@ function eclipticToEquatorial(
 }
 
 export interface MoonState {
-  ra: number;       // rad
-  dec: number;      // rad
-  alt: number;      // rad
-  az: number;       // rad
+  ra: number; // rad
+  dec: number; // rad
+  alt: number; // rad
+  az: number; // rad
   vec: { x: number; y: number; z: number };
-  phase: number;    // 0..2PI, 0=新月, PI=满月
-  illum: number;    // 0..1 照亮比例
-  slot: number;     // 0..11 贴图档位
+  phase: number; // 0..2PI, 0=新月, PI=满月
+  illum: number; // 0..1 照亮比例
+  slot: number; // 0..11 贴图档位
 }
 
 /**
  * 计算月亮状态。
  * jd: 儒略日；lst: 本地恒星时(rad)；lat: 纬度(rad)；R: 天球半径。
  */
-export function computeMoon(
-  jd: number,
-  lst: number,
-  lat: number,
-  R = 500
-): MoonState {
+export function computeMoon(jd: number, lst: number, lat: number, R = 500): MoonState {
   const { lon, lat: mlat } = moonEcliptic(jd);
   const sunLon = sunEclipticLongitude(jd);
   const { ra, dec } = eclipticToEquatorial(lon, mlat);
@@ -118,10 +116,7 @@ export function computeMoon(
  * 数学模型：明暗分界线水平坐标 terminatorX = -cos(phase) * sqrt(1 - dy^2)，
  * 其中 phase 从新月起算（0=新月, π=满月）。亮区在 dx < terminatorX 一侧。
  */
-function renderPhaseToImageData(
-  size: number,
-  phase: number
-): ImageData {
+function renderPhaseToImageData(size: number, phase: number): ImageData {
   const ctx = document.createElement('canvas').getContext('2d')!;
   const img = ctx.createImageData(size, size);
   const data = img.data;
@@ -154,7 +149,7 @@ function renderPhaseToImageData(
         // 边缘柔化
         const edgeDist = Math.min(
           Math.sqrt(1 - d2), // 到圆边缘
-          Math.abs(terminatorX - dx) // 到明暗分界线
+          Math.abs(terminatorX - dx), // 到明暗分界线
         );
         const soft = Math.min(1, edgeDist / 0.08);
 
@@ -200,4 +195,4 @@ export function makeMoonTextures(): THREE.CanvasTexture[] {
   return textures;
 }
 
-export { MOON_PHASE_SLOTS };
+export { MOON_PHASE_SLOTS };

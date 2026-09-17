@@ -1,0 +1,1202 @@
+[
+  {
+    "case": "01_normal_day",
+    "endpoint": "bazi/calculate",
+    "http": 200,
+    "ms": 3693,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "01_normal_day",
+    "endpoint": "ziwei/calculate",
+    "http": 503,
+    "ms": 3118,
+    "ok": null,
+    "err": null
+  },
+  {
+    "case": "01_normal_day",
+    "endpoint": "divination/astrolabe",
+    "http": 400,
+    "ms": 778,
+    "ok": false,
+    "err": "latitude 必须是数字。"
+  },
+  {
+    "case": "01_normal_day",
+    "endpoint": "metaphysics/qizheng/calculate",
+    "http": 400,
+    "ms": 1113,
+    "ok": false,
+    "err": "hour 必须是整数。"
+  },
+  {
+    "case": "01_normal_day",
+    "endpoint": "divination/liuyao",
+    "http": 200,
+    "ms": 1505,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "01_normal_day",
+    "endpoint": "divination/meihua",
+    "http": 200,
+    "ms": 2856,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "01_normal_day",
+    "endpoint": "divination/qimen",
+    "http": 200,
+    "ms": 4201,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "01_normal_day",
+    "endpoint": "divination/liuren",
+    "http": 200,
+    "ms": 2224,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "01_normal_day",
+    "endpoint": "metaphysics/bazhai/calculate",
+    "http": 400,
+    "ms": 1062,
+    "ok": false,
+    "err": "需提供 birthYear+gender 或直接给定 mingGua。"
+  },
+  {
+    "case": "01_normal_day",
+    "endpoint": "metaphysics/xuankong/calculate",
+    "http": 400,
+    "ms": 600,
+    "ok": false,
+    "err": "需提供 sitMountain/facingMountain，或 sitDegree/facingDegree。"
+  },
+  {
+    "case": "01_normal_day",
+    "endpoint": "metaphysics/taiyi/calculate",
+    "http": 200,
+    "ms": 2643,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "01_normal_day",
+    "endpoint": "metaphysics/wuyun-liuqi/calculate",
+    "http": 200,
+    "ms": 1794,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "01_normal_day",
+    "endpoint": "metaphysics/huangji-jingshi/calculate",
+    "http": 400,
+    "ms": 632,
+    "ok": false,
+    "err": "epochYear 必须是整数。"
+  },
+  {
+    "case": "01_normal_day",
+    "endpoint": "divination/ssgw",
+    "http": 200,
+    "ms": 675,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "01_normal_day",
+    "endpoint": "divination/almanac",
+    "http": 400,
+    "ms": 678,
+    "ok": false,
+    "err": "startDate 不能为空。"
+  },
+  {
+    "case": "02_early_zi",
+    "endpoint": "bazi/calculate",
+    "http": 200,
+    "ms": 2029,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "02_early_zi",
+    "endpoint": "ziwei/calculate",
+    "http": 503,
+    "ms": 3250,
+    "ok": null,
+    "err": null
+  },
+  {
+    "case": "02_early_zi",
+    "endpoint": "divination/astrolabe",
+    "http": 400,
+    "ms": 733,
+    "ok": false,
+    "err": "latitude 必须是数字。"
+  },
+  {
+    "case": "02_early_zi",
+    "endpoint": "metaphysics/qizheng/calculate",
+    "http": 400,
+    "ms": 720,
+    "ok": false,
+    "err": "hour 必须是整数。"
+  },
+  {
+    "case": "02_early_zi",
+    "endpoint": "divination/liuyao",
+    "http": 200,
+    "ms": 1299,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "02_early_zi",
+    "endpoint": "divination/meihua",
+    "http": 503,
+    "ms": 651,
+    "ok": null,
+    "err": null
+  },
+  {
+    "case": "02_early_zi",
+    "endpoint": "divination/qimen",
+    "http": 200,
+    "ms": 2574,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "02_early_zi",
+    "endpoint": "divination/liuren",
+    "http": 503,
+    "ms": 1160,
+    "ok": null,
+    "err": null
+  },
+  {
+    "case": "02_early_zi",
+    "endpoint": "metaphysics/bazhai/calculate",
+    "http": 400,
+    "ms": 675,
+    "ok": false,
+    "err": "需提供 birthYear+gender 或直接给定 mingGua。"
+  },
+  {
+    "case": "02_early_zi",
+    "endpoint": "metaphysics/xuankong/calculate",
+    "http": 400,
+    "ms": 642,
+    "ok": false,
+    "err": "需提供 sitMountain/facingMountain，或 sitDegree/facingDegree。"
+  },
+  {
+    "case": "02_early_zi",
+    "endpoint": "metaphysics/taiyi/calculate",
+    "http": 200,
+    "ms": 824,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "02_early_zi",
+    "endpoint": "metaphysics/wuyun-liuqi/calculate",
+    "http": 200,
+    "ms": 980,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "02_early_zi",
+    "endpoint": "metaphysics/huangji-jingshi/calculate",
+    "http": 400,
+    "ms": 589,
+    "ok": false,
+    "err": "epochYear 必须是整数。"
+  },
+  {
+    "case": "02_early_zi",
+    "endpoint": "divination/ssgw",
+    "http": 200,
+    "ms": 791,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "02_early_zi",
+    "endpoint": "divination/almanac",
+    "http": 400,
+    "ms": 971,
+    "ok": false,
+    "err": "startDate 不能为空。"
+  },
+  {
+    "case": "03_late_zi",
+    "endpoint": "bazi/calculate",
+    "http": 503,
+    "ms": 586,
+    "ok": null,
+    "err": null
+  },
+  {
+    "case": "03_late_zi",
+    "endpoint": "ziwei/calculate",
+    "http": 503,
+    "ms": 840,
+    "ok": null,
+    "err": null
+  },
+  {
+    "case": "03_late_zi",
+    "endpoint": "divination/astrolabe",
+    "http": 400,
+    "ms": 677,
+    "ok": false,
+    "err": "latitude 必须是数字。"
+  },
+  {
+    "case": "03_late_zi",
+    "endpoint": "metaphysics/qizheng/calculate",
+    "http": 400,
+    "ms": 1928,
+    "ok": false,
+    "err": "hour 必须是整数。"
+  },
+  {
+    "case": "03_late_zi",
+    "endpoint": "divination/liuyao",
+    "http": 200,
+    "ms": 1507,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "03_late_zi",
+    "endpoint": "divination/meihua",
+    "http": 200,
+    "ms": 2250,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "03_late_zi",
+    "endpoint": "divination/qimen",
+    "http": 200,
+    "ms": 2302,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "03_late_zi",
+    "endpoint": "divination/liuren",
+    "http": 503,
+    "ms": 764,
+    "ok": null,
+    "err": null
+  },
+  {
+    "case": "03_late_zi",
+    "endpoint": "metaphysics/bazhai/calculate",
+    "http": 400,
+    "ms": 1585,
+    "ok": false,
+    "err": "需提供 birthYear+gender 或直接给定 mingGua。"
+  },
+  {
+    "case": "03_late_zi",
+    "endpoint": "metaphysics/xuankong/calculate",
+    "http": 400,
+    "ms": 822,
+    "ok": false,
+    "err": "需提供 sitMountain/facingMountain，或 sitDegree/facingDegree。"
+  },
+  {
+    "case": "03_late_zi",
+    "endpoint": "metaphysics/taiyi/calculate",
+    "http": 200,
+    "ms": 1205,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "03_late_zi",
+    "endpoint": "metaphysics/wuyun-liuqi/calculate",
+    "http": 200,
+    "ms": 1899,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "03_late_zi",
+    "endpoint": "metaphysics/huangji-jingshi/calculate",
+    "http": 400,
+    "ms": 691,
+    "ok": false,
+    "err": "epochYear 必须是整数。"
+  },
+  {
+    "case": "03_late_zi",
+    "endpoint": "divination/ssgw",
+    "http": 200,
+    "ms": 592,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "03_late_zi",
+    "endpoint": "divination/almanac",
+    "http": 400,
+    "ms": 601,
+    "ok": false,
+    "err": "startDate 不能为空。"
+  },
+  {
+    "case": "04_lichun_boundary",
+    "endpoint": "bazi/calculate",
+    "http": 200,
+    "ms": 2328,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "04_lichun_boundary",
+    "endpoint": "ziwei/calculate",
+    "http": 503,
+    "ms": 629,
+    "ok": null,
+    "err": null
+  },
+  {
+    "case": "04_lichun_boundary",
+    "endpoint": "divination/astrolabe",
+    "http": 400,
+    "ms": 689,
+    "ok": false,
+    "err": "latitude 必须是数字。"
+  },
+  {
+    "case": "04_lichun_boundary",
+    "endpoint": "metaphysics/qizheng/calculate",
+    "http": 400,
+    "ms": 557,
+    "ok": false,
+    "err": "hour 必须是整数。"
+  },
+  {
+    "case": "04_lichun_boundary",
+    "endpoint": "divination/liuyao",
+    "http": 200,
+    "ms": 1072,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "04_lichun_boundary",
+    "endpoint": "divination/meihua",
+    "http": 200,
+    "ms": 2899,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "04_lichun_boundary",
+    "endpoint": "divination/qimen",
+    "http": 200,
+    "ms": 2907,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "04_lichun_boundary",
+    "endpoint": "divination/liuren",
+    "http": 200,
+    "ms": 1847,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "04_lichun_boundary",
+    "endpoint": "metaphysics/bazhai/calculate",
+    "http": 400,
+    "ms": 649,
+    "ok": false,
+    "err": "需提供 birthYear+gender 或直接给定 mingGua。"
+  },
+  {
+    "case": "04_lichun_boundary",
+    "endpoint": "metaphysics/xuankong/calculate",
+    "http": 400,
+    "ms": 627,
+    "ok": false,
+    "err": "需提供 sitMountain/facingMountain，或 sitDegree/facingDegree。"
+  },
+  {
+    "case": "04_lichun_boundary",
+    "endpoint": "metaphysics/taiyi/calculate",
+    "http": 200,
+    "ms": 866,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "04_lichun_boundary",
+    "endpoint": "metaphysics/wuyun-liuqi/calculate",
+    "http": 200,
+    "ms": 997,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "04_lichun_boundary",
+    "endpoint": "metaphysics/huangji-jingshi/calculate",
+    "http": 400,
+    "ms": 565,
+    "ok": false,
+    "err": "epochYear 必须是整数。"
+  },
+  {
+    "case": "04_lichun_boundary",
+    "endpoint": "divination/ssgw",
+    "http": 200,
+    "ms": 733,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "04_lichun_boundary",
+    "endpoint": "divination/almanac",
+    "http": 400,
+    "ms": 656,
+    "ok": false,
+    "err": "startDate 不能为空。"
+  },
+  {
+    "case": "05_solar_term",
+    "endpoint": "bazi/calculate",
+    "http": 200,
+    "ms": 4033,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "05_solar_term",
+    "endpoint": "ziwei/calculate",
+    "http": 503,
+    "ms": 691,
+    "ok": null,
+    "err": null
+  },
+  {
+    "case": "05_solar_term",
+    "endpoint": "divination/astrolabe",
+    "http": 400,
+    "ms": 669,
+    "ok": false,
+    "err": "latitude 必须是数字。"
+  },
+  {
+    "case": "05_solar_term",
+    "endpoint": "metaphysics/qizheng/calculate",
+    "http": 400,
+    "ms": 868,
+    "ok": false,
+    "err": "hour 必须是整数。"
+  },
+  {
+    "case": "05_solar_term",
+    "endpoint": "divination/liuyao",
+    "http": 503,
+    "ms": 698,
+    "ok": null,
+    "err": null
+  },
+  {
+    "case": "05_solar_term",
+    "endpoint": "divination/meihua",
+    "http": 503,
+    "ms": 816,
+    "ok": null,
+    "err": null
+  },
+  {
+    "case": "05_solar_term",
+    "endpoint": "divination/qimen",
+    "http": 200,
+    "ms": 2336,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "05_solar_term",
+    "endpoint": "divination/liuren",
+    "http": 200,
+    "ms": 1162,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "05_solar_term",
+    "endpoint": "metaphysics/bazhai/calculate",
+    "http": 400,
+    "ms": 741,
+    "ok": false,
+    "err": "需提供 birthYear+gender 或直接给定 mingGua。"
+  },
+  {
+    "case": "05_solar_term",
+    "endpoint": "metaphysics/xuankong/calculate",
+    "http": 400,
+    "ms": 678,
+    "ok": false,
+    "err": "需提供 sitMountain/facingMountain，或 sitDegree/facingDegree。"
+  },
+  {
+    "case": "05_solar_term",
+    "endpoint": "metaphysics/taiyi/calculate",
+    "http": 200,
+    "ms": 1484,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "05_solar_term",
+    "endpoint": "metaphysics/wuyun-liuqi/calculate",
+    "http": 200,
+    "ms": 813,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "05_solar_term",
+    "endpoint": "metaphysics/huangji-jingshi/calculate",
+    "http": 400,
+    "ms": 690,
+    "ok": false,
+    "err": "epochYear 必须是整数。"
+  },
+  {
+    "case": "05_solar_term",
+    "endpoint": "divination/ssgw",
+    "http": 200,
+    "ms": 1557,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "05_solar_term",
+    "endpoint": "divination/almanac",
+    "http": 400,
+    "ms": 720,
+    "ok": false,
+    "err": "startDate 不能为空。"
+  },
+  {
+    "case": "06_dst_1987",
+    "endpoint": "bazi/calculate",
+    "http": 200,
+    "ms": 1726,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "06_dst_1987",
+    "endpoint": "ziwei/calculate",
+    "http": 503,
+    "ms": 2993,
+    "ok": null,
+    "err": null
+  },
+  {
+    "case": "06_dst_1987",
+    "endpoint": "divination/astrolabe",
+    "http": 400,
+    "ms": 1204,
+    "ok": false,
+    "err": "latitude 必须是数字。"
+  },
+  {
+    "case": "06_dst_1987",
+    "endpoint": "metaphysics/qizheng/calculate",
+    "http": 400,
+    "ms": 1261,
+    "ok": false,
+    "err": "hour 必须是整数。"
+  },
+  {
+    "case": "06_dst_1987",
+    "endpoint": "divination/liuyao",
+    "http": 200,
+    "ms": 1929,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "06_dst_1987",
+    "endpoint": "divination/meihua",
+    "http": 200,
+    "ms": 2241,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "06_dst_1987",
+    "endpoint": "divination/qimen",
+    "http": 503,
+    "ms": 683,
+    "ok": null,
+    "err": null
+  },
+  {
+    "case": "06_dst_1987",
+    "endpoint": "divination/liuren",
+    "http": 503,
+    "ms": 809,
+    "ok": null,
+    "err": null
+  },
+  {
+    "case": "06_dst_1987",
+    "endpoint": "metaphysics/bazhai/calculate",
+    "http": 400,
+    "ms": 620,
+    "ok": false,
+    "err": "需提供 birthYear+gender 或直接给定 mingGua。"
+  },
+  {
+    "case": "06_dst_1987",
+    "endpoint": "metaphysics/xuankong/calculate",
+    "http": 400,
+    "ms": 641,
+    "ok": false,
+    "err": "需提供 sitMountain/facingMountain，或 sitDegree/facingDegree。"
+  },
+  {
+    "case": "06_dst_1987",
+    "endpoint": "metaphysics/taiyi/calculate",
+    "http": 200,
+    "ms": 1794,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "06_dst_1987",
+    "endpoint": "metaphysics/wuyun-liuqi/calculate",
+    "http": 200,
+    "ms": 694,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "06_dst_1987",
+    "endpoint": "metaphysics/huangji-jingshi/calculate",
+    "http": 400,
+    "ms": 987,
+    "ok": false,
+    "err": "epochYear 必须是整数。"
+  },
+  {
+    "case": "06_dst_1987",
+    "endpoint": "divination/ssgw",
+    "http": 503,
+    "ms": 679,
+    "ok": null,
+    "err": null
+  },
+  {
+    "case": "06_dst_1987",
+    "endpoint": "divination/almanac",
+    "http": 400,
+    "ms": 534,
+    "ok": false,
+    "err": "startDate 不能为空。"
+  },
+  {
+    "case": "07_leap_day",
+    "endpoint": "bazi/calculate",
+    "http": 200,
+    "ms": 2051,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "07_leap_day",
+    "endpoint": "ziwei/calculate",
+    "http": 503,
+    "ms": 763,
+    "ok": null,
+    "err": null
+  },
+  {
+    "case": "07_leap_day",
+    "endpoint": "divination/astrolabe",
+    "http": 400,
+    "ms": 1228,
+    "ok": false,
+    "err": "latitude 必须是数字。"
+  },
+  {
+    "case": "07_leap_day",
+    "endpoint": "metaphysics/qizheng/calculate",
+    "http": 400,
+    "ms": 883,
+    "ok": false,
+    "err": "hour 必须是整数。"
+  },
+  {
+    "case": "07_leap_day",
+    "endpoint": "divination/liuyao",
+    "http": 200,
+    "ms": 1880,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "07_leap_day",
+    "endpoint": "divination/meihua",
+    "http": 200,
+    "ms": 1630,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "07_leap_day",
+    "endpoint": "divination/qimen",
+    "http": 200,
+    "ms": 3848,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "07_leap_day",
+    "endpoint": "divination/liuren",
+    "http": 200,
+    "ms": 1603,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "07_leap_day",
+    "endpoint": "metaphysics/bazhai/calculate",
+    "http": 400,
+    "ms": 1093,
+    "ok": false,
+    "err": "需提供 birthYear+gender 或直接给定 mingGua。"
+  },
+  {
+    "case": "07_leap_day",
+    "endpoint": "metaphysics/xuankong/calculate",
+    "http": 400,
+    "ms": 694,
+    "ok": false,
+    "err": "需提供 sitMountain/facingMountain，或 sitDegree/facingDegree。"
+  },
+  {
+    "case": "07_leap_day",
+    "endpoint": "metaphysics/taiyi/calculate",
+    "http": 200,
+    "ms": 2073,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "07_leap_day",
+    "endpoint": "metaphysics/wuyun-liuqi/calculate",
+    "http": 200,
+    "ms": 961,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "07_leap_day",
+    "endpoint": "metaphysics/huangji-jingshi/calculate",
+    "http": 400,
+    "ms": 711,
+    "ok": false,
+    "err": "epochYear 必须是整数。"
+  },
+  {
+    "case": "07_leap_day",
+    "endpoint": "divination/ssgw",
+    "http": 200,
+    "ms": 701,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "07_leap_day",
+    "endpoint": "divination/almanac",
+    "http": 400,
+    "ms": 592,
+    "ok": false,
+    "err": "startDate 不能为空。"
+  },
+  {
+    "case": "08_urumqi",
+    "endpoint": "bazi/calculate",
+    "http": 200,
+    "ms": 1455,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "08_urumqi",
+    "endpoint": "ziwei/calculate",
+    "http": 503,
+    "ms": 700,
+    "ok": null,
+    "err": null
+  },
+  {
+    "case": "08_urumqi",
+    "endpoint": "divination/astrolabe",
+    "http": 400,
+    "ms": 702,
+    "ok": false,
+    "err": "latitude 必须是数字。"
+  },
+  {
+    "case": "08_urumqi",
+    "endpoint": "metaphysics/qizheng/calculate",
+    "http": 400,
+    "ms": 596,
+    "ok": false,
+    "err": "hour 必须是整数。"
+  },
+  {
+    "case": "08_urumqi",
+    "endpoint": "divination/liuyao",
+    "http": 200,
+    "ms": 1435,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "08_urumqi",
+    "endpoint": "divination/meihua",
+    "http": 503,
+    "ms": 937,
+    "ok": null,
+    "err": null
+  },
+  {
+    "case": "08_urumqi",
+    "endpoint": "divination/qimen",
+    "http": 503,
+    "ms": 617,
+    "ok": null,
+    "err": null
+  },
+  {
+    "case": "08_urumqi",
+    "endpoint": "divination/liuren",
+    "http": 200,
+    "ms": 1189,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "08_urumqi",
+    "endpoint": "metaphysics/bazhai/calculate",
+    "http": 400,
+    "ms": 652,
+    "ok": false,
+    "err": "需提供 birthYear+gender 或直接给定 mingGua。"
+  },
+  {
+    "case": "08_urumqi",
+    "endpoint": "metaphysics/xuankong/calculate",
+    "http": 400,
+    "ms": 688,
+    "ok": false,
+    "err": "需提供 sitMountain/facingMountain，或 sitDegree/facingDegree。"
+  },
+  {
+    "case": "08_urumqi",
+    "endpoint": "metaphysics/taiyi/calculate",
+    "http": 200,
+    "ms": 2140,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "08_urumqi",
+    "endpoint": "metaphysics/wuyun-liuqi/calculate",
+    "http": 200,
+    "ms": 1400,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "08_urumqi",
+    "endpoint": "metaphysics/huangji-jingshi/calculate",
+    "http": 400,
+    "ms": 784,
+    "ok": false,
+    "err": "epochYear 必须是整数。"
+  },
+  {
+    "case": "08_urumqi",
+    "endpoint": "divination/ssgw",
+    "http": 200,
+    "ms": 937,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "08_urumqi",
+    "endpoint": "divination/almanac",
+    "http": 400,
+    "ms": 636,
+    "ok": false,
+    "err": "startDate 不能为空。"
+  },
+  {
+    "case": "09_newyork",
+    "endpoint": "bazi/calculate",
+    "http": 200,
+    "ms": 1848,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "09_newyork",
+    "endpoint": "ziwei/calculate",
+    "http": 200,
+    "ms": 4315,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "09_newyork",
+    "endpoint": "divination/astrolabe",
+    "http": 400,
+    "ms": 1126,
+    "ok": false,
+    "err": "latitude 必须是数字。"
+  },
+  {
+    "case": "09_newyork",
+    "endpoint": "metaphysics/qizheng/calculate",
+    "http": 400,
+    "ms": 567,
+    "ok": false,
+    "err": "hour 必须是整数。"
+  },
+  {
+    "case": "09_newyork",
+    "endpoint": "divination/liuyao",
+    "http": 200,
+    "ms": 854,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "09_newyork",
+    "endpoint": "divination/meihua",
+    "http": 200,
+    "ms": 1374,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "09_newyork",
+    "endpoint": "divination/qimen",
+    "http": 503,
+    "ms": 824,
+    "ok": null,
+    "err": null
+  },
+  {
+    "case": "09_newyork",
+    "endpoint": "divination/liuren",
+    "http": 200,
+    "ms": 1578,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "09_newyork",
+    "endpoint": "metaphysics/bazhai/calculate",
+    "http": 400,
+    "ms": 1638,
+    "ok": false,
+    "err": "需提供 birthYear+gender 或直接给定 mingGua。"
+  },
+  {
+    "case": "09_newyork",
+    "endpoint": "metaphysics/xuankong/calculate",
+    "http": 400,
+    "ms": 2155,
+    "ok": false,
+    "err": "需提供 sitMountain/facingMountain，或 sitDegree/facingDegree。"
+  },
+  {
+    "case": "09_newyork",
+    "endpoint": "metaphysics/taiyi/calculate",
+    "http": 200,
+    "ms": 847,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "09_newyork",
+    "endpoint": "metaphysics/wuyun-liuqi/calculate",
+    "http": 200,
+    "ms": 3141,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "09_newyork",
+    "endpoint": "metaphysics/huangji-jingshi/calculate",
+    "http": 400,
+    "ms": 1594,
+    "ok": false,
+    "err": "epochYear 必须是整数。"
+  },
+  {
+    "case": "09_newyork",
+    "endpoint": "divination/ssgw",
+    "http": 200,
+    "ms": 2196,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "09_newyork",
+    "endpoint": "divination/almanac",
+    "http": 400,
+    "ms": 624,
+    "ok": false,
+    "err": "startDate 不能为空。"
+  },
+  {
+    "case": "10_lunar_leap",
+    "endpoint": "bazi/calculate",
+    "http": 400,
+    "ms": 622,
+    "ok": false,
+    "err": "农历日期不存在，请检查月份、日期和闰月设置。"
+  },
+  {
+    "case": "10_lunar_leap",
+    "endpoint": "ziwei/calculate",
+    "http": 400,
+    "ms": 636,
+    "ok": false,
+    "err": "农历日期不存在，请检查月份、日期和闰月设置。"
+  },
+  {
+    "case": "10_lunar_leap",
+    "endpoint": "divination/astrolabe",
+    "http": 400,
+    "ms": 2013,
+    "ok": false,
+    "err": "latitude 必须是数字。"
+  },
+  {
+    "case": "10_lunar_leap",
+    "endpoint": "metaphysics/qizheng/calculate",
+    "http": 400,
+    "ms": 642,
+    "ok": false,
+    "err": "hour 必须是整数。"
+  },
+  {
+    "case": "10_lunar_leap",
+    "endpoint": "divination/liuyao",
+    "http": 200,
+    "ms": 1084,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "10_lunar_leap",
+    "endpoint": "divination/meihua",
+    "http": 200,
+    "ms": 2171,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "10_lunar_leap",
+    "endpoint": "divination/qimen",
+    "http": 503,
+    "ms": 1779,
+    "ok": null,
+    "err": null
+  },
+  {
+    "case": "10_lunar_leap",
+    "endpoint": "divination/liuren",
+    "http": 200,
+    "ms": 2129,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "10_lunar_leap",
+    "endpoint": "metaphysics/bazhai/calculate",
+    "http": 400,
+    "ms": 736,
+    "ok": false,
+    "err": "需提供 birthYear+gender 或直接给定 mingGua。"
+  },
+  {
+    "case": "10_lunar_leap",
+    "endpoint": "metaphysics/xuankong/calculate",
+    "http": 400,
+    "ms": 994,
+    "ok": false,
+    "err": "需提供 sitMountain/facingMountain，或 sitDegree/facingDegree。"
+  },
+  {
+    "case": "10_lunar_leap",
+    "endpoint": "metaphysics/taiyi/calculate",
+    "http": 200,
+    "ms": 903,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "10_lunar_leap",
+    "endpoint": "metaphysics/wuyun-liuqi/calculate",
+    "http": 200,
+    "ms": 645,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "10_lunar_leap",
+    "endpoint": "metaphysics/huangji-jingshi/calculate",
+    "http": 400,
+    "ms": 663,
+    "ok": false,
+    "err": "epochYear 必须是整数。"
+  },
+  {
+    "case": "10_lunar_leap",
+    "endpoint": "divination/ssgw",
+    "http": 200,
+    "ms": 748,
+    "ok": true,
+    "err": null
+  },
+  {
+    "case": "10_lunar_leap",
+    "endpoint": "divination/almanac",
+    "http": 400,
+    "ms": 698,
+    "ok": false,
+    "err": "startDate 不能为空。"
+  }
+]

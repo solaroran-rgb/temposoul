@@ -1,6 +1,6 @@
 /**
  * TrustEngine T4 — 占卜/择日
- * 
+ *
  * 占卜与择日无需提供任何个人信息，完全在本地进行
  * 基于 DivinationPanel 和 BaziFortuneTools 的组合
  */
@@ -10,10 +10,10 @@ import { useI18n } from '@/i18n';
 
 /**
  * T4 信任引擎组件
- * 
+ *
  * 展示占卜和择日功能，强调零个人信息、完全本地运算。
  * 这是信任漏斗中"零输入"的阶段——用户无需提供任何数据即可使用。
- * 
+ *
  * 使用方式：
  * - 挂载在 InputPage 的占卜/择日模式下
  * - 或作为独立的功能展示组件
@@ -29,7 +29,7 @@ export function TrustEngineT4() {
         <p className="trust-engine__subtitle">
           {t('trust.t4.subtitle', '占卜与择日无需提供任何个人信息，完全在本地进行。')}
         </p>
-        
+
         <div className="trust-engine__section">
           <h3 className="trust-engine__section-title">零信息输入</h3>
           <p className="trust-engine__section-content">

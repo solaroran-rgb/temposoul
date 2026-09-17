@@ -1,0 +1,202 @@
+[
+  {
+    "id": "01_normal",
+    "desc": "普通白天 1990-06-15 10:30 北京",
+    "bazi": {
+      "y": "庚午",
+      "m": "壬午",
+      "d": "辛亥",
+      "h": "癸巳"
+    },
+    "timeInfo": {
+      "index": 5,
+      "name": "巳时",
+      "range": "09:00-11:00",
+      "hour": 10,
+      "minute": 0
+    },
+    "hasZiwei": true,
+    "hasAstrolabe": true,
+    "hasQizheng": true
+  },
+  {
+    "id": "02_early_zi",
+    "desc": "早子时 1988-03-08 00:30 上海",
+    "bazi": {
+      "y": "戊辰",
+      "m": "乙卯",
+      "d": "壬戌",
+      "h": "庚子"
+    },
+    "timeInfo": {
+      "index": 0,
+      "name": "早子时",
+      "range": "00:00-01:00",
+      "hour": 0,
+      "minute": 30
+    },
+    "hasZiwei": true,
+    "hasAstrolabe": true,
+    "hasQizheng": true
+  },
+  {
+    "id": "03_late_zi",
+    "desc": "晚子时 1995-11-22 23:45 广州",
+    "bazi": {
+      "y": "乙亥",
+      "m": "丁亥",
+      "d": "戊午",
+      "h": "壬子"
+    },
+    "timeInfo": {
+      "index": 12,
+      "name": "晚子时",
+      "range": "23:00-24:00",
+      "hour": 23,
+      "minute": 30
+    },
+    "hasZiwei": true,
+    "hasAstrolabe": true,
+    "hasQizheng": true
+  },
+  {
+    "id": "04_lichun",
+    "desc": "立春交接 1992-02-04 21:30 成都",
+    "bazi": {
+      "y": "辛未",
+      "m": "辛丑",
+      "d": "庚戌",
+      "h": "丙戌"
+    },
+    "timeInfo": {
+      "index": 10,
+      "name": "戌时",
+      "range": "19:00-21:00",
+      "hour": 20,
+      "minute": 0
+    },
+    "hasZiwei": true,
+    "hasAstrolabe": true,
+    "hasQizheng": true
+  },
+  {
+    "id": "05_dongzhi",
+    "desc": "冬至交接 2000-12-21 08:15 哈尔滨",
+    "bazi": {
+      "y": "庚辰",
+      "m": "戊子",
+      "d": "癸丑",
+      "h": "丙辰"
+    },
+    "timeInfo": {
+      "index": 4,
+      "name": "辰时",
+      "range": "07:00-09:00",
+      "hour": 8,
+      "minute": 0
+    },
+    "hasZiwei": true,
+    "hasAstrolabe": true,
+    "hasQizheng": true
+  },
+  {
+    "id": "06_dst",
+    "desc": "夏令时 1987-06-15 14:20 西安",
+    "bazi": {
+      "y": "丁卯",
+      "m": "丙午",
+      "d": "乙未",
+      "h": "壬午"
+    },
+    "timeInfo": {
+      "index": 6,
+      "name": "午时",
+      "range": "11:00-13:00",
+      "hour": 12,
+      "minute": 0
+    },
+    "hasZiwei": true,
+    "hasAstrolabe": true,
+    "hasQizheng": true
+  },
+  {
+    "id": "07_leap",
+    "desc": "闰年 1984-02-29 16:40 武汉",
+    "bazi": {
+      "y": "甲子",
+      "m": "丙寅",
+      "d": "癸巳",
+      "h": "庚申"
+    },
+    "timeInfo": {
+      "index": 8,
+      "name": "申时",
+      "range": "15:00-17:00",
+      "hour": 16,
+      "minute": 0
+    },
+    "hasZiwei": true,
+    "hasAstrolabe": true,
+    "hasQizheng": true
+  },
+  {
+    "id": "08_urumqi",
+    "desc": "西疆 1993-08-08 12:00 乌鲁木齐",
+    "bazi": {
+      "y": "癸酉",
+      "m": "庚申",
+      "d": "辛酉",
+      "h": "癸巳"
+    },
+    "timeInfo": {
+      "index": 5,
+      "name": "巳时",
+      "range": "09:00-11:00",
+      "hour": 10,
+      "minute": 0
+    },
+    "hasZiwei": true,
+    "hasAstrolabe": true,
+    "hasQizheng": true
+  },
+  {
+    "id": "09_newyork",
+    "desc": "海外 1991-07-04 09:15 纽约",
+    "bazi": {
+      "y": "辛未",
+      "m": "甲午",
+      "d": "乙亥",
+      "h": "庚辰"
+    },
+    "timeInfo": {
+      "index": 4,
+      "name": "辰时",
+      "range": "07:00-09:00",
+      "hour": 8,
+      "minute": 0
+    },
+    "hasZiwei": true,
+    "hasAstrolabe": true,
+    "hasQizheng": true
+  },
+  {
+    "id": "10_leap_month",
+    "desc": "闰六月 1987 闰六月初五 06:00 北京",
+    "bazi": {
+      "y": "丁卯",
+      "m": "丁未",
+      "d": "庚辰",
+      "h": "戊寅"
+    },
+    "timeInfo": {
+      "index": 2,
+      "name": "寅时",
+      "range": "03:00-05:00",
+      "hour": 4,
+      "minute": 0
+    },
+    "hasZiwei": true,
+    "hasAstrolabe": true,
+    "hasQizheng": true
+  }
+]

@@ -7,18 +7,11 @@
  *
  * 覆盖紫微排盘六大环节：排盘基础 → 真太阳时校正 → 命宫身宫定位 → 十二宫星曜安布 → 生年四化 → 大限运限
  */
-import {
-  buildEvidenceTrail,
-  type EvidenceItem,
-  type EvidenceTrail,
-} from '../shared/evidence';
+import { buildEvidenceTrail, type EvidenceItem, type EvidenceTrail } from '../shared/evidence';
 import type { ChartInput } from '../types/chart';
 import type { ZiweiRuntime } from './runtime';
 
-export function buildZiweiEvidenceTrail(
-  input: ChartInput,
-  result: ZiweiRuntime,
-): EvidenceTrail {
+export function buildZiweiEvidenceTrail(input: ChartInput, result: ZiweiRuntime): EvidenceTrail {
   const items: EvidenceItem[] = [];
 
   // 1. 排盘基础（depth 0 主证）
@@ -75,9 +68,7 @@ export function buildZiweiEvidenceTrail(
         applicableWhen: ['提供出生经度或城市坐标'],
         cautionWhen: ['出生时刻接近换日线', '历史夏令时期间'],
       },
-      counterEvidence: [
-        { description: '跨时区出生需按实际时区重新校正', severity: 'alternative' },
-      ],
+      counterEvidence: [{ description: '跨时区出生需按实际时区重新校正', severity: 'alternative' }],
       confidence: 'medium',
       depth: 1,
     });
@@ -149,9 +140,7 @@ export function buildZiweiEvidenceTrail(
         applicableWhen: ['紫微十四主星安布'],
         cautionWhen: ['空宫需借对宫星曜合参', '特殊格局需结合三方四正'],
       },
-      counterEvidence: [
-        { description: '辅星/煞星是否计入主星口径不同', severity: 'minor' },
-      ],
+      counterEvidence: [{ description: '辅星/煞星是否计入主星口径不同', severity: 'minor' }],
       confidence: 'high',
       depth: 1,
     });
@@ -220,8 +209,5 @@ export function buildZiweiEvidenceTrail(
     });
   }
 
-  return buildEvidenceTrail(
-    items,
-    `紫微斗数排盘证据链（${input.birthDate}，${input.gender}）`,
-  );
+  return buildEvidenceTrail(items, `紫微斗数排盘证据链（${input.birthDate}，${input.gender}）`);
 }

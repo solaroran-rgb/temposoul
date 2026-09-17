@@ -1,0 +1,22 @@
+{
+  "version": "2.0.0",
+  "frozenAt": "2026-09-17T19:14:38.912Z",
+  "total_sitemap": 738,
+  "domain_a_count": 280,
+  "domain_b_count": 50,
+  "domain_c_count": 384,
+  "domain_d_count": 24,
+  "route_total": 884,
+  "a_domain_breakdown": {
+    "static": 14,
+    "ten_gods": 10,
+    "shen_sha": 12,
+    "four_transform": 56,
+    "four_transform_pairs": 10,
+    "ziwei_patterns": 15,
+    "limit_year": 3,
+    "transits": 2,
+    "palace_star": 168
+  },
+  "layer3_asset_hash": "fb90d116ae2478358ef1a2a9a72ab5d582bf256eb38eb12095316e5c29e7d88b"
+}

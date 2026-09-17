@@ -52,8 +52,7 @@ export function LoginPage() {
             {submitting ? t('common.loading') : t('auth.loginSubmit')}
           </button>
           <p className="auth-alt">
-            {t('auth.noAccount')}{' '}
-            <Link to="/register">{t('auth.goRegister')}</Link>
+            {t('auth.noAccount')} <Link to="/register">{t('auth.goRegister')}</Link>
           </p>
         </form>
       </div>

@@ -1,0 +1,82 @@
+
+/**
+
+* C9-终版：知识库 manifest（58 篇元数据）
+* 设计：列表页/搜索只加载本表（O(1)），正文按需 import → 新增文章零改 index
+  */
+  import type { ArticleMeta } from './schema';
+
+export const ARTICLE_MANIFEST: ArticleMeta[] = [
+  // boundary 理性专栏（8）★ 竞品不敢写的核心差异化
+  { slug: 'why-not-predict', title: '为什么命律不做吉凶预测与事件断言', metaDescription: '命律不做吉凶打分、不预测具体事件。本文说明我们为什么这样设计。', category: 'boundary', tags: ['产品理念','边界说明','理性命理'], confidence: 'verified', ready: true, updatedAt: '2026-09-16', readingMinutes: 3 },
+  { slug: 'why-no-fortune-score', title: '为什么我们不给你打"运势分"', metaDescription: '运势分数会带来伪精确与误读，命律用分层描述+置信度标识替代单一分数。', category: 'boundary', tags: ['产品理念','运势'], confidence: 'verified', ready: true, updatedAt: '2026-09-16', readingMinutes: 2 },
+  { slug: 'why-confidence', title: '置信度体系：verified / probable / legendary 是什么意思', metaDescription: '命律为每个维度标注可核验/较可靠/民俗，本文解释三级置信度的含义。', category: 'boundary', tags: ['置信度','产品理念'], confidence: 'verified', ready: false, updatedAt: '2026-09-16', readingMinutes: 3 },
+  { slug: 'why-bazi-limits', title: '八字能说明什么、不能说明什么', metaDescription: '八字是解释框架而非预测工具，本文界定它的能力边界。', category: 'boundary', tags: ['八字','边界'], confidence: 'verified', ready: false, updatedAt: '2026-09-16', readingMinutes: 4 },
+  { slug: 'why-ai-boundary', title: 'AI 解读的边界：为什么它不能替你做决定', metaDescription: 'AI 解读基于传统文献与模式归纳，不能替代个人判断与专业建议。', category: 'boundary', tags: ['AI','边界'], confidence: 'verified', ready: false, updatedAt: '2026-09-16', readingMinutes: 3 },
+  { slug: 'why-folk-vs-fact', title: '民俗与事实：怎么区分命理中的文化传统与可验证结构', metaDescription: '排盘结构可复算，吉凶解读属民俗。本文教你分辨二者。', category: 'boundary', tags: ['民俗','方法论'], confidence: 'verified', ready: false, updatedAt: '2026-09-16', readingMinutes: 4 },
+  { slug: 'why-data-source', title: '我们的排盘数据从哪来', metaDescription: '历法、节气、真太阳时校正——命律排盘数据链路与校验方式说明。', category: 'boundary', tags: ['数据','排盘'], confidence: 'verified', ready: false, updatedAt: '2026-09-16', readingMinutes: 3 },
+  { slug: 'why-rational-decl', title: '理性命理宣言', metaDescription: '命律的产品纲领：尊重传统、标明证据、不做断言、不承诺效果。', category: 'boundary', tags: ['宣言','产品理念'], confidence: 'verified', ready: false, updatedAt: '2026-09-16', readingMinutes: 5 },
+
+  // wuxing 五行（8）
+  { slug: 'wuxing-basics', title: '五行基础：金木水火土到底是什么', metaDescription: '五行不是五种物质，而是五种运行状态。本文解释五行含义与相生相克。', category: 'wuxing', tags: ['五行','基础'], confidence: 'legendary', ready: true, updatedAt: '2026-09-16', readingMinutes: 4 },
+  { slug: 'wuxing-shengke', title: '五行相生相克详解', metaDescription: '相生相克的完整序列、原理，以及"相克不等于不好"的边界说明。', category: 'wuxing', tags: ['五行','生克'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 4 },
+  { slug: 'wuxing-wangshuai', title: '五行旺衰与四时', metaDescription: '五行在四季中的旺相休囚死，以及它在命局强弱判断中的作用。', category: 'wuxing', tags: ['五行','旺衰'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 5 },
+  { slug: 'wuxing-buyi', title: '五行补益的常见说法与边界', metaDescription: '"缺什么补什么"是流行说法，本文说明它的来源与局限。', category: 'wuxing', tags: ['五行','补益'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 4 },
+  { slug: 'wuxing-nayin', title: '纳音五行入门', metaDescription: '六十甲子纳音的由来、查法，及其在命理中的参考位置。', category: 'wuxing', tags: ['纳音','五行'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 5 },
+  { slug: 'wuxing-color', title: '五行与颜色、方位的对应关系', metaDescription: '五行配五色五方，本文列出对照表并说明其文化来源。', category: 'wuxing', tags: ['五行','类象'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 3 },
+  { slug: 'wuxing-zangxiang', title: '五行与脏腑类象', metaDescription: '传统文化中五行与脏腑的关联观念（非医疗建议）。', category: 'wuxing', tags: ['五行','脏腑','中医'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 3 },
+  { slug: 'wuxing-misunderstand', title: '关于五行最常见的 5 个误解', metaDescription: '缺什么补什么、五行越多越好……本文逐一厘清。', category: 'wuxing', tags: ['五行','误解'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 4 },
+
+  // ganzhi（8）+ 干支 22 篇由 ganzhiArticles() 编译时注入
+  { slug: 'ganzhi-overview', title: '天干地支总览', metaDescription: '十天干十二地支的起源、组合规则，以及六十甲子的构成。', category: 'ganzhi', tags: ['干支','基础'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 5 },
+  { slug: 'ganzhi-jiazi', title: '六十甲子与纪年', metaDescription: '六十甲子的排列规律、纪年换算，以及它在命理中的用法。', category: 'ganzhi', tags: ['甲子','干支'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 4 },
+  { slug: 'ganzhi-sanhe', title: '地支三合局', metaDescription: '申子辰合水、亥卯未合木等三合局的构成与传统解读。', category: 'ganzhi', tags: ['地支','三合'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 4 },
+  { slug: 'ganzhi-sixhe', title: '地支六合', metaDescription: '子丑合、寅亥合等六组六合的配对关系与民俗说法。', category: 'ganzhi', tags: ['地支','六合'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 3 },
+  { slug: 'ganzhi-clash', title: '地支六冲与相刑相害', metaDescription: '六冲、三刑、六害的对照表，以及"冲不等于凶"的边界说明。', category: 'ganzhi', tags: ['地支','冲刑'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 5 },
+  { slug: 'ganzhi-canggan', title: '地支藏干', metaDescription: '每个地支所藏天干，以及藏干在十神分析中的作用。', category: 'ganzhi', tags: ['藏干','干支'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 4 },
+  { slug: 'ganzhi-shengwang', title: '天干生旺死绝表', metaDescription: '十天干在十二地支中的十二长生状态对照。', category: 'ganzhi', tags: ['长生','干支'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 5 },
+  { slug: 'ganzhi-nayin-table', title: '六十甲子纳音对照表', metaDescription: '完整列出六十甲子对应的纳音五行。', category: 'ganzhi', tags: ['纳音','甲子'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 3 },
+
+  // shishen 十神（9）
+  { slug: 'shishen-overview', title: '十神总览', metaDescription: '十神是日主与其他干支的五行生克关系标签，本文给出全表。', category: 'shishen', tags: ['十神','基础'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 5 },
+  { slug: 'shishen-bijian', title: '比肩与劫财', metaDescription: '同五行者的两种关系：比肩为同类相助，劫财为争夺。', category: 'shishen', tags: ['十神','比劫'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 4 },
+  { slug: 'shishen-shishang', title: '食神与伤官', metaDescription: '日主所生者为食伤，主表达、才艺与创造力。', category: 'shishen', tags: ['十神','食伤'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 4 },
+  { slug: 'shishen-caixing', title: '正财与偏财', metaDescription: '日主所克者为财，正偏财在传统解读中的不同侧重。', category: 'shishen', tags: ['十神','财星'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 4 },
+  { slug: 'shishen-guansha', title: '正官与七杀', metaDescription: '克日主者为官杀，主约束、责任与压力。', category: 'shishen', tags: ['十神','官杀'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 4 },
+  { slug: 'shishen-yinxing', title: '正印与偏印', metaDescription: '生日主者为印，主庇护、学识与依赖。', category: 'shishen', tags: ['十神','印星'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 4 },
+  { slug: 'shishen-combo', title: '十神组合的常见读法', metaDescription: '伤官配印、食神制杀等经典组合的传统解读。', category: 'shishen', tags: ['十神','组合'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 5 },
+  { slug: 'shishen-liuqin', title: '十神与六亲', metaDescription: '十神对应父母、兄弟、配偶、子女的传统映射关系。', category: 'shishen', tags: ['十神','六亲'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 4 },
+  { slug: 'shishen-misunderstand', title: '十神≠好坏标签', metaDescription: '十神只是关系标签，不存在"哪个十神一定好"。', category: 'shishen', tags: ['十神','误解'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 3 },
+
+  // paipan 排盘基础（9）
+  { slug: 'paipan-overview', title: '四柱排盘是怎么排出来的', metaDescription: '从出生时间到年月日时四柱的完整推导链路。', category: 'paipan', tags: ['排盘','基础'], confidence: 'verified', ready: false, updatedAt: '2026-09-16', readingMinutes: 5 },
+  { slug: 'paipan-sizhu', title: '年月日时四柱的确定', metaDescription: '年柱以立春分界、月柱以节气分界、日时柱的推算。', category: 'paipan', tags: ['排盘','四柱'], confidence: 'verified', ready: false, updatedAt: '2026-09-16', readingMinutes: 5 },
+  { slug: 'paipan-jieqi', title: '节气与月份分界', metaDescription: '为什么命理月份以节气而非农历初一为界。', category: 'paipan', tags: ['节气','排盘'], confidence: 'verified', ready: false, updatedAt: '2026-09-16', readingMinutes: 4 },
+  { slug: 'paipan-shichen', title: '时辰与真太阳时', metaDescription: '古代时辰与现代时区的差异，以及真太阳时校正。', category: 'paipan', tags: ['时辰','真太阳时'], confidence: 'verified', ready: false, updatedAt: '2026-09-16', readingMinutes: 5 },
+  { slug: 'paipan-lunar-solar', title: '农历与公历转换', metaDescription: '两种历法的关系，以及排盘时为什么要用公历出生时间。', category: 'paipan', tags: ['历法','排盘'], confidence: 'verified', ready: false, updatedAt: '2026-09-16', readingMinutes: 4 },
+  { slug: 'paipan-daymaster', title: '日主与命局核心', metaDescription: '日柱天干为日主，是分析十神与格局的出发点。', category: 'paipan', tags: ['日主','排盘'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 4 },
+  { slug: 'paipan-true-solar-time', title: '真太阳时校正的意义', metaDescription: '经度差异导致的时差，以及它对时柱准确性的影响。', category: 'paipan', tags: ['真太阳时','经度'], confidence: 'verified', ready: false, updatedAt: '2026-09-16', readingMinutes: 4 },
+  { slug: 'paipan-tools', title: '在线排盘工具怎么用', metaDescription: '命律排盘的输入项说明：性别、日期类型、出生时间的选择。', category: 'paipan', tags: ['工具','排盘'], confidence: 'verified', ready: false, updatedAt: '2026-09-16', readingMinutes: 3 },
+  { slug: 'paipan-faq', title: '排盘常见问题', metaDescription: '闰月出生、跨时区、只知农历……常见排盘疑问解答。', category: 'paipan', tags: ['FAQ','排盘'], confidence: 'verified', ready: false, updatedAt: '2026-09-16', readingMinutes: 4 },
+
+  // shensha 神煞（8）
+  { slug: 'shensha-overview', title: '神煞总述与理性看待', metaDescription: '神煞是辅助参考符号，本文说明它的来源与参考权重。', category: 'shensha', tags: ['神煞','基础'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 5 },
+  { slug: 'shensha-taohua', title: '桃花煞', metaDescription: '桃花的查法，以及它在传统与当代语境中的不同解读。', category: 'shensha', tags: ['桃花','神煞'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 4 },
+  { slug: 'shensha-yima', title: '驿马', metaDescription: '驿马主迁动，本文说明其查法与民俗含义。', category: 'shensha', tags: ['驿马','神煞'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 3 },
+  { slug: 'shensha-huagai', title: '华盖', metaDescription: '华盖星的查法与"孤高好艺"的传统说法。', category: 'shensha', tags: ['华盖','神煞'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 3 },
+  { slug: 'shensha-tianyi', title: '天乙贵人', metaDescription: '天乙贵人的查法与"遇难成祥"的民俗说法。', category: 'shensha', tags: ['贵人','神煞'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 3 },
+  { slug: 'shensha-wenchang', title: '文昌', metaDescription: '文昌星与学业、文采的传统关联。', category: 'shensha', tags: ['文昌','神煞'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 3 },
+  { slug: 'shensha-yangren', title: '羊刃', metaDescription: '羊刃的查法与"刚烈"特质的传统描述。', category: 'shensha', tags: ['羊刃','神煞'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 3 },
+  { slug: 'shensha-rational', title: '神煞在命理中的参考权重', metaDescription: '神煞不能替代五行与十神分析，本文说明它的合理定位。', category: 'shensha', tags: ['神煞','方法论'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 4 },
+
+  // dayun 大运流年（8）
+  { slug: 'dayun-overview', title: '大运是什么', metaDescription: '大运是命局之外的十年周期，本文说明它的概念与作用。', category: 'dayun', tags: ['大运','基础'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 4 },
+  { slug: 'dayun-qiyun', title: '起运时间的计算规则', metaDescription: '从出生日到起运时间的推算（三天折一年等传统规则）。', category: 'dayun', tags: ['起运','大运'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 5 },
+  { slug: 'dayun-liunian', title: '流年与命局', metaDescription: '流年干支与命局、大运的相互作用关系。', category: 'dayun', tags: ['流年','大运'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 5 },
+  { slug: 'dayun-xiaoyun', title: '小运', metaDescription: '小运的概念、排法，以及它在传统命理中的位置。', category: 'dayun', tags: ['小运'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 3 },
+  { slug: 'dayun-suiyun', title: '岁运合参', metaDescription: '大运与流年如何共同作用，传统命理的分析思路。', category: 'dayun', tags: ['岁运'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 5 },
+  { slug: 'dayun-jiaoyun', title: '交运与换运', metaDescription: '交脱运的时间点与民间说法，以及理性看待。', category: 'dayun', tags: ['交运'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 4 },
+  { slug: 'dayun-liuyue', title: '流月流日', metaDescription: '更短周期的干支作用，以及它的参考限度。', category: 'dayun', tags: ['流月'], confidence: 'legendary', ready: false, updatedAt: '2026-09-16', readingMinutes: 4 },
+  { slug: 'dayun-boundary', title: '大运流年能预测具体事件吗', metaDescription: '不能。本文说明大运流年的能力边界与常见误用。', category: 'dayun', tags: ['边界','大运'], confidence: 'verified', ready: false, updatedAt: '2026-09-16', readingMinutes: 4 },
+];
+

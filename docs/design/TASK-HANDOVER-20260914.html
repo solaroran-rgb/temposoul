@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>任务交接卡 · TempoSoul 命律 /sky 首屏视觉</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0A0C10;color:#E6EDF3;font:14px/1.65 -apple-system,"Segoe UI","Microsoft YaHei",sans-serif;padding:32px 20px 60px;max-width:1080px;margin:0 auto}
+h1{font-size:22px;font-weight:600;letter-spacing:.5px;margin-bottom:6px}
+h2{font-size:16px;font-weight:600;margin:34px 0 14px;padding-left:11px;border-left:3px solid #22E8FF}
+h3{font-size:13.5px;font-weight:600;color:#9FB6C4;margin:20px 0 8px}
+p{margin:7px 0}
+ul{margin:7px 0 7px 20px}li{margin:4px 0}
+.sub{color:#7C8B99;font-size:12.5px;margin-bottom:22px}
+.g{color:#39FF14;font-weight:600}
+.a{color:#F0A030;font-weight:600}
+.r{color:#FF6B6B;font-weight:600}
+.c{color:#22E8FF;font-weight:600}
+.panel{background:#12161C;border:1px solid #1F262F;border-radius:12px;padding:18px 20px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:12px;margin:12px 0}
+.card{background:#12161C;border:1px solid #1F262F;border-radius:12px;padding:15px 16px}
+.card .t{font-size:12px;color:#7C8B99;letter-spacing:.6px;margin-bottom:7px}
+.card .v{font-size:15px;font-weight:600}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+th{background:#161B22;color:#9FB6C4;font-weight:600;text-align:left;padding:9px 11px;border:1px solid #1F262F}
+td{padding:9px 11px;border:1px solid #1F262F;vertical-align:top}
+tr:nth-child(even) td{background:#0E1218}
+code{background:#1A2029;color:#22E8FF;padding:1.5px 6px;border-radius:4px;font:12.5px/1.5 Consolas,monospace}
+a{color:#22E8FF;text-decoration:none;border-bottom:1px dotted #2A4A55}
+a:hover{color:#39FF14}
+.tag{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:20px;margin:2px 4px 2px 0}
+.tag-ok{background:#0D2A18;color:#39FF14;border:1px solid #1E4D2B}
+.tag-no{background:#2A1113;color:#FF6B6B;border:1px solid #4D1E22}
+.tag-wip{background:#2A2110;color:#F0A030;border:1px solid #4D3D1E}
+.tag-info{background:#0D2530;color:#22E8FF;border:1px solid #1E4655}
+.q{background:#0E1218;border-left:3px solid #22E8FF;padding:11px 15px;margin:9px 0;border-radius:0 8px 8px 0}
+.q b{color:#22E8FF}
+.quote{font-style:normal;color:#CFE7EE;border-left:2px solid #2A4A55;padding-left:13px;margin:9px 0}
+.hl{background:linear-gradient(transparent 62%,rgba(57,255,20,.18) 62%)}
+</style>
+</head>
+<body>
+
+<h1>任务交接卡 · TempoSoul 命律 <code>/sky</code> 首屏视觉</h1>
+<p class="sub">生成 2026-09-14 09:36 · 可吉(WorkBuddy) ｜ 项目 slug <code>guoxue-overseas</code> ｜ 代码库 <code>E:\KnowledgeOS\项目库\TempoSoul 命律 网站建设系统</code></p>
+
+<h2>一、交接摘要</h2>
+<div class="grid">
+  <div class="card"><div class="t">当前阶段</div><div class="v c">视觉目标已锚定</div></div>
+  <div class="card"><div class="t">代码状态</div><div class="v r">尚未改动</div></div>
+  <div class="card"><div class="t">线上状态</div><div class="v a">/sky = 09-13 v2（本地 v8 未部署）</div></div>
+  <div class="card"><div class="t">卡在哪</div><div class="v a">新 Brief 与视觉目标冲突</div></div>
+</div>
+<div class="panel">
+<p><span class="g">一句话交接：</span>用两张参考海报的风格基因重绘了基准图，已选定 <code>B-balanced-v2-lovable.png</code> 作为视觉目标；但老板随后给的新 Brief（<span class="a">街景只占 20%、人物移到屏幕最下端、街景改为 IP 定位 30km 真实地标、新增能量场连线</span>）与 B 图存在 <span class="r">1 处结构性冲突</span>，需先重排构图比例，再谈 WebGL 施工。</p>
+</div>
+
+<h2>二、网站哲学（准备工作 a + b 产出）</h2>
+<div class="panel">
+<p><b>来源</b>：<code>《命律 TempoSoul · 全链路信任构建与探索欲激发方案 V4.0》</code><br>
+<span class="sub" style="margin:0">副标题：从"头顶的星空"到"三世因果"的七层信任飞轮 ｜ 经 8877 向量检索命中（corpus）</span></p>
+<p class="quote">"用户打开命律网站时，他看到的<b>不是文字，不是按钮，不是表单</b>。他看到的是<b>此刻，他头顶的那片天空</b>。"</p>
+<p class="quote">"命理的本质是<b>人与天体的关系</b>。一个命理网站的第一屏，如果能让用户直接看到自己与宇宙的物理连接，那么所有后续的'信任建设'都不再需要'说服'——<b>宇宙本身就是最大的信任背书</b>。"</p>
+</div>
+
+<h3>品牌哲学 · 四字拆解（来自主站白皮书，比 V4.0 更权威）</h3>
+<div class="panel">
+<table>
+<tr><th style="width:14%">字</th><th style="width:40%">含义</th><th>指向</th></tr>
+<tr><td><b>命</b></td><td>生命轨迹</td><td>服务对象</td></tr>
+<tr><td><b>律</b></td><td>宇宙法则 / 算力</td><td>技术底座</td></tr>
+<tr><td><b>Tempo</b></td><td>客观物理世界（真太阳时 / 节气 / 行星）</td><td>可被计算的一端</td></tr>
+<tr><td><b>Soul</b></td><td>主观意识世界（自性化 / 疗愈）</td><td>需要被安放的一端</td></tr>
+</table>
+<p><span class="g">品牌立场：贩卖"已知的从容"，而非"未知的恐惧"。</span>定位「生命源代码与时空节律图」，<b>拒绝"算命 App"标签</b>。</p>
+<p class="sub">→ 这条直接约束首屏：任何<b>恐吓式视觉</b>（血月、破碎、鬼影、灾厄符号、狰狞星象）都违反品牌立场。首屏要传达的是<b>从容与秩序</b>，不是神秘与恐吓。这一条也反过来支持"同心刻度环 + 规律性连线"的路线——<b>环与线是"秩序"的语言，不是"神秘"的语言</b>。</p>
+</div>
+
+<h3>视觉转译（a + b 两处来源的合流）</h3>
+<div class="panel"><p><span class="g">视觉转译结论：</span>首屏不是一个"产品介绍页"，而是一次<span class="hl">"用户与宇宙的物理连接"的呈现</span>。任何商业元素（卖点、价格、服务列表）上首屏都违背网站哲学。</p>
+</div>
+
+<h3>已有建设思路来源（AI 地图 + 项目库）</h3>
+<table>
+<tr><th style="width:44%">位置</th><th>内容</th></tr>
+<tr><td><code>AI地图\11_国学出海\主地图.md</code><br><code>子图A_网站建设.md</code></td><td>国学出海三大子项目（短视频 / 排盘网站 / 国学资产）中网站线的总体建设思路</td></tr>
+<tr><td><code>docs\sky\01-04 专家论证白皮书</code></td><td>四专家会诊（天体可视化 / 城市数字孪生 / 实时图形性能 / 沉浸视觉）三轮交付</td></tr>
+<tr><td><code>docs\sky\HANDOVER.md</code> + 根 <code>TempoSoul首页重建项目交接白皮书_20260914.md</code></td><td>上一轮交接白皮书：承认"技术正确、审美缺席"</td></tr>
+<tr><td><code>docs\design\SKY-VISUAL-SPEC-v1.md</code></td><td>本轮产出的数值规范（12 章）</td></tr>
+<tr><td><code>docs\design\SKY-STYLE-DNA-v1.md</code></td><td>本轮产出的风格基因规范（S1–S14 + 嫁接矩阵）</td></tr>
+</table>
+
+<h2>三、B 图主题风格分析（准备工作 c 产出）</h2>
+<div class="panel">
+<p><b>风格定位</b>：<span class="g">"宇宙控制台"（cosmic console）</span>——不是自然写实的星空，而是<span class="hl">"被仪器观测着的宇宙"</span>。判别依据：画面里有大量同心刻度环、辐射线、光轴，这些是<b>测量仪器</b>的语言，不是自然界的语言。</p>
+<p><b>三层叙事</b>（与网站哲学同构）：</p>
+<table>
+<tr><th style="width:14%">层</th><th style="width:36%">画面内容</th><th>象征</th></tr>
+<tr><td><b>天</b><br><span class="sub">占比最大</span></td><td>星野 + 星座 + 同心刻度环系 + 中轴光柱</td><td>秩序、周期、规律 —— <span class="c">即"命理"这件事本身可以被计算</span></td></tr>
+<tr><td><b>地</b><br><span class="sub">薄薄一条</span></td><td>点阵山脉 + 线框城市 + 河流湖泊</td><td>人间、社会 —— 渺小，且是被观测的对象</td></tr>
+<tr><td><b>人</b><br><span class="sub">极小一点</span></td><td>背对镜头的剪影，立于天地交界</td><td>观测者 —— <span class="c">即用户本人</span></td></tr>
+</table>
+<p><b>情绪</b>：<span class="g">克制的壮丽</span>。全图没有戏剧性光源、人物不带情绪，靠"细密线条 + 大面积纯黑 + 唯一一处暖色"制造敬畏感。这是它区别于普通"炫酷科技风"的关键——<b>它不喊，它只是让你看见</b>。</p>
+<p><b>与网站哲学的对应关系</b>：完全同构。"你看到的是此刻你头顶的那片天空"＝天层；"人与天体的关系"＝中轴光柱与人形；"宇宙本身就是最大的信任背书"＝不需要任何说服性元素。</p>
+</div>
+
+<h2>四、老板新 Brief（2026-09-14 09:35 · 原话要点）</h2>
+<table>
+<tr><th style="width:16%">类别</th><th>要求</th></tr>
+<tr><td rowspan="3"><b>准备工作</b></td><td>(a) 梳理"命律"网站的网站哲学 <span class="tag tag-ok">已完成</span></td></tr>
+<tr><td>(b) 从 AI 地图找建设思路 + 向量检索网站哲学 <span class="tag tag-ok">已完成</span></td></tr>
+<tr><td>(c) 分析 B 图的主题风格 <span class="tag tag-ok">已完成</span></td></tr>
+<tr><td rowspan="5"><b>布局与呈现</b></td><td>街景高度占比 <b>只占屏幕 20%</b>；首页主体是星空</td></tr>
+<tr><td>人物轮廓位于 <b>屏幕接近最下端</b></td></tr>
+<tr><td>人物 <b>背对观众</b>，人物即代表登录网站的用户</td></tr>
+<tr><td>星空上隐约可见<b>多个星座</b>，用<b>很微弱的连线</b>勾勒轮廓</td></tr>
+<tr><td>人物周边生长出<b>地标性建筑</b>（山川河流、湖泊、高楼大厦、体育场馆）</td></tr>
+<tr><td rowspan="3"><b>理念意蕴</b></td><td><b>情感共鸣</b>：这个人就是他自己，这个街景就是他生活的环境，他面对的就是整个星空和宇宙</td></tr>
+<tr><td><b>哲学内涵</b>：人在社会中是渺小的，而社会环境在宇宙星空面前也是渺小的（<b>双重渺小</b>）</td></tr>
+<tr><td><b>能量连接</b>：通过光影 / 光线连线，展示人与环境、与宇宙之间存在<b>有规律的互相影响</b>（能量场、磁场）</td></tr>
+</table>
+<div class="panel">
+<p><b>街景的数据来源（补充定义）</b>：<span class="g">以用户登录 IP 为定位，展示周边 30 公里范围内的真实街景</span>。</p>
+</div>
+
+<h2>五、差异与卡点（本卡核心）</h2>
+<h3>5.1 B 图 vs 新 Brief 逐项对拍</h3>
+<table>
+<tr><th style="width:18%">项</th><th style="width:26%">B 图现状</th><th style="width:26%">新 Brief 要求</th><th>判定</th></tr>
+<tr><td>地形高度占比</td><td>约 <b>45%</b></td><td><b>20%</b></td><td><span class="r">结构性冲突</span> 需重排构图</td></tr>
+<tr><td>人物位置</td><td>地形带中央</td><td>屏幕接近最下端</td><td><span class="a">需下移</span></td></tr>
+<tr><td>人物朝向 / 尺寸</td><td>背对，约 7% 屏高</td><td>背对；尺寸未指定</td><td><span class="tag tag-ok">已符合</span></td></tr>
+<tr><td>星座表现</td><td>连线较亮、带中文标签</td><td>连线<b>很微弱</b>，隐约可见</td><td><span class="a">需降亮</span></td></tr>
+<tr><td>天空内容</td><td>星野 + 层叠大环系</td><td>星空为主体</td><td><span class="tag tag-info">方向一致，但环系需降权</span></td></tr>
+<tr><td>街景性质</td><td>装饰性点阵山脉 + 线框城市</td><td><b>IP 定位 30km 真实街景地标</b></td><td><span class="r">性质改变</span> 大工程</td></tr>
+<tr><td>能量场连线</td><td>无</td><td>人—环境—宇宙 规律性连线</td><td><span class="r">全新模块</span></td></tr>
+<tr><td>负空间</td><td>约 45%</td><td>星空为主体 → 应回升</td><td><span class="a">需回升</span></td></tr>
+</table>
+
+<h3>5.2 一个好消息：上一轮的冲突被新 Brief 化解了一半</h3>
+<div class="panel">
+<p>上一轮遗留冲突是「<span class="a">同心环系占天空 vs 负空间 ≥62%</span>」，当时 B 图负空间从基准图的 65% 掉到 45%。</p>
+<p><span class="g">新 Brief 把地形压到 20% 之后，天空占比升到约 80%，负空间自然回升——这一项不用单独修了。</span> 剩下的只是「环系密度」一个子问题：环系要保留（它是风格基因的核心），但要降低 alpha 并减少层数。</p>
+</div>
+
+<h3>5.3 三个需要提前预警的点</h3>
+<div class="panel">
+<p><b>1. 地形只占 20% 会挤压"街景地标"的可辨识度。</b>720p 屏高下 20% ≈ 144px。要在 144px 里让用户认出"体育场""高楼""湖泊"，地标必须<span class="a">极度简化 + 靠轮廓剪影 + 靠光点密度</span>，不能靠细节。这是设计上的硬约束，建议先做一版 20% 高度的地标线稿试稿再定。</p>
+<p><b>2. IP 定位街景有隐私与合规成本。</b>该站已上线 7 语言版本并发布了 Privacy 政策（<code>docs/legal/</code>）。用 IP 反查精确位置并渲染"你身边的街景"，在 GDPR / 加州 CCPA 语境下属于位置数据处理，<span class="a">需要隐私政策覆盖与明确的同意路径</span>。建议：默认用 IP 城市级粗定位（不落精确坐标），精确到 30km 街景需用户显式授权或允许手动改城市。</p>
+<p><b>3. 已有资产可以复用，不要重造。</b>项目里已有 <code>E2 OSM 城市管线</code> 与<b>城市库（已扩容 108,525 城）</b>，以及 <code>geoEngine.ts</code> 的地形生成。<span class="g">"IP → 城市 → 30km 内地标"这条链路可以接在现有 OSM 管线后面，不必新建数据源。</span></p>
+</div>
+
+<h2>六、已完成产物（本轮）</h2>
+<table>
+<tr><th style="width:34%">文件</th><th style="width:12%">规模</th><th>说明</th></tr>
+<tr><td><a href="file:///E:/KnowledgeOS/%E9%A1%B9%E7%9B%AE%E5%BA%93/TempoSoul%20%E5%91%BD%E5%BE%8B%20%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE%E7%B3%BB%E7%BB%9F/docs/design/SKY-VISUAL-SPEC-v1.md">SKY-VISUAL-SPEC-v1.md</a></td><td>36 KB<br>12 章</td><td>数值规范。三条美学公理 + <b>六级亮度层级体系</b>（L1 焦点 1.00 → L6 星尘 0.07，等比 1.7×）+ 九项差异裁决表 R1–R8 + 12 条验收判据 V1–V12</td></tr>
+<tr><td><a href="file:///E:/KnowledgeOS/%E9%A1%B9%E7%9B%AE%E5%BA%93/TempoSoul%20%E5%91%BD%E5%BE%8B%20%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE%E7%B3%BB%E7%BB%9F/docs/design/SKY-STYLE-DNA-v1.md">SKY-STYLE-DNA-v1.md</a></td><td>11.7 KB<br>9 节</td><td>风格基因规范。参考图 14 条基因 S1–S14 + 基准图 11 层拆解 + 嫁接矩阵（搬 10 项 / 不搬 7 项）</td></tr>
+<tr><td><a href="file:///E:/KnowledgeOS/%E9%A1%B9%E7%9B%AE%E5%BA%93/TempoSoul%20%E5%91%BD%E5%BE%8B%20%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE%E7%B3%BB%E7%BB%9F/docs/design/redraw-20260914/README.md">redraw-20260914/ 目录</a></td><td>4 图 + README</td><td>风格重绘概念图。<b>B-balanced-v2-lovable.png = 视觉目标</b>；C-density-ceiling.png = 风格上限；README 含对拍差异清单与修改日志</td></tr>
+<tr><td><a href="file:///E:/KnowledgeOS/%E9%A1%B9%E7%9B%AE%E5%BA%93/TempoSoul%20%E5%91%BD%E5%BE%8B%20%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE%E7%B3%BB%E7%BB%9F/task_status.md">task_status.md</a></td><td>项目根</td><td>治理真理源，已追加 09-14 三条记录（规范建档 / 风格拆解 / 风格重绘）</td></tr>
+</table>
+<p class="sub">记忆已同步：<code>E:\KnowledgeOS\memory\guoxue-overseas\2026-09-14-sky-visual-spec-v1.md</code>（含两轮追加）</p>
+
+<h2>七、待老板拍板（累计 8 项）</h2>
+<div class="q"><b>Q1</b> 首屏要不要保留「观测数据 / 星图参数」实时数值面板？<span class="sub">（我的建议：隐藏，与网站哲学一致）</span></div>
+<div class="q"><b>Q2</b> 星座的英文副标留不留？<span class="sub">（建议：去掉）</span></div>
+<div class="q"><b>Q3</b> 月亮位置：真实天文优先，还是构图优先？<span class="sub">（建议：真实优先，但要接受某些时刻画面无月亮）</span></div>
+<div class="q"><b>Q4</b> 中轴光柱要不要？<span class="sub">（建议：要，它是"人—宇宙连接"最直接的视觉表达，与新 Brief 的能量连接诉求同向）</span></div>
+<div class="q"><b>Q5</b> 点阵是否也用在城市上？<span class="sub">（建议：小剂量用于窗格）</span></div>
+<div class="q"><b>Q6（新）</b> 地形压到 20% 后，远山还保留几层？<span class="sub">（建议：2 层以内，否则 144px 里全是线）</span></div>
+<div class="q"><b>Q7（新）</b> IP 街景走<b>真实数据</b>还是<b>风格化示意</b>？<span class="sub">（真实 = 强共鸣但要处理隐私与性能；示意 = 快但违背"这个街景就是他生活的环境"）</span></div>
+<div class="q"><b>Q8（新）</b> 能量连接用哪种视觉语言？<span class="sub">（a 从人物射向天际的光线 / b 人物与地标之间的细连线 / c 环绕人物的磁力线圈 / d 全部）</span></div>
+
+<h2>八、下一步建议（按 ROI 排序）</h2>
+<table>
+<tr><th style="width:8%">序</th><th style="width:30%">动作</th><th style="width:14%">工作量</th><th>为什么先做这个</th></tr>
+<tr><td><b>1</b></td><td><b>按新 Brief 重画一版概念图</b>（天体 80 / 地 20、人物贴底、星座连线微弱化、加能量光线）</td><td><span class="tag tag-info">小</span> 1 张图</td><td><span class="g">这是最便宜的一步。</span>构图比例是结构性改动，先在图上看清楚"20% 的地形到底能不能认出地标"再动代码，能省掉一整轮返工</td></tr>
+<tr><td><b>2</b></td><td>同步产出《新构图数值规格》补章（天空 80% / 地形 20% 的层高、人物贴底的坐标与屏占比、星座连线 alpha 阈值）</td><td><span class="tag tag-info">小</span> 写文档</td><td>上一轮的所有数值都是按"地形 45%"推的，构图一改，<b>六级亮度层级与负空间配额需要重算</b></td></tr>
+<tr><td><b>3</b></td><td>落到 WebGL：先只改<b>相机与层高参数</b>（不动材质），出对拍截图</td><td><span class="tag tag-wip">中</span> 纯参数</td><td>风险最低，且能立刻验证"20% 地形"的实际观感</td></tr>
+<tr><td><b>4</b></td><td>能量连接视觉（Q8 定案后）</td><td><span class="tag tag-wip">中</span> 新模块</td><td>依赖 Q4 中轴光柱的裁决，两者是同一套"连接"语言</td></tr>
+<tr><td><b>5</b></td><td>IP → 30km 真实街景链路（Q7 定案后）</td><td><span class="tag tag-no">大</span> 数据+渲染+合规</td><td>最后做。它依赖前三步的构图与性能预算定型</td></tr>
+</table>
+
+<h2>九、红线与纪律</h2>
+<div class="panel">
+<ul>
+<li><b>概念图不可上线。</b>AI 生成图带水印与文字渲染误差，只作视觉锚定（visual anchor），正式落地走 WebGL。</li>
+<li>禁止回归"AI 猜图静态方案"；禁止 P1 未验收就部署线上。</li>
+<li>禁止实体材质 / 阴影 / 道路光带 / 大面积暖色（唯一暖色只给月亮）。</li>
+<li>禁止破坏：真实星空 / 星座标签 / 山脊 / 渐进时序 / 三层定位。</li>
+<li>禁止删除 <code>docs/design/</code>、<code>D:\专家论证稿\</code>、<code>AI地图\11_国学出海\主地图.md</code>。</li>
+<li>已上线网关 / 引擎参数不得擅改；改前必须先备份 <code>*.bak_&lt;YYYYMMDD_HHMM&gt;</code>。</li>
+<li>每轮视觉修改必须留：<b>对拍截图 + 差异清单 + 修改日志</b>（白皮书 §3.4.6 强制项）。</li>
+</ul>
+</div>
+
+<h2>十、接手方必读顺序（30 分钟上手）</h2>
+<div class="panel" style="border-color:#4D3D1E">
+<p class="a">⚠️ 状态写入纪律（2026-09-13 起强制）：网站建设状态<b>唯一权威入口</b>是</p>
+<p style="margin:8px 0"><code>E:\KnowledgeOS\项目库\_商业项目\国学出海\国学网站建设\TempoSoul 命律网站全栈平台详细部署计划书（主文件）.md</code></p>
+<p>所有智能体完成任务后必须<b>在该文件的「网站实际建设状态摘要」追加快照</b>（保留历史，禁止覆盖），并在 <code>AI地图\11_国学出海\部署日志\</code> 留档一条。<span class="r">禁止新建"主文件"、禁止在备份/镜像/副本中更新状态——多源即漂移。</span></p>
+</div>
+<div class="panel">
+<ol style="margin-left:20px">
+<li><code>task_status.md</code>（项目根）—— 唯一进度真理源，读最后三条 09-14 记录</li>
+<li><code>docs\design\SKY-STYLE-DNA-v1.md</code> §0 结论 + §3 嫁接矩阵 —— 先懂"什么能搬什么不能搬"</li>
+<li><code>docs\design\SKY-VISUAL-SPEC-v1.md</code> §1 公理 + §3 六级亮度层级 —— 再懂数值体系</li>
+<li><code>docs\design\redraw-20260914\README.md</code> —— 看懂 B 图是怎么来的、哪一版被废弃了</li>
+<li>本卡 §2 网站哲学 + §5 差异卡点 —— 最后懂"为什么这么改"</li>
+</ol>
+<p class="sub" style="margin-top:10px">关键教训（避免重复踩坑）：图生图做"风格迁移"时，<b>不要把构图基底图放主输入位</b>（模型会判定"已同风格"从而直接复刻原图，风格基因零命中）。正确做法是<b>把风格参考图放主输入、构图改用文字描述驱动</b>。</p>
+</div>
+
+
+
+</body>
+</html>

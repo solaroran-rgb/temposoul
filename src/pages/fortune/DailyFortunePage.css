@@ -1,0 +1,14 @@
+.zodiac-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; padding: 16px 24px; }
+.zodiac-grid__item { background: var(--bg-glass-dark); border: 1px solid var(--border-dim); border-radius: 12px; padding: 12px 0; display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; transition: all 0.2s; }
+.zodiac-grid__item.is-active { border-color: var(--neon-pink); box-shadow: 0 0 12px rgba(255,77,109,0.3); }
+.zodiac-grid__symbol { font-size: 1.5rem; color: var(--neon-cyan); }
+
+.fortune-card { background: var(--bg-glass-dark); border: 1px solid var(--border-neon-cyan-dim); border-radius: 16px; padding: 20px; margin: 0 24px; }
+.fortune-card__header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+.fortune-card__symbol { font-size: 3rem; background: linear-gradient(135deg, var(--neon-pink), var(--neon-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+.sign-draw-panel { text-align: center; padding: 40px 24px; position: relative; }
+.sign-draw-panel__tube { width: 60px; height: 120px; margin: 0 auto 20px; background: linear-gradient(180deg, #8b5a2b, #5c3a18); border-radius: 8px 8px 0 0; border: 2px solid #3d260f; box-shadow: 0 0 20px rgba(255,77,109,0.2); }
+.sign-draw-panel__btn { padding: 12px 32px; background: var(--neon-pink); border: none; border-radius: 24px; color: #fff; font-weight: bold; cursor: pointer; box-shadow: 0 0 16px rgba(255,77,109,0.4); }
+
+.ai-content { background: var(--bg-glass-dark); padding: 16px; border-radius: 8px; line-height: 1.6; font-size: 0.95rem; color: var(--text-secondary); white-space: pre-wrap; border-left: 3px solid var(--neon-cyan); }第三部分：路由注册与跨域联动契约1. App.tsx 路由注册片段tsx

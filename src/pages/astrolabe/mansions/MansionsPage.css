@@ -1,0 +1,12 @@
+@import '@/styles/a23-shared.css';
+
+.mansion-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; margin-top: 12px; }
+.mansion-card { display: block; padding: 14px; background: #252526; border-radius: 8px; text-decoration: none; color: #D4D4D4; border: 1px solid #3E3E42; }
+.mansion-card:hover { border-color: #569CD6; }
+.mansion-card h2 { margin: 0 0 6px; color: #569CD6; font-size: 16px; }
+.mansion-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+.mansion-columns section { padding: 16px; background: #252526; border-radius: 8px; }
+.mansion-columns h3 { margin-top: 0; color: #4EC9B0; }
+@media (max-width: 640px) { .mansion-columns { grid-template-columns: 1fr; } }
+.birth-mansion-tool { margin: 16px 0; padding: 16px; background: #252526; border-radius: 8px; }
+.birth-mansion-tool input { width: 60px; margin-right: 4px; background: #2D2D30; color: #D4D4D4; border: 1px solid #3E3E42; border-radius: 4px; padding: 4px; }

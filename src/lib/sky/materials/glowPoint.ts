@@ -4,29 +4,47 @@
  *  - makeStarPoints：E1 星点 GLSL 注入式工厂（GLSL 单源归 E1，本工厂只做 D6 uniform + tier 接线）
  *  - bakeRadialSprite：灰度遮罩贴图（非调色板色值，C5 合规），启动时 Canvas2D 离线烘焙
  */
-import * as THREE from "three";
-import { rawColor, POINT, TIER, type AliasName, type QualityTier, type SharedUniforms } from "../renderTokens";
+import * as THREE from 'three';
+import {
+  rawColor,
+  POINT,
+  TIER,
+  type AliasName,
+  type QualityTier,
+  type SharedUniforms,
+} from '../renderTokens';
 
 export function bakeRadialSprite(size = POINT.spriteSize): THREE.CanvasTexture {
-  const c = document.createElement("canvas");
+  const c = document.createElement('canvas');
   c.width = c.height = size;
-  const ctx = c.getContext("2d")!;
+  const ctx = c.getContext('2d')!;
   const g = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
-  g.addColorStop(0, "rgba(255,255,255,1)");
-  g.addColorStop(0.35, "rgba(255,255,255,0.55)");
-  g.addColorStop(1, "rgba(255,255,255,0)");
+  g.addColorStop(0, 'rgba(255,255,255,1)');
+  g.addColorStop(0.35, 'rgba(255,255,255,0.55)');
+  g.addColorStop(1, 'rgba(255,255,255,0)');
   ctx.fillStyle = g;
   ctx.fillRect(0, 0, size, size);
   return new THREE.CanvasTexture(c);
 }
 
-export interface PointPart { positions: Float32Array; size: number; warm: 0 | 1 }
-export interface MergedPoints { positions: Float32Array; sizes: Float32Array; warm: Float32Array; count: number }
+export interface PointPart {
+  positions: Float32Array;
+  size: number;
+  warm: 0 | 1;
+}
+export interface MergedPoints {
+  positions: Float32Array;
+  sizes: Float32Array;
+  warm: Float32Array;
+  count: number;
+}
 
 export function mergePointSpecs(parts: PointPart[]): MergedPoints {
   let n = 0;
   for (const p of parts) n += p.positions.length / 3;
-  const positions = new Float32Array(n * 3), sizes = new Float32Array(n), warm = new Float32Array(n);
+  const positions = new Float32Array(n * 3),
+    sizes = new Float32Array(n),
+    warm = new Float32Array(n);
   let v = 0;
   for (const p of parts) {
     const m = p.positions.length / 3;
@@ -40,9 +58,9 @@ export function mergePointSpecs(parts: PointPart[]): MergedPoints {
 
 export function buildPointsGeometry(spec: MergedPoints): THREE.BufferGeometry {
   const g = new THREE.BufferGeometry();
-  g.setAttribute("position", new THREE.BufferAttribute(spec.positions, 3));
-  g.setAttribute("aSize", new THREE.BufferAttribute(spec.sizes, 1));
-  g.setAttribute("aWarm", new THREE.BufferAttribute(spec.warm, 1));
+  g.setAttribute('position', new THREE.BufferAttribute(spec.positions, 3));
+  g.setAttribute('aSize', new THREE.BufferAttribute(spec.sizes, 1));
+  g.setAttribute('aWarm', new THREE.BufferAttribute(spec.warm, 1));
   return g;
 }
 
@@ -87,10 +105,19 @@ void main() {
 }`;
 
 export interface SimplePointsOptions {
-  base: AliasName; opacity?: number; sizeScale?: number;
-  fadeNear?: number; fadeFar?: number; twinkleAmp?: number; depthTest?: boolean;
+  base: AliasName;
+  opacity?: number;
+  sizeScale?: number;
+  fadeNear?: number;
+  fadeFar?: number;
+  twinkleAmp?: number;
+  depthTest?: boolean;
 }
-export function makeSimplePointsMaterial(shared: SharedUniforms, sprite: THREE.CanvasTexture, o: SimplePointsOptions): THREE.ShaderMaterial {
+export function makeSimplePointsMaterial(
+  shared: SharedUniforms,
+  sprite: THREE.CanvasTexture,
+  o: SimplePointsOptions,
+): THREE.ShaderMaterial {
   return new THREE.ShaderMaterial({
     vertexShader: POINT_VERT,
     fragmentShader: POINT_FRAG,
@@ -98,7 +125,7 @@ export function makeSimplePointsMaterial(shared: SharedUniforms, sprite: THREE.C
       ...shared,
       uMap: { value: sprite },
       uColorBase: { value: rawColor(o.base) },
-      uColorWarm: { value: rawColor("uColorWarm") },
+      uColorWarm: { value: rawColor('uColorWarm') },
       uOpacity: { value: o.opacity ?? 1 },
       uSizeScale: { value: o.sizeScale ?? 1 },
       uPerspScale: { value: POINT.perspScale },
@@ -106,7 +133,9 @@ export function makeSimplePointsMaterial(shared: SharedUniforms, sprite: THREE.C
       uFadeFar: { value: o.fadeFar ?? 1e10 },
       uTwinkleAmp: { value: o.twinkleAmp ?? 0 },
     },
-    transparent: true, depthWrite: false, depthTest: o.depthTest ?? true,
+    transparent: true,
+    depthWrite: false,
+    depthTest: o.depthTest ?? true,
     blending: THREE.AdditiveBlending,
   });
 }
@@ -121,32 +150,40 @@ export function makeSimplePointsMaterial(shared: SharedUniforms, sprite: THREE.C
  * attribute 契约：position（动态）/ aMag / aCi（stars.data 布局 {ra, dec, mag, ci}）
  */
 export function makeStarPoints(
-  shared: SharedUniforms, tier: QualityTier,
-  glsl: { vertexShader: string; fragmentShader: string }, starData: Float32Array,
+  shared: SharedUniforms,
+  tier: QualityTier,
+  glsl: { vertexShader: string; fragmentShader: string },
+  starData: Float32Array,
 ): THREE.Points {
   const n = starData.length / 4;
   const pos = new Float32Array(n * 3);
   const mag = new Float32Array(n);
   const ci = new Float32Array(n);
-  for (let i = 0; i < n; i++) { mag[i] = starData[i * 4 + 2]; ci[i] = starData[i * 4 + 3]; }
+  for (let i = 0; i < n; i++) {
+    mag[i] = starData[i * 4 + 2];
+    ci[i] = starData[i * 4 + 3];
+  }
   const g = new THREE.BufferGeometry();
-  g.setAttribute("position", new THREE.BufferAttribute(pos, 3).setUsage(THREE.DynamicDrawUsage));
-  g.setAttribute("aMag", new THREE.BufferAttribute(mag, 1));
-  g.setAttribute("aCi", new THREE.BufferAttribute(ci, 1));
+  g.setAttribute('position', new THREE.BufferAttribute(pos, 3).setUsage(THREE.DynamicDrawUsage));
+  g.setAttribute('aMag', new THREE.BufferAttribute(mag, 1));
+  g.setAttribute('aCi', new THREE.BufferAttribute(ci, 1));
   const mat = new THREE.ShaderMaterial({
     vertexShader: glsl.vertexShader,
     fragmentShader: glsl.fragmentShader,
     uniforms: {
       ...shared,
-      uColorBlue: { value: rawColor("uColorBlue") },
-      uColorWhite: { value: rawColor("uColorWhite") },
-      uColorWarm: { value: rawColor("uColorWarm") },
-      uColorDim: { value: rawColor("uColorDim") },
+      uColorBlue: { value: rawColor('uColorBlue') },
+      uColorWhite: { value: rawColor('uColorWhite') },
+      uColorWarm: { value: rawColor('uColorWarm') },
+      uColorDim: { value: rawColor('uColorDim') },
       uMagLimit: { value: TIER[tier].uMagLimit },
       uDiffractionMax: { value: TIER[tier].diffractionMax },
       uFlickerAmp: { value: TIER[tier].twinkleAmp }, // I5 单源：E1 声明名 uFlickerAmp，值出自 TIER.twinkleAmp（此前缺注 → GLSL 默认 0，星点永无闪烁）
     },
-    transparent: true, depthWrite: false, depthTest: true, blending: THREE.AdditiveBlending,
+    transparent: true,
+    depthWrite: false,
+    depthTest: true,
+    blending: THREE.AdditiveBlending,
   });
   const pts = new THREE.Points(g, mat);
   pts.frustumCulled = false;
@@ -155,8 +192,8 @@ export function makeStarPoints(
 
 /** G8：尘埃层（seeded LCG；域匹配 v2 相机 (0,34,-95) 朝 +z） */
 export function buildDustSpec(count: number, seed = 7): PointPart {
-  let s = (seed >>> 0) || 1;
-  const rnd = () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296);
+  let s = seed >>> 0 || 1;
+  const rnd = () => (s = (s * 1664525 + 1013904223) >>> 0) / 4294967296;
   const positions = new Float32Array(count * 3);
   for (let i = 0; i < count; i++) {
     positions[i * 3] = (rnd() * 2 - 1) * 190;

@@ -1,0 +1,18 @@
+{
+  "id": "06_dst_1987",
+  "desc": "夏令时期间 1987-06-15 14:20·西安",
+  "req": {
+    "gender": "female",
+    "year": 1987,
+    "month": 6,
+    "day": 15,
+    "dateType": "solar",
+    "birthHour": 14,
+    "birthMinute": 20,
+    "birthPlace": "西安",
+    "birthLongitude": 108.94,
+    "timezone": 8,
+    "applyChinaDst": true,
+    "useTrueSolarTime": true
+  }
+}

@@ -7,11 +7,7 @@
  *
  * 覆盖 Phase1 四环节：排盘基础（岁差/时刻）→ 星曜位置 → Lagna 与宫位 → 出生宿度
  */
-import {
-  buildEvidenceTrail,
-  type EvidenceItem,
-  type EvidenceTrail,
-} from '../shared/evidence';
+import { buildEvidenceTrail, type EvidenceItem, type EvidenceTrail } from '../shared/evidence';
 import type { VedicData } from './types';
 
 export function buildVedicEvidenceTrail(result: VedicData): EvidenceTrail {
@@ -66,7 +62,10 @@ export function buildVedicEvidenceTrail(result: VedicData): EvidenceTrail {
           name: 'Graha',
           reference: 'grahas',
           output: result.grahas
-            .map((g) => `${g.label}:${g.siderealLongitude.toFixed(2)}°/${g.rashi.split(' ')[0]} ${g.pada} Pada`)
+            .map(
+              (g) =>
+                `${g.label}:${g.siderealLongitude.toFixed(2)}°/${g.rashi.split(' ')[0]} ${g.pada} Pada`,
+            )
             .slice(0, 12),
         },
       ],
@@ -133,7 +132,10 @@ export function buildVedicEvidenceTrail(result: VedicData): EvidenceTrail {
       cautionWhen: ['宿度交界处需用弧长而非四舍五入判定'],
     },
     counterEvidence: [
-      { description: 'Dasha 起运序列与年限为 Parashari 口径，Jaimini 体系不同', severity: 'alternative' },
+      {
+        description: 'Dasha 起运序列与年限为 Parashari 口径，Jaimini 体系不同',
+        severity: 'alternative',
+      },
     ],
     confidence: 'medium',
     depth: 1,
@@ -168,7 +170,10 @@ export function buildVedicEvidenceTrail(result: VedicData): EvidenceTrail {
         cautionWhen: ['只做 Mahadasha + Antardasha 两级，Pratyantar 及以后未展开'],
       },
       counterEvidence: [
-        { description: 'Dasha 体系（Vimshottari 与 Yogini/Chara）流派不同', severity: 'alternative' },
+        {
+          description: 'Dasha 体系（Vimshottari 与 Yogini/Chara）流派不同',
+          severity: 'alternative',
+        },
       ],
       confidence: 'medium',
       depth: 1,
@@ -199,16 +204,11 @@ export function buildVedicEvidenceTrail(result: VedicData): EvidenceTrail {
         applicableWhen: ['恒星黄经直接映射，不重新求上升点'],
         cautionWhen: ['Navamsa 起始规则存在 Parashari/Jaimini 流派差异'],
       },
-      counterEvidence: [
-        { description: 'D9 起算规则在少数典籍中略有出入', severity: 'minor' },
-      ],
+      counterEvidence: [{ description: 'D9 起算规则在少数典籍中略有出入', severity: 'minor' }],
       confidence: 'medium',
       depth: 1,
     });
   }
 
-  return buildEvidenceTrail(
-    items,
-    `吠陀占星证据链（${result.birth.dateTime} · Lahiri）`,
-  );
+  return buildEvidenceTrail(items, `吠陀占星证据链（${result.birth.dateTime} · Lahiri）`);
 }

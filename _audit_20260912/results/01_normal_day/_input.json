@@ -1,0 +1,17 @@
+{
+  "id": "01_normal_day",
+  "desc": "普通白天·北京",
+  "req": {
+    "gender": "male",
+    "year": 1990,
+    "month": 6,
+    "day": 15,
+    "dateType": "solar",
+    "birthHour": 10,
+    "birthMinute": 30,
+    "birthPlace": "北京",
+    "birthLongitude": 116.407,
+    "timezone": 8,
+    "useTrueSolarTime": true
+  }
+}

@@ -1,0 +1,2296 @@
+{
+  "http": 200,
+  "ms": 2856,
+  "body": {
+    "ok": true,
+    "data": {
+      "originalName": "乾为天",
+      "changedName": "天风姤",
+      "interName": "乾为天",
+      "tiGua": {
+        "name": "乾",
+        "element": "金",
+        "nature": "天"
+      },
+      "yongGua": {
+        "name": "乾",
+        "element": "金",
+        "nature": "天"
+      },
+      "changedTiGua": {
+        "name": "乾",
+        "element": "金",
+        "nature": "天"
+      },
+      "changedYongGua": {
+        "name": "巽",
+        "element": "木",
+        "nature": "风"
+      },
+      "interTiGua": {
+        "name": "乾",
+        "element": "金",
+        "nature": "天"
+      },
+      "interYongGua": {
+        "name": "乾",
+        "element": "金",
+        "nature": "天"
+      },
+      "mainHexagram": {
+        "name": "乾为天",
+        "symbol": "☰☰",
+        "upper": "乾",
+        "lower": "乾",
+        "description": "元亨利贞",
+        "yaoCi": [
+          "潜龙勿用",
+          "见龙在田，利见大人",
+          "君子终日乾乾，夕惕若厉，无咎",
+          "或跃在渊，无咎",
+          "飞龙在天，利见大人",
+          "亢龙有悔"
+        ],
+        "movingYaoCi": "潜龙勿用",
+        "yongCi": "见群龙无首，吉"
+      },
+      "changedHexagram": {
+        "name": "天风姤",
+        "symbol": "☰☴",
+        "upper": "乾",
+        "lower": "巽",
+        "description": "女壮，勿用取女",
+        "yaoCi": [
+          "系于金柅，贞吉",
+          "包有鱼，无咎",
+          "臀无肤，其行次且",
+          "包无鱼，起凶",
+          "以杞包瓜",
+          "姤其角，吝"
+        ]
+      },
+      "interHexagram": {
+        "name": "乾为天",
+        "symbol": "☰☰",
+        "upper": "乾",
+        "lower": "乾",
+        "description": "元亨利贞",
+        "yaoCi": [
+          "潜龙勿用",
+          "见龙在田，利见大人",
+          "君子终日乾乾，夕惕若厉，无咎",
+          "或跃在渊，无咎",
+          "飞龙在天，利见大人",
+          "亢龙有悔"
+        ],
+        "yongCi": "见群龙无首，吉"
+      },
+      "movingYao": {
+        "position": 1,
+        "description": "第1爻动",
+        "yaoName": "初爻"
+      },
+      "analysis": {
+        "season": "秋",
+        "monthBranch": "酉",
+        "monthElement": "金",
+        "tiYongRelation": "体用比和",
+        "tiSeasonState": "旺",
+        "yongSeasonState": "旺",
+        "inter1Relation": "体互与原体比和",
+        "inter2Relation": "用互与原体比和",
+        "changedRelation": "体克用",
+        "changedTiYongRelation": "体克用",
+        "tiYongRaw": "比和",
+        "yingQi": [
+          "初爻动，先观察事情刚开始或基层条件的变化",
+          "上下卦数和为2，只作取数来源旁证，不换算绝对日期",
+          "体用比和，关系同气，可优先观察条件同步时的进展",
+          "体卦旺相，应期快于常规"
+        ]
+      },
+      "ganzhi": {
+        "year": "丙午",
+        "month": "丁酉",
+        "day": "己丑",
+        "hour": "辛未"
+      },
+      "timestamp": 1789191756436,
+      "yaosDetail": [
+        {
+          "position": 1,
+          "yaoType": "阳",
+          "isChanging": true,
+          "tiYong": "体"
+        },
+        {
+          "position": 2,
+          "yaoType": "阳",
+          "isChanging": false,
+          "tiYong": "体"
+        },
+        {
+          "position": 3,
+          "yaoType": "阳",
+          "isChanging": false,
+          "tiYong": "体"
+        },
+        {
+          "position": 4,
+          "yaoType": "阳",
+          "isChanging": false,
+          "tiYong": "体"
+        },
+        {
+          "position": 5,
+          "yaoType": "阳",
+          "isChanging": false,
+          "tiYong": "体"
+        },
+        {
+          "position": 6,
+          "yaoType": "阳",
+          "isChanging": false,
+          "tiYong": "体"
+        }
+      ],
+      "calculation": {
+        "method": "年月日时起卦法",
+        "methodKey": "time",
+        "yearZhi": "午",
+        "yearZhiIndex": 7,
+        "month": 8,
+        "day": 2,
+        "timeZhi": "未",
+        "timeZhiIndex": 8,
+        "upperTrigramIndex": 1,
+        "lowerTrigramIndex": 1,
+        "movingYaoIndex": 1
+      },
+      "meta": {
+        "engineVersion": "0.1.26",
+        "schemaVersion": "1.0.0",
+        "algorithm": "meihua",
+        "calculatedAt": "2026-09-12T05:42:36.436Z",
+        "inputHash": "18391fcad979ed26",
+        "resultId": "meihua:21c2fa81e086efdc"
+      },
+      "evidenceAnalysis": {
+        "key": "meihua:evidence",
+        "status": "已计算",
+        "calculationFact": {
+          "key": "calculation:meihua:time",
+          "status": "完整",
+          "methodKey": "time",
+          "methodLabel": "年月日时起卦法",
+          "inputs": {
+            "yearZhi": "午",
+            "yearZhiIndex": 7,
+            "lunarMonth": 8,
+            "lunarDay": 2,
+            "timeZhi": "未",
+            "timeZhiIndex": 8
+          },
+          "steps": [
+            {
+              "key": "meihua:calculation:upper",
+              "target": "上卦",
+              "expression": "7+8+2",
+              "modulus": 8,
+              "result": 1,
+              "promptText": "上卦=(7+8+2)除8取余为1"
+            },
+            {
+              "key": "meihua:calculation:lower",
+              "target": "下卦",
+              "expression": "7+8+2+8",
+              "modulus": 8,
+              "result": 1,
+              "promptText": "下卦=(7+8+2+8)除8取余为1"
+            },
+            {
+              "key": "meihua:calculation:moving",
+              "target": "动爻",
+              "expression": "7+8+2+8",
+              "modulus": 6,
+              "result": 1,
+              "promptText": "动爻=(7+8+2+8)除6取余为1"
+            }
+          ],
+          "resolvedResult": {
+            "upperTrigram": "乾",
+            "lowerTrigram": "乾",
+            "movingYao": 1
+          },
+          "promptText": "起卦方式：年月日时起卦法；时间取数：农历年支午序7、月数8、日数2、时支未序8；上卦=(7+8+2)除8取余为1；下卦=(7+8+2+8)除8取余为1；动爻=(7+8+2+8)除6取余为1",
+          "sources": [
+            "《梅花易数》年月日时取数与八卦、六爻取余规则",
+            "当前主卦上下经卦与动爻结果"
+          ],
+          "limitation": "取数算式只证明当前上下卦与动爻索引如何由输入或随机取数得到，不证明卦象预测有效性、现实吉凶或固定应期"
+        },
+        "calculationFacts": [
+          "起卦方式：年月日时起卦法",
+          "时间取数：农历年支午序7、月数8、日数2、时支未序8",
+          "上卦=(7+8+2)除8取余为1",
+          "下卦=(7+8+2+8)除8取余为1",
+          "动爻=(7+8+2+8)除6取余为1"
+        ],
+        "calculationSteps": [
+          {
+            "key": "meihua:calculation:generation",
+            "stage": "起卦取数核验",
+            "status": "已计算",
+            "inputs": {
+              "method": "年月日时起卦法",
+              "inputKeys": [
+                "yearZhi",
+                "yearZhiIndex",
+                "lunarMonth",
+                "lunarDay",
+                "timeZhi",
+                "timeZhiIndex"
+              ]
+            },
+            "result": {
+              "calculationStatus": "完整",
+              "upperTrigram": "乾",
+              "lowerTrigram": "乾",
+              "movingYao": 1,
+              "randomTraceStatus": "不适用"
+            },
+            "dependsOnStepKeys": [],
+            "promptText": "起卦方式：年月日时起卦法；时间取数：农历年支午序7、月数8、日数2、时支未序8；上卦=(7+8+2)除8取余为1；下卦=(7+8+2+8)除8取余为1；动爻=(7+8+2+8)除6取余为1；随机轨迹不适用",
+            "sources": [
+              "《梅花易数》年月日时取数与八卦、六爻取余规则",
+              "当前主卦上下经卦与动爻结果",
+              "梅花起卦方式与取数记录",
+              "随机上下卦、动爻样本与重放元数据"
+            ],
+            "limitation": "计算步骤只证明起卦取数、主互变卦象、六爻动爻、阶段体用、推进、反证与应期事实如何形成当前证据；不证明现实吉凶、预测有效性、事件概率或固定应期"
+          },
+          {
+            "key": "meihua:calculation:hexagrams",
+            "stage": "主互变卦象构造",
+            "status": "已计算",
+            "inputs": {
+              "upperTrigram": "乾",
+              "lowerTrigram": "乾",
+              "movingYao": 1
+            },
+            "result": {
+              "hexagramFactCount": 3,
+              "stages": [
+                "主卦",
+                "互卦",
+                "变卦"
+              ]
+            },
+            "dependsOnStepKeys": [
+              "meihua:calculation:generation"
+            ],
+            "promptText": "按上下卦、互卦构造与动爻翻转记录3项主互变卦象事实",
+            "sources": [
+              "起卦上下经卦索引与六十四卦映射",
+              "主卦二三四爻为下互、三四五爻为上互",
+              "主卦动爻阴阳翻转与六十四卦映射"
+            ],
+            "limitation": "计算步骤只证明起卦取数、主互变卦象、六爻动爻、阶段体用、推进、反证与应期事实如何形成当前证据；不证明现实吉凶、预测有效性、事件概率或固定应期"
+          },
+          {
+            "key": "meihua:calculation:yaos",
+            "stage": "六爻与动爻核验",
+            "status": "已计算",
+            "inputs": {
+              "expectedPositions": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6"
+              ],
+              "movingYao": 1
+            },
+            "result": {
+              "coverageStatus": "完整",
+              "yaoFactCount": 6,
+              "changingPositions": [
+                "1"
+              ]
+            },
+            "dependsOnStepKeys": [
+              "meihua:calculation:generation"
+            ],
+            "promptText": "六爻完整覆盖初爻至上爻，且仅第1爻发动，可核验体用、互卦与变卦来源；已记录6项阴阳、体用归属与动爻事实",
+            "sources": [
+              "主卦六爻阴阳序列、动爻位置与体用归属规则"
+            ],
+            "limitation": "计算步骤只证明起卦取数、主互变卦象、六爻动爻、阶段体用、推进、反证与应期事实如何形成当前证据；不证明现实吉凶、预测有效性、事件概率或固定应期"
+          },
+          {
+            "key": "meihua:calculation:stages",
+            "stage": "阶段体用计算",
+            "status": "已计算",
+            "inputs": {
+              "hexagramFactCount": 3,
+              "stageKeys": [
+                "origin",
+                "process",
+                "result"
+              ]
+            },
+            "result": {
+              "coverageStatus": "完整",
+              "stageFactCount": 3,
+              "incompleteStages": []
+            },
+            "dependsOnStepKeys": [
+              "meihua:calculation:hexagrams",
+              "meihua:calculation:yaos"
+            ],
+            "promptText": "主卦起因、互卦过程、变卦结果三阶段体用资料完整，可逐段核验；逐阶段计算体用五行关系与月令旺衰",
+            "sources": [
+              "主卦、互卦、变卦上下经卦与原动爻所在经卦的体用规则"
+            ],
+            "limitation": "计算步骤只证明起卦取数、主互变卦象、六爻动爻、阶段体用、推进、反证与应期事实如何形成当前证据；不证明现实吉凶、预测有效性、事件概率或固定应期"
+          },
+          {
+            "key": "meihua:calculation:transitions",
+            "stage": "阶段推进核验",
+            "status": "已计算",
+            "inputs": {
+              "stageFactCount": 3
+            },
+            "result": {
+              "transitionFactCount": 2,
+              "transitionStatuses": [
+                "连续",
+                "连续"
+              ]
+            },
+            "dependsOnStepKeys": [
+              "meihua:calculation:stages"
+            ],
+            "promptText": "起因比和 → 过程比和；过程比和 → 结果体克用",
+            "sources": [
+              "相邻阶段体用关系与阶段完整性逐项比较"
+            ],
+            "limitation": "计算步骤只证明起卦取数、主互变卦象、六爻动爻、阶段体用、推进、反证与应期事实如何形成当前证据；不证明现实吉凶、预测有效性、事件概率或固定应期"
+          },
+          {
+            "key": "meihua:calculation:counter-timing",
+            "stage": "反证与应期核验",
+            "status": "已计算",
+            "inputs": {
+              "stageFactCount": 3
+            },
+            "result": {
+              "counterEvidenceCount": 4,
+              "timingFactCount": 8
+            },
+            "dependsOnStepKeys": [
+              "meihua:calculation:stages",
+              "meihua:calculation:transitions"
+            ],
+            "promptText": "逐项核验阶段限制4项，并记录相对触发与期限边界8项",
+            "sources": [
+              "阶段体用限制、月令旺衰、动爻层位与现实触发条件"
+            ],
+            "limitation": "计算步骤只证明起卦取数、主互变卦象、六爻动爻、阶段体用、推进、反证与应期事实如何形成当前证据；不证明现实吉凶、预测有效性、事件概率或固定应期"
+          },
+          {
+            "key": "meihua:calculation:summary",
+            "stage": "证据汇总",
+            "status": "已计算",
+            "inputs": {
+              "factCount": 55
+            },
+            "result": {
+              "summaryStatus": "证据链完整",
+              "hexagramFactCount": 3,
+              "stageFactCount": 3,
+              "transitionFactCount": 2,
+              "counterEvidenceCount": 4,
+              "timingFactCount": 8
+            },
+            "dependsOnStepKeys": [
+              "meihua:calculation:generation",
+              "meihua:calculation:hexagrams",
+              "meihua:calculation:yaos",
+              "meihua:calculation:stages",
+              "meihua:calculation:transitions",
+              "meihua:calculation:counter-timing"
+            ],
+            "promptText": "证据状态证据链完整：主互变卦象3项、逐爻6项、体用阶段3项、阶段推进2项、传统卦爻辞23项、反证4项、应期8项",
+            "sources": [
+              "全部起卦、主互变卦象、逐爻、阶段体用、推进、传统文本、反证与应期事实逐项汇总"
+            ],
+            "limitation": "计算步骤只证明起卦取数、主互变卦象、六爻动爻、阶段体用、推进、反证与应期事实如何形成当前证据；不证明现实吉凶、预测有效性、事件概率或固定应期"
+          }
+        ],
+        "calculationChain": [
+          "起卦方式：年月日时起卦法；时间取数：农历年支午序7、月数8、日数2、时支未序8；上卦=(7+8+2)除8取余为1；下卦=(7+8+2+8)除8取余为1；动爻=(7+8+2+8)除6取余为1；随机轨迹不适用",
+          "按上下卦、互卦构造与动爻翻转记录3项主互变卦象事实",
+          "六爻完整覆盖初爻至上爻，且仅第1爻发动，可核验体用、互卦与变卦来源；已记录6项阴阳、体用归属与动爻事实",
+          "主卦起因、互卦过程、变卦结果三阶段体用资料完整，可逐段核验；逐阶段计算体用五行关系与月令旺衰",
+          "起因比和 → 过程比和；过程比和 → 结果体克用",
+          "逐项核验阶段限制4项，并记录相对触发与期限边界8项",
+          "证据状态证据链完整：主互变卦象3项、逐爻6项、体用阶段3项、阶段推进2项、传统卦爻辞23项、反证4项、应期8项"
+        ],
+        "hexagramStructureFacts": [
+          {
+            "key": "meihua:hexagram:origin",
+            "status": "已记录",
+            "stage": "origin",
+            "label": "主卦",
+            "hexagram": "乾为天",
+            "symbol": "☰☰",
+            "upperTrigram": "乾",
+            "lowerTrigram": "乾",
+            "promptText": "主卦乾为天☰☰，上乾下乾",
+            "sources": [
+              "起卦上下经卦索引与六十四卦映射"
+            ],
+            "limitation": "主互变卦象事实只记录当前上下经卦、卦名与卦符；不得由卦名或阶段位置直接推断现实事件、人物、吉凶、成败或应期"
+          },
+          {
+            "key": "meihua:hexagram:process",
+            "status": "已记录",
+            "stage": "process",
+            "label": "互卦",
+            "hexagram": "乾为天",
+            "symbol": "☰☰",
+            "upperTrigram": "乾",
+            "lowerTrigram": "乾",
+            "promptText": "互卦乾为天☰☰，上乾下乾",
+            "sources": [
+              "主卦二三四爻为下互、三四五爻为上互"
+            ],
+            "limitation": "主互变卦象事实只记录当前上下经卦、卦名与卦符；不得由卦名或阶段位置直接推断现实事件、人物、吉凶、成败或应期"
+          },
+          {
+            "key": "meihua:hexagram:result",
+            "status": "已记录",
+            "stage": "result",
+            "label": "变卦",
+            "hexagram": "天风姤",
+            "symbol": "☰☴",
+            "upperTrigram": "乾",
+            "lowerTrigram": "巽",
+            "promptText": "变卦天风姤☰☴，上乾下巽",
+            "sources": [
+              "主卦动爻阴阳翻转与六十四卦映射"
+            ],
+            "limitation": "主互变卦象事实只记录当前上下经卦、卦名与卦符；不得由卦名或阶段位置直接推断现实事件、人物、吉凶、成败或应期"
+          }
+        ],
+        "hexagramFacts": [
+          "主卦乾为天☰☰，上乾下乾",
+          "互卦乾为天☰☰，上乾下乾",
+          "变卦天风姤☰☴，上乾下巽"
+        ],
+        "yaoCoverageFact": {
+          "key": "meihua:yao-coverage",
+          "status": "完整",
+          "expectedPositions": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "actualPositions": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "missingPositions": [],
+          "duplicatePositions": [],
+          "invalidPositions": [],
+          "changingPositions": [
+            1
+          ],
+          "yaoFactKeys": [
+            "meihua:yao:1",
+            "meihua:yao:2",
+            "meihua:yao:3",
+            "meihua:yao:4",
+            "meihua:yao:5",
+            "meihua:yao:6"
+          ],
+          "promptText": "六爻完整覆盖初爻至上爻，且仅第1爻发动，可核验体用、互卦与变卦来源",
+          "sources": [
+            "当前逐爻位置、唯一性与动爻标记完整性核验"
+          ],
+          "limitation": "六爻覆盖状态只说明当前主卦是否完整保存初爻至上爻且仅有一个动爻；缺少、重复、越界或动爻异常时不得补造阴阳、体用归属、互卦或变卦"
+        },
+        "yaoStructureFacts": [
+          {
+            "key": "meihua:yao:1",
+            "status": "已计算",
+            "position": 1,
+            "yaoType": "阳",
+            "tiYong": "体",
+            "isChanging": true,
+            "promptText": "第1爻为阳爻，属体，本爻发动",
+            "sources": [
+              "主卦六爻自下而上阴阳序列",
+              "动爻所在上下经卦与体用归属"
+            ],
+            "limitation": "逐爻事实只记录主卦自下而上的阴阳、体用归属与动爻位置；不得按爻位、阴阳数量或体用数量换算吉凶、概率、人物身份或固定日期"
+          },
+          {
+            "key": "meihua:yao:2",
+            "status": "已计算",
+            "position": 2,
+            "yaoType": "阳",
+            "tiYong": "体",
+            "isChanging": false,
+            "promptText": "第2爻为阳爻，属体",
+            "sources": [
+              "主卦六爻自下而上阴阳序列",
+              "动爻所在上下经卦与体用归属"
+            ],
+            "limitation": "逐爻事实只记录主卦自下而上的阴阳、体用归属与动爻位置；不得按爻位、阴阳数量或体用数量换算吉凶、概率、人物身份或固定日期"
+          },
+          {
+            "key": "meihua:yao:3",
+            "status": "已计算",
+            "position": 3,
+            "yaoType": "阳",
+            "tiYong": "体",
+            "isChanging": false,
+            "promptText": "第3爻为阳爻，属体",
+            "sources": [
+              "主卦六爻自下而上阴阳序列",
+              "动爻所在上下经卦与体用归属"
+            ],
+            "limitation": "逐爻事实只记录主卦自下而上的阴阳、体用归属与动爻位置；不得按爻位、阴阳数量或体用数量换算吉凶、概率、人物身份或固定日期"
+          },
+          {
+            "key": "meihua:yao:4",
+            "status": "已计算",
+            "position": 4,
+            "yaoType": "阳",
+            "tiYong": "体",
+            "isChanging": false,
+            "promptText": "第4爻为阳爻，属体",
+            "sources": [
+              "主卦六爻自下而上阴阳序列",
+              "动爻所在上下经卦与体用归属"
+            ],
+            "limitation": "逐爻事实只记录主卦自下而上的阴阳、体用归属与动爻位置；不得按爻位、阴阳数量或体用数量换算吉凶、概率、人物身份或固定日期"
+          },
+          {
+            "key": "meihua:yao:5",
+            "status": "已计算",
+            "position": 5,
+            "yaoType": "阳",
+            "tiYong": "体",
+            "isChanging": false,
+            "promptText": "第5爻为阳爻，属体",
+            "sources": [
+              "主卦六爻自下而上阴阳序列",
+              "动爻所在上下经卦与体用归属"
+            ],
+            "limitation": "逐爻事实只记录主卦自下而上的阴阳、体用归属与动爻位置；不得按爻位、阴阳数量或体用数量换算吉凶、概率、人物身份或固定日期"
+          },
+          {
+            "key": "meihua:yao:6",
+            "status": "已计算",
+            "position": 6,
+            "yaoType": "阳",
+            "tiYong": "体",
+            "isChanging": false,
+            "promptText": "第6爻为阳爻，属体",
+            "sources": [
+              "主卦六爻自下而上阴阳序列",
+              "动爻所在上下经卦与体用归属"
+            ],
+            "limitation": "逐爻事实只记录主卦自下而上的阴阳、体用归属与动爻位置；不得按爻位、阴阳数量或体用数量换算吉凶、概率、人物身份或固定日期"
+          }
+        ],
+        "yaoFacts": [
+          "第1爻为阳爻，属体，本爻发动",
+          "第2爻为阳爻，属体",
+          "第3爻为阳爻，属体",
+          "第4爻为阳爻，属体",
+          "第5爻为阳爻，属体",
+          "第6爻为阳爻，属体"
+        ],
+        "monthBranch": "酉",
+        "movingYao": 1,
+        "stageCoverageFact": {
+          "key": "meihua:stage-coverage",
+          "status": "完整",
+          "expectedStages": [
+            "origin",
+            "process",
+            "result"
+          ],
+          "actualStages": [
+            "origin",
+            "process",
+            "result"
+          ],
+          "missingStages": [],
+          "incompleteStages": [],
+          "stageFactKeys": [
+            "meihua:stage:origin",
+            "meihua:stage:process",
+            "meihua:stage:result"
+          ],
+          "promptText": "主卦起因、互卦过程、变卦结果三阶段体用资料完整，可逐段核验",
+          "sources": [
+            "主卦、互卦、变卦及其体用资料完整性核验"
+          ],
+          "limitation": "阶段覆盖状态只说明主卦、互卦、变卦体用事实是否齐全；阶段缺失或卦象资料不完整时不得反推互卦过程、变卦结果、卦名或上下经卦"
+        },
+        "stages": [
+          {
+            "key": "meihua:stage:origin",
+            "status": "已计算",
+            "stage": "origin",
+            "label": "起因",
+            "hexagram": "乾为天",
+            "hexagramFactKey": "meihua:hexagram:origin",
+            "ti": {
+              "name": "乾",
+              "element": "金",
+              "nature": "天",
+              "seasonState": "旺"
+            },
+            "yong": {
+              "name": "乾",
+              "element": "金",
+              "nature": "天",
+              "seasonState": "旺"
+            },
+            "relation": "比和",
+            "support": [
+              "体用同五行，关系同气",
+              "体卦得月令旺",
+              "用卦得月令旺"
+            ],
+            "constraints": [
+              "仍须结合旺衰与现实条件"
+            ],
+            "basis": "主卦以动爻所在经卦为用、另一经卦为体。",
+            "promptText": "起因乾为天：体卦乾金（月令旺），用卦乾金（月令旺），关系比和；依据：主卦以动爻所在经卦为用、另一经卦为体。；支持：体用同五行，关系同气、体卦得月令旺、用卦得月令旺；限制：仍须结合旺衰与现实条件",
+            "sources": [
+              "动爻所在经卦定体用规则",
+              "主卦、互卦、变卦上下经卦五行",
+              "月建酉与五行旺相休囚死关系"
+            ],
+            "limitation": "阶段体用事实只描述主卦、互卦或变卦中的体用五行关系与月令旺衰；阶段标签、支持或限制不得直接解释为现实起因、过程、结果、吉凶或成功率"
+          },
+          {
+            "key": "meihua:stage:process",
+            "status": "已计算",
+            "stage": "process",
+            "label": "过程",
+            "hexagram": "乾为天",
+            "hexagramFactKey": "meihua:hexagram:process",
+            "ti": {
+              "name": "乾",
+              "element": "金",
+              "nature": "天",
+              "seasonState": "旺"
+            },
+            "yong": {
+              "name": "乾",
+              "element": "金",
+              "nature": "天",
+              "seasonState": "旺"
+            },
+            "relation": "比和",
+            "support": [
+              "体用同五行，关系同气",
+              "体卦得月令旺",
+              "用卦得月令旺"
+            ],
+            "constraints": [
+              "仍须结合旺衰与现实条件"
+            ],
+            "basis": "原动爻在下卦、原体在上，依《梅花易数》卷三取上互为体互、下互为用互。",
+            "promptText": "过程乾为天：体卦乾金（月令旺），用卦乾金（月令旺），关系比和；依据：原动爻在下卦、原体在上，依《梅花易数》卷三取上互为体互、下互为用互。；支持：体用同五行，关系同气、体卦得月令旺、用卦得月令旺；限制：仍须结合旺衰与现实条件",
+            "sources": [
+              "动爻所在经卦定体用规则",
+              "主卦、互卦、变卦上下经卦五行",
+              "月建酉与五行旺相休囚死关系"
+            ],
+            "limitation": "阶段体用事实只描述主卦、互卦或变卦中的体用五行关系与月令旺衰；阶段标签、支持或限制不得直接解释为现实起因、过程、结果、吉凶或成功率"
+          },
+          {
+            "key": "meihua:stage:result",
+            "status": "已计算",
+            "stage": "result",
+            "label": "结果",
+            "hexagram": "天风姤",
+            "hexagramFactKey": "meihua:hexagram:result",
+            "ti": {
+              "name": "乾",
+              "element": "金",
+              "nature": "天",
+              "seasonState": "旺"
+            },
+            "yong": {
+              "name": "巽",
+              "element": "木",
+              "nature": "风",
+              "seasonState": "死"
+            },
+            "relation": "体克用",
+            "support": [
+              "体卦对用卦具有制约能力",
+              "体卦得月令旺"
+            ],
+            "constraints": [
+              "主动推进可能伴随消耗",
+              "用卦月令死"
+            ],
+            "basis": "变卦沿用原动爻所在经卦为用、另一经卦为体，观察变化后的关系。",
+            "promptText": "结果天风姤：体卦乾金（月令旺），用卦巽木（月令死），关系体克用；依据：变卦沿用原动爻所在经卦为用、另一经卦为体，观察变化后的关系。；支持：体卦对用卦具有制约能力、体卦得月令旺；限制：主动推进可能伴随消耗、用卦月令死",
+            "sources": [
+              "动爻所在经卦定体用规则",
+              "主卦、互卦、变卦上下经卦五行",
+              "月建酉与五行旺相休囚死关系"
+            ],
+            "limitation": "阶段体用事实只描述主卦、互卦或变卦中的体用五行关系与月令旺衰；阶段标签、支持或限制不得直接解释为现实起因、过程、结果、吉凶或成功率"
+          }
+        ],
+        "transitionFacts": [
+          {
+            "key": "meihua:transition:origin:process",
+            "status": "连续",
+            "fromStageKey": "meihua:stage:origin",
+            "toStageKey": "meihua:stage:process",
+            "fromStage": "origin",
+            "toStage": "process",
+            "fromRelation": "比和",
+            "toRelation": "比和",
+            "promptText": "起因比和 → 过程比和",
+            "sources": [
+              "已记录阶段顺序与各阶段体用五行关系比较"
+            ],
+            "limitation": "阶段推进事实只比较相邻已记录阶段的体用关系变化；不得把卦内先后直接写成现实事件必然按同样顺序发生，跨阶段缺口时更不得补造中间过程"
+          },
+          {
+            "key": "meihua:transition:process:result",
+            "status": "连续",
+            "fromStageKey": "meihua:stage:process",
+            "toStageKey": "meihua:stage:result",
+            "fromStage": "process",
+            "toStage": "result",
+            "fromRelation": "比和",
+            "toRelation": "体克用",
+            "promptText": "过程比和 → 结果体克用",
+            "sources": [
+              "已记录阶段顺序与各阶段体用五行关系比较"
+            ],
+            "limitation": "阶段推进事实只比较相邻已记录阶段的体用关系变化；不得把卦内先后直接写成现实事件必然按同样顺序发生，跨阶段缺口时更不得补造中间过程"
+          }
+        ],
+        "transitions": [
+          "起因比和 → 过程比和",
+          "过程比和 → 结果体克用"
+        ],
+        "timingFacts": [
+          {
+            "key": "meihua:timing:input:1",
+            "type": "原应期条件",
+            "sourceStatus": "原结果提供",
+            "ownerFactKeys": [
+              "calculation:meihua:time",
+              "meihua:stage:origin",
+              "meihua:stage:process",
+              "meihua:stage:result"
+            ],
+            "rawText": "初爻动，先观察事情刚开始或基层条件的变化",
+            "promptText": "初爻动，先观察事情刚开始或基层条件的变化",
+            "sources": [
+              "当前排盘保存的动爻、卦数、体用与旺衰条件"
+            ],
+            "limitation": "应期事实只提供动爻层位、体用生克、月令旺衰与现实条件的相对触发；不得把爻位、卦数、阶段数量或旺衰换算唯一日期，也不证明事件必然发生",
+            "order": 1
+          },
+          {
+            "key": "meihua:timing:input:2",
+            "type": "原应期条件",
+            "sourceStatus": "原结果提供",
+            "ownerFactKeys": [
+              "calculation:meihua:time",
+              "meihua:stage:origin",
+              "meihua:stage:process",
+              "meihua:stage:result"
+            ],
+            "rawText": "上下卦数和为2，只作取数来源旁证，不换算绝对日期",
+            "promptText": "上下卦数和为2，只作取数来源旁证，不换算绝对日期",
+            "sources": [
+              "当前排盘保存的动爻、卦数、体用与旺衰条件"
+            ],
+            "limitation": "应期事实只提供动爻层位、体用生克、月令旺衰与现实条件的相对触发；不得把爻位、卦数、阶段数量或旺衰换算唯一日期，也不证明事件必然发生",
+            "order": 2
+          },
+          {
+            "key": "meihua:timing:input:3",
+            "type": "原应期条件",
+            "sourceStatus": "原结果提供",
+            "ownerFactKeys": [
+              "calculation:meihua:time",
+              "meihua:stage:origin",
+              "meihua:stage:process",
+              "meihua:stage:result"
+            ],
+            "rawText": "体用比和，关系同气，可优先观察条件同步时的进展",
+            "promptText": "体用比和，关系同气，可优先观察条件同步时的进展",
+            "sources": [
+              "当前排盘保存的动爻、卦数、体用与旺衰条件"
+            ],
+            "limitation": "应期事实只提供动爻层位、体用生克、月令旺衰与现实条件的相对触发；不得把爻位、卦数、阶段数量或旺衰换算唯一日期，也不证明事件必然发生",
+            "order": 3
+          },
+          {
+            "key": "meihua:timing:input:4",
+            "type": "原应期条件",
+            "sourceStatus": "原结果提供",
+            "ownerFactKeys": [
+              "calculation:meihua:time",
+              "meihua:stage:origin",
+              "meihua:stage:process",
+              "meihua:stage:result"
+            ],
+            "rawText": "体卦旺相，应期快于常规",
+            "promptText": "体卦旺相，应期快于常规",
+            "sources": [
+              "当前排盘保存的动爻、卦数、体用与旺衰条件"
+            ],
+            "limitation": "应期事实只提供动爻层位、体用生克、月令旺衰与现实条件的相对触发；不得把爻位、卦数、阶段数量或旺衰换算唯一日期，也不证明事件必然发生",
+            "order": 4
+          },
+          {
+            "key": "meihua:timing:moving-yao",
+            "type": "动爻层位",
+            "sourceStatus": "由盘面补齐",
+            "ownerFactKeys": [
+              "meihua:yao-coverage",
+              "meihua:yao:1"
+            ],
+            "promptText": "第1爻为变化触发层位，只用于先后、层次和触发条件，并须由现实进展验证",
+            "sources": [
+              "当前动爻位置与六爻覆盖核验"
+            ],
+            "limitation": "应期事实只提供动爻层位、体用生克、月令旺衰与现实条件的相对触发；不得把爻位、卦数、阶段数量或旺衰换算唯一日期，也不证明事件必然发生",
+            "order": 5
+          },
+          {
+            "key": "meihua:timing:month-state",
+            "type": "月建旺衰",
+            "sourceStatus": "由盘面补齐",
+            "ownerFactKeys": [
+              "meihua:stage:origin",
+              "meihua:stage:process",
+              "meihua:stage:result"
+            ],
+            "promptText": "月建酉只用于校验各阶段体用旺衰，并作为相对快慢与阻力条件",
+            "sources": [
+              "月支与五行旺相休囚死关系"
+            ],
+            "limitation": "应期事实只提供动爻层位、体用生克、月令旺衰与现实条件的相对触发；不得把爻位、卦数、阶段数量或旺衰换算唯一日期，也不证明事件必然发生",
+            "order": 6
+          },
+          {
+            "key": "meihua:timing:body-state",
+            "type": "体卦状态",
+            "sourceStatus": "由盘面补齐",
+            "ownerFactKeys": [
+              "meihua:stage:origin",
+              "meihua:stage:process",
+              "meihua:stage:result"
+            ],
+            "promptText": "体卦各阶段未见休囚死，仍须等待现实事件验证，不能据此断定快速实现",
+            "sources": [
+              "各阶段体卦月令旺衰状态"
+            ],
+            "limitation": "应期事实只提供动爻层位、体用生克、月令旺衰与现实条件的相对触发；不得把爻位、卦数、阶段数量或旺衰换算唯一日期，也不证明事件必然发生",
+            "order": 7
+          },
+          {
+            "key": "meihua:timing:deadline-boundary",
+            "type": "期限边界",
+            "sourceStatus": "统一边界",
+            "ownerFactKeys": [
+              "calculation:meihua:time",
+              "meihua:yao-coverage"
+            ],
+            "promptText": "动爻、卦数与旺衰不能据此换算绝对日期；未给目标期限时，不把阶段数量或盘内条件换算唯一日期",
+            "sources": [
+              "相对触发条件与现实日期分离原则"
+            ],
+            "limitation": "应期事实只提供动爻层位、体用生克、月令旺衰与现实条件的相对触发；不得把爻位、卦数、阶段数量或旺衰换算唯一日期，也不证明事件必然发生",
+            "order": 8
+          }
+        ],
+        "timingSummaryFact": {
+          "key": "meihua:timing-summary",
+          "status": "已提供触发条件",
+          "factKeys": [
+            "meihua:timing:input:1",
+            "meihua:timing:input:2",
+            "meihua:timing:input:3",
+            "meihua:timing:input:4",
+            "meihua:timing:moving-yao",
+            "meihua:timing:month-state",
+            "meihua:timing:body-state",
+            "meihua:timing:deadline-boundary"
+          ],
+          "promptText": "应期状态：已记录8项相对触发与期限边界条件",
+          "sources": [
+            "逐项动爻、月令、体用与原应期条件汇总"
+          ],
+          "limitation": "应期汇总只说明当前保存了哪些相对触发与期限边界；不得按条件数量、动爻、卦数或旺衰生成固定天数、绝对日期或事件概率"
+        },
+        "timingConditions": [
+          "初爻动，先观察事情刚开始或基层条件的变化",
+          "上下卦数和为2，只作取数来源旁证，不换算绝对日期",
+          "体用比和，关系同气，可优先观察条件同步时的进展",
+          "体卦旺相，应期快于常规",
+          "第1爻为变化触发层位，只用于先后、层次和触发条件，并须由现实进展验证",
+          "月建酉只用于校验各阶段体用旺衰，并作为相对快慢与阻力条件",
+          "体卦各阶段未见休囚死，仍须等待现实事件验证，不能据此断定快速实现",
+          "动爻、卦数与旺衰不能据此换算绝对日期；未给目标期限时，不把阶段数量或盘内条件换算唯一日期"
+        ],
+        "randomFact": {
+          "key": "random:meihua:time",
+          "status": "不适用",
+          "mode": "不适用",
+          "samples": [],
+          "sampleCount": 0,
+          "promptText": "年月日时起卦法的上下卦与动爻生成过程不依赖随机抽样，随机轨迹不适用。",
+          "sources": [
+            "梅花起卦方式与取数记录",
+            "随机上下卦、动爻样本与重放元数据"
+          ],
+          "limitation": "随机轨迹只用于核验或重放生成过程，不表示可信度或预测有效性，也不证明任何现实结论。"
+        },
+        "randomFacts": [],
+        "counterEvidenceFacts": [
+          {
+            "key": "meihua:counter:origin:1",
+            "ownerStageKey": "meihua:stage:origin",
+            "stage": "origin",
+            "type": "现实复核限制",
+            "status": "已触发",
+            "detail": "仍须结合旺衰与现实条件",
+            "promptText": "起因乾为天：仍须结合旺衰与现实条件",
+            "sources": [
+              "对应阶段体用生克关系与月令旺衰核验"
+            ],
+            "limitation": "反证事实只表示某一阶段存在泄耗、受克、休囚死或待现实复核等限制；不得把单项反证直接写成现实失败、灾祸、伤病、损失或必然结果"
+          },
+          {
+            "key": "meihua:counter:process:1",
+            "ownerStageKey": "meihua:stage:process",
+            "stage": "process",
+            "type": "现实复核限制",
+            "status": "已触发",
+            "detail": "仍须结合旺衰与现实条件",
+            "promptText": "过程乾为天：仍须结合旺衰与现实条件",
+            "sources": [
+              "对应阶段体用生克关系与月令旺衰核验"
+            ],
+            "limitation": "反证事实只表示某一阶段存在泄耗、受克、休囚死或待现实复核等限制；不得把单项反证直接写成现实失败、灾祸、伤病、损失或必然结果"
+          },
+          {
+            "key": "meihua:counter:result:1",
+            "ownerStageKey": "meihua:stage:result",
+            "stage": "result",
+            "type": "体用关系限制",
+            "status": "已触发",
+            "detail": "主动推进可能伴随消耗",
+            "promptText": "结果天风姤：主动推进可能伴随消耗",
+            "sources": [
+              "对应阶段体用生克关系与月令旺衰核验"
+            ],
+            "limitation": "反证事实只表示某一阶段存在泄耗、受克、休囚死或待现实复核等限制；不得把单项反证直接写成现实失败、灾祸、伤病、损失或必然结果"
+          },
+          {
+            "key": "meihua:counter:result:2",
+            "ownerStageKey": "meihua:stage:result",
+            "stage": "result",
+            "type": "用卦月令限制",
+            "status": "已触发",
+            "detail": "用卦月令死",
+            "promptText": "结果天风姤：用卦月令死",
+            "sources": [
+              "对应阶段体用生克关系与月令旺衰核验"
+            ],
+            "limitation": "反证事实只表示某一阶段存在泄耗、受克、休囚死或待现实复核等限制；不得把单项反证直接写成现实失败、灾祸、伤病、损失或必然结果"
+          }
+        ],
+        "counterSummaryFact": {
+          "key": "meihua:counter-summary",
+          "status": "有明确反证",
+          "factKeys": [
+            "meihua:counter:origin:1",
+            "meihua:counter:process:1",
+            "meihua:counter:result:1",
+            "meihua:counter:result:2"
+          ],
+          "promptText": "当前3个阶段共记录4项明确限制，须逐项与现实条件复核",
+          "sources": [
+            "各阶段限制条件与体用月令事实逐项汇总"
+          ],
+          "limitation": "反证汇总只说明当前阶段核验是否发现明确限制；未见明确反证不代表现实风险为零，也不得按反证数量换算吉凶总分或成功率"
+        },
+        "counterEvidence": [
+          "仍须结合旺衰与现实条件",
+          "主动推进可能伴随消耗",
+          "用卦月令死"
+        ],
+        "traditionalFacts": [
+          {
+            "key": "主卦:乾为天:卦辞",
+            "status": "已映射",
+            "stage": "主卦",
+            "hexagram": "乾为天",
+            "kind": "卦辞",
+            "applicability": "当前卦辞辅助",
+            "originalText": "元亨利贞",
+            "promptText": "主卦乾为天卦辞：传统有利或通达标签、守正与持续条件标签；通用处境类象",
+            "traditionalSignals": [
+              "传统有利或通达标签",
+              "守正与持续条件标签"
+            ],
+            "topicTags": [
+              "通用处境类象"
+            ],
+            "sources": [
+              "《周易》卦辞",
+              "当前六十四卦原文资料"
+            ],
+            "limitation": "卦辞与爻辞是《周易》传统取象原文，只用于当前主互变结构和动爻层位的辅助解释，不证明现实吉凶、婚育、疾病、伤亡、诉讼、财物得失、人物意图或固定时间结果"
+          },
+          {
+            "key": "主卦:乾为天:爻辞:1",
+            "status": "已映射",
+            "stage": "主卦",
+            "hexagram": "乾为天",
+            "kind": "爻辞",
+            "yaoPosition": 1,
+            "applicability": "当前动爻辅助",
+            "originalText": "潜龙勿用",
+            "promptText": "主卦乾为天第1爻爻辞：当前爻位已发动；未见明确吉凶或进退标签；通用处境类象",
+            "traditionalSignals": [
+              "未见明确吉凶或进退标签"
+            ],
+            "topicTags": [
+              "通用处境类象"
+            ],
+            "sources": [
+              "《周易》爻辞",
+              "当前六十四卦逐爻原文资料"
+            ],
+            "limitation": "卦辞与爻辞是《周易》传统取象原文，只用于当前主互变结构和动爻层位的辅助解释，不证明现实吉凶、婚育、疾病、伤亡、诉讼、财物得失、人物意图或固定时间结果"
+          },
+          {
+            "key": "主卦:乾为天:爻辞:2",
+            "status": "已映射",
+            "stage": "主卦",
+            "hexagram": "乾为天",
+            "kind": "爻辞",
+            "yaoPosition": 2,
+            "applicability": "未发动背景",
+            "originalText": "见龙在田，利见大人",
+            "promptText": "主卦乾为天第2爻爻辞：传统有利或通达标签；身份与角色类象",
+            "traditionalSignals": [
+              "传统有利或通达标签"
+            ],
+            "topicTags": [
+              "身份与角色类象"
+            ],
+            "sources": [
+              "《周易》爻辞",
+              "当前六十四卦逐爻原文资料"
+            ],
+            "limitation": "卦辞与爻辞是《周易》传统取象原文，只用于当前主互变结构和动爻层位的辅助解释，不证明现实吉凶、婚育、疾病、伤亡、诉讼、财物得失、人物意图或固定时间结果"
+          },
+          {
+            "key": "主卦:乾为天:爻辞:3",
+            "status": "已映射",
+            "stage": "主卦",
+            "hexagram": "乾为天",
+            "kind": "爻辞",
+            "yaoPosition": 3,
+            "applicability": "未发动背景",
+            "originalText": "君子终日乾乾，夕惕若厉，无咎",
+            "promptText": "主卦乾为天第3爻爻辞：传统有利或通达标签、传统风险或受限标签；传统时间措辞、身份与角色类象",
+            "traditionalSignals": [
+              "传统有利或通达标签",
+              "传统风险或受限标签"
+            ],
+            "topicTags": [
+              "传统时间措辞",
+              "身份与角色类象"
+            ],
+            "sources": [
+              "《周易》爻辞",
+              "当前六十四卦逐爻原文资料"
+            ],
+            "limitation": "卦辞与爻辞是《周易》传统取象原文，只用于当前主互变结构和动爻层位的辅助解释，不证明现实吉凶、婚育、疾病、伤亡、诉讼、财物得失、人物意图或固定时间结果"
+          },
+          {
+            "key": "主卦:乾为天:爻辞:4",
+            "status": "已映射",
+            "stage": "主卦",
+            "hexagram": "乾为天",
+            "kind": "爻辞",
+            "yaoPosition": 4,
+            "applicability": "未发动背景",
+            "originalText": "或跃在渊，无咎",
+            "promptText": "主卦乾为天第4爻爻辞：传统有利或通达标签；通用处境类象",
+            "traditionalSignals": [
+              "传统有利或通达标签"
+            ],
+            "topicTags": [
+              "通用处境类象"
+            ],
+            "sources": [
+              "《周易》爻辞",
+              "当前六十四卦逐爻原文资料"
+            ],
+            "limitation": "卦辞与爻辞是《周易》传统取象原文，只用于当前主互变结构和动爻层位的辅助解释，不证明现实吉凶、婚育、疾病、伤亡、诉讼、财物得失、人物意图或固定时间结果"
+          },
+          {
+            "key": "主卦:乾为天:爻辞:5",
+            "status": "已映射",
+            "stage": "主卦",
+            "hexagram": "乾为天",
+            "kind": "爻辞",
+            "yaoPosition": 5,
+            "applicability": "未发动背景",
+            "originalText": "飞龙在天，利见大人",
+            "promptText": "主卦乾为天第5爻爻辞：传统有利或通达标签；身份与角色类象",
+            "traditionalSignals": [
+              "传统有利或通达标签"
+            ],
+            "topicTags": [
+              "身份与角色类象"
+            ],
+            "sources": [
+              "《周易》爻辞",
+              "当前六十四卦逐爻原文资料"
+            ],
+            "limitation": "卦辞与爻辞是《周易》传统取象原文，只用于当前主互变结构和动爻层位的辅助解释，不证明现实吉凶、婚育、疾病、伤亡、诉讼、财物得失、人物意图或固定时间结果"
+          },
+          {
+            "key": "主卦:乾为天:爻辞:6",
+            "status": "已映射",
+            "stage": "主卦",
+            "hexagram": "乾为天",
+            "kind": "爻辞",
+            "yaoPosition": 6,
+            "applicability": "未发动背景",
+            "originalText": "亢龙有悔",
+            "promptText": "主卦乾为天第6爻爻辞：传统风险或受限标签；通用处境类象",
+            "traditionalSignals": [
+              "传统风险或受限标签"
+            ],
+            "topicTags": [
+              "通用处境类象"
+            ],
+            "sources": [
+              "《周易》爻辞",
+              "当前六十四卦逐爻原文资料"
+            ],
+            "limitation": "卦辞与爻辞是《周易》传统取象原文，只用于当前主互变结构和动爻层位的辅助解释，不证明现实吉凶、婚育、疾病、伤亡、诉讼、财物得失、人物意图或固定时间结果"
+          },
+          {
+            "key": "主卦:乾为天:用辞",
+            "status": "已映射",
+            "stage": "主卦",
+            "hexagram": "乾为天",
+            "kind": "用辞",
+            "applicability": "特殊用辞背景",
+            "originalText": "见群龙无首，吉",
+            "promptText": "主卦乾为天特殊用辞：仅六爻皆变时使用；当前不满足六爻皆变，不作为本次判断依据",
+            "traditionalSignals": [
+              "传统有利或通达标签"
+            ],
+            "topicTags": [
+              "通用处境类象"
+            ],
+            "sources": [
+              "《周易》乾坤用九用六",
+              "当前六十四卦特殊用辞资料"
+            ],
+            "limitation": "卦辞与爻辞是《周易》传统取象原文，只用于当前主互变结构和动爻层位的辅助解释，不证明现实吉凶、婚育、疾病、伤亡、诉讼、财物得失、人物意图或固定时间结果"
+          },
+          {
+            "key": "互卦:乾为天:卦辞",
+            "status": "已映射",
+            "stage": "互卦",
+            "hexagram": "乾为天",
+            "kind": "卦辞",
+            "applicability": "当前卦辞辅助",
+            "originalText": "元亨利贞",
+            "promptText": "互卦乾为天卦辞：传统有利或通达标签、守正与持续条件标签；通用处境类象",
+            "traditionalSignals": [
+              "传统有利或通达标签",
+              "守正与持续条件标签"
+            ],
+            "topicTags": [
+              "通用处境类象"
+            ],
+            "sources": [
+              "《周易》卦辞",
+              "当前六十四卦原文资料"
+            ],
+            "limitation": "卦辞与爻辞是《周易》传统取象原文，只用于当前主互变结构和动爻层位的辅助解释，不证明现实吉凶、婚育、疾病、伤亡、诉讼、财物得失、人物意图或固定时间结果"
+          },
+          {
+            "key": "互卦:乾为天:爻辞:1",
+            "status": "已映射",
+            "stage": "互卦",
+            "hexagram": "乾为天",
+            "kind": "爻辞",
+            "yaoPosition": 1,
+            "applicability": "未发动背景",
+            "originalText": "潜龙勿用",
+            "promptText": "互卦乾为天第1爻爻辞：未见明确吉凶或进退标签；通用处境类象",
+            "traditionalSignals": [
+              "未见明确吉凶或进退标签"
+            ],
+            "topicTags": [
+              "通用处境类象"
+            ],
+            "sources": [
+              "《周易》爻辞",
+              "当前六十四卦逐爻原文资料"
+            ],
+            "limitation": "卦辞与爻辞是《周易》传统取象原文，只用于当前主互变结构和动爻层位的辅助解释，不证明现实吉凶、婚育、疾病、伤亡、诉讼、财物得失、人物意图或固定时间结果"
+          },
+          {
+            "key": "互卦:乾为天:爻辞:2",
+            "status": "已映射",
+            "stage": "互卦",
+            "hexagram": "乾为天",
+            "kind": "爻辞",
+            "yaoPosition": 2,
+            "applicability": "未发动背景",
+            "originalText": "见龙在田，利见大人",
+            "promptText": "互卦乾为天第2爻爻辞：传统有利或通达标签；身份与角色类象",
+            "traditionalSignals": [
+              "传统有利或通达标签"
+            ],
+            "topicTags": [
+              "身份与角色类象"
+            ],
+            "sources": [
+              "《周易》爻辞",
+              "当前六十四卦逐爻原文资料"
+            ],
+            "limitation": "卦辞与爻辞是《周易》传统取象原文，只用于当前主互变结构和动爻层位的辅助解释，不证明现实吉凶、婚育、疾病、伤亡、诉讼、财物得失、人物意图或固定时间结果"
+          },
+          {
+            "key": "互卦:乾为天:爻辞:3",
+            "status": "已映射",
+            "stage": "互卦",
+            "hexagram": "乾为天",
+            "kind": "爻辞",
+            "yaoPosition": 3,
+            "applicability": "未发动背景",
+            "originalText": "君子终日乾乾，夕惕若厉，无咎",
+            "promptText": "互卦乾为天第3爻爻辞：传统有利或通达标签、传统风险或受限标签；传统时间措辞、身份与角色类象",
+            "traditionalSignals": [
+              "传统有利或通达标签",
+              "传统风险或受限标签"
+            ],
+            "topicTags": [
+              "传统时间措辞",
+              "身份与角色类象"
+            ],
+            "sources": [
+              "《周易》爻辞",
+              "当前六十四卦逐爻原文资料"
+            ],
+            "limitation": "卦辞与爻辞是《周易》传统取象原文，只用于当前主互变结构和动爻层位的辅助解释，不证明现实吉凶、婚育、疾病、伤亡、诉讼、财物得失、人物意图或固定时间结果"
+          },
+          {
+            "key": "互卦:乾为天:爻辞:4",
+            "status": "已映射",
+            "stage": "互卦",
+            "hexagram": "乾为天",
+            "kind": "爻辞",
+            "yaoPosition": 4,
+            "applicability": "未发动背景",
+            "originalText": "或跃在渊，无咎",
+            "promptText": "互卦乾为天第4爻爻辞：传统有利或通达标签；通用处境类象",
+            "traditionalSignals": [
+              "传统有利或通达标签"
+            ],
+            "topicTags": [
+              "通用处境类象"
+            ],
+            "sources": [
+              "《周易》爻辞",
+              "当前六十四卦逐爻原文资料"
+            ],
+            "limitation": "卦辞与爻辞是《周易》传统取象原文，只用于当前主互变结构和动爻层位的辅助解释，不证明现实吉凶、婚育、疾病、伤亡、诉讼、财物得失、人物意图或固定时间结果"
+          },
+          {
+            "key": "互卦:乾为天:爻辞:5",
+            "status": "已映射",
+            "stage": "互卦",
+            "hexagram": "乾为天",
+            "kind": "爻辞",
+            "yaoPosition": 5,
+            "applicability": "未发动背景",
+            "originalText": "飞龙在天，利见大人",
+            "promptText": "互卦乾为天第5爻爻辞：传统有利或通达标签；身份与角色类象",
+            "traditionalSignals": [
+              "传统有利或通达标签"
+            ],
+            "topicTags": [
+              "身份与角色类象"
+            ],
+            "sources": [
+              "《周易》爻辞",
+              "当前六十四卦逐爻原文资料"
+            ],
+            "limitation": "卦辞与爻辞是《周易》传统取象原文，只用于当前主互变结构和动爻层位的辅助解释，不证明现实吉凶、婚育、疾病、伤亡、诉讼、财物得失、人物意图或固定时间结果"
+          },
+          {
+            "key": "互卦:乾为天:爻辞:6",
+            "status": "已映射",
+            "stage": "互卦",
+            "hexagram": "乾为天",
+            "kind": "爻辞",
+            "yaoPosition": 6,
+            "applicability": "未发动背景",
+            "originalText": "亢龙有悔",
+            "promptText": "互卦乾为天第6爻爻辞：传统风险或受限标签；通用处境类象",
+            "traditionalSignals": [
+              "传统风险或受限标签"
+            ],
+            "topicTags": [
+              "通用处境类象"
+            ],
+            "sources": [
+              "《周易》爻辞",
+              "当前六十四卦逐爻原文资料"
+            ],
+            "limitation": "卦辞与爻辞是《周易》传统取象原文，只用于当前主互变结构和动爻层位的辅助解释，不证明现实吉凶、婚育、疾病、伤亡、诉讼、财物得失、人物意图或固定时间结果"
+          },
+          {
+            "key": "互卦:乾为天:用辞",
+            "status": "已映射",
+            "stage": "互卦",
+            "hexagram": "乾为天",
+            "kind": "用辞",
+            "applicability": "特殊用辞背景",
+            "originalText": "见群龙无首，吉",
+            "promptText": "互卦乾为天特殊用辞：仅六爻皆变时使用；当前不满足六爻皆变，不作为本次判断依据",
+            "traditionalSignals": [
+              "传统有利或通达标签"
+            ],
+            "topicTags": [
+              "通用处境类象"
+            ],
+            "sources": [
+              "《周易》乾坤用九用六",
+              "当前六十四卦特殊用辞资料"
+            ],
+            "limitation": "卦辞与爻辞是《周易》传统取象原文，只用于当前主互变结构和动爻层位的辅助解释，不证明现实吉凶、婚育、疾病、伤亡、诉讼、财物得失、人物意图或固定时间结果"
+          },
+          {
+            "key": "变卦:天风姤:卦辞",
+            "status": "已映射",
+            "stage": "变卦",
+            "hexagram": "天风姤",
+            "kind": "卦辞",
+            "applicability": "当前卦辞辅助",
+            "originalText": "女壮，勿用取女",
+            "promptText": "变卦天风姤卦辞：未见明确吉凶或进退标签；关系与婚育类象",
+            "traditionalSignals": [
+              "未见明确吉凶或进退标签"
+            ],
+            "topicTags": [
+              "关系与婚育类象"
+            ],
+            "sources": [
+              "《周易》卦辞",
+              "当前六十四卦原文资料"
+            ],
+            "limitation": "卦辞与爻辞是《周易》传统取象原文，只用于当前主互变结构和动爻层位的辅助解释，不证明现实吉凶、婚育、疾病、伤亡、诉讼、财物得失、人物意图或固定时间结果"
+          },
+          {
+            "key": "变卦:天风姤:爻辞:1",
+            "status": "已映射",
+            "stage": "变卦",
+            "hexagram": "天风姤",
+            "kind": "爻辞",
+            "yaoPosition": 1,
+            "applicability": "未发动背景",
+            "originalText": "系于金柅，贞吉",
+            "promptText": "变卦天风姤第1爻爻辞：传统有利或通达标签、守正与持续条件标签；通用处境类象",
+            "traditionalSignals": [
+              "传统有利或通达标签",
+              "守正与持续条件标签"
+            ],
+            "topicTags": [
+              "通用处境类象"
+            ],
+            "sources": [
+              "《周易》爻辞",
+              "当前六十四卦逐爻原文资料"
+            ],
+            "limitation": "卦辞与爻辞是《周易》传统取象原文，只用于当前主互变结构和动爻层位的辅助解释，不证明现实吉凶、婚育、疾病、伤亡、诉讼、财物得失、人物意图或固定时间结果"
+          },
+          {
+            "key": "变卦:天风姤:爻辞:2",
+            "status": "已映射",
+            "stage": "变卦",
+            "hexagram": "天风姤",
+            "kind": "爻辞",
+            "yaoPosition": 2,
+            "applicability": "未发动背景",
+            "originalText": "包有鱼，无咎",
+            "promptText": "变卦天风姤第2爻爻辞：传统有利或通达标签；通用处境类象",
+            "traditionalSignals": [
+              "传统有利或通达标签"
+            ],
+            "topicTags": [
+              "通用处境类象"
+            ],
+            "sources": [
+              "《周易》爻辞",
+              "当前六十四卦逐爻原文资料"
+            ],
+            "limitation": "卦辞与爻辞是《周易》传统取象原文，只用于当前主互变结构和动爻层位的辅助解释，不证明现实吉凶、婚育、疾病、伤亡、诉讼、财物得失、人物意图或固定时间结果"
+          },
+          {
+            "key": "变卦:天风姤:爻辞:3",
+            "status": "已映射",
+            "stage": "变卦",
+            "hexagram": "天风姤",
+            "kind": "爻辞",
+            "yaoPosition": 3,
+            "applicability": "未发动背景",
+            "originalText": "臀无肤，其行次且",
+            "promptText": "变卦天风姤第3爻爻辞：行动与进退标签；通用处境类象",
+            "traditionalSignals": [
+              "行动与进退标签"
+            ],
+            "topicTags": [
+              "通用处境类象"
+            ],
+            "sources": [
+              "《周易》爻辞",
+              "当前六十四卦逐爻原文资料"
+            ],
+            "limitation": "卦辞与爻辞是《周易》传统取象原文，只用于当前主互变结构和动爻层位的辅助解释，不证明现实吉凶、婚育、疾病、伤亡、诉讼、财物得失、人物意图或固定时间结果"
+          },
+          {
+            "key": "变卦:天风姤:爻辞:4",
+            "status": "已映射",
+            "stage": "变卦",
+            "hexagram": "天风姤",
+            "kind": "爻辞",
+            "yaoPosition": 4,
+            "applicability": "未发动背景",
+            "originalText": "包无鱼，起凶",
+            "promptText": "变卦天风姤第4爻爻辞：传统风险或受限标签；通用处境类象",
+            "traditionalSignals": [
+              "传统风险或受限标签"
+            ],
+            "topicTags": [
+              "通用处境类象"
+            ],
+            "sources": [
+              "《周易》爻辞",
+              "当前六十四卦逐爻原文资料"
+            ],
+            "limitation": "卦辞与爻辞是《周易》传统取象原文，只用于当前主互变结构和动爻层位的辅助解释，不证明现实吉凶、婚育、疾病、伤亡、诉讼、财物得失、人物意图或固定时间结果"
+          },
+          {
+            "key": "变卦:天风姤:爻辞:5",
+            "status": "已映射",
+            "stage": "变卦",
+            "hexagram": "天风姤",
+            "kind": "爻辞",
+            "yaoPosition": 5,
+            "applicability": "未发动背景",
+            "originalText": "以杞包瓜",
+            "promptText": "变卦天风姤第5爻爻辞：未见明确吉凶或进退标签；通用处境类象",
+            "traditionalSignals": [
+              "未见明确吉凶或进退标签"
+            ],
+            "topicTags": [
+              "通用处境类象"
+            ],
+            "sources": [
+              "《周易》爻辞",
+              "当前六十四卦逐爻原文资料"
+            ],
+            "limitation": "卦辞与爻辞是《周易》传统取象原文，只用于当前主互变结构和动爻层位的辅助解释，不证明现实吉凶、婚育、疾病、伤亡、诉讼、财物得失、人物意图或固定时间结果"
+          },
+          {
+            "key": "变卦:天风姤:爻辞:6",
+            "status": "已映射",
+            "stage": "变卦",
+            "hexagram": "天风姤",
+            "kind": "爻辞",
+            "yaoPosition": 6,
+            "applicability": "未发动背景",
+            "originalText": "姤其角，吝",
+            "promptText": "变卦天风姤第6爻爻辞：传统风险或受限标签；通用处境类象",
+            "traditionalSignals": [
+              "传统风险或受限标签"
+            ],
+            "topicTags": [
+              "通用处境类象"
+            ],
+            "sources": [
+              "《周易》爻辞",
+              "当前六十四卦逐爻原文资料"
+            ],
+            "limitation": "卦辞与爻辞是《周易》传统取象原文，只用于当前主互变结构和动爻层位的辅助解释，不证明现实吉凶、婚育、疾病、伤亡、诉讼、财物得失、人物意图或固定时间结果"
+          }
+        ],
+        "summaryFact": {
+          "key": "meihua:evidence-summary",
+          "status": "证据链完整",
+          "factKeys": [
+            "meihua:calculation:generation",
+            "meihua:calculation:hexagrams",
+            "meihua:calculation:yaos",
+            "meihua:calculation:stages",
+            "meihua:calculation:transitions",
+            "meihua:calculation:counter-timing",
+            "meihua:calculation:summary",
+            "calculation:meihua:time",
+            "random:meihua:time",
+            "meihua:hexagram:origin",
+            "meihua:hexagram:process",
+            "meihua:hexagram:result",
+            "meihua:yao-coverage",
+            "meihua:yao:1",
+            "meihua:yao:2",
+            "meihua:yao:3",
+            "meihua:yao:4",
+            "meihua:yao:5",
+            "meihua:yao:6",
+            "meihua:stage-coverage",
+            "meihua:stage:origin",
+            "meihua:stage:process",
+            "meihua:stage:result",
+            "meihua:transition:origin:process",
+            "meihua:transition:process:result",
+            "主卦:乾为天:卦辞",
+            "主卦:乾为天:爻辞:1",
+            "主卦:乾为天:爻辞:2",
+            "主卦:乾为天:爻辞:3",
+            "主卦:乾为天:爻辞:4",
+            "主卦:乾为天:爻辞:5",
+            "主卦:乾为天:爻辞:6",
+            "主卦:乾为天:用辞",
+            "互卦:乾为天:卦辞",
+            "互卦:乾为天:爻辞:1",
+            "互卦:乾为天:爻辞:2",
+            "互卦:乾为天:爻辞:3",
+            "互卦:乾为天:爻辞:4",
+            "互卦:乾为天:爻辞:5",
+            "互卦:乾为天:爻辞:6",
+            "互卦:乾为天:用辞",
+            "变卦:天风姤:卦辞",
+            "变卦:天风姤:爻辞:1",
+            "变卦:天风姤:爻辞:2",
+            "变卦:天风姤:爻辞:3",
+            "变卦:天风姤:爻辞:4",
+            "变卦:天风姤:爻辞:5",
+            "变卦:天风姤:爻辞:6",
+            "meihua:counter-summary",
+            "meihua:counter:origin:1",
+            "meihua:counter:process:1",
+            "meihua:counter:result:1",
+            "meihua:counter:result:2",
+            "meihua:timing-summary",
+            "meihua:timing:input:1",
+            "meihua:timing:input:2",
+            "meihua:timing:input:3",
+            "meihua:timing:input:4",
+            "meihua:timing:moving-yao",
+            "meihua:timing:month-state",
+            "meihua:timing:body-state",
+            "meihua:timing:deadline-boundary"
+          ],
+          "hexagramFactCount": 3,
+          "yaoFactCount": 6,
+          "stageFactCount": 3,
+          "transitionFactCount": 2,
+          "traditionalFactCount": 23,
+          "counterEvidenceCount": 4,
+          "timingFactCount": 8,
+          "promptText": "证据状态证据链完整：主互变卦象3项、逐爻6项、体用阶段3项、阶段推进2项、传统卦爻辞23项、反证4项、应期8项",
+          "sources": [
+            "全部起卦、主互变卦象、逐爻、阶段体用、推进、传统文本、反证与应期事实逐项汇总"
+          ],
+          "limitation": "梅花证据汇总只统计起卦、主互变卦象、六爻动爻、阶段体用、推进、传统文本、反证与应期事实的覆盖情况；不得按数量生成吉凶总分、成功率、人物意图或唯一日期"
+        },
+        "limitations": [
+          "取数算式与随机轨迹只用于核验上下卦和动爻如何由输入或抽样得到；随机重放只记录生成过程，不提高预测有效性，也不证明现实结果",
+          "主互变卦象与逐爻事实只记录卦名、卦符、上下经卦、阴阳、体用归属和动爻位置；资料缺失时不得补造，资料完整也不直接证明现实事件或吉凶",
+          "体用生克只描述卦内关系，不直接等于现实吉凶；起因、过程和结果标签只表示主卦、互卦、变卦的分析层级，不证明现实必然按同样阶段发生",
+          "阶段推进只比较相邻体用关系变化，阶段缺口时不得补造中间过程；泄耗、受克、休囚死等反证须与支持条件并列，不得直接写成现实失败、灾祸或损失",
+          "动爻、卦数、阶段数量、体用生克与月令旺衰只提供相对层位和触发条件；未给目标期限时不得换算唯一日期、固定天数或事件概率",
+          "互卦用于过程、变卦用于结果，卦名与卦爻辞只能结合问题作辅助取象；不得按阶段、旺衰、传统吉凶词或卦数生成总分、成功率，也不得直接输出婚育、疾病、伤亡、诉讼、财物得失或人物意图结论"
+        ],
+        "limitationFacts": [
+          {
+            "key": "meihua:limitation:generation-random",
+            "type": "起卦与随机来源边界",
+            "ownerFactKeys": [
+              "calculation:meihua:time",
+              "random:meihua:time"
+            ],
+            "promptText": "取数算式与随机轨迹只用于核验上下卦和动爻如何由输入或抽样得到；随机重放只记录生成过程，不提高预测有效性，也不证明现实结果",
+            "sources": [
+              "起卦输入、取余算式与随机轨迹"
+            ],
+            "status": "适用",
+            "limitation": "限制事实用于约束梅花起卦、卦象、逐爻、体用、推进、传统卦爻辞与应期资料能够支持的解释范围，不得被反向当作现实吉凶、婚育疾病、伤亡诉讼、事件概率或固定应期的证据"
+          },
+          {
+            "key": "meihua:limitation:hexagrams-yaos",
+            "type": "卦象与逐爻资料边界",
+            "ownerFactKeys": [
+              "meihua:hexagram:origin",
+              "meihua:hexagram:process",
+              "meihua:hexagram:result",
+              "meihua:yao-coverage",
+              "meihua:yao:1",
+              "meihua:yao:2",
+              "meihua:yao:3",
+              "meihua:yao:4",
+              "meihua:yao:5",
+              "meihua:yao:6"
+            ],
+            "promptText": "主互变卦象与逐爻事实只记录卦名、卦符、上下经卦、阴阳、体用归属和动爻位置；资料缺失时不得补造，资料完整也不直接证明现实事件或吉凶",
+            "sources": [
+              "主互变卦象构造、六爻覆盖与逐爻事实"
+            ],
+            "status": "适用",
+            "limitation": "限制事实用于约束梅花起卦、卦象、逐爻、体用、推进、传统卦爻辞与应期资料能够支持的解释范围，不得被反向当作现实吉凶、婚育疾病、伤亡诉讼、事件概率或固定应期的证据"
+          },
+          {
+            "key": "meihua:limitation:stages",
+            "type": "阶段体用边界",
+            "ownerFactKeys": [
+              "meihua:stage-coverage",
+              "meihua:stage:origin",
+              "meihua:stage:process",
+              "meihua:stage:result"
+            ],
+            "promptText": "体用生克只描述卦内关系，不直接等于现实吉凶；起因、过程和结果标签只表示主卦、互卦、变卦的分析层级，不证明现实必然按同样阶段发生",
+            "sources": [
+              "主互变阶段覆盖与逐阶段体用月令事实"
+            ],
+            "status": "适用",
+            "limitation": "限制事实用于约束梅花起卦、卦象、逐爻、体用、推进、传统卦爻辞与应期资料能够支持的解释范围，不得被反向当作现实吉凶、婚育疾病、伤亡诉讼、事件概率或固定应期的证据"
+          },
+          {
+            "key": "meihua:limitation:transitions-counters",
+            "type": "阶段推进与反证边界",
+            "ownerFactKeys": [
+              "meihua:transition:origin:process",
+              "meihua:transition:process:result",
+              "meihua:counter-summary",
+              "meihua:counter:origin:1",
+              "meihua:counter:process:1",
+              "meihua:counter:result:1",
+              "meihua:counter:result:2"
+            ],
+            "promptText": "阶段推进只比较相邻体用关系变化，阶段缺口时不得补造中间过程；泄耗、受克、休囚死等反证须与支持条件并列，不得直接写成现实失败、灾祸或损失",
+            "sources": [
+              "阶段推进事实与逐阶段反证汇总"
+            ],
+            "status": "适用",
+            "limitation": "限制事实用于约束梅花起卦、卦象、逐爻、体用、推进、传统卦爻辞与应期资料能够支持的解释范围，不得被反向当作现实吉凶、婚育疾病、伤亡诉讼、事件概率或固定应期的证据"
+          },
+          {
+            "key": "meihua:limitation:timing",
+            "type": "应期边界",
+            "ownerFactKeys": [
+              "meihua:timing-summary",
+              "meihua:timing:input:1",
+              "meihua:timing:input:2",
+              "meihua:timing:input:3",
+              "meihua:timing:input:4",
+              "meihua:timing:moving-yao",
+              "meihua:timing:month-state",
+              "meihua:timing:body-state",
+              "meihua:timing:deadline-boundary"
+            ],
+            "promptText": "动爻、卦数、阶段数量、体用生克与月令旺衰只提供相对层位和触发条件；未给目标期限时不得换算唯一日期、固定天数或事件概率",
+            "sources": [
+              "动爻层位、月令旺衰、体用状态与期限边界"
+            ],
+            "status": "适用",
+            "limitation": "限制事实用于约束梅花起卦、卦象、逐爻、体用、推进、传统卦爻辞与应期资料能够支持的解释范围，不得被反向当作现实吉凶、婚育疾病、伤亡诉讼、事件概率或固定应期的证据"
+          },
+          {
+            "key": "meihua:limitation:tradition-risk",
+            "type": "传统文本与高风险输出边界",
+            "ownerFactKeys": [
+              "meihua:evidence-summary",
+              "主卦:乾为天:卦辞",
+              "主卦:乾为天:爻辞:1",
+              "主卦:乾为天:爻辞:2",
+              "主卦:乾为天:爻辞:3",
+              "主卦:乾为天:爻辞:4",
+              "主卦:乾为天:爻辞:5",
+              "主卦:乾为天:爻辞:6",
+              "主卦:乾为天:用辞",
+              "互卦:乾为天:卦辞",
+              "互卦:乾为天:爻辞:1",
+              "互卦:乾为天:爻辞:2",
+              "互卦:乾为天:爻辞:3",
+              "互卦:乾为天:爻辞:4",
+              "互卦:乾为天:爻辞:5",
+              "互卦:乾为天:爻辞:6",
+              "互卦:乾为天:用辞",
+              "变卦:天风姤:卦辞",
+              "变卦:天风姤:爻辞:1",
+              "变卦:天风姤:爻辞:2",
+              "变卦:天风姤:爻辞:3",
+              "变卦:天风姤:爻辞:4",
+              "变卦:天风姤:爻辞:5",
+              "变卦:天风姤:爻辞:6"
+            ],
+            "promptText": "互卦用于过程、变卦用于结果，卦名与卦爻辞只能结合问题作辅助取象；不得按阶段、旺衰、传统吉凶词或卦数生成总分、成功率，也不得直接输出婚育、疾病、伤亡、诉讼、财物得失或人物意图结论",
+            "sources": [
+              "传统卦爻辞条件化事实、证据汇总与高风险解释约束"
+            ],
+            "status": "适用",
+            "limitation": "限制事实用于约束梅花起卦、卦象、逐爻、体用、推进、传统卦爻辞与应期资料能够支持的解释范围，不得被反向当作现实吉凶、婚育疾病、伤亡诉讼、事件概率或固定应期的证据"
+          }
+        ],
+        "evidence": {
+          "title": "梅花体用阶段推进结构化证据",
+          "items": [
+            {
+              "level": "辅证",
+              "title": "梅花计算链",
+              "detail": "起卦方式：年月日时起卦法；时间取数：农历年支午序7、月数8、日数2、时支未序8；上卦=(7+8+2)除8取余为1；下卦=(7+8+2+8)除8取余为1；动爻=(7+8+2+8)除6取余为1；随机轨迹不适用；按上下卦、互卦构造与动爻翻转记录3项主互变卦象事实；六爻完整覆盖初爻至上爻，且仅第1爻发动，可核验体用、互卦与变卦来源；已记录6项阴阳、体用归属与动爻事实；主卦起因、互卦过程、变卦结果三阶段体用资料完整，可逐段核验；逐阶段计算体用五行关系与月令旺衰；起因比和 → 过程比和；过程比和 → 结果体克用；逐项核验阶段限制4项，并记录相对触发与期限边界8项；证据状态证据链完整：主互变卦象3项、逐爻6项、体用阶段3项、阶段推进2项、传统卦爻辞23项、反证4项、应期8项；统一边界：计算步骤只证明起卦取数、主互变卦象、六爻动爻、阶段体用、推进、反证与应期事实如何形成当前证据；不证明现实吉凶、预测有效性、事件概率或固定应期",
+              "source": "《梅花易数》年月日时取数与八卦、六爻取余规则、当前主卦上下经卦与动爻结果、梅花起卦方式与取数记录、随机上下卦、动爻样本与重放元数据、起卦上下经卦索引与六十四卦映射、主卦二三四爻为下互、三四五爻为上互、主卦动爻阴阳翻转与六十四卦映射、主卦六爻阴阳序列、动爻位置与体用归属规则、主卦、互卦、变卦上下经卦与原动爻所在经卦的体用规则、相邻阶段体用关系与阶段完整性逐项比较、阶段体用限制、月令旺衰、动爻层位与现实触发条件、全部起卦、主互变卦象、逐爻、阶段体用、推进、传统文本、反证与应期事实逐项汇总",
+              "tags": [
+                "计算链",
+                "证据链完整"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "起卦方式与取数算式",
+              "detail": "起卦方式：年月日时起卦法；时间取数：农历年支午序7、月数8、日数2、时支未序8；上卦=(7+8+2)除8取余为1；下卦=(7+8+2+8)除8取余为1；动爻=(7+8+2+8)除6取余为1；边界：取数算式只证明当前上下卦与动爻索引如何由输入或随机取数得到，不证明卦象预测有效性、现实吉凶或固定应期",
+              "source": "《梅花易数》年月日时取数与八卦、六爻取余规则、当前主卦上下经卦与动爻结果",
+              "tags": [
+                "起卦算式",
+                "time",
+                "完整"
+              ]
+            },
+            {
+              "level": "主证",
+              "title": "主互变卦象事实",
+              "detail": "主卦乾为天☰☰，上乾下乾；互卦乾为天☰☰，上乾下乾；变卦天风姤☰☴，上乾下巽；统一边界：主互变卦象事实只记录当前上下经卦、卦名与卦符；不得由卦名或阶段位置直接推断现实事件、人物、吉凶、成败或应期",
+              "source": "起卦上下经卦索引与六十四卦映射、主卦二三四爻为下互、三四五爻为上互、主卦动爻阴阳翻转与六十四卦映射",
+              "tags": [
+                "主卦",
+                "互卦",
+                "变卦"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "主互变阶段覆盖状态",
+              "detail": "主卦起因、互卦过程、变卦结果三阶段体用资料完整，可逐段核验；边界：阶段覆盖状态只说明主卦、互卦、变卦体用事实是否齐全；阶段缺失或卦象资料不完整时不得反推互卦过程、变卦结果、卦名或上下经卦",
+              "source": "主卦、互卦、变卦及其体用资料完整性核验",
+              "tags": [
+                "阶段覆盖",
+                "完整"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "六爻资料覆盖状态",
+              "detail": "六爻完整覆盖初爻至上爻，且仅第1爻发动，可核验体用、互卦与变卦来源；边界：六爻覆盖状态只说明当前主卦是否完整保存初爻至上爻且仅有一个动爻；缺少、重复、越界或动爻异常时不得补造阴阳、体用归属、互卦或变卦",
+              "source": "当前逐爻位置、唯一性与动爻标记完整性核验",
+              "tags": [
+                "六爻覆盖",
+                "完整"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "六爻阴阳与体用归属",
+              "detail": "第1爻为阳爻，属体，本爻发动；第2爻为阳爻，属体；第3爻为阳爻，属体；第4爻为阳爻，属体；第5爻为阳爻，属体；第6爻为阳爻，属体；统一边界：逐爻事实只记录主卦自下而上的阴阳、体用归属与动爻位置；不得按爻位、阴阳数量或体用数量换算吉凶、概率、人物身份或固定日期",
+              "source": "主卦六爻自下而上阴阳序列、动爻所在上下经卦与体用归属",
+              "tags": [
+                "六爻结构",
+                "动爻",
+                "体用"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "初爻爻辞",
+              "detail": "主卦乾为天第1爻爻辞：当前爻位已发动；未见明确吉凶或进退标签；通用处境类象",
+              "source": "《周易》当前主卦动爻原文及条件化解释",
+              "tags": [
+                "动爻爻辞",
+                "初爻"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "主卦乾为天卦辞分类",
+              "detail": "主卦乾为天卦辞：传统有利或通达标签、守正与持续条件标签；通用处境类象；边界卦辞与爻辞是《周易》传统取象原文，只用于当前主互变结构和动爻层位的辅助解释，不证明现实吉凶、婚育、疾病、伤亡、诉讼、财物得失、人物意图或固定时间结果",
+              "source": "《周易》卦辞、当前六十四卦原文资料",
+              "tags": [
+                "主卦",
+                "卦辞",
+                "传统有利或通达标签",
+                "守正与持续条件标签",
+                "通用处境类象"
+              ]
+            },
+            {
+              "level": "限制",
+              "title": "互卦乾为天卦辞分类",
+              "detail": "互卦乾为天卦辞：传统有利或通达标签、守正与持续条件标签；通用处境类象；边界卦辞与爻辞是《周易》传统取象原文，只用于当前主互变结构和动爻层位的辅助解释，不证明现实吉凶、婚育、疾病、伤亡、诉讼、财物得失、人物意图或固定时间结果",
+              "source": "《周易》卦辞、当前六十四卦原文资料",
+              "tags": [
+                "互卦",
+                "卦辞",
+                "传统有利或通达标签",
+                "守正与持续条件标签",
+                "通用处境类象"
+              ]
+            },
+            {
+              "level": "限制",
+              "title": "变卦天风姤卦辞分类",
+              "detail": "变卦天风姤卦辞：未见明确吉凶或进退标签；关系与婚育类象；边界卦辞与爻辞是《周易》传统取象原文，只用于当前主互变结构和动爻层位的辅助解释，不证明现实吉凶、婚育、疾病、伤亡、诉讼、财物得失、人物意图或固定时间结果",
+              "source": "《周易》卦辞、当前六十四卦原文资料",
+              "tags": [
+                "变卦",
+                "卦辞",
+                "未见明确吉凶或进退标签",
+                "关系与婚育类象"
+              ]
+            },
+            {
+              "level": "主证",
+              "title": "起因阶段",
+              "detail": "起因乾为天：体卦乾金（月令旺），用卦乾金（月令旺），关系比和；依据：主卦以动爻所在经卦为用、另一经卦为体。；支持：体用同五行，关系同气、体卦得月令旺、用卦得月令旺；限制：仍须结合旺衰与现实条件；边界：阶段体用事实只描述主卦、互卦或变卦中的体用五行关系与月令旺衰；阶段标签、支持或限制不得直接解释为现实起因、过程、结果、吉凶或成功率",
+              "source": "动爻所在经卦定体用规则、主卦、互卦、变卦上下经卦五行、月建酉与五行旺相休囚死关系",
+              "tags": [
+                "origin",
+                "比和"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "过程阶段",
+              "detail": "过程乾为天：体卦乾金（月令旺），用卦乾金（月令旺），关系比和；依据：原动爻在下卦、原体在上，依《梅花易数》卷三取上互为体互、下互为用互。；支持：体用同五行，关系同气、体卦得月令旺、用卦得月令旺；限制：仍须结合旺衰与现实条件；边界：阶段体用事实只描述主卦、互卦或变卦中的体用五行关系与月令旺衰；阶段标签、支持或限制不得直接解释为现实起因、过程、结果、吉凶或成功率",
+              "source": "动爻所在经卦定体用规则、主卦、互卦、变卦上下经卦五行、月建酉与五行旺相休囚死关系",
+              "tags": [
+                "process",
+                "比和"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "结果阶段",
+              "detail": "结果天风姤：体卦乾金（月令旺），用卦巽木（月令死），关系体克用；依据：变卦沿用原动爻所在经卦为用、另一经卦为体，观察变化后的关系。；支持：体卦对用卦具有制约能力、体卦得月令旺；限制：主动推进可能伴随消耗、用卦月令死；边界：阶段体用事实只描述主卦、互卦或变卦中的体用五行关系与月令旺衰；阶段标签、支持或限制不得直接解释为现实起因、过程、结果、吉凶或成功率",
+              "source": "动爻所在经卦定体用规则、主卦、互卦、变卦上下经卦五行、月建酉与五行旺相休囚死关系",
+              "tags": [
+                "result",
+                "体克用"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "起因至过程体用转变",
+              "detail": "起因比和 → 过程比和；边界：阶段推进事实只比较相邻已记录阶段的体用关系变化；不得把卦内先后直接写成现实事件必然按同样顺序发生，跨阶段缺口时更不得补造中间过程",
+              "source": "已记录阶段顺序与各阶段体用五行关系比较",
+              "tags": [
+                "阶段推进",
+                "连续",
+                "process"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "过程至结果体用转变",
+              "detail": "过程比和 → 结果体克用；边界：阶段推进事实只比较相邻已记录阶段的体用关系变化；不得把卦内先后直接写成现实事件必然按同样顺序发生，跨阶段缺口时更不得补造中间过程",
+              "source": "已记录阶段顺序与各阶段体用五行关系比较",
+              "tags": [
+                "阶段推进",
+                "连续",
+                "result"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "体互对原体关系",
+              "detail": "体互与原体比和；《梅花易数》卷三称“体互最紧”，仍须与主卦体用、用互和变卦并看。",
+              "source": "《梅花易数》卷三《体用互变之诀》体互、用互方位规则",
+              "tags": [
+                "体互",
+                "原体",
+                "过程主线"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "用互对原体关系",
+              "detail": "用互与原体比和；《梅花易数》卷三称“用互次之”，不得脱离体互与变卦单断。",
+              "source": "《梅花易数》卷三《体用互变之诀》体互、用互方位规则",
+              "tags": [
+                "用互",
+                "原体",
+                "过程辅证"
+              ]
+            },
+            {
+              "level": "应期",
+              "title": "变化触发与应期条件",
+              "detail": "应期状态：已记录8项相对触发与期限边界条件；初爻动，先观察事情刚开始或基层条件的变化；上下卦数和为2，只作取数来源旁证，不换算绝对日期；体用比和，关系同气，可优先观察条件同步时的进展；体卦旺相，应期快于常规；第1爻为变化触发层位，只用于先后、层次和触发条件，并须由现实进展验证；月建酉只用于校验各阶段体用旺衰，并作为相对快慢与阻力条件；体卦各阶段未见休囚死，仍须等待现实事件验证，不能据此断定快速实现；动爻、卦数与旺衰不能据此换算绝对日期；未给目标期限时，不把阶段数量或盘内条件换算唯一日期；统一边界：应期汇总只说明当前保存了哪些相对触发与期限边界；不得按条件数量、动爻、卦数或旺衰生成固定天数、绝对日期或事件概率",
+              "source": "当前排盘保存的动爻、卦数、体用与旺衰条件、当前动爻位置与六爻覆盖核验、月支与五行旺相休囚死关系、各阶段体卦月令旺衰状态、相对触发条件与现实日期分离原则",
+              "tags": [
+                "应期",
+                "触发条件",
+                "不换算绝对日期"
+              ]
+            },
+            {
+              "level": "反证",
+              "title": "体用反证覆盖状态",
+              "detail": "当前3个阶段共记录4项明确限制，须逐项与现实条件复核；边界：反证汇总只说明当前阶段核验是否发现明确限制；未见明确反证不代表现实风险为零，也不得按反证数量换算吉凶总分或成功率",
+              "source": "各阶段限制条件与体用月令事实逐项汇总",
+              "tags": [
+                "反证汇总",
+                "有明确反证"
+              ]
+            },
+            {
+              "level": "反证",
+              "title": "体用限制核验1",
+              "detail": "起因乾为天：仍须结合旺衰与现实条件；边界：反证事实只表示某一阶段存在泄耗、受克、休囚死或待现实复核等限制；不得把单项反证直接写成现实失败、灾祸、伤病、损失或必然结果",
+              "source": "对应阶段体用生克关系与月令旺衰核验",
+              "tags": [
+                "反证",
+                "现实复核限制",
+                "origin"
+              ]
+            },
+            {
+              "level": "反证",
+              "title": "体用限制核验2",
+              "detail": "过程乾为天：仍须结合旺衰与现实条件；边界：反证事实只表示某一阶段存在泄耗、受克、休囚死或待现实复核等限制；不得把单项反证直接写成现实失败、灾祸、伤病、损失或必然结果",
+              "source": "对应阶段体用生克关系与月令旺衰核验",
+              "tags": [
+                "反证",
+                "现实复核限制",
+                "process"
+              ]
+            },
+            {
+              "level": "反证",
+              "title": "体用限制核验3",
+              "detail": "结果天风姤：主动推进可能伴随消耗；边界：反证事实只表示某一阶段存在泄耗、受克、休囚死或待现实复核等限制；不得把单项反证直接写成现实失败、灾祸、伤病、损失或必然结果",
+              "source": "对应阶段体用生克关系与月令旺衰核验",
+              "tags": [
+                "反证",
+                "体用关系限制",
+                "result"
+              ]
+            },
+            {
+              "level": "反证",
+              "title": "体用限制核验4",
+              "detail": "结果天风姤：用卦月令死；边界：反证事实只表示某一阶段存在泄耗、受克、休囚死或待现实复核等限制；不得把单项反证直接写成现实失败、灾祸、伤病、损失或必然结果",
+              "source": "对应阶段体用生克关系与月令旺衰核验",
+              "tags": [
+                "反证",
+                "用卦月令限制",
+                "result"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "梅花证据汇总：证据链完整",
+              "detail": "证据状态证据链完整：主互变卦象3项、逐爻6项、体用阶段3项、阶段推进2项、传统卦爻辞23项、反证4项、应期8项；边界：梅花证据汇总只统计起卦、主互变卦象、六爻动爻、阶段体用、推进、传统文本、反证与应期事实的覆盖情况；不得按数量生成吉凶总分、成功率、人物意图或唯一日期",
+              "source": "全部起卦、主互变卦象、逐爻、阶段体用、推进、传统文本、反证与应期事实逐项汇总",
+              "tags": [
+                "证据汇总",
+                "证据链完整"
+              ]
+            },
+            {
+              "level": "限制",
+              "title": "梅花推进链解释边界",
+              "detail": "取数算式与随机轨迹只用于核验上下卦和动爻如何由输入或抽样得到；随机重放只记录生成过程，不提高预测有效性，也不证明现实结果；主互变卦象与逐爻事实只记录卦名、卦符、上下经卦、阴阳、体用归属和动爻位置；资料缺失时不得补造，资料完整也不直接证明现实事件或吉凶；体用生克只描述卦内关系，不直接等于现实吉凶；起因、过程和结果标签只表示主卦、互卦、变卦的分析层级，不证明现实必然按同样阶段发生；阶段推进只比较相邻体用关系变化，阶段缺口时不得补造中间过程；泄耗、受克、休囚死等反证须与支持条件并列，不得直接写成现实失败、灾祸或损失；动爻、卦数、阶段数量、体用生克与月令旺衰只提供相对层位和触发条件；未给目标期限时不得换算唯一日期、固定天数或事件概率；互卦用于过程、变卦用于结果，卦名与卦爻辞只能结合问题作辅助取象；不得按阶段、旺衰、传统吉凶词或卦数生成总分、成功率，也不得直接输出婚育、疾病、伤亡、诉讼、财物得失或人物意图结论；统一边界：限制事实用于约束梅花起卦、卦象、逐爻、体用、推进、传统卦爻辞与应期资料能够支持的解释范围，不得被反向当作现实吉凶、婚育疾病、伤亡诉讼、事件概率或固定应期的证据",
+              "source": "起卦输入、取余算式与随机轨迹、主互变卦象构造、六爻覆盖与逐爻事实、主互变阶段覆盖与逐阶段体用月令事实、阶段推进事实与逐阶段反证汇总、动爻层位、月令旺衰、体用状态与期限边界、传统卦爻辞条件化事实、证据汇总与高风险解释约束"
+            }
+          ]
+        },
+        "promptText": "【梅花体用阶段推进结构化证据】\n【主证】主互变卦象事实｜主卦乾为天☰☰，上乾下乾；互卦乾为天☰☰，上乾下乾；变卦天风姤☰☴，上乾下巽；统一边界：主互变卦象事实只记录当前上下经卦、卦名与卦符；不得由卦名或阶段位置直接推断现实事件、人物、吉凶、成败或应期｜来源：起卦上下经卦索引与六十四卦映射、主卦二三四爻为下互、三四五爻为上互、主卦动爻阴阳翻转与六十四卦映射｜标签：主卦、互卦、变卦\n【主证】起因阶段｜起因乾为天：体卦乾金（月令旺），用卦乾金（月令旺），关系比和；依据：主卦以动爻所在经卦为用、另一经卦为体。；支持：体用同五行，关系同气、体卦得月令旺、用卦得月令旺；限制：仍须结合旺衰与现实条件；边界：阶段体用事实只描述主卦、互卦或变卦中的体用五行关系与月令旺衰；阶段标签、支持或限制不得直接解释为现实起因、过程、结果、吉凶或成功率｜来源：动爻所在经卦定体用规则、主卦、互卦、变卦上下经卦五行、月建酉与五行旺相休囚死关系｜标签：origin、比和\n【辅证】梅花计算链｜起卦方式：年月日时起卦法；时间取数：农历年支午序7、月数8、日数2、时支未序8；上卦=(7+8+2)除8取余为1；下卦=(7+8+2+8)除8取余为1；动爻=(7+8+2+8)除6取余为1；随机轨迹不适用；按上下卦、互卦构造与动爻翻转记录3项主互变卦象事实；六爻完整覆盖初爻至上爻，且仅第1爻发动，可核验体用、互卦与变卦来源；已记录6项阴阳、体用归属与动爻事实；主卦起因、互卦过程、变卦结果三阶段体用资料完整，可逐段核验；逐阶段计算体用五行关系与月令旺衰；起因比和 → 过程比和；过程比和 → 结果体克用；逐项核验阶段限制4项，并记录相对触发与期限边界8项；证据状态证据链完整：主互变卦象3项、逐爻6项、体用阶段3项、阶段推进2项、传统卦爻辞23项、反证4项、应期8项；统一边界：计算步骤只证明起卦取数、主互变卦象、六爻动爻、阶段体用、推进、反证与应期事实如何形成当前证据；不证明现实吉凶、预测有效性、事件概率或固定应期｜来源：《梅花易数》年月日时取数与八卦、六爻取余规则、当前主卦上下经卦与动爻结果、梅花起卦方式与取数记录、随机上下卦、动爻样本与重放元数据、起卦上下经卦索引与六十四卦映射、主卦二三四爻为下互、三四五爻为上互、主卦动爻阴阳翻转与六十四卦映射、主卦六爻阴阳序列、动爻位置与体用归属规则、主卦、互卦、变卦上下经卦与原动爻所在经卦的体用规则、相邻阶段体用关系与阶段完整性逐项比较、阶段体用限制、月令旺衰、动爻层位与现实触发条件、全部起卦、主互变卦象、逐爻、阶段体用、推进、传统文本、反证与应期事实逐项汇总｜标签：计算链、证据链完整\n【辅证】起卦方式与取数算式｜起卦方式：年月日时起卦法；时间取数：农历年支午序7、月数8、日数2、时支未序8；上卦=(7+8+2)除8取余为1；下卦=(7+8+2+8)除8取余为1；动爻=(7+8+2+8)除6取余为1；边界：取数算式只证明当前上下卦与动爻索引如何由输入或随机取数得到，不证明卦象预测有效性、现实吉凶或固定应期｜来源：《梅花易数》年月日时取数与八卦、六爻取余规则、当前主卦上下经卦与动爻结果｜标签：起卦算式、time、完整\n【辅证】主互变阶段覆盖状态｜主卦起因、互卦过程、变卦结果三阶段体用资料完整，可逐段核验；边界：阶段覆盖状态只说明主卦、互卦、变卦体用事实是否齐全；阶段缺失或卦象资料不完整时不得反推互卦过程、变卦结果、卦名或上下经卦｜来源：主卦、互卦、变卦及其体用资料完整性核验｜标签：阶段覆盖、完整\n【辅证】六爻资料覆盖状态｜六爻完整覆盖初爻至上爻，且仅第1爻发动，可核验体用、互卦与变卦来源；边界：六爻覆盖状态只说明当前主卦是否完整保存初爻至上爻且仅有一个动爻；缺少、重复、越界或动爻异常时不得补造阴阳、体用归属、互卦或变卦｜来源：当前逐爻位置、唯一性与动爻标记完整性核验｜标签：六爻覆盖、完整\n【辅证】六爻阴阳与体用归属｜第1爻为阳爻，属体，本爻发动；第2爻为阳爻，属体；第3爻为阳爻，属体；第4爻为阳爻，属体；第5爻为阳爻，属体；第6爻为阳爻，属体；统一边界：逐爻事实只记录主卦自下而上的阴阳、体用归属与动爻位置；不得按爻位、阴阳数量或体用数量换算吉凶、概率、人物身份或固定日期｜来源：主卦六爻自下而上阴阳序列、动爻所在上下经卦与体用归属｜标签：六爻结构、动爻、体用\n【辅证】初爻爻辞｜主卦乾为天第1爻爻辞：当前爻位已发动；未见明确吉凶或进退标签；通用处境类象｜来源：《周易》当前主卦动爻原文及条件化解释｜标签：动爻爻辞、初爻\n【辅证】主卦乾为天卦辞分类｜主卦乾为天卦辞：传统有利或通达标签、守正与持续条件标签；通用处境类象；边界卦辞与爻辞是《周易》传统取象原文，只用于当前主互变结构和动爻层位的辅助解释，不证明现实吉凶、婚育、疾病、伤亡、诉讼、财物得失、人物意图或固定时间结果｜来源：《周易》卦辞、当前六十四卦原文资料｜标签：主卦、卦辞、传统有利或通达标签、守正与持续条件标签、通用处境类象\n【辅证】过程阶段｜过程乾为天：体卦乾金（月令旺），用卦乾金（月令旺），关系比和；依据：原动爻在下卦、原体在上，依《梅花易数》卷三取上互为体互、下互为用互。；支持：体用同五行，关系同气、体卦得月令旺、用卦得月令旺；限制：仍须结合旺衰与现实条件；边界：阶段体用事实只描述主卦、互卦或变卦中的体用五行关系与月令旺衰；阶段标签、支持或限制不得直接解释为现实起因、过程、结果、吉凶或成功率｜来源：动爻所在经卦定体用规则、主卦、互卦、变卦上下经卦五行、月建酉与五行旺相休囚死关系｜标签：process、比和\n【辅证】结果阶段｜结果天风姤：体卦乾金（月令旺），用卦巽木（月令死），关系体克用；依据：变卦沿用原动爻所在经卦为用、另一经卦为体，观察变化后的关系。；支持：体卦对用卦具有制约能力、体卦得月令旺；限制：主动推进可能伴随消耗、用卦月令死；边界：阶段体用事实只描述主卦、互卦或变卦中的体用五行关系与月令旺衰；阶段标签、支持或限制不得直接解释为现实起因、过程、结果、吉凶或成功率｜来源：动爻所在经卦定体用规则、主卦、互卦、变卦上下经卦五行、月建酉与五行旺相休囚死关系｜标签：result、体克用\n【辅证】起因至过程体用转变｜起因比和 → 过程比和；边界：阶段推进事实只比较相邻已记录阶段的体用关系变化；不得把卦内先后直接写成现实事件必然按同样顺序发生，跨阶段缺口时更不得补造中间过程｜来源：已记录阶段顺序与各阶段体用五行关系比较｜标签：阶段推进、连续、process\n【辅证】过程至结果体用转变｜过程比和 → 结果体克用；边界：阶段推进事实只比较相邻已记录阶段的体用关系变化；不得把卦内先后直接写成现实事件必然按同样顺序发生，跨阶段缺口时更不得补造中间过程｜来源：已记录阶段顺序与各阶段体用五行关系比较｜标签：阶段推进、连续、result\n【辅证】体互对原体关系｜体互与原体比和；《梅花易数》卷三称“体互最紧”，仍须与主卦体用、用互和变卦并看。｜来源：《梅花易数》卷三《体用互变之诀》体互、用互方位规则｜标签：体互、原体、过程主线\n【辅证】用互对原体关系｜用互与原体比和；《梅花易数》卷三称“用互次之”，不得脱离体互与变卦单断。｜来源：《梅花易数》卷三《体用互变之诀》体互、用互方位规则｜标签：用互、原体、过程辅证\n【辅证】梅花证据汇总：证据链完整｜证据状态证据链完整：主互变卦象3项、逐爻6项、体用阶段3项、阶段推进2项、传统卦爻辞23项、反证4项、应期8项；边界：梅花证据汇总只统计起卦、主互变卦象、六爻动爻、阶段体用、推进、传统文本、反证与应期事实的覆盖情况；不得按数量生成吉凶总分、成功率、人物意图或唯一日期｜来源：全部起卦、主互变卦象、逐爻、阶段体用、推进、传统文本、反证与应期事实逐项汇总｜标签：证据汇总、证据链完整\n【反证】体用反证覆盖状态｜当前3个阶段共记录4项明确限制，须逐项与现实条件复核；边界：反证汇总只说明当前阶段核验是否发现明确限制；未见明确反证不代表现实风险为零，也不得按反证数量换算吉凶总分或成功率｜来源：各阶段限制条件与体用月令事实逐项汇总｜标签：反证汇总、有明确反证\n【反证】体用限制核验1｜起因乾为天：仍须结合旺衰与现实条件；边界：反证事实只表示某一阶段存在泄耗、受克、休囚死或待现实复核等限制；不得把单项反证直接写成现实失败、灾祸、伤病、损失或必然结果｜来源：对应阶段体用生克关系与月令旺衰核验｜标签：反证、现实复核限制、origin\n【反证】体用限制核验2｜过程乾为天：仍须结合旺衰与现实条件；边界：反证事实只表示某一阶段存在泄耗、受克、休囚死或待现实复核等限制；不得把单项反证直接写成现实失败、灾祸、伤病、损失或必然结果｜来源：对应阶段体用生克关系与月令旺衰核验｜标签：反证、现实复核限制、process\n【反证】体用限制核验3｜结果天风姤：主动推进可能伴随消耗；边界：反证事实只表示某一阶段存在泄耗、受克、休囚死或待现实复核等限制；不得把单项反证直接写成现实失败、灾祸、伤病、损失或必然结果｜来源：对应阶段体用生克关系与月令旺衰核验｜标签：反证、体用关系限制、result\n【反证】体用限制核验4｜结果天风姤：用卦月令死；边界：反证事实只表示某一阶段存在泄耗、受克、休囚死或待现实复核等限制；不得把单项反证直接写成现实失败、灾祸、伤病、损失或必然结果｜来源：对应阶段体用生克关系与月令旺衰核验｜标签：反证、用卦月令限制、result\n【限制】互卦乾为天卦辞分类｜互卦乾为天卦辞：传统有利或通达标签、守正与持续条件标签；通用处境类象；边界卦辞与爻辞是《周易》传统取象原文，只用于当前主互变结构和动爻层位的辅助解释，不证明现实吉凶、婚育、疾病、伤亡、诉讼、财物得失、人物意图或固定时间结果｜来源：《周易》卦辞、当前六十四卦原文资料｜标签：互卦、卦辞、传统有利或通达标签、守正与持续条件标签、通用处境类象\n【限制】变卦天风姤卦辞分类｜变卦天风姤卦辞：未见明确吉凶或进退标签；关系与婚育类象；边界卦辞与爻辞是《周易》传统取象原文，只用于当前主互变结构和动爻层位的辅助解释，不证明现实吉凶、婚育、疾病、伤亡、诉讼、财物得失、人物意图或固定时间结果｜来源：《周易》卦辞、当前六十四卦原文资料｜标签：变卦、卦辞、未见明确吉凶或进退标签、关系与婚育类象\n【限制】梅花推进链解释边界｜取数算式与随机轨迹只用于核验上下卦和动爻如何由输入或抽样得到；随机重放只记录生成过程，不提高预测有效性，也不证明现实结果；主互变卦象与逐爻事实只记录卦名、卦符、上下经卦、阴阳、体用归属和动爻位置；资料缺失时不得补造，资料完整也不直接证明现实事件或吉凶；体用生克只描述卦内关系，不直接等于现实吉凶；起因、过程和结果标签只表示主卦、互卦、变卦的分析层级，不证明现实必然按同样阶段发生；阶段推进只比较相邻体用关系变化，阶段缺口时不得补造中间过程；泄耗、受克、休囚死等反证须与支持条件并列，不得直接写成现实失败、灾祸或损失；动爻、卦数、阶段数量、体用生克与月令旺衰只提供相对层位和触发条件；未给目标期限时不得换算唯一日期、固定天数或事件概率；互卦用于过程、变卦用于结果，卦名与卦爻辞只能结合问题作辅助取象；不得按阶段、旺衰、传统吉凶词或卦数生成总分、成功率，也不得直接输出婚育、疾病、伤亡、诉讼、财物得失或人物意图结论；统一边界：限制事实用于约束梅花起卦、卦象、逐爻、体用、推进、传统卦爻辞与应期资料能够支持的解释范围，不得被反向当作现实吉凶、婚育疾病、伤亡诉讼、事件概率或固定应期的证据｜来源：起卦输入、取余算式与随机轨迹、主互变卦象构造、六爻覆盖与逐爻事实、主互变阶段覆盖与逐阶段体用月令事实、阶段推进事实与逐阶段反证汇总、动爻层位、月令旺衰、体用状态与期限边界、传统卦爻辞条件化事实、证据汇总与高风险解释约束\n【应期】变化触发与应期条件｜应期状态：已记录8项相对触发与期限边界条件；初爻动，先观察事情刚开始或基层条件的变化；上下卦数和为2，只作取数来源旁证，不换算绝对日期；体用比和，关系同气，可优先观察条件同步时的进展；体卦旺相，应期快于常规；第1爻为变化触发层位，只用于先后、层次和触发条件，并须由现实进展验证；月建酉只用于校验各阶段体用旺衰，并作为相对快慢与阻力条件；体卦各阶段未见休囚死，仍须等待现实事件验证，不能据此断定快速实现；动爻、卦数与旺衰不能据此换算绝对日期；未给目标期限时，不把阶段数量或盘内条件换算唯一日期；统一边界：应期汇总只说明当前保存了哪些相对触发与期限边界；不得按条件数量、动爻、卦数或旺衰生成固定天数、绝对日期或事件概率｜来源：当前排盘保存的动爻、卦数、体用与旺衰条件、当前动爻位置与六爻覆盖核验、月支与五行旺相休囚死关系、各阶段体卦月令旺衰状态、相对触发条件与现实日期分离原则｜标签：应期、触发条件、不换算绝对日期\n计算链：起卦方式：年月日时起卦法；时间取数：农历年支午序7、月数8、日数2、时支未序8；上卦=(7+8+2)除8取余为1；下卦=(7+8+2+8)除8取余为1；动爻=(7+8+2+8)除6取余为1；随机轨迹不适用 → 按上下卦、互卦构造与动爻翻转记录3项主互变卦象事实 → 六爻完整覆盖初爻至上爻，且仅第1爻发动，可核验体用、互卦与变卦来源；已记录6项阴阳、体用归属与动爻事实 → 主卦起因、互卦过程、变卦结果三阶段体用资料完整，可逐段核验；逐阶段计算体用五行关系与月令旺衰 → 起因比和 → 过程比和；过程比和 → 结果体克用 → 逐项核验阶段限制4项，并记录相对触发与期限边界8项 → 证据状态证据链完整：主互变卦象3项、逐爻6项、体用阶段3项、阶段推进2项、传统卦爻辞23项、反证4项、应期8项。\n证据汇总：证据状态证据链完整：主互变卦象3项、逐爻6项、体用阶段3项、阶段推进2项、传统卦爻辞23项、反证4项、应期8项。\n推进关系：起因比和 → 过程比和；过程比和 → 结果体克用\n触发条件：初爻动，先观察事情刚开始或基层条件的变化；上下卦数和为2，只作取数来源旁证，不换算绝对日期；体用比和，关系同气，可优先观察条件同步时的进展；体卦旺相，应期快于常规；第1爻为变化触发层位，只用于先后、层次和触发条件，并须由现实进展验证；月建酉只用于校验各阶段体用旺衰，并作为相对快慢与阻力条件；体卦各阶段未见休囚死，仍须等待现实事件验证，不能据此断定快速实现；动爻、卦数与旺衰不能据此换算绝对日期；未给目标期限时，不把阶段数量或盘内条件换算唯一日期\n解释限制：取数算式与随机轨迹只用于核验上下卦和动爻如何由输入或抽样得到；随机重放只记录生成过程，不提高预测有效性，也不证明现实结果；主互变卦象与逐爻事实只记录卦名、卦符、上下经卦、阴阳、体用归属和动爻位置；资料缺失时不得补造，资料完整也不直接证明现实事件或吉凶；体用生克只描述卦内关系，不直接等于现实吉凶；起因、过程和结果标签只表示主卦、互卦、变卦的分析层级，不证明现实必然按同样阶段发生；阶段推进只比较相邻体用关系变化，阶段缺口时不得补造中间过程；泄耗、受克、休囚死等反证须与支持条件并列，不得直接写成现实失败、灾祸或损失；动爻、卦数、阶段数量、体用生克与月令旺衰只提供相对层位和触发条件；未给目标期限时不得换算唯一日期、固定天数或事件概率；互卦用于过程、变卦用于结果，卦名与卦爻辞只能结合问题作辅助取象；不得按阶段、旺衰、传统吉凶词或卦数生成总分、成功率，也不得直接输出婚育、疾病、伤亡、诉讼、财物得失或人物意图结论。",
+        "methodology": [
+          "主卦定起因与当前体用，互卦定过程，变卦定变化后的结果关系。",
+          "起卦输入、取余算式、六爻阴阳、互卦构造和动爻翻转均作为可复核计算事实保留。",
+          "每个阶段分别计算体用生克和月建旺衰，不把某一阶段扩大为全局结论。",
+          "动爻只标记变化层位与触发顺序，卦数只保留原始计算资料，不机械换算绝对日期。",
+          "只输出支持、反证、限制和触发条件，不生成吉凶总分或成功率。"
+        ]
+      },
+      "evidenceTrail": {
+        "items": [
+          {
+            "title": "梅花起卦基础",
+            "system": "meihua",
+            "computationChain": [
+              {
+                "name": "占卜时间",
+                "reference": "getDivinationTime",
+                "output": {
+                  "year": "丙午",
+                  "month": "丁酉",
+                  "day": "己丑",
+                  "hour": "辛未"
+                }
+              },
+              {
+                "name": "起卦方式",
+                "formula": "时间起卦",
+                "inputs": {
+                  "method": "年月日时起卦法"
+                }
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "《梅花易数》（传邵雍所传）"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "提供占卜时刻或数字"
+              ],
+              "cautionWhen": [
+                "起卦方式不同（时间/数字/随机）卦象不同",
+                "以农历数起卦"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "梅花起卦法门多样，取数口径不同结果不同",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "high",
+            "depth": 0
+          },
+          {
+            "title": "卦象构建",
+            "system": "meihua",
+            "computationChain": [
+              {
+                "name": "本卦",
+                "reference": "findHexagramByTrigrams",
+                "output": "乾为天"
+              },
+              {
+                "name": "互卦",
+                "reference": "互卦取法",
+                "output": "乾为天"
+              },
+              {
+                "name": "变卦",
+                "reference": "动爻变卦",
+                "output": "天风姤"
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "《周易》六十四卦体系"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "上卦下卦合成六十四卦"
+              ],
+              "cautionWhen": [
+                "互卦取二三四爻与三四五爻"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "变卦是否生成取决于动爻",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "high",
+            "depth": 0
+          },
+          {
+            "title": "体用定位",
+            "system": "meihua",
+            "computationChain": [
+              {
+                "name": "体卦",
+                "formula": "动爻所在经卦为用，另一经卦为体",
+                "reference": "resolveTiYongByMovingYao",
+                "output": {
+                  "ti": "乾",
+                  "yong": "乾",
+                  "movingYao": "初爻（第1爻）"
+                }
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "《梅花易数》体用论"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "以动爻定体用"
+              ],
+              "cautionWhen": [
+                "体用互变随动爻变化"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "体用取法（动爻归属）个别流派有差异",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "high",
+            "depth": 0
+          },
+          {
+            "title": "起卦数理",
+            "system": "meihua",
+            "computationChain": [
+              {
+                "name": "上卦",
+                "formula": "(年支序 + 月 + 日) % 8",
+                "reference": "resolveTimeMethod / resolveNumberMethod",
+                "inputs": {
+                  "month": 8,
+                  "day": 2,
+                  "yearZhi": "午"
+                }
+              },
+              {
+                "name": "下卦",
+                "formula": "(年支序 + 月 + 日 + 时支序) % 8",
+                "reference": "resolveTimeMethod / resolveNumberMethod"
+              },
+              {
+                "name": "动爻",
+                "formula": "(年支序 + 月 + 日 + 时支序) % 6",
+                "reference": "resolveTimeMethod / resolveNumberMethod",
+                "output": 1
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "《梅花易数》以数起卦章"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "邵雍先天卦数取法"
+              ],
+              "cautionWhen": [
+                "余数为 0 时按 8/6 处理",
+                "随机起卦依赖随机种子"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "取数方式（数除尽时归 8 或 6）存在版本差异",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "high",
+            "depth": 1
+          },
+          {
+            "title": "体用生克",
+            "system": "meihua",
+            "computationChain": [
+              {
+                "name": "体用关系",
+                "reference": "体用五行生克",
+                "output": "体用比和"
+              },
+              {
+                "name": "季节旺衰",
+                "reference": "月建旺相休囚死",
+                "output": {
+                  "season": "秋",
+                  "monthBranch": "酉",
+                  "tiState": "旺",
+                  "yongState": "旺"
+                }
+              },
+              {
+                "name": "互卦变卦关系",
+                "output": {
+                  "interTi": "体互与原体比和",
+                  "interYong": "用互与原体比和",
+                  "changed": "体克用"
+                }
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "《梅花易数》体用生克篇"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "以体卦为我判断生克吉凶"
+              ],
+              "cautionWhen": [
+                "旺衰依月建而定",
+                "互卦变卦分主事之中与终"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "生克吉凶判断受季节旺衰影响，同一生克关系旺衰不同结论不同",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 1
+          }
+        ],
+        "overallConfidence": "medium",
+        "summary": "梅花易数起卦证据链（乾为天，己丑日）",
+        "generatedAt": "2026-09-12T05:42:36.436Z"
+      }
+    },
+    "meta": {
+      "service": "www.temposoul.com",
+      "version": "v1"
+    }
+  }
+}

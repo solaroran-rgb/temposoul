@@ -1,0 +1,2802 @@
+{
+  "http": 200,
+  "ms": 2224,
+  "body": {
+    "ok": true,
+    "data": {
+      "ganzhi": {
+        "year": "丙午",
+        "month": "丁酉",
+        "day": "己丑",
+        "hour": "辛未"
+      },
+      "timestamp": 1789191764051,
+      "dayNight": "昼占",
+      "monthLeader": "巳",
+      "divinationBranch": "未",
+      "noblemanBranch": "子",
+      "noblemanGroundBranch": "寅",
+      "xunKong": [
+        "午",
+        "未"
+      ],
+      "transmissionRule": "重审法",
+      "transmissionPattern": "递传",
+      "transmissionDetail": "取传采用重审法，以初传亥为初传发用；古籍依据依次为：《大六壬大全》九宗门取传法之重审（四课只有一处下贼上，以下贼上之上神为初传发用。）。",
+      "earthlyPlate": [
+        "子",
+        "丑",
+        "寅",
+        "卯",
+        "辰",
+        "巳",
+        "午",
+        "未",
+        "申",
+        "酉",
+        "戌",
+        "亥"
+      ],
+      "dayStemResidence": "未",
+      "heavenlyPlate": [
+        {
+          "branch": "戌",
+          "under": "子",
+          "god": "太阴"
+        },
+        {
+          "branch": "亥",
+          "under": "丑",
+          "god": "天后"
+        },
+        {
+          "branch": "子",
+          "under": "寅",
+          "god": "贵人"
+        },
+        {
+          "branch": "丑",
+          "under": "卯",
+          "god": "螣蛇"
+        },
+        {
+          "branch": "寅",
+          "under": "辰",
+          "god": "朱雀"
+        },
+        {
+          "branch": "卯",
+          "under": "巳",
+          "god": "六合"
+        },
+        {
+          "branch": "辰",
+          "under": "午",
+          "god": "勾陈"
+        },
+        {
+          "branch": "巳",
+          "under": "未",
+          "god": "青龙"
+        },
+        {
+          "branch": "午",
+          "under": "申",
+          "god": "天空"
+        },
+        {
+          "branch": "未",
+          "under": "酉",
+          "god": "白虎"
+        },
+        {
+          "branch": "申",
+          "under": "戌",
+          "god": "太常"
+        },
+        {
+          "branch": "酉",
+          "under": "亥",
+          "god": "玄武"
+        }
+      ],
+      "fourLessons": [
+        {
+          "name": "一课",
+          "upper": "巳",
+          "lower": "己",
+          "god": "青龙",
+          "relation": "火生土",
+          "note": "上神巳与下位己的五行关系为火生土。"
+        },
+        {
+          "name": "二课",
+          "upper": "卯",
+          "lower": "巳",
+          "god": "六合",
+          "relation": "木生火",
+          "note": "上神卯与下位巳的五行关系为木生火。"
+        },
+        {
+          "name": "三课",
+          "upper": "亥",
+          "lower": "丑",
+          "god": "天后",
+          "relation": "土克水",
+          "note": "上神亥与下位丑的五行关系为土克水。"
+        },
+        {
+          "name": "四课",
+          "upper": "酉",
+          "lower": "亥",
+          "god": "玄武",
+          "relation": "金生水",
+          "note": "上神酉与下位亥的五行关系为金生水。"
+        }
+      ],
+      "threeTransmissions": [
+        {
+          "stage": "初传",
+          "branch": "亥",
+          "god": "天后",
+          "relation": "土克水",
+          "note": "初传与一课下位的五行关系为土克水。",
+          "wuxing": "水",
+          "seasonState": "相",
+          "isVoid": false,
+          "dayRelation": "土克水"
+        },
+        {
+          "stage": "中传",
+          "branch": "酉",
+          "god": "玄武",
+          "relation": "金生水",
+          "note": "中传与初传的五行关系为金生水。",
+          "wuxing": "金",
+          "seasonState": "旺",
+          "isVoid": false,
+          "dayRelation": "土生金"
+        },
+        {
+          "stage": "末传",
+          "branch": "未",
+          "god": "白虎",
+          "relation": "土生金",
+          "note": "末传与中传的五行关系为土生金。",
+          "wuxing": "土",
+          "seasonState": "休",
+          "isVoid": true,
+          "dayRelation": "比和"
+        }
+      ],
+      "patternTags": [
+        "天后发用",
+        "重审",
+        "空亡入传",
+        "递传"
+      ],
+      "classicalRules": [
+        {
+          "source": "《大六壬大全》九宗门取传法",
+          "rule": "重审",
+          "category": "贼克法",
+          "summary": "四课只有一处下贼上，以下贼上之上神为初传发用。"
+        }
+      ],
+      "lessonSummary": "四课源于日干寄宫未与日支丑，关系呈火生土、木生火、土克水、金生水，重点先看重审落点。 当前节气为白露。",
+      "transmissionSummary": "三传递传，主线依次为初传亥 → 中传酉 → 末传未。",
+      "guaTi": [],
+      "guaTiFacts": [],
+      "shenShaSummary": [
+        "支马在亥",
+        "驿马在亥",
+        "劫煞在寅",
+        "亡神在申",
+        "咸池在午",
+        "破碎在巳",
+        "天罗在寅",
+        "地网在申",
+        "天德在寅",
+        "月德在庚",
+        "天马在申",
+        "日德在寅",
+        "日禄在午"
+      ],
+      "shenShaFacts": [
+        {
+          "name": "支马",
+          "target": "亥",
+          "targetType": "地支",
+          "category": "十二地支神煞",
+          "basis": "日支",
+          "input": "丑",
+          "rule": "日支所属三合局取支马：申子辰寅、亥卯未巳、寅午戌申、巳酉丑亥",
+          "sources": [
+            "《六壬大全》卷一“十二地支神煞”支马表"
+          ],
+          "limitations": [
+            "只定位神煞所在干支",
+            "须核对是否入课、入传或临干支",
+            "不得单项定吉凶"
+          ]
+        },
+        {
+          "name": "驿马",
+          "target": "亥",
+          "targetType": "地支",
+          "category": "逐月神煞",
+          "basis": "月建",
+          "input": "酉",
+          "rule": "按逐月神煞表取驿马：寅午戌月申、亥卯未月巳、申子辰月寅、巳酉丑月亥",
+          "sources": [
+            "《六壬大全》卷一“逐月神煞”表"
+          ],
+          "limitations": [
+            "只定位神煞所在干支",
+            "须核对是否入课、入传或临干支",
+            "不得单项定吉凶"
+          ]
+        },
+        {
+          "name": "劫煞",
+          "target": "寅",
+          "targetType": "地支",
+          "category": "逐月神煞",
+          "basis": "月建",
+          "input": "酉",
+          "rule": "按逐月神煞表取劫煞：寅午戌月亥、亥卯未月申、申子辰月巳、巳酉丑月寅",
+          "sources": [
+            "《六壬大全》卷一“逐月神煞”表"
+          ],
+          "limitations": [
+            "只定位神煞所在干支",
+            "须核对是否入课、入传或临干支",
+            "不得单项定吉凶"
+          ]
+        },
+        {
+          "name": "亡神",
+          "target": "申",
+          "targetType": "地支",
+          "category": "逐月神煞",
+          "basis": "月建",
+          "input": "酉",
+          "rule": "按逐月神煞表取亡神：寅午戌月巳、亥卯未月寅、申子辰月亥、巳酉丑月申",
+          "sources": [
+            "《六壬大全》卷一“逐月神煞”表"
+          ],
+          "limitations": [
+            "只定位神煞所在干支",
+            "须核对是否入课、入传或临干支",
+            "不得单项定吉凶"
+          ]
+        },
+        {
+          "name": "咸池",
+          "target": "午",
+          "targetType": "地支",
+          "category": "逐月神煞",
+          "basis": "月建",
+          "input": "酉",
+          "rule": "按逐月神煞表取咸池：寅午戌月卯、亥卯未月子、申子辰月酉、巳酉丑月午",
+          "sources": [
+            "《六壬大全》卷一“逐月神煞”表"
+          ],
+          "limitations": [
+            "只定位神煞所在干支",
+            "须核对是否入课、入传或临干支",
+            "不得单项定吉凶"
+          ]
+        },
+        {
+          "name": "破碎",
+          "target": "巳",
+          "targetType": "地支",
+          "category": "逐月神煞",
+          "basis": "月建",
+          "input": "酉",
+          "rule": "月建四孟在酉、四仲在巳、四季在丑",
+          "sources": [
+            "《六壬大全》卷一“逐月神煞”表"
+          ],
+          "limitations": [
+            "只定位神煞所在干支",
+            "须核对是否入课、入传或临干支",
+            "不得单项定吉凶"
+          ]
+        },
+        {
+          "name": "天罗",
+          "target": "寅",
+          "targetType": "地支",
+          "category": "罗网神煞",
+          "basis": "日支",
+          "input": "丑",
+          "rule": "日前一支为天罗",
+          "sources": [
+            "《六壬大全》卷七“天罗地网卦”"
+          ],
+          "limitations": [
+            "只定位神煞所在干支",
+            "须核对是否入课、入传或临干支",
+            "不得单项定吉凶"
+          ]
+        },
+        {
+          "name": "地网",
+          "target": "申",
+          "targetType": "地支",
+          "category": "罗网神煞",
+          "basis": "日支",
+          "input": "丑",
+          "rule": "天罗对冲之支为地网",
+          "sources": [
+            "《六壬大全》卷七“天罗地网卦”"
+          ],
+          "limitations": [
+            "只定位神煞所在干支",
+            "须核对是否入课、入传或临干支",
+            "不得单项定吉凶"
+          ]
+        },
+        {
+          "name": "天德",
+          "target": "寅",
+          "targetType": "地支",
+          "category": "逐月神煞",
+          "basis": "月建",
+          "input": "酉",
+          "rule": "按十二月天德表定位",
+          "sources": [
+            "《六壬大全》卷一“逐月神煞”表"
+          ],
+          "limitations": [
+            "只定位神煞所在干支",
+            "须核对是否入课、入传或临干支",
+            "不得单项定吉凶"
+          ]
+        },
+        {
+          "name": "月德",
+          "target": "庚",
+          "targetType": "天干",
+          "category": "逐月神煞",
+          "basis": "月建",
+          "input": "酉",
+          "rule": "寅午戌月丙、申子辰月壬、亥卯未月甲、巳酉丑月庚",
+          "sources": [
+            "《六壬大全》卷一“逐月神煞”表"
+          ],
+          "limitations": [
+            "只定位神煞所在干支",
+            "须核对是否入课、入传或临干支",
+            "不得单项定吉凶"
+          ]
+        },
+        {
+          "name": "天马",
+          "target": "申",
+          "targetType": "地支",
+          "category": "逐月神煞",
+          "basis": "月建",
+          "input": "酉",
+          "rule": "正月午起，逐月顺行两支",
+          "sources": [
+            "《六壬大全》卷一“逐月神煞”表"
+          ],
+          "limitations": [
+            "只定位神煞所在干支",
+            "须核对是否入课、入传或临干支",
+            "不得单项定吉凶"
+          ]
+        },
+        {
+          "name": "日德",
+          "target": "寅",
+          "targetType": "地支",
+          "category": "十天干神煞",
+          "basis": "日干",
+          "input": "己",
+          "rule": "甲己寅、乙庚申、丙辛巳、丁壬亥、戊癸巳",
+          "sources": [
+            "《六壬大全》卷一“十天干神煞”日德表"
+          ],
+          "limitations": [
+            "只定位神煞所在干支",
+            "须核对是否入课、入传或临干支",
+            "不得单项定吉凶"
+          ]
+        },
+        {
+          "name": "日禄",
+          "target": "午",
+          "targetType": "地支",
+          "category": "十天干神煞",
+          "basis": "日干",
+          "input": "己",
+          "rule": "甲寅、乙卯、丙戊巳、丁己午、庚申、辛酉、壬亥、癸子",
+          "sources": [
+            "《六壬大全》卷一“十天干神煞”日禄表"
+          ],
+          "limitations": [
+            "只定位神煞所在干支",
+            "须核对是否入课、入传或临干支",
+            "不得单项定吉凶"
+          ]
+        }
+      ],
+      "tianJiangProps": {
+        "天后": {
+          "wuxing": "水",
+          "yinYang": "阳",
+          "category": "妇人/恩泽",
+          "description": "传统类象为宫廷、妇人、婚姻、恩泽"
+        },
+        "玄武": {
+          "wuxing": "水",
+          "yinYang": "阴",
+          "category": "盗贼/遗亡",
+          "description": "传统类象为盗贼、遗亡、隐秘"
+        },
+        "白虎": {
+          "wuxing": "金",
+          "yinYang": "阳",
+          "category": "疾病/道路",
+          "description": "传统类象为疾病、孝服、道路、刑伤"
+        }
+      },
+      "focusEvidence": [
+        {
+          "target": "初传亥乘天后",
+          "role": "发用主轴",
+          "level": "主证",
+          "evidence": [
+            "重审法取为初传",
+            "月令相",
+            "土克水"
+          ],
+          "limitations": []
+        },
+        {
+          "target": "日干己寄未",
+          "role": "我方与求测者",
+          "level": "辅证",
+          "evidence": [
+            "日干寄宫为我方定位",
+            "一课巳临己"
+          ],
+          "limitations": []
+        },
+        {
+          "target": "日支丑",
+          "role": "所占之事与对方环境",
+          "level": "辅证",
+          "evidence": [
+            "三课亥临丑",
+            "需与发用和三传同看"
+          ],
+          "limitations": [
+            "具体类神仍须按问题主题从明列盘面中选取"
+          ]
+        }
+      ],
+      "timingEvidence": [
+        "一级发用：先看初传亥不空，可直接作为起始信号",
+        "二级三传：初传亥（月令相）→中传酉（月令旺）→末传未（月令休、空）",
+        "三级日月：以日支丑、月支酉对初传和类神的同支、冲合与旺衰作为触发条件",
+        "未给出目标期限时，只判断先后、快慢和触发条件，不硬换成唯一日期"
+      ],
+      "evidenceAnalysis": {
+        "key": "liuren:evidence",
+        "status": "已计算",
+        "calculationFact": {
+          "key": "liuren:calculation:1789191764051",
+          "ganzhi": {
+            "year": "丙午",
+            "month": "丁酉",
+            "day": "己丑",
+            "hour": "辛未"
+          },
+          "monthLeader": "巳",
+          "divinationBranch": "未",
+          "dayNight": "昼占",
+          "noblemanBranch": "子",
+          "noblemanGroundBranch": "寅",
+          "dayStem": "己",
+          "dayStemResidence": "未",
+          "xunKong": [
+            "午",
+            "未"
+          ],
+          "promptText": "四柱干支为年丙午、月丁酉、日己丑、时辛未；月将巳加占时未；昼占，日干贵人子临地盘寅；日干己寄未；日柱旬空午、未",
+          "sources": [
+            "占时四柱与月将中气切换计算",
+            "月将加时天地盘规则",
+            "昼夜贵人、日干寄宫与日柱旬空规则"
+          ],
+          "limitation": "起盘参数只记录占时四柱、月将加时、昼夜贵人、日干寄宫与旬空的计算输入和结果，不单独证明现实事件、吉凶或应期"
+        },
+        "calculationFacts": [
+          "四柱干支：年丙午、月丁酉、日己丑、时辛未",
+          "月将加时：月将巳加占时未",
+          "贵人定位：昼占，日干贵人子临地盘寅",
+          "日干寄宫：己寄未",
+          "日柱旬空：午、未"
+        ],
+        "calculationSteps": [
+          {
+            "key": "liuren:calculation:chart-input",
+            "stage": "起盘参数核验",
+            "status": "已计算",
+            "inputs": {
+              "ganzhi": [
+                "丙午",
+                "丁酉",
+                "己丑",
+                "辛未"
+              ],
+              "monthLeader": "巳",
+              "divinationBranch": "未"
+            },
+            "result": {
+              "dayNight": "昼占",
+              "noblemanBranch": "子",
+              "noblemanGroundBranch": "寅",
+              "dayStemResidence": "未",
+              "xunKong": [
+                "午",
+                "未"
+              ]
+            },
+            "dependsOnStepKeys": [],
+            "promptText": "四柱干支为年丙午、月丁酉、日己丑、时辛未；月将巳加占时未；昼占，日干贵人子临地盘寅；日干己寄未；日柱旬空午、未",
+            "sources": [
+              "占时四柱与月将中气切换计算",
+              "月将加时天地盘规则",
+              "昼夜贵人、日干寄宫与日柱旬空规则"
+            ],
+            "limitation": "计算步骤只证明占时参数、天地盘、四课、取传、三传、反证、类神与应期条件如何形成当前证据；不证明现实吉凶、事件概率、人物身份或固定应期"
+          },
+          {
+            "key": "liuren:calculation:plate",
+            "stage": "天地盘覆盖核验",
+            "status": "已计算",
+            "inputs": {
+              "monthLeader": "巳",
+              "divinationBranch": "未",
+              "noblemanGroundBranch": "寅"
+            },
+            "result": {
+              "coverageStatus": "完整",
+              "expectedCount": 12,
+              "actualCount": 12
+            },
+            "dependsOnStepKeys": [
+              "liuren:calculation:chart-input"
+            ],
+            "promptText": "天地盘十二位与十二天将资料完整，可逐位核验月将加时和贵人顺逆排布。",
+            "sources": [
+              "当前大六壬结果的天地盘逐位记录",
+              "十二地支与十二天将完整性检查",
+              "月将加占时生成天地盘十二支对应",
+              "贵人临地盘定天将顺逆并布十二天将"
+            ],
+            "limitation": "计算步骤只证明占时参数、天地盘、四课、取传、三传、反证、类神与应期条件如何形成当前证据；不证明现实吉凶、事件概率、人物身份或固定应期"
+          },
+          {
+            "key": "liuren:calculation:lessons",
+            "stage": "四课结构核验",
+            "status": "已计算",
+            "inputs": {
+              "platePositionCount": 12
+            },
+            "result": {
+              "lessonCount": 4,
+              "initialSourceLessons": [
+                "三课"
+              ]
+            },
+            "dependsOnStepKeys": [
+              "liuren:calculation:plate"
+            ],
+            "promptText": "四课共4项，逐课记录上下神、乘将、关系、旬空与初传来源状态",
+            "sources": [
+              "日干寄宫、日支与天地盘逐课推导",
+              "日柱旬空与上下神关系核验"
+            ],
+            "limitation": "计算步骤只证明占时参数、天地盘、四课、取传、三传、反证、类神与应期条件如何形成当前证据；不证明现实吉凶、事件概率、人物身份或固定应期"
+          },
+          {
+            "key": "liuren:calculation:transmission-rule",
+            "stage": "取传规则核验",
+            "status": "已计算",
+            "inputs": {
+              "lessonCount": 4,
+              "initialSourceLessonKeys": [
+                "liuren:lesson:3:三课"
+              ]
+            },
+            "result": {
+              "ruleStatus": "已确定",
+              "rule": "重审法",
+              "pattern": "递传",
+              "initialBranch": "亥",
+              "initialGod": "天后"
+            },
+            "dependsOnStepKeys": [
+              "liuren:calculation:lessons"
+            ],
+            "promptText": "按重审法取初传亥乘天后，三传模式递传，初传上神见于三课",
+            "sources": [
+              "当前结果保存的四课、初传与三传结构",
+              "已确定的九宗门取传结果",
+              "《大六壬大全》九宗门取传法"
+            ],
+            "limitation": "计算步骤只证明占时参数、天地盘、四课、取传、三传、反证、类神与应期条件如何形成当前证据；不证明现实吉凶、事件概率、人物身份或固定应期"
+          },
+          {
+            "key": "liuren:calculation:transmissions",
+            "stage": "三传推进核验",
+            "status": "已计算",
+            "inputs": {
+              "initialBranch": "亥"
+            },
+            "result": {
+              "transmissionCount": 3,
+              "transitionCount": 2,
+              "stages": [
+                "初传亥",
+                "中传酉",
+                "末传未"
+              ]
+            },
+            "dependsOnStepKeys": [
+              "liuren:calculation:transmission-rule"
+            ],
+            "promptText": "三传为初传亥乘天后、中传酉乘玄武、末传未乘白虎；相邻推进初传亥 → 中传酉：金生水；中传酉 → 末传未：土生金",
+            "sources": [
+              "三传、天将、月令旺衰、旬空与日支关系核验",
+              "三传先后次序与相邻地支关系"
+            ],
+            "limitation": "计算步骤只证明占时参数、天地盘、四课、取传、三传、反证、类神与应期条件如何形成当前证据；不证明现实吉凶、事件概率、人物身份或固定应期"
+          },
+          {
+            "key": "liuren:calculation:counter-focus-timing",
+            "stage": "反证类神应期核验",
+            "status": "已计算",
+            "inputs": {
+              "transmissionCount": 3
+            },
+            "result": {
+              "counterStatus": "有明确反证",
+              "counterEvidenceCount": 5,
+              "focusStatus": "已提供焦点",
+              "focusFactCount": 3,
+              "timingFactCount": 4
+            },
+            "dependsOnStepKeys": [
+              "liuren:calculation:transmissions"
+            ],
+            "promptText": "共核验到5项盘内限制，须与主证并列使用；当前结果保存3个盘面焦点对象，须按主证、辅证和各自限制使用；已记录4项应期触发与期限事实",
+            "sources": [
+              "四课与三传关系事实逐项筛选",
+              "当前大六壬结果的焦点对象完整性检查",
+              "当前大六壬结果已保存的应期条件",
+              "初传地支与日柱旬空核验",
+              "初中末传顺序、月令旺衰与旬空状态",
+              "月支、日支与初传及类神的同支冲合旺衰核验",
+              "当前问题是否给出目标期限、盘面先后快慢与触发条件"
+            ],
+            "limitation": "计算步骤只证明占时参数、天地盘、四课、取传、三传、反证、类神与应期条件如何形成当前证据；不证明现实吉凶、事件概率、人物身份或固定应期"
+          },
+          {
+            "key": "liuren:calculation:summary",
+            "stage": "证据汇总",
+            "status": "已计算",
+            "inputs": {
+              "factCount": 75
+            },
+            "result": {
+              "summaryStatus": "证据链完整",
+              "platePositionFactCount": 12,
+              "lessonFactCount": 4,
+              "transmissionFactCount": 3,
+              "counterEvidenceCount": 5,
+              "timingFactCount": 4
+            },
+            "dependsOnStepKeys": [
+              "liuren:calculation:chart-input",
+              "liuren:calculation:plate",
+              "liuren:calculation:lessons",
+              "liuren:calculation:transmission-rule",
+              "liuren:calculation:transmissions",
+              "liuren:calculation:counter-focus-timing"
+            ],
+            "promptText": "证据链状态：证据链完整；天地盘12/12位、四课4项、三传3项、推进2项、反证5项、应期4项、类神焦点3项、传统资料21项",
+            "sources": [
+              "全部起盘、天地盘、四课取传、三传、反证、类神、应期与传统事实逐项汇总"
+            ],
+            "limitation": "计算步骤只证明占时参数、天地盘、四课、取传、三传、反证、类神与应期条件如何形成当前证据；不证明现实吉凶、事件概率、人物身份或固定应期"
+          }
+        ],
+        "calculationChain": [
+          "四柱干支为年丙午、月丁酉、日己丑、时辛未；月将巳加占时未；昼占，日干贵人子临地盘寅；日干己寄未；日柱旬空午、未",
+          "天地盘十二位与十二天将资料完整，可逐位核验月将加时和贵人顺逆排布。",
+          "四课共4项，逐课记录上下神、乘将、关系、旬空与初传来源状态",
+          "按重审法取初传亥乘天后，三传模式递传，初传上神见于三课",
+          "三传为初传亥乘天后、中传酉乘玄武、末传未乘白虎；相邻推进初传亥 → 中传酉：金生水；中传酉 → 末传未：土生金",
+          "共核验到5项盘内限制，须与主证并列使用；当前结果保存3个盘面焦点对象，须按主证、辅证和各自限制使用；已记录4项应期触发与期限事实",
+          "证据链状态：证据链完整；天地盘12/12位、四课4项、三传3项、推进2项、反证5项、应期4项、类神焦点3项、传统资料21项"
+        ],
+        "plateFact": {
+          "key": "liuren:plate:coverage",
+          "status": "完整",
+          "expectedCount": 12,
+          "actualCount": 12,
+          "positionKeys": [
+            "liuren:plate:子:戌:太阴",
+            "liuren:plate:丑:亥:天后",
+            "liuren:plate:寅:子:贵人",
+            "liuren:plate:卯:丑:螣蛇",
+            "liuren:plate:辰:寅:朱雀",
+            "liuren:plate:巳:卯:六合",
+            "liuren:plate:午:辰:勾陈",
+            "liuren:plate:未:巳:青龙",
+            "liuren:plate:申:午:天空",
+            "liuren:plate:酉:未:白虎",
+            "liuren:plate:戌:申:太常",
+            "liuren:plate:亥:酉:玄武"
+          ],
+          "promptText": "天地盘十二位与十二天将资料完整，可逐位核验月将加时和贵人顺逆排布。",
+          "sources": [
+            "当前大六壬结果的天地盘逐位记录",
+            "十二地支与十二天将完整性检查"
+          ],
+          "limitation": "天地盘覆盖状态只说明当前结果能否完整核验十二位对应；缺少逐位资料时不得反推或补造天盘支、地盘支与天将"
+        },
+        "platePositionFacts": [
+          {
+            "key": "liuren:plate:子:戌:太阴",
+            "index": 1,
+            "earthBranch": "子",
+            "heavenBranch": "戌",
+            "god": "太阴",
+            "isNobleman": false,
+            "isNoblemanGround": false,
+            "promptText": "第1位地盘子上见天盘戌乘太阴",
+            "sources": [
+              "月将加占时生成天地盘十二支对应",
+              "贵人临地盘定天将顺逆并布十二天将"
+            ],
+            "limitation": "天地盘逐位字段只证明月将加时与十二天将排布后的对应关系，不单独证明现实吉凶、人物身份、事件或方位结果"
+          },
+          {
+            "key": "liuren:plate:丑:亥:天后",
+            "index": 2,
+            "earthBranch": "丑",
+            "heavenBranch": "亥",
+            "god": "天后",
+            "isNobleman": false,
+            "isNoblemanGround": false,
+            "promptText": "第2位地盘丑上见天盘亥乘天后",
+            "sources": [
+              "月将加占时生成天地盘十二支对应",
+              "贵人临地盘定天将顺逆并布十二天将"
+            ],
+            "limitation": "天地盘逐位字段只证明月将加时与十二天将排布后的对应关系，不单独证明现实吉凶、人物身份、事件或方位结果"
+          },
+          {
+            "key": "liuren:plate:寅:子:贵人",
+            "index": 3,
+            "earthBranch": "寅",
+            "heavenBranch": "子",
+            "god": "贵人",
+            "isNobleman": true,
+            "isNoblemanGround": true,
+            "promptText": "第3位地盘寅上见天盘子乘贵人，此天盘支为日干贵人，贵人临此地盘",
+            "sources": [
+              "月将加占时生成天地盘十二支对应",
+              "贵人临地盘定天将顺逆并布十二天将"
+            ],
+            "limitation": "天地盘逐位字段只证明月将加时与十二天将排布后的对应关系，不单独证明现实吉凶、人物身份、事件或方位结果"
+          },
+          {
+            "key": "liuren:plate:卯:丑:螣蛇",
+            "index": 4,
+            "earthBranch": "卯",
+            "heavenBranch": "丑",
+            "god": "螣蛇",
+            "isNobleman": false,
+            "isNoblemanGround": false,
+            "promptText": "第4位地盘卯上见天盘丑乘螣蛇",
+            "sources": [
+              "月将加占时生成天地盘十二支对应",
+              "贵人临地盘定天将顺逆并布十二天将"
+            ],
+            "limitation": "天地盘逐位字段只证明月将加时与十二天将排布后的对应关系，不单独证明现实吉凶、人物身份、事件或方位结果"
+          },
+          {
+            "key": "liuren:plate:辰:寅:朱雀",
+            "index": 5,
+            "earthBranch": "辰",
+            "heavenBranch": "寅",
+            "god": "朱雀",
+            "isNobleman": false,
+            "isNoblemanGround": false,
+            "promptText": "第5位地盘辰上见天盘寅乘朱雀",
+            "sources": [
+              "月将加占时生成天地盘十二支对应",
+              "贵人临地盘定天将顺逆并布十二天将"
+            ],
+            "limitation": "天地盘逐位字段只证明月将加时与十二天将排布后的对应关系，不单独证明现实吉凶、人物身份、事件或方位结果"
+          },
+          {
+            "key": "liuren:plate:巳:卯:六合",
+            "index": 6,
+            "earthBranch": "巳",
+            "heavenBranch": "卯",
+            "god": "六合",
+            "isNobleman": false,
+            "isNoblemanGround": false,
+            "promptText": "第6位地盘巳上见天盘卯乘六合",
+            "sources": [
+              "月将加占时生成天地盘十二支对应",
+              "贵人临地盘定天将顺逆并布十二天将"
+            ],
+            "limitation": "天地盘逐位字段只证明月将加时与十二天将排布后的对应关系，不单独证明现实吉凶、人物身份、事件或方位结果"
+          },
+          {
+            "key": "liuren:plate:午:辰:勾陈",
+            "index": 7,
+            "earthBranch": "午",
+            "heavenBranch": "辰",
+            "god": "勾陈",
+            "isNobleman": false,
+            "isNoblemanGround": false,
+            "promptText": "第7位地盘午上见天盘辰乘勾陈",
+            "sources": [
+              "月将加占时生成天地盘十二支对应",
+              "贵人临地盘定天将顺逆并布十二天将"
+            ],
+            "limitation": "天地盘逐位字段只证明月将加时与十二天将排布后的对应关系，不单独证明现实吉凶、人物身份、事件或方位结果"
+          },
+          {
+            "key": "liuren:plate:未:巳:青龙",
+            "index": 8,
+            "earthBranch": "未",
+            "heavenBranch": "巳",
+            "god": "青龙",
+            "isNobleman": false,
+            "isNoblemanGround": false,
+            "promptText": "第8位地盘未上见天盘巳乘青龙",
+            "sources": [
+              "月将加占时生成天地盘十二支对应",
+              "贵人临地盘定天将顺逆并布十二天将"
+            ],
+            "limitation": "天地盘逐位字段只证明月将加时与十二天将排布后的对应关系，不单独证明现实吉凶、人物身份、事件或方位结果"
+          },
+          {
+            "key": "liuren:plate:申:午:天空",
+            "index": 9,
+            "earthBranch": "申",
+            "heavenBranch": "午",
+            "god": "天空",
+            "isNobleman": false,
+            "isNoblemanGround": false,
+            "promptText": "第9位地盘申上见天盘午乘天空",
+            "sources": [
+              "月将加占时生成天地盘十二支对应",
+              "贵人临地盘定天将顺逆并布十二天将"
+            ],
+            "limitation": "天地盘逐位字段只证明月将加时与十二天将排布后的对应关系，不单独证明现实吉凶、人物身份、事件或方位结果"
+          },
+          {
+            "key": "liuren:plate:酉:未:白虎",
+            "index": 10,
+            "earthBranch": "酉",
+            "heavenBranch": "未",
+            "god": "白虎",
+            "isNobleman": false,
+            "isNoblemanGround": false,
+            "promptText": "第10位地盘酉上见天盘未乘白虎",
+            "sources": [
+              "月将加占时生成天地盘十二支对应",
+              "贵人临地盘定天将顺逆并布十二天将"
+            ],
+            "limitation": "天地盘逐位字段只证明月将加时与十二天将排布后的对应关系，不单独证明现实吉凶、人物身份、事件或方位结果"
+          },
+          {
+            "key": "liuren:plate:戌:申:太常",
+            "index": 11,
+            "earthBranch": "戌",
+            "heavenBranch": "申",
+            "god": "太常",
+            "isNobleman": false,
+            "isNoblemanGround": false,
+            "promptText": "第11位地盘戌上见天盘申乘太常",
+            "sources": [
+              "月将加占时生成天地盘十二支对应",
+              "贵人临地盘定天将顺逆并布十二天将"
+            ],
+            "limitation": "天地盘逐位字段只证明月将加时与十二天将排布后的对应关系，不单独证明现实吉凶、人物身份、事件或方位结果"
+          },
+          {
+            "key": "liuren:plate:亥:酉:玄武",
+            "index": 12,
+            "earthBranch": "亥",
+            "heavenBranch": "酉",
+            "god": "玄武",
+            "isNobleman": false,
+            "isNoblemanGround": false,
+            "promptText": "第12位地盘亥上见天盘酉乘玄武",
+            "sources": [
+              "月将加占时生成天地盘十二支对应",
+              "贵人临地盘定天将顺逆并布十二天将"
+            ],
+            "limitation": "天地盘逐位字段只证明月将加时与十二天将排布后的对应关系，不单独证明现实吉凶、人物身份、事件或方位结果"
+          }
+        ],
+        "plateFacts": [
+          "地盘子上见天盘戌乘太阴",
+          "地盘丑上见天盘亥乘天后",
+          "地盘寅上见天盘子乘贵人",
+          "地盘卯上见天盘丑乘螣蛇",
+          "地盘辰上见天盘寅乘朱雀",
+          "地盘巳上见天盘卯乘六合",
+          "地盘午上见天盘辰乘勾陈",
+          "地盘未上见天盘巳乘青龙",
+          "地盘申上见天盘午乘天空",
+          "地盘酉上见天盘未乘白虎",
+          "地盘戌上见天盘申乘太常",
+          "地盘亥上见天盘酉乘玄武"
+        ],
+        "patternEvidence": [
+          "天后发用",
+          "重审",
+          "空亡入传",
+          "递传"
+        ],
+        "shenShaEvidence": [
+          "支马在亥",
+          "驿马在亥",
+          "劫煞在寅",
+          "亡神在申",
+          "咸池在午",
+          "破碎在巳",
+          "天罗在寅",
+          "地网在申",
+          "天德在寅",
+          "月德在庚",
+          "天马在申",
+          "日德在寅",
+          "日禄在午"
+        ],
+        "rule": "重审法",
+        "initialBranch": "亥",
+        "initialSourceLessons": [
+          "三课"
+        ],
+        "transmissionRuleFact": {
+          "key": "liuren:transmission-rule",
+          "status": "已确定",
+          "rule": "重审法",
+          "pattern": "递传",
+          "initialBranch": "亥",
+          "initialGod": "天后",
+          "initialSourceLessonKeys": [
+            "liuren:lesson:3:三课"
+          ],
+          "detail": "取传采用重审法，以初传亥为初传发用；古籍依据依次为：《大六壬大全》九宗门取传法之重审（四课只有一处下贼上，以下贼上之上神为初传发用。）。",
+          "classicalRuleKeys": [
+            "classical:0:重审"
+          ],
+          "promptText": "按重审法取初传亥乘天后，三传模式递传，初传上神见于三课",
+          "sources": [
+            "当前结果保存的四课、初传与三传结构",
+            "已确定的九宗门取传结果",
+            "《大六壬大全》九宗门取传法"
+          ],
+          "limitation": "取传规则事实只说明当前四课如何形成初传及三传模式；缺少规则名时不得按结果反推九宗门名称，也不单独证明现实吉凶或应期"
+        },
+        "lessons": [
+          {
+            "name": "一课",
+            "upper": "巳",
+            "lower": "己",
+            "god": "青龙",
+            "relation": "火生土",
+            "note": "上神巳与下位己的五行关系为火生土。",
+            "key": "liuren:lesson:1:一课",
+            "index": 1,
+            "isInitialSource": false,
+            "constraints": [],
+            "relationFacts": [
+              {
+                "key": "liuren:lesson:1:一课:relation",
+                "scope": "四课",
+                "ownerKey": "liuren:lesson:1:一课",
+                "basis": "上下神关系",
+                "status": "支持",
+                "value": "火生土",
+                "promptText": "一课巳临己，上下神关系火生土",
+                "sources": [
+                  "日干寄宫、日支与天地盘逐课推导",
+                  "五行生克与地支关系"
+                ],
+                "limitation": "课传关系事实只说明上下神、月令、旬空、日支或相邻传之间的盘内关系；支持或限制不得直接解释为现实吉凶、成功率或必然结果"
+              }
+            ],
+            "promptText": "一课巳临己，乘青龙，关系火生土；上神巳与下位己的五行关系为火生土。",
+            "sources": [
+              "日干寄宫、日支与天地盘逐课推导",
+              "日柱旬空与上下神关系核验"
+            ],
+            "limitation": "四课事实只记录上下神、乘将、关系、课注及其是否参与初传来源；不单独证明现实事件、人物、吉凶或结果"
+          },
+          {
+            "name": "二课",
+            "upper": "卯",
+            "lower": "巳",
+            "god": "六合",
+            "relation": "木生火",
+            "note": "上神卯与下位巳的五行关系为木生火。",
+            "key": "liuren:lesson:2:二课",
+            "index": 2,
+            "isInitialSource": false,
+            "constraints": [],
+            "relationFacts": [
+              {
+                "key": "liuren:lesson:2:二课:relation",
+                "scope": "四课",
+                "ownerKey": "liuren:lesson:2:二课",
+                "basis": "上下神关系",
+                "status": "支持",
+                "value": "木生火",
+                "promptText": "二课卯临巳，上下神关系木生火",
+                "sources": [
+                  "日干寄宫、日支与天地盘逐课推导",
+                  "五行生克与地支关系"
+                ],
+                "limitation": "课传关系事实只说明上下神、月令、旬空、日支或相邻传之间的盘内关系；支持或限制不得直接解释为现实吉凶、成功率或必然结果"
+              }
+            ],
+            "promptText": "二课卯临巳，乘六合，关系木生火；上神卯与下位巳的五行关系为木生火。",
+            "sources": [
+              "日干寄宫、日支与天地盘逐课推导",
+              "日柱旬空与上下神关系核验"
+            ],
+            "limitation": "四课事实只记录上下神、乘将、关系、课注及其是否参与初传来源；不单独证明现实事件、人物、吉凶或结果"
+          },
+          {
+            "name": "三课",
+            "upper": "亥",
+            "lower": "丑",
+            "god": "天后",
+            "relation": "土克水",
+            "note": "上神亥与下位丑的五行关系为土克水。",
+            "key": "liuren:lesson:3:三课",
+            "index": 3,
+            "isInitialSource": true,
+            "constraints": [
+              "土克水形成牵制"
+            ],
+            "relationFacts": [
+              {
+                "key": "liuren:lesson:3:三课:relation",
+                "scope": "四课",
+                "ownerKey": "liuren:lesson:3:三课",
+                "basis": "上下神关系",
+                "status": "限制",
+                "value": "土克水",
+                "promptText": "三课亥临丑，上下神关系土克水",
+                "sources": [
+                  "日干寄宫、日支与天地盘逐课推导",
+                  "五行生克与地支关系"
+                ],
+                "limitation": "课传关系事实只说明上下神、月令、旬空、日支或相邻传之间的盘内关系；支持或限制不得直接解释为现实吉凶、成功率或必然结果"
+              }
+            ],
+            "promptText": "三课亥临丑，乘天后，关系土克水；上神亥与下位丑的五行关系为土克水。",
+            "sources": [
+              "日干寄宫、日支与天地盘逐课推导",
+              "日柱旬空与上下神关系核验"
+            ],
+            "limitation": "四课事实只记录上下神、乘将、关系、课注及其是否参与初传来源；不单独证明现实事件、人物、吉凶或结果"
+          },
+          {
+            "name": "四课",
+            "upper": "酉",
+            "lower": "亥",
+            "god": "玄武",
+            "relation": "金生水",
+            "note": "上神酉与下位亥的五行关系为金生水。",
+            "key": "liuren:lesson:4:四课",
+            "index": 4,
+            "isInitialSource": false,
+            "constraints": [],
+            "relationFacts": [
+              {
+                "key": "liuren:lesson:4:四课:relation",
+                "scope": "四课",
+                "ownerKey": "liuren:lesson:4:四课",
+                "basis": "上下神关系",
+                "status": "支持",
+                "value": "金生水",
+                "promptText": "四课酉临亥，上下神关系金生水",
+                "sources": [
+                  "日干寄宫、日支与天地盘逐课推导",
+                  "五行生克与地支关系"
+                ],
+                "limitation": "课传关系事实只说明上下神、月令、旬空、日支或相邻传之间的盘内关系；支持或限制不得直接解释为现实吉凶、成功率或必然结果"
+              }
+            ],
+            "promptText": "四课酉临亥，乘玄武，关系金生水；上神酉与下位亥的五行关系为金生水。",
+            "sources": [
+              "日干寄宫、日支与天地盘逐课推导",
+              "日柱旬空与上下神关系核验"
+            ],
+            "limitation": "四课事实只记录上下神、乘将、关系、课注及其是否参与初传来源；不单独证明现实事件、人物、吉凶或结果"
+          }
+        ],
+        "transmissions": [
+          {
+            "stage": "初传",
+            "branch": "亥",
+            "god": "天后",
+            "relation": "土克水",
+            "note": "初传与一课下位的五行关系为土克水。",
+            "wuxing": "水",
+            "seasonState": "相",
+            "isVoid": false,
+            "dayRelation": "土克水",
+            "key": "liuren:transmission:初传:亥",
+            "index": 1,
+            "label": "起点",
+            "support": [
+              "月令相"
+            ],
+            "constraints": [
+              "与日支土克水",
+              "土克水"
+            ],
+            "relationFacts": [
+              {
+                "key": "liuren:transmission:初传:亥:adjacent-relation",
+                "scope": "三传",
+                "ownerKey": "liuren:transmission:初传:亥",
+                "basis": "相邻传关系",
+                "status": "限制",
+                "value": "土克水",
+                "promptText": "初传亥与前位关系土克水",
+                "sources": [
+                  "三传先后次序与相邻地支关系"
+                ],
+                "limitation": "课传关系事实只说明上下神、月令、旬空、日支或相邻传之间的盘内关系；支持或限制不得直接解释为现实吉凶、成功率或必然结果"
+              },
+              {
+                "key": "liuren:transmission:初传:亥:season-state",
+                "scope": "三传",
+                "ownerKey": "liuren:transmission:初传:亥",
+                "basis": "月令旺衰",
+                "status": "支持",
+                "value": "相",
+                "promptText": "初传亥月令状态相",
+                "sources": [
+                  "月支五行与三传地支五行旺相休囚死关系"
+                ],
+                "limitation": "课传关系事实只说明上下神、月令、旬空、日支或相邻传之间的盘内关系；支持或限制不得直接解释为现实吉凶、成功率或必然结果"
+              },
+              {
+                "key": "liuren:transmission:初传:亥:day-relation",
+                "scope": "三传",
+                "ownerKey": "liuren:transmission:初传:亥",
+                "basis": "日支关系",
+                "status": "限制",
+                "value": "土克水",
+                "promptText": "初传亥与日支关系土克水",
+                "sources": [
+                  "三传地支与日支生克冲合关系"
+                ],
+                "limitation": "课传关系事实只说明上下神、月令、旬空、日支或相邻传之间的盘内关系；支持或限制不得直接解释为现实吉凶、成功率或必然结果"
+              },
+              {
+                "key": "liuren:transmission:初传:亥:void",
+                "scope": "三传",
+                "ownerKey": "liuren:transmission:初传:亥",
+                "basis": "旬空",
+                "status": "支持",
+                "value": "不空",
+                "promptText": "初传亥不在日柱旬空内",
+                "sources": [
+                  "日柱旬空与三传地支逐项核验"
+                ],
+                "limitation": "课传关系事实只说明上下神、月令、旬空、日支或相邻传之间的盘内关系；支持或限制不得直接解释为现实吉凶、成功率或必然结果"
+              }
+            ],
+            "promptText": "初传亥乘天后（水、月令相）；与前位关系土克水；与日支关系土克水；初传与一课下位的五行关系为土克水。",
+            "sources": [
+              "三传、天将、月令旺衰、旬空与日支关系核验"
+            ],
+            "limitation": "三传事实只记录初中末传的地支、天将、月令、旬空、日支关系与相邻推进；阶段顺序不证明现实事件必然按同样方式发生"
+          },
+          {
+            "stage": "中传",
+            "branch": "酉",
+            "god": "玄武",
+            "relation": "金生水",
+            "note": "中传与初传的五行关系为金生水。",
+            "wuxing": "金",
+            "seasonState": "旺",
+            "isVoid": false,
+            "dayRelation": "土生金",
+            "key": "liuren:transmission:中传:酉",
+            "index": 2,
+            "label": "过程",
+            "support": [
+              "月令旺",
+              "与日支土生金",
+              "金生水"
+            ],
+            "constraints": [],
+            "relationFacts": [
+              {
+                "key": "liuren:transmission:中传:酉:adjacent-relation",
+                "scope": "三传",
+                "ownerKey": "liuren:transmission:中传:酉",
+                "basis": "相邻传关系",
+                "status": "支持",
+                "value": "金生水",
+                "promptText": "中传酉与前位关系金生水",
+                "sources": [
+                  "三传先后次序与相邻地支关系"
+                ],
+                "limitation": "课传关系事实只说明上下神、月令、旬空、日支或相邻传之间的盘内关系；支持或限制不得直接解释为现实吉凶、成功率或必然结果"
+              },
+              {
+                "key": "liuren:transmission:中传:酉:season-state",
+                "scope": "三传",
+                "ownerKey": "liuren:transmission:中传:酉",
+                "basis": "月令旺衰",
+                "status": "支持",
+                "value": "旺",
+                "promptText": "中传酉月令状态旺",
+                "sources": [
+                  "月支五行与三传地支五行旺相休囚死关系"
+                ],
+                "limitation": "课传关系事实只说明上下神、月令、旬空、日支或相邻传之间的盘内关系；支持或限制不得直接解释为现实吉凶、成功率或必然结果"
+              },
+              {
+                "key": "liuren:transmission:中传:酉:day-relation",
+                "scope": "三传",
+                "ownerKey": "liuren:transmission:中传:酉",
+                "basis": "日支关系",
+                "status": "支持",
+                "value": "土生金",
+                "promptText": "中传酉与日支关系土生金",
+                "sources": [
+                  "三传地支与日支生克冲合关系"
+                ],
+                "limitation": "课传关系事实只说明上下神、月令、旬空、日支或相邻传之间的盘内关系；支持或限制不得直接解释为现实吉凶、成功率或必然结果"
+              },
+              {
+                "key": "liuren:transmission:中传:酉:void",
+                "scope": "三传",
+                "ownerKey": "liuren:transmission:中传:酉",
+                "basis": "旬空",
+                "status": "支持",
+                "value": "不空",
+                "promptText": "中传酉不在日柱旬空内",
+                "sources": [
+                  "日柱旬空与三传地支逐项核验"
+                ],
+                "limitation": "课传关系事实只说明上下神、月令、旬空、日支或相邻传之间的盘内关系；支持或限制不得直接解释为现实吉凶、成功率或必然结果"
+              }
+            ],
+            "promptText": "中传酉乘玄武（金、月令旺）；与前位关系金生水；与日支关系土生金；中传与初传的五行关系为金生水。",
+            "sources": [
+              "三传、天将、月令旺衰、旬空与日支关系核验"
+            ],
+            "limitation": "三传事实只记录初中末传的地支、天将、月令、旬空、日支关系与相邻推进；阶段顺序不证明现实事件必然按同样方式发生"
+          },
+          {
+            "stage": "末传",
+            "branch": "未",
+            "god": "白虎",
+            "relation": "土生金",
+            "note": "末传与中传的五行关系为土生金。",
+            "wuxing": "土",
+            "seasonState": "休",
+            "isVoid": true,
+            "dayRelation": "比和",
+            "key": "liuren:transmission:末传:未",
+            "index": 3,
+            "label": "落点",
+            "support": [
+              "与日支比和",
+              "土生金"
+            ],
+            "constraints": [
+              "末传未空亡",
+              "月令休"
+            ],
+            "relationFacts": [
+              {
+                "key": "liuren:transmission:末传:未:adjacent-relation",
+                "scope": "三传",
+                "ownerKey": "liuren:transmission:末传:未",
+                "basis": "相邻传关系",
+                "status": "支持",
+                "value": "土生金",
+                "promptText": "末传未与前位关系土生金",
+                "sources": [
+                  "三传先后次序与相邻地支关系"
+                ],
+                "limitation": "课传关系事实只说明上下神、月令、旬空、日支或相邻传之间的盘内关系；支持或限制不得直接解释为现实吉凶、成功率或必然结果"
+              },
+              {
+                "key": "liuren:transmission:末传:未:season-state",
+                "scope": "三传",
+                "ownerKey": "liuren:transmission:末传:未",
+                "basis": "月令旺衰",
+                "status": "限制",
+                "value": "休",
+                "promptText": "末传未月令状态休",
+                "sources": [
+                  "月支五行与三传地支五行旺相休囚死关系"
+                ],
+                "limitation": "课传关系事实只说明上下神、月令、旬空、日支或相邻传之间的盘内关系；支持或限制不得直接解释为现实吉凶、成功率或必然结果"
+              },
+              {
+                "key": "liuren:transmission:末传:未:day-relation",
+                "scope": "三传",
+                "ownerKey": "liuren:transmission:末传:未",
+                "basis": "日支关系",
+                "status": "支持",
+                "value": "比和",
+                "promptText": "末传未与日支关系比和",
+                "sources": [
+                  "三传地支与日支生克冲合关系"
+                ],
+                "limitation": "课传关系事实只说明上下神、月令、旬空、日支或相邻传之间的盘内关系；支持或限制不得直接解释为现实吉凶、成功率或必然结果"
+              },
+              {
+                "key": "liuren:transmission:末传:未:void",
+                "scope": "三传",
+                "ownerKey": "liuren:transmission:末传:未",
+                "basis": "旬空",
+                "status": "限制",
+                "value": "空亡",
+                "promptText": "末传未落日柱旬空",
+                "sources": [
+                  "日柱旬空与三传地支逐项核验"
+                ],
+                "limitation": "课传关系事实只说明上下神、月令、旬空、日支或相邻传之间的盘内关系；支持或限制不得直接解释为现实吉凶、成功率或必然结果"
+              }
+            ],
+            "promptText": "末传未乘白虎（土、月令休、空亡）；与前位关系土生金；与日支关系比和；末传与中传的五行关系为土生金。",
+            "sources": [
+              "三传、天将、月令旺衰、旬空与日支关系核验"
+            ],
+            "limitation": "三传事实只记录初中末传的地支、天将、月令、旬空、日支关系与相邻推进；阶段顺序不证明现实事件必然按同样方式发生"
+          }
+        ],
+        "transitionFacts": [
+          {
+            "key": "liuren:transition:初传:中传",
+            "fromTransmissionKey": "liuren:transmission:初传:亥",
+            "toTransmissionKey": "liuren:transmission:中传:酉",
+            "fromStage": "初传",
+            "toStage": "中传",
+            "fromBranch": "亥",
+            "toBranch": "酉",
+            "relation": "金生水",
+            "status": "支持",
+            "promptText": "初传亥 → 中传酉：金生水",
+            "sources": [
+              "三传先后次序与相邻地支关系"
+            ],
+            "limitation": "相邻传推进事实只描述三传先后与地支关系，不证明现实事件必然推进、停滞、成功或失败"
+          },
+          {
+            "key": "liuren:transition:中传:末传",
+            "fromTransmissionKey": "liuren:transmission:中传:酉",
+            "toTransmissionKey": "liuren:transmission:末传:未",
+            "fromStage": "中传",
+            "toStage": "末传",
+            "fromBranch": "酉",
+            "toBranch": "未",
+            "relation": "土生金",
+            "status": "支持",
+            "promptText": "中传酉 → 末传未：土生金",
+            "sources": [
+              "三传先后次序与相邻地支关系"
+            ],
+            "limitation": "相邻传推进事实只描述三传先后与地支关系，不证明现实事件必然推进、停滞、成功或失败"
+          }
+        ],
+        "transitions": [
+          "初传亥 → 中传酉：金生水",
+          "中传酉 → 末传未：土生金"
+        ],
+        "counterEvidenceFacts": [
+          {
+            "key": "liuren:counter:liuren:lesson:3:三课:relation",
+            "ownerKey": "liuren:lesson:3:三课",
+            "scope": "四课",
+            "basis": "上下神关系",
+            "detail": "土克水",
+            "status": "已触发",
+            "promptText": "三课亥临丑，上下神关系土克水",
+            "sources": [
+              "日干寄宫、日支与天地盘逐课推导",
+              "五行生克与地支关系"
+            ],
+            "limitation": "反证事实只表示盘内存在空亡、休囚、冲克或其他限制条件；不得把单项反证直接写成现实失败、灾祸或必然结果"
+          },
+          {
+            "key": "liuren:counter:liuren:transmission:初传:亥:adjacent-relation",
+            "ownerKey": "liuren:transmission:初传:亥",
+            "scope": "三传",
+            "basis": "相邻传关系",
+            "detail": "土克水",
+            "status": "已触发",
+            "promptText": "初传亥与前位关系土克水",
+            "sources": [
+              "三传先后次序与相邻地支关系"
+            ],
+            "limitation": "反证事实只表示盘内存在空亡、休囚、冲克或其他限制条件；不得把单项反证直接写成现实失败、灾祸或必然结果"
+          },
+          {
+            "key": "liuren:counter:liuren:transmission:初传:亥:day-relation",
+            "ownerKey": "liuren:transmission:初传:亥",
+            "scope": "三传",
+            "basis": "日支关系",
+            "detail": "土克水",
+            "status": "已触发",
+            "promptText": "初传亥与日支关系土克水",
+            "sources": [
+              "三传地支与日支生克冲合关系"
+            ],
+            "limitation": "反证事实只表示盘内存在空亡、休囚、冲克或其他限制条件；不得把单项反证直接写成现实失败、灾祸或必然结果"
+          },
+          {
+            "key": "liuren:counter:liuren:transmission:末传:未:season-state",
+            "ownerKey": "liuren:transmission:末传:未",
+            "scope": "三传",
+            "basis": "月令旺衰",
+            "detail": "休",
+            "status": "已触发",
+            "promptText": "末传未月令状态休",
+            "sources": [
+              "月支五行与三传地支五行旺相休囚死关系"
+            ],
+            "limitation": "反证事实只表示盘内存在空亡、休囚、冲克或其他限制条件；不得把单项反证直接写成现实失败、灾祸或必然结果"
+          },
+          {
+            "key": "liuren:counter:liuren:transmission:末传:未:void",
+            "ownerKey": "liuren:transmission:末传:未",
+            "scope": "三传",
+            "basis": "旬空",
+            "detail": "空亡",
+            "status": "已触发",
+            "promptText": "末传未落日柱旬空",
+            "sources": [
+              "日柱旬空与三传地支逐项核验"
+            ],
+            "limitation": "反证事实只表示盘内存在空亡、休囚、冲克或其他限制条件；不得把单项反证直接写成现实失败、灾祸或必然结果"
+          }
+        ],
+        "counterSummaryFact": {
+          "key": "liuren:counter-summary",
+          "status": "有明确反证",
+          "factKeys": [
+            "liuren:counter:liuren:lesson:3:三课:relation",
+            "liuren:counter:liuren:transmission:初传:亥:adjacent-relation",
+            "liuren:counter:liuren:transmission:初传:亥:day-relation",
+            "liuren:counter:liuren:transmission:末传:未:season-state",
+            "liuren:counter:liuren:transmission:末传:未:void"
+          ],
+          "promptText": "共核验到5项盘内限制，须与主证并列使用",
+          "sources": [
+            "四课与三传关系事实逐项筛选"
+          ],
+          "limitation": "反证汇总只说明当前结构化核验是否发现盘内限制，不代表现实风险为零，也不表示证据数量可换算为吉凶总分"
+        },
+        "counterEvidence": [
+          "土克水形成牵制",
+          "与日支土克水",
+          "土克水",
+          "末传未空亡",
+          "月令休"
+        ],
+        "timingFacts": [
+          {
+            "key": "liuren:timing:1:初传状态",
+            "order": 1,
+            "type": "初传状态",
+            "sourceStatus": "原结果提供",
+            "rawText": "一级发用：先看初传亥不空，可直接作为起始信号",
+            "promptText": "一级发用：先看初传亥不空，可直接作为起始信号",
+            "sources": [
+              "当前大六壬结果已保存的应期条件",
+              "初传地支与日柱旬空核验"
+            ],
+            "limitation": "应期事实只提供先后、快慢、空亡填实、冲合与旺衰等触发条件；未给期限时不得换算唯一日期，也不证明事件必然发生"
+          },
+          {
+            "key": "liuren:timing:2:三传顺序",
+            "order": 2,
+            "type": "三传顺序",
+            "sourceStatus": "原结果提供",
+            "rawText": "二级三传：初传亥（月令相）→中传酉（月令旺）→末传未（月令休、空）",
+            "promptText": "二级三传：初传亥（月令相）→中传酉（月令旺）→末传未（月令休、空）",
+            "sources": [
+              "当前大六壬结果已保存的应期条件",
+              "初中末传顺序、月令旺衰与旬空状态"
+            ],
+            "limitation": "应期事实只提供先后、快慢、空亡填实、冲合与旺衰等触发条件；未给期限时不得换算唯一日期，也不证明事件必然发生"
+          },
+          {
+            "key": "liuren:timing:3:月日触发",
+            "order": 3,
+            "type": "月日触发",
+            "sourceStatus": "原结果提供",
+            "rawText": "三级日月：以日支丑、月支酉对初传和类神的同支、冲合与旺衰作为触发条件",
+            "promptText": "三级日月：以日支丑、月支酉对初传和类神的同支、冲合与旺衰作为触发条件",
+            "sources": [
+              "当前大六壬结果已保存的应期条件",
+              "月支、日支与初传及类神的同支冲合旺衰核验"
+            ],
+            "limitation": "应期事实只提供先后、快慢、空亡填实、冲合与旺衰等触发条件；未给期限时不得换算唯一日期，也不证明事件必然发生"
+          },
+          {
+            "key": "liuren:timing:4:期限边界",
+            "order": 4,
+            "type": "期限边界",
+            "sourceStatus": "原结果提供",
+            "rawText": "未给出目标期限时，只判断先后、快慢和触发条件，不硬换成唯一日期",
+            "promptText": "未给出目标期限时，只判断先后、快慢和触发条件，不硬换成唯一日期",
+            "sources": [
+              "当前大六壬结果已保存的应期条件",
+              "当前问题是否给出目标期限、盘面先后快慢与触发条件"
+            ],
+            "limitation": "应期事实只提供先后、快慢、空亡填实、冲合与旺衰等触发条件；未给期限时不得换算唯一日期，也不证明事件必然发生"
+          }
+        ],
+        "timingConditions": [
+          "初传亥不空，可作为当前起始信号，但仍须现实事件验证",
+          "三传顺序初传亥 → 中传酉 → 末传未只表示阶段推进",
+          "月支酉与日支丑用于核验旺衰、同支、冲合及空亡触发",
+          "未给期限时不换算唯一日期，不以神煞或课体单项指定应期",
+          "一级发用：先看初传亥不空，可直接作为起始信号",
+          "二级三传：初传亥（月令相）→中传酉（月令旺）→末传未（月令休、空）",
+          "三级日月：以日支丑、月支酉对初传和类神的同支、冲合与旺衰作为触发条件",
+          "未给出目标期限时，只判断先后、快慢和触发条件，不硬换成唯一日期"
+        ],
+        "focusFacts": [
+          {
+            "key": "liuren:focus:1:初传亥乘天后:发用主轴",
+            "target": "初传亥乘天后",
+            "role": "发用主轴",
+            "level": "主证",
+            "evidence": [
+              "重审法取为初传",
+              "月令相",
+              "土克水"
+            ],
+            "limitations": [],
+            "sourceStatus": "原结果提供",
+            "promptText": "初传亥乘天后发用主轴：依据重审法取为初传、月令相、土克水；限制仍须结合实际问题选择类神",
+            "sources": [
+              "当前结果已保存的盘面焦点对象、类神角色与课传依据"
+            ],
+            "limitation": "类神焦点事实只记录当前结果已选出的关注对象、角色、依据与限制；未选定具体问题类神时不得把日支、天将或神煞固定当作用神"
+          },
+          {
+            "key": "liuren:focus:2:日干己寄未:我方与求测者",
+            "target": "日干己寄未",
+            "role": "我方与求测者",
+            "level": "辅证",
+            "evidence": [
+              "日干寄宫为我方定位",
+              "一课巳临己"
+            ],
+            "limitations": [],
+            "sourceStatus": "原结果提供",
+            "promptText": "日干己寄未我方与求测者：依据日干寄宫为我方定位、一课巳临己；限制仍须结合实际问题选择类神",
+            "sources": [
+              "当前结果已保存的盘面焦点对象、类神角色与课传依据"
+            ],
+            "limitation": "类神焦点事实只记录当前结果已选出的关注对象、角色、依据与限制；未选定具体问题类神时不得把日支、天将或神煞固定当作用神"
+          },
+          {
+            "key": "liuren:focus:3:日支丑:所占之事与对方环境",
+            "target": "日支丑",
+            "role": "所占之事与对方环境",
+            "level": "辅证",
+            "evidence": [
+              "三课亥临丑",
+              "需与发用和三传同看"
+            ],
+            "limitations": [
+              "具体类神仍须按问题主题从明列盘面中选取"
+            ],
+            "sourceStatus": "原结果提供",
+            "promptText": "日支丑所占之事与对方环境：依据三课亥临丑、需与发用和三传同看；限制具体类神仍须按问题主题从明列盘面中选取",
+            "sources": [
+              "当前结果已保存的盘面焦点对象、类神角色与课传依据"
+            ],
+            "limitation": "类神焦点事实只记录当前结果已选出的关注对象、角色、依据与限制；未选定具体问题类神时不得把日支、天将或神煞固定当作用神"
+          }
+        ],
+        "focusSummaryFact": {
+          "key": "liuren:focus-summary",
+          "status": "已提供焦点",
+          "factKeys": [
+            "liuren:focus:1:初传亥乘天后:发用主轴",
+            "liuren:focus:2:日干己寄未:我方与求测者",
+            "liuren:focus:3:日支丑:所占之事与对方环境"
+          ],
+          "promptText": "当前结果保存3个盘面焦点对象，须按主证、辅证和各自限制使用",
+          "sources": [
+            "当前大六壬结果的焦点对象完整性检查"
+          ],
+          "limitation": "焦点覆盖状态只说明当前结果是否保存关注对象；缺少焦点时不得自行把日支、天将或神煞固定当作用神，仍须按具体问题选择类神"
+        },
+        "focusEvidence": [
+          {
+            "target": "初传亥乘天后",
+            "role": "发用主轴",
+            "level": "主证",
+            "evidence": [
+              "重审法取为初传",
+              "月令相",
+              "土克水"
+            ],
+            "limitations": []
+          },
+          {
+            "target": "日干己寄未",
+            "role": "我方与求测者",
+            "level": "辅证",
+            "evidence": [
+              "日干寄宫为我方定位",
+              "一课巳临己"
+            ],
+            "limitations": []
+          },
+          {
+            "target": "日支丑",
+            "role": "所占之事与对方环境",
+            "level": "辅证",
+            "evidence": [
+              "三课亥临丑",
+              "需与发用和三传同看"
+            ],
+            "limitations": [
+              "具体类神仍须按问题主题从明列盘面中选取"
+            ]
+          }
+        ],
+        "timingEvidence": [
+          "一级发用：先看初传亥不空，可直接作为起始信号",
+          "二级三传：初传亥（月令相）→中传酉（月令旺）→末传未（月令休、空）",
+          "三级日月：以日支丑、月支酉对初传和类神的同支、冲合与旺衰作为触发条件",
+          "未给出目标期限时，只判断先后、快慢和触发条件，不硬换成唯一日期"
+        ],
+        "traditionalFacts": [
+          {
+            "key": "classical:0:重审",
+            "kind": "经典取传规则",
+            "name": "重审",
+            "originalText": "四课只有一处下贼上，以下贼上之上神为初传发用。",
+            "promptText": "四课只有一处下贼上，以下贼上之上神为初传发用。",
+            "sources": [
+              "《大六壬大全》九宗门取传法"
+            ],
+            "limitation": "传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果"
+          },
+          {
+            "key": "pattern:0:天后发用",
+            "kind": "课体",
+            "name": "天后发用",
+            "originalText": "天后发用",
+            "promptText": "盘面命中“天后发用”结构标签。",
+            "sources": [
+              "发用、三传结构、空亡与课体规则逐项命中"
+            ],
+            "limitation": "传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果"
+          },
+          {
+            "key": "pattern:1:重审",
+            "kind": "课体",
+            "name": "重审",
+            "originalText": "重审",
+            "promptText": "盘面命中“重审”结构标签。",
+            "sources": [
+              "发用、三传结构、空亡与课体规则逐项命中"
+            ],
+            "limitation": "传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果"
+          },
+          {
+            "key": "pattern:2:空亡入传",
+            "kind": "课体",
+            "name": "空亡入传",
+            "originalText": "空亡入传",
+            "promptText": "盘面命中“空亡入传”结构标签。",
+            "sources": [
+              "发用、三传结构、空亡与课体规则逐项命中"
+            ],
+            "limitation": "传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果"
+          },
+          {
+            "key": "pattern:3:递传",
+            "kind": "课体",
+            "name": "递传",
+            "originalText": "递传",
+            "promptText": "盘面命中“递传”结构标签。",
+            "sources": [
+              "发用、三传结构、空亡与课体规则逐项命中"
+            ],
+            "limitation": "传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果"
+          },
+          {
+            "key": "tianjiang:天后",
+            "kind": "天将属性",
+            "name": "天后",
+            "originalText": "传统类象为宫廷、妇人、婚姻、恩泽",
+            "promptText": "水阳，传统分类为妇人/恩泽；传统类象为宫廷、妇人、婚姻、恩泽",
+            "sources": [
+              "《六壬大全》卷二《天将总论》《十二将释》"
+            ],
+            "stages": [
+              "初传"
+            ],
+            "branches": [
+              "亥"
+            ],
+            "limitation": "传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果"
+          },
+          {
+            "key": "tianjiang:玄武",
+            "kind": "天将属性",
+            "name": "玄武",
+            "originalText": "传统类象为盗贼、遗亡、隐秘",
+            "promptText": "水阴，传统分类为盗贼/遗亡；传统类象为盗贼、遗亡、隐秘",
+            "sources": [
+              "《六壬大全》卷二《天将总论》《十二将释》"
+            ],
+            "stages": [
+              "中传"
+            ],
+            "branches": [
+              "酉"
+            ],
+            "limitation": "传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果"
+          },
+          {
+            "key": "tianjiang:白虎",
+            "kind": "天将属性",
+            "name": "白虎",
+            "originalText": "传统类象为疾病、孝服、道路、刑伤",
+            "promptText": "金阳，传统分类为疾病/道路；传统类象为疾病、孝服、道路、刑伤",
+            "sources": [
+              "《六壬大全》卷二《天将总论》《十二将释》"
+            ],
+            "stages": [
+              "末传"
+            ],
+            "branches": [
+              "未"
+            ],
+            "limitation": "传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果"
+          },
+          {
+            "key": "shensha:0:支马:亥",
+            "kind": "神煞",
+            "name": "支马",
+            "originalText": "支马在亥",
+            "promptText": "日支丑，按“日支所属三合局取支马：申子辰寅、亥卯未巳、寅午戌申、巳酉丑亥”定位支马在亥",
+            "sources": [
+              "《六壬大全》卷一“十二地支神煞”支马表"
+            ],
+            "branches": [
+              "亥"
+            ],
+            "limitation": "传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果"
+          },
+          {
+            "key": "shensha:1:驿马:亥",
+            "kind": "神煞",
+            "name": "驿马",
+            "originalText": "驿马在亥",
+            "promptText": "月建酉，按“按逐月神煞表取驿马：寅午戌月申、亥卯未月巳、申子辰月寅、巳酉丑月亥”定位驿马在亥",
+            "sources": [
+              "《六壬大全》卷一“逐月神煞”表"
+            ],
+            "branches": [
+              "亥"
+            ],
+            "limitation": "传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果"
+          },
+          {
+            "key": "shensha:2:劫煞:寅",
+            "kind": "神煞",
+            "name": "劫煞",
+            "originalText": "劫煞在寅",
+            "promptText": "月建酉，按“按逐月神煞表取劫煞：寅午戌月亥、亥卯未月申、申子辰月巳、巳酉丑月寅”定位劫煞在寅",
+            "sources": [
+              "《六壬大全》卷一“逐月神煞”表"
+            ],
+            "branches": [
+              "寅"
+            ],
+            "limitation": "传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果"
+          },
+          {
+            "key": "shensha:3:亡神:申",
+            "kind": "神煞",
+            "name": "亡神",
+            "originalText": "亡神在申",
+            "promptText": "月建酉，按“按逐月神煞表取亡神：寅午戌月巳、亥卯未月寅、申子辰月亥、巳酉丑月申”定位亡神在申",
+            "sources": [
+              "《六壬大全》卷一“逐月神煞”表"
+            ],
+            "branches": [
+              "申"
+            ],
+            "limitation": "传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果"
+          },
+          {
+            "key": "shensha:4:咸池:午",
+            "kind": "神煞",
+            "name": "咸池",
+            "originalText": "咸池在午",
+            "promptText": "月建酉，按“按逐月神煞表取咸池：寅午戌月卯、亥卯未月子、申子辰月酉、巳酉丑月午”定位咸池在午",
+            "sources": [
+              "《六壬大全》卷一“逐月神煞”表"
+            ],
+            "branches": [
+              "午"
+            ],
+            "limitation": "传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果"
+          },
+          {
+            "key": "shensha:5:破碎:巳",
+            "kind": "神煞",
+            "name": "破碎",
+            "originalText": "破碎在巳",
+            "promptText": "月建酉，按“月建四孟在酉、四仲在巳、四季在丑”定位破碎在巳",
+            "sources": [
+              "《六壬大全》卷一“逐月神煞”表"
+            ],
+            "branches": [
+              "巳"
+            ],
+            "limitation": "传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果"
+          },
+          {
+            "key": "shensha:6:天罗:寅",
+            "kind": "神煞",
+            "name": "天罗",
+            "originalText": "天罗在寅",
+            "promptText": "日支丑，按“日前一支为天罗”定位天罗在寅",
+            "sources": [
+              "《六壬大全》卷七“天罗地网卦”"
+            ],
+            "branches": [
+              "寅"
+            ],
+            "limitation": "传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果"
+          },
+          {
+            "key": "shensha:7:地网:申",
+            "kind": "神煞",
+            "name": "地网",
+            "originalText": "地网在申",
+            "promptText": "日支丑，按“天罗对冲之支为地网”定位地网在申",
+            "sources": [
+              "《六壬大全》卷七“天罗地网卦”"
+            ],
+            "branches": [
+              "申"
+            ],
+            "limitation": "传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果"
+          },
+          {
+            "key": "shensha:8:天德:寅",
+            "kind": "神煞",
+            "name": "天德",
+            "originalText": "天德在寅",
+            "promptText": "月建酉，按“按十二月天德表定位”定位天德在寅",
+            "sources": [
+              "《六壬大全》卷一“逐月神煞”表"
+            ],
+            "branches": [
+              "寅"
+            ],
+            "limitation": "传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果"
+          },
+          {
+            "key": "shensha:9:月德:庚",
+            "kind": "神煞",
+            "name": "月德",
+            "originalText": "月德在庚",
+            "promptText": "月建酉，按“寅午戌月丙、申子辰月壬、亥卯未月甲、巳酉丑月庚”定位月德在庚",
+            "sources": [
+              "《六壬大全》卷一“逐月神煞”表"
+            ],
+            "limitation": "传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果"
+          },
+          {
+            "key": "shensha:10:天马:申",
+            "kind": "神煞",
+            "name": "天马",
+            "originalText": "天马在申",
+            "promptText": "月建酉，按“正月午起，逐月顺行两支”定位天马在申",
+            "sources": [
+              "《六壬大全》卷一“逐月神煞”表"
+            ],
+            "branches": [
+              "申"
+            ],
+            "limitation": "传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果"
+          },
+          {
+            "key": "shensha:11:日德:寅",
+            "kind": "神煞",
+            "name": "日德",
+            "originalText": "日德在寅",
+            "promptText": "日干己，按“甲己寅、乙庚申、丙辛巳、丁壬亥、戊癸巳”定位日德在寅",
+            "sources": [
+              "《六壬大全》卷一“十天干神煞”日德表"
+            ],
+            "branches": [
+              "寅"
+            ],
+            "limitation": "传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果"
+          },
+          {
+            "key": "shensha:12:日禄:午",
+            "kind": "神煞",
+            "name": "日禄",
+            "originalText": "日禄在午",
+            "promptText": "日干己，按“甲寅、乙卯、丙戊巳、丁己午、庚申、辛酉、壬亥、癸子”定位日禄在午",
+            "sources": [
+              "《六壬大全》卷一“十天干神煞”日禄表"
+            ],
+            "branches": [
+              "午"
+            ],
+            "limitation": "传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果"
+          }
+        ],
+        "limitations": [
+          "占时四柱、月将加时、昼夜贵人、日干寄宫、旬空和天地盘逐位资料只证明起盘计算与排布结果；不得由单一位置、天将或方位直接推出人物、事件与现实吉凶",
+          "四课记录上下神、乘将、生克、旬空和初传来源，九宗门规则只说明如何发用取传；缺少规则名时不得按结果反推，已有规则也不单独证明现实成败",
+          "初传、中传、末传及相邻关系只描述盘内发用、过程与落点结构；三传顺序、旺衰、旬空与生克不得直接写成现实事件必然按同样顺序推进、停滞、成功或失败",
+          "空亡、休囚、冲克等反证必须与主证并列；未按具体问题选定类神时，不得把日支或任一神煞固定当作用神，天将也只能结合课传与问题使用；应期只保留先后、快慢、填实、冲合、旺衰与现实触发条件，不换算唯一日期或事件概率",
+          "经典取传规则、课体、天将属性和神煞属于传统规则与类象资料，只能辅助限定解释方向；不得直接证明人物身份、疾病死亡、犯罪官非、婚姻、法律责任、财务或安全结果",
+          "不得按课传关系、支持、反证、旺衰、天将、神煞或传统标签生成吉凶总分与成功率；不得输出医疗、法律、财务、安全保证、人物定性、必然事件或唯一日期"
+        ],
+        "limitationFacts": [
+          {
+            "key": "liuren:limitation:chart-plate",
+            "type": "起盘天地盘边界",
+            "ownerFactKeys": [
+              "liuren:calculation:1789191764051",
+              "liuren:plate:coverage",
+              "liuren:plate:子:戌:太阴",
+              "liuren:plate:丑:亥:天后",
+              "liuren:plate:寅:子:贵人",
+              "liuren:plate:卯:丑:螣蛇",
+              "liuren:plate:辰:寅:朱雀",
+              "liuren:plate:巳:卯:六合",
+              "liuren:plate:午:辰:勾陈",
+              "liuren:plate:未:巳:青龙",
+              "liuren:plate:申:午:天空",
+              "liuren:plate:酉:未:白虎",
+              "liuren:plate:戌:申:太常",
+              "liuren:plate:亥:酉:玄武"
+            ],
+            "promptText": "占时四柱、月将加时、昼夜贵人、日干寄宫、旬空和天地盘逐位资料只证明起盘计算与排布结果；不得由单一位置、天将或方位直接推出人物、事件与现实吉凶",
+            "sources": [
+              "起盘参数、天地盘覆盖与十二位逐项事实"
+            ],
+            "status": "适用",
+            "limitation": "限制事实用于约束大六壬占时、天地盘、四课取传、三传、类神、课体、天将、神煞与应期资料能够支持的解释范围，不得被反向当作现实吉凶、人物身份、疾病灾祸、事件概率或固定应期的证据"
+          },
+          {
+            "key": "liuren:limitation:lessons-rule",
+            "type": "四课取传边界",
+            "ownerFactKeys": [
+              "liuren:lesson:1:一课",
+              "liuren:lesson:1:一课:relation",
+              "liuren:lesson:2:二课",
+              "liuren:lesson:2:二课:relation",
+              "liuren:lesson:3:三课",
+              "liuren:lesson:3:三课:relation",
+              "liuren:lesson:4:四课",
+              "liuren:lesson:4:四课:relation",
+              "liuren:transmission-rule"
+            ],
+            "promptText": "四课记录上下神、乘将、生克、旬空和初传来源，九宗门规则只说明如何发用取传；缺少规则名时不得按结果反推，已有规则也不单独证明现实成败",
+            "sources": [
+              "四课关系事实、初传来源与九宗门取传结果"
+            ],
+            "status": "适用",
+            "limitation": "限制事实用于约束大六壬占时、天地盘、四课取传、三传、类神、课体、天将、神煞与应期资料能够支持的解释范围，不得被反向当作现实吉凶、人物身份、疾病灾祸、事件概率或固定应期的证据"
+          },
+          {
+            "key": "liuren:limitation:transmissions",
+            "type": "三传推进边界",
+            "ownerFactKeys": [
+              "liuren:transmission:初传:亥",
+              "liuren:transmission:初传:亥:adjacent-relation",
+              "liuren:transmission:初传:亥:season-state",
+              "liuren:transmission:初传:亥:day-relation",
+              "liuren:transmission:初传:亥:void",
+              "liuren:transmission:中传:酉",
+              "liuren:transmission:中传:酉:adjacent-relation",
+              "liuren:transmission:中传:酉:season-state",
+              "liuren:transmission:中传:酉:day-relation",
+              "liuren:transmission:中传:酉:void",
+              "liuren:transmission:末传:未",
+              "liuren:transmission:末传:未:adjacent-relation",
+              "liuren:transmission:末传:未:season-state",
+              "liuren:transmission:末传:未:day-relation",
+              "liuren:transmission:末传:未:void",
+              "liuren:transition:初传:中传",
+              "liuren:transition:中传:末传"
+            ],
+            "promptText": "初传、中传、末传及相邻关系只描述盘内发用、过程与落点结构；三传顺序、旺衰、旬空与生克不得直接写成现实事件必然按同样顺序推进、停滞、成功或失败",
+            "sources": [
+              "三传阶段、逐传关系与相邻推进事实"
+            ],
+            "status": "适用",
+            "limitation": "限制事实用于约束大六壬占时、天地盘、四课取传、三传、类神、课体、天将、神煞与应期资料能够支持的解释范围，不得被反向当作现实吉凶、人物身份、疾病灾祸、事件概率或固定应期的证据"
+          },
+          {
+            "key": "liuren:limitation:counter-focus-timing",
+            "type": "反证类神应期边界",
+            "ownerFactKeys": [
+              "liuren:counter-summary",
+              "liuren:counter:liuren:lesson:3:三课:relation",
+              "liuren:counter:liuren:transmission:初传:亥:adjacent-relation",
+              "liuren:counter:liuren:transmission:初传:亥:day-relation",
+              "liuren:counter:liuren:transmission:末传:未:season-state",
+              "liuren:counter:liuren:transmission:末传:未:void",
+              "liuren:focus-summary",
+              "liuren:focus:1:初传亥乘天后:发用主轴",
+              "liuren:focus:2:日干己寄未:我方与求测者",
+              "liuren:focus:3:日支丑:所占之事与对方环境",
+              "liuren:timing:1:初传状态",
+              "liuren:timing:2:三传顺序",
+              "liuren:timing:3:月日触发",
+              "liuren:timing:4:期限边界"
+            ],
+            "promptText": "空亡、休囚、冲克等反证必须与主证并列；未按具体问题选定类神时，不得把日支或任一神煞固定当作用神，天将也只能结合课传与问题使用；应期只保留先后、快慢、填实、冲合、旺衰与现实触发条件，不换算唯一日期或事件概率",
+            "sources": [
+              "课传反证、类神焦点覆盖与应期触发事实"
+            ],
+            "status": "适用",
+            "limitation": "限制事实用于约束大六壬占时、天地盘、四课取传、三传、类神、课体、天将、神煞与应期资料能够支持的解释范围，不得被反向当作现实吉凶、人物身份、疾病灾祸、事件概率或固定应期的证据"
+          },
+          {
+            "key": "liuren:limitation:tradition",
+            "type": "传统规则类象边界",
+            "ownerFactKeys": [
+              "classical:0:重审",
+              "pattern:0:天后发用",
+              "pattern:1:重审",
+              "pattern:2:空亡入传",
+              "pattern:3:递传",
+              "tianjiang:天后",
+              "tianjiang:玄武",
+              "tianjiang:白虎",
+              "shensha:0:支马:亥",
+              "shensha:1:驿马:亥",
+              "shensha:2:劫煞:寅",
+              "shensha:3:亡神:申",
+              "shensha:4:咸池:午",
+              "shensha:5:破碎:巳",
+              "shensha:6:天罗:寅",
+              "shensha:7:地网:申",
+              "shensha:8:天德:寅",
+              "shensha:9:月德:庚",
+              "shensha:10:天马:申",
+              "shensha:11:日德:寅",
+              "shensha:12:日禄:午"
+            ],
+            "promptText": "经典取传规则、课体、天将属性和神煞属于传统规则与类象资料，只能辅助限定解释方向；不得直接证明人物身份、疾病死亡、犯罪官非、婚姻、法律责任、财务或安全结果",
+            "sources": [
+              "经典规则、课体、天将属性与神煞条件化事实"
+            ],
+            "status": "适用",
+            "limitation": "限制事实用于约束大六壬占时、天地盘、四课取传、三传、类神、课体、天将、神煞与应期资料能够支持的解释范围，不得被反向当作现实吉凶、人物身份、疾病灾祸、事件概率或固定应期的证据"
+          },
+          {
+            "key": "liuren:limitation:high-risk",
+            "type": "高风险输出边界",
+            "ownerFactKeys": [
+              "liuren:evidence-summary"
+            ],
+            "promptText": "不得按课传关系、支持、反证、旺衰、天将、神煞或传统标签生成吉凶总分与成功率；不得输出医疗、法律、财务、安全保证、人物定性、必然事件或唯一日期",
+            "sources": [
+              "大六壬证据汇总与高风险解释约束"
+            ],
+            "status": "适用",
+            "limitation": "限制事实用于约束大六壬占时、天地盘、四课取传、三传、类神、课体、天将、神煞与应期资料能够支持的解释范围，不得被反向当作现实吉凶、人物身份、疾病灾祸、事件概率或固定应期的证据"
+          }
+        ],
+        "summaryFact": {
+          "key": "liuren:evidence-summary",
+          "status": "证据链完整",
+          "factKeys": [
+            "liuren:calculation:chart-input",
+            "liuren:calculation:plate",
+            "liuren:calculation:lessons",
+            "liuren:calculation:transmission-rule",
+            "liuren:calculation:transmissions",
+            "liuren:calculation:counter-focus-timing",
+            "liuren:calculation:summary",
+            "liuren:calculation:1789191764051",
+            "liuren:plate:coverage",
+            "liuren:plate:子:戌:太阴",
+            "liuren:plate:丑:亥:天后",
+            "liuren:plate:寅:子:贵人",
+            "liuren:plate:卯:丑:螣蛇",
+            "liuren:plate:辰:寅:朱雀",
+            "liuren:plate:巳:卯:六合",
+            "liuren:plate:午:辰:勾陈",
+            "liuren:plate:未:巳:青龙",
+            "liuren:plate:申:午:天空",
+            "liuren:plate:酉:未:白虎",
+            "liuren:plate:戌:申:太常",
+            "liuren:plate:亥:酉:玄武",
+            "liuren:transmission-rule",
+            "liuren:lesson:1:一课",
+            "liuren:lesson:1:一课:relation",
+            "liuren:lesson:2:二课",
+            "liuren:lesson:2:二课:relation",
+            "liuren:lesson:3:三课",
+            "liuren:lesson:3:三课:relation",
+            "liuren:lesson:4:四课",
+            "liuren:lesson:4:四课:relation",
+            "liuren:transmission:初传:亥",
+            "liuren:transmission:初传:亥:adjacent-relation",
+            "liuren:transmission:初传:亥:season-state",
+            "liuren:transmission:初传:亥:day-relation",
+            "liuren:transmission:初传:亥:void",
+            "liuren:transmission:中传:酉",
+            "liuren:transmission:中传:酉:adjacent-relation",
+            "liuren:transmission:中传:酉:season-state",
+            "liuren:transmission:中传:酉:day-relation",
+            "liuren:transmission:中传:酉:void",
+            "liuren:transmission:末传:未",
+            "liuren:transmission:末传:未:adjacent-relation",
+            "liuren:transmission:末传:未:season-state",
+            "liuren:transmission:末传:未:day-relation",
+            "liuren:transmission:末传:未:void",
+            "liuren:transition:初传:中传",
+            "liuren:transition:中传:末传",
+            "liuren:counter-summary",
+            "liuren:counter:liuren:lesson:3:三课:relation",
+            "liuren:counter:liuren:transmission:初传:亥:adjacent-relation",
+            "liuren:counter:liuren:transmission:初传:亥:day-relation",
+            "liuren:counter:liuren:transmission:末传:未:season-state",
+            "liuren:counter:liuren:transmission:末传:未:void",
+            "liuren:timing:1:初传状态",
+            "liuren:timing:2:三传顺序",
+            "liuren:timing:3:月日触发",
+            "liuren:timing:4:期限边界",
+            "liuren:focus-summary",
+            "liuren:focus:1:初传亥乘天后:发用主轴",
+            "liuren:focus:2:日干己寄未:我方与求测者",
+            "liuren:focus:3:日支丑:所占之事与对方环境",
+            "classical:0:重审",
+            "pattern:0:天后发用",
+            "pattern:1:重审",
+            "pattern:2:空亡入传",
+            "pattern:3:递传",
+            "tianjiang:天后",
+            "tianjiang:玄武",
+            "tianjiang:白虎",
+            "shensha:0:支马:亥",
+            "shensha:1:驿马:亥",
+            "shensha:2:劫煞:寅",
+            "shensha:3:亡神:申",
+            "shensha:4:咸池:午",
+            "shensha:5:破碎:巳",
+            "shensha:6:天罗:寅",
+            "shensha:7:地网:申",
+            "shensha:8:天德:寅",
+            "shensha:9:月德:庚",
+            "shensha:10:天马:申",
+            "shensha:11:日德:寅",
+            "shensha:12:日禄:午"
+          ],
+          "platePositionFactCount": 12,
+          "lessonFactCount": 4,
+          "transmissionFactCount": 3,
+          "transitionFactCount": 2,
+          "counterEvidenceCount": 5,
+          "timingFactCount": 4,
+          "focusFactCount": 3,
+          "traditionalFactCount": 21,
+          "promptText": "证据链状态：证据链完整；天地盘12/12位、四课4项、三传3项、推进2项、反证5项、应期4项、类神焦点3项、传统资料21项",
+          "sources": [
+            "全部起盘、天地盘、四课取传、三传、反证、类神、应期与传统事实逐项汇总"
+          ],
+          "limitation": "大六壬证据汇总只统计起盘、天地盘、四课取传、三传推进、反证、类神、应期与传统资料的覆盖情况；不得按数量生成吉凶总分、成功率、人物身份、事件保证或唯一日期"
+        },
+        "evidence": {
+          "title": "大六壬四课取传与三传推进结构化证据",
+          "items": [
+            {
+              "level": "辅证",
+              "title": "大六壬计算链",
+              "detail": "四柱干支为年丙午、月丁酉、日己丑、时辛未；月将巳加占时未；昼占，日干贵人子临地盘寅；日干己寄未；日柱旬空午、未；天地盘十二位与十二天将资料完整，可逐位核验月将加时和贵人顺逆排布。；四课共4项，逐课记录上下神、乘将、关系、旬空与初传来源状态；按重审法取初传亥乘天后，三传模式递传，初传上神见于三课；三传为初传亥乘天后、中传酉乘玄武、末传未乘白虎；相邻推进初传亥 → 中传酉：金生水；中传酉 → 末传未：土生金；共核验到5项盘内限制，须与主证并列使用；当前结果保存3个盘面焦点对象，须按主证、辅证和各自限制使用；已记录4项应期触发与期限事实；证据链状态：证据链完整；天地盘12/12位、四课4项、三传3项、推进2项、反证5项、应期4项、类神焦点3项、传统资料21项；统一边界：计算步骤只证明占时参数、天地盘、四课、取传、三传、反证、类神与应期条件如何形成当前证据；不证明现实吉凶、事件概率、人物身份或固定应期",
+              "source": "占时四柱与月将中气切换计算、月将加时天地盘规则、昼夜贵人、日干寄宫与日柱旬空规则、当前大六壬结果的天地盘逐位记录、十二地支与十二天将完整性检查、月将加占时生成天地盘十二支对应、贵人临地盘定天将顺逆并布十二天将、日干寄宫、日支与天地盘逐课推导、日柱旬空与上下神关系核验、当前结果保存的四课、初传与三传结构、已确定的九宗门取传结果、《大六壬大全》九宗门取传法、三传、天将、月令旺衰、旬空与日支关系核验、三传先后次序与相邻地支关系、四课与三传关系事实逐项筛选、当前大六壬结果的焦点对象完整性检查、当前大六壬结果已保存的应期条件、初传地支与日柱旬空核验、初中末传顺序、月令旺衰与旬空状态、月支、日支与初传及类神的同支冲合旺衰核验、当前问题是否给出目标期限、盘面先后快慢与触发条件、全部起盘、天地盘、四课取传、三传、反证、类神、应期与传统事实逐项汇总",
+              "tags": [
+                "计算链",
+                "证据链完整"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "月将加时与贵人起盘事实",
+              "detail": "四柱干支为年丙午、月丁酉、日己丑、时辛未；月将巳加占时未；昼占，日干贵人子临地盘寅；日干己寄未；日柱旬空午、未；边界：起盘参数只记录占时四柱、月将加时、昼夜贵人、日干寄宫与旬空的计算输入和结果，不单独证明现实事件、吉凶或应期",
+              "source": "占时四柱与月将中气切换计算、月将加时天地盘规则、昼夜贵人、日干寄宫与日柱旬空规则",
+              "tags": [
+                "月将",
+                "占时",
+                "贵人",
+                "日干寄宫",
+                "旬空"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "天地盘十二支与天将定位",
+              "detail": "天地盘十二位与十二天将资料完整，可逐位核验月将加时和贵人顺逆排布。；已保存位置：第1位地盘子上见天盘戌乘太阴；第2位地盘丑上见天盘亥乘天后；第3位地盘寅上见天盘子乘贵人，此天盘支为日干贵人，贵人临此地盘；第4位地盘卯上见天盘丑乘螣蛇；第5位地盘辰上见天盘寅乘朱雀；第6位地盘巳上见天盘卯乘六合；第7位地盘午上见天盘辰乘勾陈；第8位地盘未上见天盘巳乘青龙；第9位地盘申上见天盘午乘天空；第10位地盘酉上见天盘未乘白虎；第11位地盘戌上见天盘申乘太常；第12位地盘亥上见天盘酉乘玄武；逐位边界：天地盘逐位字段只证明月将加时与十二天将排布后的对应关系，不单独证明现实吉凶、人物身份、事件或方位结果；覆盖边界：天地盘覆盖状态只说明当前结果能否完整核验十二位对应；缺少逐位资料时不得反推或补造天盘支、地盘支与天将",
+              "source": "当前大六壬结果的天地盘逐位记录、十二地支与十二天将完整性检查、月将加占时生成天地盘十二支对应、贵人临地盘定天将顺逆并布十二天将",
+              "tags": [
+                "天地盘",
+                "十二天将",
+                "完整"
+              ]
+            },
+            {
+              "level": "主证",
+              "title": "四课取传与初传发用",
+              "detail": "四课一课巳临己（火生土）；二课卯临巳（木生火）；三课亥临丑（土克水）；四课酉临亥（金生水）；按重审法取初传亥乘天后，三传模式递传，初传上神见于三课；规则边界：取传规则事实只说明当前四课如何形成初传及三传模式；缺少规则名时不得按结果反推九宗门名称，也不单独证明现实吉凶或应期；古籍依据：《大六壬大全》九宗门取传法《重审》：四课只有一处下贼上，以下贼上之上神为初传发用。",
+              "source": "当前结果保存的四课、初传与三传结构、已确定的九宗门取传结果、《大六壬大全》九宗门取传法",
+              "tags": [
+                "四课",
+                "重审法"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "一课上下神关系",
+              "detail": "一课巳临己，乘青龙，关系火生土；上神巳与下位己的五行关系为火生土。；逐项关系一课巳临己，上下神关系火生土（支持）；事实边界：四课事实只记录上下神、乘将、关系、课注及其是否参与初传来源；不单独证明现实事件、人物、吉凶或结果",
+              "source": "日干寄宫、日支与天地盘逐课推导、日柱旬空与上下神关系核验",
+              "tags": [
+                "四课",
+                "一课"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "二课上下神关系",
+              "detail": "二课卯临巳，乘六合，关系木生火；上神卯与下位巳的五行关系为木生火。；逐项关系二课卯临巳，上下神关系木生火（支持）；事实边界：四课事实只记录上下神、乘将、关系、课注及其是否参与初传来源；不单独证明现实事件、人物、吉凶或结果",
+              "source": "日干寄宫、日支与天地盘逐课推导、日柱旬空与上下神关系核验",
+              "tags": [
+                "四课",
+                "二课"
+              ]
+            },
+            {
+              "level": "主证",
+              "title": "三课上下神关系",
+              "detail": "三课亥临丑，乘天后，关系土克水；上神亥与下位丑的五行关系为土克水。；逐项关系三课亥临丑，上下神关系土克水（限制）；事实边界：四课事实只记录上下神、乘将、关系、课注及其是否参与初传来源；不单独证明现实事件、人物、吉凶或结果",
+              "source": "日干寄宫、日支与天地盘逐课推导、日柱旬空与上下神关系核验",
+              "tags": [
+                "四课",
+                "三课",
+                "初传来源"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "四课上下神关系",
+              "detail": "四课酉临亥，乘玄武，关系金生水；上神酉与下位亥的五行关系为金生水。；逐项关系四课酉临亥，上下神关系金生水（支持）；事实边界：四课事实只记录上下神、乘将、关系、课注及其是否参与初传来源；不单独证明现实事件、人物、吉凶或结果",
+              "source": "日干寄宫、日支与天地盘逐课推导、日柱旬空与上下神关系核验",
+              "tags": [
+                "四课",
+                "四课"
+              ]
+            },
+            {
+              "level": "主证",
+              "title": "初传起点",
+              "detail": "初传亥乘天后（水、月令相）；与前位关系土克水；与日支关系土克水；初传与一课下位的五行关系为土克水。；逐项关系初传亥与前位关系土克水（限制）；初传亥月令状态相（支持）；初传亥与日支关系土克水（限制）；初传亥不在日柱旬空内（支持）；事实边界：三传事实只记录初中末传的地支、天将、月令、旬空、日支关系与相邻推进；阶段顺序不证明现实事件必然按同样方式发生",
+              "source": "三传、天将、月令旺衰、旬空与日支关系核验",
+              "tags": [
+                "初传",
+                "亥"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "中传过程",
+              "detail": "中传酉乘玄武（金、月令旺）；与前位关系金生水；与日支关系土生金；中传与初传的五行关系为金生水。；逐项关系中传酉与前位关系金生水（支持）；中传酉月令状态旺（支持）；中传酉与日支关系土生金（支持）；中传酉不在日柱旬空内（支持）；事实边界：三传事实只记录初中末传的地支、天将、月令、旬空、日支关系与相邻推进；阶段顺序不证明现实事件必然按同样方式发生",
+              "source": "三传、天将、月令旺衰、旬空与日支关系核验",
+              "tags": [
+                "中传",
+                "酉"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "末传落点",
+              "detail": "末传未乘白虎（土、月令休、空亡）；与前位关系土生金；与日支关系比和；末传与中传的五行关系为土生金。；逐项关系末传未与前位关系土生金（支持）；末传未月令状态休（限制）；末传未与日支关系比和（支持）；末传未落日柱旬空（限制）；事实边界：三传事实只记录初中末传的地支、天将、月令、旬空、日支关系与相邻推进；阶段顺序不证明现实事件必然按同样方式发生",
+              "source": "三传、天将、月令旺衰、旬空与日支关系核验",
+              "tags": [
+                "末传",
+                "未"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "初传至中传推进关系",
+              "detail": "初传亥 → 中传酉：金生水；关系状态支持；边界：相邻传推进事实只描述三传先后与地支关系，不证明现实事件必然推进、停滞、成功或失败",
+              "source": "三传先后次序与相邻地支关系",
+              "tags": [
+                "三传推进",
+                "过程",
+                "支持"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "中传至末传推进关系",
+              "detail": "中传酉 → 末传未：土生金；关系状态支持；边界：相邻传推进事实只描述三传先后与地支关系，不证明现实事件必然推进、停滞、成功或失败",
+              "source": "三传先后次序与相邻地支关系",
+              "tags": [
+                "三传推进",
+                "落点",
+                "支持"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "取传规则与三传模式说明",
+              "detail": "取传采用重审法，以初传亥为初传发用；古籍依据依次为：《大六壬大全》九宗门取传法之重审（四课只有一处下贼上，以下贼上之上神为初传发用。）。",
+              "source": "九宗门取传结果、三传结构与经典规则合并说明",
+              "tags": [
+                "取传规则",
+                "重审法",
+                "递传"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "课体与三传结构标签",
+              "detail": "盘面命中“天后发用”结构标签。；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；盘面命中“重审”结构标签。；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；盘面命中“空亡入传”结构标签。；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；盘面命中“递传”结构标签。；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果",
+              "source": "发用、三传结构、空亡与经典课体规则逐项命中",
+              "tags": [
+                "课体",
+                "结构标签"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "经典规则：重审",
+              "detail": "四课只有一处下贼上，以下贼上之上神为初传发用。；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果",
+              "source": "《大六壬大全》九宗门取传法；原始传统文义仅供资料核对，解读采用条件化表述",
+              "tags": [
+                "经典规则",
+                "重审"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "神煞定位事实",
+              "detail": "日支丑，按“日支所属三合局取支马：申子辰寅、亥卯未巳、寅午戌申、巳酉丑亥”定位支马在亥；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；月建酉，按“按逐月神煞表取驿马：寅午戌月申、亥卯未月巳、申子辰月寅、巳酉丑月亥”定位驿马在亥；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；月建酉，按“按逐月神煞表取劫煞：寅午戌月亥、亥卯未月申、申子辰月巳、巳酉丑月寅”定位劫煞在寅；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；月建酉，按“按逐月神煞表取亡神：寅午戌月巳、亥卯未月寅、申子辰月亥、巳酉丑月申”定位亡神在申；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；月建酉，按“按逐月神煞表取咸池：寅午戌月卯、亥卯未月子、申子辰月酉、巳酉丑月午”定位咸池在午；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；月建酉，按“月建四孟在酉、四仲在巳、四季在丑”定位破碎在巳；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；日支丑，按“日前一支为天罗”定位天罗在寅；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；日支丑，按“天罗对冲之支为地网”定位地网在申；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；月建酉，按“按十二月天德表定位”定位天德在寅；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；月建酉，按“寅午戌月丙、申子辰月壬、亥卯未月甲、巳酉丑月庚”定位月德在庚；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；月建酉，按“正月午起，逐月顺行两支”定位天马在申；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；日干己，按“甲己寅、乙庚申、丙辛巳、丁壬亥、戊癸巳”定位日德在寅；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；日干己，按“甲寅、乙卯、丙戊巳、丁己午、庚申、辛酉、壬亥、癸子”定位日禄在午；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果。神煞仅作辅助定位，不覆盖四课取传与三传主线。",
+              "source": "年支、月支、日支与日干神煞规则逐项定位",
+              "tags": [
+                "神煞",
+                "辅助证据"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "初传天后天将属性",
+              "detail": "水阳，传统分类为妇人/恩泽；传统类象为宫廷、妇人、婚姻、恩泽；入传位置初传，地支亥；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果",
+              "source": "《六壬大全》卷二《天将总论》《十二将释》；原始传统文义仅供资料核对，解读采用条件化表述",
+              "tags": [
+                "天将属性",
+                "初传",
+                "天后"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "中传玄武天将属性",
+              "detail": "水阴，传统分类为盗贼/遗亡；传统类象为盗贼、遗亡、隐秘；入传位置中传，地支酉；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果",
+              "source": "《六壬大全》卷二《天将总论》《十二将释》；原始传统文义仅供资料核对，解读采用条件化表述",
+              "tags": [
+                "天将属性",
+                "中传",
+                "玄武"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "末传白虎天将属性",
+              "detail": "金阳，传统分类为疾病/道路；传统类象为疾病、孝服、道路、刑伤；入传位置末传，地支未；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果",
+              "source": "《六壬大全》卷二《天将总论》《十二将释》；原始传统文义仅供资料核对，解读采用条件化表述",
+              "tags": [
+                "天将属性",
+                "末传",
+                "白虎"
+              ]
+            },
+            {
+              "level": "主证",
+              "title": "初传亥乘天后发用主轴",
+              "detail": "初传亥乘天后发用主轴：依据重审法取为初传、月令相、土克水；限制仍须结合实际问题选择类神；边界：类神焦点事实只记录当前结果已选出的关注对象、角色、依据与限制；未选定具体问题类神时不得把日支、天将或神煞固定当作用神",
+              "source": "当前结果已保存的盘面焦点对象、类神角色与课传依据",
+              "tags": [
+                "类神焦点",
+                "初传亥乘天后",
+                "发用主轴"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "日干己寄未我方与求测者",
+              "detail": "日干己寄未我方与求测者：依据日干寄宫为我方定位、一课巳临己；限制仍须结合实际问题选择类神；边界：类神焦点事实只记录当前结果已选出的关注对象、角色、依据与限制；未选定具体问题类神时不得把日支、天将或神煞固定当作用神",
+              "source": "当前结果已保存的盘面焦点对象、类神角色与课传依据",
+              "tags": [
+                "类神焦点",
+                "日干己寄未",
+                "我方与求测者"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "日支丑所占之事与对方环境",
+              "detail": "日支丑所占之事与对方环境：依据三课亥临丑、需与发用和三传同看；限制具体类神仍须按问题主题从明列盘面中选取；边界：类神焦点事实只记录当前结果已选出的关注对象、角色、依据与限制；未选定具体问题类神时不得把日支、天将或神煞固定当作用神",
+              "source": "当前结果已保存的盘面焦点对象、类神角色与课传依据",
+              "tags": [
+                "类神焦点",
+                "日支丑",
+                "所占之事与对方环境"
+              ]
+            },
+            {
+              "level": "应期",
+              "title": "应期触发证据",
+              "detail": "一级发用：先看初传亥不空，可直接作为起始信号（原结果提供；边界：应期事实只提供先后、快慢、空亡填实、冲合与旺衰等触发条件；未给期限时不得换算唯一日期，也不证明事件必然发生）；二级三传：初传亥（月令相）→中传酉（月令旺）→末传未（月令休、空）（原结果提供；边界：应期事实只提供先后、快慢、空亡填实、冲合与旺衰等触发条件；未给期限时不得换算唯一日期，也不证明事件必然发生）；三级日月：以日支丑、月支酉对初传和类神的同支、冲合与旺衰作为触发条件（原结果提供；边界：应期事实只提供先后、快慢、空亡填实、冲合与旺衰等触发条件；未给期限时不得换算唯一日期，也不证明事件必然发生）；未给出目标期限时，只判断先后、快慢和触发条件，不硬换成唯一日期（原结果提供；边界：应期事实只提供先后、快慢、空亡填实、冲合与旺衰等触发条件；未给期限时不得换算唯一日期，也不证明事件必然发生）",
+              "source": "当前大六壬结果已保存的应期条件、初传地支与日柱旬空核验、初中末传顺序、月令旺衰与旬空状态、月支、日支与初传及类神的同支冲合旺衰核验、当前问题是否给出目标期限、盘面先后快慢与触发条件",
+              "tags": [
+                "应期",
+                "触发条件"
+              ]
+            },
+            {
+              "level": "反证",
+              "title": "课传限制核验1",
+              "detail": "三课亥临丑，上下神关系土克水；边界：反证事实只表示盘内存在空亡、休囚、冲克或其他限制条件；不得把单项反证直接写成现实失败、灾祸或必然结果",
+              "source": "日干寄宫、日支与天地盘逐课推导、五行生克与地支关系",
+              "tags": [
+                "反证",
+                "课传限制",
+                "四课",
+                "上下神关系"
+              ]
+            },
+            {
+              "level": "反证",
+              "title": "课传限制核验2",
+              "detail": "初传亥与前位关系土克水；边界：反证事实只表示盘内存在空亡、休囚、冲克或其他限制条件；不得把单项反证直接写成现实失败、灾祸或必然结果",
+              "source": "三传先后次序与相邻地支关系",
+              "tags": [
+                "反证",
+                "课传限制",
+                "三传",
+                "相邻传关系"
+              ]
+            },
+            {
+              "level": "反证",
+              "title": "课传限制核验3",
+              "detail": "初传亥与日支关系土克水；边界：反证事实只表示盘内存在空亡、休囚、冲克或其他限制条件；不得把单项反证直接写成现实失败、灾祸或必然结果",
+              "source": "三传地支与日支生克冲合关系",
+              "tags": [
+                "反证",
+                "课传限制",
+                "三传",
+                "日支关系"
+              ]
+            },
+            {
+              "level": "反证",
+              "title": "课传限制核验4",
+              "detail": "末传未月令状态休；边界：反证事实只表示盘内存在空亡、休囚、冲克或其他限制条件；不得把单项反证直接写成现实失败、灾祸或必然结果",
+              "source": "月支五行与三传地支五行旺相休囚死关系",
+              "tags": [
+                "反证",
+                "课传限制",
+                "三传",
+                "月令旺衰"
+              ]
+            },
+            {
+              "level": "反证",
+              "title": "课传限制核验5",
+              "detail": "末传未落日柱旬空；边界：反证事实只表示盘内存在空亡、休囚、冲克或其他限制条件；不得把单项反证直接写成现实失败、灾祸或必然结果",
+              "source": "日柱旬空与三传地支逐项核验",
+              "tags": [
+                "反证",
+                "课传限制",
+                "三传",
+                "旬空"
+              ]
+            },
+            {
+              "level": "辅证",
+              "title": "大六壬证据汇总：证据链完整",
+              "detail": "证据链状态：证据链完整；天地盘12/12位、四课4项、三传3项、推进2项、反证5项、应期4项、类神焦点3项、传统资料21项；边界：大六壬证据汇总只统计起盘、天地盘、四课取传、三传推进、反证、类神、应期与传统资料的覆盖情况；不得按数量生成吉凶总分、成功率、人物身份、事件保证或唯一日期",
+              "source": "全部起盘、天地盘、四课取传、三传、反证、类神、应期与传统事实逐项汇总",
+              "tags": [
+                "证据汇总",
+                "证据链完整"
+              ]
+            },
+            {
+              "level": "限制",
+              "title": "大六壬课传解释边界",
+              "detail": "占时四柱、月将加时、昼夜贵人、日干寄宫、旬空和天地盘逐位资料只证明起盘计算与排布结果；不得由单一位置、天将或方位直接推出人物、事件与现实吉凶；四课记录上下神、乘将、生克、旬空和初传来源，九宗门规则只说明如何发用取传；缺少规则名时不得按结果反推，已有规则也不单独证明现实成败；初传、中传、末传及相邻关系只描述盘内发用、过程与落点结构；三传顺序、旺衰、旬空与生克不得直接写成现实事件必然按同样顺序推进、停滞、成功或失败；空亡、休囚、冲克等反证必须与主证并列；未按具体问题选定类神时，不得把日支或任一神煞固定当作用神，天将也只能结合课传与问题使用；应期只保留先后、快慢、填实、冲合、旺衰与现实触发条件，不换算唯一日期或事件概率；经典取传规则、课体、天将属性和神煞属于传统规则与类象资料，只能辅助限定解释方向；不得直接证明人物身份、疾病死亡、犯罪官非、婚姻、法律责任、财务或安全结果；不得按课传关系、支持、反证、旺衰、天将、神煞或传统标签生成吉凶总分与成功率；不得输出医疗、法律、财务、安全保证、人物定性、必然事件或唯一日期；统一边界：限制事实用于约束大六壬占时、天地盘、四课取传、三传、类神、课体、天将、神煞与应期资料能够支持的解释范围，不得被反向当作现实吉凶、人物身份、疾病灾祸、事件概率或固定应期的证据",
+              "source": "起盘参数、天地盘覆盖与十二位逐项事实、四课关系事实、初传来源与九宗门取传结果、三传阶段、逐传关系与相邻推进事实、课传反证、类神焦点覆盖与应期触发事实、经典规则、课体、天将属性与神煞条件化事实、大六壬证据汇总与高风险解释约束"
+            }
+          ]
+        },
+        "promptText": "【大六壬四课取传与三传推进结构化证据】\n【主证】四课取传与初传发用｜四课一课巳临己（火生土）；二课卯临巳（木生火）；三课亥临丑（土克水）；四课酉临亥（金生水）；按重审法取初传亥乘天后，三传模式递传，初传上神见于三课；规则边界：取传规则事实只说明当前四课如何形成初传及三传模式；缺少规则名时不得按结果反推九宗门名称，也不单独证明现实吉凶或应期；古籍依据：《大六壬大全》九宗门取传法《重审》：四课只有一处下贼上，以下贼上之上神为初传发用。｜来源：当前结果保存的四课、初传与三传结构、已确定的九宗门取传结果、《大六壬大全》九宗门取传法｜标签：四课、重审法\n【主证】三课上下神关系｜三课亥临丑，乘天后，关系土克水；上神亥与下位丑的五行关系为土克水。；逐项关系三课亥临丑，上下神关系土克水（限制）；事实边界：四课事实只记录上下神、乘将、关系、课注及其是否参与初传来源；不单独证明现实事件、人物、吉凶或结果｜来源：日干寄宫、日支与天地盘逐课推导、日柱旬空与上下神关系核验｜标签：四课、三课、初传来源\n【主证】初传起点｜初传亥乘天后（水、月令相）；与前位关系土克水；与日支关系土克水；初传与一课下位的五行关系为土克水。；逐项关系初传亥与前位关系土克水（限制）；初传亥月令状态相（支持）；初传亥与日支关系土克水（限制）；初传亥不在日柱旬空内（支持）；事实边界：三传事实只记录初中末传的地支、天将、月令、旬空、日支关系与相邻推进；阶段顺序不证明现实事件必然按同样方式发生｜来源：三传、天将、月令旺衰、旬空与日支关系核验｜标签：初传、亥\n【主证】初传亥乘天后发用主轴｜初传亥乘天后发用主轴：依据重审法取为初传、月令相、土克水；限制仍须结合实际问题选择类神；边界：类神焦点事实只记录当前结果已选出的关注对象、角色、依据与限制；未选定具体问题类神时不得把日支、天将或神煞固定当作用神｜来源：当前结果已保存的盘面焦点对象、类神角色与课传依据｜标签：类神焦点、初传亥乘天后、发用主轴\n【辅证】大六壬计算链｜四柱干支为年丙午、月丁酉、日己丑、时辛未；月将巳加占时未；昼占，日干贵人子临地盘寅；日干己寄未；日柱旬空午、未；天地盘十二位与十二天将资料完整，可逐位核验月将加时和贵人顺逆排布。；四课共4项，逐课记录上下神、乘将、关系、旬空与初传来源状态；按重审法取初传亥乘天后，三传模式递传，初传上神见于三课；三传为初传亥乘天后、中传酉乘玄武、末传未乘白虎；相邻推进初传亥 → 中传酉：金生水；中传酉 → 末传未：土生金；共核验到5项盘内限制，须与主证并列使用；当前结果保存3个盘面焦点对象，须按主证、辅证和各自限制使用；已记录4项应期触发与期限事实；证据链状态：证据链完整；天地盘12/12位、四课4项、三传3项、推进2项、反证5项、应期4项、类神焦点3项、传统资料21项；统一边界：计算步骤只证明占时参数、天地盘、四课、取传、三传、反证、类神与应期条件如何形成当前证据；不证明现实吉凶、事件概率、人物身份或固定应期｜来源：占时四柱与月将中气切换计算、月将加时天地盘规则、昼夜贵人、日干寄宫与日柱旬空规则、当前大六壬结果的天地盘逐位记录、十二地支与十二天将完整性检查、月将加占时生成天地盘十二支对应、贵人临地盘定天将顺逆并布十二天将、日干寄宫、日支与天地盘逐课推导、日柱旬空与上下神关系核验、当前结果保存的四课、初传与三传结构、已确定的九宗门取传结果、《大六壬大全》九宗门取传法、三传、天将、月令旺衰、旬空与日支关系核验、三传先后次序与相邻地支关系、四课与三传关系事实逐项筛选、当前大六壬结果的焦点对象完整性检查、当前大六壬结果已保存的应期条件、初传地支与日柱旬空核验、初中末传顺序、月令旺衰与旬空状态、月支、日支与初传及类神的同支冲合旺衰核验、当前问题是否给出目标期限、盘面先后快慢与触发条件、全部起盘、天地盘、四课取传、三传、反证、类神、应期与传统事实逐项汇总｜标签：计算链、证据链完整\n【辅证】月将加时与贵人起盘事实｜四柱干支为年丙午、月丁酉、日己丑、时辛未；月将巳加占时未；昼占，日干贵人子临地盘寅；日干己寄未；日柱旬空午、未；边界：起盘参数只记录占时四柱、月将加时、昼夜贵人、日干寄宫与旬空的计算输入和结果，不单独证明现实事件、吉凶或应期｜来源：占时四柱与月将中气切换计算、月将加时天地盘规则、昼夜贵人、日干寄宫与日柱旬空规则｜标签：月将、占时、贵人、日干寄宫、旬空\n【辅证】天地盘十二支与天将定位｜天地盘十二位与十二天将资料完整，可逐位核验月将加时和贵人顺逆排布。；已保存位置：第1位地盘子上见天盘戌乘太阴；第2位地盘丑上见天盘亥乘天后；第3位地盘寅上见天盘子乘贵人，此天盘支为日干贵人，贵人临此地盘；第4位地盘卯上见天盘丑乘螣蛇；第5位地盘辰上见天盘寅乘朱雀；第6位地盘巳上见天盘卯乘六合；第7位地盘午上见天盘辰乘勾陈；第8位地盘未上见天盘巳乘青龙；第9位地盘申上见天盘午乘天空；第10位地盘酉上见天盘未乘白虎；第11位地盘戌上见天盘申乘太常；第12位地盘亥上见天盘酉乘玄武；逐位边界：天地盘逐位字段只证明月将加时与十二天将排布后的对应关系，不单独证明现实吉凶、人物身份、事件或方位结果；覆盖边界：天地盘覆盖状态只说明当前结果能否完整核验十二位对应；缺少逐位资料时不得反推或补造天盘支、地盘支与天将｜来源：当前大六壬结果的天地盘逐位记录、十二地支与十二天将完整性检查、月将加占时生成天地盘十二支对应、贵人临地盘定天将顺逆并布十二天将｜标签：天地盘、十二天将、完整\n【辅证】一课上下神关系｜一课巳临己，乘青龙，关系火生土；上神巳与下位己的五行关系为火生土。；逐项关系一课巳临己，上下神关系火生土（支持）；事实边界：四课事实只记录上下神、乘将、关系、课注及其是否参与初传来源；不单独证明现实事件、人物、吉凶或结果｜来源：日干寄宫、日支与天地盘逐课推导、日柱旬空与上下神关系核验｜标签：四课、一课\n【辅证】二课上下神关系｜二课卯临巳，乘六合，关系木生火；上神卯与下位巳的五行关系为木生火。；逐项关系二课卯临巳，上下神关系木生火（支持）；事实边界：四课事实只记录上下神、乘将、关系、课注及其是否参与初传来源；不单独证明现实事件、人物、吉凶或结果｜来源：日干寄宫、日支与天地盘逐课推导、日柱旬空与上下神关系核验｜标签：四课、二课\n【辅证】四课上下神关系｜四课酉临亥，乘玄武，关系金生水；上神酉与下位亥的五行关系为金生水。；逐项关系四课酉临亥，上下神关系金生水（支持）；事实边界：四课事实只记录上下神、乘将、关系、课注及其是否参与初传来源；不单独证明现实事件、人物、吉凶或结果｜来源：日干寄宫、日支与天地盘逐课推导、日柱旬空与上下神关系核验｜标签：四课、四课\n【辅证】中传过程｜中传酉乘玄武（金、月令旺）；与前位关系金生水；与日支关系土生金；中传与初传的五行关系为金生水。；逐项关系中传酉与前位关系金生水（支持）；中传酉月令状态旺（支持）；中传酉与日支关系土生金（支持）；中传酉不在日柱旬空内（支持）；事实边界：三传事实只记录初中末传的地支、天将、月令、旬空、日支关系与相邻推进；阶段顺序不证明现实事件必然按同样方式发生｜来源：三传、天将、月令旺衰、旬空与日支关系核验｜标签：中传、酉\n【辅证】末传落点｜末传未乘白虎（土、月令休、空亡）；与前位关系土生金；与日支关系比和；末传与中传的五行关系为土生金。；逐项关系末传未与前位关系土生金（支持）；末传未月令状态休（限制）；末传未与日支关系比和（支持）；末传未落日柱旬空（限制）；事实边界：三传事实只记录初中末传的地支、天将、月令、旬空、日支关系与相邻推进；阶段顺序不证明现实事件必然按同样方式发生｜来源：三传、天将、月令旺衰、旬空与日支关系核验｜标签：末传、未\n【辅证】初传至中传推进关系｜初传亥 → 中传酉：金生水；关系状态支持；边界：相邻传推进事实只描述三传先后与地支关系，不证明现实事件必然推进、停滞、成功或失败｜来源：三传先后次序与相邻地支关系｜标签：三传推进、过程、支持\n【辅证】中传至末传推进关系｜中传酉 → 末传未：土生金；关系状态支持；边界：相邻传推进事实只描述三传先后与地支关系，不证明现实事件必然推进、停滞、成功或失败｜来源：三传先后次序与相邻地支关系｜标签：三传推进、落点、支持\n【辅证】取传规则与三传模式说明｜取传采用重审法，以初传亥为初传发用；古籍依据依次为：《大六壬大全》九宗门取传法之重审（四课只有一处下贼上，以下贼上之上神为初传发用。）。｜来源：九宗门取传结果、三传结构与经典规则合并说明｜标签：取传规则、重审法、递传\n【辅证】课体与三传结构标签｜盘面命中“天后发用”结构标签。；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；盘面命中“重审”结构标签。；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；盘面命中“空亡入传”结构标签。；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；盘面命中“递传”结构标签。；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果｜来源：发用、三传结构、空亡与经典课体规则逐项命中｜标签：课体、结构标签\n【辅证】经典规则：重审｜四课只有一处下贼上，以下贼上之上神为初传发用。；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果｜来源：《大六壬大全》九宗门取传法；原始传统文义仅供资料核对，解读采用条件化表述｜标签：经典规则、重审\n【辅证】神煞定位事实｜日支丑，按“日支所属三合局取支马：申子辰寅、亥卯未巳、寅午戌申、巳酉丑亥”定位支马在亥；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；月建酉，按“按逐月神煞表取驿马：寅午戌月申、亥卯未月巳、申子辰月寅、巳酉丑月亥”定位驿马在亥；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；月建酉，按“按逐月神煞表取劫煞：寅午戌月亥、亥卯未月申、申子辰月巳、巳酉丑月寅”定位劫煞在寅；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；月建酉，按“按逐月神煞表取亡神：寅午戌月巳、亥卯未月寅、申子辰月亥、巳酉丑月申”定位亡神在申；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；月建酉，按“按逐月神煞表取咸池：寅午戌月卯、亥卯未月子、申子辰月酉、巳酉丑月午”定位咸池在午；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；月建酉，按“月建四孟在酉、四仲在巳、四季在丑”定位破碎在巳；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；日支丑，按“日前一支为天罗”定位天罗在寅；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；日支丑，按“天罗对冲之支为地网”定位地网在申；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；月建酉，按“按十二月天德表定位”定位天德在寅；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；月建酉，按“寅午戌月丙、申子辰月壬、亥卯未月甲、巳酉丑月庚”定位月德在庚；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；月建酉，按“正月午起，逐月顺行两支”定位天马在申；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；日干己，按“甲己寅、乙庚申、丙辛巳、丁壬亥、戊癸巳”定位日德在寅；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果；日干己，按“甲寅、乙卯、丙戊巳、丁己午、庚申、辛酉、壬亥、癸子”定位日禄在午；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果。神煞仅作辅助定位，不覆盖四课取传与三传主线。｜来源：年支、月支、日支与日干神煞规则逐项定位｜标签：神煞、辅助证据\n【辅证】初传天后天将属性｜水阳，传统分类为妇人/恩泽；传统类象为宫廷、妇人、婚姻、恩泽；入传位置初传，地支亥；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果｜来源：《六壬大全》卷二《天将总论》《十二将释》；原始传统文义仅供资料核对，解读采用条件化表述｜标签：天将属性、初传、天后\n【辅证】中传玄武天将属性｜水阴，传统分类为盗贼/遗亡；传统类象为盗贼、遗亡、隐秘；入传位置中传，地支酉；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果｜来源：《六壬大全》卷二《天将总论》《十二将释》；原始传统文义仅供资料核对，解读采用条件化表述｜标签：天将属性、中传、玄武\n【辅证】末传白虎天将属性｜金阳，传统分类为疾病/道路；传统类象为疾病、孝服、道路、刑伤；入传位置末传，地支未；边界：传统规则或类象只用于限定解释方向，不证明现实事件、身份、疾病、死亡、犯罪、婚姻、法律责任或财务结果｜来源：《六壬大全》卷二《天将总论》《十二将释》；原始传统文义仅供资料核对，解读采用条件化表述｜标签：天将属性、末传、白虎\n【辅证】日干己寄未我方与求测者｜日干己寄未我方与求测者：依据日干寄宫为我方定位、一课巳临己；限制仍须结合实际问题选择类神；边界：类神焦点事实只记录当前结果已选出的关注对象、角色、依据与限制；未选定具体问题类神时不得把日支、天将或神煞固定当作用神｜来源：当前结果已保存的盘面焦点对象、类神角色与课传依据｜标签：类神焦点、日干己寄未、我方与求测者\n【辅证】日支丑所占之事与对方环境｜日支丑所占之事与对方环境：依据三课亥临丑、需与发用和三传同看；限制具体类神仍须按问题主题从明列盘面中选取；边界：类神焦点事实只记录当前结果已选出的关注对象、角色、依据与限制；未选定具体问题类神时不得把日支、天将或神煞固定当作用神｜来源：当前结果已保存的盘面焦点对象、类神角色与课传依据｜标签：类神焦点、日支丑、所占之事与对方环境\n【辅证】大六壬证据汇总：证据链完整｜证据链状态：证据链完整；天地盘12/12位、四课4项、三传3项、推进2项、反证5项、应期4项、类神焦点3项、传统资料21项；边界：大六壬证据汇总只统计起盘、天地盘、四课取传、三传推进、反证、类神、应期与传统资料的覆盖情况；不得按数量生成吉凶总分、成功率、人物身份、事件保证或唯一日期｜来源：全部起盘、天地盘、四课取传、三传、反证、类神、应期与传统事实逐项汇总｜标签：证据汇总、证据链完整\n【反证】课传限制核验1｜三课亥临丑，上下神关系土克水；边界：反证事实只表示盘内存在空亡、休囚、冲克或其他限制条件；不得把单项反证直接写成现实失败、灾祸或必然结果｜来源：日干寄宫、日支与天地盘逐课推导、五行生克与地支关系｜标签：反证、课传限制、四课、上下神关系\n【反证】课传限制核验2｜初传亥与前位关系土克水；边界：反证事实只表示盘内存在空亡、休囚、冲克或其他限制条件；不得把单项反证直接写成现实失败、灾祸或必然结果｜来源：三传先后次序与相邻地支关系｜标签：反证、课传限制、三传、相邻传关系\n【反证】课传限制核验3｜初传亥与日支关系土克水；边界：反证事实只表示盘内存在空亡、休囚、冲克或其他限制条件；不得把单项反证直接写成现实失败、灾祸或必然结果｜来源：三传地支与日支生克冲合关系｜标签：反证、课传限制、三传、日支关系\n【反证】课传限制核验4｜末传未月令状态休；边界：反证事实只表示盘内存在空亡、休囚、冲克或其他限制条件；不得把单项反证直接写成现实失败、灾祸或必然结果｜来源：月支五行与三传地支五行旺相休囚死关系｜标签：反证、课传限制、三传、月令旺衰\n【反证】课传限制核验5｜末传未落日柱旬空；边界：反证事实只表示盘内存在空亡、休囚、冲克或其他限制条件；不得把单项反证直接写成现实失败、灾祸或必然结果｜来源：日柱旬空与三传地支逐项核验｜标签：反证、课传限制、三传、旬空\n【限制】大六壬课传解释边界｜占时四柱、月将加时、昼夜贵人、日干寄宫、旬空和天地盘逐位资料只证明起盘计算与排布结果；不得由单一位置、天将或方位直接推出人物、事件与现实吉凶；四课记录上下神、乘将、生克、旬空和初传来源，九宗门规则只说明如何发用取传；缺少规则名时不得按结果反推，已有规则也不单独证明现实成败；初传、中传、末传及相邻关系只描述盘内发用、过程与落点结构；三传顺序、旺衰、旬空与生克不得直接写成现实事件必然按同样顺序推进、停滞、成功或失败；空亡、休囚、冲克等反证必须与主证并列；未按具体问题选定类神时，不得把日支或任一神煞固定当作用神，天将也只能结合课传与问题使用；应期只保留先后、快慢、填实、冲合、旺衰与现实触发条件，不换算唯一日期或事件概率；经典取传规则、课体、天将属性和神煞属于传统规则与类象资料，只能辅助限定解释方向；不得直接证明人物身份、疾病死亡、犯罪官非、婚姻、法律责任、财务或安全结果；不得按课传关系、支持、反证、旺衰、天将、神煞或传统标签生成吉凶总分与成功率；不得输出医疗、法律、财务、安全保证、人物定性、必然事件或唯一日期；统一边界：限制事实用于约束大六壬占时、天地盘、四课取传、三传、类神、课体、天将、神煞与应期资料能够支持的解释范围，不得被反向当作现实吉凶、人物身份、疾病灾祸、事件概率或固定应期的证据｜来源：起盘参数、天地盘覆盖与十二位逐项事实、四课关系事实、初传来源与九宗门取传结果、三传阶段、逐传关系与相邻推进事实、课传反证、类神焦点覆盖与应期触发事实、经典规则、课体、天将属性与神煞条件化事实、大六壬证据汇总与高风险解释约束\n【应期】应期触发证据｜一级发用：先看初传亥不空，可直接作为起始信号（原结果提供；边界：应期事实只提供先后、快慢、空亡填实、冲合与旺衰等触发条件；未给期限时不得换算唯一日期，也不证明事件必然发生）；二级三传：初传亥（月令相）→中传酉（月令旺）→末传未（月令休、空）（原结果提供；边界：应期事实只提供先后、快慢、空亡填实、冲合与旺衰等触发条件；未给期限时不得换算唯一日期，也不证明事件必然发生）；三级日月：以日支丑、月支酉对初传和类神的同支、冲合与旺衰作为触发条件（原结果提供；边界：应期事实只提供先后、快慢、空亡填实、冲合与旺衰等触发条件；未给期限时不得换算唯一日期，也不证明事件必然发生）；未给出目标期限时，只判断先后、快慢和触发条件，不硬换成唯一日期（原结果提供；边界：应期事实只提供先后、快慢、空亡填实、冲合与旺衰等触发条件；未给期限时不得换算唯一日期，也不证明事件必然发生）｜来源：当前大六壬结果已保存的应期条件、初传地支与日柱旬空核验、初中末传顺序、月令旺衰与旬空状态、月支、日支与初传及类神的同支冲合旺衰核验、当前问题是否给出目标期限、盘面先后快慢与触发条件｜标签：应期、触发条件\n取传规则事实：按重审法取初传亥乘天后，三传模式递传，初传上神见于三课；边界：取传规则事实只说明当前四课如何形成初传及三传模式；缺少规则名时不得按结果反推九宗门名称，也不单独证明现实吉凶或应期\n推进关系：初传亥 → 中传酉：金生水；中传酉 → 末传未：土生金\n反证限制：共核验到5项盘内限制，须与主证并列使用；明细三课亥临丑，上下神关系土克水；初传亥与前位关系土克水；初传亥与日支关系土克水；末传未月令状态休；末传未落日柱旬空；边界：反证汇总只说明当前结构化核验是否发现盘内限制，不代表现实风险为零，也不表示证据数量可换算为吉凶总分\n触发条件：一级发用：先看初传亥不空，可直接作为起始信号（原结果提供）；二级三传：初传亥（月令相）→中传酉（月令旺）→末传未（月令休、空）（原结果提供）；三级日月：以日支丑、月支酉对初传和类神的同支、冲合与旺衰作为触发条件（原结果提供）；未给出目标期限时，只判断先后、快慢和触发条件，不硬换成唯一日期（原结果提供）\n类神焦点状态：当前结果保存3个盘面焦点对象，须按主证、辅证和各自限制使用；边界：焦点覆盖状态只说明当前结果是否保存关注对象；缺少焦点时不得自行把日支、天将或神煞固定当作用神，仍须按具体问题选择类神\n应期边界：未给期限时不换算唯一日期，不以神煞、课体或单项关系指定应期。\n计算链：四柱干支为年丙午、月丁酉、日己丑、时辛未；月将巳加占时未；昼占，日干贵人子临地盘寅；日干己寄未；日柱旬空午、未 → 天地盘十二位与十二天将资料完整，可逐位核验月将加时和贵人顺逆排布。 → 四课共4项，逐课记录上下神、乘将、关系、旬空与初传来源状态 → 按重审法取初传亥乘天后，三传模式递传，初传上神见于三课 → 三传为初传亥乘天后、中传酉乘玄武、末传未乘白虎；相邻推进初传亥 → 中传酉：金生水；中传酉 → 末传未：土生金 → 共核验到5项盘内限制，须与主证并列使用；当前结果保存3个盘面焦点对象，须按主证、辅证和各自限制使用；已记录4项应期触发与期限事实 → 证据链状态：证据链完整；天地盘12/12位、四课4项、三传3项、推进2项、反证5项、应期4项、类神焦点3项、传统资料21项\n证据汇总：证据链状态：证据链完整；天地盘12/12位、四课4项、三传3项、推进2项、反证5项、应期4项、类神焦点3项、传统资料21项。\n解释限制：占时四柱、月将加时、昼夜贵人、日干寄宫、旬空和天地盘逐位资料只证明起盘计算与排布结果；不得由单一位置、天将或方位直接推出人物、事件与现实吉凶；四课记录上下神、乘将、生克、旬空和初传来源，九宗门规则只说明如何发用取传；缺少规则名时不得按结果反推，已有规则也不单独证明现实成败；初传、中传、末传及相邻关系只描述盘内发用、过程与落点结构；三传顺序、旺衰、旬空与生克不得直接写成现实事件必然按同样顺序推进、停滞、成功或失败；空亡、休囚、冲克等反证必须与主证并列；未按具体问题选定类神时，不得把日支或任一神煞固定当作用神，天将也只能结合课传与问题使用；应期只保留先后、快慢、填实、冲合、旺衰与现实触发条件，不换算唯一日期或事件概率；经典取传规则、课体、天将属性和神煞属于传统规则与类象资料，只能辅助限定解释方向；不得直接证明人物身份、疾病死亡、犯罪官非、婚姻、法律责任、财务或安全结果；不得按课传关系、支持、反证、旺衰、天将、神煞或传统标签生成吉凶总分与成功率；不得输出医疗、法律、财务、安全保证、人物定性、必然事件或唯一日期。",
+        "methodology": [
+          "先核验四课上下关系，再按已计算的九宗门规则确认初传发用。",
+          "初传、中传、末传分别作为起点、过程、落点，逐传保留天将、旺衰、旬空和日支关系。",
+          "月将加时、昼夜贵人、天地盘、日干寄宫、课体、神煞与天将属性均保留为结构化辅证。",
+          "课体与神煞只作辅助标签，不覆盖发用和三传主线。",
+          "未按问题选择类神时保留限制，不生成吉凶总分、成功率或绝对日期。"
+        ]
+      },
+      "evidenceTrail": {
+        "items": [
+          {
+            "title": "六壬起课基础",
+            "system": "liuren",
+            "computationChain": [
+              {
+                "name": "占卜时间",
+                "reference": "getDivinationTime",
+                "output": {
+                  "year": "丙午",
+                  "month": "丁酉",
+                  "day": "己丑",
+                  "hour": "辛未"
+                }
+              },
+              {
+                "name": "昼夜占",
+                "reference": "dayNight",
+                "output": "昼占"
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "《大六壬指南》《壬归》"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "提供占卜时刻"
+              ],
+              "cautionWhen": [
+                "昼夜占决定贵人顺逆",
+                "时辰交接时刻敏感"
+              ],
+              "precision": "时辰精度（2 小时）"
+            },
+            "counterEvidence": [
+              {
+                "description": "昼占夜占判定口径不同会改变贵人顺逆",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "high",
+            "depth": 0
+          },
+          {
+            "title": "四课三传",
+            "system": "liuren",
+            "computationChain": [
+              {
+                "name": "四课",
+                "reference": "以日干寄宫与日支立四课",
+                "output": {
+                  "lessonCount": 4,
+                  "summary": "四课源于日干寄宫未与日支丑，关系呈火生土、木生火、土克水、金生水，重点先看重审落点。 当前节气为白露。"
+                }
+              },
+              {
+                "name": "三传",
+                "reference": "九宗门发用",
+                "output": {
+                  "transmissionCount": 3,
+                  "rule": "重审法",
+                  "pattern": "递传",
+                  "detail": "取传采用重审法，以初传亥为初传发用；古籍依据依次为：《大六壬大全》九宗门取传法之重审（四课只有一处下贼上，以下贼上之上神为初传发用。）。"
+                }
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "九宗门发用（《六壬粹言》）"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "四课立、三传发用"
+              ],
+              "cautionWhen": [
+                "涉害/遥克/昴星等九宗门取用不同",
+                "伏吟反吟回环递传特殊模式"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "九宗门取传顺序存在流派差异",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "high",
+            "depth": 0
+          },
+          {
+            "title": "月将加占时",
+            "system": "liuren",
+            "computationChain": [
+              {
+                "name": "月将",
+                "reference": "太阳过宫",
+                "output": "巳"
+              },
+              {
+                "name": "占时",
+                "reference": "占时地支",
+                "output": "未"
+              },
+              {
+                "name": "贵人",
+                "reference": "日干贵人顺逆",
+                "output": {
+                  "nobleman": "子",
+                  "ground": "寅"
+                }
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "《六壬大全》月将贵人法"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "月将加占时布天盘"
+              ],
+              "cautionWhen": [
+                "月将随节气换将",
+                "贵人顺逆依昼夜占"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "月将过宫时间（中气/节）口径有差异",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 1
+          },
+          {
+            "title": "课体格局",
+            "system": "liuren",
+            "computationChain": [
+              {
+                "name": "课体标签",
+                "reference": "三传课体",
+                "output": [
+                  "天后发用",
+                  "重审",
+                  "空亡入传",
+                  "递传"
+                ]
+              },
+              {
+                "name": "经典课体",
+                "reference": "classicalRules",
+                "output": [
+                  "重审"
+                ]
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "《大六壬大全》课体章"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "依三传干支关系定课体"
+              ],
+              "cautionWhen": [
+                "课体吉凶需结合类神与旺衰",
+                "不构成必然应期"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "课体判读存在流派差异",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 1
+          },
+          {
+            "title": "旬空旺衰",
+            "system": "liuren",
+            "computationChain": [
+              {
+                "name": "旬空",
+                "reference": "日柱旬空",
+                "output": [
+                  "午",
+                  "未"
+                ]
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "《六壬》旬空论"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "以日柱定旬空"
+              ],
+              "cautionWhen": [
+                "空亡逢冲可出空"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "空亡填实出空时机不同流派不同",
+                "severity": "minor"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 1
+          }
+        ],
+        "overallConfidence": "medium",
+        "summary": "大六壬起课证据链（己丑日，未时占）",
+        "generatedAt": "2026-09-12T05:42:44.051Z"
+      },
+      "template": "general"
+    },
+    "meta": {
+      "service": "www.temposoul.com",
+      "version": "v1"
+    }
+  }
+}

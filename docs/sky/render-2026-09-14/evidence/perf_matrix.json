@@ -1,0 +1,265 @@
+[
+  {
+    "tag": "A-strict-good4G",
+    "kbps": 8000,
+    "lat": 40,
+    "errors": [],
+    "wallLoadMs": 1735,
+    "perf": {
+      "first": 31.200000002980232,
+      "settled": 41.20000000298023,
+      "firstFromNav": 1606.9000000059605,
+      "settleFromNav": 1616.9000000059605,
+      "arv": 1.9814241486068112,
+      "kind": "strict",
+      "tier": 1920,
+      "ext": "webp",
+      "weak": false,
+      "inline": true,
+      "single": true,
+      "url": "",
+      "nav": 1575.7000000029802,
+      "dpr": 1,
+      "w": 1920,
+      "h": 969,
+      "natural": "1920x969",
+      "avif": true
+    },
+    "nav": {
+      "responseEnd": 1564.8,
+      "load": 1608.3,
+      "transfer": 1528144,
+      "res": [
+        {
+          "n": "favicon.ico",
+          "sz": 635,
+          "dur": 59
+        }
+      ]
+    }
+  },
+  {
+    "tag": "B-strict-weak4G",
+    "kbps": 1600,
+    "lat": 150,
+    "errors": [],
+    "wallLoadMs": 11546,
+    "perf": {
+      "first": 3.0999999940395355,
+      "settled": 15.699999988079071,
+      "firstFromNav": 11403.20000000298,
+      "settleFromNav": 11415.79999999702,
+      "arv": 1.9814241486068112,
+      "kind": "strict",
+      "tier": 1920,
+      "ext": "webp",
+      "weak": false,
+      "inline": true,
+      "single": true,
+      "url": "",
+      "nav": 11400.10000000894,
+      "dpr": 1,
+      "w": 1920,
+      "h": 969,
+      "natural": "1920x969",
+      "avif": true
+    },
+    "nav": {
+      "responseEnd": 11385.4,
+      "load": 11404.4,
+      "transfer": 1528144,
+      "res": []
+    }
+  },
+  {
+    "tag": "C-visual1920-weak4G",
+    "kbps": 1600,
+    "lat": 150,
+    "errors": [],
+    "wallLoadMs": 1368,
+    "perf": {
+      "first": 3.1000000089406967,
+      "settled": 15.800000011920929,
+      "firstFromNav": 1360.7000000029802,
+      "settleFromNav": 1373.4000000059605,
+      "arv": 1.9814241486068112,
+      "kind": "strict",
+      "tier": 1920,
+      "ext": "avif",
+      "weak": false,
+      "inline": true,
+      "single": true,
+      "url": "",
+      "nav": 1357.5999999940395,
+      "dpr": 1,
+      "w": 1920,
+      "h": 969,
+      "natural": "1920x969",
+      "avif": true
+    },
+    "nav": {
+      "responseEnd": 1357.3,
+      "load": 1361.6,
+      "transfer": 240152,
+      "res": []
+    }
+  },
+  {
+    "tag": "D-visual1080-slow3G",
+    "kbps": 400,
+    "lat": 400,
+    "errors": [],
+    "wallLoadMs": 2637,
+    "perf": {
+      "first": 1.3999999910593033,
+      "settled": 1.699999988079071,
+      "firstFromNav": 2618.3999999910593,
+      "settleFromNav": 2618.699999988079,
+      "arv": 1.9814241486068112,
+      "kind": "strict",
+      "tier": 1920,
+      "ext": "avif",
+      "weak": false,
+      "inline": true,
+      "single": true,
+      "url": "",
+      "nav": 2617,
+      "dpr": 1,
+      "w": 1920,
+      "h": 969,
+      "natural": "1080x545",
+      "avif": true
+    },
+    "nav": {
+      "responseEnd": 2616.1,
+      "load": 2628.4,
+      "transfer": 111976,
+      "res": []
+    }
+  },
+  {
+    "tag": "E-prod-good4G",
+    "kbps": 8000,
+    "lat": 40,
+    "errors": [],
+    "wallLoadMs": 1350,
+    "perf": {
+      "first": 1312.4000000059605,
+      "settled": 1316,
+      "decode": 1302.2000000029802,
+      "firstFromNav": 1395.1000000089407,
+      "settleFromNav": 1398.7000000029802,
+      "arv": 1.9814241486068112,
+      "kind": "auto",
+      "tier": 1920,
+      "ext": "webp",
+      "weak": false,
+      "inline": false,
+      "single": false,
+      "url": "assets/plate_1920.webp",
+      "nav": 82.70000000298023,
+      "dpr": 1,
+      "w": 1920,
+      "h": 969,
+      "natural": "1920x969",
+      "avif": true
+    },
+    "nav": {
+      "responseEnd": 73.4,
+      "load": 1340.8,
+      "transfer": 12227,
+      "res": [
+        {
+          "n": "plate_1080.avif",
+          "sz": 75399,
+          "dur": 212
+        },
+        {
+          "n": "plate_1920.webp",
+          "sz": 1137524,
+          "dur": 1243
+        }
+      ]
+    }
+  },
+  {
+    "tag": "F-prod-weak4G",
+    "kbps": 1600,
+    "lat": 150,
+    "errors": [],
+    "wallLoadMs": 728,
+    "perf": {
+      "first": 505.79999999701977,
+      "settled": 515.1000000089407,
+      "decode": 503.79999999701977,
+      "firstFromNav": 726.6999999880791,
+      "settleFromNav": 736,
+      "arv": 1.9814241486068112,
+      "kind": "auto",
+      "tier": 1080,
+      "ext": "avif",
+      "weak": true,
+      "inline": false,
+      "single": false,
+      "url": "assets/plate_1080.avif",
+      "nav": 220.8999999910593,
+      "dpr": 1,
+      "w": 1920,
+      "h": 969,
+      "natural": "1080x545",
+      "avif": true
+    },
+    "nav": {
+      "responseEnd": 219.9,
+      "load": 719.9,
+      "transfer": 12227,
+      "res": [
+        {
+          "n": "plate_1080.avif",
+          "sz": 75399,
+          "dur": 542
+        }
+      ]
+    }
+  },
+  {
+    "tag": "G-prod-slow3G",
+    "kbps": 400,
+    "lat": 400,
+    "errors": [],
+    "wallLoadMs": 2377,
+    "perf": {
+      "first": 1693.4000000059605,
+      "settled": 1703.7000000029802,
+      "decode": 1690.6000000089407,
+      "firstFromNav": 2375.1000000089407,
+      "settleFromNav": 2385.4000000059605,
+      "arv": 1.9814241486068112,
+      "kind": "auto",
+      "tier": 1080,
+      "ext": "avif",
+      "weak": true,
+      "inline": false,
+      "single": false,
+      "url": "assets/plate_1080.avif",
+      "nav": 681.7000000029802,
+      "dpr": 1,
+      "w": 1920,
+      "h": 969,
+      "natural": "1080x545",
+      "avif": true
+    },
+    "nav": {
+      "responseEnd": 680.8,
+      "load": 2368.2,
+      "transfer": 12227,
+      "res": [
+        {
+          "n": "plate_1080.avif",
+          "sz": 75399,
+          "dur": 1874
+        }
+      ]
+    }
+  }
+]

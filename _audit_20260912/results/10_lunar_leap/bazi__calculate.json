@@ -1,0 +1,15 @@
+{
+  "http": 400,
+  "ms": 622,
+  "body": {
+    "ok": false,
+    "error": {
+      "code": "BAD_REQUEST",
+      "message": "农历日期不存在，请检查月份、日期和闰月设置。"
+    },
+    "meta": {
+      "service": "www.temposoul.com",
+      "version": "v1"
+    }
+  }
+}

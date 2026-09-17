@@ -31,7 +31,11 @@ export function TrustBanner({
   }
 
   return (
-    <div className={`trust-banner trust-banner--${tier ?? 'none'}`} role="status" aria-live="polite">
+    <div
+      className={`trust-banner trust-banner--${tier ?? 'none'}`}
+      role="status"
+      aria-live="polite"
+    >
       <span className="trust-badge" aria-hidden="true">
         {tier}
       </span>

@@ -7,11 +7,7 @@
  *
  * 覆盖六爻起卦六大环节：起卦基础 → 摇卦过程 → 卦象构建 → 纳甲装卦 → 世应定位 → 动变分析
  */
-import {
-  buildEvidenceTrail,
-  type EvidenceItem,
-  type EvidenceTrail,
-} from '../shared/evidence';
+import { buildEvidenceTrail, type EvidenceItem, type EvidenceTrail } from '../shared/evidence';
 import type { LiuyaoData } from '../types/divination';
 
 export function buildLiuyaoEvidenceTrail(result: LiuyaoData): EvidenceTrail {
@@ -61,9 +57,7 @@ export function buildLiuyaoEvidenceTrail(result: LiuyaoData): EvidenceTrail {
           name: '三钱投掷',
           formula: '三枚铜钱每爻一掷：字背组合定 6/7/8/9（老阴/少阳/少阴/老阳）',
           reference: 'generateCoinYaos',
-          output: result.generation.coinThrows.map(
-            (t) => `${t.total}（${t.coins.join(',')}）`,
-          ),
+          output: result.generation.coinThrows.map((t) => `${t.total}（${t.coins.join(',')}）`),
         },
       ],
       source: { type: 'classical', name: '三钱起卦法（《易冒》钱筮法）' },
@@ -105,9 +99,7 @@ export function buildLiuyaoEvidenceTrail(result: LiuyaoData): EvidenceTrail {
       applicableWhen: ['六爻成卦'],
       cautionWhen: ['卦象查表需二进制符号精确匹配'],
     },
-    counterEvidence: [
-      { description: '动爻多少决定变卦是否启用', severity: 'alternative' },
-    ],
+    counterEvidence: [{ description: '动爻多少决定变卦是否启用', severity: 'alternative' }],
     confidence: 'high',
     depth: 0,
   });
@@ -144,9 +136,7 @@ export function buildLiuyaoEvidenceTrail(result: LiuyaoData): EvidenceTrail {
         applicableWhen: ['纳甲装卦标准流程'],
         cautionWhen: ['变卦六亲以主卦宫位五行为我'],
       },
-      counterEvidence: [
-        { description: '六神起法以日干定，存在个别口诀差异', severity: 'minor' },
-      ],
+      counterEvidence: [{ description: '六神起法以日干定，存在个别口诀差异', severity: 'minor' }],
       confidence: 'high',
       depth: 1,
     });

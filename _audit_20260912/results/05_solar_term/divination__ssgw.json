@@ -1,0 +1,227 @@
+{
+  "http": 200,
+  "ms": 1557,
+  "body": {
+    "ok": true,
+    "data": {
+      "number": 50,
+      "title": "第五十签 · 学海无涯，勤舟可渡（平）",
+      "poem": "学海无涯勤是岸，书山有路志为梯。\n莫道此身已倦怠，一篙松劲退千寻。",
+      "story": "\"学海无涯\"出自《庄子·养生主》——\"吾生也有涯，而知也无涯。\"韩愈《古今贤文》中有\"书山有路勤为径，学海无涯苦作舟\"的千古名句。 \"一篙松劲退千寻\"化用了逆水行舟的比喻——不进则退，而且不是缓退，是一松手就猛退！",
+      "details": {
+        "吉凶": "中签（平）",
+        "解签总论": "此签乃学无止境、精进不息之象，总论知识和智慧就像大海一样无边无际，只有勤奋才能到达彼岸。不要觉得已经够了、可以休息了——一旦松劲，就会退步千里。 - 学海无涯勤是岸 —— 知识的海洋没有边际，勤奋才是唯一的岸 - 书山有路志为梯 —— 书山虽高，志气就是攀登的梯子 - 莫道此身已倦怠 —— 别觉得自己已经累了、够了 - 一篙松劲退千寻 —— 撑船的竹篙一松手，船就会退后千丈远",
+        "学习/进修": "不要松懈！学如逆水行舟，不进则退",
+        "事业/创业": "最怕到半山腰就停下来，前面的努力白费了",
+        "提醒": "你累是正常的，但累的时候恰恰是最关键的时候——别人也在累，撑过去的人就是赢家",
+        "此签核心": "学海无涯勤作舟，书山有路志为梯。一篙松劲退千里，坚持才是真本事。",
+        "核心寓意": "学海无涯勤作舟，书山有路志为梯。一篙松劲退千里，坚持才是真本事。",
+        "事业": "知识型事业靠持续深耕，不可停步。",
+        "财运": "财运来自专业成长，短期不适合分心逐利。",
+        "感情": "伴侣需要理解学习投入，注意陪伴。",
+        "学业": "学海无涯，勤奋与方法决定进步。",
+        "健康": "久坐用脑需运动、护眼和休息。",
+        "行动建议": "制定长期学习计划，坚持每日输入输出。",
+        "风险提醒": "别自满停学或一松劲就放弃。"
+      },
+      "timestamp": 1789191843883,
+      "ganzhi": {
+        "year": "丙午",
+        "month": "丁酉",
+        "day": "己丑",
+        "hour": "辛未"
+      },
+      "draw": {
+        "method": "random",
+        "poolSize": 92,
+        "selectedIndex": 49,
+        "selectedNumber": 50
+      },
+      "meta": {
+        "engineVersion": "0.1.26",
+        "schemaVersion": "1.0.0",
+        "algorithm": "ssgw.draw",
+        "calculatedAt": "2026-09-12T05:44:03.883Z",
+        "inputHash": "b6275c67a1852d71",
+        "resultId": "ssgw.draw:08cbdd88a1edd3a8",
+        "random": {
+          "mode": "system",
+          "samples": [
+            0.5408752268889442
+          ]
+        }
+      },
+      "evidenceTrail": {
+        "items": [
+          {
+            "title": "灵签抽签基础",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "签数",
+                "reference": "draw.poolSize",
+                "output": 92
+              },
+              {
+                "name": "抽得签号",
+                "reference": "number",
+                "output": 50
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "观音灵签（第一百签）体系"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "在签池中随机抽取"
+              ],
+              "cautionWhen": [
+                "签文寓意随求问事由而变化",
+                "不同灵签版本签文有差异"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "不同灵签体系（观音/关帝/吕祖）签文不同",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 0
+          },
+          {
+            "title": "求签时间",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "干支纪时",
+                "reference": "ganzhi",
+                "output": "丙午年丁酉月己丑日"
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "干支纪时（求签时间）"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "记录求签时刻"
+              ],
+              "cautionWhen": [
+                "跨日/跨年转换以当地时间为准"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "干支纪时与公历换算口径存在细微差异",
+                "severity": "minor"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 1
+          },
+          {
+            "title": "签文呈现",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "签题",
+                "reference": "title",
+                "output": "第五十签 · 学海无涯，勤舟可渡（平）"
+              },
+              {
+                "name": "签诗",
+                "reference": "poem",
+                "output": "学海无涯勤是岸，书山有路志为梯。\n莫道此身已倦怠，一篙松劲退千寻。"
+              },
+              {
+                "name": "注解",
+                "reference": "details",
+                "output": {
+                  "吉凶": "中签（平）",
+                  "解签总论": "此签乃学无止境、精进不息之象，总论知识和智慧就像大海一样无边无际，只有勤奋才能到达彼岸。不要觉得已经够了、可以休息了——一旦松劲，就会退步千里。 - 学海无涯勤是岸 —— 知识的海洋没有边际，勤奋才是唯一的岸 - 书山有路志为梯 —— 书山虽高，志气就是攀登的梯子 - 莫道此身已倦怠 —— 别觉得自己已经累了、够了 - 一篙松劲退千寻 —— 撑船的竹篙一松手，船就会退后千丈远",
+                  "学习/进修": "不要松懈！学如逆水行舟，不进则退",
+                  "事业/创业": "最怕到半山腰就停下来，前面的努力白费了",
+                  "提醒": "你累是正常的，但累的时候恰恰是最关键的时候——别人也在累，撑过去的人就是赢家",
+                  "此签核心": "学海无涯勤作舟，书山有路志为梯。一篙松劲退千里，坚持才是真本事。",
+                  "核心寓意": "学海无涯勤作舟，书山有路志为梯。一篙松劲退千里，坚持才是真本事。",
+                  "事业": "知识型事业靠持续深耕，不可停步。",
+                  "财运": "财运来自专业成长，短期不适合分心逐利。",
+                  "感情": "伴侣需要理解学习投入，注意陪伴。",
+                  "学业": "学海无涯，勤奋与方法决定进步。",
+                  "健康": "久坐用脑需运动、护眼和休息。",
+                  "行动建议": "制定长期学习计划，坚持每日输入输出。",
+                  "风险提醒": "别自满停学或一松劲就放弃。"
+                }
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "观音灵签签文与注解"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "按签号呈现签文"
+              ],
+              "cautionWhen": [
+                "签意解读存在多解"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "同一签文不同解签者解读不同",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "low",
+            "depth": 1
+          },
+          {
+            "title": "抽取方式",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "抽取方法",
+                "reference": "draw.method",
+                "output": "random"
+              },
+              {
+                "name": "选中编号",
+                "reference": "draw.selectedNumber",
+                "output": 50
+              }
+            ],
+            "source": {
+              "type": "algorithm",
+              "name": "随机抽样（签池等概率）"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "随机抽签"
+              ],
+              "cautionWhen": [
+                "manual 方式为用户手工录入签号"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "抽签随机性不影响签文内容本身",
+                "severity": "minor"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 1
+          }
+        ],
+        "overallConfidence": "low",
+        "summary": "灵签抽签证据链（第50签·第五十签 · 学海无涯，勤舟可渡（平））",
+        "generatedAt": "2026-09-12T05:44:03.883Z"
+      }
+    },
+    "meta": {
+      "service": "www.temposoul.com",
+      "version": "v1"
+    }
+  }
+}

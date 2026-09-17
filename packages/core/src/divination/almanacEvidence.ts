@@ -7,11 +7,7 @@
  *
  * 覆盖黄历择日四大环节：择日基础 → 宜忌筛选 → 参与人核对 → 时辰条件
  */
-import {
-  buildEvidenceTrail,
-  type EvidenceItem,
-  type EvidenceTrail,
-} from '../shared/evidence';
+import { buildEvidenceTrail, type EvidenceItem, type EvidenceTrail } from '../shared/evidence';
 import type { AlmanacData } from '../types/divination';
 
 export function buildAlmanacEvidenceTrail(result: AlmanacData): EvidenceTrail {
@@ -91,19 +87,14 @@ export function buildAlmanacEvidenceTrail(result: AlmanacData): EvidenceTrail {
         applicableWhen: ['提供参与人生辰'],
         cautionWhen: ['冲煞判定存在地域习俗差异'],
       },
-      counterEvidence: [
-        { description: '生肖冲煞规则不同版本差异较大', severity: 'alternative' },
-      ],
+      counterEvidence: [{ description: '生肖冲煞规则不同版本差异较大', severity: 'alternative' }],
       confidence: 'low',
       depth: 1,
     });
   }
 
   // 4. 时辰条件（depth 1 辅证）
-  const hourCount = result.days.reduce(
-    (sum, d) => sum + (d.hours ? d.hours.length : 0),
-    0,
-  );
+  const hourCount = result.days.reduce((sum, d) => sum + (d.hours ? d.hours.length : 0), 0);
   if (hourCount > 0) {
     items.push({
       title: '时辰条件',
@@ -120,9 +111,7 @@ export function buildAlmanacEvidenceTrail(result: AlmanacData): EvidenceTrail {
         applicableWhen: ['按吉时匹配'],
         cautionWhen: ['时辰吉凶依赖具体通书'],
       },
-      counterEvidence: [
-        { description: '吉时判定规则不同通书存在差异', severity: 'minor' },
-      ],
+      counterEvidence: [{ description: '吉时判定规则不同通书存在差异', severity: 'minor' }],
       confidence: 'low',
       depth: 1,
     });

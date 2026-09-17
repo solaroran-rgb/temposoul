@@ -1,0 +1,58 @@
+/* A23 跨节点页面 通用样式（自包含，不污染全局主题） */
+.a23-page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.a23-block { margin: 16px 0; }
+.a23-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.a23-card {
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  border-radius: 10px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.03);
+}
+.a23-btn {
+  margin: 4px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(128, 128, 128, 0.4);
+  background: transparent;
+  cursor: pointer;
+}
+.a23-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.a23-input {
+  margin: 4px 8px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(128, 128, 128, 0.4);
+}
+.a23-label { display: inline-block; margin: 4px 0; }
+.a23-muted { color: rgba(128, 128, 128, 0.8); font-size: 13px; }
+.a23-today { color: rgba(180, 150, 60, 0.9); }
+.a23-link { margin: 12px 0; }
+.a23-error { color: #d9534f; }
+.a23-degraded { color: #c9a227; }
+.a23-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.a23-panel { border: 1px solid rgba(128, 128, 128, 0.3); border-radius: 10px; padding: 12px; }
+.a23-callout {
+  border: 2px solid #c0392b;
+  border-radius: 10px;
+  padding: 12px;
+  margin: 12px 0;
+  color: #e74c3c;
+  font-weight: 600;
+}
+.a23-disclaimer { color: rgba(128, 128, 128, 0.85); font-size: 13px; }
+.a23-table { border-collapse: collapse; width: 100%; }
+.a23-table th, .a23-table td { border: 1px solid rgba(128, 128, 128, 0.3); padding: 4px 6px; font-size: 12px; }
+@media (max-width: 640px) {
+  .a23-two-col { grid-template-columns: 1fr; }
+}

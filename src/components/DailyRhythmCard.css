@@ -1,0 +1,82 @@
+/* 样式保留全息主题，优化 Drawer 滚动穿透与原生 Date Input 深色适配 */
+.daily-rhythm-card {
+  background: var(--bg-glass-dark, rgba(15, 20, 35, 0.85));
+  border: 1px solid var(--border-neon-cyan-dim, rgba(77, 195, 255, 0.2));
+  border-radius: 12px;
+  padding: 24px;
+  color: var(--text-primary, #e0e6ed);
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+.daily-rhythm-card--loading .skeleton-block {
+  background: var(--bg-skeleton, rgba(255, 255, 255, 0.05));
+  height: 20px; border-radius: 4px; margin-bottom: 12px; animation: pulse 1.5s infinite;
+}
+.skeleton-block--sm { width: 60%; }
+@keyframes pulse { 0% { opacity: 0.5; } 50% { opacity: 1; } 100% { opacity: 0.5; } }
+
+.daily-rhythm-card__header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.daily-rhythm-card__title {
+  font-size: 1.25rem; margin: 0;
+  background: linear-gradient(90deg, var(--neon-cyan, #4dc3ff), var(--neon-pink, #ff4d6d));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.daily-rhythm-card__lunar { font-size: 0.875rem; color: var(--text-secondary, #8b9bb4); }
+.daily-rhythm-card__ganzhi { display: flex; gap: 12px; margin-bottom: 20px; font-size: 0.9rem; color: var(--text-tertiary, #a0aec0); flex-wrap: wrap; }
+.daily-rhythm-card__clash { color: var(--neon-pink-light, #ff8fa3); }
+
+.daily-rhythm-card__yiji { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+.daily-rhythm-card__yi h3, .daily-rhythm-card__ji h3 { font-size: 1rem; margin: 0 0 8px 0; }
+.daily-rhythm-card__yi h3 { color: var(--neon-pink, #ff4d6d); }
+.daily-rhythm-card__yi li { color: var(--neon-pink-light, #ff8fa3); }
+.daily-rhythm-card__ji h3 { color: var(--neon-cyan, #4dc3ff); }
+.daily-rhythm-card__ji li { color: var(--neon-cyan-light, #8cd8ff); }
+.daily-rhythm-card__yiji ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.daily-rhythm-card__yiji li { font-size: 0.85rem; background: var(--bg-tag, rgba(255, 255, 255, 0.03)); padding: 4px 8px; border-radius: 4px; }
+
+.daily-rhythm-card__evidence-btn {
+  grid-column: 1 / -1; background: transparent; border: 1px dashed var(--border-neon-cyan, rgba(77, 195, 255, 0.4));
+  color: var(--neon-cyan, #4dc3ff); padding: 8px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; transition: all 0.2s;
+}
+.daily-rhythm-card__evidence-btn:hover, .daily-rhythm-card__evidence-btn:focus-visible { 
+  background: var(--bg-neon-cyan-hover, rgba(77, 195, 255, 0.1)); 
+  outline: 2px solid var(--neon-cyan, #4dc3ff);
+}
+
+.daily-rhythm-card__rhythm {
+  background: var(--bg-neon-pink-dim, rgba(255, 77, 109, 0.05)); border-left: 3px solid var(--neon-pink, #ff4d6d);
+  padding: 12px 16px; border-radius: 0 8px 8px 0; margin-bottom: 16px;
+}
+.daily-rhythm-card__rhythm h3 { margin: 0 0 8px 0; font-size: 1rem; color: var(--neon-pink, #ff4d6d); }
+.daily-rhythm-card__advice { font-size: 0.9rem; margin: 0 0 12px 0; line-height: 1.5; }
+.daily-rhythm-card__compliance { font-size: 0.75rem; color: var(--text-tertiary, #a0aec0); margin-top: 8px; font-style: italic; }
+
+/* Drawer 优化：Portal 渲染，防滚动穿透 */
+.daily-rhythm-card__drawer { 
+  position: fixed; inset: 0; background: var(--bg-overlay, rgba(0, 0, 0, 0.8)); 
+  display: flex; align-items: flex-end; justify-content: center; z-index: 9999; 
+  animation: fadeIn 0.2s ease-out;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.daily-rhythm-card__drawer-content { 
+  background: var(--bg-surface, #1a202c); width: 100%; max-width: 600px; padding: 24px; 
+  border-radius: 16px 16px 0 0; border-top: 2px solid var(--neon-cyan, #4dc3ff); 
+  max-height: 80vh; overflow-y: auto; 
+  overscroll-behavior: contain; /* 防止滚动到底部时穿透到 body */
+  touch-action: pan-y; /* 优化移动端触摸滚动 */
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+
+.daily-rhythm-card__drawer-content h4 { margin-top: 0; color: var(--neon-cyan, #4dc3ff); }
+.daily-rhythm-card__drawer-content ul { padding-left: 20px; color: var(--text-secondary, #8b9bb4); }
+.daily-rhythm-card__drawer-content .god-type { color: var(--text-tertiary, #a0aec0); font-size: 0.85em; }
+.drawer-close-btn { 
+  margin-top: 20px; padding: 10px 20px; width: 100%;
+  background: var(--neon-cyan, #4dc3ff); border: none; border-radius: 8px; 
+  color: #000; cursor: pointer; font-weight: bold; font-size: 1rem;
+  transition: opacity 0.2s;
+}
+.drawer-close-btn:hover { opacity: 0.9; }

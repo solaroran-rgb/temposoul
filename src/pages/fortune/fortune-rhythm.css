@@ -1,0 +1,37 @@
+/* src/pages/fortune/fortune-rhythm.css · B'11 每日节律（本地侧补建） */
+@import '../../styles/tempo-shell.css';
+
+.page-rhythm {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 96px 20px 120px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+.rhythm-full {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.rhythm-empty {
+  padding: 20px;
+  text-align: center;
+  color: var(--text-secondary, #8B9BB4);
+  font-size: 13px;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+}
+.page-rhythm .disclaimer {
+  margin-top: 16px;
+  padding: 10px 14px;
+  border-left: 3px solid rgba(77, 195, 255, 0.5);
+  background: rgba(77, 195, 255, 0.05);
+  border-radius: 0 8px 8px 0;
+  color: var(--text-secondary, #8B9BB4);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+  .page-rhythm { padding: 88px 14px 120px; }
+}

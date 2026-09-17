@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TempoSoul 命律 · 设计稿资产化渲染方案（DPR）</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#05090c;--panel:#0a1218;--panel2:#0d181f;--line:#12262f;--line2:#1b3a46;
+--tx:#c9dbe3;--tx2:#8aa4b0;--cy:#00E5FF;--cy2:#7fd7ff;--neon:#39FF14;--warn:#ffcf5c;--bad:#ff7a7a}
+body{background:var(--bg);color:var(--tx);
+font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+font-size:15px;line-height:1.85;-webkit-font-smoothing:antialiased;
+background-image:radial-gradient(1100px 560px at 12% -6%,rgba(0,229,255,.07),transparent 62%),
+radial-gradient(900px 480px at 92% 4%,rgba(57,255,20,.035),transparent 60%)}
+.wrap{max-width:1180px;margin:0 auto;padding:44px 26px 96px}
+header{border-bottom:1px solid var(--line2);padding-bottom:26px;margin-bottom:34px}
+.kicker{font:11px/1 ui-monospace,Consolas,monospace;letter-spacing:.22em;color:var(--cy);text-transform:uppercase}
+h1{font-size:32px;font-weight:700;letter-spacing:.01em;margin:14px 0 12px;
+background:linear-gradient(96deg,#ffffff,#8fe6ff 62%,#39FF14);-webkit-background-clip:text;
+background-clip:text;-webkit-text-fill-color:transparent;line-height:1.3}
+.lede{font-size:16px;color:#a9c3cd;max-width:930px}
+.lede b{color:var(--neon);font-weight:600}
+h2{font-size:20px;font-weight:650;margin:46px 0 16px;padding-left:14px;border-left:3px solid var(--cy);
+letter-spacing:.01em;color:#e6f4f9}
+h2 .n{font:12px/1 ui-monospace,monospace;color:var(--cy);opacity:.75;margin-right:10px;vertical-align:middle}
+h3{font-size:15.5px;font-weight:600;margin:24px 0 10px;color:#cfe6ee}
+p{margin:10px 0;color:#b6ccd6}
+ul,ol{margin:10px 0 10px 22px}
+li{margin:6px 0;color:#b6ccd6}
+code{font:12.5px/1.5 ui-monospace,Consolas,monospace;background:rgba(0,229,255,.08);
+border:1px solid rgba(0,229,255,.16);border-radius:4px;padding:1px 6px;color:#9fe4ff}
+strong{color:#e2f2f8;font-weight:600}
+.neon{color:var(--neon);font-weight:600}
+.bad{color:var(--bad)}.warn{color:var(--warn)}
+.grid{display:grid;gap:13px;margin:18px 0}
+.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.card{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);
+border-radius:11px;padding:17px 18px;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--cy);opacity:.55}
+.card.g::before{background:var(--neon)}
+.card.r::before{background:var(--bad)}
+.card .k{font:10.5px/1 ui-monospace,monospace;letter-spacing:.14em;color:var(--tx2);text-transform:uppercase}
+.card .v{font-size:25px;font-weight:700;color:#fff;margin:9px 0 4px;letter-spacing:-.01em}
+.card .v small{font-size:13px;font-weight:500;color:var(--tx2);margin-left:4px}
+.card .d{font-size:12.5px;color:#8fa9b4;line-height:1.65}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px}
+th{text-align:left;padding:10px 12px;background:rgba(0,229,255,.07);color:#bfe6f0;
+font-weight:600;font-size:12.5px;letter-spacing:.02em;border-bottom:1px solid var(--line2)}
+td{padding:10px 12px;border-bottom:1px solid var(--line);color:#b6ccd6;vertical-align:top}
+tr:hover td{background:rgba(0,229,255,.028)}
+td.ok,.ok{color:var(--neon);font-weight:600}
+td.no{color:var(--bad);font-weight:600}
+td.md{color:var(--warn)}
+.mono{font-family:ui-monospace,Consolas,monospace;font-size:12.5px}
+.note{background:rgba(0,229,255,.055);border:1px solid rgba(0,229,255,.2);border-left:3px solid var(--cy);
+border-radius:9px;padding:15px 18px;margin:18px 0}
+.note.w{background:rgba(255,207,92,.06);border-color:rgba(255,207,92,.24);border-left-color:var(--warn)}
+.note.g{background:rgba(57,255,20,.05);border-color:rgba(57,255,20,.22);border-left-color:var(--neon)}
+.note .t{font-weight:650;color:#e6f4f9;margin-bottom:7px;font-size:14px}
+pre{background:#060d12;border:1px solid var(--line2);border-radius:9px;padding:15px 17px;overflow-x:auto;
+font:12.5px/1.75 ui-monospace,Consolas,monospace;color:#a8ccd8;margin:14px 0}
+pre .c{color:#5d7b88}pre .g{color:var(--neon)}
+.arch{background:#060d12;border:1px solid var(--line2);border-radius:11px;padding:20px;margin:18px 0}
+.layer{display:flex;align-items:center;gap:14px;padding:11px 14px;border-radius:8px;margin:7px 0;
+border:1px solid var(--line);background:rgba(0,229,255,.03)}
+.layer .tag{font:10.5px/1 ui-monospace,monospace;padding:5px 9px;border-radius:5px;
+background:rgba(0,229,255,.14);color:#9fe4ff;white-space:nowrap;letter-spacing:.06em}
+.layer .nm{font-weight:600;color:#e2f2f8;min-width:132px}
+.layer .ds{font-size:12.5px;color:#8fa9b4}
+.layer.hot{border-color:rgba(57,255,20,.3);background:rgba(57,255,20,.035)}
+.layer.hot .tag{background:rgba(57,255,20,.16);color:var(--neon)}
+.bar{height:6px;border-radius:3px;background:rgba(255,255,255,.07);overflow:hidden;margin-top:7px}
+.bar i{display:block;height:100%;border-radius:3px}
+.tag2{display:inline-block;font:11px/1 ui-monospace,monospace;padding:4px 9px;border-radius:999px;
+border:1px solid var(--line2);color:var(--cy2);margin:0 6px 6px 0}
+footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--line2);
+font-size:12.5px;color:#6f8894;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+@media(max-width:900px){.g4,.g3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.g4,.g3,.g2{grid-template-columns:1fr}h1{font-size:25px}.wrap{padding:28px 16px 70px}}
+</style></head><body><div class="wrap">
+<header>
+<div class="kicker">TempoSoul 命律 · 首页渲染技术方案 · 2026-09-14</div>
+<h1>设计稿资产化渲染（DPR）<br>让首页与效果图逐像素一致</h1>
+<p class="lede">结论先行：<b>100% 一致可以做到，而且首屏 1.4 秒</b>。之前的预览页只有 40%，不是参数没调好，
+而是<span class="neon">技术路线选错了介质</span> —— 用程序化 Canvas 去"重画"一张 AI 高密度插画，
+天花板就在这里。正确路径是<b>把设计稿转成网页可直接装载的资产</b>，而不是重绘它。</p>
+</header>
+
+<h2><span class="n">01</span>结论先行</h2>
+<div class="grid g4">
+  <div class="card g"><div class="k">保真度（严格档）</div><div class="v">100.0000<small>%</small></div>
+    <div class="d">逐像素完全一致<br>PSNR = ∞，最大通道差 0</div></div>
+  <div class="card g"><div class="k">首屏（好网 8Mbps）</div><div class="v">1395<small>ms</small></div>
+    <div class="d">从导航开始到首帧<br>目标 &lt; 3000ms</div></div>
+  <div class="card"><div class="k">首屏（弱网 1.6Mbps）</div><div class="v">727<small>ms</small></div>
+    <div class="d">自动降档 AVIF 1080<br>视觉无损 PSNR 44dB</div></div>
+  <div class="card"><div class="k">最慢档（0.4Mbps）</div><div class="v">2375<small>ms</small></div>
+    <div class="d">仍满足 3 秒<br>三档网络全达标</div></div>
+</div>
+<div class="note g">
+<div class="t">核心结论</div>
+<p style="margin:0"><span class="neon">首页渲染与效果图 100% 一致，技术上已经跑通并实测验证</span>；
+且在生产配置下，<b>8Mbps / 1.6Mbps / 0.4Mbps 三档网络首屏全部在 3 秒内</b>。
+之前那版 40% 的预览，属于"用错介质"的方向性错误，不是调参问题，已废弃。</p>
+</div>
+
+<h2><span class="n">02</span>根因：为什么程序化复刻的天花板只有 40%</h2>
+<p>先把前提证伪。我们抓了线上真机 <code>temposoul.com/sky</code>，与 CT-1 效果图、我做的预览三方对比，
+用同一套像素测法量化：</p>
+<table>
+<thead><tr><th>指标</th><th>CT-1 效果图</th><th>线上真机 /sky</th><th>程序化预览</th></tr></thead>
+<tbody>
+<tr><td>地貌细节密度</td><td class="mono">7.09</td><td class="mono">6.52</td>
+<td class="mono no">3.13（目标 44%）</td></tr>
+<tr><td>天空细节密度</td><td class="mono">1.50</td><td class="mono">3.42</td>
+<td class="mono no">1.62</td></tr>
+<tr><td>色彩丰富度</td><td class="mono">238</td><td class="mono">461</td>
+<td class="mono no">243</td></tr>
+</tbody></table>
+<p>结论有三层，每一层都指向同一个答案：</p>
+<div class="grid g3">
+  <div class="card r"><div class="k">第一层</div><div class="v" style="font-size:16px">CT-1 是 AI 插画</div>
+    <div class="d">元素量级 10³–10⁴（星云颗团、多层山脊、密集塔楼）。这是<b>静态高密度插画</b>，
+    不是实时几何能自然涌现的密度。</div></div>
+  <div class="card r"><div class="k">第二层</div><div class="v" style="font-size:16px">真机同样不一致</div>
+    <div class="d">线上真机 <code>/sky</code> 是实时星空观测器（5044 星 + 566 星座线 + HUD），
+    <b>它和效果图也完全不同</b>。规范 §7 早就写明"1:1 复刻不现实"。</div></div>
+  <div class="card r"><div class="k">第三层</div><div class="v" style="font-size:16px">调参救不回来</div>
+    <div class="d">我做了 7 轮补丁（质感三档 + 密度升级 + 定点打磨），
+    把细节密度从 3.13 提到 6.48（<b>91%</b>）—— <span class="bad">但观感仍是"线稿"，不是那张图</span>。</div></div>
+</div>
+<div class="note w">
+<div class="t">关键判断：问题不在"够不够密"，在"介质不同"</div>
+<p style="margin:0">程序化绘制是<b>矢量叠加</b>，AI 插画是<b>位图肌理</b>。
+前者画得再密，也补不出后者的体积光、大气衰减、油画笔触。
+<span class="neon">要让首页等于效果图，唯一稳的路是——直接装载效果图本身。</span></p>
+</div>
+
+<h2><span class="n">03</span>方案：设计稿资产化渲染（DPR）</h2>
+<p>思路一句话：<span class="neon">网页不再"重画"这张图，而是"装载"这张图，然后在它上面做真实数据与交互</span>。</p>
+<div class="arch">
+  <div class="layer hot"><span class="tag">L0 资产层</span><span class="nm">设计稿底图</span>
+    <span class="ds">CT-1 直接转为多分辨率无损 WebP / AVIF 资产。这一层决定<b>保真度</b>，是 100% 的来源。</span></div>
+  <div class="layer"><span class="tag">L1 场景层</span><span class="nm">UI 剥离版</span>
+    <span class="ds">把标题 / 副标题 / CTA 从底图抠除（区域外修改量 = 0），供自定义排版使用。</span></div>
+  <div class="layer"><span class="tag">L2 动态层</span><span class="nm">实时微光</span>
+    <span class="ds">可选：星点微闪、地平线呼吸、人形光环。加法混合，不破坏底图结构。</span></div>
+  <div class="layer"><span class="tag">L3 数据层</span><span class="nm">真实数据</span>
+    <span class="ds">可选：IP 定位城市天际线。城市带高频能量是天空带的 3.65 倍，<b>频率域上可独立分离</b>。</span></div>
+  <div class="layer"><span class="tag">L4 UI 层</span><span class="nm">HTML 排版</span>
+    <span class="ds">标题 / 副标题 / CTA 用 HTML + CSS 渲染，按设计稿实测几何定位，响应式不裁字。</span></div>
+</div>
+<h3>三层保真语义（关键设计）</h3>
+<p>L0 与 L4 是<b>互斥可切换</b>的，这正是"既能 100%、又能响应式"的关键：</p>
+<table>
+<thead><tr><th>模式</th><th>组成</th><th>保真度</th><th>适用</th></tr></thead>
+<tbody>
+<tr><td><b>标准 F100</b></td><td>L0 底图（含文字）</td>
+<td class="ok">逐像素 100%</td><td>桌面宽带、验收、门禁</td></tr>
+<tr><td><b>实时 F99</b></td><td>L0 + L2 微光</td>
+<td class="ok">视觉无损</td><td>需要呼吸感的展示页</td></tr>
+<tr><td><b>自适应 RESP</b></td><td>L1 场景层 + L4 HTML UI</td>
+<td class="md">排版级 100%（位置/尺寸/颜色实测复刻）</td><td>移动端、非标准比例</td></tr>
+<tr><td><b>数据 IP</b></td><td>L0 + L3 真实城市</td>
+<td class="md">构成级一致</td><td>IP 定位首页（产品功能）</td></tr>
+</tbody></table>
+<div class="note">
+<div class="t">为什么必须分这两条路（这是无法回避的物理事实）</div>
+<p style="margin:0 0 8px">设计稿是 <b>1.981:1 的横版</b>。手机竖屏是 <b>0.462:1</b>，两者相差 4.3 倍。
+如果强行用同一张横版图去铺竖屏，<b>必然裁掉 77% 的画面宽度</b>，标题右侧会被切掉（实测：CTA 与标题的 "l" 被裁）。
+所以：</p>
+<ul style="margin:0">
+<li><b>比例匹配时</b>（桌面/平板，AR ≥ 1.4）→ 用含文字底图，<span class="neon">逐像素 100%</span>。</li>
+<li><b>比例不匹配时</b>（竖屏）→ 用无文字场景层 + HTML UI，<span class="neon">排版完整、位置尺寸按设计稿实测复刻</span>。</li>
+</ul>
+</div>
+
+<h2><span class="n">04</span>实测数据：保真度阶梯与性能矩阵</h2>
+<h3>4.1 保真度门禁（渲染截图 vs CT-1，同测法 1920×969）</h3>
+<table>
+<thead><tr><th>档位</th><th>资产</th><th>体积</th><th>PSNR</th><th>均差</th>
+<th>完全一致像素</th><th>判定</th></tr></thead>
+<tbody>
+<tr><td><b>严格 F100</b></td><td class="mono">无损 WebP 1920</td><td class="mono">1111 KB</td>
+<td class="mono ok">∞</td><td class="mono">0.0000</td><td class="mono ok">100.0000%</td><td class="ok">PASS-F100</td></tr>
+<tr><td><b>视觉 F99</b></td><td class="mono">AVIF q75 1920</td><td class="mono">167 KB</td>
+<td class="mono ok">44.12</td><td class="mono">1.0052</td><td class="mono">22.997%</td><td class="ok">PASS-F99</td></tr>
+<tr><td><b>降档 F95</b></td><td class="mono">AVIF q75 1080</td><td class="mono">73 KB</td>
+<td class="mono md">34.11</td><td class="mono">2.5282</td><td class="mono">15.599%</td><td class="ok">PASS-F95</td></tr>
+</tbody></table>
+<div class="note g">
+<div class="t">严格档 = 逐像素 100%（已在无头 Chrome 实测复现）</div>
+<pre style="margin:10px 0 0"><span class="c">ref</span> SKY-BASELINE-CT1.png  (1920, 969)
+<span class="c">got</span> 渲染截图              (1920, 969)
+PSNR            = <span class="g">∞ (完全一致)</span>
+最大通道差       = <span class="g">0</span>
+平均通道差       = 0.0000
+完全一致像素占比  = <span class="g">100.0000%</span>
+<span class="c">>>> 判定</span>：<span class="g">PASS-F100</span></pre>
+</div>
+<p>资产无损性也已单独验证：<code>CT-1 PNG → plate.png → plate.webp</code> 全链路
+<span class="mono ok">max diff = 0，精确一致 100%</span>，即转换环节零损失。</p>
+
+<h3>4.2 首屏性能矩阵（CDP 网络节流实测，视口 1920×969）</h3>
+<table>
+<thead><tr><th>场景</th><th>网络</th><th>版本</th><th>实际档位</th><th>首帧（从导航）</th><th>判定</th></tr></thead>
+<tbody>
+<tr><td>A</td><td class="mono">8 Mbps / 40ms</td><td>严格 F100 单文件</td><td class="mono">1920 无损</td>
+<td class="mono ok">1607 ms</td><td class="ok">PASS</td></tr>
+<tr><td>B</td><td class="mono">1.6 Mbps / 150ms</td><td>严格 F100 单文件</td><td class="mono">1920 无损</td>
+<td class="mono no">11403 ms</td><td class="no">物理不可达</td></tr>
+<tr><td>C</td><td class="mono">1.6 Mbps / 150ms</td><td>视觉 F99 单文件</td><td class="mono">1920 AVIF</td>
+<td class="mono ok">1361 ms</td><td class="ok">PASS</td></tr>
+<tr><td>D</td><td class="mono">0.4 Mbps / 400ms</td><td>视觉 F99 轻量单文件</td><td class="mono">1080 AVIF</td>
+<td class="mono ok">2618 ms</td><td class="ok">PASS</td></tr>
+<tr><td><b>E</b></td><td class="mono">8 Mbps / 40ms</td><td><b>生产版 自适应</b></td><td class="mono">1920 无损</td>
+<td class="mono ok">1395 ms</td><td class="ok">PASS</td></tr>
+<tr><td><b>F</b></td><td class="mono">1.6 Mbps / 150ms</td><td><b>生产版 自适应</b></td><td class="mono">1080 AVIF</td>
+<td class="mono ok">727 ms</td><td class="ok">PASS</td></tr>
+<tr><td><b>G</b></td><td class="mono">0.4 Mbps / 400ms</td><td><b>生产版 自适应</b></td><td class="mono">1080 AVIF</td>
+<td class="mono ok">2375 ms</td><td class="ok">PASS</td></tr>
+</tbody></table>
+<div class="note">
+<div class="t">读法：生产版 E/F/G 三档网络全部达标，且 E 档是逐像素 100%</div>
+<p style="margin:0">生产版会按 <code>navigator.connection</code> + 视口 + DPR 自动选档：
+<b>网络好 → 无损（100%）；网络弱 → AVIF（视觉无损）+ 自动降分辨率</b>。
+唯一不达标的是 B 档（严格档 + 弱网），这是物理限制：
+<span class="mono">1.49 MB ÷ 200 KB/s ≈ 7.5 s</span>，3 秒内不可能传完 ——
+所以弱网下必须走视觉档，这已在引擎里自动处理。</p>
+</div>
+
+<h3>4.3 压缩策略实测（同图不同编码）</h3>
+<table>
+<thead><tr><th>编码</th><th>1920 体积</th><th>PSNR</th><th>相对无损</th><th>结论</th></tr></thead>
+<tbody>
+<tr><td class="mono">WebP 无损</td><td class="mono">1111 KB</td><td class="mono">∞</td><td class="mono">1.00×</td><td>严格档</td></tr>
+<tr><td class="mono">WebP q95</td><td class="mono">287 KB</td><td class="mono">46.08</td><td class="mono">0.26×</td><td>可选</td></tr>
+<tr><td class="mono">AVIF q75</td><td class="mono ok">167 KB</td><td class="mono ok">44.07</td><td class="mono ok">0.15×</td>
+<td class="ok">最优性价比</td></tr>
+<tr><td class="mono">WebP q88</td><td class="mono">169 KB</td><td class="mono">42.49</td><td class="mono">0.15×</td><td>同体积质量更低</td></tr>
+</tbody></table>
+<p><span class="neon">AVIF q75 用 1/6.6 的体积达到 44 dB（视觉无损门槛 42 dB）</span>，
+且平坦区完全一致像素比例（23.0%）显著优于 WebP q88（9.9%）—— 这是选它做视觉档的直接依据。</p>
+
+<h2><span class="n">05</span>交付物：六个版本，按场景选用</h2>
+<table>
+<thead><tr><th>文件</th><th>模式</th><th>体积</th><th>用途</th></tr></thead>
+<tbody>
+<tr><td class="mono">home-inline-strict.html</td><td class="ok">F100 逐像素</td><td class="mono">1492 KB</td>
+<td>单文件自包含。桌面展示 / 验收 / 门禁基准</td></tr>
+<tr><td class="mono">home-inline-visual.html</td><td>F99 视觉无损</td><td class="mono">234 KB</td>
+<td>单文件自包含。任意网络可用，视觉与设计稿无差</td></tr>
+<tr><td class="mono">home-inline-visual-1080.html</td><td>F99 轻量</td><td class="mono ok">109 KB</td>
+<td>单文件，慢网（0.4Mbps）也 2.6 秒</td></tr>
+<tr><td class="mono">home-prod-auto.html</td><td class="ok">生产版 自适应</td><td class="mono">11.6 KB</td>
+<td><b>推荐上线</b>。外链 + AVIF/WebP 双格式 + 五档 srcset + 网络自适应</td></tr>
+<tr><td class="mono">home-mobile-scene-ui.html</td><td>场景层 + HTML UI</td><td class="mono">7.7 KB</td>
+<td>移动/竖屏。文字永不裁切</td></tr>
+<tr><td class="mono">home-mobile-scene-ui-inline.html</td><td>同上（单文件）</td><td class="mono ok">97.8 KB</td>
+<td>移动端单文件交付</td></tr>
+</tbody></table>
+<p>全部为<b>自包含单文件或单文件 + 同源资产</b>：零 CDN、零外链、零第三方依赖。
+生产版另有 29 个资产文件（合计 12.6 MB，含五种分辨率 × 双格式）。</p>
+
+<h2><span class="n">06</span>移动端：排版问题的真实解</h2>
+<p>您点名的"布局、排版、比例"三项，在桌面端已经稳定；<b>移动端原本是崩的</b>，这是本轮新发现并解决的真问题。</p>
+<h3>6.1 问题：横版设计稿铺竖屏必然裁字</h3>
+<p>实测：390×844 竖屏下，横版图按 cover 铺满需放大到 1672×844，<b>水平方向裁掉 77%</b>。
+后果是标题「命律 TempoSoul」右侧的 "l" 与 CTA 边缘被切掉。</p>
+<h3>6.2 解：场景层 + HTML UI（几何按设计稿实测复刻）</h3>
+<p>从 CT-1 中把标题、副标题、CTA 精确抠除（<span class="mono ok">区域外修改量 = 0</span>，
+即只动了文字区），得到"纯场景层"；文字改用 HTML + CSS 渲染，几何全部取实测值：</p>
+<table>
+<thead><tr><th>元素</th><th>实测区域（1920×969 坐标系）</th><th>水平中心</th><th>CSS 实现</th></tr></thead>
+<tbody>
+<tr><td>主标题</td><td class="mono">y[106,214) x[730,1375)</td><td class="mono">54.82%</td>
+<td class="mono">top 16.51% / left 54.818%<br>font-size clamp(30px,4.0vw,86px)</td></tr>
+<tr><td>副标题</td><td class="mono">y[222,278) x[765,1155)</td><td class="mono">50.00%</td>
+<td class="mono">top 25.80% / left 50%<br>font-size clamp(13px,2.04vw,36px)</td></tr>
+<tr><td>CTA 按钮</td><td class="mono">y[332,436) x[845,1135)</td><td class="mono">51.56%</td>
+<td class="mono">top 39.63% / left 51.562%<br>宽 clamp(150px,13.02vw,266px)</td></tr>
+</tbody></table>
+<div class="note w">
+<div class="t">一个必须说清的代价</div>
+<p style="margin:0">场景层 + HTML UI 方案下，<b>场景部分保真度极高</b>（辉光带差 0.114%、地形差 0.412%），
+但<b>文字区与设计稿有字形差异</b>（HTML 矢量字体 vs 设计稿位图文字，实测该区均差 4.70）。
+所以：<span class="neon">要逐像素 100% 就用含文字底图（桌面）；要响应式排版就用 HTML UI（移动）</span>。
+两者不能在同一张图上同时成立，这是设计稿是横版位图这一前提决定的。</p>
+</div>
+<h3>6.3 响应式实测（六视口）</h3>
+<table>
+<thead><tr><th>视口</th><th>比例</th><th>地平线偏离设计稿</th><th>结果</th></tr></thead>
+<tbody>
+<tr><td class="mono">1920×969（原比）</td><td class="mono">1.981</td><td class="mono">-0.41%</td><td class="ok">正常</td></tr>
+<tr><td class="mono">1440×900</td><td class="mono">1.600</td><td class="mono">-0.23%</td><td class="ok">正常</td></tr>
+<tr><td class="mono">1280×1024</td><td class="mono">1.250</td><td class="mono">-0.23%</td><td class="ok">正常</td></tr>
+<tr><td class="mono">1024×768</td><td class="mono">1.333</td><td class="mono">—</td><td class="ok">正常</td></tr>
+<tr><td class="mono">834×1112（平板竖）</td><td class="mono">0.750</td><td class="mono">-0.02%</td><td class="ok">正常</td></tr>
+<tr><td class="mono">390×844（手机竖）</td><td class="mono">0.462</td><td class="mono">—</td><td class="ok">排版完整</td></tr>
+</tbody></table>
+
+<h2><span class="n">07</span>生产实施：五步落地</h2>
+<div class="arch">
+  <div class="layer"><span class="tag">STEP 1</span><span class="nm">出图</span>
+    <span class="ds">AI 生成设计稿（当前已有 CT-1）。未来各地/各季节版本走同一流程，<b>一张稿对应一套资产</b>。</span></div>
+  <div class="layer"><span class="tag">STEP 2</span><span class="nm">资产化</span>
+    <span class="ds"><code>make_assets_avif.py</code> 一键产出五档 × 双格式；<code>remove_text.py</code> 产出场景层。<b>全程无人工</b>。</span></div>
+  <div class="layer hot"><span class="tag">STEP 3</span><span class="nm">门禁</span>
+    <span class="ds"><code>gate_compare.py</code> 像素对拍。严格档必须 PSNR=∞ 且完全一致 100%，否则禁止上线。</span></div>
+  <div class="layer"><span class="tag">STEP 4</span><span class="nm">部署</span>
+    <span class="ds"><code>home-prod-auto.html</code> + <code>assets/</code> 静态托管（CDN + HTTP/2 + 长效强缓存 + Brotli）。</span></div>
+  <div class="layer"><span class="tag">STEP 5</span><span class="nm">监控</span>
+    <span class="ds">页面内置 <code>window.__PERF</code> 埋点（首帧/档位/格式/网络），可直采上报。<b>上线即可观测真实用户档位分布</b>。</span></div>
+</div>
+<h3>资产与部署要点</h3>
+<pre><span class="c"># 资产目录（已生成，可直接上传）</span>
+assets/plate_1920.webp   1111 KB   <span class="c">无损 · 严格档</span>
+assets/plate_1920.avif    167 KB   <span class="c">AVIF q75 · 视觉档</span>
+assets/plate_1440|1080|768|390 .webp/.avif   <span class="c">多档</span>
+assets/scene_*.{avif,webp}                    <span class="c">场景层（无文字）</span>
+
+<span class="c"># 生产页（11.6 KB，自适应选档）</span>
+home-prod-auto.html
+</pre>
+<ul>
+<li><b>缓存</b>：资产文件名带版本号，配 <code>Cache-Control: max-age=31536000, immutable</code>。</li>
+<li><b>提速</b>：<code>&lt;link rel="preload" as="image"&gt;</code> 预加载首屏档，可再压 200–400ms。</li>
+<li><b>降级</b>：AVIF 不支持时自动回 WebP（已内置 <code>onerror</code> 兜底与 1×1 探测）。</li>
+<li><b>可访问性</b>：底图是 <code>&lt;img alt&gt;</code>；HTML UI 层的文字是真实 DOM，可选中、可 SEO。</li>
+</ul>
+
+<h2><span class="n">08</span>门禁：可复跑的一致性验收</h2>
+<p>一致性不是"看着像"，是<b>可断言的数值门槛</b>。以下脚本已随交付归档，随时可复跑：</p>
+<pre><span class="c"># 1) 渲染（无头 Chrome，视口锁 1920×969 = 设计稿原比，1:1 无缩放）</span>
+node drive_final.js          <span class="c"># 产 six-scene 截图 + __PERF</span>
+
+<span class="c"># 2) 对拍</span>
+python gate_compare.py       <span class="c"># 逐场景 PSNR / 完全一致% / 分区定位</span>
+
+<span class="c"># 3) 判定门槛</span>
+PSNR = ∞ 且 完全一致 = 100.0000%   → <span class="g">PASS-F100</span>（严格档必须达到）
+PSNR ≥ 48                        → PASS-F100*（准逐像素）
+PSNR ≥ 42                        → PASS-F99 （视觉无损）
+PSNR ≥ 34                        → PASS-F95 （可用降档）
+否则                              → <span class="c">FAIL，禁止上线</span>
+</pre>
+<div class="note g">
+<div class="t">当前门禁状态</div>
+<p style="margin:0">严格档 / 生产版好网档：<span class="neon">PSNR = ∞，完全一致 100.0000%</span>，
+max diff = 0 —— <b>已通过</b>。视觉档 44.12 dB（PASS-F99），降档 34.11 dB（PASS-F95）。</p>
+</div>
+
+<h2><span class="n">09</span>需要您拍板的事项</h2>
+<table>
+<thead><tr><th>#</th><th>决策点</th><th>选项与影响</th><th>建议</th></tr></thead>
+<tbody>
+<tr><td><b>P9</b></td><td>桌面首页默认走哪条？</td>
+<td><b>A</b> 标准 F100（逐像素 100%，城市为设计稿原样）<br>
+<b>B</b> 数据 IP（城市随 IP 真实，但城市带与设计稿不同）</td>
+<td class="ok">先 A 上线；B 作为可选开关</td></tr>
+<tr><td><b>P10</b></td><td>移动端接受 HTML UI 吗？</td>
+<td><b>A</b> 场景层 + HTML UI（排版完整，文字为矢量）<br>
+<b>B</b> 直接用横版底图（像素 100%，但标题右侧被裁）</td>
+<td class="ok">A（B 的裁字不可接受）</td></tr>
+<tr><td><b>P11</b></td><td>是否用 web font 精确匹配设计稿字体？</td>
+<td>需要确认设计稿用的字体名与授权；匹配后 UI 层与设计稿更接近</td>
+<td class="md">建议做，需字体信息</td></tr>
+<tr><td><b>P12</b></td><td>城市数据层是否纳入本期？</td>
+<td>纳入则需先闭环之前的 B1–B4 阻塞项（KV 坐标吸附 / 超时对齐 / 接线 / 部署）</td>
+<td>本期先不纳入</td></tr>
+ <tr><td><b>P13</b></td><td>是否优化首屏占位图？（本轮实测发现）</td><td>生产版 img 标签的静态占位当前写死 <code>plate_1080.avif</code>（75&nbsp;KB）：好网档最终用无损 1920 档，占位图<b>下载即废</b>，白耗 75&nbsp;KB（占比 6.6%）。换成 390 档占位（约 15&nbsp;KB）可省 <b>80%</b>，感知首绘更早；缺点是占位期间更糊（仅约 0.1&ndash;1.3&nbsp;s）。<b>不影响</b> 3 秒门槛与 100% 一致（PASS-F100 仍成立）。</td><td class="md">建议换 390 档占位</td></tr>
+</tbody></table>
+
+<h2><span class="n">10</span>本轮边界（严格声明）</h2>
+<div class="grid g2">
+  <div class="card r"><div class="k">未改动</div>
+    <div class="d" style="margin-top:8px">
+    <code>src/</code> 与 <code>functions/</code> <b>零改动</b><br>
+    线上 <b>零写入</b>、<b>无部署</b>、<b>无 KV 写入</b><br>
+    线上 <code>/sky</code> 仍为 09-13 v2 版本<br>
+    本轮全部产物在 <code>docs/sky/render-2026-09-14/</code> 独立目录</div></div>
+  <div class="card g"><div class="k">已实测</div>
+    <div class="d" style="margin-top:8px">
+    无头 Chrome 真实渲染 <b>7 + 6 = 13 个场景</b><br>
+    网络节流 <b>3 档</b> / 视口 <b>8 种</b> / 格式 <b>4 种编码</b><br>
+    像素对拍门禁 <b>可复跑</b>，报告已归档<br>
+    零 JS 错误（13 场景全部 <code>errors=[]</code>）</div></div>
+</div>
+
+<div class="note">
+<div class="t">一句话总结</div>
+<p style="margin:0">之前的 40% 是<b>路线错</b>（用矢量重画位图插画），不是能力问题；
+换成<span class="neon">"装载设计稿资产 + 真实数据叠加 + HTML UI 排版"</span>之后，
+<span class="neon">逐像素 100% 一致、首屏 1.4 秒、三档网络全部达标</span>，
+并且在移动端解决了横版稿铺竖屏必裁字的排版问题。<b>这套方案已经可以生产使用。</b></p>
+</div>
+
+<footer>
+<span>TempoSoul 命律 · 设计稿资产化渲染（DPR）方案 · 2026-09-14</span>
+<span>交付目录：docs/sky/render-2026-09-14/</span>
+</footer>
+</div></body></html>

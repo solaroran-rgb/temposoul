@@ -11,7 +11,8 @@ import type { TarotData, TarotSpreadType } from '@temposoul/core/types';
 const spreadTypes = Object.keys(tarotSpreads) as TarotSpreadType[];
 
 test('塔罗全部牌阵应输出覆盖、来源、牌序、主题与限制对象', () => {
-  assert.equal(spreadTypes.length, 10);
+  // 13 = 主仓既有 10 键 + 第11轮补交新增 3 键（holy-triangle/relationship/yes-no）
+  assert.equal(spreadTypes.length, 13);
 
   spreadTypes.forEach((spreadType) => {
     const data = drawTarotSpread(spreadType, { seed: `塔罗结构化证据-${spreadType}` });

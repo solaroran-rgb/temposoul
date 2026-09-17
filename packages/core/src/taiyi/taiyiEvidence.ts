@@ -7,11 +7,7 @@
  *
  * 覆盖太乙四大环节：起局基础 → 积算入局 → 太乙定位 → 十六神将
  */
-import {
-  buildEvidenceTrail,
-  type EvidenceItem,
-  type EvidenceTrail,
-} from '../shared/evidence';
+import { buildEvidenceTrail, type EvidenceItem, type EvidenceTrail } from '../shared/evidence';
 import type { TaiyiResult } from '../types/divination';
 
 export function buildTaiyiEvidenceTrail(result: TaiyiResult): EvidenceTrail {
@@ -43,9 +39,7 @@ export function buildTaiyiEvidenceTrail(result: TaiyiResult): EvidenceTrail {
       applicableWhen: ['提供占问时间'],
       cautionWhen: ['计式选择影响结果', '历法基准存在版本差异'],
     },
-    counterEvidence: [
-      { description: '太乙积年基准不同流派存在差异', severity: 'alternative' },
-    ],
+    counterEvidence: [{ description: '太乙积年基准不同流派存在差异', severity: 'alternative' }],
     confidence: 'medium',
     depth: 0,
   });
@@ -76,9 +70,7 @@ export function buildTaiyiEvidenceTrail(result: TaiyiResult): EvidenceTrail {
       applicableWhen: ['按积年入局'],
       cautionWhen: ['阴阳遁局依计式'],
     },
-    counterEvidence: [
-      { description: '入局口径存在流派差异', severity: 'alternative' },
-    ],
+    counterEvidence: [{ description: '入局口径存在流派差异', severity: 'alternative' }],
     confidence: 'medium',
     depth: 1,
   });
@@ -118,9 +110,7 @@ export function buildTaiyiEvidenceTrail(result: TaiyiResult): EvidenceTrail {
       applicableWhen: ['按积算定位神将'],
       cautionWhen: ['神将顺序依遁局'],
     },
-    counterEvidence: [
-      { description: '神将定位不同流派存在差异', severity: 'alternative' },
-    ],
+    counterEvidence: [{ description: '神将定位不同流派存在差异', severity: 'alternative' }],
     confidence: 'medium',
     depth: 1,
   });
@@ -142,16 +132,11 @@ export function buildTaiyiEvidenceTrail(result: TaiyiResult): EvidenceTrail {
         applicableWhen: ['按神将判断'],
         cautionWhen: ['神将吉凶为主观断法'],
       },
-      counterEvidence: [
-        { description: '神将吉凶断法存在流派差异', severity: 'alternative' },
-      ],
+      counterEvidence: [{ description: '神将吉凶断法存在流派差异', severity: 'alternative' }],
       confidence: 'low',
       depth: 1,
     });
   }
 
-  return buildEvidenceTrail(
-    items,
-    `太乙证据链（${result.scope}·${result.ganZhi}）`,
-  );
+  return buildEvidenceTrail(items, `太乙证据链（${result.scope}·${result.ganZhi}）`);
 }

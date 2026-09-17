@@ -1,0 +1,7 @@
+@import '@/styles/a23-shared.css';
+
+.qg-input { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin: 12px 0; }
+.qg-input input { width: 70px; background: #2D2D30; color: #D4D4D4; border: 1px solid #3E3E42; border-radius: 4px; padding: 4px; }
+.qg-table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12px; }
+.qg-table th, .qg-table td { border: 1px solid #3E3E42; padding: 4px 6px; text-align: center; }
+.qg-table th { background: #2D2D30; color: #569CD6; }

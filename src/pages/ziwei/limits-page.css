@@ -1,0 +1,22 @@
+/* src/pages/ziwei/limits-page.css */
+.limits-page { max-width: 820px; margin: 0 auto; padding: 16px; color: var(--text-primary, #E0E6ED); background: #05070d; }
+.limits-page__form { display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
+.limits-page__label { font-size: 13px; color: var(--text-secondary, #8B9BB4); }
+.limits-page__input { padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(77, 195, 255, 0.25); background: rgba(77, 195, 255, 0.04); color: var(--text-primary, #E0E6ED); font-size: 14px; outline: none; }
+.limits-page__input:focus { border-color: var(--neon-cyan, #4DC3FF); }
+.limits-page__scope { display: flex; gap: 8px; }
+.limits-page__scope-btn { padding: 6px 14px; border-radius: 999px; border: 1px solid rgba(77, 195, 255, 0.25); background: transparent; color: var(--text-secondary, #8B9BB4); cursor: pointer; font-size: 13px; }
+.limits-page__scope-btn--active { border-color: var(--neon-cyan, #4DC3FF); color: var(--neon-cyan, #4DC3FF); background: rgba(77, 195, 255, 0.12); }
+.limits-page__submit { padding: 10px 16px; border-radius: 8px; border: 1px solid var(--neon-cyan, #4DC3FF); background: rgba(77, 195, 255, 0.12); color: var(--neon-cyan, #4DC3FF); font-size: 14px; cursor: pointer; }
+.limits-page__submit:disabled { opacity: 0.5; cursor: not-allowed; }
+.limits-page__skeleton { height: 120px; border-radius: 8px; background: linear-gradient(90deg, #0d1220, #131a2c, #0d1220); animation: limits-pulse 1.6s ease-in-out infinite; }
+@keyframes limits-pulse { 0%, 100% { opacity: 0.7; } 50% { opacity: 1; } }
+.limits-page__timeline { margin-top: 20px; }
+.limits-page__timeline-head { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.limits-page__heading { font-size: 16px; color: var(--neon-cyan, #4DC3FF); margin: 0; }
+.limits-page__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.limits-page__item { display: flex; gap: 12px; padding: 10px 12px; border: 1px solid rgba(77, 195, 255, 0.15); border-radius: 8px; background: rgba(77, 195, 255, 0.03); }
+.limits-page__item-range { min-width: 120px; color: var(--neon-cyan, #4DC3FF); font-size: 13px; }
+.limits-page__item-palace { font-size: 13px; color: var(--text-primary, #E0E6ED); }
+.limits-page__empty, .limits-page__error, .limits-page__notice { color: var(--text-secondary, #8B9BB4); text-align: center; padding: 24px 16px; font-size: 13px; }
+.limits-page__disclaimer { margin-top: 32px; padding-top: 16px; border-top: 1px solid rgba(139, 155, 180, 0.15); font-size: 12px; color: var(--text-secondary, #8B9BB4); line-height: 1.6; }

@@ -7,11 +7,7 @@
  *
  * 覆盖排盘五大环节：排盘基础 → 真太阳时校正 → 四柱推演 → 十神推导 → 大运起运
  */
-import {
-  buildEvidenceTrail,
-  type EvidenceItem,
-  type EvidenceTrail,
-} from '../shared/evidence';
+import { buildEvidenceTrail, type EvidenceItem, type EvidenceTrail } from '../shared/evidence';
 import type { Person, InternalBaziChartResult } from './baziTypes';
 
 export function buildBaziEvidenceTrail(
@@ -64,7 +60,11 @@ export function buildBaziEvidenceTrail(
           inputs: { birthLongitude: person.birthLongitude ?? null },
         },
         { name: '均时差', reference: 'Meeus Equation of Time', formula: '真太阳时 - 平太阳时' },
-        { name: '夏令时校正', formula: '1986-1991 中国夏令时 -60 分钟', reference: 'applyChinaDst' },
+        {
+          name: '夏令时校正',
+          formula: '1986-1991 中国夏令时 -60 分钟',
+          reference: 'applyChinaDst',
+        },
       ],
       source: { type: 'algorithm', name: 'Meeus Astronomical Algorithms', location: 'Ch.27-28' },
       boundary: {
@@ -166,5 +166,8 @@ export function buildBaziEvidenceTrail(
   }
 
   const dateLabel = `${person.year}-${String(person.month).padStart(2, '0')}-${String(person.day).padStart(2, '0')}`;
-  return buildEvidenceTrail(items, `八字排盘证据链（${dateLabel}，${person.gender || '性别未知'}）`);
+  return buildEvidenceTrail(
+    items,
+    `八字排盘证据链（${dateLabel}，${person.gender || '性别未知'}）`,
+  );
 }

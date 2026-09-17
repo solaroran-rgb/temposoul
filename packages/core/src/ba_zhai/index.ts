@@ -376,7 +376,11 @@ export function analyzeBaZhai(input: BaZhaiInput): BaZhaiResult {
   };
   const evidenceAnalysis = analyzeBaZhaiEvidence(resultBase);
   const result: Omit<BaZhaiResult, 'prompt'> = { ...resultBase, evidenceAnalysis };
-  return { ...result, prompt: buildPrompt(result), evidenceTrail: buildBaZhaiEvidenceTrail(result) };
+  return {
+    ...result,
+    prompt: buildPrompt(result),
+    evidenceTrail: buildBaZhaiEvidenceTrail(result),
+  };
 }
 
 /**

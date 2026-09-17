@@ -1,0 +1,623 @@
+{
+  "http": 200,
+  "ms": 980,
+  "body": {
+    "ok": true,
+    "data": {
+      "input": {
+        "year": 1988,
+        "yearGanZhi": "戊辰",
+        "yearGanZhiSource": "公历年年中换算"
+      },
+      "annualMovement": {
+        "stem": "戊",
+        "element": "火",
+        "name": "火运",
+        "tone": "徵",
+        "toneStrength": "太",
+        "toneName": "太徵",
+        "yinYang": "阳",
+        "strength": "太过",
+        "basis": "戊干化火运；阳干为太过，五音为太徵。"
+      },
+      "sitian": {
+        "name": "太阳寒水",
+        "phase": "太阳",
+        "qi": "寒",
+        "element": "水"
+      },
+      "zaiquan": {
+        "name": "太阴湿土",
+        "phase": "太阴",
+        "qi": "湿",
+        "element": "土"
+      },
+      "annualRelation": {
+        "kind": "天刑",
+        "movementElement": "火",
+        "sitianElement": "水",
+        "basis": "司天水克中运火，为天刑。"
+      },
+      "annualConformities": {
+        "names": [],
+        "tianfu": false,
+        "suihui": false,
+        "taiyiTianfu": false,
+        "tongTianfu": false,
+        "tongSuihui": false,
+        "facts": [
+          {
+            "name": "天符",
+            "matched": false,
+            "rule": "中运五行与司天五行相同。",
+            "basis": "中运为火，司天为水，两者不同气。"
+          },
+          {
+            "name": "岁会",
+            "matched": false,
+            "rule": "本运临本支之位：木卯、火午、土辰戌丑未、金酉、水子。",
+            "basis": "辰支本位五行为土，中运为火，不相合。"
+          },
+          {
+            "name": "太乙天符",
+            "matched": false,
+            "rule": "同一年同时构成天符与岁会。",
+            "basis": "天符不成立，岁会不成立。"
+          },
+          {
+            "name": "同天符",
+            "matched": false,
+            "rule": "阳干年中运五行与在泉五行相同。",
+            "basis": "阳干年，中运为火，在泉为土，不符合同天符。"
+          },
+          {
+            "name": "同岁会",
+            "matched": false,
+            "rule": "阴干年中运五行与在泉五行相同。",
+            "basis": "阳干年，中运为火，在泉为土，不符合同岁会。"
+          }
+        ],
+        "sourceReconciliation": {
+          "distinctYearsByListedRules": 26,
+          "sourceSummaryYears": 28,
+          "handling": "吴谦《运气要诀》逐项名单按六十甲子去重为26年，与原文“二十八年”汇总不一致；计算采用逐项定义和逐年名单，不用汇总数反改规则。"
+        }
+      },
+      "movementSteps": [
+        {
+          "order": 1,
+          "label": "初运",
+          "startBoundary": {
+            "solarTerm": "大寒",
+            "offsetDays": 0,
+            "description": "大寒日起",
+            "precision": "传统日期序号"
+          },
+          "periodRule": "大寒日起，至春分后第12日",
+          "hostMovement": {
+            "element": "木",
+            "tone": "角",
+            "toneStrength": "少",
+            "toneName": "少角",
+            "strength": "不及",
+            "climateQi": "风"
+          },
+          "guestMovement": {
+            "element": "火",
+            "tone": "徵",
+            "toneStrength": "太",
+            "toneName": "太徵",
+            "strength": "太过",
+            "climateQi": "热"
+          },
+          "hostGuestRelation": {
+            "kind": "主生客",
+            "basis": "主运木生客运火。"
+          },
+          "guestRole": "中运起点"
+        },
+        {
+          "order": 2,
+          "label": "二运",
+          "startBoundary": {
+            "solarTerm": "春分",
+            "offsetDays": 13,
+            "description": "春分后第13日起",
+            "precision": "传统日期序号"
+          },
+          "periodRule": "春分后第13日起，至芒种后第9日",
+          "hostMovement": {
+            "element": "火",
+            "tone": "徵",
+            "toneStrength": "太",
+            "toneName": "太徵",
+            "strength": "太过",
+            "climateQi": "热"
+          },
+          "guestMovement": {
+            "element": "土",
+            "tone": "宫",
+            "toneStrength": "少",
+            "toneName": "少宫",
+            "strength": "不及",
+            "climateQi": "湿"
+          },
+          "hostGuestRelation": {
+            "kind": "主生客",
+            "basis": "主运火生客运土。"
+          }
+        },
+        {
+          "order": 3,
+          "label": "三运",
+          "startBoundary": {
+            "solarTerm": "芒种",
+            "offsetDays": 10,
+            "description": "芒种后第10日起",
+            "precision": "传统日期序号"
+          },
+          "periodRule": "芒种后第10日起，至处暑后第6日",
+          "hostMovement": {
+            "element": "土",
+            "tone": "宫",
+            "toneStrength": "少",
+            "toneName": "少宫",
+            "strength": "不及",
+            "climateQi": "湿"
+          },
+          "guestMovement": {
+            "element": "金",
+            "tone": "商",
+            "toneStrength": "太",
+            "toneName": "太商",
+            "strength": "太过",
+            "climateQi": "燥"
+          },
+          "hostGuestRelation": {
+            "kind": "主生客",
+            "basis": "主运土生客运金。"
+          }
+        },
+        {
+          "order": 4,
+          "label": "四运",
+          "startBoundary": {
+            "solarTerm": "处暑",
+            "offsetDays": 7,
+            "description": "处暑后第7日起",
+            "precision": "传统日期序号"
+          },
+          "periodRule": "处暑后第7日起，至立冬后第3日",
+          "hostMovement": {
+            "element": "金",
+            "tone": "商",
+            "toneStrength": "太",
+            "toneName": "太商",
+            "strength": "太过",
+            "climateQi": "燥"
+          },
+          "guestMovement": {
+            "element": "水",
+            "tone": "羽",
+            "toneStrength": "少",
+            "toneName": "少羽",
+            "strength": "不及",
+            "climateQi": "寒"
+          },
+          "hostGuestRelation": {
+            "kind": "主生客",
+            "basis": "主运金生客运水。"
+          }
+        },
+        {
+          "order": 5,
+          "label": "五运",
+          "startBoundary": {
+            "solarTerm": "立冬",
+            "offsetDays": 4,
+            "description": "立冬后第4日起",
+            "precision": "传统日期序号"
+          },
+          "periodRule": "立冬后第4日起，至小寒末日",
+          "hostMovement": {
+            "element": "水",
+            "tone": "羽",
+            "toneStrength": "少",
+            "toneName": "少羽",
+            "strength": "不及",
+            "climateQi": "寒"
+          },
+          "guestMovement": {
+            "element": "木",
+            "tone": "角",
+            "toneStrength": "太",
+            "toneName": "太角",
+            "strength": "太过",
+            "climateQi": "风"
+          },
+          "hostGuestRelation": {
+            "kind": "主生客",
+            "basis": "主运水生客运木。"
+          }
+        }
+      ],
+      "qiSteps": [
+        {
+          "order": 1,
+          "label": "初之气",
+          "solarTerms": [
+            "大寒",
+            "立春",
+            "雨水",
+            "惊蛰"
+          ],
+          "hostQi": {
+            "name": "厥阴风木",
+            "phase": "厥阴",
+            "qi": "风",
+            "element": "木"
+          },
+          "guestQi": {
+            "name": "少阳相火",
+            "phase": "少阳",
+            "qi": "相火",
+            "element": "火"
+          },
+          "hostGuestRelation": {
+            "kind": "主生客",
+            "basis": "主气木生客气火。"
+          }
+        },
+        {
+          "order": 2,
+          "label": "二之气",
+          "solarTerms": [
+            "春分",
+            "清明",
+            "谷雨",
+            "立夏"
+          ],
+          "hostQi": {
+            "name": "少阴君火",
+            "phase": "少阴",
+            "qi": "君火",
+            "element": "火"
+          },
+          "guestQi": {
+            "name": "阳明燥金",
+            "phase": "阳明",
+            "qi": "燥",
+            "element": "金"
+          },
+          "hostGuestRelation": {
+            "kind": "主克客",
+            "basis": "主气火克客气金。"
+          }
+        },
+        {
+          "order": 3,
+          "label": "三之气",
+          "solarTerms": [
+            "小满",
+            "芒种",
+            "夏至",
+            "小暑"
+          ],
+          "hostQi": {
+            "name": "少阳相火",
+            "phase": "少阳",
+            "qi": "相火",
+            "element": "火"
+          },
+          "guestQi": {
+            "name": "太阳寒水",
+            "phase": "太阳",
+            "qi": "寒",
+            "element": "水"
+          },
+          "hostGuestRelation": {
+            "kind": "客克主",
+            "basis": "客气水克主气火。"
+          },
+          "guestRole": "司天"
+        },
+        {
+          "order": 4,
+          "label": "四之气",
+          "solarTerms": [
+            "大暑",
+            "立秋",
+            "处暑",
+            "白露"
+          ],
+          "hostQi": {
+            "name": "太阴湿土",
+            "phase": "太阴",
+            "qi": "湿",
+            "element": "土"
+          },
+          "guestQi": {
+            "name": "厥阴风木",
+            "phase": "厥阴",
+            "qi": "风",
+            "element": "木"
+          },
+          "hostGuestRelation": {
+            "kind": "客克主",
+            "basis": "客气木克主气土。"
+          }
+        },
+        {
+          "order": 5,
+          "label": "五之气",
+          "solarTerms": [
+            "秋分",
+            "寒露",
+            "霜降",
+            "立冬"
+          ],
+          "hostQi": {
+            "name": "阳明燥金",
+            "phase": "阳明",
+            "qi": "燥",
+            "element": "金"
+          },
+          "guestQi": {
+            "name": "少阴君火",
+            "phase": "少阴",
+            "qi": "君火",
+            "element": "火"
+          },
+          "hostGuestRelation": {
+            "kind": "客克主",
+            "basis": "客气火克主气金。"
+          }
+        },
+        {
+          "order": 6,
+          "label": "终之气",
+          "solarTerms": [
+            "小雪",
+            "大雪",
+            "冬至",
+            "小寒"
+          ],
+          "hostQi": {
+            "name": "太阳寒水",
+            "phase": "太阳",
+            "qi": "寒",
+            "element": "水"
+          },
+          "guestQi": {
+            "name": "太阴湿土",
+            "phase": "太阴",
+            "qi": "湿",
+            "element": "土"
+          },
+          "hostGuestRelation": {
+            "kind": "客克主",
+            "basis": "客气土克主气水。"
+          },
+          "guestRole": "在泉"
+        }
+      ],
+      "calculationChain": [
+        "戊辰取年干戊、年支辰",
+        "戊干化火运；阳干为太过，五音为太徵。",
+        "辰支对应太阳寒水司天、太阴湿土在泉",
+        "司天水克中运火，为天刑。",
+        "年度符会逐项核验：五项均未形成",
+        "主运按木火土金水五步固定顺行，以中运太徵推定各音太少",
+        "客运以中运太徵为初运，按五行相生顺推，并依太少相生逐步交替",
+        "五步交司依次为大寒、春分后第13日、芒种后第10日、处暑后第7日、立冬后第4日",
+        "客气以太阳寒水落三之气，依客气次序前后轮转，太阴湿土落终之气",
+        "二十四节气自大寒起按每四气一组分为六步，并逐步核验主客气五行关系"
+      ],
+      "sources": [
+        {
+          "title": "《素问·天元纪大论》",
+          "scope": "天干化五运、地支配司天以及运气年度纲领。"
+        },
+        {
+          "title": "《素问·五运行大论》",
+          "scope": "五运与五行、气候属性的传统关系。"
+        },
+        {
+          "title": "《素问·六微旨大论》",
+          "scope": "六气司天、在泉与主客气位置关系。"
+        },
+        {
+          "title": "吴谦《运气要诀》",
+          "scope": "五步主客运、五音太少、交司日期、六步节令、气运相临以及天符、岁会、太乙天符、同天符、同岁会。"
+        }
+      ],
+      "limitations": [
+        "五步交司按《运气要诀》所列传统日期序号表达，不把“节气后第几日”换算成现代精确到时分秒的交运时刻。",
+        "结果为年度传统节律结构，不含逐日气候计算。",
+        "传统运气模型不能替代地域气象资料、个人健康资料或医疗诊断。",
+        "符会与气运关系按吴谦《运气要诀》通行口径核验，不延伸为疾病轻重或现实事件预测。",
+        "吴谦《运气要诀》逐项名单按六十甲子去重为26年，与原文“二十八年”汇总不一致；计算采用逐项定义和逐年名单，不用汇总数反改规则。"
+      ],
+      "prompt": "【任务】\n依据所列年度运气资料，先复核天干化运、五音太少、五步主客运、地支司天在泉和客气轮转，再解释岁运、五步主客运、司天在泉、六步主客气的结构、相互关系和传统气候节律含义。说明同气、相生、相克等显著关系，并将传统年度气候模型与地域、时令、实际气象资料分层参照；健康相关内容按传统文化资料说明，并结合专业医疗资料判断。\n\n【盘面资料】\n年干支：戊辰（公历 1988 年）\n岁运：火运（太徵），太过（阳干）\n司天：太阳寒水\n在泉：太阴湿土\n司天与中运：天刑；司天水克中运火，为天刑。\n年度符会：未形成天符、岁会、太乙天符、同天符或同岁会\n五步主客运：\n1. 初运（大寒日起，至春分后第12日）：主运少角（木）；客运太徵（火）（中运起点）；主客关系主生客\n2. 二运（春分后第13日起，至芒种后第9日）：主运太徵（火）；客运少宫（土）；主客关系主生客\n3. 三运（芒种后第10日起，至处暑后第6日）：主运少宫（土）；客运太商（金）；主客关系主生客\n4. 四运（处暑后第7日起，至立冬后第3日）：主运太商（金）；客运少羽（水）；主客关系主生客\n5. 五运（立冬后第4日起，至小寒末日）：主运少羽（水）；客运太角（木）；主客关系主生客\n六步主客气：\n1. 初之气（大寒、立春、雨水、惊蛰）：主气厥阴风木；客气少阳相火；主客关系主生客\n2. 二之气（春分、清明、谷雨、立夏）：主气少阴君火；客气阳明燥金；主客关系主克客\n3. 三之气（小满、芒种、夏至、小暑）：主气少阳相火；客气太阳寒水（司天）；主客关系客克主\n4. 四之气（大暑、立秋、处暑、白露）：主气太阴湿土；客气厥阴风木；主客关系客克主\n5. 五之气（秋分、寒露、霜降、立冬）：主气阳明燥金；客气少阴君火；主客关系客克主\n6. 终之气（小雪、大雪、冬至、小寒）：主气太阳寒水；客气太阴湿土（在泉）；主客关系客克主\n\n【传统依据】\n- 《素问·天元纪大论》：天干化五运、地支配司天以及运气年度纲领。\n- 《素问·五运行大论》：五运与五行、气候属性的传统关系。\n- 《素问·六微旨大论》：六气司天、在泉与主客气位置关系。\n- 吴谦《运气要诀》：五步主客运、五音太少、交司日期、六步节令、气运相临以及天符、岁会、太乙天符、同天符、同岁会。",
+      "evidenceTrail": {
+        "items": [
+          {
+            "title": "五运六气推算基础",
+            "system": "wuyun-liuqi",
+            "computationChain": [
+              {
+                "name": "年干支",
+                "reference": "input.yearGanZhi",
+                "output": "戊辰"
+              },
+              {
+                "name": "干支来源",
+                "reference": "input.yearGanZhiSource",
+                "output": "公历年年中换算"
+              },
+              {
+                "name": "公历年",
+                "reference": "input.year",
+                "output": 1988
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "《黄帝内经》五运六气（岁运/主气/客气）"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "提供公历年份或年干支"
+              ],
+              "cautionWhen": [
+                "以年为单位的传统节律结构",
+                "不替代气象/健康资料"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "运气模型是传统理论，不构成科学预测",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 0
+          },
+          {
+            "title": "岁运",
+            "system": "wuyun-liuqi",
+            "computationChain": [
+              {
+                "name": "年运",
+                "reference": "annualMovement",
+                "output": "火太过"
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "岁运太过/不及（中运）"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "按年干定岁运"
+              ],
+              "cautionWhen": [
+                "岁运强弱为传统判定"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "岁运判定口径存在流派差异",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 1
+          },
+          {
+            "title": "司天在泉",
+            "system": "wuyun-liuqi",
+            "computationChain": [
+              {
+                "name": "司天",
+                "reference": "sitian",
+                "output": "水太阳寒水"
+              },
+              {
+                "name": "在泉",
+                "reference": "zaiquan",
+                "output": "土太阴湿土"
+              },
+              {
+                "name": "岁气关系",
+                "reference": "annualRelation",
+                "output": {
+                  "kind": "天刑",
+                  "movementElement": "火",
+                  "sitianElement": "水",
+                  "basis": "司天水克中运火，为天刑。"
+                }
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "司天在泉（客气三阴三阳）"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "按地支定客气"
+              ],
+              "cautionWhen": [
+                "客气随纪年轮转"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "司天在泉对应关系存在版本差异",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 1
+          },
+          {
+            "title": "客主加临",
+            "system": "wuyun-liuqi",
+            "computationChain": [
+              {
+                "name": "气运步骤",
+                "reference": "qiSteps",
+                "output": [
+                  "初之气:风/相火",
+                  "二之气:君火/燥",
+                  "三之气:相火/寒",
+                  "四之气:湿/风",
+                  "五之气:燥/君火",
+                  "终之气:寒/湿"
+                ]
+              },
+              {
+                "name": "五运步骤",
+                "reference": "movementSteps",
+                "output": [
+                  "初运:木",
+                  "二运:火",
+                  "三运:土",
+                  "四运:金",
+                  "五运:水"
+                ]
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "五运六气分步（主运/客运/主气/客气）"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "按节气分步"
+              ],
+              "cautionWhen": [
+                "分步随节气轮转"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "分步起算存在流派差异",
+                "severity": "minor"
+              }
+            ],
+            "confidence": "low",
+            "depth": 1
+          }
+        ],
+        "overallConfidence": "low",
+        "summary": "五运六气证据链（戊辰年）",
+        "generatedAt": "2026-09-12T05:43:08.341Z"
+      }
+    },
+    "meta": {
+      "service": "www.temposoul.com",
+      "version": "v1"
+    }
+  }
+}

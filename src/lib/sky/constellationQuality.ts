@@ -20,10 +20,7 @@ const SEGMENT_LIMITS: Record<QualityTier, number> = {
  * - 若原始段数 <= 上限，返回原数组（不复制）
  * - 否则返回前 limit 段（新数组）
  */
-export function selectSegmentsForTier(
-  segments: number[][],
-  tier: QualityTier
-): number[][] {
+export function selectSegmentsForTier(segments: number[][], tier: QualityTier): number[][] {
   if (!Array.isArray(segments)) return [];
   const limit = SEGMENT_LIMITS[tier];
   if (segments.length <= limit) return segments;

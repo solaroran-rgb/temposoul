@@ -102,13 +102,9 @@ export function EmailCapture({ source = 'website' }: { source?: string }) {
         </form>
       )}
       {status === 'error' ? (
-        <div style={{ fontSize: 12, color: '#ff8fa3', marginTop: 8 }}>
-          {t('newsletter.error')}
-        </div>
+        <div style={{ fontSize: 12, color: '#ff8fa3', marginTop: 8 }}>{t('newsletter.error')}</div>
       ) : null}
-      <div style={{ fontSize: 11, color: '#8b93a7', marginTop: 10 }}>
-        {t('newsletter.privacy')}
-      </div>
+      <div style={{ fontSize: 11, color: '#8b93a7', marginTop: 10 }}>{t('newsletter.privacy')}</div>
     </section>
   );
 }

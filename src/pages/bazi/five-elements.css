@@ -1,0 +1,27 @@
+/* src/pages/bazi/five-elements.css · A11 五行缺失查询（本地侧补建） */
+@import '../../styles/tempo-shell.css';
+
+/* ---------- 五行网格 ---------- */
+.ts-five-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ts-five-grid__item {
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.ts-five-grid__name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary, #E0E6ED);
+}
+.ts-five-grid__count {
+  font-size: 12px;
+  color: var(--text-secondary, #8B9BB4);
+}

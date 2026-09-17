@@ -4,21 +4,27 @@
  * 本文件禁止 import three —— functions/api/geo.ts 需复用，保持零依赖。
  */
 
-export const METERS_PER_UNIT = 10;   // 1 scene unit = 10 m
-export const COVERAGE = 200;         // 覆盖半径 2000m = 200 units
-export const CELL = 20;              // 量化网格 200m，占位/真实共用
+export const METERS_PER_UNIT = 10; // 1 scene unit = 10 m
+export const COVERAGE = 200; // 覆盖半径 2000m = 200 units
+export const CELL = 20; // 量化网格 200m，占位/真实共用
 export const SECTOR_COUNT = 6;
 
 const R_LAT = 110540;
 const R_LON = 111320;
 const DEG = Math.PI / 180;
 
-export interface Origin { lat: number; lon: number }
-export interface XZ { x: number; z: number }
+export interface Origin {
+  lat: number;
+  lon: number;
+}
+export interface XZ {
+  x: number;
+  z: number;
+}
 
 export function latlonToENU(lat: number, lon: number, origin: Origin): XZ {
   const x = ((lon - origin.lon) * R_LON * Math.cos(origin.lat * DEG)) / METERS_PER_UNIT;
-  const z = ((lat - origin.lat) * R_LAT) / METERS_PER_UNIT;   // 北 = +Z
+  const z = ((lat - origin.lat) * R_LAT) / METERS_PER_UNIT; // 北 = +Z
   return { x, z };
 }
 
@@ -31,6 +37,6 @@ export function snapToCell(p: XZ): XZ {
 
 /** 6 扇区编号（0~5），供 GPU 波纹生长 stagger */
 export function sectorOf(x: number, z: number): number {
-  const a = Math.atan2(z, x) + Math.PI;   // [0, 2π)
+  const a = Math.atan2(z, x) + Math.PI; // [0, 2π)
   return Math.min(SECTOR_COUNT - 1, Math.floor((a / (2 * Math.PI)) * SECTOR_COUNT));
-}
+}

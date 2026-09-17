@@ -1,0 +1,8 @@
+@import '@/styles/a23-shared.css';
+
+.fs-question { margin: 12px 0; padding: 12px; background: #252526; border-radius: 8px; }
+.fs-question p { margin: 0 0 8px; }
+.fs-question label { display: block; margin: 4px 0; cursor: pointer; }
+.fs-step { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0; }
+.fs-step span { padding: 2px 8px; border-radius: 12px; background: #2D2D30; font-size: 12px; }
+.fs-step span[data-active="true"] { background: #569CD6; color: #1E1E1E; }

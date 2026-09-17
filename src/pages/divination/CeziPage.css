@@ -1,0 +1,10 @@
+﻿.cezi-picker { display: flex; gap: 8px; }
+.cezi-input {
+  background: #2D2D30; color: #D4D4D4; border: 1px solid #3E3E42;
+  border-radius: 4px; padding: 6px 10px;
+}
+.cezi-btn {
+  background: #569CD6; color: #1E1E1E; border: none;
+  border-radius: 4px; padding: 6px 14px; cursor: pointer;
+}
+.cezi-disclaimer { color: #A0A0A0; font-size: 12px; }

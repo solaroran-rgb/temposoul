@@ -1,0 +1,1130 @@
+{
+  "version": "2.0.0",
+  "generatedAt": "2026-09-17T19:14:32.785Z",
+  "total": 280,
+  "staticCount": 14,
+  "dynamicCount": 101,
+  "templateCount": 165,
+  "expectations": [
+    {
+      "slug": "/wiki/ten-gods",
+      "title": "十神详解：八字十神含义与白话解读"
+    },
+    {
+      "slug": "/wiki/shen-sha",
+      "title": "八字神煞专题：12 大核心神煞详解"
+    },
+    {
+      "slug": "/wiki/four-transform",
+      "title": "紫微四化详解：化禄化权化科化忌×十四主星"
+    },
+    {
+      "slug": "/wiki/ziwei-patterns",
+      "title": "紫微斗数格局大全：15 大主格局白话解读"
+    },
+    {
+      "slug": "/wiki/palace-star",
+      "title": "紫微十二宫×主星解读模板与示例"
+    },
+    {
+      "slug": "/wiki/limit-year-guide",
+      "title": "紫微限年工具：大限小限流年怎么看"
+    },
+    {
+      "slug": "/wiki/transits",
+      "title": "西占行运：概念与解读框架"
+    },
+    {
+      "slug": "/wiki/solar-return",
+      "title": "太阳返照：概念与解读框架"
+    },
+    {
+      "slug": "/tools/limit-year",
+      "title": "紫微限年工具：大限小限流年查询"
+    },
+    {
+      "slug": "/tools/solar-return",
+      "title": "太阳返照查询工具"
+    },
+    {
+      "slug": "/wiki/limit-year-guide/faq",
+      "title": "限年工具常见问题"
+    },
+    {
+      "slug": "/wiki/four-transform/pairs",
+      "title": "十干四化配对表"
+    },
+    {
+      "slug": "/wiki/palace-star/overview",
+      "title": "紫微十二宫与主星总览"
+    },
+    {
+      "slug": "/wiki/four-transform/overview",
+      "title": "四化体系总览"
+    },
+    {
+      "slug": "/wiki/ten-gods/bijian",
+      "title": "比肩详解"
+    },
+    {
+      "slug": "/wiki/ten-gods/jiecai",
+      "title": "劫财详解"
+    },
+    {
+      "slug": "/wiki/ten-gods/shishen",
+      "title": "食神详解"
+    },
+    {
+      "slug": "/wiki/ten-gods/shangguan",
+      "title": "伤官详解"
+    },
+    {
+      "slug": "/wiki/ten-gods/piancai",
+      "title": "偏财详解"
+    },
+    {
+      "slug": "/wiki/ten-gods/zhengcai",
+      "title": "正财详解"
+    },
+    {
+      "slug": "/wiki/ten-gods/qisha",
+      "title": "七杀详解"
+    },
+    {
+      "slug": "/wiki/ten-gods/zhengguan",
+      "title": "正官详解"
+    },
+    {
+      "slug": "/wiki/ten-gods/pianyin",
+      "title": "偏印详解"
+    },
+    {
+      "slug": "/wiki/ten-gods/zhengyin",
+      "title": "正印详解"
+    },
+    {
+      "slug": "/wiki/shen-sha/tianyi",
+      "title": "天乙贵人详解"
+    },
+    {
+      "slug": "/wiki/shen-sha/wenchang",
+      "title": "文昌贵人详解"
+    },
+    {
+      "slug": "/wiki/shen-sha/taohua",
+      "title": "桃花详解"
+    },
+    {
+      "slug": "/wiki/shen-sha/yima",
+      "title": "驿马详解"
+    },
+    {
+      "slug": "/wiki/shen-sha/huagai",
+      "title": "华盖详解"
+    },
+    {
+      "slug": "/wiki/shen-sha/kongwang",
+      "title": "空亡详解"
+    },
+    {
+      "slug": "/wiki/shen-sha/hongluan",
+      "title": "红鸾详解"
+    },
+    {
+      "slug": "/wiki/shen-sha/tianxi",
+      "title": "天喜详解"
+    },
+    {
+      "slug": "/wiki/shen-sha/yangren",
+      "title": "羊刃详解"
+    },
+    {
+      "slug": "/wiki/shen-sha/lushen",
+      "title": "禄神详解"
+    },
+    {
+      "slug": "/wiki/shen-sha/jiangxing",
+      "title": "将星详解"
+    },
+    {
+      "slug": "/wiki/shen-sha/jinyu",
+      "title": "金舆详解"
+    },
+    {
+      "slug": "/wiki/four-transform/ziwei-lu",
+      "title": "紫微化禄详解"
+    },
+    {
+      "slug": "/wiki/four-transform/ziwei-quan",
+      "title": "紫微化权详解"
+    },
+    {
+      "slug": "/wiki/four-transform/ziwei-ke",
+      "title": "紫微化科详解"
+    },
+    {
+      "slug": "/wiki/four-transform/ziwei-ji",
+      "title": "紫微化忌详解"
+    },
+    {
+      "slug": "/wiki/four-transform/tianji-lu",
+      "title": "天机化禄详解"
+    },
+    {
+      "slug": "/wiki/four-transform/tianji-quan",
+      "title": "天机化权详解"
+    },
+    {
+      "slug": "/wiki/four-transform/tianji-ke",
+      "title": "天机化科详解"
+    },
+    {
+      "slug": "/wiki/four-transform/tianji-ji",
+      "title": "天机化忌详解"
+    },
+    {
+      "slug": "/wiki/four-transform/taiyang-lu",
+      "title": "太阳化禄详解"
+    },
+    {
+      "slug": "/wiki/four-transform/taiyang-quan",
+      "title": "太阳化权详解"
+    },
+    {
+      "slug": "/wiki/four-transform/taiyang-ke",
+      "title": "太阳化科详解"
+    },
+    {
+      "slug": "/wiki/four-transform/taiyang-ji",
+      "title": "太阳化忌详解"
+    },
+    {
+      "slug": "/wiki/four-transform/wuqu-lu",
+      "title": "武曲化禄详解"
+    },
+    {
+      "slug": "/wiki/four-transform/wuqu-quan",
+      "title": "武曲化权详解"
+    },
+    {
+      "slug": "/wiki/four-transform/wuqu-ke",
+      "title": "武曲化科详解"
+    },
+    {
+      "slug": "/wiki/four-transform/wuqu-ji",
+      "title": "武曲化忌详解"
+    },
+    {
+      "slug": "/wiki/four-transform/tiantong-lu",
+      "title": "天同化禄详解"
+    },
+    {
+      "slug": "/wiki/four-transform/tiantong-quan",
+      "title": "天同化权详解"
+    },
+    {
+      "slug": "/wiki/four-transform/tiantong-ke",
+      "title": "天同化科详解"
+    },
+    {
+      "slug": "/wiki/four-transform/tiantong-ji",
+      "title": "天同化忌详解"
+    },
+    {
+      "slug": "/wiki/four-transform/lianzhen-lu",
+      "title": "廉贞化禄详解"
+    },
+    {
+      "slug": "/wiki/four-transform/lianzhen-quan",
+      "title": "廉贞化权详解"
+    },
+    {
+      "slug": "/wiki/four-transform/lianzhen-ke",
+      "title": "廉贞化科详解"
+    },
+    {
+      "slug": "/wiki/four-transform/lianzhen-ji",
+      "title": "廉贞化忌详解"
+    },
+    {
+      "slug": "/wiki/four-transform/tianfu-lu",
+      "title": "天府化禄详解"
+    },
+    {
+      "slug": "/wiki/four-transform/tianfu-quan",
+      "title": "天府化权详解"
+    },
+    {
+      "slug": "/wiki/four-transform/tianfu-ke",
+      "title": "天府化科详解"
+    },
+    {
+      "slug": "/wiki/four-transform/tianfu-ji",
+      "title": "天府化忌详解"
+    },
+    {
+      "slug": "/wiki/four-transform/taiyin-lu",
+      "title": "太阴化禄详解"
+    },
+    {
+      "slug": "/wiki/four-transform/taiyin-quan",
+      "title": "太阴化权详解"
+    },
+    {
+      "slug": "/wiki/four-transform/taiyin-ke",
+      "title": "太阴化科详解"
+    },
+    {
+      "slug": "/wiki/four-transform/taiyin-ji",
+      "title": "太阴化忌详解"
+    },
+    {
+      "slug": "/wiki/four-transform/tanlang-lu",
+      "title": "贪狼化禄详解"
+    },
+    {
+      "slug": "/wiki/four-transform/tanlang-quan",
+      "title": "贪狼化权详解"
+    },
+    {
+      "slug": "/wiki/four-transform/tanlang-ke",
+      "title": "贪狼化科详解"
+    },
+    {
+      "slug": "/wiki/four-transform/tanlang-ji",
+      "title": "贪狼化忌详解"
+    },
+    {
+      "slug": "/wiki/four-transform/jumen-lu",
+      "title": "巨门化禄详解"
+    },
+    {
+      "slug": "/wiki/four-transform/jumen-quan",
+      "title": "巨门化权详解"
+    },
+    {
+      "slug": "/wiki/four-transform/jumen-ke",
+      "title": "巨门化科详解"
+    },
+    {
+      "slug": "/wiki/four-transform/jumen-ji",
+      "title": "巨门化忌详解"
+    },
+    {
+      "slug": "/wiki/four-transform/tianxiang-lu",
+      "title": "天相化禄详解"
+    },
+    {
+      "slug": "/wiki/four-transform/tianxiang-quan",
+      "title": "天相化权详解"
+    },
+    {
+      "slug": "/wiki/four-transform/tianxiang-ke",
+      "title": "天相化科详解"
+    },
+    {
+      "slug": "/wiki/four-transform/tianxiang-ji",
+      "title": "天相化忌详解"
+    },
+    {
+      "slug": "/wiki/four-transform/tianliang-lu",
+      "title": "天梁化禄详解"
+    },
+    {
+      "slug": "/wiki/four-transform/tianliang-quan",
+      "title": "天梁化权详解"
+    },
+    {
+      "slug": "/wiki/four-transform/tianliang-ke",
+      "title": "天梁化科详解"
+    },
+    {
+      "slug": "/wiki/four-transform/tianliang-ji",
+      "title": "天梁化忌详解"
+    },
+    {
+      "slug": "/wiki/four-transform/qisha-lu",
+      "title": "七杀化禄详解"
+    },
+    {
+      "slug": "/wiki/four-transform/qisha-quan",
+      "title": "七杀化权详解"
+    },
+    {
+      "slug": "/wiki/four-transform/qisha-ke",
+      "title": "七杀化科详解"
+    },
+    {
+      "slug": "/wiki/four-transform/qisha-ji",
+      "title": "七杀化忌详解"
+    },
+    {
+      "slug": "/wiki/four-transform/pojun-lu",
+      "title": "破军化禄详解"
+    },
+    {
+      "slug": "/wiki/four-transform/pojun-quan",
+      "title": "破军化权详解"
+    },
+    {
+      "slug": "/wiki/four-transform/pojun-ke",
+      "title": "破军化科详解"
+    },
+    {
+      "slug": "/wiki/four-transform/pojun-ji",
+      "title": "破军化忌详解"
+    },
+    {
+      "slug": "/wiki/ziwei-patterns/zisha",
+      "title": "紫微朝垣格详解"
+    },
+    {
+      "slug": "/wiki/ziwei-patterns/fuyin",
+      "title": "府相朝垣格详解"
+    },
+    {
+      "slug": "/wiki/ziwei-patterns/riyue",
+      "title": "日月同宫格详解"
+    },
+    {
+      "slug": "/wiki/ziwei-patterns/rifu",
+      "title": "日月并明格详解"
+    },
+    {
+      "slug": "/wiki/ziwei-patterns/yuetu",
+      "title": "月朗天门格详解"
+    },
+    {
+      "slug": "/wiki/ziwei-patterns/wugu",
+      "title": "武曲守垣格详解"
+    },
+    {
+      "slug": "/wiki/ziwei-patterns/qisha",
+      "title": "七杀朝斗格详解"
+    },
+    {
+      "slug": "/wiki/ziwei-patterns/pojun",
+      "title": "破军暗曜格详解"
+    },
+    {
+      "slug": "/wiki/ziwei-patterns/tanlang",
+      "title": "贪狼会昌曲格详解"
+    },
+    {
+      "slug": "/wiki/ziwei-patterns/tianfu",
+      "title": "天府守垣格详解"
+    },
+    {
+      "slug": "/wiki/ziwei-patterns/tianliang",
+      "title": "天梁荫福格详解"
+    },
+    {
+      "slug": "/wiki/ziwei-patterns/jiuming",
+      "title": "君臣庆会格详解"
+    },
+    {
+      "slug": "/wiki/ziwei-patterns/chanrong",
+      "title": "三奇嘉会格详解"
+    },
+    {
+      "slug": "/wiki/ziwei-patterns/luoquan",
+      "title": "禄权科会格详解"
+    },
+    {
+      "slug": "/wiki/ziwei-patterns/jiaxing",
+      "title": "夹贵格详解"
+    },
+    {
+      "slug": "/wiki/limit-year/da_xian",
+      "title": "大限详解"
+    },
+    {
+      "slug": "/wiki/limit-year/xiao_xian",
+      "title": "小限详解"
+    },
+    {
+      "slug": "/wiki/limit-year/liu_nian",
+      "title": "流年详解"
+    },
+    {
+      "slug": "/wiki/transits/detail",
+      "title": "行运详解：行星相位与时间尺度"
+    },
+    {
+      "slug": "/wiki/solar-return/detail",
+      "title": "太阳返照详解：四轴与宫位框架"
+    },
+    {
+      "slug": "/wiki/palace-star/ming-ziwei",
+      "title": "命宫紫微详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fuqi-tanlang",
+      "title": "夫妻宫贪狼详解"
+    },
+    {
+      "slug": "/wiki/palace-star/caibo-wuqu",
+      "title": "财帛宫武曲详解"
+    },
+    {
+      "slug": "/wiki/palace-star/ming-tianji",
+      "title": "命宫天机详解"
+    },
+    {
+      "slug": "/wiki/palace-star/ming-taiyang",
+      "title": "命宫太阳详解"
+    },
+    {
+      "slug": "/wiki/palace-star/ming-wuqu",
+      "title": "命宫武曲详解"
+    },
+    {
+      "slug": "/wiki/palace-star/ming-tiantong",
+      "title": "命宫天同详解"
+    },
+    {
+      "slug": "/wiki/palace-star/ming-lianzhen",
+      "title": "命宫廉贞详解"
+    },
+    {
+      "slug": "/wiki/palace-star/ming-tianfu",
+      "title": "命宫天府详解"
+    },
+    {
+      "slug": "/wiki/palace-star/ming-taiyin",
+      "title": "命宫太阴详解"
+    },
+    {
+      "slug": "/wiki/palace-star/ming-tanlang",
+      "title": "命宫贪狼详解"
+    },
+    {
+      "slug": "/wiki/palace-star/ming-jumen",
+      "title": "命宫巨门详解"
+    },
+    {
+      "slug": "/wiki/palace-star/ming-tianxiang",
+      "title": "命宫天相详解"
+    },
+    {
+      "slug": "/wiki/palace-star/ming-tianliang",
+      "title": "命宫天梁详解"
+    },
+    {
+      "slug": "/wiki/palace-star/ming-qisha",
+      "title": "命宫七杀详解"
+    },
+    {
+      "slug": "/wiki/palace-star/ming-pojun",
+      "title": "命宫破军详解"
+    },
+    {
+      "slug": "/wiki/palace-star/xiongdi-ziwei",
+      "title": "兄弟紫微详解"
+    },
+    {
+      "slug": "/wiki/palace-star/xiongdi-tianji",
+      "title": "兄弟天机详解"
+    },
+    {
+      "slug": "/wiki/palace-star/xiongdi-taiyang",
+      "title": "兄弟太阳详解"
+    },
+    {
+      "slug": "/wiki/palace-star/xiongdi-wuqu",
+      "title": "兄弟武曲详解"
+    },
+    {
+      "slug": "/wiki/palace-star/xiongdi-tiantong",
+      "title": "兄弟天同详解"
+    },
+    {
+      "slug": "/wiki/palace-star/xiongdi-lianzhen",
+      "title": "兄弟廉贞详解"
+    },
+    {
+      "slug": "/wiki/palace-star/xiongdi-tianfu",
+      "title": "兄弟天府详解"
+    },
+    {
+      "slug": "/wiki/palace-star/xiongdi-taiyin",
+      "title": "兄弟太阴详解"
+    },
+    {
+      "slug": "/wiki/palace-star/xiongdi-tanlang",
+      "title": "兄弟贪狼详解"
+    },
+    {
+      "slug": "/wiki/palace-star/xiongdi-jumen",
+      "title": "兄弟巨门详解"
+    },
+    {
+      "slug": "/wiki/palace-star/xiongdi-tianxiang",
+      "title": "兄弟天相详解"
+    },
+    {
+      "slug": "/wiki/palace-star/xiongdi-tianliang",
+      "title": "兄弟天梁详解"
+    },
+    {
+      "slug": "/wiki/palace-star/xiongdi-qisha",
+      "title": "兄弟七杀详解"
+    },
+    {
+      "slug": "/wiki/palace-star/xiongdi-pojun",
+      "title": "兄弟破军详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fuqi-ziwei",
+      "title": "夫妻紫微详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fuqi-tianji",
+      "title": "夫妻天机详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fuqi-taiyang",
+      "title": "夫妻太阳详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fuqi-wuqu",
+      "title": "夫妻武曲详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fuqi-tiantong",
+      "title": "夫妻天同详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fuqi-lianzhen",
+      "title": "夫妻廉贞详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fuqi-tianfu",
+      "title": "夫妻天府详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fuqi-taiyin",
+      "title": "夫妻太阴详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fuqi-jumen",
+      "title": "夫妻巨门详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fuqi-tianxiang",
+      "title": "夫妻天相详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fuqi-tianliang",
+      "title": "夫妻天梁详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fuqi-qisha",
+      "title": "夫妻七杀详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fuqi-pojun",
+      "title": "夫妻破军详解"
+    },
+    {
+      "slug": "/wiki/palace-star/zinv-ziwei",
+      "title": "子女紫微详解"
+    },
+    {
+      "slug": "/wiki/palace-star/zinv-tianji",
+      "title": "子女天机详解"
+    },
+    {
+      "slug": "/wiki/palace-star/zinv-taiyang",
+      "title": "子女太阳详解"
+    },
+    {
+      "slug": "/wiki/palace-star/zinv-wuqu",
+      "title": "子女武曲详解"
+    },
+    {
+      "slug": "/wiki/palace-star/zinv-tiantong",
+      "title": "子女天同详解"
+    },
+    {
+      "slug": "/wiki/palace-star/zinv-lianzhen",
+      "title": "子女廉贞详解"
+    },
+    {
+      "slug": "/wiki/palace-star/zinv-tianfu",
+      "title": "子女天府详解"
+    },
+    {
+      "slug": "/wiki/palace-star/zinv-taiyin",
+      "title": "子女太阴详解"
+    },
+    {
+      "slug": "/wiki/palace-star/zinv-tanlang",
+      "title": "子女贪狼详解"
+    },
+    {
+      "slug": "/wiki/palace-star/zinv-jumen",
+      "title": "子女巨门详解"
+    },
+    {
+      "slug": "/wiki/palace-star/zinv-tianxiang",
+      "title": "子女天相详解"
+    },
+    {
+      "slug": "/wiki/palace-star/zinv-tianliang",
+      "title": "子女天梁详解"
+    },
+    {
+      "slug": "/wiki/palace-star/zinv-qisha",
+      "title": "子女七杀详解"
+    },
+    {
+      "slug": "/wiki/palace-star/zinv-pojun",
+      "title": "子女破军详解"
+    },
+    {
+      "slug": "/wiki/palace-star/caibo-ziwei",
+      "title": "财帛紫微详解"
+    },
+    {
+      "slug": "/wiki/palace-star/caibo-tianji",
+      "title": "财帛天机详解"
+    },
+    {
+      "slug": "/wiki/palace-star/caibo-taiyang",
+      "title": "财帛太阳详解"
+    },
+    {
+      "slug": "/wiki/palace-star/caibo-tiantong",
+      "title": "财帛天同详解"
+    },
+    {
+      "slug": "/wiki/palace-star/caibo-lianzhen",
+      "title": "财帛廉贞详解"
+    },
+    {
+      "slug": "/wiki/palace-star/caibo-tianfu",
+      "title": "财帛天府详解"
+    },
+    {
+      "slug": "/wiki/palace-star/caibo-taiyin",
+      "title": "财帛太阴详解"
+    },
+    {
+      "slug": "/wiki/palace-star/caibo-tanlang",
+      "title": "财帛贪狼详解"
+    },
+    {
+      "slug": "/wiki/palace-star/caibo-jumen",
+      "title": "财帛巨门详解"
+    },
+    {
+      "slug": "/wiki/palace-star/caibo-tianxiang",
+      "title": "财帛天相详解"
+    },
+    {
+      "slug": "/wiki/palace-star/caibo-tianliang",
+      "title": "财帛天梁详解"
+    },
+    {
+      "slug": "/wiki/palace-star/caibo-qisha",
+      "title": "财帛七杀详解"
+    },
+    {
+      "slug": "/wiki/palace-star/caibo-pojun",
+      "title": "财帛破军详解"
+    },
+    {
+      "slug": "/wiki/palace-star/jie-ziwei",
+      "title": "疾厄紫微详解"
+    },
+    {
+      "slug": "/wiki/palace-star/jie-tianji",
+      "title": "疾厄天机详解"
+    },
+    {
+      "slug": "/wiki/palace-star/jie-taiyang",
+      "title": "疾厄太阳详解"
+    },
+    {
+      "slug": "/wiki/palace-star/jie-wuqu",
+      "title": "疾厄武曲详解"
+    },
+    {
+      "slug": "/wiki/palace-star/jie-tiantong",
+      "title": "疾厄天同详解"
+    },
+    {
+      "slug": "/wiki/palace-star/jie-lianzhen",
+      "title": "疾厄廉贞详解"
+    },
+    {
+      "slug": "/wiki/palace-star/jie-tianfu",
+      "title": "疾厄天府详解"
+    },
+    {
+      "slug": "/wiki/palace-star/jie-taiyin",
+      "title": "疾厄太阴详解"
+    },
+    {
+      "slug": "/wiki/palace-star/jie-tanlang",
+      "title": "疾厄贪狼详解"
+    },
+    {
+      "slug": "/wiki/palace-star/jie-jumen",
+      "title": "疾厄巨门详解"
+    },
+    {
+      "slug": "/wiki/palace-star/jie-tianxiang",
+      "title": "疾厄天相详解"
+    },
+    {
+      "slug": "/wiki/palace-star/jie-tianliang",
+      "title": "疾厄天梁详解"
+    },
+    {
+      "slug": "/wiki/palace-star/jie-qisha",
+      "title": "疾厄七杀详解"
+    },
+    {
+      "slug": "/wiki/palace-star/jie-pojun",
+      "title": "疾厄破军详解"
+    },
+    {
+      "slug": "/wiki/palace-star/qianyi-ziwei",
+      "title": "迁移紫微详解"
+    },
+    {
+      "slug": "/wiki/palace-star/qianyi-tianji",
+      "title": "迁移天机详解"
+    },
+    {
+      "slug": "/wiki/palace-star/qianyi-taiyang",
+      "title": "迁移太阳详解"
+    },
+    {
+      "slug": "/wiki/palace-star/qianyi-wuqu",
+      "title": "迁移武曲详解"
+    },
+    {
+      "slug": "/wiki/palace-star/qianyi-tiantong",
+      "title": "迁移天同详解"
+    },
+    {
+      "slug": "/wiki/palace-star/qianyi-lianzhen",
+      "title": "迁移廉贞详解"
+    },
+    {
+      "slug": "/wiki/palace-star/qianyi-tianfu",
+      "title": "迁移天府详解"
+    },
+    {
+      "slug": "/wiki/palace-star/qianyi-taiyin",
+      "title": "迁移太阴详解"
+    },
+    {
+      "slug": "/wiki/palace-star/qianyi-tanlang",
+      "title": "迁移贪狼详解"
+    },
+    {
+      "slug": "/wiki/palace-star/qianyi-jumen",
+      "title": "迁移巨门详解"
+    },
+    {
+      "slug": "/wiki/palace-star/qianyi-tianxiang",
+      "title": "迁移天相详解"
+    },
+    {
+      "slug": "/wiki/palace-star/qianyi-tianliang",
+      "title": "迁移天梁详解"
+    },
+    {
+      "slug": "/wiki/palace-star/qianyi-qisha",
+      "title": "迁移七杀详解"
+    },
+    {
+      "slug": "/wiki/palace-star/qianyi-pojun",
+      "title": "迁移破军详解"
+    },
+    {
+      "slug": "/wiki/palace-star/jiaoyou-ziwei",
+      "title": "交友紫微详解"
+    },
+    {
+      "slug": "/wiki/palace-star/jiaoyou-tianji",
+      "title": "交友天机详解"
+    },
+    {
+      "slug": "/wiki/palace-star/jiaoyou-taiyang",
+      "title": "交友太阳详解"
+    },
+    {
+      "slug": "/wiki/palace-star/jiaoyou-wuqu",
+      "title": "交友武曲详解"
+    },
+    {
+      "slug": "/wiki/palace-star/jiaoyou-tiantong",
+      "title": "交友天同详解"
+    },
+    {
+      "slug": "/wiki/palace-star/jiaoyou-lianzhen",
+      "title": "交友廉贞详解"
+    },
+    {
+      "slug": "/wiki/palace-star/jiaoyou-tianfu",
+      "title": "交友天府详解"
+    },
+    {
+      "slug": "/wiki/palace-star/jiaoyou-taiyin",
+      "title": "交友太阴详解"
+    },
+    {
+      "slug": "/wiki/palace-star/jiaoyou-tanlang",
+      "title": "交友贪狼详解"
+    },
+    {
+      "slug": "/wiki/palace-star/jiaoyou-jumen",
+      "title": "交友巨门详解"
+    },
+    {
+      "slug": "/wiki/palace-star/jiaoyou-tianxiang",
+      "title": "交友天相详解"
+    },
+    {
+      "slug": "/wiki/palace-star/jiaoyou-tianliang",
+      "title": "交友天梁详解"
+    },
+    {
+      "slug": "/wiki/palace-star/jiaoyou-qisha",
+      "title": "交友七杀详解"
+    },
+    {
+      "slug": "/wiki/palace-star/jiaoyou-pojun",
+      "title": "交友破军详解"
+    },
+    {
+      "slug": "/wiki/palace-star/guanlu-ziwei",
+      "title": "官禄紫微详解"
+    },
+    {
+      "slug": "/wiki/palace-star/guanlu-tianji",
+      "title": "官禄天机详解"
+    },
+    {
+      "slug": "/wiki/palace-star/guanlu-taiyang",
+      "title": "官禄太阳详解"
+    },
+    {
+      "slug": "/wiki/palace-star/guanlu-wuqu",
+      "title": "官禄武曲详解"
+    },
+    {
+      "slug": "/wiki/palace-star/guanlu-tiantong",
+      "title": "官禄天同详解"
+    },
+    {
+      "slug": "/wiki/palace-star/guanlu-lianzhen",
+      "title": "官禄廉贞详解"
+    },
+    {
+      "slug": "/wiki/palace-star/guanlu-tianfu",
+      "title": "官禄天府详解"
+    },
+    {
+      "slug": "/wiki/palace-star/guanlu-taiyin",
+      "title": "官禄太阴详解"
+    },
+    {
+      "slug": "/wiki/palace-star/guanlu-tanlang",
+      "title": "官禄贪狼详解"
+    },
+    {
+      "slug": "/wiki/palace-star/guanlu-jumen",
+      "title": "官禄巨门详解"
+    },
+    {
+      "slug": "/wiki/palace-star/guanlu-tianxiang",
+      "title": "官禄天相详解"
+    },
+    {
+      "slug": "/wiki/palace-star/guanlu-tianliang",
+      "title": "官禄天梁详解"
+    },
+    {
+      "slug": "/wiki/palace-star/guanlu-qisha",
+      "title": "官禄七杀详解"
+    },
+    {
+      "slug": "/wiki/palace-star/guanlu-pojun",
+      "title": "官禄破军详解"
+    },
+    {
+      "slug": "/wiki/palace-star/tianzhai-ziwei",
+      "title": "田宅紫微详解"
+    },
+    {
+      "slug": "/wiki/palace-star/tianzhai-tianji",
+      "title": "田宅天机详解"
+    },
+    {
+      "slug": "/wiki/palace-star/tianzhai-taiyang",
+      "title": "田宅太阳详解"
+    },
+    {
+      "slug": "/wiki/palace-star/tianzhai-wuqu",
+      "title": "田宅武曲详解"
+    },
+    {
+      "slug": "/wiki/palace-star/tianzhai-tiantong",
+      "title": "田宅天同详解"
+    },
+    {
+      "slug": "/wiki/palace-star/tianzhai-lianzhen",
+      "title": "田宅廉贞详解"
+    },
+    {
+      "slug": "/wiki/palace-star/tianzhai-tianfu",
+      "title": "田宅天府详解"
+    },
+    {
+      "slug": "/wiki/palace-star/tianzhai-taiyin",
+      "title": "田宅太阴详解"
+    },
+    {
+      "slug": "/wiki/palace-star/tianzhai-tanlang",
+      "title": "田宅贪狼详解"
+    },
+    {
+      "slug": "/wiki/palace-star/tianzhai-jumen",
+      "title": "田宅巨门详解"
+    },
+    {
+      "slug": "/wiki/palace-star/tianzhai-tianxiang",
+      "title": "田宅天相详解"
+    },
+    {
+      "slug": "/wiki/palace-star/tianzhai-tianliang",
+      "title": "田宅天梁详解"
+    },
+    {
+      "slug": "/wiki/palace-star/tianzhai-qisha",
+      "title": "田宅七杀详解"
+    },
+    {
+      "slug": "/wiki/palace-star/tianzhai-pojun",
+      "title": "田宅破军详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fude-ziwei",
+      "title": "福德紫微详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fude-tianji",
+      "title": "福德天机详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fude-taiyang",
+      "title": "福德太阳详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fude-wuqu",
+      "title": "福德武曲详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fude-tiantong",
+      "title": "福德天同详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fude-lianzhen",
+      "title": "福德廉贞详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fude-tianfu",
+      "title": "福德天府详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fude-taiyin",
+      "title": "福德太阴详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fude-tanlang",
+      "title": "福德贪狼详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fude-jumen",
+      "title": "福德巨门详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fude-tianxiang",
+      "title": "福德天相详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fude-tianliang",
+      "title": "福德天梁详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fude-qisha",
+      "title": "福德七杀详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fude-pojun",
+      "title": "福德破军详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fumu-ziwei",
+      "title": "父母紫微详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fumu-tianji",
+      "title": "父母天机详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fumu-taiyang",
+      "title": "父母太阳详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fumu-wuqu",
+      "title": "父母武曲详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fumu-tiantong",
+      "title": "父母天同详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fumu-lianzhen",
+      "title": "父母廉贞详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fumu-tianfu",
+      "title": "父母天府详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fumu-taiyin",
+      "title": "父母太阴详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fumu-tanlang",
+      "title": "父母贪狼详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fumu-jumen",
+      "title": "父母巨门详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fumu-tianxiang",
+      "title": "父母天相详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fumu-tianliang",
+      "title": "父母天梁详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fumu-qisha",
+      "title": "父母七杀详解"
+    },
+    {
+      "slug": "/wiki/palace-star/fumu-pojun",
+      "title": "父母破军详解"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+﻿.blood-type-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+.blood-type-card {
+  display: block; padding: 16px; border-radius: 8px;
+  background: #252526; color: #D4D4D4; text-decoration: none;
+  border: 1px solid #3E3E42;
+}
+.blood-type-card:hover { border-color: #569CD6; }
+.blood-type-card h2 { margin: 0 0 8px; color: #569CD6; }

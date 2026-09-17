@@ -1,6 +1,6 @@
 /**
  * TrustEngine T6 — 结果/记录
- * 
+ *
  * 结果与档案只存在本机
  * 基于 ResultPage 和 RecordsPage 的组合
  */
@@ -10,10 +10,10 @@ import { useI18n } from '@/i18n';
 
 /**
  * T6 信任引擎组件
- * 
+ *
  * 展示结果和记录页面，强调数据本地存储。
  * 这是信任漏斗的最终阶段——用户看到结果后的信任确认。
- * 
+ *
  * 使用方式：
  * - 挂载在 ResultPage / RecordsPage 中
  * - 或作为独立的结果展示组件
@@ -29,7 +29,7 @@ export function TrustEngineT6() {
         <p className="trust-engine__subtitle">
           {t('trust.t6.subtitle', '结果与档案只存在这台设备。你可以随时带走，或彻底删除。')}
         </p>
-        
+
         <div className="trust-engine__section">
           <h3 className="trust-engine__section-title">本地存储</h3>
           <p className="trust-engine__section-content">

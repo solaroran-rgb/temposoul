@@ -21,7 +21,7 @@ function readRemaining(quota: number): number {
   return quota;
 }
 
-function persistRemaining(quota: number, remaining: number): void {
+function persistRemaining(_quota: number, remaining: number): void {
   safeStorage.set(`${QUOTA_KEY_PREFIX}${todayKey()}`, String(remaining));
 }
 
@@ -186,9 +186,7 @@ export function PremiumGate({ children, quota = 5 }: { children: ReactNode; quot
       >
         {checkoutLoading ? t('common.loading') : t('premium.checkoutCta')}
       </button>
-      <div style={{ fontSize: 11, color: '#8b93a7', marginTop: 12 }}>
-        {t('premium.loginHint')}
-      </div>
+      <div style={{ fontSize: 11, color: '#8b93a7', marginTop: 12 }}>{t('premium.loginHint')}</div>
     </div>
   );
 }

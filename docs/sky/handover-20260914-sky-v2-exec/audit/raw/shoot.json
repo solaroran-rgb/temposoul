@@ -1,0 +1,58 @@
+[
+  {
+    "tag": "desktop",
+    "viewport": [
+      1920,
+      1080
+    ],
+    "timing": {
+      "nav": {
+        "domContentLoaded": 118,
+        "load": 121
+      },
+      "paints": {
+        "first-paint": 224,
+        "first-contentful-paint": 1392
+      },
+      "canvas": {
+        "w": 1920,
+        "h": 1080,
+        "cw": 1920,
+        "ch": 1080
+      },
+      "bodyText": "命律 TempoSoul 探索命运的节律 ACQUIRING 保存星图 切换时空 立即开始 N ↑ 00 23 v1.0 · REAL-TIME CELESTIAL RENDER GEO ENGINE · PROCEDURAL SKYLINE · 0.1-p1-taipei101 切换时空 北京 (北京) 天津 (天津",
+      "h1Count": 1,
+      "canvases": 2
+    },
+    "errors": [],
+    "file": "E:\\KnowledgeOS\\项目库\\TempoSoul 命律 网站建设系统\\.temposoul-wt\\thread-sky-v2-exec\\docs\\sky\\visual-v2-20260914\\raw\\desktop.png"
+  },
+  {
+    "tag": "mobile",
+    "viewport": [
+      390,
+      844
+    ],
+    "timing": {
+      "nav": {
+        "domContentLoaded": 77,
+        "load": 78
+      },
+      "paints": {
+        "first-paint": 120,
+        "first-contentful-paint": 1004
+      },
+      "canvas": {
+        "w": 390,
+        "h": 844,
+        "cw": 390,
+        "ch": 844
+      },
+      "bodyText": "命律 TempoSoul 探索命运的节律 ACQUIRING 保存星图 切换时空 立即开始 N ↑ 00 23 v1.0 · REAL-TIME CELESTIAL RENDER GEO ENGINE · PROCEDURAL SKYLINE · 0.1-p1-taipei101 切换时空 北京 (北京) 天津 (天津",
+      "h1Count": 1,
+      "canvases": 2
+    },
+    "errors": [],
+    "file": "E:\\KnowledgeOS\\项目库\\TempoSoul 命律 网站建设系统\\.temposoul-wt\\thread-sky-v2-exec\\docs\\sky\\visual-v2-20260914\\raw\\mobile.png"
+  }
+]

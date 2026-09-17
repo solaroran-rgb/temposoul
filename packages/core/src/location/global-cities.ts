@@ -106,19 +106,14 @@ export function searchGlobalCities(
     : null;
   const languageSet = options.languages ? new Set(options.languages) : null;
 
-  return GLOBAL_CITIES
-    .map((city) => ({ city, score: searchScore(city, normalizedQuery) }))
+  return GLOBAL_CITIES.map((city) => ({ city, score: searchScore(city, normalizedQuery) }))
     .filter((item): item is { city: GlobalCity; score: number } => {
       if (item.score === null) return false;
       if (countrySet && !countrySet.has(normalizeKey(item.city.country))) return false;
       if (languageSet && !languageSet.has(item.city.language)) return false;
       return true;
     })
-    .sort(
-      (left, right) =>
-        left.score - right.score ||
-        right.city.population - left.city.population,
-    )
+    .sort((left, right) => left.score - right.score || right.city.population - left.city.population)
     .slice(0, limit)
     .map(({ city }) => toResolved(city));
 }

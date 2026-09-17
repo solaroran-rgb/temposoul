@@ -1,0 +1,227 @@
+{
+  "http": 200,
+  "ms": 791,
+  "body": {
+    "ok": true,
+    "data": {
+      "number": 49,
+      "title": "第四十九签 · 借花献佛，顺水推舟（平）",
+      "poem": "借花献佛意殷殷，顺水推舟不费心。\n成人之美积善德，他日自得福满林。",
+      "story": "\"借花献佛\"出自佛经故事——善慧仙人借花献给燃灯佛，因此获得授记。\"顺水推舟\"出自《庄子》——\"顺水推舟，不费力也。\"而成人之美出自《论语·颜渊》——\"君子成人之美，不成人之恶。\"",
+      "details": {
+        "吉凶": "中签（平）",
+        "解签总论": "此签乃成人之美、借力成事之象，总论在适当的时候用适当的资源去帮助别人，既成全了别人，也为自己的未来种下了善因。不需要费太大力气，只要顺势而为，就能做成好事。 - 借花献佛意殷殷 —— 借别人的花献给佛，也是一片诚心 - 顺水推舟不费心 —— 顺着水流推船，轻松不费力 - 成人之美积善德 —— 帮助别人完成好事，就是在积德 - 他日自得福满林 —— 未来自然福气满林",
+        "人际关系": "举手之劳的忙，帮！既成人之美，又给自己积福",
+        "工作": "利用现有资源解决问题，比从头创造要高效得多",
+        "提醒": "此签也提醒你：如果有人向你提要求，而这个要求对你来说不过是\"顺水推舟\"，不妨帮一把",
+        "此签核心": "借花献佛亦是善，顺水推舟最轻松。成人之美，冥冥之中自有福报。",
+        "核心寓意": "借花献佛亦是善，顺水推舟最轻松。成人之美，冥冥之中自有福报。",
+        "事业": "借力与成人之美可顺势成事。",
+        "财运": "合作分配收益没有问题，但要尊重每个人的实际贡献。",
+        "感情": "互相成全能增进感情与人缘。",
+        "学业": "善用共享资源，感谢提供帮助者。",
+        "健康": "顺势省力，仍需保持基本作息。",
+        "行动建议": "借势不夺功，及时回报帮助。",
+        "风险提醒": "别把借力变占便适合或冒领成果。"
+      },
+      "timestamp": 1789191789854,
+      "ganzhi": {
+        "year": "丙午",
+        "month": "丁酉",
+        "day": "己丑",
+        "hour": "辛未"
+      },
+      "draw": {
+        "method": "random",
+        "poolSize": 92,
+        "selectedIndex": 48,
+        "selectedNumber": 49
+      },
+      "meta": {
+        "engineVersion": "0.1.26",
+        "schemaVersion": "1.0.0",
+        "algorithm": "ssgw.draw",
+        "calculatedAt": "2026-09-12T05:43:09.854Z",
+        "inputHash": "29d4286600c049ca",
+        "resultId": "ssgw.draw:2c7d518fd32ff6ab",
+        "random": {
+          "mode": "system",
+          "samples": [
+            0.5302663392143114
+          ]
+        }
+      },
+      "evidenceTrail": {
+        "items": [
+          {
+            "title": "灵签抽签基础",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "签数",
+                "reference": "draw.poolSize",
+                "output": 92
+              },
+              {
+                "name": "抽得签号",
+                "reference": "number",
+                "output": 49
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "观音灵签（第一百签）体系"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "在签池中随机抽取"
+              ],
+              "cautionWhen": [
+                "签文寓意随求问事由而变化",
+                "不同灵签版本签文有差异"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "不同灵签体系（观音/关帝/吕祖）签文不同",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 0
+          },
+          {
+            "title": "求签时间",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "干支纪时",
+                "reference": "ganzhi",
+                "output": "丙午年丁酉月己丑日"
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "干支纪时（求签时间）"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "记录求签时刻"
+              ],
+              "cautionWhen": [
+                "跨日/跨年转换以当地时间为准"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "干支纪时与公历换算口径存在细微差异",
+                "severity": "minor"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 1
+          },
+          {
+            "title": "签文呈现",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "签题",
+                "reference": "title",
+                "output": "第四十九签 · 借花献佛，顺水推舟（平）"
+              },
+              {
+                "name": "签诗",
+                "reference": "poem",
+                "output": "借花献佛意殷殷，顺水推舟不费心。\n成人之美积善德，他日自得福满林。"
+              },
+              {
+                "name": "注解",
+                "reference": "details",
+                "output": {
+                  "吉凶": "中签（平）",
+                  "解签总论": "此签乃成人之美、借力成事之象，总论在适当的时候用适当的资源去帮助别人，既成全了别人，也为自己的未来种下了善因。不需要费太大力气，只要顺势而为，就能做成好事。 - 借花献佛意殷殷 —— 借别人的花献给佛，也是一片诚心 - 顺水推舟不费心 —— 顺着水流推船，轻松不费力 - 成人之美积善德 —— 帮助别人完成好事，就是在积德 - 他日自得福满林 —— 未来自然福气满林",
+                  "人际关系": "举手之劳的忙，帮！既成人之美，又给自己积福",
+                  "工作": "利用现有资源解决问题，比从头创造要高效得多",
+                  "提醒": "此签也提醒你：如果有人向你提要求，而这个要求对你来说不过是\"顺水推舟\"，不妨帮一把",
+                  "此签核心": "借花献佛亦是善，顺水推舟最轻松。成人之美，冥冥之中自有福报。",
+                  "核心寓意": "借花献佛亦是善，顺水推舟最轻松。成人之美，冥冥之中自有福报。",
+                  "事业": "借力与成人之美可顺势成事。",
+                  "财运": "合作分配收益没有问题，但要尊重每个人的实际贡献。",
+                  "感情": "互相成全能增进感情与人缘。",
+                  "学业": "善用共享资源，感谢提供帮助者。",
+                  "健康": "顺势省力，仍需保持基本作息。",
+                  "行动建议": "借势不夺功，及时回报帮助。",
+                  "风险提醒": "别把借力变占便适合或冒领成果。"
+                }
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "观音灵签签文与注解"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "按签号呈现签文"
+              ],
+              "cautionWhen": [
+                "签意解读存在多解"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "同一签文不同解签者解读不同",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "low",
+            "depth": 1
+          },
+          {
+            "title": "抽取方式",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "抽取方法",
+                "reference": "draw.method",
+                "output": "random"
+              },
+              {
+                "name": "选中编号",
+                "reference": "draw.selectedNumber",
+                "output": 49
+              }
+            ],
+            "source": {
+              "type": "algorithm",
+              "name": "随机抽样（签池等概率）"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "随机抽签"
+              ],
+              "cautionWhen": [
+                "manual 方式为用户手工录入签号"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "抽签随机性不影响签文内容本身",
+                "severity": "minor"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 1
+          }
+        ],
+        "overallConfidence": "low",
+        "summary": "灵签抽签证据链（第49签·第四十九签 · 借花献佛，顺水推舟（平））",
+        "generatedAt": "2026-09-12T05:43:09.854Z"
+      }
+    },
+    "meta": {
+      "service": "www.temposoul.com",
+      "version": "v1"
+    }
+  }
+}

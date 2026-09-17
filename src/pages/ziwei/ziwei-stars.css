@@ -1,0 +1,55 @@
+/* src/pages/ziwei/ziwei-stars.css · A11 紫微星曜（本地侧补建） */
+@import '../../styles/tempo-shell.css';
+
+/* ---------- 星曜网格 ---------- */
+.ts-stars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ts-stars-grid__link {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-primary, #E0E6ED);
+  text-decoration: none;
+  transition: border-color 0.15s, background 0.15s;
+}
+.ts-stars-grid__link:hover {
+  border-color: rgba(77, 195, 255, 0.4);
+  background: rgba(77, 195, 255, 0.05);
+}
+.ts-stars-grid__name {
+  font-size: 14px;
+  font-weight: 600;
+}
+.ts-stars-grid__hint {
+  font-size: 12px;
+  color: var(--text-secondary, #8B9BB4);
+  line-height: 1.5;
+}
+.ts-stars-grid .is-disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* ---------- 星曜详情 ---------- */
+.ts-star-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--text-primary, #E0E6ED);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+@media (max-width: 640px) {
+  .ts-stars-grid { grid-template-columns: 1fr 1fr; }
+}

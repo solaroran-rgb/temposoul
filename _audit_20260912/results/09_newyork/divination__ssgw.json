@@ -1,0 +1,229 @@
+{
+  "http": 200,
+  "ms": 2196,
+  "body": {
+    "ok": true,
+    "data": {
+      "number": 10,
+      "title": "第十签 · 万里鹏程，青云得路（大吉）",
+      "poem": "万里鹏程云外路，一飞直上九重天。\n西风送得天边信，一举成名天下传。",
+      "story": "出自《庄子·逍遥游》——鲲鹏抟扶摇而上九万里。大鹏需借海运之风，正如人也需借时运之势方能成就非凡。\"西风送信\"暗合苏东坡\"一封朝奏九重天\"的诗意。",
+      "details": {
+        "吉凶": "上签（大吉）",
+        "解签总论": "此签乃前程似锦、直上青云之象。大鹏展翅乘万里长风，寓意志向远大者将凭借时运与助力，一举成名天下知！ - 万里鹏程云外路 —— 前程广阔，超越凡俗想象 - 一飞直上九重天 —— 腾飞之势不可阻挡 - 西风送得天边信 —— 远方贵人传佳音，或意外之喜临门 - 一举成名天下传 —— 大功告成，声名远播",
+        "求职/跳槽/晋升": "前景开阔，将遇难得的良机，大胆出手！",
+        "考试/发表/参赛": "金榜题名之象！",
+        "创业/新项目": "借势起飞的好时机",
+        "提醒": "大鹏虽能飞九万里，仍需待风起。风来了你准备好了吗？",
+        "此签核心": "风来了，翅膀硬了，就差纵身一跃。这一跳，万里鹏程！",
+        "核心寓意": "风来了，翅膀硬了，就差纵身一跃。这一跳，万里鹏程！",
+        "事业": "接下来的发展空间比较大，求职、晋升、发表适合主动争取。",
+        "财运": "因为新机会而增加收入的可能性变大，先确认风口能否持续。",
+        "感情": "远方消息或共同目标可推动关系。",
+        "学业": "考试、发表、竞赛有一举成名之势。",
+        "健康": "行动频繁，注意休息与出行安全。",
+        "行动建议": "风起时果断起飞，同时稳住基本盘。",
+        "风险提醒": "别志大而准备不足，或高处失稳。"
+      },
+      "timestamp": 1789191922855,
+      "ganzhi": {
+        "year": "丙午",
+        "month": "丁酉",
+        "day": "己丑",
+        "hour": "辛未"
+      },
+      "draw": {
+        "method": "random",
+        "poolSize": 92,
+        "selectedIndex": 9,
+        "selectedNumber": 10
+      },
+      "meta": {
+        "engineVersion": "0.1.26",
+        "schemaVersion": "1.0.0",
+        "algorithm": "ssgw.draw",
+        "calculatedAt": "2026-09-12T05:45:22.855Z",
+        "inputHash": "19d476eecaf2ca2e",
+        "resultId": "ssgw.draw:7d3fc79765e285cd",
+        "random": {
+          "mode": "system",
+          "samples": [
+            0.10504165100593943
+          ]
+        }
+      },
+      "evidenceTrail": {
+        "items": [
+          {
+            "title": "灵签抽签基础",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "签数",
+                "reference": "draw.poolSize",
+                "output": 92
+              },
+              {
+                "name": "抽得签号",
+                "reference": "number",
+                "output": 10
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "观音灵签（第一百签）体系"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "在签池中随机抽取"
+              ],
+              "cautionWhen": [
+                "签文寓意随求问事由而变化",
+                "不同灵签版本签文有差异"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "不同灵签体系（观音/关帝/吕祖）签文不同",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 0
+          },
+          {
+            "title": "求签时间",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "干支纪时",
+                "reference": "ganzhi",
+                "output": "丙午年丁酉月己丑日"
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "干支纪时（求签时间）"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "记录求签时刻"
+              ],
+              "cautionWhen": [
+                "跨日/跨年转换以当地时间为准"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "干支纪时与公历换算口径存在细微差异",
+                "severity": "minor"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 1
+          },
+          {
+            "title": "签文呈现",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "签题",
+                "reference": "title",
+                "output": "第十签 · 万里鹏程，青云得路（大吉）"
+              },
+              {
+                "name": "签诗",
+                "reference": "poem",
+                "output": "万里鹏程云外路，一飞直上九重天。\n西风送得天边信，一举成名天下传。"
+              },
+              {
+                "name": "注解",
+                "reference": "details",
+                "output": {
+                  "吉凶": "上签（大吉）",
+                  "解签总论": "此签乃前程似锦、直上青云之象。大鹏展翅乘万里长风，寓意志向远大者将凭借时运与助力，一举成名天下知！ - 万里鹏程云外路 —— 前程广阔，超越凡俗想象 - 一飞直上九重天 —— 腾飞之势不可阻挡 - 西风送得天边信 —— 远方贵人传佳音，或意外之喜临门 - 一举成名天下传 —— 大功告成，声名远播",
+                  "求职/跳槽/晋升": "前景开阔，将遇难得的良机，大胆出手！",
+                  "考试/发表/参赛": "金榜题名之象！",
+                  "创业/新项目": "借势起飞的好时机",
+                  "提醒": "大鹏虽能飞九万里，仍需待风起。风来了你准备好了吗？",
+                  "此签核心": "风来了，翅膀硬了，就差纵身一跃。这一跳，万里鹏程！",
+                  "核心寓意": "风来了，翅膀硬了，就差纵身一跃。这一跳，万里鹏程！",
+                  "事业": "接下来的发展空间比较大，求职、晋升、发表适合主动争取。",
+                  "财运": "因为新机会而增加收入的可能性变大，先确认风口能否持续。",
+                  "感情": "远方消息或共同目标可推动关系。",
+                  "学业": "考试、发表、竞赛有一举成名之势。",
+                  "健康": "行动频繁，注意休息与出行安全。",
+                  "行动建议": "风起时果断起飞，同时稳住基本盘。",
+                  "风险提醒": "别志大而准备不足，或高处失稳。"
+                }
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "观音灵签签文与注解"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "按签号呈现签文"
+              ],
+              "cautionWhen": [
+                "签意解读存在多解"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "同一签文不同解签者解读不同",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "low",
+            "depth": 1
+          },
+          {
+            "title": "抽取方式",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "抽取方法",
+                "reference": "draw.method",
+                "output": "random"
+              },
+              {
+                "name": "选中编号",
+                "reference": "draw.selectedNumber",
+                "output": 10
+              }
+            ],
+            "source": {
+              "type": "algorithm",
+              "name": "随机抽样（签池等概率）"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "随机抽签"
+              ],
+              "cautionWhen": [
+                "manual 方式为用户手工录入签号"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "抽签随机性不影响签文内容本身",
+                "severity": "minor"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 1
+          }
+        ],
+        "overallConfidence": "low",
+        "summary": "灵签抽签证据链（第10签·第十签 · 万里鹏程，青云得路（大吉））",
+        "generatedAt": "2026-09-12T05:45:22.855Z"
+      }
+    },
+    "meta": {
+      "service": "www.temposoul.com",
+      "version": "v1"
+    }
+  }
+}

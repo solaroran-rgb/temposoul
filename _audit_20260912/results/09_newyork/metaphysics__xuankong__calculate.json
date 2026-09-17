@@ -1,0 +1,15 @@
+{
+  "http": 400,
+  "ms": 2155,
+  "body": {
+    "ok": false,
+    "error": {
+      "code": "BAD_REQUEST",
+      "message": "需提供 sitMountain/facingMountain，或 sitDegree/facingDegree。"
+    },
+    "meta": {
+      "service": "www.temposoul.com",
+      "version": "v1"
+    }
+  }
+}

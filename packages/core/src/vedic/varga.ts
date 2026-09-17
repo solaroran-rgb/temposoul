@@ -10,11 +10,7 @@
  *   - D9 不重新求上升点：D1 Lagna 度数直接映射到分盘星座（传统口径）。
  * 本文件只做确定性经度→分盘星座映射，不调用星历。
  */
-import {
-  RASHIS,
-  normalizeLongitude,
-  type RashiInfo,
-} from './tables';
+import { RASHIS, normalizeLongitude, type RashiInfo } from './tables';
 
 export const NAVAMSAS_PER_RASHI = 9;
 /** 每个 Navamsa 对应的原始弧长（度）= 3°20′ */
@@ -28,8 +24,8 @@ export const NAVAMSA_COUNT = 108;
 export function navamsaStartSign(rashiIndex: number): number {
   const mod = ((rashiIndex % 3) + 3) % 3;
   if (mod === 0) return ((rashiIndex % 12) + 12) % 12; // 移动：自本宫
-  if (mod === 1) return (((rashiIndex % 12) + 8) % 12); // 固定：起第 9 宫
-  return (((rashiIndex % 12) + 4) % 12); // 双元：起第 5 宫
+  if (mod === 1) return ((rashiIndex % 12) + 8) % 12; // 固定：起第 9 宫
+  return ((rashiIndex % 12) + 4) % 12; // 双元：起第 5 宫
 }
 
 export interface NavamsaPosition {

@@ -30,7 +30,10 @@ export function getAiRuntimeConfig(env: AiRuntimeEnv = {}): AiRuntimeConfig {
 
   const providerRaw = env.ANALYTICS_PROVIDER;
   const analyticsProvider =
-    providerRaw === 'plausible' || providerRaw === 'umami' || providerRaw === 'ga' || providerRaw === 'cf'
+    providerRaw === 'plausible' ||
+    providerRaw === 'umami' ||
+    providerRaw === 'ga' ||
+    providerRaw === 'cf'
       ? providerRaw
       : 'none';
 

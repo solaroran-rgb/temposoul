@@ -1,0 +1,15 @@
+{
+  "http": 400,
+  "ms": 652,
+  "body": {
+    "ok": false,
+    "error": {
+      "code": "BAD_REQUEST",
+      "message": "需提供 birthYear+gender 或直接给定 mingGua。"
+    },
+    "meta": {
+      "service": "www.temposoul.com",
+      "version": "v1"
+    }
+  }
+}

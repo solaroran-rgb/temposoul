@@ -7,11 +7,7 @@
  *
  * 覆盖灵签抽签四大环节：抽签基础 → 求签时间 → 签文呈现 → 抽取方式
  */
-import {
-  buildEvidenceTrail,
-  type EvidenceItem,
-  type EvidenceTrail,
-} from '../shared/evidence';
+import { buildEvidenceTrail, type EvidenceItem, type EvidenceTrail } from '../shared/evidence';
 import type { SsgwData } from '../types/divination';
 
 export function buildSsgwEvidenceTrail(result: SsgwData): EvidenceTrail {
@@ -61,9 +57,7 @@ export function buildSsgwEvidenceTrail(result: SsgwData): EvidenceTrail {
       applicableWhen: ['记录求签时刻'],
       cautionWhen: ['跨日/跨年转换以当地时间为准'],
     },
-    counterEvidence: [
-      { description: '干支纪时与公历换算口径存在细微差异', severity: 'minor' },
-    ],
+    counterEvidence: [{ description: '干支纪时与公历换算口径存在细微差异', severity: 'minor' }],
     confidence: 'medium',
     depth: 1,
   });
@@ -94,9 +88,7 @@ export function buildSsgwEvidenceTrail(result: SsgwData): EvidenceTrail {
       applicableWhen: ['按签号呈现签文'],
       cautionWhen: ['签意解读存在多解'],
     },
-    counterEvidence: [
-      { description: '同一签文不同解签者解读不同', severity: 'alternative' },
-    ],
+    counterEvidence: [{ description: '同一签文不同解签者解读不同', severity: 'alternative' }],
     confidence: 'low',
     depth: 1,
   });
@@ -122,15 +114,10 @@ export function buildSsgwEvidenceTrail(result: SsgwData): EvidenceTrail {
       applicableWhen: ['随机抽签'],
       cautionWhen: ['manual 方式为用户手工录入签号'],
     },
-    counterEvidence: [
-      { description: '抽签随机性不影响签文内容本身', severity: 'minor' },
-    ],
+    counterEvidence: [{ description: '抽签随机性不影响签文内容本身', severity: 'minor' }],
     confidence: 'medium',
     depth: 1,
   });
 
-  return buildEvidenceTrail(
-    items,
-    `灵签抽签证据链（第${result.number}签·${result.title}）`,
-  );
+  return buildEvidenceTrail(items, `灵签抽签证据链（第${result.number}签·${result.title}）`);
 }

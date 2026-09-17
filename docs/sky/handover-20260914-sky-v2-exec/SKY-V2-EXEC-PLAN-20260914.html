@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>/sky 视觉 v2 落地 · 开发计划与需求确认单 · 2026-09-14</title>
+<style>
+:root{
+  --bg:#070b10; --bg2:#0b1219; --panel:#0e1820; --panel2:#121f29;
+  --line:rgba(120,200,215,.16); --line2:rgba(120,200,215,.30);
+  --text:#d6e6ee; --text2:#8fa8b4; --text3:#5d7480;
+  --accent:#39FF14; --cyan:#00e5ff; --cyan2:#7fd4e4;
+  --warn:#ffb347; --bad:#ff5c7a; --ok:#39FF14;
+  --mono:ui-monospace,"JetBrains Mono","Cascadia Mono",Consolas,monospace;
+  --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:
+    radial-gradient(1200px 620px at 12% -8%, rgba(0,229,255,.09), transparent 62%),
+    radial-gradient(900px 520px at 92% 4%, rgba(120,60,200,.10), transparent 60%),
+    linear-gradient(180deg,#070b10 0%,#050809 100%);
+  background-attachment:fixed;
+  color:var(--text); font-family:var(--sans);
+  font-size:17px; line-height:1.68; letter-spacing:.01em;
+  padding:0 0 90px;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+
+/* ---------- Header ---------- */
+header{padding:64px 0 40px;border-bottom:1px solid var(--line)}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.28em;color:var(--cyan2);text-transform:uppercase;margin-bottom:18px}
+h1{font-size:clamp(30px,4.4vw,52px);font-weight:300;letter-spacing:.02em;line-height:1.16;margin-bottom:14px}
+h1 b{font-weight:600;color:#fff}
+.sub{color:var(--text2);font-size:15px}
+.meta{margin-top:26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.meta div{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 15px;font-size:13.5px}
+.meta span{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--text3);margin-bottom:5px}
+
+/* ---------- Section ---------- */
+section{padding:52px 0 8px}
+h2{font-size:clamp(22px,2.6vw,30px);font-weight:400;letter-spacing:.01em;margin-bottom:8px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+h2 em{font-family:var(--mono);font-style:normal;font-size:13px;color:var(--cyan);letter-spacing:.2em}
+h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line2),transparent);min-width:40px}
+h3{font-size:18.5px;font-weight:600;margin:30px 0 10px;color:#eaf6fb}
+h4{font-size:15.5px;font-weight:600;margin:20px 0 8px;color:var(--cyan2)}
+p{margin:10px 0;color:var(--text)}
+small,.dim{color:var(--text2);font-size:14px}
+
+/* 核心内容：荧光绿铁律 */
+.hl{color:var(--accent);font-weight:600}
+.hl-b{color:var(--accent);font-weight:700}
+code{font-family:var(--mono);font-size:.88em;background:rgba(0,229,255,.09);border:1px solid rgba(0,229,255,.16);border-radius:5px;padding:1px 6px;color:#9fe8f5}
+pre{font-family:var(--mono);font-size:13px;line-height:1.62;background:#060a0e;border:1px solid var(--line);border-left:2px solid var(--cyan);border-radius:8px;padding:14px 16px;overflow-x:auto;margin:14px 0;color:#b8d8e2}
+
+/* ---------- Cards ---------- */
+.grid{display:grid;gap:14px;margin:18px 0}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:12px;padding:18px 20px;position:relative}
+.card.danger{border-color:rgba(255,92,122,.38);background:linear-gradient(180deg,rgba(255,92,122,.07),var(--panel))}
+.card.warn{border-color:rgba(255,179,71,.36);background:linear-gradient(180deg,rgba(255,179,71,.07),var(--panel))}
+.card.good{border-color:rgba(57,255,20,.30);background:linear-gradient(180deg,rgba(57,255,20,.05),var(--panel))}
+.card .tag{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--text3);text-transform:uppercase}
+.card h4{margin:8px 0 6px;font-size:16px;color:#fff}
+.card p{font-size:14.5px;margin:6px 0}
+
+/* ---------- Table ---------- */
+.tw{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:10px;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;min-width:600px;font-size:14.5px}
+th{background:#0b1116;color:var(--cyan2);font-weight:600;text-align:left;padding:11px 13px;font-size:12.5px;letter-spacing:.1em;border-bottom:1px solid var(--line2);white-space:nowrap}
+td{padding:10px 13px;border-bottom:1px solid rgba(120,200,215,.08);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tbody tr:hover{background:rgba(0,229,255,.035)}
+td.mono,.mono{font-family:var(--mono);font-size:13px}
+.ok{color:var(--accent);font-weight:600}
+.no{color:var(--bad);font-weight:600}
+.mid{color:var(--warn);font-weight:600}
+
+/* ---------- Pill ---------- */
+.pill{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;padding:2px 9px;border-radius:99px;border:1px solid var(--line2);color:var(--cyan2);margin:0 4px 4px 0}
+.pill.p0{border-color:rgba(255,92,122,.5);color:#ff9db2;background:rgba(255,92,122,.10)}
+.pill.p1{border-color:rgba(255,179,71,.5);color:#ffd39b;background:rgba(255,179,71,.10)}
+.pill.p2{border-color:var(--line2);color:var(--cyan2)}
+.pill.g{border-color:rgba(57,255,20,.45);color:var(--accent);background:rgba(57,255,20,.08)}
+
+/* ---------- Steps ---------- */
+.step{display:grid;grid-template-columns:52px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.step:last-child{border-bottom:none}
+.step .n{font-family:var(--mono);font-size:22px;font-weight:700;color:var(--cyan);opacity:.65;padding-top:2px}
+.step .body h4{margin-top:0;font-size:17px;color:#fff}
+.step .body p{font-size:14.5px;color:var(--text2)}
+.step .body ul{margin:8px 0 0 18px;font-size:14.5px;color:var(--text)}
+.step .body li{margin:4px 0}
+
+ul.clean{list-style:none;margin:12px 0}
+ul.clean li{padding:7px 0 7px 24px;position:relative;font-size:15px;border-bottom:1px solid rgba(120,200,215,.07)}
+ul.clean li::before{content:"▸";position:absolute;left:2px;color:var(--cyan);font-size:13px}
+ul.clean li.no::before{content:"✕";color:var(--bad)}
+ul.clean li.ok::before{content:"✓";color:var(--accent)}
+
+figure{margin:20px 0}
+figure img{width:100%;border:1px solid var(--line2);border-radius:10px;display:block}
+figcaption{font-size:13.5px;color:var(--text2);margin-top:9px;text-align:center}
+
+.callout{border-left:3px solid var(--accent);background:linear-gradient(90deg,rgba(57,255,20,.07),transparent);border-radius:0 10px 10px 0;padding:15px 20px;margin:20px 0}
+.callout.cy{border-left-color:var(--cyan);background:linear-gradient(90deg,rgba(0,229,255,.07),transparent)}
+.callout.wr{border-left-color:var(--warn);background:linear-gradient(90deg,rgba(255,179,71,.08),transparent)}
+.callout p{font-size:15px}
+
+footer{margin-top:60px;padding-top:26px;border-top:1px solid var(--line);font-size:13px;color:var(--text3);font-family:var(--mono);letter-spacing:.05em}
+
+@media(max-width:640px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  header{padding:40px 0 28px}
+  .step{grid-template-columns:36px 1fr;gap:10px}
+  .step .n{font-size:17px}
+  table{min-width:520px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">TempoSoul 命律 · /sky 首页 v2 落地</div>
+  <h1>开发计划与<span style="color:var(--accent)">需求确认单</span></h1>
+  <p class="sub">依据任务交接书 <code>handover-20260914-sky-v2-exec/HANDOVER.md</code> + AI 地图 <code>11_国学出海/子图A_网站建设.md</code> §16–§20 + 冻结规范 <code>SKY-VISUAL-STANDARD-v2.md</code> 综合编制</p>
+  <div class="meta">
+    <div><span>编制日期</span>2026-09-14</div>
+    <div><span>分支</span>thread/sky-v2-exec（worktree）</div>
+    <div><span>基线 commit</span>fb26da2</div>
+    <div><span>当前状态</span>代码已落地 · 判据全绿 · <span class="hl">未部署</span></div>
+  </div>
+</header>
+
+<section id="s0">
+  <h2><em>§0</em> 三句话结论</h2>
+  <div class="grid g3">
+    <div class="card danger">
+      <div class="tag">诊断 · AgentOS</div>
+      <h4>免费模型是<span class="hl">双层失效</span></h4>
+      <p>供给层 FreeLLMAPI 自 9/1 集成后<span class="hl">从未真正跑起来</span>；剩下 3 家直连供应商的免费额度已被<span class="hl">429 打空</span>。日志与进程状态双向印证。</p>
+    </div>
+    <div class="card warn">
+      <div class="tag">检索 · AI 地图</div>
+      <h4>路线已裁定<span class="hl">回 WebGL</span></h4>
+      <p>子图A §二十 已定性：设计稿资产化（图片）方案命中红线。技术栈锁定 <span class="hl">React 19 + TS + Vite 7 + Three.js</span>，交接书是执行层。</p>
+    </div>
+    <div class="card good">
+      <div class="tag">计划 · /sky v2</div>
+      <h4>判据全绿，<span class="hl">但观感未达</span></h4>
+      <p>V13 地平线 68.43%、V23 天空纯黑 98.75% 等全部达标；然而地貌区观感与 CT-1 <span class="hl">差 3.5 倍</span>。这是本次最需拍板的事。</p>
+    </div>
+  </div>
+</section>
+
+<section id="s1">
+  <h2><em>§1</em> AgentOS：为什么所有云端免费模型都不可用</h2>
+
+  <h3>1.1 现象（实测复现）</h3>
+  <p>经 <code>http://127.0.0.1:8011</code> 向免费池发问，返回一句话而非模型作答：</p>
+  <pre>POST /v1/chat/completions  {"model":"free/auto"}
+→ "所有云端免费 API 暂不可用，请稍后重试，
+   或改用 #local（本地模型）/ #ceo（付费模型）模式。"</pre>
+  <p>该话术出处已定位到 <code>main.py</code> 第 1543 / 1576 行 —— 是网关<b>全部候选端点尝试失败后</b>的兜底文案。<span class="hl">用户看到的"不可用"＝免费池 14 个端点无一能成功应答</span>。</p>
+  <div class="callout cy">
+    <p><b>一个易被误判的细节</b>：网关返回体里 <code>usage</code> 恒为 <code>0/0/0</code>，那是 <code>_make_usage_placeholder()</code> 造的占位符，<b>不代表</b>上游没返回 token。判断真伪要看 <code>choices[0].message.content</code>。</p>
+  </div>
+
+  <h3>1.2 根因 A · 供给层 FreeLLMAPI 从未启动（<span class="hl">一行路径写错</span>）</h3>
+  <p>网关注册表把 <code>freellmapi-pool</code> 定为免费池<b>首选候选</b>（reliable=10 最高权重、并发 8、号称 358 端点），指向 <code>http://127.0.0.1:3001/v1</code>。但该端口<b>根本没有监听</b>。</p>
+  <p>守护脚本 <code>supervise_freellmapi.py</code> 每 30 秒探活一次、失败就重启，而日志里是无限循环的同一行失败：</p>
+  <pre>[2026-09-14 21:51:16] supervisor: :3001 down -> restarting FreeLLMAPI
+[2026-09-14 21:51:16] supervisor ERROR: [WinError 2] 系统找不到指定的文件。</pre>
+  <p>对照源码，病因是一行硬编码：</p>
+  <pre># supervise_freellmapi.py 第 6 行
+NODE = r"C:/Users/oran/.workbuddy/binaries/node/versions/<span style="color:var(--bad)">22.22.2-2</span>/node.exe"
+# 本机实际存在：versions/  22.22.2-3   ← 仅此一个</pre>
+  <div class="callout">
+    <p><span class="hl-b">结论</span>：<code>22.22.2-2</code> 这个 Node 版本在本机<b>不存在</b>，<code>subprocess.Popen</code> 抛 <code>WinError 2</code>，于是守护进程每 30 秒空转一次，<span class="hl">FreeLLMAPI 自 9-01 集成以来一天都没真正跑起来过</span>。网关侧对应表现：<code>freellmapi-pool</code> available=false、<code>consecutive_failures = 72</code>。</p>
+  </div>
+
+  <h3>1.3 根因 B · 直连池被 429 打空，只剩 1 家苟活</h3>
+  <p>供给层缺席后，全部压力落到 12 个直连端点上。网关日志（21:33–21:54 窗口）给出实况：</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Provider</th><th>端点</th><th>日志实况</th><th>判定</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">openrouter</td><td>10 个免费模型</td><td class="mono">HTTP 429 限流（反复触发）</td><td class="no">额度耗尽</td></tr>
+        <tr><td class="mono">agnes</td><td>agnes-2.0/2.5-flash</td><td class="mono">HTTP 429 + ReadTimeout</td><td class="no">额度耗尽</td></tr>
+        <tr><td class="mono">nvidia</td><td>openai/gpt-oss-20b ×2</td><td class="mono">唯一能命中；但 ReadTimeout 频发</td><td class="mid">勉强可用</td></tr>
+        <tr><td class="mono">freellmapi</td><td>358 端点聚合</td><td class="mono">:3001 无监听（见根因 A）</td><td class="no">完全缺席</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>这解释了一个"时好时坏"的迷惑现象：<b>极短请求能答对</b>（<code>1+1</code>→<code>2</code>、复述随机串都成功，因为 nvidia 接住了），<b>稍长的生成必挂</b>（nvidia 只有 2 个端点、<code>ReadTimeout</code> 直接击穿候选链）。</p>
+
+  <h3>1.4 根因 C · 架构放大器：一个端点 429，整组陪葬</h3>
+  <p><code>free_api_router.py</code> 的降级粒度是 <b>provider 级</b>，不是端点级：</p>
+  <pre># main.py 1316-1319
+if kind in ("rate_limit", "block"):
+    free_router.mark_provider_degraded(prov, reason)   # 整组冷却 180s
+
+# free_api_router.py 417-420
+self.provider_degraded_until[provider] = time.time() + _TUN["provider_cooldown_seconds"]</pre>
+  <div class="callout wr">
+    <p><span class="hl-b">后果</span>：OpenRouter 只要<b>任意一个</b>模型撞上 429，<span class="hl">其余 9 个模型连同冷却 180 秒</span>。本来分散的额度被"连坐"归零，把局部故障放大成全局不可用。这是"所有免费模型都不可用"被强化的直接机制。</p>
+  </div>
+
+  <h3>1.5 根因 D · 假可用：健康检测永远绿灯</h3>
+  <p>网关 <code>/free/status</code> 面板显示 14 个端点 <code>available: true</code>，与用户实际体感完全背离。原因是探活只打 <code>GET /v1/models</code>：</p>
+  <pre># free_api_router.py 344-363  _ping_api()
+resp = await client.get(f"{status.base_url}/models", ...)
+if resp.status_code == 200:  return True, elapsed   # 只验 key，不验生成</pre>
+  <p><code>/v1/models</code> <b>只要 API key 有效就返回 200</b>，与"额度是否够、能否真正生成"无关。于是<span class="hl">状态面板全绿、实际调用全挂</span>，问题被掩埋了整整两周。</p>
+
+  <h3>1.6 修复建议（按 ROI 排序，未执行 · 待授权）</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>#</th><th>动作</th><th>成本</th><th>收益</th><th>风险</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">F1</td><td>改 <code>supervise_freellmapi.py</code> 第 6 行 <code>22.22.2-2</code> → <code>22.22.2-3</code>，再手动拉起一次</td><td class="ok">一行</td><td class="ok">恢复 358 端点聚合供给（免费池首选）</td><td class="ok">低</td></tr>
+        <tr><td class="mono">F2</td><td>探活改为 <b>最小 chat 请求</b>（1 token），而非 GET /models</td><td class="mid">小改</td><td class="ok">消除"假可用"，状态面板可信</td><td class="ok">低</td></tr>
+        <tr><td class="mono">F3</td><td>降级粒度从 provider 级细化到 <b>端点级</b>，仅 401/403 才整组降级</td><td class="mid">中改</td><td class="ok">单个 429 不再连坐 9 个模型</td><td class="mid">中（需回归）</td></tr>
+        <tr><td class="mono">F4</td><td>为 nvidia 增加端点冗余 / 把 ReadTimeout 与 429 区分对待</td><td class="mid">中改</td><td class="ok">长生成不再被单点超时击穿</td><td class="ok">低</td></tr>
+        <tr><td class="mono">F5</td><td>补免费额度监控（429 计数 → 告警），避免静默失效两周</td><td class="mid">小改</td><td class="ok">问题可见化</td><td class="ok">低</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout">
+    <p><b>F1 是"一行换一个供给层"的极低风险高收益动作</b>，建议优先放行。F2–F5 属网关加固，建议在网站开发计划之外单独立项，避免与 /sky 主线互相干扰。</p>
+  </div>
+</section>
+
+<section id="s2">
+  <h2><em>§2</em> AI 地图检索：网站建设与首页 UI 设计</h2>
+  <p class="dim">检索范围：<code>AI总地图.md</code>、<code>11_国学出海/主地图.md</code>、<code>11_国学出海/子图A_网站建设.md</code>（798 行）、<code>11_国学出海/部署日志/</code>（26 篇）。</p>
+
+  <h3>2.1 权威文件链（冲突时按序号小者为准）</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>#</th><th>文件</th><th>角色</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">1</td><td class="mono">docs/design/SKY-VISUAL-STANDARD-v2.md<br><small>516 行 / 35.6KB</small></td><td><span class="hl">唯一权威规范</span>。三份旧规范已合并入此并各加「⛔ 已被取代」横幅</td></tr>
+        <tr><td class="mono">2</td><td class="mono">docs/design/baseline/SKY-BASELINE-CT1.png<br><small>1920×969</small></td><td>冻结视觉基线，<b>不得被后续轮次覆盖</b></td></tr>
+        <tr><td class="mono">3</td><td class="mono">…/baseline/SKY-BASELINE-CT1-annotated.png<br><small>2580×969</small></td><td>构图模板标注图（分区线 / 坐标 / 色板 / 实测值），<b>开发对照施工用</b></td></tr>
+        <tr><td class="mono">4</td><td class="mono">docs/sky/handover-20260914-sky-v2-exec/HANDOVER.md</td><td>本轮执行交接（即本计划依据）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>2.2 项目<b>既定</b>技术栈（审计实测，非回忆）</h3>
+  <div class="grid g2">
+    <div class="card">
+      <div class="tag">主仓 package.json v0.3.0</div>
+      <ul class="clean">
+        <li class="ok">react / react-dom <code>^19.1.1</code> + typescript <code>^5.9.2</code></li>
+        <li class="ok">three <code>^0.186.0</code>（WebGL 实时渲染）</li>
+        <li class="ok">vite <code>^7.1.7</code> + react-router-dom <code>^7.9.4</code></li>
+        <li class="ok">devDeps 已有 playwright + pixelmatch + pngjs（视觉回归基建）</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="tag">已实装 src/lib/sky/</div>
+      <ul class="clean">
+        <li class="ok"><code>SkyScene.ts</code> 25.2KB（ShaderMaterial×6 / AdditiveBlending×4）</li>
+        <li class="ok"><code>stars.data.ts</code> 151KB —— <b>真实星表 5044 颗</b></li>
+        <li class="ok"><code>astro.ts</code> 儒略日/恒星时/岁差 · <code>moon.ts</code> 真实月相</li>
+        <li class="ok"><code>cityAdapter.ts</code> 真实 OSM · <code>geoEngine.ts</code> DEM 等高线</li>
+      </ul>
+    </div>
+  </div>
+  <p><span class="hl">关键推论</span>：页面是<b>真实数据驱动的 Three.js WebGL</b>，含 108,525 城城市库 + <code>/api/locate</code> + GEO_CACHE KV，部署 CF Pages。线上 <code>www.temposoul.com/sky</code> = <b>09-13 v2</b>，<span class="hl">本轮工作尚未上线</span>。</p>
+
+  <h3>2.3 路线演进（五次转折，务必看清最新结论）</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>章节</th><th>路线</th><th>结论</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">§16</td><td>mockup-hero-jinan-v2 为唯一基准</td><td class="dim">已被 §17 取代</td></tr>
+        <tr><td class="mono">§17</td><td><b>CT-1 视觉标准冻结</b>（天空 68% / 地貌 32%）</td><td class="ok">现行唯一标准</td></tr>
+        <tr><td class="mono">§18</td><td>设计稿资产化渲染 DPR（装载 CT-1 位图）</td><td class="no">PSNR=∞ 但只是图片 → 被否</td></tr>
+        <tr><td class="mono">§19</td><td>更正为「背景资产层 + 文字真 DOM」</td><td class="no">仍属手段错（交付了图片）</td></tr>
+        <tr><td class="mono">§20</td><td><b>技术栈一致性审计</b>（上一轮）</td><td class="no">命中红线 → <span class="hl">裁定页面本体回 WebGL</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>§20 的触发指令与本次几乎同源：「检索 AI 地图里关于网站建设首页 UI 设计的相关文件，查看之前规划的技术栈和你现在使用的技术栈是否一致」。其产出结论是 17 项对拍中 <b>一致 3 / 不一致 11 / 违反 1</b>，并给出三条硬冲突。</p>
+
+  <h3>2.4 红线（摘自规范 §12 + 交接卡 §九，不得触碰）</h3>
+  <div class="grid g2">
+    <div class="card danger">
+      <div class="tag">交付形态红线</div>
+      <ul class="clean">
+        <li class="no">回归 AI 猜图 / 生图静态方案</li>
+        <li class="no">用「图片拼接 / 静态资产加载」交付页面</li>
+        <li class="no">未验收就部署线上 / 写 KV</li>
+        <li class="no">主仓 <code>src/</code> 与 <code>functions/</code> 直接改动 → 必须在 worktree 分支内做</li>
+      </ul>
+    </div>
+    <div class="card danger">
+      <div class="tag">视觉与能力红线</div>
+      <ul class="clean">
+        <li class="no">引入实体材质 / 阴影 / 道路光带 / 大面积暖色</li>
+        <li class="no">破坏已解决能力（真实星空 / 星座标签 / 山脊 / 渐进时序 / 三层定位）</li>
+        <li class="no">删除 <code>docs/design/</code> 基准资产、AI 地图主文件</li>
+        <li class="no">绕过 <code>:8083</code> 代理直连裸引擎</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout">
+    <p><b>历史教训（写入记忆）</b>：曾把「图片拼接版」当交付物上交，老板判定 <span class="hl">"你这完全就是用图片拼接的，你这是欺骗我"</span>。故除视觉门禁外，<b>必须并列出示"真 DOM 网页"门禁</b>：<code>h1Count ≥ 1</code> / <code>body.innerText</code> 有真实文案 / 文本可选中 / 含 SEO 元数据 / WebGL 画布存在。</p>
+  </div>
+</section>
+
+<section id="s3">
+  <h2><em>§3</em> 开发计划</h2>
+
+  <h3>3.1 现状基线（已核验，非申报）</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>项</th><th>实测</th><th>判定</th></tr></thead>
+      <tbody>
+        <tr><td>worktree 改动</td><td class="mono">7 files changed, 340 insertions(+), 156 deletions(-)</td><td class="ok">在位于 thread/sky-v2-exec</td></tr>
+        <tr><td>构建</td><td class="mono">vite build 成功 · SkyPage chunk ≈743 kB / gzip ≈217 kB</td><td class="ok">exit=0</td></tr>
+        <tr><td>核心判据</td><td class="mono">V13 地平线 68.43% · V14 地貌 31.57% · V23 天空纯黑 98.75%</td><td class="ok">全绿</td></tr>
+        <tr><td>内容门禁</td><td class="mono">h1Count=1 · canvases=2 · errors=[] · 真 DOM 文案</td><td class="ok">非图片拼接</td></tr>
+        <tr><td>部署</td><td class="mono">线上 www.temposoul.com/sky 仍为 09-13 v2</td><td class="mid">本轮未上线</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>3.2 必须正视的差距（本计划的核心攻坚点）</h3>
+  <p>判据全绿 ≠ 观感一致。把实现与 CT-1 并排后，差距集中在<b>地貌带</b>：</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th>指标</th><th>CT-1</th><th>当前实现</th><th>差距</th></tr></thead>
+      <tbody>
+        <tr><td><b>地貌区均亮</b></td><td class="mono">14.60</td><td class="mono">4.13</td><td class="no">约 3.5× 偏暗 → 城市"发不出光"</td></tr>
+        <tr><td>青蓝族面积</td><td class="mono">41.33%</td><td class="mono">18.70%</td><td class="mid">约 2.2× 偏少</td></tr>
+        <tr><td>全画纯黑</td><td class="mono">76.95%</td><td class="mono">94.36%</td><td class="mid">画面过"空"</td></tr>
+        <tr><td>天空区均亮</td><td class="mono">2.89</td><td class="mono">1.45</td><td class="mid">星空通透度不足</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <figure>
+    <img src="../visual-v2-20260914/compare-desktop.png" alt="CT-1 基线（上）与当前 WebGL 实现（下）对拍图">
+    <figcaption>上 = CT-1 冻结基线（实体天际线 / 山脊 / 体育馆 / 水系 / 人形）；下 = 当前 WebGL 实现（线框城市阵 / 可见星座标签）。<br>若图未加载，请直接打开 <code>docs/sky/visual-v2-20260914/compare-desktop.png</code></figcaption>
+  </figure>
+  <div class="callout wr">
+    <p><b>差距的根因是一个条款冲突，不是执行不努力</b>：规范 §6.6 明令<span class="hl">「禁止实体填充」</span>，要求城市只能是线框 + 窗格点阵；而 CT-1 本身是<b>实体填充的插画</b>。线稿的面积填充率天然低于实体，于是地貌区均亮被锁死在 4 左右。<span class="hl">只要 §6.6 不放宽，地貌带就永远达不到 CT-1 的观感</span> —— 这是必须由老板拍板的事（见 §4）。</p>
+  </div>
+
+  <h3>3.3 分阶段计划</h3>
+
+  <div class="step">
+    <div class="n">00</div>
+    <div class="body">
+      <h4>前置 · 需求裁定 <span class="pill p0">阻塞项</span></h4>
+      <p>不拍板就无法继续，因为后续每一批的数值都依赖它。</p>
+      <ul>
+        <li>裁定 §4 的 <b>Y1（观感目标）</b>与 <b>C-a ～ C-e</b> 五项</li>
+        <li>产出一页《裁定结果》写入规范 §13，作为后续所有参数的唯一依据</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="n">01</div>
+    <div class="body">
+      <h4>地貌带可辨识度攻坚 <span class="pill p0">P0 · 最大 ROI</span></h4>
+      <p>把"一片青色电路板"变成"可辨识的城市天际线 + 地标"，是拉近 CT-1 观感的唯一路径。</p>
+      <ul>
+        <li><b>改动面</b>：<code>geoEngine.ts</code>（城市分层 / 地标线稿）、<code>sceneCore.ts</code>（<code>buildCityKit</code> 材质）、<code>renderTokens.ts</code>（L3 参数）</li>
+        <li><b>具体</b>：按规范 §6.6 出<b>地标线稿试稿</b> → 塔宽 ≥6px、塔身线框 + 窗格点阵、地貌 ≥3 类地标（山脊/塔群/体育场/水系）</li>
+        <li><b>验收</b>：V5（≥15 栋可数）、V12（层数 ≤2 且相邻层差 ≥25%）、V22（≥3 类地标）、V26（塔宽 ≥6px）</li>
+        <li><b>风险</b>：中。若裁定"允许适度实体感"，则需重写 §6.6，工作量上浮</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="n">02</div>
+    <div class="body">
+      <h4>缺失判据补齐 <span class="pill p1">P1 · 低成本纯检测</span></h4>
+      <p>交接书 §7.2 列出 6 项下一轮候选，其中 4 项属"该测没测"。</p>
+      <ul>
+        <li><b>V6</b> 双视口逐标签叠影检查（星座中文标签 + 地名）—— 纯检测，成本最低</li>
+        <li><b>V21</b> 能量连接场 a —— 人形肩/头顶 → 星座节点 5–7 条，相邻夹角标准差 ≤5°、总张角 ≤120%（<span class="hl">当前完全未实现</span>）</li>
+        <li><b>V30</b> 星点大小映射：最亮 : 最暗 ≥ 3.5 : 1（§5.4）</li>
+        <li><b>V12</b> 地形层数 —— 需给审计脚本<b>加第三视口</b> <code>?lat=25.033&amp;lon=121.5654</code>（Taipei 载荷才可测）</li>
+        <li><b>改动面</b>：<code>SkyScene.ts</code>（能量连线 / 星点曝光）、<code>audit-sky-v2.mjs</code>（加视口）</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="n">03</div>
+    <div class="body">
+      <h4>UI 层精修 <span class="pill p1">P1</span></h4>
+      <p>规范 §8.3 已把 HUD 收敛为 <b>3 处</b>（品牌 + CTA + 地名），本轮落地需逐项对拍。</p>
+      <ul>
+        <li><b>改动面</b>：<code>SkyPage.tsx</code>、<code>holographic-tokens.ts</code></li>
+        <li>校验 T1–T5 字号层级（相邻层级比 ≥1.25×）、玻璃胶囊唯一按钮形态、无 <code>box-shadow</code> 外扩</li>
+        <li><b>复用经验</b>：半像素陷阱 —— <code>translate(-50%,-50%)</code> + 奇数尺寸 → 整层重采样；<span class="hl">居中一律用负 margin</span>（对 WebGL 版 UI 层同样适用）</li>
+        <li><b>验收</b>：V7（HUD ≤3 处）、V6（文字重叠 0 处）</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="n">04</div>
+    <div class="body">
+      <h4>收口验收 <span class="pill">门禁</span></h4>
+      <p>按交接书 §8.5 DoD 逐项过闸，通过后才谈上线。</p>
+      <ul>
+        <li>V1–V31 中已覆盖项<b>全绿</b> · <code>vite build</code> exit=0 · 双视口 console error=0 · FCP ∈ 1–3s</li>
+        <li>按层对拍图（星空→星座→星云→山体→城市→水系→植被→人形→UI 各特写 + CT-1 并排）</li>
+        <li>产出审计留痕（规范 §12 模板，<b>未产出不得 commit</b>）</li>
+        <li><span class="hl">未验收不部署；未经明确指令不提交主仓</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>3.4 执行 SOP（本机已核准，勿凭记忆）</h3>
+  <pre>W="E:/KnowledgeOS/项目库/TempoSoul 命律 网站建设系统/.temposoul-wt/thread-sky-v2-exec"
+NODE="C:/Users/oran/.workbuddy/binaries/node/versions/22.22.2-3/node.exe"
+PY="C:/Users/oran/.workbuddy/binaries/python/versions/3.13.12/python.exe"
+
+① 构建   cd "$W" && "$NODE" node_modules/vite/bin/vite.js build
+② 审计   cd "$W" && "$NODE" scripts/audit-sky-v2.mjs
+③ 判据   "$PY" ".../handover-20260914-sky-v2-exec/scripts/vjudge.py"</pre>
+  <div class="callout cy">
+    <p><b>三个已知坑（避免重踩）</b>：① <code>npx</code> 被 WSL 拦截 → 必须用托管 Node 直调 <code>vite.js</code>；② 判据脚本 <code>vjudge.py</code> 头部<b>写死绝对路径常量</b>（第 10–13 行），worktree 路径一变必须先改；③ <b>禁止对同一文件在同一消息里并行发多个 Edit</b> —— 会竞态，后一个基于旧快照写入导致前一处改动被静默回滚（工具仍报 success）。</p>
+  </div>
+</section>
+
+<section id="s4">
+  <h2><em>§4</em> 需求确认单（请老板裁定）</h2>
+  <p>以下事项<b>不是执行者能自行选边的</b> —— 交接书 §10 明文要求「已知悉 §7.1 五处待拍板项属需老板裁定，不得自行选边」。为便于一次性放行，我把它们整理成一张表。</p>
+
+  <h3>4.1 已锁定，无需再问（三项既成事实）</h3>
+  <div class="grid g3">
+    <div class="card good"><div class="tag">已定</div><h4>设计思路</h4><p><code>SKY-VISUAL-STANDARD-v2.md</code>（516 行）为唯一权威，构图模板 CT-1 已冻结。</p></div>
+    <div class="card good"><div class="tag">已定</div><h4>技术栈</h4><p>React 19 + TS + Vite 7 + <b>Three.js 真实数据驱动 WebGL</b>，已实装于 <code>src/lib/sky/</code>。</p></div>
+    <div class="card good"><div class="tag">已定</div><h4>基准资产</h4><p><code>SKY-BASELINE-CT1.png</code>（1920×969）为冻结基线，一切对拍以它为准。</p></div>
+  </div>
+  <p><span class="hl">执行者的工作性质＝体力活</span>：读规范 → 改参数/改结构 → 构建 → 截图 → 对照 CT-1 → 填审计留痕。<b>不需要、也不允许重新设计视觉方向。</b></p>
+
+  <h3>4.2 必须裁定（<span class="hl">不拍板无法推进</span>）</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>#</th><th>待确认问题</th><th>冲突点</th><th>推荐</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="mono hl-b">Y1</td>
+          <td><b>验收口径是什么？</b><br><small>"100% 一致" 还是 "判据全绿"？</small></td>
+          <td>老板要求「必须与效果图<b>百分之百一致</b>」；规范 §7 判定「<b>1:1 复刻在实时 WebGL 首屏不现实也不该做</b>，可达目标 = 风格同源自洽」。两条互斥，且项目已裁决过。</td>
+          <td class="ok">以 <b>V1–V31 + CT-1 按层对拍</b>为验收口径，<b>不以像素 100%</b> 为目标</td>
+        </tr>
+        <tr>
+          <td class="mono hl-b">Y2</td>
+          <td><b>地貌带要什么质感？</b><br><small>决定阶段 01 的全部做法</small></td>
+          <td>规范 §6.6 明令<b>「禁止实体填充」</b>（只能线框+窗格点阵）；但 CT-1 是实体填充插画。实测差距：地貌均亮 <code>4.13 vs 14.60</code>（约 3.5×）。<span class="hl">只要 §6.6 不放宽，地貌带就永远达不到 CT-1 观感。</span></td>
+          <td class="ok">二选一：<br><b>(甲)</b> 放宽 §6.6 有限度允许实体感，贴近 CT-1<br><b>(乙)</b> 保留纯线稿，但<b>承认地貌带与 CT-1 不一致可接受</b></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>4.3 次级裁定（交接书 §7.1 待拍板项 C-a ～ C-e）</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>#</th><th>事项</th><th>现状</th><th>推荐</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="mono">C-a</td><td>人形粒子色</td>
+          <td>R4 要求「<code>cyan-core</code> 混 <code>text-bright</code>」＝<b>亮粒子</b>；§3.5 标为「不可变」的「<b>暗剪影 + 亮背景</b>」。本次按 §3.5 执行。</td>
+          <td class="ok">维持 §3.5 暗剪影（亮粒子历史上出过"白柱"事故）</td>
+        </tr>
+        <tr>
+          <td class="mono">C-b</td><td>地平线辉光带</td>
+          <td>§3.6 C1 要「全画最亮横带」（CT-1 实测 24.37）；V25 要「≤ 地貌均亮×0.85」。<b>不可兼得</b>。本次为过 V25 把星云条带 α 压到 0.018，辉光带明显弱于 CT-1。</td>
+          <td class="ok">保留强度，采纳替代判据 V25（实测 0.70 达标）—— 即回补辉光带</td>
+        </tr>
+        <tr>
+          <td class="mono">C-c</td><td>地貌区均亮</td>
+          <td>见 Y2（同源问题）。介质差：线稿 vs 实体填充。</td>
+          <td class="dim">随 Y2 一并裁定</td>
+        </tr>
+        <tr>
+          <td class="mono">C-d</td><td>抽象载荷前景缺失</td>
+          <td>非 Taipei 覆盖区（默认济南）无 OSM 瓦片 ⇒ 无道路/水系/体育馆；CT-1 有。</td>
+          <td class="ok">扩大 OSM 覆盖到主要城市，或接受"两极表现"并在规范中写明</td>
+        </tr>
+        <tr>
+          <td class="mono">C-e</td><td>品牌排版</td>
+          <td>CT-1 为<b>居中大标题</b>；§8.3 收敛为 3 处 HUD（左上品牌 + 右上 CTA）。本次按 §8.3 做。</td>
+          <td class="ok">维持 §8.3（居中大标题会与星云/星座标签抢视觉焦点）</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>4.4 一句话确认（可直接回复）</h3>
+  <div class="callout">
+    <p><b>方案包（推荐）</b>：Y1 取"判据口径" ｜ Y2 取"<b>甲：有限度允许实体感</b>" ｜ C-a 维持暗剪影 ｜ C-b 回补辉光带 ｜ C-d 扩大 OSM 覆盖 ｜ C-e 维持 §8.3。</p>
+    <p class="dim" style="margin-top:8px">老板只需回复「<b>同意方案包</b>」，或指出要改的编号（如「Y2 改乙、C-b 不改」）。裁定后我将：① 把结论写入规范 §13；② 按 §3.3 阶段 01 启动。</p>
+  </div>
+
+  <h3>4.5 另需一句话授权：AgentOS 免费模型修复</h3>
+  <div class="callout wr">
+    <p>§1.6 的 <b>F1</b>（改一行 Node 路径 + 拉起 FreeLLMAPI）风险极低、收益立竿见影，但涉及<b>启动一个常驻服务</b>。是否现在执行？<br><span class="dim">其余 F2–F5 属网关加固，建议单独立项，不与 /sky 主线混做。</span></p>
+  </div>
+</section>
+
+<footer>
+  本文件由 WorkBuddy 端「可吉」编制 · 所有数值可回溯至 audit.json / 规范条款 / 网关日志<br>
+  E:\KnowledgeOS\项目库\TempoSoul 命律 网站建设系统\docs\sky\handover-20260914-sky-v2-exec\
+</footer>
+</div>
+</body>
+</html>

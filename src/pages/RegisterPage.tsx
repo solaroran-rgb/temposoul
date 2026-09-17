@@ -63,8 +63,7 @@ export function RegisterPage() {
             {submitting ? t('common.loading') : t('auth.registerSubmit')}
           </button>
           <p className="auth-alt">
-            {t('auth.hasAccount')}{' '}
-            <Link to="/login">{t('auth.goLogin')}</Link>
+            {t('auth.hasAccount')} <Link to="/login">{t('auth.goLogin')}</Link>
           </p>
         </form>
       </div>

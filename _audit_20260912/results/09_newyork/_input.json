@@ -1,0 +1,17 @@
+{
+  "id": "09_newyork",
+  "desc": "海外出生·纽约 1991-07-04 09:15",
+  "req": {
+    "gender": "male",
+    "year": 1991,
+    "month": 7,
+    "day": 4,
+    "dateType": "solar",
+    "birthHour": 9,
+    "birthMinute": 15,
+    "birthPlace": "New York",
+    "birthLongitude": -74.006,
+    "timeZoneId": "America/New_York",
+    "useTrueSolarTime": true
+  }
+}

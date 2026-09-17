@@ -1,0 +1,15 @@
+{
+  "http": 400,
+  "ms": 567,
+  "body": {
+    "ok": false,
+    "error": {
+      "code": "BAD_REQUEST",
+      "message": "hour 必须是整数。"
+    },
+    "meta": {
+      "service": "www.temposoul.com",
+      "version": "v1"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+/* src/pages/divination/love-divination-page.css */
+.love-divination { color: var(--text-primary,#E0E6ED); padding: 16px; display: flex; flex-direction: column; gap: 8px; }
+.love-divination__tabs { display: flex; gap: 8px; }
+.love-divination__tab { border: 1px solid var(--neon-cyan,#4DC3FF); background: transparent; color: var(--text-secondary,#8B9BB4); border-radius: 8px; padding: 6px 10px; }
+.love-divination__tab--active { color: var(--neon-cyan,#4DC3FF); }
+.love-divination__field { display: flex; flex-direction: column; color: var(--text-secondary,#8B9BB4); font-size: 12px; }
+.love-divination__draw { border: 1px solid var(--neon-cyan,#4DC3FF); background: transparent; color: var(--neon-cyan,#4DC3FF); border-radius: 8px; padding: 8px; }
+.love-divination__result-grid { list-style: none; padding: 0; display: grid; gap: 8px; }
+.love-divination__result-item { color: var(--text-primary,#E0E6ED); }
+.love-divination__card-name { color: var(--neon-cyan,#4DC3FF); }
+.love-divination__card-line { color: var(--text-secondary,#8B9BB4); font-size: 12px; }
+.love-divination__empty { color: var(--text-secondary,#8B9BB4); }
+.love-divination__disclaimer { color: var(--text-secondary,#8B9BB4); font-size: 12px; }

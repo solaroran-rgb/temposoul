@@ -1,0 +1,11 @@
+/* src/pages/video/video-channel-page.css */
+.video-channel { color: var(--text-primary,#E0E6ED); padding: 16px; display: flex; flex-direction: column; gap: 8px; }
+.video-channel__tabs { display: flex; gap: 8px; }
+.video-channel__tab { border: 1px solid var(--neon-cyan,#4DC3FF); background: transparent; color: var(--text-secondary,#8B9BB4); border-radius: 8px; padding: 6px 10px; }
+.video-channel__tab--active { color: var(--neon-cyan,#4DC3FF); }
+.video-channel__grid { list-style: none; padding: 0; display: grid; gap: 8px; }
+.video-channel__card { display: flex; flex-direction: column; width: 100%; border: 1px solid var(--neon-cyan,#4DC3FF); background: transparent; border-radius: 8px; padding: 8px; text-align: left; }
+.video-channel__card-title { color: var(--text-primary,#E0E6ED); }
+.video-channel__card-state { color: var(--text-secondary,#8B9BB4); font-size: 12px; }
+.video-channel__player-placeholder { border: 1px dashed var(--neon-cyan,#4DC3FF); border-radius: 8px; padding: 24px; color: var(--text-secondary,#8B9BB4); }
+.video-channel__empty, .video-channel__notice { color: var(--text-secondary,#8B9BB4); font-size: 12px; }

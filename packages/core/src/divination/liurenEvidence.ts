@@ -7,11 +7,7 @@
  *
  * 覆盖大六壬起课五大环节：起课基础 → 月将加时 → 四课三传 → 课体格局 → 空亡旺衰
  */
-import {
-  buildEvidenceTrail,
-  type EvidenceItem,
-  type EvidenceTrail,
-} from '../shared/evidence';
+import { buildEvidenceTrail, type EvidenceItem, type EvidenceTrail } from '../shared/evidence';
 import type { LiurenData } from '../types/divination';
 
 export function buildLiurenEvidenceTrail(result: LiurenData): EvidenceTrail {
@@ -111,9 +107,7 @@ export function buildLiurenEvidenceTrail(result: LiurenData): EvidenceTrail {
       applicableWhen: ['四课立、三传发用'],
       cautionWhen: ['涉害/遥克/昴星等九宗门取用不同', '伏吟反吟回环递传特殊模式'],
     },
-    counterEvidence: [
-      { description: '九宗门取传顺序存在流派差异', severity: 'alternative' },
-    ],
+    counterEvidence: [{ description: '九宗门取传顺序存在流派差异', severity: 'alternative' }],
     confidence: 'high',
     depth: 0,
   });
@@ -140,9 +134,7 @@ export function buildLiurenEvidenceTrail(result: LiurenData): EvidenceTrail {
         applicableWhen: ['依三传干支关系定课体'],
         cautionWhen: ['课体吉凶需结合类神与旺衰', '不构成必然应期'],
       },
-      counterEvidence: [
-        { description: '课体判读存在流派差异', severity: 'alternative' },
-      ],
+      counterEvidence: [{ description: '课体判读存在流派差异', severity: 'alternative' }],
       confidence: 'medium',
       depth: 1,
     });
@@ -165,9 +157,7 @@ export function buildLiurenEvidenceTrail(result: LiurenData): EvidenceTrail {
         applicableWhen: ['以日柱定旬空'],
         cautionWhen: ['空亡逢冲可出空'],
       },
-      counterEvidence: [
-        { description: '空亡填实出空时机不同流派不同', severity: 'minor' },
-      ],
+      counterEvidence: [{ description: '空亡填实出空时机不同流派不同', severity: 'minor' }],
       confidence: 'medium',
       depth: 1,
     });

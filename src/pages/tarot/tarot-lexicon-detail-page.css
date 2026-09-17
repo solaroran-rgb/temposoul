@@ -1,0 +1,45 @@
+.tarot-detail__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-secondary, #8b9bb4);
+}
+.tarot-detail__keywords {
+  color: var(--neon-cyan, #4dc3ff);
+  font-size: 13px;
+}
+.tarot-detail__tabs {
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px solid rgba(139, 155, 180, 0.2);
+}
+.tarot-detail__tab {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary, #8b9bb4);
+  padding: 6px 4px;
+  cursor: pointer;
+}
+.tarot-detail__tab--active {
+  color: var(--neon-cyan, #4dc3ff);
+  border-bottom: 2px solid var(--neon-cyan, #4dc3ff);
+}
+.tarot-detail__panel {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.tarot-detail__h2 {
+  font-size: 14px;
+  color: var(--text-primary, #e0e6ed);
+}
+.tarot-detail__text {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-primary, #e0e6ed);
+}
+.tarot-detail__source {
+  font-size: 11px;
+  color: var(--text-secondary, #8b9bb4);
+}

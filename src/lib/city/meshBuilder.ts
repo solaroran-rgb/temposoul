@@ -1,9 +1,9 @@
-import * as THREE from "three";
-import type { CityGeo, CityBuilding, CityLandmark } from "./geoApi";
-import { classifyMode, CITY_CONFIG, type CityMode } from "./config";
-import { mergeLineGeometries } from "./placeholder";
-import { COVERAGE } from "./projection";
-import { fnv1a } from "./osmCore.js";   // F3 修复：fnv1a 唯一来源为 osmCore（seed.ts 无此导出）
+import * as THREE from 'three';
+import type { CityGeo, CityBuilding, CityLandmark } from './geoApi';
+import { classifyMode, CITY_CONFIG, type CityMode } from './config';
+import { mergeLineGeometries } from './placeholder';
+import { COVERAGE } from './projection';
+import { fnv1a } from './osmCore.js'; // F3 修复：fnv1a 唯一来源为 osmCore（seed.ts 无此导出）
 
 /**
  * v2 批次契约（裁定 D4/D7/C2/C4/C7）：
@@ -15,7 +15,7 @@ import { fnv1a } from "./osmCore.js";   // F3 修复：fnv1a 唯一来源为 osm
  * - material 全部归 E3；本文件只产几何与 attribute，零色值（C5）
  */
 export interface CityBatch {
-  kind: "buildings" | "roads" | "nodes" | "landmarks" | "water" | "peaks";
+  kind: 'buildings' | 'roads' | 'nodes' | 'landmarks' | 'water' | 'peaks';
   geometry: THREE.BufferGeometry;
   mode: CityMode;
 }
@@ -30,12 +30,14 @@ const layerOf = (r: number): number =>
 function ringInfo(b: { pts: number[] }): { n: number; cx: number; cz: number } {
   const nPts = b.pts.length / 2;
   const closed =
-    nPts > 1 &&
-    b.pts[0] === b.pts[(nPts - 1) * 2] &&
-    b.pts[1] === b.pts[(nPts - 1) * 2 + 1];
+    nPts > 1 && b.pts[0] === b.pts[(nPts - 1) * 2] && b.pts[1] === b.pts[(nPts - 1) * 2 + 1];
   const n = closed ? nPts - 1 : nPts;
-  let cx = 0, cz = 0;
-  for (let i = 0; i < n; i++) { cx += b.pts[i * 2]; cz += b.pts[i * 2 + 1]; }
+  let cx = 0,
+    cz = 0;
+  for (let i = 0; i < n; i++) {
+    cx += b.pts[i * 2];
+    cz += b.pts[i * 2 + 1];
+  }
   return { n, cx: cx / n, cz: cz / n };
 }
 
@@ -46,50 +48,62 @@ export function cityGeoToBatches(
   const mode = classifyMode(geo.raw_count);
   const batches: CityBatch[] = [];
 
-  const hasBlds = mode !== "PLACEHOLDER+" && geo.buildings.length > 0;
-  let blds = geo.buildings;   // 服务端已距中心升序
+  const hasBlds = mode !== 'PLACEHOLDER+' && geo.buildings.length > 0;
+  let blds = geo.buildings; // 服务端已距中心升序
   if (hasBlds && mobile && blds.length > CITY_CONFIG.MAX_BUILDINGS_MID) {
-    blds = blds.slice(0, CITY_CONFIG.MAX_BUILDINGS_MID);   // drawRange 语义：保近裁远
+    blds = blds.slice(0, CITY_CONFIG.MAX_BUILDINGS_MID); // drawRange 语义：保近裁远
   }
 
   if (hasBlds) {
-    batches.push({ kind: "buildings", geometry: buildBuildingGeometry(blds), mode });
-    batches.push({ kind: "nodes", geometry: buildNodesGeometry(blds, geo.landmarks ?? [], mobile), mode });
+    batches.push({ kind: 'buildings', geometry: buildBuildingGeometry(blds), mode });
+    batches.push({
+      kind: 'nodes',
+      geometry: buildNodesGeometry(blds, geo.landmarks ?? [], mobile),
+      mode,
+    });
     if (geo.landmarks?.length) {
-      batches.push({ kind: "landmarks", geometry: buildLandmarkGeometry(geo.landmarks), mode });
+      batches.push({ kind: 'landmarks', geometry: buildLandmarkGeometry(geo.landmarks), mode });
     }
   }
   // PLACEHOLDER+ 不画真实 roads（避免与占位城伪路网叠加噪点）——数据三态表 §2.1
-  if (mode !== "PLACEHOLDER+" && geo.roads?.length) {
-    batches.push({ kind: "roads", geometry: buildRoadsGeometry(geo.roads), mode });
+  if (mode !== 'PLACEHOLDER+' && geo.roads?.length) {
+    batches.push({ kind: 'roads', geometry: buildRoadsGeometry(geo.roads), mode });
   }
   // water/peaks 三态常画（画面不空 + "周边环境"语义）
   const wg = buildWaterGeometry(geo.water);
-  if (wg) batches.push({ kind: "water", geometry: wg, mode });
+  if (wg) batches.push({ kind: 'water', geometry: wg, mode });
   const pg = buildPeakGeometry(geo.peaks);
-  if (pg) batches.push({ kind: "peaks", geometry: pg, mode });
+  if (pg) batches.push({ kind: 'peaks', geometry: pg, mode });
 
   return { batches, mode };
 }
 
 function buildBuildingGeometry(blds: CityBuilding[]): THREE.BufferGeometry {
-  const pos: number[] = [], lay: number[] = [];
-  const push = (x: number, y: number, z: number, L: number) => { pos.push(x, y, z); lay.push(L); };
+  const pos: number[] = [],
+    lay: number[] = [];
+  const push = (x: number, y: number, z: number, L: number) => {
+    pos.push(x, y, z);
+    lay.push(L);
+  };
   for (const b of blds) {
     const { n, cx, cz } = ringInfo(b);
     if (n < 3) continue;
     const L = layerOf(Math.hypot(cx, cz));
     for (let i = 0; i < n; i++) {
       const j = (i + 1) % n;
-      const x0 = b.pts[i * 2], z0 = b.pts[i * 2 + 1];
-      const x1 = b.pts[j * 2], z1 = b.pts[j * 2 + 1];
-      push(x0, b.h, z0, L); push(x1, b.h, z1, L);   // 顶环
-      push(x0, 0, z0, L);   push(x0, b.h, z0, L);   // 角柱竖线（B2 稀疏化：仅环顶点，底环省略）
+      const x0 = b.pts[i * 2],
+        z0 = b.pts[i * 2 + 1];
+      const x1 = b.pts[j * 2],
+        z1 = b.pts[j * 2 + 1];
+      push(x0, b.h, z0, L);
+      push(x1, b.h, z1, L); // 顶环
+      push(x0, 0, z0, L);
+      push(x0, b.h, z0, L); // 角柱竖线（B2 稀疏化：仅环顶点，底环省略）
     }
   }
   const g = new THREE.BufferGeometry();
-  g.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
-  g.setAttribute("aLayer", new THREE.Float32BufferAttribute(lay, 1));
+  g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  g.setAttribute('aLayer', new THREE.Float32BufferAttribute(lay, 1));
   return g;
 }
 
@@ -98,9 +112,15 @@ function buildNodesGeometry(
   landmarks: CityLandmark[],
   mobile: boolean,
 ): THREE.BufferGeometry {
-  const pos: number[] = [], warm: number[] = [], size: number[] = [], lay: number[] = [];
+  const pos: number[] = [],
+    warm: number[] = [],
+    size: number[] = [],
+    lay: number[] = [];
   const push = (x: number, y: number, z: number, w: number, s: number, L: number) => {
-    pos.push(x, y, z); warm.push(w); size.push(s); lay.push(L);
+    pos.push(x, y, z);
+    warm.push(w);
+    size.push(s);
+    lay.push(L);
   };
   // 顶环顶点（青蓝节点 = 图谱感来源）；移动端按步长采样
   const step = mobile ? CITY_CONFIG.NODE_SAMPLE_MOBILE : 1;
@@ -122,46 +142,53 @@ function buildNodesGeometry(
       const j = (i + 1) % n;
       const mx = (lm.pts[i * 2] + lm.pts[j * 2]) / 2;
       const mz = (lm.pts[i * 2 + 1] + lm.pts[j * 2 + 1]) / 2;
-      const hFrac = 0.25 + (fnv1a(`${mx}|${mz}`) % 3) * 0.25;   // 0.25/0.5/0.75 层高
+      const hFrac = 0.25 + (fnv1a(`${mx}|${mz}`) % 3) * 0.25; // 0.25/0.5/0.75 层高
       push(mx, lm.h * hFrac, mz, 1, 1.6, 0);
       warmCount++;
     }
   }
   const g = new THREE.BufferGeometry();
-  g.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
-  g.setAttribute("aWarm", new THREE.Float32BufferAttribute(warm, 1));
-  g.setAttribute("aSize", new THREE.Float32BufferAttribute(size, 1));
-  g.setAttribute("aLayer", new THREE.Float32BufferAttribute(lay, 1));
+  g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  g.setAttribute('aWarm', new THREE.Float32BufferAttribute(warm, 1));
+  g.setAttribute('aSize', new THREE.Float32BufferAttribute(size, 1));
+  g.setAttribute('aLayer', new THREE.Float32BufferAttribute(lay, 1));
   return g;
 }
 
 function buildLandmarkGeometry(lms: CityLandmark[]): THREE.BufferGeometry {
-  const pos: number[] = [], lay: number[] = [];
+  const pos: number[] = [],
+    lay: number[] = [];
   for (const lm of lms) {
     const { n } = ringInfo(lm);
     if (n < 3) continue;
     for (let i = 0; i < n; i++) {
       const j = (i + 1) % n;
-      const x0 = lm.pts[i * 2], z0 = lm.pts[i * 2 + 1];
-      const x1 = lm.pts[j * 2], z1 = lm.pts[j * 2 + 1];
-      pos.push(x0, lm.h, z0, x1, lm.h, z1);   // 顶环
-      pos.push(x0, 0, z0, x0, lm.h, z0);       // 角柱
-      lay.push(0, 0, 0, 0);                    // 地标恒近景档（B2 亮度分级顶档）
+      const x0 = lm.pts[i * 2],
+        z0 = lm.pts[i * 2 + 1];
+      const x1 = lm.pts[j * 2],
+        z1 = lm.pts[j * 2 + 1];
+      pos.push(x0, lm.h, z0, x1, lm.h, z1); // 顶环
+      pos.push(x0, 0, z0, x0, lm.h, z0); // 角柱
+      lay.push(0, 0, 0, 0); // 地标恒近景档（B2 亮度分级顶档）
     }
   }
   const g = new THREE.BufferGeometry();
-  g.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
-  g.setAttribute("aLayer", new THREE.Float32BufferAttribute(lay, 1));
+  g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  g.setAttribute('aLayer', new THREE.Float32BufferAttribute(lay, 1));
   return g;
 }
 
 function buildRoadsGeometry(roads: { pts: number[]; cls: number }[]): THREE.BufferGeometry {
-  const pos: number[] = [], cls: number[] = [], lay: number[] = [];
+  const pos: number[] = [],
+    cls: number[] = [],
+    lay: number[] = [];
   for (const rd of roads) {
     const n = rd.pts.length / 2;
     for (let i = 0; i < n - 1; i++) {
-      const x0 = rd.pts[i * 2], z0 = rd.pts[i * 2 + 1];
-      const x1 = rd.pts[i * 2 + 2], z1 = rd.pts[i * 2 + 3];
+      const x0 = rd.pts[i * 2],
+        z0 = rd.pts[i * 2 + 1];
+      const x1 = rd.pts[i * 2 + 2],
+        z1 = rd.pts[i * 2 + 3];
       pos.push(x0, Y_ROAD, z0, x1, Y_ROAD, z1);
       cls.push(rd.cls, rd.cls);
       const L = layerOf(Math.hypot((x0 + x1) / 2, (z0 + z1) / 2));
@@ -169,9 +196,9 @@ function buildRoadsGeometry(roads: { pts: number[]; cls: number }[]): THREE.Buff
     }
   }
   const g = new THREE.BufferGeometry();
-  g.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
-  g.setAttribute("aClass", new THREE.Float32BufferAttribute(cls, 1));
-  g.setAttribute("aLayer", new THREE.Float32BufferAttribute(lay, 1));
+  g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  g.setAttribute('aClass', new THREE.Float32BufferAttribute(cls, 1));
+  g.setAttribute('aLayer', new THREE.Float32BufferAttribute(lay, 1));
   return g;
 }
 
@@ -185,7 +212,7 @@ function buildWaterGeometry(water: number[][]): THREE.BufferGeometry | null {
   }
   if (!pos.length) return null;
   const g = new THREE.BufferGeometry();
-  g.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
+  g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
   return g;
 }
 

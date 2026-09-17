@@ -7,11 +7,7 @@
  *
  * 覆盖塔罗抽牌四大环节：抽牌基础 → 洗牌抽牌 → 牌面抽定 → 牌阵解读
  */
-import {
-  buildEvidenceTrail,
-  type EvidenceItem,
-  type EvidenceTrail,
-} from '../shared/evidence';
+import { buildEvidenceTrail, type EvidenceItem, type EvidenceTrail } from '../shared/evidence';
 import type { TarotData } from '../types/divination';
 
 export function buildTarotEvidenceTrail(result: TarotData): EvidenceTrail {

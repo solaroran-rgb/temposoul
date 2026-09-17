@@ -1,0 +1,287 @@
+{
+  "A_provenance": {
+    "ref-c": {
+      "path": "E:\\KnowledgeOS\\项目库\\TempoSoul 命律 网站建设系统\\docs\\design\\redraw-20260914\\_refs\\ref-c-老板参考构图.jpg",
+      "size": 262699,
+      "mtime": "2026-09-14 16:33:46.769127",
+      "dims": [
+        1920,
+        969
+      ],
+      "format": "JPEG",
+      "exif_tags": 0,
+      "icc_len": 456,
+      "icc_desc": "sRGB",
+      "icc_info": "sRGB\r\n\r\nGoogle Inc. 2016",
+      "jfif": [
+        1,
+        1
+      ]
+    },
+    "CT-1": {
+      "path": "E:\\KnowledgeOS\\项目库\\TempoSoul 命律 网站建设系统\\docs\\design\\baseline\\SKY-BASELINE-CT1.png",
+      "size": 1626873,
+      "mtime": "2026-09-14 16:39:53.081364",
+      "dims": [
+        1920,
+        969
+      ],
+      "format": "PNG",
+      "exif_tags": 0,
+      "icc_len": 0,
+      "icc_desc": null,
+      "icc_info": null,
+      "jfif": null
+    },
+    "CT-1-annotated": {
+      "path": "E:\\KnowledgeOS\\项目库\\TempoSoul 命律 网站建设系统\\docs\\design\\baseline\\SKY-BASELINE-CT1-annotated.png",
+      "size": 1807857,
+      "mtime": "2026-09-14 16:41:21.060142",
+      "dims": [
+        2580,
+        969
+      ],
+      "format": "PNG",
+      "exif_tags": 0,
+      "icc_len": 0,
+      "icc_desc": null,
+      "icc_info": null,
+      "jfif": null
+    }
+  },
+  "B_seam": {
+    "ref-c": {
+      "dims": [
+        1920,
+        969
+      ],
+      "max_row_jump": 7.109549522399902,
+      "row_jump_at": 34.47,
+      "max_col_jump": 10.110397338867188,
+      "col_jump_at": 976
+    },
+    "CT-1": {
+      "dims": [
+        1920,
+        969
+      ],
+      "max_row_jump": 7.983509063720703,
+      "row_jump_at": 88.44,
+      "max_col_jump": 9.784656524658203,
+      "col_jump_at": 976
+    },
+    "CT-1-annotated": {
+      "dims": [
+        2580,
+        969
+      ],
+      "max_row_jump": 100.96757507324219,
+      "row_jump_at": 50.88,
+      "max_col_jump": 51.0,
+      "col_jump_at": 1921
+    },
+    "annotated_panel": {
+      "boundary_x": 1920,
+      "left_mean": 22.46741485595703,
+      "right_mean": 16.295392990112305,
+      "panel_bg_median": 12.301684379577637
+    }
+  },
+  "C_purity": {
+    "border_row_std": {
+      "top_mean": 3.982724189758301,
+      "top_min": 2.4733641147613525,
+      "bot_mean": 36.492767333984375,
+      "bot_min": 27.38326072692871,
+      "all_mean": 18.96417999267578
+    },
+    "max_flat_run_px": 318,
+    "max_flat_run_pct": 16.56,
+    "max_flat_run_at_y_pct": 9.39,
+    "edge_density_pct_3x3": {
+      "r0c0": 0.276,
+      "r0c1": 3.612,
+      "r0c2": 0.202,
+      "r1c0": 0.89,
+      "r1c1": 1.328,
+      "r1c2": 0.975,
+      "r2c0": 2.033,
+      "r2c1": 0.791,
+      "r2c2": 2.153
+    },
+    "corners": {
+      "TL": {
+        "mean": 0.79,
+        "std": 0.33,
+        "max": 2.7
+      },
+      "TR": {
+        "mean": 0.75,
+        "std": 0.24,
+        "max": 2.0
+      },
+      "BL": {
+        "mean": 11.31,
+        "std": 13.99,
+        "max": 150.3
+      },
+      "BR": {
+        "mean": 8.53,
+        "std": 10.72,
+        "max": 116.7
+      }
+    },
+    "border_col_std": {
+      "left_mean": 6.795637607574463,
+      "left_min": 4.789736270904541,
+      "right_mean": 9.645989418029785,
+      "right_min": 7.3610615730285645,
+      "all_mean": 22.515483856201172
+    },
+    "top_bottom_rows_max": {
+      "top4_max": 104.33333587646484,
+      "bot4_max": 172.3333282470703,
+      "top4_mean": 2.139843702316284,
+      "bot4_mean": 35.30451202392578
+    }
+  },
+  "D1_affine": {
+    "scale": 1.3550000000000006,
+    "offset": -344.0,
+    "resid": 0.7793162178748392,
+    "keep_ratio": 0.7380073800738004
+  },
+  "D2_pixdiff": {
+    "identical_below_pct": 48.81,
+    "upper_max": 10,
+    "lower_max": 243
+  },
+  "D3_direction": {
+    "mae": 3.942059278488159,
+    "hf_refc": 3.9340970516204834,
+    "hf_ct1_upscaled": 3.6392030715942383,
+    "hf_ct1_raw": 4.226368427276611,
+    "ratio": 0.9250415085960383,
+    "verdict": "CT-1 is downsampled from ref-c"
+  },
+  "D4_mtime": {
+    "refc": "2026-09-14 16:33:46.769127",
+    "ct1": "2026-09-14 16:39:53.081364",
+    "ann": "2026-09-14 16:41:21.060142"
+  },
+  "D3b_filters": {
+    "best_filter": "LANCZOS",
+    "best_mae": 3.942059278488159,
+    "best_ratio": 0.9250415085960383
+  },
+  "D5_reencode_hypothesis": {
+    "rejected": true,
+    "lower_max": 243
+  },
+  "E_jpeg": {
+    "original": {
+      "ref-c(原JPG)": {
+        "p999": 164.33,
+        "nw200": 0.0062,
+        "nw230": 0.0001,
+        "mean": 20.074,
+        "maxv": 232.0
+      },
+      "CT-1(原PNG)": {
+        "p999": 163.0,
+        "nw200": 0.0073,
+        "nw230": 0.0004,
+        "mean": 17.218,
+        "maxv": 246.0
+      }
+    },
+    "ct1_reencode": {
+      "95": {
+        "p999": 163.0,
+        "nw200": 0.0071,
+        "nw230": 0.0003,
+        "mean": 17.252,
+        "maxv": 243.0
+      },
+      "90": {
+        "p999": 163.33,
+        "nw200": 0.0074,
+        "nw230": 0.0003,
+        "mean": 17.255,
+        "maxv": 244.3
+      },
+      "85": {
+        "p999": 163.0,
+        "nw200": 0.0074,
+        "nw230": 0.0003,
+        "mean": 17.262,
+        "maxv": 244.0
+      },
+      "80": {
+        "p999": 163.33,
+        "nw200": 0.0075,
+        "nw230": 0.0003,
+        "mean": 17.29,
+        "maxv": 245.0
+      },
+      "70": {
+        "p999": 163.67,
+        "nw200": 0.0078,
+        "nw230": 0.0004,
+        "mean": 17.352,
+        "maxv": 246.0
+      },
+      "60": {
+        "p999": 163.0,
+        "nw200": 0.0076,
+        "nw230": 0.0006,
+        "mean": 17.349,
+        "maxv": 246.0
+      },
+      "50": {
+        "p999": 163.0,
+        "nw200": 0.0082,
+        "nw230": 0.0006,
+        "mean": 17.189,
+        "maxv": 246.7
+      }
+    },
+    "refc_reencode": {
+      "95": {
+        "p999": 164.33,
+        "nw200": 0.0061,
+        "nw230": 0.0001,
+        "mean": 20.081,
+        "maxv": 232.0
+      },
+      "85": {
+        "p999": 164.33,
+        "nw200": 0.0061,
+        "nw230": 0.0001,
+        "mean": 20.084,
+        "maxv": 231.3
+      },
+      "75": {
+        "p999": 165.67,
+        "nw200": 0.0073,
+        "nw230": 0.0001,
+        "mean": 20.133,
+        "maxv": 231.3
+      },
+      "65": {
+        "p999": 164.0,
+        "nw200": 0.006,
+        "nw230": 0.0001,
+        "mean": 20.333,
+        "maxv": 240.3
+      },
+      "50": {
+        "p999": 164.67,
+        "nw200": 0.0074,
+        "nw230": 0.0003,
+        "mean": 20.038,
+        "maxv": 239.0
+      }
+    }
+  }
+}

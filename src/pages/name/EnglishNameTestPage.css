@@ -1,0 +1,31 @@
+/* src/pages/name/EnglishNameTestPage.css */
+.english-name-test-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px;
+}
+.english-name-test-page .disclaimer {
+  color: #888;
+  font-size: 12px;
+}
+.english-name-test-page input {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.english-name-test-page button {
+  padding: 8px 16px;
+  background: #4a6fa5;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.english-name-test-page .result {
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}

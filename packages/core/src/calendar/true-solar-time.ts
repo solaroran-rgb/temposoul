@@ -530,13 +530,23 @@ function buildTrueSolarTimeEvidence(
 
 function assertIntegerInRange(value: number, label: string, min: number, max: number): void {
   if (!Number.isInteger(value) || value < min || value > max) {
-    throw new MingyuCoreError({ code: 'INVALID_FIELD_RANGE', category: 'validation', message: `${label}需在 ${min}-${max} 之间。`, field: label });
+    throw new MingyuCoreError({
+      code: 'INVALID_FIELD_RANGE',
+      category: 'validation',
+      message: `${label}需在 ${min}-${max} 之间。`,
+      field: label,
+    });
   }
 }
 
 function assertNumberInRange(value: number, label: string, min: number, max: number): void {
   if (!Number.isFinite(value) || value < min || value > max) {
-    throw new MingyuCoreError({ code: 'INVALID_FIELD_RANGE', category: 'validation', message: `${label}需在 ${min} 到 ${max} 之间。`, field: label });
+    throw new MingyuCoreError({
+      code: 'INVALID_FIELD_RANGE',
+      category: 'validation',
+      message: `${label}需在 ${min} 到 ${max} 之间。`,
+      field: label,
+    });
   }
 }
 
@@ -544,12 +554,22 @@ function validateSolarDate(year: number, month: number, day: number): void {
   assertIntegerInRange(year, '年份', 1900, 2100);
   assertIntegerInRange(month, '月份', 1, 12);
   if (!Number.isInteger(day) || day < 1) {
-    throw new MingyuCoreError({ code: 'INVALID_DAY', category: 'validation', message: '日期不能小于 1。', field: 'day' });
+    throw new MingyuCoreError({
+      code: 'INVALID_DAY',
+      category: 'validation',
+      message: '日期不能小于 1。',
+      field: 'day',
+    });
   }
 
   const maxDay = daysInSolarMonth(year, month);
   if (day > maxDay) {
-    throw new MingyuCoreError({ code: 'INVALID_DAY', category: 'validation', message: `日期需在 1-${maxDay} 之间。`, field: 'day' });
+    throw new MingyuCoreError({
+      code: 'INVALID_DAY',
+      category: 'validation',
+      message: `日期需在 1-${maxDay} 之间。`,
+      field: 'day',
+    });
   }
 }
 
@@ -588,14 +608,20 @@ export function formatSolarDateTimeParts(value: SolarDateTimeParts): string {
 
 export function parseLocalDateTime(value: string): SolarDateTimeParts {
   if (typeof value !== 'string') {
-    throw new MingyuCoreError({ code: 'INVALID_LOCAL_DATETIME', category: 'validation', message: 'localDateTime 必须是字符串。', field: 'localDateTime' });
+    throw new MingyuCoreError({
+      code: 'INVALID_LOCAL_DATETIME',
+      category: 'validation',
+      message: 'localDateTime 必须是字符串。',
+      field: 'localDateTime',
+    });
   }
   const match = LOCAL_DATE_TIME_PATTERN.exec(value.trim());
   if (!match) {
     throw new MingyuCoreError({
       code: 'INVALID_LOCAL_DATETIME',
       category: 'validation',
-      message: 'localDateTime 需使用 YYYY-MM-DDTHH:mm 或 YYYY-MM-DDTHH:mm:ss 格式，且不要附带时区偏移。',
+      message:
+        'localDateTime 需使用 YYYY-MM-DDTHH:mm 或 YYYY-MM-DDTHH:mm:ss 格式，且不要附带时区偏移。',
       field: 'localDateTime',
     });
   }
@@ -661,8 +687,7 @@ export function calculateEquationOfTimeMinutes(year: number, month: number, day:
   // 太阳真黄经（度）
   const lambda = L0 + C;
   // 黄赤交角（度），Meeus (22.2)
-  const epsilon =
-    23.43929111 - 0.013004167 * T - 0.0000001639 * T * T + 0.0000005036 * T * T * T;
+  const epsilon = 23.43929111 - 0.013004167 * T - 0.0000001639 * T * T + 0.0000005036 * T * T * T;
   // 章动近似（度）：Δψ ≈ -17.20"·sin(Ω)
   const Omega = 125.04452 - 1934.136261 * T;
   const dPsi = (-17.2 * Math.sin((Omega * Math.PI) / 180)) / 3600;
@@ -671,7 +696,9 @@ export function calculateEquationOfTimeMinutes(year: number, month: number, day:
     (Math.atan2(
       Math.cos((epsilon * Math.PI) / 180) * Math.sin((lambda * Math.PI) / 180),
       Math.cos((lambda * Math.PI) / 180),
-    ) * 180) / Math.PI;
+    ) *
+      180) /
+    Math.PI;
   // 均时差（度）→ 分钟：E = L0 - 0.0057183° - α + Δψ·cos(ε)；每分钟 = 0.25°
   const E_deg = normalizeDegrees(
     L0 - 0.0057183 - alpha + dPsi * Math.cos((epsilon * Math.PI) / 180),
@@ -729,7 +756,12 @@ export function convertTrueSolarTime(
 ): TrueSolarTimeConversionResult {
   const clockTime = parseLocalDateTime(input.localDateTime);
   if (input.applyChinaDst !== undefined && typeof input.applyChinaDst !== 'boolean') {
-    throw new MingyuCoreError({ code: 'INVALID_APPLY_CHINA_DST', category: 'validation', message: 'applyChinaDst 必须是布尔值。', field: 'applyChinaDst' });
+    throw new MingyuCoreError({
+      code: 'INVALID_APPLY_CHINA_DST',
+      category: 'validation',
+      message: 'applyChinaDst 必须是布尔值。',
+      field: 'applyChinaDst',
+    });
   }
   const civilTime = resolveCivilTime(
     {
@@ -741,7 +773,12 @@ export function convertTrueSolarTime(
   );
   const { timeZoneId, timezoneEvidence, timezone } = civilTime;
   if (timeZoneId && input.applyChinaDst === true) {
-    throw new MingyuCoreError({ code: 'TIMEZONE_DST_CONFLICT', category: 'validation', message: 'timeZoneId 已包含历史夏令时规则，不能同时启用 applyChinaDst。', field: 'timeZoneId' });
+    throw new MingyuCoreError({
+      code: 'TIMEZONE_DST_CONFLICT',
+      category: 'validation',
+      message: 'timeZoneId 已包含历史夏令时规则，不能同时启用 applyChinaDst。',
+      field: 'timeZoneId',
+    });
   }
   const requestedChinaDst = input.applyChinaDst ?? false;
   const chinaDstCheck = requestedChinaDst
@@ -754,13 +791,18 @@ export function convertTrueSolarTime(
       )
     : { inDst: false, offsetMinutes: 0, ambiguous: false, nonexistent: false };
   if (requestedChinaDst && chinaDstCheck.nonexistent) {
-    throw new MingyuCoreError({ code: 'CHINA_DST_NONEXISTENT', category: 'boundary', message: '该中国历史钟表时间处于夏令时跳时缺口，实际并不存在。' });
+    throw new MingyuCoreError({
+      code: 'CHINA_DST_NONEXISTENT',
+      category: 'boundary',
+      message: '该中国历史钟表时间处于夏令时跳时缺口，实际并不存在。',
+    });
   }
   if (requestedChinaDst && chinaDstCheck.ambiguous) {
     throw new MingyuCoreError({
       code: 'CHINA_DST_AMBIGUOUS',
       category: 'boundary',
-      message: '该中国历史钟表时间处于夏令时回拨重复时段，请改用 timeZoneId=Asia/Shanghai 并提供 timezone 固定偏移消歧。',
+      message:
+        '该中国历史钟表时间处于夏令时回拨重复时段，请改用 timeZoneId=Asia/Shanghai 并提供 timezone 固定偏移消歧。',
     });
   }
   const chinaDstApplied = requestedChinaDst && chinaDstCheck.inDst;
@@ -771,7 +813,11 @@ export function convertTrueSolarTime(
   const result = calculateTrueSolarTime(standardTime, input.longitude, standardMeridian);
   const shichen = getShichenFromClock(result.correctedTime.hour, result.correctedTime.minute);
   if (!shichen) {
-    throw new MingyuCoreError({ code: 'SHICHEN_UNRESOLVABLE', category: 'boundary', message: '无法根据校正后的真太阳时确定时辰。' });
+    throw new MingyuCoreError({
+      code: 'SHICHEN_UNRESOLVABLE',
+      category: 'boundary',
+      message: '无法根据校正后的真太阳时确定时辰。',
+    });
   }
   const clockDateTime = formatSolarDateTimeParts(clockTime);
   const standardDateTime = formatSolarDateTimeParts(standardTime);
@@ -834,10 +880,20 @@ export function resolveBirthCalendarClockTime(
   input: BirthCalendarClockTimeInput,
 ): SolarDateTimeParts {
   if (input.dateType !== 'solar' && input.dateType !== 'lunar') {
-    throw new MingyuCoreError({ code: 'INVALID_DATE_TYPE', category: 'validation', message: 'dateType 必须是 solar 或 lunar。', field: 'dateType' });
+    throw new MingyuCoreError({
+      code: 'INVALID_DATE_TYPE',
+      category: 'validation',
+      message: 'dateType 必须是 solar 或 lunar。',
+      field: 'dateType',
+    });
   }
   if (input.isLeapMonth !== undefined && typeof input.isLeapMonth !== 'boolean') {
-    throw new MingyuCoreError({ code: 'INVALID_LEAP_MONTH', category: 'validation', message: 'isLeapMonth 必须是布尔值。', field: 'isLeapMonth' });
+    throw new MingyuCoreError({
+      code: 'INVALID_LEAP_MONTH',
+      category: 'validation',
+      message: 'isLeapMonth 必须是布尔值。',
+      field: 'isLeapMonth',
+    });
   }
   const second = input.second ?? 0;
   validateTimePart(input.hour, input.minute, second);
@@ -848,7 +904,12 @@ export function resolveBirthCalendarClockTime(
     dateType: input.dateType,
     isLeapMonth: input.isLeapMonth,
   });
-  if (dateMessage) throw new MingyuCoreError({ code: 'INVALID_BIRTH_DATE', category: 'validation', message: dateMessage });
+  if (dateMessage)
+    throw new MingyuCoreError({
+      code: 'INVALID_BIRTH_DATE',
+      category: 'validation',
+      message: dateMessage,
+    });
 
   const solarTime =
     input.dateType === 'lunar'

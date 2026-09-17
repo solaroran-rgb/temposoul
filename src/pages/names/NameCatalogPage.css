@@ -1,0 +1,12 @@
+/* src/pages/names/NameCatalogPage.css */
+.name-catalog-page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px;
+}
+.catalog-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}

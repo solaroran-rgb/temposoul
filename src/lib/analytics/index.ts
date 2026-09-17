@@ -58,7 +58,10 @@ function injectScript(cfg: AnalyticsConfig): void {
 
 export function trackPageView(path: string): void {
   if (current.provider === 'none' || current.provider === 'cf') return;
-  const w = window as unknown as { plausible?: (e: string, o?: unknown) => void; umami?: (e: string, o?: unknown) => void };
+  const w = window as unknown as {
+    plausible?: (e: string, o?: unknown) => void;
+    umami?: (e: string, o?: unknown) => void;
+  };
   if (current.provider === 'plausible' && w.plausible) {
     w.plausible('pageview', { u: path });
   } else if (current.provider === 'umami' && w.umami) {
@@ -137,4 +140,25 @@ export function trackSignup(props: { method: string }): void {
 /** T5 订阅：观测到 premium 档位（支付完成回调 / premium 用户回访）时 */
 export function trackSubscribe(props: { tier: string }): void {
   trackEvent(FUNNEL_EVENTS.subscribe, props);
+}
+
+// 终版修正：IT-1.8 依据，新增埋点函数实现，与现有 trackEvent 分发模式严格对齐
+
+// 假设现有 trackEvent 签名如下（若本地已有，则以此为类型参考）
+// declare function trackEvent(eventName: string, props?: Record<string, any>): void;
+
+export function trackSearch(props: { query: string }): void {
+  trackEvent('search', props);
+}
+
+export function trackPricingView(props?: { tier?: 'free' | 'single' | 'pro' }): void {
+  trackEvent('pricing_view', props || {});
+}
+
+export function trackNameTestSubmit(props: { nameLength: number }): void {
+  trackEvent('name_test_submit', props);
+}
+
+export function trackNameGenerate(props: { surnameLength: number }): void {
+  trackEvent('name_generate', props);
 }

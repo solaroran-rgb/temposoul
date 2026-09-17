@@ -1,0 +1,227 @@
+{
+  "http": 200,
+  "ms": 733,
+  "body": {
+    "ok": true,
+    "data": {
+      "number": 79,
+      "title": "第七十九签 · 千祥云集，百福并臻（大吉）",
+      "poem": "千祥云集照门庭，百福并臻满院馨。\n吉庆有余年年好，万事亨通日日兴。",
+      "story": "\"千祥云集\"和\"百福并臻\"是中国传统春节对联中最常用的吉祥语。\"吉庆有余\"则取自传统年画——莲花和鱼的图案（莲=连，鱼=余），寓意连年有余。 此签整体气象与第24签\"三星在户\"、第64签\"瑞气盈门\"一脉相承，但更全面——不仅是福气多，而且是全方位的多！",
+      "details": {
+        "吉凶": "上签（大吉）",
+        "解签总论": "此签乃诸事大吉、万象更新之象，总论各种吉祥如云彩一般聚集在你家上空，各种福气同时涌来。家中吉庆有余，万事亨通兴旺。这是全方位的吉利——家运、事业、健康、财运全都好！ - 千祥云集照门庭 —— 千万种吉祥如云朵般聚集照耀家门 - 百福并臻满院馨 —— 上百种福气一起到来，满院芬芳 - 吉庆有余年年好 —— 年年好运，年年有余 - 万事亨通日日兴 —— 所有事情都通达顺利，一天比一天兴旺",
+        "整体运势": "大满贯！所有方面都顺遂，财运、家运、事业运全线飘红",
+        "新年/新阶段": "如果你正处在某个新的开始，这个签是最好的兆头",
+        "提醒": "千祥百福云集之时，最忌骄狂。要学会惜福——福来了好好接住，别让它溜走",
+        "此签核心": "千祥云集，百福并臻。吉庆有余年年好，万事亨通日日兴。",
+        "核心寓意": "千祥云集，百福并臻。吉庆有余年年好，万事亨通日日兴。",
+        "事业": "多个好机会汇聚，事业家庭运势同步顺遂。",
+        "财运": "财运全面向好，适合储备并合理分享。",
+        "感情": "关系喜庆，家庭有福。",
+        "学业": "学习考试顺利，适合设更高目标。",
+        "健康": "整体康泰，保持节制。",
+        "行动建议": "把吉运分配到最重要的长期目标。",
+        "风险提醒": "别万事皆取、精力分散。"
+      },
+      "timestamp": 1789191826723,
+      "ganzhi": {
+        "year": "丙午",
+        "month": "丁酉",
+        "day": "己丑",
+        "hour": "辛未"
+      },
+      "draw": {
+        "method": "random",
+        "poolSize": 92,
+        "selectedIndex": 78,
+        "selectedNumber": 79
+      },
+      "meta": {
+        "engineVersion": "0.1.26",
+        "schemaVersion": "1.0.0",
+        "algorithm": "ssgw.draw",
+        "calculatedAt": "2026-09-12T05:43:46.723Z",
+        "inputHash": "6db317e1d866c429",
+        "resultId": "ssgw.draw:216006525af0a9a6",
+        "random": {
+          "mode": "system",
+          "samples": [
+            0.8553015746623234
+          ]
+        }
+      },
+      "evidenceTrail": {
+        "items": [
+          {
+            "title": "灵签抽签基础",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "签数",
+                "reference": "draw.poolSize",
+                "output": 92
+              },
+              {
+                "name": "抽得签号",
+                "reference": "number",
+                "output": 79
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "观音灵签（第一百签）体系"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "在签池中随机抽取"
+              ],
+              "cautionWhen": [
+                "签文寓意随求问事由而变化",
+                "不同灵签版本签文有差异"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "不同灵签体系（观音/关帝/吕祖）签文不同",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 0
+          },
+          {
+            "title": "求签时间",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "干支纪时",
+                "reference": "ganzhi",
+                "output": "丙午年丁酉月己丑日"
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "干支纪时（求签时间）"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "记录求签时刻"
+              ],
+              "cautionWhen": [
+                "跨日/跨年转换以当地时间为准"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "干支纪时与公历换算口径存在细微差异",
+                "severity": "minor"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 1
+          },
+          {
+            "title": "签文呈现",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "签题",
+                "reference": "title",
+                "output": "第七十九签 · 千祥云集，百福并臻（大吉）"
+              },
+              {
+                "name": "签诗",
+                "reference": "poem",
+                "output": "千祥云集照门庭，百福并臻满院馨。\n吉庆有余年年好，万事亨通日日兴。"
+              },
+              {
+                "name": "注解",
+                "reference": "details",
+                "output": {
+                  "吉凶": "上签（大吉）",
+                  "解签总论": "此签乃诸事大吉、万象更新之象，总论各种吉祥如云彩一般聚集在你家上空，各种福气同时涌来。家中吉庆有余，万事亨通兴旺。这是全方位的吉利——家运、事业、健康、财运全都好！ - 千祥云集照门庭 —— 千万种吉祥如云朵般聚集照耀家门 - 百福并臻满院馨 —— 上百种福气一起到来，满院芬芳 - 吉庆有余年年好 —— 年年好运，年年有余 - 万事亨通日日兴 —— 所有事情都通达顺利，一天比一天兴旺",
+                  "整体运势": "大满贯！所有方面都顺遂，财运、家运、事业运全线飘红",
+                  "新年/新阶段": "如果你正处在某个新的开始，这个签是最好的兆头",
+                  "提醒": "千祥百福云集之时，最忌骄狂。要学会惜福——福来了好好接住，别让它溜走",
+                  "此签核心": "千祥云集，百福并臻。吉庆有余年年好，万事亨通日日兴。",
+                  "核心寓意": "千祥云集，百福并臻。吉庆有余年年好，万事亨通日日兴。",
+                  "事业": "多个好机会汇聚，事业家庭运势同步顺遂。",
+                  "财运": "财运全面向好，适合储备并合理分享。",
+                  "感情": "关系喜庆，家庭有福。",
+                  "学业": "学习考试顺利，适合设更高目标。",
+                  "健康": "整体康泰，保持节制。",
+                  "行动建议": "把吉运分配到最重要的长期目标。",
+                  "风险提醒": "别万事皆取、精力分散。"
+                }
+              }
+            ],
+            "source": {
+              "type": "classical",
+              "name": "观音灵签签文与注解"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "按签号呈现签文"
+              ],
+              "cautionWhen": [
+                "签意解读存在多解"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "同一签文不同解签者解读不同",
+                "severity": "alternative"
+              }
+            ],
+            "confidence": "low",
+            "depth": 1
+          },
+          {
+            "title": "抽取方式",
+            "system": "ssgw",
+            "computationChain": [
+              {
+                "name": "抽取方法",
+                "reference": "draw.method",
+                "output": "random"
+              },
+              {
+                "name": "选中编号",
+                "reference": "draw.selectedNumber",
+                "output": 79
+              }
+            ],
+            "source": {
+              "type": "algorithm",
+              "name": "随机抽样（签池等概率）"
+            },
+            "boundary": {
+              "applicableWhen": [
+                "随机抽签"
+              ],
+              "cautionWhen": [
+                "manual 方式为用户手工录入签号"
+              ]
+            },
+            "counterEvidence": [
+              {
+                "description": "抽签随机性不影响签文内容本身",
+                "severity": "minor"
+              }
+            ],
+            "confidence": "medium",
+            "depth": 1
+          }
+        ],
+        "overallConfidence": "low",
+        "summary": "灵签抽签证据链（第79签·第七十九签 · 千祥云集，百福并臻（大吉））",
+        "generatedAt": "2026-09-12T05:43:46.723Z"
+      }
+    },
+    "meta": {
+      "service": "www.temposoul.com",
+      "version": "v1"
+    }
+  }
+}

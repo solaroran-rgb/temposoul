@@ -39,9 +39,7 @@ function mul3(A: number[], B: number[]): number[] {
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
       C[i * 3 + j] =
-        A[i * 3 + 0] * B[0 * 3 + j] +
-        A[i * 3 + 1] * B[1 * 3 + j] +
-        A[i * 3 + 2] * B[2 * 3 + j];
+        A[i * 3 + 0] * B[0 * 3 + j] + A[i * 3 + 1] * B[1 * 3 + j] + A[i * 3 + 2] * B[2 * 3 + j];
     }
   }
   return C;
@@ -57,35 +55,23 @@ export function precessionMatrix(jd: number): Float64Array {
   const T = (jd - 2451545.0) / 36525.0;
 
   // 三个岁差角（角秒 -> 弧度）
-  const zeta =
-    (2306.2181 * T + 0.30188 * T * T + 0.017998 * T * T * T) / 3600 * DEG;
-  const z =
-    (2306.2181 * T + 1.09468 * T * T + 0.018203 * T * T * T) / 3600 * DEG;
-  const theta =
-    (2004.3109 * T - 0.42665 * T * T - 0.041833 * T * T * T) / 3600 * DEG;
+  const zeta = ((2306.2181 * T + 0.30188 * T * T + 0.017998 * T * T * T) / 3600) * DEG;
+  const z = ((2306.2181 * T + 1.09468 * T * T + 0.018203 * T * T * T) / 3600) * DEG;
+  const theta = ((2004.3109 * T - 0.42665 * T * T - 0.041833 * T * T * T) / 3600) * DEG;
 
-  const cz = Math.cos(z), sz = Math.sin(z);
-  const ct = Math.cos(theta), st = Math.sin(theta);
-  const cze = Math.cos(zeta), sze = Math.sin(zeta);
+  const cz = Math.cos(z),
+    sz = Math.sin(z);
+  const ct = Math.cos(theta),
+    st = Math.sin(theta);
+  const cze = Math.cos(zeta),
+    sze = Math.sin(zeta);
 
   // 行主序 Rz(-z) = [cz, sz, 0; -sz, cz, 0; 0, 0, 1]
-  const Rz = [
-    cz, sz, 0,
-    -sz, cz, 0,
-    0, 0, 1,
-  ];
+  const Rz = [cz, sz, 0, -sz, cz, 0, 0, 0, 1];
   // 行主序 Ry(theta) = [ct, 0, st; 0, 1, 0; -st, 0, ct]
-  const Ry = [
-    ct, 0, st,
-    0, 1, 0,
-    -st, 0, ct,
-  ];
+  const Ry = [ct, 0, st, 0, 1, 0, -st, 0, ct];
   // 行主序 Rz(-zeta) = [cze, sze, 0; -sze, cze, 0; 0, 0, 1]
-  const Rzeta = [
-    cze, sze, 0,
-    -sze, cze, 0,
-    0, 0, 1,
-  ];
+  const Rzeta = [cze, sze, 0, -sze, cze, 0, 0, 0, 1];
 
   const R = mul3(mul3(Rz, Ry), Rzeta);
   const m = new Float64Array(9);
@@ -125,7 +111,7 @@ export function radecToAltAz(
   ra: number,
   dec: number,
   lst: number,
-  lat: number
+  lat: number,
 ): { alt: number; az: number } {
   const raN = normalizeRad(ra);
   const lstN = normalizeRad(lst);
@@ -160,11 +146,7 @@ export function radecToAltAz(
  * 地平 -> 天球笛卡尔。约定：+X 东、+Y 天顶、+Z 北。
  * R 默认 500（与 URBAN 契约一致）。
  */
-export function altAzToVec3(
-  alt: number,
-  az: number,
-  R = 500
-): { x: number; y: number; z: number } {
+export function altAzToVec3(alt: number, az: number, R = 500): { x: number; y: number; z: number } {
   const ca = Math.cos(alt);
   return {
     x: R * ca * Math.sin(az),
@@ -179,8 +161,8 @@ export function radecToVec3(
   dec: number,
   lst: number,
   lat: number,
-  R = 500
+  R = 500,
 ): { x: number; y: number; z: number } {
   const { alt, az } = radecToAltAz(ra, dec, lst, lat);
   return altAzToVec3(alt, az, R);
-}
+}

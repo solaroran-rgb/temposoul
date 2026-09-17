@@ -1,0 +1,12 @@
+@import '@/styles/a23-shared.css';
+
+.gufa-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.gufa-card { display: block; padding: 20px; border-radius: 8px; background: #252526; color: #D4D4D4; text-decoration: none; border: 1px solid #3E3E42; }
+.gufa-card:hover { border-color: #569CD6; }
+.gufa-card h2 { margin: 0 0 8px; color: #569CD6; }
+.gufa-subcategories { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0; }
+.gufa-subcategories a { padding: 4px 10px; border-radius: 16px; background: #2D2D30; color: #D4D4D4; text-decoration: none; border: 1px solid #3E3E42; }
+.gufa-subcategories a:hover { border-color: #569CD6; }
+.gufa-entry-list { display: grid; gap: 12px; }
+.gufa-entry-card { padding: 16px; background: #252526; border-radius: 8px; border: 1px solid #3E3E42; }
+.gufa-entry-card h3 { margin: 0 0 8px; color: #4EC9B0; }

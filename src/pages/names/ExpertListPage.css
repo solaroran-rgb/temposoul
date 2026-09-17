@@ -1,0 +1,106 @@
+/* src/pages/names/ExpertListPage.css — 专家列表/详情通用样式（纯 CSS 变量，无 Tailwind 依赖） */
+.expert-list-container {
+  padding: 1rem;
+  max-width: 48rem;
+  margin: 0 auto;
+  color: var(--color-text-default, #333);
+}
+
+.expert-warning-banner {
+  background-color: var(--color-warning-bg, #fef3c7);
+  border: 1px solid var(--color-warning-border, #fcd34d);
+  color: var(--color-warning-text, #92400e);
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.degraded-banner {
+  margin-top: 2rem;
+  font-size: 1rem;
+}
+
+.domain-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.domain-tab {
+  padding: 0.375rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  transition: background-color 0.2s, color 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.domain-tab-active {
+  background-color: var(--color-accent-blue, #2563eb);
+  color: white;
+}
+
+.domain-tab-inactive {
+  background-color: var(--color-bg-secondary, #f3f4f6);
+  color: var(--color-text-muted, #4b5563);
+}
+
+.domain-tab-inactive:hover {
+  background-color: var(--color-bg-tertiary, #e5e7eb);
+}
+
+.experts-grid {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.expert-card {
+  display: block;
+  border: 1px solid var(--color-border-default, #e5e7eb);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--color-bg-default, #ffffff);
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.2s;
+}
+
+.expert-card:hover {
+  background-color: var(--color-bg-secondary, #f9fafb);
+}
+
+.expert-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.expert-name {
+  font-weight: bold;
+  font-size: 1.125rem;
+}
+
+.expert-price {
+  color: var(--color-accent-red, #dc2626);
+  font-weight: bold;
+}
+
+.expert-bio, .expert-detail-bio {
+  font-size: 0.875rem;
+  color: var(--color-text-muted, #6b7280);
+  margin-top: 0.5rem;
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--color-text-muted, #6b7280);
+  padding: 2rem 0;
+}

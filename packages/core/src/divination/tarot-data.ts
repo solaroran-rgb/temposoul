@@ -189,4 +189,23 @@ export const tarotSpreads = {
     ],
     cardCount: 7,
   },
+  // ===== 第11轮补交新增 3 键（A11-6 交付，主仓已有 horseshoe/mindBodySpirit/chakra 不再重复） =====
+  'holy-triangle': {
+    name: '圣三角',
+    description: '起因/现状/建议，适合快速定位问题根源。',
+    positions: ['起因', '现状', '建议'],
+    cardCount: 3,
+  },
+  relationship: {
+    name: '关系牌阵',
+    description: '深入剖析双人关系状态、阻碍与走向。',
+    positions: ['本人', '对方', '关系现状', '阻碍', '优势', '走向', '建议'],
+    cardCount: 7,
+  },
+  'yes-no': {
+    name: '是非牌阵',
+    description: '在二元问题中综合有利与不利因素。',
+    positions: ['当下', '有利', '不利', '结果倾向', '建议'],
+    cardCount: 5,
+  },
 };

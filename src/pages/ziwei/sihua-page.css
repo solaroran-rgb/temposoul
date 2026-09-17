@@ -1,0 +1,19 @@
+/* src/pages/ziwei/sihua-page.css */
+.sihua-page { max-width: 960px; margin: 0 auto; padding: 16px; color: var(--text-primary, #E0E6ED); background: #05070d; }
+.sihua-page__skeleton { height: 100px; border-radius: 8px; background: linear-gradient(90deg, #0d1220, #131a2c, #0d1220); animation: sihua-pulse 1.6s ease-in-out infinite; }
+@keyframes sihua-pulse { 0%, 100% { opacity: 0.7; } 50% { opacity: 1; } }
+.sihua-page__intro { font-size: 14px; line-height: 1.75; color: var(--text-secondary, #8B9BB4); margin: 12px 0 16px 0; }
+.sihua-page__matrix-wrap { overflow-x: auto; border: 1px solid rgba(77, 195, 255, 0.2); border-radius: 10px; }
+.sihua-page__matrix { border-collapse: collapse; width: 100%; min-width: 620px; font-size: 13px; }
+.sihua-page__matrix th, .sihua-page__matrix td { border-bottom: 1px solid rgba(77, 195, 255, 0.12); padding: 8px 10px; text-align: left; vertical-align: top; }
+.sihua-page__matrix thead th { color: var(--neon-cyan, #4DC3FF); font-weight: 600; background: rgba(77, 195, 255, 0.05); }
+.sihua-page__cell { color: var(--text-secondary, #8B9BB4); }
+.sihua-page__cell--filled { color: var(--text-primary, #E0E6ED); }
+.sihua-page__cell-title { display: block; margin-bottom: 4px; }
+.sihua-page__cell-empty { opacity: 0.5; }
+.sihua-page__list { margin-top: 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.sihua-page__card { border: 1px solid rgba(77, 195, 255, 0.18); border-radius: 10px; padding: 14px; background: rgba(77, 195, 255, 0.03); }
+.sihua-page__card-title { font-size: 15px; margin: 0 0 6px 0; color: var(--neon-cyan, #4DC3FF); }
+.sihua-page__card-meaning { font-size: 14px; margin: 0 0 8px 0; }
+.sihua-page__empty, .sihua-page__error { color: var(--text-secondary, #8B9BB4); text-align: center; padding: 40px 16px; }
+.sihua-page__disclaimer { margin-top: 32px; padding-top: 16px; border-top: 1px solid rgba(139, 155, 180, 0.15); font-size: 12px; color: var(--text-secondary, #8B9BB4); line-height: 1.6; }

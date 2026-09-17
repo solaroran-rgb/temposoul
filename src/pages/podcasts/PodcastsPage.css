@@ -1,0 +1,26 @@
+﻿   ============================================================ */
+.podcasts-page { max-width: 960px; margin: 0 auto; padding: 16px; }
+.podcasts-page__main { display: flex; flex-direction: column; gap: 20px; }
+.podcasts-page__tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+.podcasts-page__tab { padding: 8px 16px; border: 1px solid #ddd; border-radius: 20px; background: #fff; cursor: pointer; font-size: 14px; }
+.podcasts-page__tab--active { background: #4a6fa5; border-color: #4a6fa5; color: #fff; }
+.podcasts-page__list { display: flex; flex-direction: column; gap: 12px; }
+.podcast-card { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding: 16px; border: 1px solid #e5e5e5; border-radius: 12px; background: #fff; }
+.podcast-card--active { border-color: #4a6fa5; box-shadow: 0 0 0 1px #4a6fa5; }
+.podcast-card__category { display: inline-block; padding: 2px 10px; border-radius: 12px; background: #f0f4fa; color: #4a6fa5; font-size: 12px; font-weight: 600; }
+.podcast-card__title { margin: 8px 0 4px; font-size: 17px; }
+.podcast-card__description { margin: 0 0 8px; font-size: 14px; color: #666; }
+.podcast-card__date { font-size: 12px; color: #999; }
+.podcast-card__play { flex-shrink: 0; padding: 8px 16px; border: none; border-radius: 8px; background: #4a6fa5; color: #fff; cursor: pointer; }
+.podcast-card__play:disabled { background: #ccc; cursor: not-allowed; }
+.audio-player { padding: 16px; border: 1px solid #e5e5e5; border-radius: 12px; background: #fafafa; }
+.audio-player__meta { display: flex; justify-content: space-between; margin-bottom: 12px; }
+.audio-player__title { margin: 0; font-size: 16px; }
+.audio-player__controls { display: flex; align-items: center; gap: 12px; }
+.audio-player__toggle { padding: 8px 16px; border: none; border-radius: 8px; background: #4a6fa5; color: #fff; cursor: pointer; }
+.audio-player__time { font-size: 12px; color: #666; min-width: 40px; text-align: center; }
+.audio-player__progress { flex: 1; height: 6px; border-radius: 3px; background: #e0e0e0; overflow: hidden; }
+.audio-player__progress-bar { height: 100%; background: #4a6fa5; }
+.audio-player__retry { margin-left: 8px; padding: 4px 12px; border: 1px solid #ccc; border-radius: 6px; background: #fff; cursor: pointer; }
+.podcasts-page__skeleton { display: flex; flex-direction: column; gap: 12px; }
+.podcast-card-skeleton { height: 120px; border-radius: 12px; }ts// ============================================================

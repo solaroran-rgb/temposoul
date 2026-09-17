@@ -7,11 +7,7 @@
  *
  * 覆盖梅花起卦五大环节：起卦基础 → 起卦数理 → 卦象构建 → 体用定位 → 体用生克
  */
-import {
-  buildEvidenceTrail,
-  type EvidenceItem,
-  type EvidenceTrail,
-} from '../shared/evidence';
+import { buildEvidenceTrail, type EvidenceItem, type EvidenceTrail } from '../shared/evidence';
 import type { MeihuaData } from '../types/divination';
 
 export function buildMeihuaEvidenceTrail(result: MeihuaData): EvidenceTrail {
@@ -64,7 +60,11 @@ export function buildMeihuaEvidenceTrail(result: MeihuaData): EvidenceTrail {
           reference: 'resolveTimeMethod / resolveNumberMethod',
           inputs: result.calculation.numbers
             ? { numbers: result.calculation.numbers }
-            : { month: result.calculation.month, day: result.calculation.day, yearZhi: result.calculation.yearZhi },
+            : {
+                month: result.calculation.month,
+                day: result.calculation.day,
+                yearZhi: result.calculation.yearZhi,
+              },
         },
         {
           name: '下卦',
@@ -117,9 +117,7 @@ export function buildMeihuaEvidenceTrail(result: MeihuaData): EvidenceTrail {
       applicableWhen: ['上卦下卦合成六十四卦'],
       cautionWhen: ['互卦取二三四爻与三四五爻'],
     },
-    counterEvidence: [
-      { description: '变卦是否生成取决于动爻', severity: 'alternative' },
-    ],
+    counterEvidence: [{ description: '变卦是否生成取决于动爻', severity: 'alternative' }],
     confidence: 'high',
     depth: 0,
   });
@@ -188,7 +186,10 @@ export function buildMeihuaEvidenceTrail(result: MeihuaData): EvidenceTrail {
         cautionWhen: ['旺衰依月建而定', '互卦变卦分主事之中与终'],
       },
       counterEvidence: [
-        { description: '生克吉凶判断受季节旺衰影响，同一生克关系旺衰不同结论不同', severity: 'alternative' },
+        {
+          description: '生克吉凶判断受季节旺衰影响，同一生克关系旺衰不同结论不同',
+          severity: 'alternative',
+        },
       ],
       confidence: 'medium',
       depth: 1,

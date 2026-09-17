@@ -2,7 +2,7 @@
  * CF Pages Function: GET /api/locate
  * 返回 CF 自带的 IP 地理坐标（城市/经纬度）
  */
-export const onRequestGet: PagesFunction = async ({ request }) => {
+export const onRequestGet = async ({ request }: { request: Request }): Promise<Response> => {
   const cf = (request as any).cf || {};
   const lat = typeof cf.latitude === 'string' ? parseFloat(cf.latitude) : null;
   const lon = typeof cf.longitude === 'string' ? parseFloat(cf.longitude) : null;

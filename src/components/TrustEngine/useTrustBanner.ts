@@ -2,12 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { safeStorage } from '@/lib/safe-storage';
 import { trackEvent } from '@/lib/analytics';
-import {
-  getTrustTier,
-  shouldShowTrustBanner,
-  TRUST_TIER_COPY,
-  type TrustTier,
-} from './trust-tier';
+import { getTrustTier, shouldShowTrustBanner, TRUST_TIER_COPY, type TrustTier } from './trust-tier';
 
 export const TRUST_T0_SEEN_KEY = 'ts_trust_t0_seen_v1';
 export const TRUST_BANNER_DISMISSED_KEY = 'ts_trust_banner_dismissed_v1';
@@ -21,12 +16,15 @@ export const TRUST_BANNER_AUTO_DISMISS_MS = 6000;
  * T0 星空首屏话术只在首次到访时出现一次（localStorage 持久化标记），
  * 之后的访问进入排盘仪式话术（T3/T5）。T2 隐私页不显示横幅。
  */
-export function useTrustBanner(
-  extras?: { inputMode?: 'single' | 'compatibility' | 'divination' | 'almanac'; inputHasContent?: boolean },
-) {
+export function useTrustBanner(extras?: {
+  inputMode?: 'single' | 'compatibility' | 'divination' | 'almanac';
+  inputHasContent?: boolean;
+}) {
   const location = useLocation();
   const [searchParams] = useSearchParams();
-  const [dismissed, setDismissed] = useState(() => safeStorage.get(TRUST_BANNER_DISMISSED_KEY) === '1');
+  const [dismissed, setDismissed] = useState(
+    () => safeStorage.get(TRUST_BANNER_DISMISSED_KEY) === '1',
+  );
   const [visible, setVisible] = useState(false);
   const [hasSeenT0, setHasSeenT0] = useState(() => safeStorage.get(TRUST_T0_SEEN_KEY) === '1');
   const shownRef = useRef<string | null>(null);

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>命律 TempoSoul · 探索命运的节律</title>
+<meta name="description" content="命律 TempoSoul —— 探索命运的节律。以东方时间智慧为底，读你此刻的天时。">
+<meta property="og:title" content="命律 TempoSoul · 探索命运的节律">
+<meta property="og:description" content="以东方时间智慧为底，读你此刻的天时。">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23071018'/%3E%3Ctext x='16' y='24' font-size='22' text-anchor='middle' fill='%2366e0ff'%3E%E5%91%BD%3C/text%3E%3C/svg%3E">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;background:#000;color:#eaf6ff;
+  font-family:"Noto Serif SC","Source Han Serif SC","Songti SC",SimSun,"宋体",serif;
+  -webkit-font-smoothing:antialiased}
+#stage{position:fixed;inset:0;overflow:hidden;background:#000}
+
+/* #web = 设计稿坐标系：宽高比恒为 1.981424，背景图与文字层共用同一盒子
+   → 文字与背景的相对位置永远锁定，任何视口下都不会错位
+   ⚠ 必须用负 margin 居中，禁止用 transform:translate(-50%,-50%)：
+     当 #web 高为奇数(969)时 -50% = -484.5 是半像素，会触发整层重采样 → 像素全错。 */
+#web{position:absolute;left:0;top:0;
+  width:max(100vw,calc(100vh*1.981424));
+  height:max(100vh,calc(100vw/1.981424));
+  margin-left:calc((100vw - max(100vw,calc(100vh*1.981424))) / 2);
+  margin-top:calc((100vh - max(100vh,calc(100vw/1.981424))) / 2);
+  font-size:var(--u,1px)}
+
+#scene{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  display:block;user-select:none;-webkit-user-drag:none}
+#fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0;
+  transition:opacity .4s}
+#fx.on{opacity:1}
+
+/* ---------- 文字层：全部是真 DOM，可选中 / 可复制 / 可被搜索引擎与读屏器读取 ---------- */
+#ui{position:absolute;inset:0;pointer-events:none}
+#ui .anchor{position:absolute;transform:translate(-50%,-50%)}
+#ui a,#ui button{pointer-events:auto}
+
+#title{top:16.5120%;left:54.8180%;font-weight:400;line-height:1.08;
+  font-size:calc(var(--u)*96);letter-spacing:.05em;white-space:nowrap;
+  color:#c6e0ec;text-align:center;
+  text-shadow:0 0 16px rgba(0,229,255,.30),0 0 42px rgba(0,150,190,.18)}
+#title .en{font-size:.90em;letter-spacing:.09em;margin-left:.20em}
+
+#sub{top:25.8000%;left:50.0000%;font-weight:400;line-height:1.25;
+  font-size:calc(var(--u)*45);letter-spacing:.26em;text-indent:.26em;white-space:nowrap;
+  color:#b9d5dd;text-align:center;
+  text-shadow:0 0 22px rgba(0,229,255,.22),0 0 54px rgba(0,120,160,.14)}
+
+#cta{top:39.6280%;left:51.5620%;display:inline-flex;align-items:center;
+  justify-content:center;text-decoration:none;
+  width:calc(var(--u)*290);height:calc(var(--u)*104);
+  border:1px solid rgba(150,230,255,.60);border-radius:calc(var(--u)*16);
+  font-size:calc(var(--u)*30);letter-spacing:.28em;text-indent:.28em;
+  color:#d9eef6;background:rgba(4,22,30,.22);
+  box-shadow:0 0 26px rgba(0,229,255,.16),inset 0 0 24px rgba(0,229,255,.06);
+  transition:box-shadow .25s,border-color .25s,background .25s}
+/* 文字横向跨度自适应：设计稿是 AI 艺术字且更窄，系统字体同字高下偏宽 ~20%。
+   用合成窄化(scaleX)把文本跨度压到设计稿实测值 —— 宽度与高度同时对齐。
+   这是缺字体时的最佳几何近似；字形笔形仍不同，需 P11 web font 才能彻底解决。 */
+#title .m{display:inline-block;transform:scaleX(var(--kt,1));transform-origin:50% 50%}
+#sub   .m{display:inline-block;transform:scaleX(var(--ks,1));transform-origin:50% 50%}
+#cta   .m{display:inline-block;transform:scaleX(var(--kc,1));transform-origin:50% 50%}
+#cta:hover,#cta:focus-visible{border-color:rgba(200,248,255,.95);
+  background:rgba(0,60,80,.34);outline:none;
+  box-shadow:0 0 40px rgba(0,229,255,.40),inset 0 0 30px rgba(0,229,255,.14)}
+
+/* ---------- 竖屏：设计稿无移动版，改为「重排」（居中列），而不是裁字 ---------- */
+html.portrait #web{width:100vw;height:100vh;left:0;top:0;margin:0}
+html.portrait #ui{display:flex;flex-direction:column;align-items:center;
+  justify-content:flex-start;padding-top:15vh;gap:5.2vh;text-align:center}
+html.portrait #ui .anchor{position:static;transform:none;white-space:normal}
+html.portrait #title{font-size:calc(var(--u)*46);letter-spacing:.04em}
+html.portrait #title .en{display:block;font-size:.72em;margin:.18em 0 0;letter-spacing:.16em}
+html.portrait #sub{font-size:calc(var(--u)*15);letter-spacing:.22em;text-indent:.22em}
+html.portrait #cta{width:calc(var(--u)*190);height:calc(var(--u)*54);
+  border-radius:calc(var(--u)*12);font-size:calc(var(--u)*15)}
+html.portrait #title .m,html.portrait #sub .m,html.portrait #cta .m{transform:none}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="web">
+    <img id="scene" alt="命律 TempoSoul 首页场景" decoding="sync" fetchpriority="high">
+    <canvas id="fx"></canvas>
+    <div id="ui">
+      <h1 id="title" class="anchor"><span class="m">命律<span class="en">TempoSoul</span></span></h1>
+      <p id="sub" class="anchor"><span class="m">探索命运的节律</span></p>
+      <a id="cta" class="anchor" href="#start"><span class="m">立即开始</span></a>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+"use strict";
+var T0 = performance.now(), M = { nav: T0, version: "web-dom-1" };
+var AR = 1.981424, HORIZON = 0.680083;
+var TIERS = [1920,1440,1080,768,390];
+var ASSETS = {"1920":{"webp":"assets/scene_1920.webp","avif":"assets/scene_1920.avif"},"1440":{"webp":"assets/scene_1440.webp","avif":"assets/scene_1440.avif"},"1080":{"webp":"assets/scene_1080.webp","avif":"assets/scene_1080.avif"},"768":{"webp":"assets/scene_768.webp","avif":"assets/scene_768.avif"},"390":{"webp":"assets/scene_390.webp","avif":"assets/scene_390.avif"}};
+var SCENE = document.getElementById('scene');
+var INLINE = false;
+var TIER_FIX = '1920';   /* 空 = 自适应；否则锁定该档（用于门禁） */
+var MARKED = false;
+
+/* ---------- 布局：--u = 1 个「设计稿单位」的像素大小 ---------- */
+function layout(){
+  var portrait = window.innerHeight > window.innerWidth * 1.05;
+  var want = portrait ? 'portrait' : 'landscape';
+  document.documentElement.classList.toggle('portrait', portrait);
+  var base = portrait ? 390 : 1920;
+  var w = portrait ? window.innerWidth : document.getElementById('web').clientWidth;
+  document.documentElement.style.setProperty('--u', (w / base) + 'px');
+  if (want !== MODE){ MODE = want; if (BOOTED) fitText(); }   /* 横竖屏切换后重算横向跨度 */
+}
+
+/* ---------- AVIF 能力探测（禁止用 canvas.toDataURL('image/avif')，Chrome 恒返 png）---------- */
+var AVIF_OK = false, BOOTED = false;
+(function(){
+  var im = new Image();
+  im.onload  = function(){ AVIF_OK = true;  boot(); };
+  im.onerror = function(){ AVIF_OK = false; boot(); };
+  im.src = 'data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADrbWV0YQAAAAAAAAAhaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAAAAAAAOcGl0bQAAAAAAAQAAAB5pbG9jAAAAAEQAAAEAAQAAAAEAAAETAAAAIAAAAChpaW5mAAAAAAABAAAAGmluZmUCAAAAAAEAAGF2MDFDb2xvcgAAAABqaXBycAAAAEtpcGNvAAAAFGlzcGUAAAAAAAAAAQAAAAEAAAAQcGl4aQAAAAADCAgIAAAADGF2MUOBAAwAAAAAE2NvbHJuY2x4AAEADQAGgAAAABdpcG1hAAAAAAAAAAEAAQQBAoMEAAAAKG1kYXQSAAoIGAAGiAhoNCAyEh/3h4UV3///4s/AAJA1jjx+3A==';
+  setTimeout(function(){ boot(); }, 400);   /* 兜底 */
+})();
+
+function net(){
+  var c = navigator.connection || {};
+  var et = c.effectiveType || '';
+  var q = (location.search.match(/[?&]net=(weak|good)/) || [])[1];
+  var weak = q === 'weak' ? true : q === 'good' ? false
+           : (!!c.saveData || et === 'slow-2g' || et === '2g' || et === '3g');
+  return { et: et || q, dl: c.downlink || 0, weak: weak };
+}
+function pickTier(weak){
+  if (TIER_FIX) return TIER_FIX;
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var need = Math.round(Math.max(window.innerWidth, window.innerHeight * AR) * dpr);
+  if (weak) need = Math.round(need * 0.55);          /* 弱网主动降档 */
+  for (var i = TIERS.length - 1; i >= 0; i--)        /* 高→低：取「最小满足」档 */
+    if (TIERS[i] >= need) return TIERS[i];
+  return TIERS[0];
+}
+function resolve(){
+  var w = net().weak;
+  var ext = w ? (AVIF_OK ? 'avif' : 'webp') : 'webp';
+  return { tier: pickTier(w), ext: ext, weak: w };
+}
+function urlFor(t, e){
+  if (INLINE) return SCENE.getAttribute('src');
+  var m = ASSETS[String(t)] || ASSETS['1920'];
+  return m[e] || m['webp'];
+}
+
+function mark(){
+  if (MARKED) return; MARKED = true;
+  M.first = performance.now() - T0;
+  requestAnimationFrame(function(){
+    M.settled = performance.now() - T0;
+    M.firstFromNav = (M.nav || 0) + M.first;
+    M.settleFromNav = (M.nav || 0) + M.settled;
+    window.__PERF = M;
+  });
+}
+var seq = 0;
+function load(){
+  var r = resolve(), my = ++seq;
+  M.tier = r.tier; M.ext = r.ext; M.weak = r.weak; M.avifOk = AVIF_OK;
+  if (INLINE){ if (SCENE.complete) mark(); else SCENE.onload = mark; return; }
+  var url = urlFor(r.tier, r.ext), t = performance.now();
+  var pre = new Image();
+  pre.onload = function(){
+    if (my !== seq) return;
+    SCENE.src = url;
+    var done = function(){
+      if (my !== seq) return;
+      M.decode = performance.now() - t; M.url = url; mark();
+    };
+    SCENE.decode ? SCENE.decode().then(done).catch(done) : (SCENE.onload = done);
+  };
+  pre.onerror = function(){ if (my === seq) M.err = 'asset failed: ' + url; };
+  pre.src = url;
+}
+
+/* ---------- 动态层：星点微光（加法，纯增益，不改变像素一致性判定基础）---------- */
+var fx = document.getElementById('fx'), fxc = fx.getContext('2d');
+var stars = [], RAF = 0, LIVE = true;
+function buildStars(){
+  var W = fx.width = Math.max(1, Math.round(fx.clientWidth));
+  var H = fx.height = Math.max(1, Math.round(fx.clientHeight));
+  var HZ = H * HORIZON, N = Math.round(W * H / 12000);
+  stars = [];
+  for (var i = 0; i < N; i++)
+    stars.push({ x: Math.random()*W, y: Math.pow(Math.random(),1.5)*HZ,
+                 r: .4+Math.random()*1.1, p: Math.random()*6.283, s: .5+Math.random()*1.5,
+                 a: .18+Math.random()*.42 });
+}
+function draw(t){
+  fxc.clearRect(0,0,fx.width,fx.height);
+  for (var i=0;i<stars.length;i++){
+    var s = stars[i], k = .55+.45*Math.sin(t*.001*s.s+s.p);
+    fxc.fillStyle = 'rgba(198,242,255,'+(s.a*k).toFixed(3)+')';
+    fxc.beginPath(); fxc.arc(s.x,s.y,s.r,0,6.2832); fxc.fill();
+  }
+  RAF = requestAnimationFrame(draw);
+}
+function setLive(on){
+  LIVE = !!on;
+  fx.classList.toggle('on', LIVE);
+  if (RAF) cancelAnimationFrame(RAF), RAF = 0;
+  if (LIVE){ buildStars(); RAF = requestAnimationFrame(draw); }
+}
+
+function boot(){
+  if (BOOTED) return; BOOTED = true;
+  layout(); fitText(); load();
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) setLive(true);
+}
+
+/* ---------- 文字横向跨度自适应：把 DOM 文本跨度压到设计稿实测跨度 ----------
+   设计稿是 AI 出的艺术字，其字形在同字高下更窄（实测约窄 17%）。
+   这里先在未缩放状态量出文本自然宽度，再反解 scaleX，使
+   「横向跨度 == 设计稿跨度」且「字号(字高) 保持设计稿量级」两者同时成立。
+   这是无源字体时的最佳几何近似；笔形细节仍需 P11 web font 才能彻底对齐。 */
+var FIT = { title: 645, sub: 390, cta: 190 };
+var MODE = '';                       /* '' | 'portrait' | 'landscape' */
+function measureOnce(){
+  var r = document.documentElement;
+  var u = parseFloat(getComputedStyle(r).getPropertyValue('--u')) || 1;
+  var S = { title: 1, sub: 1, cta: 1 };
+  /* 竖屏是「重排」布局（设计稿无移动版），不适用横向跨度锁定 → 一律不缩放 */
+  if (!r.classList.contains('portrait')){
+    ['title','sub','cta'].forEach(function(id){
+      var el = document.getElementById(id);
+      var sp = el && el.querySelector('.m');
+      if (!sp) return;
+      sp.style.transform = 'none';                      /* 复位到未缩放 */
+      var w = sp.getBoundingClientRect().width / u;     /* 自然宽度（设计单位）*/
+      sp.style.transform = '';                          /* 交回 CSS */
+      if (w > 0) S[id] = Math.max(0.55, Math.min(1.35, FIT[id] / w));
+    });
+  }
+  M.fit = { target: FIT, mul: { title: +S.title.toFixed(4), sub: +S.sub.toFixed(4), cta: +S.cta.toFixed(4) } };
+  r.style.setProperty('--kt', (+S.title).toFixed(4));
+  r.style.setProperty('--ks', (+S.sub).toFixed(4));
+  r.style.setProperty('--kc', (+S.cta).toFixed(4));
+}
+function fitText(){
+  try{
+    var go = function(){ measureOnce(); };
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(go).catch(go);
+    else go();
+  }catch(e){}
+}
+
+layout();
+addEventListener('resize', function(){ layout(); if (LIVE) buildStars(); }, {passive:true});
+addEventListener('orientationchange', layout, {passive:true});
+
+/* 门禁/调试钩子（默认不显示任何 UI） */
+window.__PERF = null;
+window.__SETLIVE = setLive;
+window.__DOMINFO = function(){
+  function box(el){
+    if (!el) return null;
+    var r = el.getBoundingClientRect(), w = document.getElementById('web').getBoundingClientRect();
+    var sp = el.querySelector('.m'), sr = sp ? sp.getBoundingClientRect() : null;
+    return { text: (el.innerText||'').trim(),
+             present: !!(el.innerText||'').trim(),
+             vw: Math.round(r.left), vh: Math.round(r.top),
+             w: Math.round(r.width), h: Math.round(r.height),
+             visW: sr ? Math.round(sr.width) : Math.round(r.width),
+             visH: sr ? Math.round(sr.height) : Math.round(r.height),
+             x_pct: +(((r.left + r.width/2 - w.left)/w.width)*100).toFixed(3),
+             y_pct: +(((r.top + r.height/2 - w.top)/w.height)*100).toFixed(3) };
+  }
+  return { title: box(document.getElementById('title')),
+           subtitle: box(document.getElementById('sub')),
+           cta: box(document.getElementById('cta')),
+           fit: (window.__PERF && window.__PERF.fit) || null,
+           scene: (function(){ var s=document.getElementById('scene'), r=s.getBoundingClientRect();
+             var w=document.getElementById('web').getBoundingClientRect();
+             return { x:+r.x.toFixed(3), y:+r.y.toFixed(3), w:+r.width.toFixed(3), h:+r.height.toFixed(3),
+                      natural:s.naturalWidth+'x'+s.naturalHeight,
+                      webW:+w.width.toFixed(3), webH:+w.height.toFixed(3),
+                      webX:+w.x.toFixed(3), webY:+w.y.toFixed(3) }; })(),
+           h1Count: document.querySelectorAll('h1').length,
+           h1Text: (document.querySelector('h1')||{}).innerText || '',
+           bodyText: (document.body.innerText||'').replace(/\s+/g,' ').trim().slice(0,200),
+           selectable: (function(){ try{ var s=getSelection(), r=document.createRange();
+             r.selectNodeContents(document.getElementById('title')); s.removeAllRanges(); s.addRange(r);
+             var ok = (''+s).trim().length > 0; s.removeAllRanges(); return ok; }catch(e){ return false; } })(),
+           title_: document.title,
+           desc: (document.querySelector('meta[name=description]')||{}).content || '' };
+};
+})();
+</script>
+</body>
+</html>

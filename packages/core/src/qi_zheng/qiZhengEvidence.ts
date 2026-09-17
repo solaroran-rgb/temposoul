@@ -7,11 +7,7 @@
  *
  * 覆盖七政四余四大环节：排盘基础 → 星曜位置 → 相位格局 → 宫位神煞
  */
-import {
-  buildEvidenceTrail,
-  type EvidenceItem,
-  type EvidenceTrail,
-} from '../shared/evidence';
+import { buildEvidenceTrail, type EvidenceItem, type EvidenceTrail } from '../shared/evidence';
 import type { QizhengResult } from './index';
 
 export function buildQizhengEvidenceTrail(result: QizhengResult): EvidenceTrail {
@@ -64,9 +60,7 @@ export function buildQizhengEvidenceTrail(result: QizhengResult): EvidenceTrail 
         applicableWhen: ['按星历计算黄道位置'],
         cautionWhen: ['宫度换算需明确岁差'],
       },
-      counterEvidence: [
-        { description: '星历来源不同导致微小差异', severity: 'minor' },
-      ],
+      counterEvidence: [{ description: '星历来源不同导致微小差异', severity: 'minor' }],
       confidence: 'high',
       depth: 1,
     });
@@ -81,9 +75,7 @@ export function buildQizhengEvidenceTrail(result: QizhengResult): EvidenceTrail 
         {
           name: '相位',
           reference: 'aspects',
-          output: result.aspects
-            .map((a) => `${a.star1}-${a.star2}:${a.type}`)
-            .slice(0, 12),
+          output: result.aspects.map((a) => `${a.star1}-${a.star2}:${a.type}`).slice(0, 12),
         },
       ],
       source: { type: 'classical', name: '星曜相位（合/拱/刑/冲等）' },
@@ -91,9 +83,7 @@ export function buildQizhengEvidenceTrail(result: QizhengResult): EvidenceTrail 
         applicableWhen: ['按黄道经度计算相位'],
         cautionWhen: ['容许度设置不同'],
       },
-      counterEvidence: [
-        { description: '相位容许度不同流派设置不同', severity: 'alternative' },
-      ],
+      counterEvidence: [{ description: '相位容许度不同流派设置不同', severity: 'alternative' }],
       confidence: 'high',
       depth: 1,
     });
@@ -129,9 +119,7 @@ export function buildQizhengEvidenceTrail(result: QizhengResult): EvidenceTrail 
       applicableWhen: ['按星曜分布定宫'],
       cautionWhen: ['神煞体系存在版本差异'],
     },
-    counterEvidence: [
-      { description: '神煞取用不同流派不同', severity: 'alternative' },
-    ],
+    counterEvidence: [{ description: '神煞取用不同流派不同', severity: 'alternative' }],
     confidence: 'low',
     depth: 1,
   });

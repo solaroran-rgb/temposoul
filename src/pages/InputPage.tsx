@@ -28,6 +28,12 @@ import { AiSettingsModal } from '@/components/AiSettingsModal';
 import { useAiSettings } from '@/hooks/useAiSettings';
 import { EmailCapture } from '@/components/EmailCapture';
 import { trackChartSubmit } from '@/lib/analytics';
+import DailyRhythmCard from '@/components/DailyRhythmCard';
+import AlmanacShareCard from '@/components/AlmanacShareCard';
+import { AlmanacCard } from '@/components/almanac/AlmanacCard';
+import { RhythmCard } from '@/components/fortune/RhythmCard';
+import { HomeShortcuts } from '@/components/home/HomeShortcuts';
+import { useAlmanacData } from '@/hooks/useAlmanacData';
 
 type InputEntryMode = 'single' | 'compatibility' | 'divination' | 'almanac';
 
@@ -54,6 +60,9 @@ export function InputPage() {
   const [bottomToolsHeight, setBottomToolsHeight] = useState(0);
 
   const birthPlace = useBirthPlace({ form, setForm });
+
+  // B4 挂载：今日节律卡 + 黄历分享卡（专家 B 交付）
+  const { data: almanacData } = useAlmanacData();
 
   // P1-2 Trust Engine: 输入页横幅判定用——表单是否已填入任一实质字段。
   const inputHasContent =
@@ -436,6 +445,21 @@ export function InputPage() {
               </button>
             </div>
           </div>
+
+          {almanacData && (
+            <section
+              className="input-page__almanac-section"
+              style={{ marginBottom: '24px', maxWidth: '600px', margin: '0 auto 24px' }}
+            >
+              <DailyRhythmCard />
+              <AlmanacShareCard data={almanacData} />
+              {/* 批1 R3 接线：1.2 今日黄历卡 / 1.3 节律卡（B'11 新版） */}
+              <AlmanacCard />
+              <RhythmCard />
+            </section>
+          )}
+
+          <HomeShortcuts />
 
           <div className="analysis-view">
             {entryMode === 'divination' || entryMode === 'almanac' ? (
