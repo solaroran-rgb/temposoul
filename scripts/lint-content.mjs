@@ -31,7 +31,10 @@ const ALLOWED_FORBIDDEN_FILES = [
 ];
 // 3) 业务字段 kind（非 ContentBlock）：行星逆行类型/干支类型/紫微星曜等数据字段名与 ContentBlock.kind 同名，
 //    正则无法区分，列入白名单放行（ContentBlock 六变体仍严格校验）
-const ALLOWED_KIND_LITERALS = ['retrograde', 'return', 'tiangan', 'dizhi', 'lu', 'floor', 'layout'];
+const ALLOWED_KIND_LITERALS = ['retrograde', 'return', 'tiangan', 'dizhi', 'lu', 'floor', 'layout',
+  // A 域（bazi-ziwei）判别联合与页面 kind：数据判别键 + 页面路由 kind
+  'ten_gods', 'shen_sha', 'four_transform', 'four_transform_pair', 'ziwei_pattern',
+  'limit_year', 'palace_star', 'transit_solar', 'transits', 'ziwei_patterns', 'transit', 'solar_return'];
 
 function walk(dir) {
   const out = [];

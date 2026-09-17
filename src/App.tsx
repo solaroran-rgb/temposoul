@@ -13,6 +13,7 @@ import { A22Routes } from '@/router/A22Routes';
 import { b22Routes } from '@/routes/b22-routes';
 import { c22Routes } from '@/routes/C22Routes';
 import { A23Routes } from '@/router/A23Routes';
+import { A24Routes } from '@/router/A24Routes';
 import { B23Routes } from '@/router/B23Routes';
 import { C23Routes } from '@/router/C23Routes';
 import { D23Routes } from '@/router/D23Routes';
@@ -472,6 +473,7 @@ export default function App() {
                 {b22Routes}
                 {c22Routes}
                 {A23Routes}
+                {A24Routes}
                 {B23Routes}
                 {C23Routes}
                 {D23Routes}

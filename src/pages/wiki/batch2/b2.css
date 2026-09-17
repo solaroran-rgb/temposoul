@@ -1,0 +1,39 @@
+/* A 域批2 页面样式（B2List/B2Detail 通用） */
+.b2-page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+  color: #e8e6f2;
+}
+.b2-hero { margin-bottom: 28px; }
+.b2-hero h1 { font-size: 28px; margin: 0 0 8px; }
+.b2-desc { color: #b7b3cf; margin: 0 0 8px; }
+.b2-note { color: #8d8aa8; font-size: 13px; }
+.b2-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+}
+.b2-card {
+  display: block;
+  padding: 16px;
+  border: 1px solid rgba(140, 130, 210, 0.25);
+  border-radius: 10px;
+  background: rgba(20, 18, 40, 0.55);
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+.b2-card:hover { border-color: rgba(160, 150, 240, 0.6); }
+.b2-card h3 { margin: 0 0 6px; font-size: 16px; color: #e8e6f2; }
+.b2-card p { margin: 0; font-size: 13px; color: #b7b3cf; }
+.b2-crumb { margin-bottom: 18px; font-size: 13px; color: #8d8aa8; }
+.b2-crumb a { color: #a99fe8; text-decoration: none; }
+.b2-article { line-height: 1.85; }
+.b2-article h1 { font-size: 26px; }
+.b2-body p { font-size: 16px; color: #d9d6ea; }
+.b2-loop { margin-top: 24px; padding: 16px; border-radius: 10px; background: rgba(30, 26, 60, 0.5); }
+.b2-loop h2 { font-size: 17px; margin: 0 0 10px; }
+.b2-loop ul { margin: 0; padding-left: 18px; }
+.b2-loop li { margin-bottom: 6px; font-size: 14px; color: #c9c5de; }
+.b2-meta { margin-top: 28px; padding-top: 14px; border-top: 1px solid rgba(140, 130, 210, 0.2); color: #8d8aa8; font-size: 13px; }
+.b2-meta p { margin: 4px 0; }
