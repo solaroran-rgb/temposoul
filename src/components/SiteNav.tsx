@@ -197,8 +197,20 @@ export function SiteNav() {
     <nav className="site-nav" aria-label="全站功能导航">
       {GROUPS.map((group) => (
         <details key={group.label} className="site-nav__group">
-          <summary className="site-nav__trigger">{group.label}</summary>
+          <summary className="site-nav__trigger" title={`${group.label}（点击展开）`}>
+            {group.label}
+          </summary>
           <div className="site-nav__panel">
+            {group.items[0] && (
+              <Link
+                to={group.items[0].to}
+                className="site-nav__item site-nav__item-home"
+                aria-label={`进入${group.label}分类`}
+              >
+                <span className="site-nav__item-label">进入{group.label} ›</span>
+              </Link>
+            )}
+            <div className="site-nav__divider" />
             {group.items.map((item) => (
               <Link key={item.to} to={item.to} className="site-nav__item">
                 <span className="site-nav__item-label">{item.label}</span>
@@ -285,6 +297,19 @@ export function SiteNav() {
         .site-nav__item:hover {
           background: rgba(77, 195, 255, 0.12);
           color: var(--neon-cyan, #4dc3ff);
+        }
+        .site-nav__item-home {
+          color: var(--neon-pink, #ff4d6d);
+          font-weight: 600;
+        }
+        .site-nav__item-home:hover {
+          background: rgba(255, 77, 109, 0.12);
+          color: var(--neon-pink, #ff4d6d);
+        }
+        .site-nav__divider {
+          height: 1px;
+          margin: 4px 8px;
+          background: rgba(255, 255, 255, 0.1);
         }
         .site-nav__item-label { font-size: 13px; font-weight: 500; }
         .site-nav__item-desc { font-size: 11px; color: var(--text-secondary, #8b9bb4); }
