@@ -39,12 +39,15 @@ export type LexiconCategory =
   | '紫微格局'
   | '八字格局';
 
+export type LexiconLayer = 'L0' | 'L1' | 'L2' | 'L3';
+
 export type LexiconEntry = {
   term: string;
   pinyin: string;
   category: LexiconCategory;
   definition: string;
   source: string;
+  layer_tag: LexiconLayer;
 };
 
 const SRC = '命律词库（扩充版种子数据）';
@@ -61,6 +64,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '天干',
     definition: '阳木，十干之首，象征生机、开端、参天大树与领导潜质。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '乙',
@@ -68,6 +72,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '天干',
     definition: '阴木，柔木藤蔓，象征柔韧、生长与依附之力。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丙',
@@ -75,6 +80,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '天干',
     definition: '阳火，太阳之火，象征光明、热情与外显能量。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丁',
@@ -82,6 +88,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '天干',
     definition: '阴火，灯烛之火，象征内秀、文明与细腻心思。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '戊',
@@ -89,6 +96,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '天干',
     definition: '阳土，城墙之土，象征厚重、承载与稳健。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '己',
@@ -96,6 +104,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '天干',
     definition: '阴土，田园之土，象征滋养、包容与润物。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '庚',
@@ -103,6 +112,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '天干',
     definition: '阳金，刀剑之金，象征刚锐、变革与肃杀。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '辛',
@@ -110,6 +120,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '天干',
     definition: '阴金，珠玉之金，象征精致、敛藏与雕琢。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '壬',
@@ -117,6 +128,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '天干',
     definition: '阳水，江河之水，象征流动、智慧与奔放。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '癸',
@@ -124,6 +136,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '天干',
     definition: '阴水，雨露之水，象征润泽、潜藏与柔情。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '子',
@@ -131,6 +144,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支',
     definition: '十二支首位，农历十一月，生肖鼠，方位北，本气癸水。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丑',
@@ -138,6 +152,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支',
     definition: '农历十二月，生肖牛，方位东北偏北，藏己土、癸水、辛金。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '寅',
@@ -145,6 +160,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支',
     definition: '正月，生肖虎，方位东北，藏甲木、丙火、戊土。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '卯',
@@ -152,6 +168,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支',
     definition: '二月，生肖兔，方位东，本气乙木。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '辰',
@@ -159,6 +176,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支',
     definition: '三月，生肖龙，方位东南偏东，藏戊土、乙木、癸水。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '巳',
@@ -166,6 +184,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支',
     definition: '四月，生肖蛇，方位东南，藏丙火、戊土、庚金。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '午',
@@ -173,6 +192,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支',
     definition: '五月，生肖马，方位南，藏丁火、己土。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '未',
@@ -180,6 +200,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支',
     definition: '六月，生肖羊，方位西南偏南，藏己土、丁火、乙木。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '申',
@@ -187,6 +208,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支',
     definition: '七月，生肖猴，方位西南，藏庚金、壬水、戊土。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '酉',
@@ -194,6 +216,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支',
     definition: '八月，生肖鸡，方位西，本气辛金。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '戌',
@@ -201,6 +224,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支',
     definition: '九月，生肖狗，方位西北偏西，藏戊土、辛金、丁火。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '亥',
@@ -208,6 +232,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支',
     definition: '十月，生肖猪，方位西北，藏壬水、甲木。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '木',
@@ -215,6 +240,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '五行',
     definition: '生发、条达；方位东，色青，味酸，对应春。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '火',
@@ -222,6 +248,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '五行',
     definition: '炎上、温热；方位南，色赤，味苦，对应夏。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '土',
@@ -229,6 +256,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '五行',
     definition: '承载、化生；方位中，色黄，味甘，对应长夏与四季之交。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '金',
@@ -236,6 +264,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '五行',
     definition: '收敛、肃降；方位西，色白，味辛，对应秋。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '水',
@@ -243,6 +272,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '五行',
     definition: '润下、寒凉；方位北，色黑，味咸，对应冬。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '木生火',
@@ -250,6 +280,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '五行',
     definition: '五行相生：木燃生火，喻因积累而进阶。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '火生土',
@@ -257,6 +288,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '五行',
     definition: '五行相生：火焚成灰而化土，喻沉淀归藏。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '土生金',
@@ -264,6 +296,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '五行',
     definition: '五行相生：土中蕴藏金石，喻厚积成器。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '金生水',
@@ -271,6 +304,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '五行',
     definition: '五行相生：金凝露润下成水，喻肃降涵润。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '水生木',
@@ -278,6 +312,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '五行',
     definition: '五行相生：水润而木荣，喻滋养生发。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '木克土',
@@ -285,6 +320,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '五行',
     definition: '五行相克：木根破土，喻制约疏导。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '土克水',
@@ -292,6 +328,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '五行',
     definition: '五行相克：堤土拦水，喻约束收敛。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '水克火',
@@ -299,6 +336,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '五行',
     definition: '五行相克：水灭火焰，喻抑制过亢。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '火克金',
@@ -306,6 +344,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '五行',
     definition: '五行相克：烈火熔金，喻锻造变革。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '金克木',
@@ -313,6 +352,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '五行',
     definition: '五行相克：斧斤断木，喻修剪裁断。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '相乘',
@@ -320,6 +360,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '五行',
     definition: '五行过克，气盛而欺凌弱势之行，主病灾。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '相侮',
@@ -327,6 +368,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '五行',
     definition: '五行反克，弱势反凌强势，主逆乱反常。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '木主肝',
@@ -334,6 +376,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '五行',
     definition: '五行配脏腑：木应肝与胆，主疏泄、筋爪、目。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '火主心',
@@ -341,6 +384,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '五行',
     definition: '五行配脏腑：火应心与小肠，主血脉、舌、神。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '土主脾',
@@ -348,6 +392,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '五行',
     definition: '五行配脏腑：土应脾与胃，主运化、肌肉、口。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '金主肺',
@@ -355,6 +400,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '五行',
     definition: '五行配脏腑：金应肺与大肠，主肃降、皮毛、鼻。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '水主肾',
@@ -362,6 +408,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '五行',
     definition: '五行配脏腑：水应肾与膀胱，主藏精、骨、耳。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '木行行业',
@@ -369,6 +416,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '五行',
     definition: '木性行业：农林、文教、出版、纺织、医药。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '火行行业',
@@ -376,6 +424,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '五行',
     definition: '火性行业：餐饮、能源、传媒、互联网、军警。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '土行行业',
@@ -383,6 +432,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '五行',
     definition: '土性行业：地产、建筑、金融、仓储、中介。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '金行行业',
@@ -390,6 +440,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '五行',
     definition: '金性行业：机械、珠宝、法律、证券、精密制造。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '水行行业',
@@ -397,6 +448,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '五行',
     definition: '水性行业：物流、贸易、旅游、咨询、水产。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '比肩',
@@ -404,6 +456,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '与日干同五行同阴阳，主兄弟、同辈与自我之助。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '劫财',
@@ -411,6 +464,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '与日干同五行异阴阳，主朋友、竞争与分财。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '食神',
@@ -418,6 +472,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '日干所生且同阴阳，主才华、口福、泄秀生财。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '伤官',
@@ -425,6 +480,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '日干所生且异阴阳，主聪明、叛逆与才艺外露。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '正财',
@@ -432,6 +488,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '日干所克且同阴阳，主稳定收入、妻子与务实。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '偏财',
@@ -439,6 +496,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '日干所克且异阴阳，主横财、异性缘与流动之财。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '正官',
@@ -446,6 +504,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '克日干且同阴阳，主约束、事业、名誉（女命亦主夫）。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '七杀',
@@ -453,6 +512,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '又名偏官，克日干且异阴阳，主压力、魄力、权威与挑战。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '正印',
@@ -460,6 +520,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '生日干且同阴阳，主荫庇、学识、母亲与贵人。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '偏印',
@@ -467,6 +528,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '又名枭神，生日干且异阴阳，主冷门才学、孤僻与偏业。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '伤官见官',
@@ -474,6 +536,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '伤官与正官并见，主才高招忌、口舌官非，需制化。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '食神制杀',
@@ -481,6 +544,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '食神驾御七杀，化压力为权柄，主魄力与成就。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '官印相生',
@@ -488,6 +552,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '正官生正印、印生日干，主贵气、文名与仕途。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '财官双美',
@@ -495,6 +560,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '正财配正官，主富贵安稳、家业有成。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '杀印相生',
@@ -502,6 +568,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '七杀生偏印、印生日干，主威权与权谋。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '比劫争财',
@@ -509,6 +576,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '比肩劫财夺财，主破财、合伙纷争。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '伤官伤尽',
@@ -516,6 +584,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '伤官无官星可伤，反主清贵奇才。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '食神生财',
@@ -523,6 +592,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '食神生旺财星，主以才艺、技艺生财。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '印绶护身',
@@ -530,6 +600,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '正偏印贴身，主有靠山、逢凶化吉。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '官杀混杂',
@@ -537,6 +608,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '正官与七杀同现，主心志不定、压力交叠。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '羊刃驾杀',
@@ -544,6 +616,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '羊刃合七杀，主武职权威、以暴制暴。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '伤官配印',
@@ -551,6 +624,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '伤官泄秀、印星收束，主才学有成、文采斐然。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '财星破印',
@@ -558,6 +632,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '财星坏印，主因财损名、轻学重利。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '日贵格',
@@ -565,6 +640,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '日干坐天乙贵人，主富贵有荫、遇难呈祥。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '魁罡格',
@@ -572,6 +648,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '庚辰、庚戌、壬辰、戊戌四日，主刚毅果决、掌权。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '金舆格',
@@ -579,6 +656,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '日干逢金舆，主富贵乘车、安逸有靠。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '学堂格',
@@ -586,6 +664,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '纳音见长生学堂，主聪慧好学、文名。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '禄马同乡',
@@ -593,6 +672,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '禄神与驿马同支，主动静得宜、富贵奔走。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天干五合',
@@ -600,6 +680,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '甲己合土、乙庚合金、丙辛合水、丁壬合木、戊癸合火。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '甲己合',
@@ -607,6 +688,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '天干五合之一，甲己化土，主诚信敦厚。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '乙庚合',
@@ -614,6 +696,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '天干五合之一，乙庚化金，主义气刚果。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丙辛合',
@@ -621,6 +704,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '天干五合之一，丙辛化水，主智虑圆融。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丁壬合',
@@ -628,6 +712,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '天干五合之一，丁壬化木，主仁慈风流。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '戊癸合',
@@ -635,6 +720,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十神',
     definition: '天干五合之一，戊癸化火，主礼热情谊。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '紫微',
@@ -642,6 +728,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '北斗帝星，尊贵、领导力与中枢之象。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天机',
@@ -649,6 +736,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '主智慧、谋略、变动与机敏。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '太阳',
@@ -656,6 +744,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '主光明、博爱、声名，亦为父星。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '武曲',
@@ -663,6 +752,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '财星，主刚毅、执行力与金融。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天同',
@@ -670,6 +760,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '福德之星，主温和、享乐与童心。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '廉贞',
@@ -677,6 +768,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '感情与囚星，主复杂、文艺，亦带官非之象。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天府',
@@ -684,6 +776,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '南斗帝星，主库藏、稳重与富足。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '太阴',
@@ -691,6 +784,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '月亮，主阴柔、财帛、母星与内省。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '贪狼',
@@ -698,6 +792,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '桃花与欲望之星，主多才多艺、交际。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '巨门',
@@ -705,6 +800,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '口舌、是非之星，主研究、暗曜。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天相',
@@ -712,6 +808,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '印星，主辅佐、端庄与协调。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天梁',
@@ -719,6 +816,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '荫星，主化解、长寿与清贵。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '七杀',
@@ -726,6 +824,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '将星，主冲劲、孤克与开创。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '破军',
@@ -733,6 +832,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '耗星，主破旧立新、变动与后浪开创。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '左辅',
@@ -740,6 +840,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '辅佐、助力与贵人星，主三方协力。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '右弼',
@@ -747,6 +848,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '辅佐、协力与暗助星，主内助。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '文昌',
@@ -754,6 +856,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '文采、学业与聪慧之星，主科甲。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '文曲',
@@ -761,6 +864,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '才艺、口才与文艺之星，主巧智。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天魁',
@@ -768,6 +872,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '昼贵，天乙贵人，主功名助力。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天钺',
@@ -775,6 +880,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '夜贵，天乙贵人，主机缘荫护。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '禄存',
@@ -782,6 +888,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '俸禄与稳定之财，逢凶化吉。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天马',
@@ -789,6 +896,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '驿马之星，主奔走、变动、远行。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '擎羊',
@@ -796,6 +904,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '刑伤、刚锐与竞争之星，主血光。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '陀罗',
@@ -803,6 +912,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '纠缠、拖延与暗滞之星，主反复。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '火星',
@@ -810,6 +920,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '重煞，主突发、暴躁与变动。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '铃星',
@@ -817,6 +928,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '重煞，主内敛、暗涌与积怨。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '地空',
@@ -824,6 +936,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '空亡之星，主虚耗、机遇落空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '地劫',
@@ -831,6 +944,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '劫煞之星，主破耗、波折。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天刑',
@@ -838,6 +952,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '主刑伤、法律、自律与孤克。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天姚',
@@ -845,6 +960,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '桃花、风流与神秘之星。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '红鸾',
@@ -852,6 +968,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '主婚姻喜庆、姻缘桃花。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天喜',
@@ -859,6 +976,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '主喜事、添丁、欢愉。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '孤辰',
@@ -866,6 +984,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '主孤僻、离群、六亲缘薄。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '寡宿',
@@ -873,6 +992,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '主寡淡、清寂、晚婚或独处。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天虚',
@@ -880,6 +1000,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '主虚浮、名不副实。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天贵',
@@ -887,6 +1008,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '主清贵、声誉与荫护。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '恩光',
@@ -894,6 +1016,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '主恩惠、光耀、受人提携。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天空',
@@ -901,6 +1024,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '主虚妄、超脱、不染尘累。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '化禄',
@@ -908,6 +1032,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '四化之一，主财禄、因缘、增益之象。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '化权',
@@ -915,6 +1040,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '四化之一，主权柄、掌控、竞争之象。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '化科',
@@ -922,6 +1048,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '四化之一，主声名、才学、化解之象。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '化忌',
@@ -929,6 +1056,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '四化之一，主阻滞、执念、亏欠之象。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '君臣庆会',
@@ -936,6 +1064,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '紫微得左辅右弼文昌文曲会照，主辅佐得人、富贵。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '极向离明',
@@ -943,6 +1072,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '紫微在午宫，主光明坦荡、领导力强。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '紫府同宫',
@@ -950,6 +1080,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '紫微天府同守，主贵显富足。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '杀破狼',
@@ -957,6 +1088,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '七杀、破军、贪狼三曜，主开创变动、波澜人生。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '机月同梁',
@@ -964,6 +1096,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '天机太阴天同天梁，主幕僚、策划、文职。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '巨日同宫',
@@ -971,6 +1104,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '巨门太阳同守，主辩才、声名（化暗为明）。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '日照雷门',
@@ -978,6 +1112,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '太阳在卯宫，主早发、光明。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '月生沧海',
@@ -985,6 +1120,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '太阴在亥宫，主清贵、内秀。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '火贪格',
@@ -992,6 +1128,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '火星贪狼同守，主暴发、机遇突发。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '马头带箭',
@@ -999,6 +1136,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '驿马带七杀，主武职远功。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '石中隐玉',
@@ -1006,6 +1144,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '巨门在子，主大器晚成、内含光华。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '紫微庙旺',
@@ -1013,6 +1152,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '紫微在卯酉巳午为庙旺，主权威显达。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '太阳庙旺',
@@ -1020,6 +1160,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '太阳在寅卯辰巳午为庙旺，主光明得地。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '武曲庙旺',
@@ -1027,6 +1168,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '武曲在辰戌丑未为庙旺，主财权稳固。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '太阴庙旺',
@@ -1034,6 +1176,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '太阴在酉戌亥子为庙旺，主富厚内秀。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天同庙旺',
@@ -1041,6 +1184,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '天同在子寅卯为庙旺，主福寿安乐。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '廉贞庙旺',
@@ -1048,6 +1192,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '廉贞在寅午戌为庙旺，主才名权柄。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天府庙旺',
@@ -1055,6 +1200,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '天府在丑卯巳酉亥为庙旺，主库藏丰盈。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天相庙旺',
@@ -1062,6 +1208,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '天相在丑未卯酉为庙旺，主端庄辅弼。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天梁庙旺',
@@ -1069,6 +1216,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '天梁在寅卯巳午申为庙旺，主荫护清贵。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '七杀庙旺',
@@ -1076,6 +1224,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '七杀在寅午申酉为庙旺，主将才开拓。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '破军庙旺',
@@ -1083,6 +1232,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '紫微星曜',
     definition: '破军在子午辰戌为庙旺，主开创有成。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '命宫',
@@ -1090,6 +1240,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '基础',
     definition: '紫微十二宫之首，主先天禀赋与性格基调。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '身宫',
@@ -1097,6 +1248,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '基础',
     definition: '主后天趋向与中年以后的人生重心。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '四柱',
@@ -1104,6 +1256,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '基础',
     definition: '年、月、日、时四组干支，合称八字之骨架。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '八字',
@@ -1111,6 +1264,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '基础',
     definition: '出生年月日时的干支组合，共八字，命理推演之本。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '真太阳时',
@@ -1118,6 +1272,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '基础',
     definition: '以出生地经度修正后的本地真太阳时刻，为精确排盘之关键。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '节气',
@@ -1125,6 +1280,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '基础',
     definition: '黄道每十五度一等分点，定月柱与四时的天文依据。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '纳音',
@@ -1132,6 +1288,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '基础',
     definition: '干支五行化合而成的六十甲子音律五行。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '宫位',
@@ -1139,6 +1296,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '基础',
     definition: '紫微十二宫，分别主命、兄弟、夫妻等人生面向。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '三方四正',
@@ -1146,6 +1304,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '基础',
     definition: '本宫、对宫（四正）与三合宫（三方），论命核心格局。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '五行生克',
@@ -1153,6 +1312,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '基础',
     definition: '木火土金水相生相克，为一切命理推演的底层法则。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '用神',
@@ -1160,6 +1320,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '基础',
     definition: '命局中最能平衡日主干支旺衰的五行，为调候与补救之所依。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '旺衰',
@@ -1167,6 +1328,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '基础',
     definition: '五行在月令与干支组合中的强弱状态，决定用神取舍。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '大运',
@@ -1174,6 +1336,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '基础',
     definition: '十年一运，依性别与年干阴阳顺逆排布，主阶段运势。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '流年',
@@ -1181,6 +1344,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '基础',
     definition: '当年太岁干支，主一岁之吉凶起伏。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '流月',
@@ -1188,6 +1352,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '基础',
     definition: '当月干支，主一月之细微趋向。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '空亡',
@@ -1195,6 +1360,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '基础',
     definition: '旬空之地，主虚浮、落空、事多不成。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '胎元',
@@ -1202,6 +1368,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '基础',
     definition: '受胎之月干支，主先天禀赋根苗。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '命宫起法',
@@ -1209,6 +1376,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '基础',
     definition: '以寅为正月顺数生月、逆数生时定位命宫。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '十二宫名',
@@ -1216,6 +1384,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '基础',
     definition: '命、兄弟、夫妻、子女、财帛、疾厄、迁移、交友、官禄、田宅、福德、父母。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '日主',
@@ -1223,6 +1392,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '基础',
     definition: '日干，八字论命之核心，为我身之代表。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '月令',
@@ -1230,6 +1400,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '基础',
     definition: '月支所藏本气，衡量五行旺衰之提纲。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '格局',
@@ -1237,6 +1408,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '基础',
     definition: '八字或紫微中星神组合所成的典型模式，定富贵贫贱之大略。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '调候',
@@ -1244,6 +1416,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '基础',
     definition: '寒暖燥湿失衡时，以恰当五行调和气候。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '通关',
@@ -1251,6 +1424,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '基础',
     definition: '两行相战，以中间五行化解，谓之通关。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '文昌',
@@ -1258,6 +1432,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '文采、学业与聪慧之星。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '文曲',
@@ -1265,6 +1440,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '才艺、口才与文艺之星。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '左辅',
@@ -1272,6 +1448,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '辅佐、助力与贵人星。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '右弼',
@@ -1279,6 +1456,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '辅佐、协力与暗助星。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天魁',
@@ -1286,6 +1464,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '昼贵，天乙贵人，主功名助力。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天钺',
@@ -1293,6 +1472,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '夜贵，天乙贵人，主机缘荫护。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '禄存',
@@ -1300,6 +1480,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '俸禄与稳定之财，逢凶化吉。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '擎羊',
@@ -1307,6 +1488,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '刑伤、刚锐与竞争之星。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '陀罗',
@@ -1314,6 +1496,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '纠缠、拖延与暗滞之星。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '火星',
@@ -1321,6 +1504,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '重煞，主突发、暴躁与变动。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '铃星',
@@ -1328,6 +1512,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '重煞，主内敛、暗涌与积怨。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天乙贵人',
@@ -1335,6 +1520,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '逢凶化吉之最吉神，主危难得助。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '太极贵人',
@@ -1342,6 +1528,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '主聪明好学、钻研有得。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天德',
@@ -1349,6 +1536,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '月德之尊，主化解灾厄、积德转运。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '月德',
@@ -1356,6 +1544,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '主祥和、化解、贵人扶持。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天德合',
@@ -1363,6 +1552,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '天德之合，增益解灾之力。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '月德合',
@@ -1370,6 +1560,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '月德之合，主平和得助。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '桃花',
@@ -1377,6 +1568,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '又名咸池，主情缘、人缘与风流。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '咸池',
@@ -1384,6 +1576,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '子午卯酉见之，主情欲、艺术气质。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '驿马',
@@ -1391,6 +1584,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '主奔走、变动、远行与机遇。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '华盖',
@@ -1398,6 +1592,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '主孤高、艺术、宗教与玄学缘分。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '孤辰',
@@ -1405,6 +1600,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '主孤僻、离群、六亲缘薄。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '寡宿',
@@ -1412,6 +1608,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '主寡淡、清寂、晚婚或独处。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '劫煞',
@@ -1419,6 +1616,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '主突来之灾、劫夺。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '灾煞',
@@ -1426,6 +1624,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '主疾病、意外之灾。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '岁破',
@@ -1433,6 +1632,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '冲犯太岁之方，主动荡破耗。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '大耗',
@@ -1440,6 +1640,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '主破财、损耗、虚花。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '破碎',
@@ -1447,6 +1648,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '主破损、残缺、事多不顺。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '红鸾',
@@ -1454,6 +1656,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '主婚姻喜庆、姻缘桃花。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天喜',
@@ -1461,6 +1664,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '主喜事、添丁、欢愉。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '阴煞',
@@ -1468,6 +1672,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '主暗中小人、阴私之忧。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天姚',
@@ -1475,6 +1680,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '桃花、风流与神秘之星。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天刑',
@@ -1482,6 +1688,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '主刑伤、法律、自律与孤克。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '解神',
@@ -1489,6 +1696,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '主消解灾厄、转危为安。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '龙德',
@@ -1496,6 +1704,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '主贵人、祥瑞、逢凶化吉。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '暴败',
@@ -1503,6 +1712,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '主骤然失败、盛极而衰。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丧门',
@@ -1510,6 +1720,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '主孝服、哀伤之事。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '吊客',
@@ -1517,6 +1728,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '主吊唁、烦忧、小耗。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '白虎',
@@ -1524,6 +1736,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '主血光、刑伤、凶暴。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '将星',
@@ -1531,6 +1744,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '主权威、领兵、组织才干。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '攀鞍',
@@ -1538,6 +1752,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '主功名、迁升、驰骋之象。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '岁驿',
@@ -1545,6 +1760,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '主流年变动、远行。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '息神',
@@ -1552,6 +1768,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '主消沉、倦怠、精气不足。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天厨',
@@ -1559,6 +1776,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '主衣食丰足、庖厨之福。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天才',
@@ -1566,14 +1784,16 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '主聪慧、悟性过人。',
     source: SRC,
+    layer_tag: 'L2',
   },
-  { term: '天寿', pinyin: 'tiānshòu', category: '神煞', definition: '主长寿、安康。', source: SRC },
+  { term: '天寿', pinyin: 'tiānshòu', category: '神煞', definition: '主长寿、安康。', source: SRC, layer_tag: 'L2', },
   {
     term: '寡宿孤辰并见',
     pinyin: 'guǎsùgūchén',
     category: '神煞',
     definition: '孤辰寡宿同现，主一生清寂、六亲疏离。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '桃花带杀',
@@ -1581,6 +1801,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '桃花逢七杀，主情欲招灾、因色生祸。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '贵人入命',
@@ -1588,6 +1809,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '天乙贵人临身命，主一生多助、危难呈祥。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '驿马逢冲',
@@ -1595,6 +1817,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '驿马被冲，主动辄得咎、奔波无定。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '华盖逢空',
@@ -1602,6 +1825,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '华盖空亡，主玄学缘分深而难成器。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '三奇贵人',
@@ -1609,6 +1833,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '乙丙丁或甲戊庚为三奇，主异路功名、非常之贵。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天德月德并临',
@@ -1616,6 +1841,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '二德同宫，主大解灾厄、福寿双全。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '羊刃',
@@ -1623,6 +1849,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '禄前一位，主刚烈、血光、亦主权柄。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '飞刃',
@@ -1630,14 +1857,16 @@ const baseLexicon: LexiconEntry[] = [
     category: '神煞',
     definition: '羊刃对冲，主暗藏刑伤。',
     source: SRC,
+    layer_tag: 'L2',
   },
-  { term: '血刃', pinyin: 'xuèrèn', category: '神煞', definition: '主血光之灾。', source: SRC },
+  { term: '血刃', pinyin: 'xuèrèn', category: '神煞', definition: '主血光之灾。', source: SRC, layer_tag: 'L2', },
   {
     term: '子平八字',
     pinyin: 'zǐpíngbāzì',
     category: '命理流派',
     definition: '以日干为中心、四柱五行生克论命的主流术数。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '紫微斗数',
@@ -1645,6 +1874,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理流派',
     definition: '以星曜布十二宫论命的星命术数体系。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '奇门遁甲',
@@ -1652,6 +1882,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理流派',
     definition: '三式之首，以时空格局推演趋吉避凶的术数。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '大六壬',
@@ -1659,6 +1890,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理流派',
     definition: '以月将加时起四课三传，主人事动静之占。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '太乙神数',
@@ -1666,6 +1898,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理流派',
     definition: '三式之一，主天运、国运与灾祥推演。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '铁板神数',
@@ -1673,6 +1906,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理流派',
     definition: '以卦爻与条文推命，号称精确如铁板钉钉。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '梅花易数',
@@ -1680,6 +1914,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理流派',
     definition: '以先天数起卦、触机而断的占法。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '邵子神数',
@@ -1687,6 +1922,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理流派',
     definition: '邵雍所传先天易数推命之法。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '测字',
@@ -1694,6 +1930,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理流派',
     definition: '拆字解形以测吉凶休咎的占术。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '面相',
@@ -1701,6 +1938,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理流派',
     definition: '观面部气色骨相以断命的相术。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '手相',
@@ -1708,6 +1946,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理流派',
     definition: '观掌纹手形以断命的相术。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '风水峦头',
@@ -1715,6 +1954,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理流派',
     definition: '以山形水势形体论吉凶的堪舆一派。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '风水理气',
@@ -1722,6 +1962,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理流派',
     definition: '以方位理气、卦数论吉凶的堪舆一派。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '七政四余',
@@ -1729,6 +1970,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理流派',
     definition: '以日月五星四余推命的星命之学。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '果老星宗',
@@ -1736,6 +1978,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理流派',
     definition: '以星曜躔度论命的古典星命体系。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '演禽',
@@ -1743,6 +1986,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理流派',
     definition: '以二十八宿配禽星论命的术数。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '九宫飞星',
@@ -1750,6 +1994,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理流派',
     definition: '以洛书九星飞布论宅运的理气法。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '玄空飞星',
@@ -1757,6 +2002,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理流派',
     definition: '以三元九运飞星断阳宅吉凶的理气法。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '太极',
@@ -1764,6 +2010,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '三才四象',
     definition: '万物本源，阴阳未分之混沌统体。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '两仪',
@@ -1771,6 +2018,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '三才四象',
     definition: '阴阳二气，太极所生对立统一之二。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '三才',
@@ -1778,6 +2026,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '三才四象',
     definition: '天、地、人三才，囊括宇宙与人事。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '四象',
@@ -1785,6 +2034,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '三才四象',
     definition: '老阳、老阴、少阳、少阴，衍自两仪。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '阴阳',
@@ -1792,6 +2042,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '三才四象',
     definition: '宇宙最根本的对立统一范畴。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '无极',
@@ -1799,6 +2050,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '三才四象',
     definition: '无形无象之终极本源，太极所自出。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '道生一',
@@ -1806,6 +2058,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '三才四象',
     definition: '老子“道生一，一生二，二生三，三生万物”。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '先天八卦',
@@ -1813,6 +2066,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '三才四象',
     definition: '伏羲所画，主对待之数、宇宙本然方位。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '后天八卦',
@@ -1820,6 +2074,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '三才四象',
     definition: '文王所演，主流行之用、四时人道方位。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '河图',
@@ -1827,6 +2082,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '三才四象',
     definition: '天一生水地六成之，数之体。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '洛书',
@@ -1834,6 +2090,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '三才四象',
     definition: '戴九履一左三右七，数之用。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天一生水',
@@ -1841,6 +2098,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '河洛',
     definition: '河图数理：一六在北属水。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '地二生火',
@@ -1848,6 +2106,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '河洛',
     definition: '河图数理：二七在南属火。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天三生木',
@@ -1855,6 +2114,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '河洛',
     definition: '河图数理：三八在东属木。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '地四生金',
@@ -1862,6 +2122,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '河洛',
     definition: '河图数理：四九在西属金。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天五生土',
@@ -1869,6 +2130,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '河洛',
     definition: '河图数理：五十居中属土。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '生成数',
@@ -1876,6 +2138,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '河洛',
     definition: '天数为生、地数为成，一二三四五生，六七八九十成。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '先天数',
@@ -1883,6 +2146,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '河洛',
     definition: '乾一兑二离三震四巽五坎六艮七坤八。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '后天数',
@@ -1890,6 +2154,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '河洛',
     definition: '坎一坤二震三巽四中五乾六兑七艮八离九。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '日',
@@ -1897,6 +2162,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '七政四余',
     definition: '太阳，君象，主贵气、父亲与权威。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '月',
@@ -1904,6 +2170,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '七政四余',
     definition: '太阴，后象，主母仪、财富与情绪。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '金星',
@@ -1911,6 +2178,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '七政四余',
     definition: '太白，主兵戈、义气与锋锐。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '木星',
@@ -1918,6 +2186,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '七政四余',
     definition: '岁星，主仁德、生长与福庆。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '水星',
@@ -1925,6 +2194,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '七政四余',
     definition: '辰星，主智巧、文书与流通。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '火星',
@@ -1932,6 +2202,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '七政四余',
     definition: '荧惑，主礼法、暴烈与灾厄。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '土星',
@@ -1939,6 +2210,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '七政四余',
     definition: '镇星，主信实、稳重与迟滞。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '罗睺',
@@ -1946,6 +2218,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '七政四余',
     definition: '月孛之首，主隐曜、障碍与突发。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '计都',
@@ -1953,6 +2226,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '七政四余',
     definition: '主隐曜、损耗与纠缠。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '紫气',
@@ -1960,6 +2234,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '七政四余',
     definition: '主祥瑞、清贵之吉曜。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '月孛',
@@ -1967,6 +2242,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '七政四余',
     definition: '主阴私、暗昧之隐曜。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天蓬',
@@ -1974,6 +2250,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '奇门遁甲',
     definition: '奇门九星之一，属水，主智谋亦带险。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天芮',
@@ -1981,6 +2258,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '奇门遁甲',
     definition: '奇门九星之一，属土，主疾病、教学。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天冲',
@@ -1988,6 +2266,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '奇门遁甲',
     definition: '奇门九星之一，属木，主冲动、雷厉。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天辅',
@@ -1995,6 +2274,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '奇门遁甲',
     definition: '奇门九星之一，属木，主文教、仁德。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天禽',
@@ -2002,6 +2282,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '奇门遁甲',
     definition: '奇门九星之一，属土，中宫之尊，主平和。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天心',
@@ -2009,6 +2290,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '奇门遁甲',
     definition: '奇门九星之一，属金，主医卜、权谋。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天柱',
@@ -2016,6 +2298,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '奇门遁甲',
     definition: '奇门九星之一，属金，主破坏、口舌。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天任',
@@ -2023,6 +2306,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '奇门遁甲',
     definition: '奇门九星之一，属土，主承载、稳健。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天英',
@@ -2030,6 +2314,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '奇门遁甲',
     definition: '奇门九星之一，属火，主文明、虚华。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '休门',
@@ -2037,6 +2322,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '奇门遁甲',
     definition: '奇门八门之一，吉门，主休息、养息。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '生门',
@@ -2044,6 +2330,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '奇门遁甲',
     definition: '奇门八门之一，大吉，主生长、财源。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '伤门',
@@ -2051,6 +2338,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '奇门遁甲',
     definition: '奇门八门之一，凶门，主损伤、争斗。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '杜门',
@@ -2058,6 +2346,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '奇门遁甲',
     definition: '奇门八门之一，主闭塞、保密。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '景门',
@@ -2065,6 +2354,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '奇门遁甲',
     definition: '奇门八门之一，小吉，主文书、虚景。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '死门',
@@ -2072,6 +2362,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '奇门遁甲',
     definition: '奇门八门之一，大凶，主死丧、终结。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '惊门',
@@ -2079,6 +2370,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '奇门遁甲',
     definition: '奇门八门之一，凶门，主惊恐、口舌。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '开门',
@@ -2086,6 +2378,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '奇门遁甲',
     definition: '奇门八门之一，吉门，主开创、通达。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '值符',
@@ -2093,6 +2386,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '奇门遁甲',
     definition: '奇门八神之首，尊贵、统领之吉神。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '螣蛇',
@@ -2100,6 +2394,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '奇门遁甲',
     definition: '奇门八神，主虚惊、怪异、缠绕。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '太阴',
@@ -2107,6 +2402,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '奇门遁甲',
     definition: '奇门八神，主隐秘、谋划、阴护。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '六合',
@@ -2114,6 +2410,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '奇门遁甲',
     definition: '奇门八神，主和合、婚姻、中介。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '白虎',
@@ -2121,6 +2418,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '奇门遁甲',
     definition: '奇门八神，主凶伤、兵戈、威猛。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '玄武',
@@ -2128,6 +2426,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '奇门遁甲',
     definition: '奇门八神，主盗贼、暗昧、文书错。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '九地',
@@ -2135,6 +2434,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '奇门遁甲',
     definition: '奇门八神，主潜藏、稳固、幽深。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '九天',
@@ -2142,6 +2442,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '奇门遁甲',
     definition: '奇门八神，主扬升、显达、高远。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '贵人',
@@ -2149,6 +2450,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六壬',
     definition: '六壬十二天将之首，主解救、尊荣。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '螣蛇',
@@ -2156,6 +2458,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六壬',
     definition: '六壬天将，主惊怪、虚诈。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '朱雀',
@@ -2163,6 +2466,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六壬',
     definition: '六壬天将，主文书、口舌、南方火。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '六合',
@@ -2170,6 +2474,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六壬',
     definition: '六壬天将，主和合、婚姻、东方木。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '勾陈',
@@ -2177,6 +2482,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六壬',
     definition: '六壬天将，主迟滞、争斗、中央土。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '青龙',
@@ -2184,6 +2490,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六壬',
     definition: '六壬天将，主喜庆、财禄、东方木。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天空',
@@ -2191,6 +2498,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六壬',
     definition: '六壬天将，主虚诈、空亡。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '白虎',
@@ -2198,6 +2506,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六壬',
     definition: '六壬天将，主凶丧、兵戈、西方金。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '太常',
@@ -2205,6 +2514,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六壬',
     definition: '六壬天将，主酒食、衣帛、未土。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '玄武',
@@ -2212,6 +2522,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六壬',
     definition: '六壬天将，主盗贼、阴私、北方水。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '太阴',
@@ -2219,6 +2530,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六壬',
     definition: '六壬天将，主阴私、妇女、西方金。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天后',
@@ -2226,6 +2538,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六壬',
     definition: '六壬天将，主妇人、恩泽、北方水。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '立春',
@@ -2233,6 +2546,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '节气',
     definition: '春季之首，万物复苏之始。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '雨水',
@@ -2240,6 +2554,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '节气',
     definition: '降水渐增，润物无声。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '惊蛰',
@@ -2247,6 +2562,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '节气',
     definition: '春雷始动，蛰虫惊醒。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '春分',
@@ -2254,6 +2570,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '节气',
     definition: '昼夜均分，寒暑相当。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '清明',
@@ -2261,6 +2578,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '节气',
     definition: '气清景明，万物皆显。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '谷雨',
@@ -2268,6 +2586,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '节气',
     definition: '雨生百谷，播种之时。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '立夏',
@@ -2275,6 +2594,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '节气',
     definition: '夏季之首，万物繁茂。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '小满',
@@ -2282,6 +2602,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '节气',
     definition: '麦类灌浆，将满未满。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '芒种',
@@ -2289,6 +2610,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '节气',
     definition: '有芒之谷可种，农事忙。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '夏至',
@@ -2296,6 +2618,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '节气',
     definition: '日长之极，阳气至盛。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '小暑',
@@ -2303,6 +2626,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '节气',
     definition: '暑气初盛，未至极热。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '大暑',
@@ -2310,6 +2634,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '节气',
     definition: '一年最热，湿气熏蒸。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '立秋',
@@ -2317,6 +2642,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '节气',
     definition: '秋季之首，暑去凉来。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '处暑',
@@ -2324,6 +2650,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '节气',
     definition: '暑气止息，渐入清凉。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '白露',
@@ -2331,6 +2658,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '节气',
     definition: '露凝而白，秋气渐深。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '秋分',
@@ -2338,6 +2666,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '节气',
     definition: '昼夜再均，寒暑平分之时。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '寒露',
@@ -2345,6 +2674,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '节气',
     definition: '露气寒冷，将凝为霜。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '霜降',
@@ -2352,6 +2682,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '节气',
     definition: '露结为霜，秋尽冬近。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '立冬',
@@ -2359,6 +2690,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '节气',
     definition: '冬季之首，万物收藏。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '小雪',
@@ -2366,6 +2698,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '节气',
     definition: '寒未深而雪未大。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '大雪',
@@ -2373,6 +2706,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '节气',
     definition: '雪盛而广，仲冬之候。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '冬至',
@@ -2380,6 +2714,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '节气',
     definition: '日短之极，一阳来复。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '小寒',
@@ -2387,6 +2722,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '节气',
     definition: '寒气渐盛，未至极寒。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '大寒',
@@ -2394,6 +2730,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '节气',
     definition: '一年最冷，岁末藏极。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '建',
@@ -2401,36 +2738,40 @@ const baseLexicon: LexiconEntry[] = [
     category: '择日',
     definition: '建除十二神之首，主新建、开始。',
     source: SRC,
+    layer_tag: 'L2',
   },
-  { term: '除', pinyin: 'chú', category: '择日', definition: '主清除、解除、去旧。', source: SRC },
+  { term: '除', pinyin: 'chú', category: '择日', definition: '主清除、解除、去旧。', source: SRC, layer_tag: 'L2', },
   {
     term: '满',
     pinyin: 'mǎn',
     category: '择日',
     definition: '主丰满、成就，亦防溢。',
     source: SRC,
+    layer_tag: 'L2',
   },
-  { term: '平', pinyin: 'píng', category: '择日', definition: '主平和、安稳。', source: SRC },
-  { term: '定', pinyin: 'dìng', category: '择日', definition: '主安定、决策。', source: SRC },
-  { term: '执', pinyin: 'zhí', category: '择日', definition: '主执持、防守。', source: SRC },
+  { term: '平', pinyin: 'píng', category: '择日', definition: '主平和、安稳。', source: SRC, layer_tag: 'L2', },
+  { term: '定', pinyin: 'dìng', category: '择日', definition: '主安定、决策。', source: SRC, layer_tag: 'L2', },
+  { term: '执', pinyin: 'zhí', category: '择日', definition: '主执持、防守。', source: SRC, layer_tag: 'L2', },
   {
     term: '破',
     pinyin: 'pò',
     category: '择日',
     definition: '主破败、冲破，诸事不宜。',
     source: SRC,
+    layer_tag: 'L2',
   },
-  { term: '危', pinyin: 'wēi', category: '择日', definition: '主高险、戒慎。', source: SRC },
-  { term: '成', pinyin: 'chéng', category: '择日', definition: '主成就、圆满。', source: SRC },
-  { term: '收', pinyin: 'shōu', category: '择日', definition: '主收敛、收获。', source: SRC },
-  { term: '开', pinyin: 'kāi', category: '择日', definition: '主开通、开始，大吉。', source: SRC },
-  { term: '闭', pinyin: 'bì', category: '择日', definition: '主闭藏、收敛，宜静。', source: SRC },
+  { term: '危', pinyin: 'wēi', category: '择日', definition: '主高险、戒慎。', source: SRC, layer_tag: 'L2', },
+  { term: '成', pinyin: 'chéng', category: '择日', definition: '主成就、圆满。', source: SRC, layer_tag: 'L2', },
+  { term: '收', pinyin: 'shōu', category: '择日', definition: '主收敛、收获。', source: SRC, layer_tag: 'L2', },
+  { term: '开', pinyin: 'kāi', category: '择日', definition: '主开通、开始，大吉。', source: SRC, layer_tag: 'L2', },
+  { term: '闭', pinyin: 'bì', category: '择日', definition: '主闭藏、收敛，宜静。', source: SRC, layer_tag: 'L2', },
   {
     term: '青龙',
     pinyin: 'qīnglóng',
     category: '择日',
     definition: '黄道吉神，主喜庆、腾达。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '明堂',
@@ -2438,6 +2779,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '择日',
     definition: '黄道吉神，主光明、公正。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天刑',
@@ -2445,6 +2787,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '择日',
     definition: '黑道凶神，主刑伤、官非。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '朱雀',
@@ -2452,6 +2795,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '择日',
     definition: '黑道凶神，主口舌、文书。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '金匮',
@@ -2459,6 +2803,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '择日',
     definition: '黄道吉神，主财库、珍藏。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天德',
@@ -2466,6 +2811,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '择日',
     definition: '黄道吉神，主福德、化解。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '白虎',
@@ -2473,6 +2819,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '择日',
     definition: '黑道凶神，主凶伤、血光。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '玉堂',
@@ -2480,6 +2827,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '择日',
     definition: '黄道吉神，主贵显、文昌。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天牢',
@@ -2487,6 +2835,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '择日',
     definition: '黑道凶神，主囚禁、滞碍。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '玄武',
@@ -2494,6 +2843,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '择日',
     definition: '黑道凶神，主盗失、阴私。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '司命',
@@ -2501,6 +2851,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '择日',
     definition: '黄道吉神，主寿算、爵禄。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '勾陈',
@@ -2508,6 +2859,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '择日',
     definition: '黑道凶神，主迟滞、争讼。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '一运坎',
@@ -2515,6 +2867,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '三元九运',
     definition: '上元一运（1864–1883），坎水当令，主北方兴盛。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '二运坤',
@@ -2522,6 +2875,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '三元九运',
     definition: '上元二运，坤土当令，主西南。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '三运震',
@@ -2529,6 +2883,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '三元九运',
     definition: '上元三运，震木当令，主东方。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '四运巽',
@@ -2536,6 +2891,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '三元九运',
     definition: '上元四运，巽木当令，主东南。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '五运中',
@@ -2543,6 +2899,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '三元九运',
     definition: '中元五运，寄旺坤土，过渡之运。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '六运乾',
@@ -2550,6 +2907,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '三元九运',
     definition: '中元六运，乾金当令，主西北。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '七运兑',
@@ -2557,6 +2915,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '三元九运',
     definition: '中元七运（1984–2003），兑金当令，主西方。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '八运艮',
@@ -2564,6 +2923,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '三元九运',
     definition: '下元八运（2004–2023），艮土当令，主东北。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '九运离',
@@ -2571,6 +2931,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '三元九运',
     definition: '下元九运（2024–2043），离火当令，主南方、文明。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '子山',
@@ -2578,6 +2939,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十四山',
     definition: '二十四山之一，坎卦正中，属水。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '癸山',
@@ -2585,6 +2947,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十四山',
     definition: '二十四山之一，坎卦附位，属水。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丑山',
@@ -2592,6 +2955,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十四山',
     definition: '二十四山之一，艮卦附位，属土。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '艮山',
@@ -2599,6 +2963,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十四山',
     definition: '二十四山之一，艮卦正中，属土。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '寅山',
@@ -2606,6 +2971,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十四山',
     definition: '二十四山之一，艮卦附位，属木。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '甲山',
@@ -2613,6 +2979,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十四山',
     definition: '二十四山之一，震卦附位，属木。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '卯山',
@@ -2620,6 +2987,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十四山',
     definition: '二十四山之一，震卦正中，属木。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '乙山',
@@ -2627,6 +2995,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十四山',
     definition: '二十四山之一，震卦附位，属木。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '辰山',
@@ -2634,6 +3003,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十四山',
     definition: '二十四山之一，巽卦附位，属土。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '巽山',
@@ -2641,6 +3011,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十四山',
     definition: '二十四山之一，巽卦正中，属木。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '巳山',
@@ -2648,6 +3019,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十四山',
     definition: '二十四山之一，巽卦附位，属火。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丙山',
@@ -2655,6 +3027,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十四山',
     definition: '二十四山之一，离卦附位，属火。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '午山',
@@ -2662,6 +3035,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十四山',
     definition: '二十四山之一，离卦正中，属火。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丁山',
@@ -2669,6 +3043,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十四山',
     definition: '二十四山之一，离卦附位，属火。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '未山',
@@ -2676,6 +3051,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十四山',
     definition: '二十四山之一，坤卦附位，属土。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '坤山',
@@ -2683,6 +3059,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十四山',
     definition: '二十四山之一，坤卦正中，属土。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '申山',
@@ -2690,6 +3067,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十四山',
     definition: '二十四山之一，坤卦附位，属金。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '庚山',
@@ -2697,6 +3075,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十四山',
     definition: '二十四山之一，兑卦附位，属金。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '酉山',
@@ -2704,6 +3083,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十四山',
     definition: '二十四山之一，兑卦正中，属金。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '辛山',
@@ -2711,6 +3091,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十四山',
     definition: '二十四山之一，兑卦附位，属金。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '戌山',
@@ -2718,6 +3099,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十四山',
     definition: '二十四山之一，乾卦附位，属土。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '乾山',
@@ -2725,6 +3107,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十四山',
     definition: '二十四山之一，乾卦正中，属金。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '亥山',
@@ -2732,6 +3115,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十四山',
     definition: '二十四山之一，乾卦附位，属水。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '壬山',
@@ -2739,6 +3123,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十四山',
     definition: '二十四山之一，坎卦附位，属水。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '寻龙',
@@ -2746,6 +3131,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '风水',
     definition: '风水察山脉来龙之脉势性情。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '点穴',
@@ -2753,6 +3139,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '风水',
     definition: '风水定生气汇聚之葬址或宅基。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '察砂',
@@ -2760,6 +3147,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '风水',
     definition: '风水观四周山峦护卫之情。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '觅水',
@@ -2767,6 +3155,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '风水',
     definition: '风水察水流形势与吉凶。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '立向',
@@ -2774,6 +3163,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '风水',
     definition: '风水定建筑坐向以纳旺气。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '兄弟宫',
@@ -2781,6 +3171,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十二宫',
     definition: '主兄弟姊妹缘份与助力。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '夫妻宫',
@@ -2788,6 +3179,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十二宫',
     definition: '主婚姻对象性质与感情。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '子女宫',
@@ -2795,6 +3187,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十二宫',
     definition: '主子女缘分、性格与晚年。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '财帛宫',
@@ -2802,6 +3195,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十二宫',
     definition: '主钱财进出的性质与多寡。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '疾厄宫',
@@ -2809,6 +3203,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十二宫',
     definition: '主体质、疾病与灾厄。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '迁移宫',
@@ -2816,6 +3211,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十二宫',
     definition: '主外出、远行与对外缘。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '交友宫',
@@ -2823,6 +3219,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十二宫',
     definition: '主朋友、部属与人际关系。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '官禄宫',
@@ -2830,6 +3227,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十二宫',
     definition: '主事业、官阶与成就。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '田宅宫',
@@ -2837,6 +3235,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十二宫',
     definition: '主不动产、家运与居住环境。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '福德宫',
@@ -2844,6 +3243,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十二宫',
     definition: '主精神享受、福分与潜质。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '父母宫',
@@ -2851,6 +3251,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十二宫',
     definition: '主父母缘份、荫庇与教养。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '长生',
@@ -2858,6 +3259,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十二长生',
     definition: '五行生旺之始，主生发、希望。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '沐浴',
@@ -2865,6 +3267,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十二长生',
     definition: '主脱旧、桃花、洁净。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '冠带',
@@ -2872,6 +3275,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十二长生',
     definition: '主成熟、礼仪、初成。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '临官',
@@ -2879,6 +3283,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十二长生',
     definition: '主出仕、得地、有为。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '帝旺',
@@ -2886,16 +3291,18 @@ const baseLexicon: LexiconEntry[] = [
     category: '十二长生',
     definition: '五行极盛，主辉煌亦防亢。',
     source: SRC,
+    layer_tag: 'L2',
   },
-  { term: '衰', pinyin: 'shuāi', category: '十二长生', definition: '主退气、乏力。', source: SRC },
-  { term: '病', pinyin: 'bìng', category: '十二长生', definition: '主困顿、疾厄。', source: SRC },
-  { term: '死', pinyin: 'sǐ', category: '十二长生', definition: '主沉寂、终结。', source: SRC },
+  { term: '衰', pinyin: 'shuāi', category: '十二长生', definition: '主退气、乏力。', source: SRC, layer_tag: 'L2', },
+  { term: '病', pinyin: 'bìng', category: '十二长生', definition: '主困顿、疾厄。', source: SRC, layer_tag: 'L2', },
+  { term: '死', pinyin: 'sǐ', category: '十二长生', definition: '主沉寂、终结。', source: SRC, layer_tag: 'L2', },
   {
     term: '墓',
     pinyin: 'mù',
     category: '十二长生',
     definition: '主收藏、入库、潜隐。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '绝',
@@ -2903,14 +3310,16 @@ const baseLexicon: LexiconEntry[] = [
     category: '十二长生',
     definition: '主断灭、生机暂绝。',
     source: SRC,
+    layer_tag: 'L2',
   },
-  { term: '胎', pinyin: 'tāi', category: '十二长生', definition: '主孕育、初萌。', source: SRC },
+  { term: '胎', pinyin: 'tāi', category: '十二长生', definition: '主孕育、初萌。', source: SRC, layer_tag: 'L2', },
   {
     term: '养',
     pinyin: 'yǎng',
     category: '十二长生',
     definition: '主滋养、储备、待发。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '一白坎',
@@ -2918,6 +3327,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '九宫',
     definition: '九宫飞星之一，坎水，主智慧、生育。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '二黑坤',
@@ -2925,6 +3335,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '九宫',
     definition: '九宫飞星之一，坤土，主病符、阴滞。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '三碧震',
@@ -2932,6 +3343,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '九宫',
     definition: '九宫飞星之一，震木，主是非、竞争。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '四绿巽',
@@ -2939,6 +3351,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '九宫',
     definition: '九宫飞星之一，巽木，主文昌、文艺。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '五黄中',
@@ -2946,6 +3359,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '九宫',
     definition: '九宫飞星之一，中宫土，主大煞、凶危。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '六白乾',
@@ -2953,6 +3367,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '九宫',
     definition: '九宫飞星之一，乾金，主权威、武职。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '七赤兑',
@@ -2960,6 +3375,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '九宫',
     definition: '九宫飞星之一，兑金，主口舌、偏财。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '八白艮',
@@ -2967,6 +3383,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '九宫',
     definition: '九宫飞星之一，艮土，主财帛、安稳。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '九紫离',
@@ -2974,6 +3391,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '九宫',
     definition: '九宫飞星之一，离火，主喜庆、文明。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '乾',
@@ -2981,6 +3399,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '八卦',
     definition: '三连，纯阳之卦，象天、父、刚健。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '兑',
@@ -2988,6 +3407,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '八卦',
     definition: '上缺，象泽、少女、喜悦。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '离',
@@ -2995,6 +3415,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '八卦',
     definition: '中虚，象火、中女、文明。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '震',
@@ -3002,6 +3423,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '八卦',
     definition: '仰盂，象雷、长男、发动。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '巽',
@@ -3009,6 +3431,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '八卦',
     definition: '下断，象风、长女、入。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '坎',
@@ -3016,6 +3439,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '八卦',
     definition: '中满，象水、中男、险陷。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '艮',
@@ -3023,6 +3447,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '八卦',
     definition: '覆碗，象山、少男、静止。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '坤',
@@ -3030,6 +3455,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '八卦',
     definition: '六断，纯阴之卦，象地、母、柔顺。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '角宿',
@@ -3037,6 +3463,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十八宿',
     definition: '东方苍龙之首，属木，主造作、文书。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '亢宿',
@@ -3044,6 +3471,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十八宿',
     definition: '东方苍龙之颈，属金，主刑狱、掌权。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '氐宿',
@@ -3051,6 +3479,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十八宿',
     definition: '东方苍龙之胸，属土，主后妃、仓库。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '房宿',
@@ -3058,6 +3487,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十八宿',
     definition: '东方苍龙之腹，属日，主明堂、政务。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '心宿',
@@ -3065,6 +3495,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十八宿',
     definition: '东方苍龙之心，属月，主天王、凶星。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '尾宿',
@@ -3072,6 +3503,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十八宿',
     definition: '东方苍龙之尾，属火，主后宫、婚姻。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '箕宿',
@@ -3079,6 +3511,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十八宿',
     definition: '东方苍龙之尾末，属水，主风、口舌。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '斗宿',
@@ -3086,6 +3519,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十八宿',
     definition: '北方玄武之首，属木，主度量、爵禄。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '牛宿',
@@ -3093,6 +3527,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十八宿',
     definition: '北方玄武之身，属金，主牺牲、桥道。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '女宿',
@@ -3100,6 +3535,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十八宿',
     definition: '北方玄武之女，属土，主布帛、嫁娶。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '虚宿',
@@ -3107,6 +3543,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十八宿',
     definition: '北方玄武之虚，属日，主丧事、虚耗。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '危宿',
@@ -3114,6 +3551,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十八宿',
     definition: '北方玄武之危，属月，主危难、高峻。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '室宿',
@@ -3121,6 +3559,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十八宿',
     definition: '北方玄武之室，属火，主营造、宫室。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '壁宿',
@@ -3128,6 +3567,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十八宿',
     definition: '北方玄武之壁，属水，主文章、图书。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '奎宿',
@@ -3135,6 +3575,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十八宿',
     definition: '西方白虎之首，属木，主武库、沟渎。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '娄宿',
@@ -3142,6 +3583,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十八宿',
     definition: '西方白虎之娄，属金，主聚众、牺牲。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '胃宿',
@@ -3149,6 +3591,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十八宿',
     definition: '西方白虎之胃，属土，主仓廪、饮食。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '昴宿',
@@ -3156,6 +3599,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十八宿',
     definition: '西方白虎之昴，属日，主牢狱、胡星。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '毕宿',
@@ -3163,6 +3607,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十八宿',
     definition: '西方白虎之毕，属月，主边兵、雨泽。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '觜宿',
@@ -3170,6 +3615,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十八宿',
     definition: '西方白虎之觜，属火，主参伐、军需。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '参宿',
@@ -3177,6 +3623,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十八宿',
     definition: '西方白虎之参，属水，主将军、权柄。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '井宿',
@@ -3184,6 +3631,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十八宿',
     definition: '南方朱雀之首，属木，主水事、法度。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '鬼宿',
@@ -3191,6 +3639,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十八宿',
     definition: '南方朱雀之鬼，属金，主祠祀、死丧。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '柳宿',
@@ -3198,6 +3647,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十八宿',
     definition: '南方朱雀之柳，属土，主厨膳、草木。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '星宿',
@@ -3205,6 +3655,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十八宿',
     definition: '南方朱雀之星，属日，主衣裳、文绣。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '张宿',
@@ -3212,6 +3663,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十八宿',
     definition: '南方朱雀之张，属月，主珍宝、宴飨。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '翼宿',
@@ -3219,6 +3671,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十八宿',
     definition: '南方朱雀之翼，属火，主乐府、远行。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '轸宿',
@@ -3226,6 +3679,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '二十八宿',
     definition: '南方朱雀之轸，属水，主车骑、风。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '甲子',
@@ -3233,6 +3687,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '甲子：干支纳音海中金，五行属金。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '乙丑',
@@ -3240,6 +3695,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '乙丑：干支纳音海中金，五行属金。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丙寅',
@@ -3247,6 +3703,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '丙寅：干支纳音炉中火，五行属火。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丁卯',
@@ -3254,6 +3711,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '丁卯：干支纳音炉中火，五行属火。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '戊辰',
@@ -3261,6 +3719,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '戊辰：干支纳音大林木，五行属木。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '己巳',
@@ -3268,6 +3727,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '己巳：干支纳音大林木，五行属木。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '庚午',
@@ -3275,6 +3735,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '庚午：干支纳音路旁土，五行属土。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '辛未',
@@ -3282,6 +3743,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '辛未：干支纳音路旁土，五行属土。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '壬申',
@@ -3289,6 +3751,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '壬申：干支纳音剑锋金，五行属金。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '癸酉',
@@ -3296,6 +3759,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '癸酉：干支纳音剑锋金，五行属金。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '甲戌',
@@ -3303,6 +3767,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '甲戌：干支纳音山头火，五行属火。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '乙亥',
@@ -3310,6 +3775,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '乙亥：干支纳音山头火，五行属火。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丙子',
@@ -3317,6 +3783,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '丙子：干支纳音涧下水，五行属水。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丁丑',
@@ -3324,6 +3791,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '丁丑：干支纳音涧下水，五行属水。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '戊寅',
@@ -3331,6 +3799,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '戊寅：干支纳音城头土，五行属土。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '己卯',
@@ -3338,6 +3807,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '己卯：干支纳音城头土，五行属土。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '庚辰',
@@ -3345,6 +3815,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '庚辰：干支纳音白蜡金，五行属金。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '辛巳',
@@ -3352,6 +3823,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '辛巳：干支纳音白蜡金，五行属金。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '壬午',
@@ -3359,6 +3831,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '壬午：干支纳音杨柳木，五行属木。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '癸未',
@@ -3366,6 +3839,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '癸未：干支纳音杨柳木，五行属木。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '甲申',
@@ -3373,6 +3847,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '甲申：干支纳音泉中水，五行属水。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '乙酉',
@@ -3380,6 +3855,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '乙酉：干支纳音泉中水，五行属水。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丙戌',
@@ -3387,6 +3863,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '丙戌：干支纳音屋上土，五行属土。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丁亥',
@@ -3394,6 +3871,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '丁亥：干支纳音屋上土，五行属土。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '戊子',
@@ -3401,6 +3879,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '戊子：干支纳音霹雳火，五行属火。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '己丑',
@@ -3408,6 +3887,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '己丑：干支纳音霹雳火，五行属火。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '庚寅',
@@ -3415,6 +3895,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '庚寅：干支纳音松柏木，五行属木。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '辛卯',
@@ -3422,6 +3903,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '辛卯：干支纳音松柏木，五行属木。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '壬辰',
@@ -3429,6 +3911,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '壬辰：干支纳音长流水，五行属水。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '癸巳',
@@ -3436,6 +3919,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '癸巳：干支纳音长流水，五行属水。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '甲午',
@@ -3443,6 +3927,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '甲午：干支纳音沙中金，五行属金。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '乙未',
@@ -3450,6 +3935,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '乙未：干支纳音沙中金，五行属金。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丙申',
@@ -3457,6 +3943,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '丙申：干支纳音山下火，五行属火。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丁酉',
@@ -3464,6 +3951,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '丁酉：干支纳音山下火，五行属火。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '戊戌',
@@ -3471,6 +3959,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '戊戌：干支纳音平地木，五行属木。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '己亥',
@@ -3478,6 +3967,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '己亥：干支纳音平地木，五行属木。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '庚子',
@@ -3485,6 +3975,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '庚子：干支纳音壁上土，五行属土。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '辛丑',
@@ -3492,6 +3983,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '辛丑：干支纳音壁上土，五行属土。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '壬寅',
@@ -3499,6 +3991,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '壬寅：干支纳音金箔金，五行属金。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '癸卯',
@@ -3506,6 +3999,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '癸卯：干支纳音金箔金，五行属金。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '甲辰',
@@ -3513,6 +4007,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '甲辰：干支纳音覆灯火，五行属火。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '乙巳',
@@ -3520,6 +4015,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '乙巳：干支纳音覆灯火，五行属火。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丙午',
@@ -3527,6 +4023,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '丙午：干支纳音天河水，五行属水。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丁未',
@@ -3534,6 +4031,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '丁未：干支纳音天河水，五行属水。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '戊申',
@@ -3541,6 +4039,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '戊申：干支纳音大驿土，五行属土。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '己酉',
@@ -3548,6 +4047,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '己酉：干支纳音大驿土，五行属土。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '庚戌',
@@ -3555,6 +4055,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '庚戌：干支纳音钗钏金，五行属金。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '辛亥',
@@ -3562,6 +4063,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '辛亥：干支纳音钗钏金，五行属金。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '壬子',
@@ -3569,6 +4071,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '壬子：干支纳音桑柘木，五行属木。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '癸丑',
@@ -3576,6 +4079,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '癸丑：干支纳音桑柘木，五行属木。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '甲寅',
@@ -3583,6 +4087,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '甲寅：干支纳音大溪水，五行属水。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '乙卯',
@@ -3590,6 +4095,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '乙卯：干支纳音大溪水，五行属水。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丙辰',
@@ -3597,6 +4103,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '丙辰：干支纳音沙中土，五行属土。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丁巳',
@@ -3604,6 +4111,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '丁巳：干支纳音沙中土，五行属土。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '戊午',
@@ -3611,6 +4119,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '戊午：干支纳音天上火，五行属火。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '己未',
@@ -3618,6 +4127,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '己未：干支纳音天上火，五行属火。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '庚申',
@@ -3625,6 +4135,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '庚申：干支纳音石榴木，五行属木。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '辛酉',
@@ -3632,6 +4143,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '辛酉：干支纳音石榴木，五行属木。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '壬戌',
@@ -3639,6 +4151,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '壬戌：干支纳音大海水，五行属水。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '癸亥',
@@ -3646,6 +4159,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '纳音',
     definition: '癸亥：干支纳音大海水，五行属水。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '乾为天',
@@ -3653,6 +4167,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '刚健中正，象天行健、自强不息。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '坤为地',
@@ -3660,6 +4175,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '厚德载物，象地勢坤、柔顺包容。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '水雷屯',
@@ -3667,6 +4183,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '万物始生，艰难萌芽之象。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '山水蒙',
@@ -3674,6 +4191,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '蒙昧待启，主童蒙求我。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '水天需',
@@ -3681,6 +4199,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '云上于天，待时而动。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天水讼',
@@ -3688,6 +4207,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '天水违行，主争讼、慎防。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '地水师',
@@ -3695,6 +4215,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '兵众之象，主行师、纪律。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '水地比',
@@ -3702,6 +4223,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '亲比辅佐，主相亲依附。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '风天小畜',
@@ -3709,6 +4231,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '小有蓄积，待时而发。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天泽履',
@@ -3716,6 +4239,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '履虎尾，慎行方吉。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '地天泰',
@@ -3723,6 +4247,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '天地交泰，通达安和。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天地否',
@@ -3730,6 +4255,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '天地不交，闭塞之象。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天火同人',
@@ -3737,6 +4263,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '同人和同，主协力共济。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '火天大有',
@@ -3744,6 +4271,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '富有大有，主盛大丰盈。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '地山谦',
@@ -3751,6 +4279,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '谦尊而光，主谦逊有终。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '雷地豫',
@@ -3758,6 +4287,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '欢悦而动，主逸乐预备。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '泽雷随',
@@ -3765,6 +4295,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '随时而动，主顺从机宜。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '山风蛊',
@@ -3772,6 +4303,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '蛊坏待治，主整饬革新。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '地泽临',
@@ -3779,6 +4311,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '临下观民，主临近、监临。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '风地观',
@@ -3786,6 +4319,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '观风察俗，主瞻望审慎。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '火雷噬嗑',
@@ -3793,6 +4327,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '啮合去梗，主刑狱、决断。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '山火贲',
@@ -3800,6 +4335,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '文饰之美，主礼仪修饰。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '山地剥',
@@ -3807,6 +4343,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '剥落侵蚀，主小人当道。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '地雷复',
@@ -3814,6 +4351,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '一阳来复，主反复、生机。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天雷无妄',
@@ -3821,6 +4359,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '无妄之灾，主诚实不妄动。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '山天大畜',
@@ -3828,6 +4367,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '大畜厚积，主蓄德养贤。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '山雷颐',
@@ -3835,6 +4375,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '颐养之道，主慎言节饮食。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '泽风大过',
@@ -3842,6 +4383,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '大过之栋，主非常之事。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '坎为水',
@@ -3849,6 +4391,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '重险叠陷，主习坎、流动。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '离为火',
@@ -3856,6 +4399,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '明两作离，主附丽、文明。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '泽山咸',
@@ -3863,6 +4407,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '交感相应，主男女相悦。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '雷风恒',
@@ -3870,6 +4415,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '恒久不已，主持久有常。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天山遁',
@@ -3877,6 +4423,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '退避隐藏，主遁世无闷。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '雷天大壮',
@@ -3884,6 +4431,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '阳壮当止，主强盛知退。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '火地晋',
@@ -3891,6 +4439,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '明出地上，主进升、显达。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '地火明夷',
@@ -3898,6 +4447,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '明入地中，主韬光养晦。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '风火家人',
@@ -3905,6 +4455,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '风自火出，主家政、齐家。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '火泽睽',
@@ -3912,6 +4463,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '乖离背反，主猜疑、求同。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '水山蹇',
@@ -3919,6 +4471,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '见险止步，主蹇难、慎行。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '雷水解',
@@ -3926,6 +4479,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '险难消解，主解脱、舒缓。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '山泽损',
@@ -3933,6 +4487,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '损下益上，主节损、修德。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '风雷益',
@@ -3940,6 +4495,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '损上益下，主增益、惠施。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '泽天夬',
@@ -3947,6 +4503,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '决而能和，主决断、去小人。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '天风姤',
@@ -3954,6 +4511,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '不期而遇，主阴长、防微。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '泽地萃',
@@ -3961,6 +4519,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '荟萃聚集，主人才物聚。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '地风升',
@@ -3968,6 +4527,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '柔以时升，主上升、渐进。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '泽水困',
@@ -3975,6 +4535,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '困穷之象，主穷而能守。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '水风井',
@@ -3982,6 +4543,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '井养不穷，主养民、守恒。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '泽火革',
@@ -3989,6 +4551,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '变革之象，主顺天应人。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '火风鼎',
@@ -3996,6 +4559,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '鼎新取象，主任重、养贤。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '震为雷',
@@ -4003,6 +4567,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '震动惊醒，主恐惧、奋起。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '艮为山',
@@ -4010,6 +4575,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '静止如山，主止欲、安定。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '风山渐',
@@ -4017,6 +4583,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '渐进有序，主女归、缓进。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '雷泽归妹',
@@ -4024,6 +4591,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '归妹失正，主婚嫁、戒纵。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '雷火丰',
@@ -4031,6 +4599,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '丰大盛满，主盛极当忧。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '火山旅',
@@ -4038,6 +4607,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '行旅之象，主在外、谦柔。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '巽为风',
@@ -4045,6 +4615,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '随风巽顺，主谦入、申命。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '兑为泽',
@@ -4052,6 +4623,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '悦泽相说，主和悦、口舌。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '风水涣',
@@ -4059,6 +4631,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '涣散之象，主解散、通达。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '水泽节',
@@ -4066,6 +4639,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '节制有度，主节约、守礼。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '风泽中孚',
@@ -4073,6 +4647,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '中孚诚信，主信及豚鱼。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '雷山小过',
@@ -4080,6 +4655,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '小者过越，主谨小、不宜大。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '水火既济',
@@ -4087,6 +4663,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '事已成济，主安和、防初吉终乱。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '火水未济',
@@ -4094,6 +4671,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '六十四卦',
     definition: '事未竟成，主慎终、生生不已。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '申子辰合水',
@@ -4101,6 +4679,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '三合局：申子辰会水局，主智、流动。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '亥卯未合木',
@@ -4108,6 +4687,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '三合局：亥卯未会木局，主仁、生发。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '寅午戌合火',
@@ -4115,6 +4695,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '三合局：寅午戌会火局，主礼、光明。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '巳酉丑合金',
@@ -4122,6 +4703,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '三合局：巳酉丑会金局，主义、收敛。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '子丑合土',
@@ -4129,6 +4711,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '六合：子丑相合，主稳合。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '寅亥合木',
@@ -4136,6 +4719,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '六合：寅亥相合，主助合。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '卯戌合火',
@@ -4143,6 +4727,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '六合：卯戌相合，主情合。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '辰酉合金',
@@ -4150,6 +4735,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '六合：辰酉相合，主义合。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '巳申合水',
@@ -4157,6 +4743,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '六合：巳申相合，主智合。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '午未合火',
@@ -4164,6 +4751,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '六合：午未相合，主暖合。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '寅卯辰东方木',
@@ -4171,6 +4759,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '三会方：寅卯辰会东方木。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '巳午未南方火',
@@ -4178,6 +4767,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '三会方：巳午未会南方火。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '申酉戌西方金',
@@ -4185,6 +4775,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '三会方：申酉戌会西方金。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '亥子丑北方水',
@@ -4192,6 +4783,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '三会方：亥子丑会北方水。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '子午冲',
@@ -4199,6 +4791,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '六冲：子午相冲，主南北、水火激战。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丑未冲',
@@ -4206,6 +4799,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '六冲：丑未相冲，主刑库相战。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '寅申冲',
@@ -4213,6 +4807,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '六冲：寅申相冲，主道路、变动。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '卯酉冲',
@@ -4220,6 +4815,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '六冲：卯酉相冲，主门户、金木交战。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '辰戌冲',
@@ -4227,6 +4823,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '六冲：辰戌相冲，主库开、土战。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '巳亥冲',
@@ -4234,6 +4831,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '六冲：巳亥相冲，主水火、主客战。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '寅巳申三刑',
@@ -4241,6 +4839,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '无恩之刑：寅巳申相刑。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丑戌未三刑',
@@ -4248,6 +4847,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '恃势之刑：丑戌未相刑。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '子卯相刑',
@@ -4255,6 +4855,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '无礼之刑：子卯相刑。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '辰辰自刑',
@@ -4262,6 +4863,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '辰见辰自刑。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '午午自刑',
@@ -4269,6 +4871,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '午见午自刑。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '酉酉自刑',
@@ -4276,6 +4879,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '酉见酉自刑。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '亥亥自刑',
@@ -4283,6 +4887,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '亥见亥自刑。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '子未相害',
@@ -4290,6 +4895,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '六害：子未相害，主阻隔。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丑午相害',
@@ -4297,6 +4903,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '六害：丑午相害，主不和。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '寅巳相害',
@@ -4304,6 +4911,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '六害：寅巳相害，主刑害。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '卯辰相害',
@@ -4311,6 +4919,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '六害：卯辰相害，主欺凌。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '申亥相害',
@@ -4318,6 +4927,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '六害：申亥相害，主多谋害。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '酉戌相害',
@@ -4325,6 +4935,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '六害：酉戌相害，主相侵。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '子酉相破',
@@ -4332,6 +4943,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '六破：子酉相破，主暗破。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '寅亥相破',
@@ -4339,6 +4951,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '六破：寅亥相破，主情破。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '卯午相破',
@@ -4346,6 +4959,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '六破：卯午相破，主刑破。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '辰丑相破',
@@ -4353,6 +4967,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '六破：辰丑相破，主库破。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '巳申相破',
@@ -4360,6 +4975,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '六破：巳申相破，主合破。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '午卯相破',
@@ -4367,6 +4983,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '六破：午卯相破，主礼破。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '子藏癸',
@@ -4374,6 +4991,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '地支藏干：子独藏癸水。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丑藏己癸辛',
@@ -4381,6 +4999,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '地支藏干：丑藏己土、癸水、辛金。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '寅藏甲丙戊',
@@ -4388,6 +5007,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '地支藏干：寅藏甲木、丙火、戊土。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '卯藏乙',
@@ -4395,6 +5015,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '地支藏干：卯独藏乙木。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '辰藏戊乙癸',
@@ -4402,6 +5023,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '地支藏干：辰藏戊土、乙木、癸水。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '巳藏丙戊庚',
@@ -4409,6 +5031,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '地支藏干：巳藏丙火、戊土、庚金。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '午藏丁己',
@@ -4416,6 +5039,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '地支藏干：午藏丁火、己土。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '未藏己丁乙',
@@ -4423,6 +5047,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '地支藏干：未藏己土、丁火、乙木。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '申藏庚壬戊',
@@ -4430,6 +5055,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '地支藏干：申藏庚金、壬水、戊土。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '酉藏辛',
@@ -4437,6 +5063,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '地支藏干：酉独藏辛金。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '戌藏戊辛丁',
@@ -4444,6 +5071,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '地支藏干：戌藏戊土、辛金、丁火。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '亥藏壬甲',
@@ -4451,6 +5079,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '地支关系',
     definition: '地支藏干：亥藏壬水、甲木。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '甲子',
@@ -4458,6 +5087,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第1位，由甲子组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '乙丑',
@@ -4465,6 +5095,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第2位，由乙丑组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丙寅',
@@ -4472,6 +5103,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第3位，由丙寅组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丁卯',
@@ -4479,6 +5111,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第4位，由丁卯组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '戊辰',
@@ -4486,6 +5119,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第5位，由戊辰组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '己巳',
@@ -4493,6 +5127,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第6位，由己巳组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '庚午',
@@ -4500,6 +5135,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第7位，由庚午组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '辛未',
@@ -4507,6 +5143,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第8位，由辛未组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '壬申',
@@ -4514,6 +5151,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第9位，由壬申组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '癸酉',
@@ -4521,6 +5159,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第10位，由癸酉组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '甲戌',
@@ -4528,6 +5167,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第11位，由甲戌组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '乙亥',
@@ -4535,6 +5175,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第12位，由乙亥组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丙子',
@@ -4542,6 +5183,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第13位，由丙子组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丁丑',
@@ -4549,6 +5191,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第14位，由丁丑组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '戊寅',
@@ -4556,6 +5199,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第15位，由戊寅组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '己卯',
@@ -4563,6 +5207,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第16位，由己卯组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '庚辰',
@@ -4570,6 +5215,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第17位，由庚辰组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '辛巳',
@@ -4577,6 +5223,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第18位，由辛巳组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '壬午',
@@ -4584,6 +5231,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第19位，由壬午组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '癸未',
@@ -4591,6 +5239,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第20位，由癸未组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '甲申',
@@ -4598,6 +5247,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第21位，由甲申组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '乙酉',
@@ -4605,6 +5255,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第22位，由乙酉组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丙戌',
@@ -4612,6 +5263,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第23位，由丙戌组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丁亥',
@@ -4619,6 +5271,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第24位，由丁亥组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '戊子',
@@ -4626,6 +5279,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第25位，由戊子组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '己丑',
@@ -4633,6 +5287,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第26位，由己丑组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '庚寅',
@@ -4640,6 +5295,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第27位，由庚寅组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '辛卯',
@@ -4647,6 +5303,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第28位，由辛卯组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '壬辰',
@@ -4654,6 +5311,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第29位，由壬辰组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '癸巳',
@@ -4661,6 +5319,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第30位，由癸巳组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '甲午',
@@ -4668,6 +5327,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第31位，由甲午组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '乙未',
@@ -4675,6 +5335,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第32位，由乙未组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丙申',
@@ -4682,6 +5343,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第33位，由丙申组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丁酉',
@@ -4689,6 +5351,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第34位，由丁酉组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '戊戌',
@@ -4696,6 +5359,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第35位，由戊戌组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '己亥',
@@ -4703,6 +5367,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第36位，由己亥组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '庚子',
@@ -4710,6 +5375,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第37位，由庚子组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '辛丑',
@@ -4717,6 +5383,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第38位，由辛丑组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '壬寅',
@@ -4724,6 +5391,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第39位，由壬寅组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '癸卯',
@@ -4731,6 +5399,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第40位，由癸卯组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '甲辰',
@@ -4738,6 +5407,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第41位，由甲辰组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '乙巳',
@@ -4745,6 +5415,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第42位，由乙巳组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丙午',
@@ -4752,6 +5423,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第43位，由丙午组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丁未',
@@ -4759,6 +5431,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第44位，由丁未组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '戊申',
@@ -4766,6 +5439,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第45位，由戊申组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '己酉',
@@ -4773,6 +5447,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第46位，由己酉组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '庚戌',
@@ -4780,6 +5455,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第47位，由庚戌组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '辛亥',
@@ -4787,6 +5463,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第48位，由辛亥组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '壬子',
@@ -4794,6 +5471,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第49位，由壬子组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '癸丑',
@@ -4801,6 +5479,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第50位，由癸丑组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '甲寅',
@@ -4808,6 +5487,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第51位，由甲寅组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '乙卯',
@@ -4815,6 +5495,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第52位，由乙卯组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丙辰',
@@ -4822,6 +5503,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第53位，由丙辰组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丁巳',
@@ -4829,6 +5511,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第54位，由丁巳组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '戊午',
@@ -4836,6 +5519,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第55位，由戊午组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '己未',
@@ -4843,6 +5527,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第56位，由己未组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '庚申',
@@ -4850,6 +5535,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第57位，由庚申组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '辛酉',
@@ -4857,6 +5543,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第58位，由辛酉组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '壬戌',
@@ -4864,6 +5551,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第59位，由壬戌组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '癸亥',
@@ -4871,6 +5559,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '干支组合',
     definition: '六十甲子第60位，由癸亥组成，用于八字纪年与日柱，循环统摄时空。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '甲己合土',
@@ -4878,6 +5567,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '天干五合',
     definition: '天干五合：甲己相合化土，主中正诚信、包容承载。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '乙庚合金',
@@ -4885,6 +5575,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '天干五合',
     definition: '天干五合：乙庚相合化金，主义气果决、刚柔相济。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丙辛合水',
@@ -4892,6 +5583,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '天干五合',
     definition: '天干五合：丙辛相合化水，主智谋润下、情投意合。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丁壬合木',
@@ -4899,6 +5591,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '天干五合',
     definition: '天干五合：丁壬相合化木，主仁德生发、才华内秀。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '戊癸合火',
@@ -4906,6 +5599,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '天干五合',
     definition: '天干五合：戊癸相合化火，主礼明热情、燥润相成。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '寅午戌三合火',
@@ -4913,6 +5607,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '三合三会',
     definition: '三合局：寅午戌合火局，势旺炎上。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '申子辰三合水',
@@ -4920,6 +5615,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '三合三会',
     definition: '三合局：申子辰合水局，势聚润下。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '巳酉丑三合金',
@@ -4927,6 +5623,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '三合三会',
     definition: '三合局：巳酉丑合金局，气肃收敛。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '亥卯未三合木',
@@ -4934,6 +5631,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '三合三会',
     definition: '三合局：亥卯未合木局，生发条达。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '寅卯辰三会木',
@@ -4941,6 +5639,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '三合三会',
     definition: '三会局：寅卯辰会东方木。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '巳午未三会火',
@@ -4948,6 +5647,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '三合三会',
     definition: '三会局：巳午未会南方火。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '申酉戌三会金',
@@ -4955,6 +5655,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '三合三会',
     definition: '三会局：申酉戌会西方金。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '亥子丑三会水',
@@ -4962,6 +5663,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '三合三会',
     definition: '三会局：亥子丑会北方水。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '复卦',
@@ -4969,6 +5671,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十二消息卦',
     definition: '十二消息卦：地雷复，子月，一阳来复，生机初萌。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '临卦',
@@ -4976,6 +5679,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十二消息卦',
     definition: '十二消息卦：地泽临，丑月，二阳浸长。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '泰卦',
@@ -4983,6 +5687,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十二消息卦',
     definition: '十二消息卦：地天泰，寅月，三阳开泰，阴阳交和。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '大壮卦',
@@ -4990,6 +5695,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十二消息卦',
     definition: '十二消息卦：雷天大壮，卯月，四阳壮盛。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '夬卦',
@@ -4997,6 +5703,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十二消息卦',
     definition: '十二消息卦：泽天夬，辰月，五阳决阴。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '乾卦',
@@ -5004,6 +5711,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十二消息卦',
     definition: '十二消息卦：乾为天，巳月，六阳纯全。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '姤卦',
@@ -5011,6 +5719,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十二消息卦',
     definition: '十二消息卦：天风姤，午月，一阴始生。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '遁卦',
@@ -5018,6 +5727,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十二消息卦',
     definition: '十二消息卦：天山遁，未月，二阴渐退。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '否卦',
@@ -5025,6 +5735,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十二消息卦',
     definition: '十二消息卦：天地否，申月，三阴闭塞。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '观卦',
@@ -5032,6 +5743,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十二消息卦',
     definition: '十二消息卦：风地观，酉月，四阴观省。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '剥卦',
@@ -5039,6 +5751,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十二消息卦',
     definition: '十二消息卦：山地剥，戌月，五阴剥阳。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '坤卦',
@@ -5046,6 +5759,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十二消息卦',
     definition: '十二消息卦：坤为地，亥月，六阴纯全。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '河图一六水',
@@ -5053,6 +5767,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '河洛',
     definition: '河图：天一生水，地六成之，一六共宗居北。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '河图二七火',
@@ -5060,6 +5775,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '河洛',
     definition: '河图：地二生火，天七成之，二七同道居南。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '河图三八木',
@@ -5067,6 +5783,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '河洛',
     definition: '河图：天三生木，地八成之，三八为朋居东。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '河图四九金',
@@ -5074,6 +5791,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '河洛',
     definition: '河图：地四生金，天九成之，四九作友居西。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '河图五十土',
@@ -5081,6 +5799,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '河洛',
     definition: '河图：天五生土，地十成之，五十同途居中。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '洛书戴九履一',
@@ -5088,6 +5807,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '河洛',
     definition: '洛书：戴九履一，九居上、一居下。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '洛书左三右七',
@@ -5095,6 +5815,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '河洛',
     definition: '洛书：左三右七，三居左、七居右。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '洛书二四为肩',
@@ -5102,6 +5823,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '河洛',
     definition: '洛书：二四为肩，二居西南、四居东南。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '洛书六八为足',
@@ -5109,6 +5831,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '河洛',
     definition: '洛书：六八为足，六居西北、八居东北。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '洛书五居中央',
@@ -5116,6 +5839,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '河洛',
     definition: '洛书：五居中宫，统御八方。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '《三命通会》',
@@ -5123,6 +5847,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理典籍',
     definition: '明代万民英撰，子平命理集大成之巨著。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '《渊海子平》',
@@ -5130,6 +5855,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理典籍',
     definition: '宋代徐大升编，子平法奠基经典。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '《滴天髓》',
@@ -5137,6 +5863,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理典籍',
     definition: '清代任铁樵注，阐发干支五行精义之要籍。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '《穷通宝鉴》',
@@ -5144,6 +5871,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理典籍',
     definition: '以调候为纲的命理实用全书。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '《子平真诠》',
@@ -5151,6 +5879,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理典籍',
     definition: '清沈孝瞻撰，论格局用神条理分明。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '《神峰通考》',
@@ -5158,6 +5887,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理典籍',
     definition: '明张楠撰，辟谬正讹之命学考辨。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '《紫微斗数全集》',
@@ -5165,6 +5895,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理典籍',
     definition: '紫微斗数推命之集成典籍。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '《协纪辨方书》',
@@ -5172,6 +5903,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理典籍',
     definition: '清钦定择日与方位之官修典制。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '《奇门遁甲》',
@@ -5179,6 +5911,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理典籍',
     definition: '三式之一，时空方位趋避之术数经典。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '《六壬大全》',
@@ -5186,6 +5919,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理典籍',
     definition: '三式之一，以占验人事著称之壬学集成。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '《太乙神数》',
@@ -5193,6 +5927,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理典籍',
     definition: '三式之一，主测天时国运之古术。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '《玉匣记》',
@@ -5200,6 +5935,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理典籍',
     definition: '民间择日通书，宜忌汇集之手册。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '《葬书》',
@@ -5207,6 +5943,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理典籍',
     definition: '晋郭璞撰，风水葬法之祖书。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '《宅经》',
@@ -5214,6 +5951,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理典籍',
     definition: '相宅经典，论阳宅方位形局之宜忌。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '《周易》',
@@ -5221,6 +5959,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '命理典籍',
     definition: '群经之首，阴阳变化与卦象哲理之源。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '贪狼星',
@@ -5228,6 +5967,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '北斗七星',
     definition: '北斗第一星，主祸福、聪敏桃花。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '巨门星',
@@ -5235,6 +5975,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '北斗七星',
     definition: '北斗第二星，主口舌、辩才是非。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '禄存星',
@@ -5242,6 +5983,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '北斗七星',
     definition: '北斗第三星，主富贵、稳重积财。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '文曲星',
@@ -5249,6 +5991,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '北斗七星',
     definition: '北斗第四星，主文采、聪慧伶俐。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '廉贞星',
@@ -5256,6 +5999,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '北斗七星',
     definition: '北斗第五星，主化气为囚、刚烈情感。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '武曲星',
@@ -5263,6 +6007,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '北斗七星',
     definition: '北斗第六星，主财帛、刚毅果断。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '破军星',
@@ -5270,6 +6015,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '北斗七星',
     definition: '北斗第七星，主耗败、开创变动。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '甲禄在寅',
@@ -5277,6 +6023,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十干禄',
     definition: '十干之禄：甲禄在寅，乙禄在卯。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '乙禄在卯',
@@ -5284,6 +6031,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十干禄',
     definition: '十干之禄：乙禄在卯，主福气根基。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丙禄在巳',
@@ -5291,6 +6039,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十干禄',
     definition: '十干之禄：丙禄在巳，丁禄在午。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '丁禄在午',
@@ -5298,6 +6047,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十干禄',
     definition: '十干之禄：丁禄在午，主俸禄生机。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '戊禄在巳',
@@ -5305,6 +6055,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十干禄',
     definition: '十干之禄：戊禄在巳，己禄在午。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '己禄在午',
@@ -5312,6 +6063,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十干禄',
     definition: '十干之禄：己禄在午，主安稳享禄。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '庚禄在申',
@@ -5319,6 +6071,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十干禄',
     definition: '十干之禄：庚禄在申，辛禄在酉。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '辛禄在酉',
@@ -5326,6 +6079,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十干禄',
     definition: '十干之禄：辛禄在酉，主才艺收益。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '壬禄在亥',
@@ -5333,6 +6087,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十干禄',
     definition: '十干之禄：壬禄在亥，癸禄在子。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '癸禄在子',
@@ -5340,6 +6095,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '十干禄',
     definition: '十干之禄：癸禄在子，主潜藏之福。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '年柱',
@@ -5347,6 +6103,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '推命体系',
     definition: '四柱之一，以出生年干支表祖上、幼年根基。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '月柱',
@@ -5354,6 +6111,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '推命体系',
     definition: '四柱之一，以出生月干支表父母、青年运势。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '日柱',
@@ -5361,6 +6119,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '推命体系',
     definition: '四柱之一，以出生日干支表自身，日干为命主。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '时柱',
@@ -5368,6 +6127,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '推命体系',
     definition: '四柱之一，以出生时干支表子女、晚年归宿。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '大运',
@@ -5375,6 +6135,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '推命体系',
     definition: '十年一运的运势起伏周期，顺逆依年干阴阳而定。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '流年',
@@ -5382,6 +6143,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '推命体系',
     definition: '逐年太岁干支，主当年吉凶祸福之应。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '胎元',
@@ -5389,6 +6151,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '推命体系',
     definition: '受胎之月干支，补论先天禀赋。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '命宫',
@@ -5396,6 +6159,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '推命体系',
     definition: '生时落点所属宫位，统观一生格局。',
     source: SRC,
+    layer_tag: 'L2',
   },
   {
     term: '身宫',
@@ -5403,6 +6167,7 @@ const baseLexicon: LexiconEntry[] = [
     category: '推命体系',
     definition: '主后天安身立命之所，辅命宫论断。',
     source: SRC,
+    layer_tag: 'L2',
   },
 ];
 

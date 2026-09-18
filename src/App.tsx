@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from 'react';
+﻿import { lazy, Suspense, useEffect } from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { StarfieldBackground } from './components/StarfieldBackground';
@@ -171,6 +171,11 @@ const BaziTopicsPage = lazy(async () => {
 const CompliancePage = lazy(async () => {
   const module = await import('./pages/platform/CompliancePage');
   return { default: module.CompliancePage };
+});
+
+const SolutionTestPage = lazy(async () => {
+  const module = await import('./pages/solution/SolutionTestPage');
+  return { default: module.default };
 });
 
 const KangxiPage = lazy(async () => {
@@ -388,6 +393,7 @@ export default function App() {
                 <Route path="/ziwei/palaces" element={<PalacesPage />} />
                 <Route path="/astrolabe/natal" element={<NatalPage />} />
                 <Route path="/bazi/topics/:topic" element={<BaziTopicsPage />} />
+                <Route path="/solution/test" element={<SolutionTestPage />} />
                 <Route path="/privacy" element={<PrivacyPage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/register" element={<RegisterPage />} />
@@ -531,3 +537,7 @@ export default function App() {
     </FavoritesProvider>
   );
 }
+
+
+
+

@@ -50,6 +50,7 @@ export * as birth from './birth/index';
 export * as compatibility from './compatibility/index';
 export * as synthesis from './synthesis/index';
 export * as client from './client/index';
+export * as solution from './solution/semantic/index';
 
 // 全局配置
 export { configure } from './calendar/timeManager';

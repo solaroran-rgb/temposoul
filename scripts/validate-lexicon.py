@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-词库校验脚本：线程B MVP
+词库校验脚本：线程B MVP（R3-8 修订：解析器兼容单行/多行条目 + 新增 layer_tag 校验）
 校验项：
   1. (term, category) 无重复
   2. 必填字段非空（term/pinyin/category/definition/source）
   3. category 合法（在 LexiconCategory 类型联合中）
   4. 总数 ≥ 800，八字 ≥ 480，紫微 ≥ 330
+  5. layer_tag 全覆盖且取值合法（L0/L1/L2/L3）
 输出分类计数与通过/失败。
 """
 import re, io, collections, os, sys
@@ -21,16 +22,32 @@ valid_cats = set(re.findall(r"^\s*\| '([^']+)'", lex_text, re.M))
 print("合法分类数:", len(valid_cats))
 
 # ── 解析所有条目 ─────────────────────────────────────────────
-# 从 lexicon.ts 解析 baseLexicon（跳过 import 和 type 行）
-pattern = re.compile(
-    r"\{ term: '([^']*)', pinyin: '([^']*)', category: '([^']*)', definition: '([^']*)', source: (?:[^,}]+)"
-)
+# 条目既可能是单行（{ term: ..., source: SRC },），也可能是多行对象；
+# 旧版单行正则只能匹配单行形态，会漏掉 98% 条目 → 改为逐行状态机解析。
+FIELD_RE = re.compile(r"(term|pinyin|category|definition|source|layer_tag):\s*'([^']*)'")
+# source 实际引用常量（source: SRC,），非引号字面量 → 单独抓
+SRC_RE = re.compile(r"source:\s*([A-Za-z_$][\w$.]*)")
+FIELDS = ("term", "pinyin", "category", "definition", "source", "layer_tag")
 
 def parse_entries(path):
-    txt = io.open(path, encoding="utf-8", newline="").read()
-    raw = pattern.findall(txt)
-    # (term, pinyin, category, definition) → add source placeholder
-    return [(t, p, c, d, "SRC") for t, p, c, d in raw]
+    txt = io.open(path, encoding="utf-8", newline="").read().replace("\r\n", "\n")
+    entries, cur, inside = [], {}, False
+    for line in txt.split("\n"):
+        s = line.strip()
+        if not inside:
+            if not s.startswith("{"):
+                continue
+            s = s[1:]
+            cur, inside = {}, True
+        for k, v in FIELD_RE.findall(s):
+            cur[k] = v
+        for m in SRC_RE.finditer(s):
+            cur["source"] = m.group(1)
+        if "}" in s:
+            if cur.get("term"):
+                entries.append(tuple(cur.get(k, "") for k in FIELDS))
+            inside = False
+    return entries
 
 base = parse_entries(LEX_PATH)
 extra = parse_entries(EXTRA_PATH)
@@ -41,7 +58,7 @@ print("lexiconExtra:", len(extra))
 print("合并总数:", len(all_entries))
 
 # ── 校验1: (term, category) 无重复 ──────────────────────────
-pairs = [(t, c) for t, _, c, _, _ in all_entries]
+pairs = [(t, c) for t, _, c, _, _, _ in all_entries]
 pair_counts = collections.Counter(pairs)
 dup_pairs = [(p, n) for p, n in pair_counts.items() if n > 1]
 print("\n=== 校验1: (term, category) 重复 ===")
@@ -54,7 +71,7 @@ else:
 
 # ── 校验2: 必填字段非空 ─────────────────────────────────────
 missing = []
-for t, p, c, d, s in all_entries:
+for t, p, c, d, s, _lt in all_entries:
     if not t.strip():
         missing.append(("term", "(empty)", c))
     if not p.strip():
@@ -75,7 +92,7 @@ else:
 
 # ── 校验3: category 合法 ─────────────────────────────────────
 invalid_cats = set()
-for t, p, c, d, s in all_entries:
+for t, p, c, d, s, _lt in all_entries:
     if c not in valid_cats:
         invalid_cats.add(c)
 print("\n=== 校验3: category 合法 ===")
@@ -89,7 +106,7 @@ ziwei_cats = {"紫微星曜", "十二宫", "紫微四化", "紫微格局"}
 bazi_cats = {"天干","地支","五行","十神","神煞","推命体系","地支关系","干支组合",
              "十二长生","纳音","十干禄","天干五合","三合三会","基础","八字格局"}
 
-cat_counts = collections.Counter(c for _, _, c, _, _ in all_entries)
+cat_counts = collections.Counter(c for _, _, c, _, _, _ in all_entries)
 ziwei_total = sum(n for c, n in cat_counts.items() if c in ziwei_cats)
 bazi_total = sum(n for c, n in cat_counts.items() if c in bazi_cats)
 
@@ -98,12 +115,32 @@ print("总数: %d (要求≥800) %s" % (len(all_entries), "PASS" if len(all_entr
 print("紫微: %d (要求≥330) %s" % (ziwei_total, "PASS" if ziwei_total >= 330 else "FAIL"))
 print("八字: %d (要求≥480) %s" % (bazi_total, "PASS" if bazi_total >= 480 else "FAIL"))
 
+# ── 校验5: layer_tag 全覆盖且合法（R3-8）────────────────────
+VALID_LAYERS = {"L0", "L1", "L2", "L3"}
+layer_missing = [t for t, _, _, _, _, lt in all_entries if not lt.strip()]
+layer_invalid = [(t, lt) for t, _, _, _, _, lt in all_entries
+                 if lt.strip() and lt not in VALID_LAYERS]
+layer_counts = collections.Counter(lt for _, _, _, _, _, lt in all_entries)
+
+print("\n=== 校验5: layer_tag 覆盖与合法性 (R3-8) ===")
+if layer_missing:
+    print("FAIL: %d 条缺 layer_tag，示例: %s" % (len(layer_missing), layer_missing[:10]))
+else:
+    print("PASS: layer_tag 全覆盖 (%d/%d)" % (len(all_entries), len(all_entries)))
+if layer_invalid:
+    print("FAIL: 非法 layer_tag: %s" % (layer_invalid[:10],))
+else:
+    print("PASS: layer_tag 取值全部合法")
+for _k in sorted(layer_counts):
+    print("  %s: %d" % (_k, layer_counts[_k]))
+
 print("\n=== 全分类计数 ===")
 for c, n in sorted(cat_counts.items(), key=lambda x: -x[1]):
     print("  %s: %d" % (c, n))
 
 # ── 汇总 ─────────────────────────────────────────────────────
-all_pass = not dup_pairs and not missing and not invalid_cats
+all_pass = (not dup_pairs and not missing and not invalid_cats
+            and not layer_missing and not layer_invalid)
 print("\n=== 最终结果 ===")
 print("ALL PASS" if all_pass and len(all_entries) >= 800 and ziwei_total >= 330 and bazi_total >= 480 else "SOME CHECKS FAILED")
 sys.exit(0 if all_pass and len(all_entries) >= 800 and ziwei_total >= 330 and bazi_total >= 480 else 1)

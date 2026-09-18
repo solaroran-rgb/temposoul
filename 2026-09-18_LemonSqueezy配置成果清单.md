@@ -67,3 +67,16 @@ LEMONSQUEEZY_WEBHOOK_SECRET=ts_webhook_secret_2026_temposoul
 - Test mode 的 API key / webhook 只能用于测试数据（沙箱）。
 - 5 个产品的 variant ID 已在 Test mode 下建立；激活 Live 后 **variant ID 保持不变**（同一产品），可直接复用。
 - 前端 PricingPage 价格显示待校正：¥29→¥19.9、¥39→¥39.9（支付上线前必须）。
+
+## 五、📤 支持工单（2026-09-18 20:24 已发送）
+
+| 项 | 值 |
+|---|---|
+| 收件人 | support@lemonsqueezy.com |
+| 主题 | Unable to set up tax form (W-8BEN) from China - need manual assistance to activate store |
+| 发件账号 | solaroran@gmail.com（网易邮箱大师） |
+| 发送时间 | 2026-09-18 20:24（高级搜索"收件人含 support@lemonsqueezy.com"确认，状态=已发送） |
+| 正文要点 | Store ID 473001 / Store URL temposoul.lemonsqueezy.com / 已完成 5 产品+Webhook 135151+API key+PayPal(ferryoran@outlook.com) / 报错原文 "Unable to set up tax form. Please try again or contact support." / 请求人工协助完成 W-8BEN 或提供替代激活方式 |
+| 下一步 | 等待 LS 支持回复；若人工通道可行则激活商店→Live mode→接支付；不可行则转 B 线（国内支付宝/微信）或 C 线（其他 MoR） |
+
+> 背景：LS 银行收款不支持中国大陆（仅港澳台）；税务表单由 Stripe Express 驱动，Stripe 不支持中国主体 → 表单无法自助建立，故发工单请求人工协助。
