@@ -1,0 +1,141 @@
+/* batch3d / D 域（起名与商业变现）页面样式 */
+.dd-page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+  color: #2a2a33;
+  font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  line-height: 1.7;
+}
+.dd-hero {
+  border-bottom: 1px solid #ececf1;
+  padding-bottom: 20px;
+  margin-bottom: 28px;
+}
+.dd-hero h1 {
+  font-size: 28px;
+  margin: 0 0 10px;
+}
+.dd-desc {
+  font-size: 16px;
+  color: #55556a;
+  margin: 0 0 8px;
+}
+.dd-note {
+  font-size: 13px;
+  color: #8a8a9a;
+}
+.dd-block h2 {
+  font-size: 20px;
+  margin: 28px 0 12px;
+  border-left: 3px solid #7c6cf0;
+  padding-left: 10px;
+}
+.dd-card {
+  border: 1px solid #ececf1;
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+  background: #fafafe;
+}
+.dd-card h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+.dd-cardgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+}
+.dd-minicard {
+  border: 1px solid #ececf1;
+  border-radius: 10px;
+  padding: 12px 14px;
+  background: #fff;
+}
+.dd-minicard h3 {
+  margin: 0 0 6px;
+  font-size: 15px;
+}
+.dd-minicard p {
+  margin: 0;
+  font-size: 13px;
+  color: #55556a;
+}
+.dd-ipa {
+  font-size: 13px;
+  color: #8a8a9a;
+  font-weight: normal;
+}
+.dd-qlist {
+  padding-left: 20px;
+}
+.dd-qlist li {
+  margin-bottom: 10px;
+}
+.dd-opts {
+  list-style: circle;
+  padding-left: 18px;
+  margin: 6px 0;
+  font-size: 14px;
+  color: #55556a;
+}
+.dd-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin: 8px 0;
+}
+.dd-table th,
+.dd-table td {
+  border: 1px solid #e4e4ec;
+  padding: 6px 10px;
+  text-align: left;
+}
+.dd-rank {
+  columns: 2;
+  font-size: 14px;
+}
+.dd-heat {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 0 6px;
+  border-radius: 8px;
+  background: #fff1e6;
+  color: #c2570a;
+  font-size: 12px;
+}
+.dd-charcard {
+  border: 1px solid #ececf1;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  background: #fff;
+}
+.dd-bigchar {
+  font-size: 30px;
+  line-height: 1.2;
+  color: #4a3f8a;
+}
+.dd-charcard p {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: #55556a;
+}
+.dd-cta {
+  margin-top: 24px;
+}
+.dd-btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 22px;
+  background: #7c6cf0;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+.dd-footer {
+  margin-top: 40px;
+  border-top: 1px solid #ececf1;
+  padding-top: 16px;
+}

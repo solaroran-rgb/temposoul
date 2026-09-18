@@ -1,0 +1,120 @@
+/* C 域批3c 页面样式（CcList/CcDetail 通用） */
+.c3c-page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+  color: #e8e6f2;
+}
+.c3c-hero {
+  margin-bottom: 28px;
+}
+.c3c-hero h1 {
+  font-size: 28px;
+  margin: 0 0 8px;
+}
+.c3c-desc {
+  color: #b7b3cf;
+  margin: 0 0 8px;
+}
+.c3c-note {
+  color: #8d8aa8;
+  font-size: 13px;
+}
+.c3c-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+}
+.c3c-card {
+  display: block;
+  padding: 16px;
+  border: 1px solid rgba(140, 130, 210, 0.25);
+  border-radius: 10px;
+  background: rgba(20, 18, 40, 0.55);
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+.c3c-card:hover {
+  border-color: rgba(160, 150, 240, 0.6);
+}
+.c3c-card h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  color: #e8e6f2;
+}
+.c3c-card p {
+  margin: 0;
+  font-size: 13px;
+  color: #b7b3cf;
+}
+.c3c-crumb {
+  margin-bottom: 18px;
+  font-size: 13px;
+  color: #8d8aa8;
+}
+.c3c-crumb a {
+  color: #a99fe8;
+  text-decoration: none;
+}
+.c3c-article h1 {
+  font-size: 26px;
+  margin: 0 0 8px;
+}
+.c3c-body {
+  margin: 20px 0;
+  line-height: 1.8;
+}
+.c3c-loop {
+  margin: 24px 0;
+  padding: 16px;
+  background: rgba(30, 28, 55, 0.5);
+  border-radius: 8px;
+}
+.c3c-loop h2 {
+  font-size: 18px;
+  margin: 0 0 12px;
+}
+.c3c-loop ul {
+  padding-left: 20px;
+  margin: 0;
+}
+.c3c-loop li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #c7c3e0;
+}
+.c3c-meta {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(140, 130, 210, 0.2);
+  font-size: 13px;
+  color: #8d8aa8;
+}
+.c3c-ephemeris-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  margin-top: 16px;
+}
+.c3c-ephemeris-card {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  border: 1px solid rgba(140, 130, 210, 0.2);
+  border-radius: 8px;
+  background: rgba(20, 18, 40, 0.5);
+}
+.c3c-eph-date {
+  font-weight: 600;
+  font-size: 14px;
+  color: #e8e6f2;
+}
+.c3c-eph-phase {
+  font-size: 13px;
+  color: #b7b3cf;
+  margin: 4px 0;
+}
+.c3c-eph-retro {
+  font-size: 12px;
+  color: #8d8aa8;
+}

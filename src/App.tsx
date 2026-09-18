@@ -19,6 +19,10 @@ import { B23Routes } from '@/router/B23Routes';
 import { C23Routes } from '@/router/C23Routes';
 import { D23Routes } from '@/router/D23Routes';
 import { E23Routes } from '@/routes/E23Routes';
+import { LightFunRoutes } from '@/router/LightFunRoutes';
+import { BbRoutes } from '@/router/BbRoutes';
+import { CcRoutes } from '@/router/CcRoutes';
+import { DdRoutes } from '@/router/DdRoutes';
 import { ComplianceGuard } from '@/components/platform/ComplianceGuard';
 
 const InputPage = lazy(async () => {
@@ -480,6 +484,10 @@ export default function App() {
                 {C23Routes}
                 {D23Routes}
                 {E23Routes}
+                {LightFunRoutes}
+                {DdRoutes}
+                {BbRoutes}
+                {CcRoutes}
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
               <ComplianceGuard />
