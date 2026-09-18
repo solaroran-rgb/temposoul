@@ -68,3 +68,25 @@ jobs:
       - name: Check generated china location data
         run: pnpm run check:location-data
       - run: pnpm run build
+
+  # Merkle 门禁（线程 B 接入，2026-09-18）
+  # 独立校验步：冻结 build/artifacts.json 后跑 verify-merkle，断言全站 sitemap 口径（738）
+  # 与四域计数（A280/B50/C384/D24）一致。continue-on-error=true：作为可见校验步，
+  # 不阻断现有 lint/type-check/test/build 上线流程；收口确认后可去掉 continue-on-error 升为硬门禁。
+  verify-merkle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Build @temposoul/core (freeze script dependency)
+        run: pnpm --filter @temposoul/core build
+      - name: Freeze artifacts (build/artifacts.json)
+        run: pnpm run freeze:artifacts
+      - name: verify-merkle (Merkle + four-domain count gate)
+        continue-on-error: true
+        run: pnpm run verify:merkle

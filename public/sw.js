@@ -1,5 +1,5 @@
-const STATIC_CACHE = 'temposoul-static-v8';
-const RUNTIME_CACHE = 'temposoul-runtime-v8';
+const STATIC_CACHE = 'temposoul-static-v9';
+const RUNTIME_CACHE = 'temposoul-runtime-v9';
 const APP_SHELL = [
   '/',
   '/index.html',

@@ -1,0 +1,112 @@
+/* /newsletter 订阅管理页样式 */
+.nl-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 20px 72px;
+  color: #e8e6f2;
+}
+.nl-hero h1 {
+  font-size: 28px;
+  margin: 0 0 8px;
+}
+.nl-desc {
+  color: #b7b3cf;
+  margin: 0 0 8px;
+}
+.nl-note {
+  color: #8d8aa8;
+  font-size: 13px;
+  margin: 0;
+}
+.nl-card {
+  margin-top: 22px;
+  padding: 20px;
+  border: 1px solid rgba(140, 130, 210, 0.25);
+  border-radius: 12px;
+  background: rgba(20, 18, 40, 0.55);
+}
+.nl-card h2 {
+  font-size: 18px;
+  margin: 0 0 12px;
+}
+.nl-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+.nl-field input[type='email'] {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(140, 130, 210, 0.35);
+  background: rgba(12, 10, 24, 0.6);
+  color: #e8e6f2;
+  font-size: 14px;
+}
+.nl-freq {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.nl-freq label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #c7c3e0;
+  cursor: pointer;
+}
+.nl-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #ffd166, #b48cff);
+  color: #1a1230;
+}
+.nl-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.nl-btn--ghost {
+  background: transparent;
+  border: 1px solid rgba(140, 130, 210, 0.4);
+  color: #c7c3e0;
+}
+.nl-msg {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.nl-msg--ok {
+  color: #9fe8b0;
+}
+.nl-msg--err {
+  color: #ff9b9b;
+}
+.nl-status {
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(30, 28, 55, 0.5);
+  font-size: 14px;
+  line-height: 1.7;
+}
+.nl-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.nl-disclaimer {
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(140, 130, 210, 0.2);
+  font-size: 13px;
+  color: #8d8aa8;
+  line-height: 1.7;
+}

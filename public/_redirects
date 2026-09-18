@@ -5,3 +5,27 @@
 # 本线程不执行 wrangler pages deploy；随下次 Pages 构建自动上线。
 
 https://temposoul.com/*  https://www.temposoul.com/:splat  301!
+
+# ─────────────────────────────────────────────────────────────
+# 旧路径治理（线程 B，2026-09-18，未部署；随下次 Pages 构建自动上线）
+# 原则：新路由为主，旧路径 301 收敛，避免双死链与 SEO 重复。
+# ─────────────────────────────────────────────────────────────
+
+# /podcast（批3b 新主路由，BbRoutes）为主；/podcasts（C22Routes 旧页）收敛到 /podcast
+/podcasts  /podcast  301
+
+# /divination/* 旧趣味页 → 批3b /tools/* 新页（导航已切到新页，旧页 301 保 SEO）
+/divination/cezi          /tools/cezi               301
+/divination/fingerprint   /tools/fingerprint-fun    301
+/divination/numerology    /tools/life-number        301
+/divination/birth-code    /tools/birthday-code      301
+/divination/birth-flower  /tools/birth-flower       301
+/divination/palm          /tools/palmistry          301
+
+# 历史死链（已从导航移除）→ 对应新页
+/divination/fun-psych     /tools/fun-psych-tests    301
+/divination/blood-type    /tools/blood-type-fun     301
+
+# 国学典籍详解：旧 slug 无独立路由（落入 /knowledge/:slug 通用详情但 registry 无此文章）→ /knowledge/classics
+/knowledge/classics-guides  /knowledge/classics     301
+

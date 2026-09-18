@@ -23,6 +23,12 @@ import { LightFunRoutes } from '@/router/LightFunRoutes';
 import { BbRoutes } from '@/router/BbRoutes';
 import { CcRoutes } from '@/router/CcRoutes';
 import { DdRoutes } from '@/router/DdRoutes';
+import { DailyRoutes } from '@/router/DailyRoutes';
+import { HehunRoutes } from '@/router/HehunRoutes';
+import { ZiweiLearnRoutes } from '@/router/ZiweiLearnRoutes';
+import { DivLearnRoutes } from '@/router/DivLearnRoutes';
+import { NewsletterRoutes } from '@/router/NewsletterRoutes';
+import { SeoRoutes } from '@/router/SeoRoutes';
 import { ComplianceGuard } from '@/components/platform/ComplianceGuard';
 
 const InputPage = lazy(async () => {
@@ -488,6 +494,12 @@ export default function App() {
                 {DdRoutes}
                 {BbRoutes}
                 {CcRoutes}
+                {DailyRoutes}
+                {HehunRoutes}
+                {ZiweiLearnRoutes}
+                {DivLearnRoutes}
+                {NewsletterRoutes}
+                {SeoRoutes}
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
               <ComplianceGuard />

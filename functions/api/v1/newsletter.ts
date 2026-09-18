@@ -8,7 +8,12 @@
  *   - 邮件通道未接入前，hook 为空操作，记录保持 pending（不实际发信）。
  */
 
-import { CONFIRM_TOKEN_TTL_SEC, createConfirmToken, sendConfirmationEmail, type ConfirmEnv } from './newsletter-confirm';
+import {
+  CONFIRM_TOKEN_TTL_SEC,
+  createConfirmToken,
+  sendConfirmationEmail,
+  type ConfirmEnv,
+} from './newsletter-confirm';
 
 interface KVNamespace {
   get(key: string): Promise<string | null>;
@@ -28,6 +33,15 @@ type PagesContext = {
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_EMAIL_LEN = 254;
 
+const FREQUENCIES = ['daily', 'weekly', 'monthly'] as const;
+type Frequency = (typeof FREQUENCIES)[number];
+
+function parseFrequency(v: unknown): Frequency {
+  return typeof v === 'string' && (FREQUENCIES as readonly string[]).includes(v)
+    ? (v as Frequency)
+    : 'weekly';
+}
+
 function json(data: unknown, status = 200): Response {
   return new Response(JSON.stringify(data), {
     status,
@@ -46,6 +60,16 @@ async function readJson(req: Request): Promise<Record<string, unknown>> {
     return (await req.json()) as Record<string, unknown>;
   } catch {
     return {};
+  }
+}
+
+/** 读取并宽松解析一条订阅记录；解析失败返回 null（按不存在处理） */
+function safeParseRecord(raw: string): Record<string, unknown> | null {
+  try {
+    const v = JSON.parse(raw) as unknown;
+    return v && typeof v === 'object' ? (v as Record<string, unknown>) : null;
+  } catch {
+    return null;
   }
 }
 
@@ -79,9 +103,17 @@ export async function onRequest(ctx: PagesContext): Promise<Response> {
   }
 
   const key = `email:${raw}`;
-  const existing = await kv.get(key);
+  const frequency = parseFrequency(body.frequency);
+  const existingRaw = await kv.get(key);
+  const existing = existingRaw ? (safeParseRecord(existingRaw) ?? null) : null;
   if (existing) {
-    return json({ ok: true, already: true });
+    // 已存在记录：若用户重新提交了频率，则同步更新频率（不改变订阅状态机）
+    if (body.frequency !== undefined && existing.frequency !== frequency) {
+      existing.frequency = frequency;
+      existing.updatedAt = new Date().toISOString();
+      await kv.put(key, JSON.stringify(existing));
+    }
+    return json({ ok: true, already: true, status: existing.status ?? 'confirmed' });
   }
 
   const record = {
@@ -90,6 +122,7 @@ export async function onRequest(ctx: PagesContext): Promise<Response> {
     ts: new Date().toISOString(),
     status: 'pending',
     subscribed: false,
+    frequency,
   };
   await kv.put(key, JSON.stringify(record));
 

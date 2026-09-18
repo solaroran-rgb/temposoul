@@ -58,6 +58,9 @@ const GROUPS: NavGroup[] = [
       { to: '/zodiac/buddha', label: '生肖本命佛', desc: '八大守护神' },
       { to: '/zodiac/tai-sui', label: '太岁查询', desc: '本命年/犯太岁' },
       { to: '/fortune/crystals', label: '水晶开运', desc: '宝石开运' },
+      { to: '/gems', label: '水晶宝石图鉴', desc: '12 种晶石文化寓意' },
+      { to: '/insights', label: '运势资讯', desc: '节气/水逆/食相文章' },
+      { to: '/podcast', label: '民俗轻谈播客', desc: '30 集播客节目' },
     ],
   },
   {
@@ -69,7 +72,7 @@ const GROUPS: NavGroup[] = [
       { to: '/tarot/lexicon', label: '塔罗辞典', desc: '78 张牌义' },
       { to: '/tarot/learn', label: '塔罗学习', desc: '互动课程' },
       { to: '/runes', label: '卢恩符文', desc: '如尼符文占卜' },
-      { to: '/divination/palm', label: '手相', desc: '五大掌线解析' },
+      { to: '/tools/palmistry', label: '手相', desc: '三大主线文化辞典' },
       { to: '/divination/gufa', label: '古法论命', desc: '三流派语料' },
       { to: '/divination/fengshui-test', label: '阳宅风水测试', desc: '8 题自测' },
       { to: '/divination/qinggong', label: '清宫表', desc: '生男生女趣味' },
@@ -80,16 +83,19 @@ const GROUPS: NavGroup[] = [
   {
     label: '趣味测',
     items: [
-      { to: '/divination/cezi', label: '测字', desc: '字相测吉凶' },
-      { to: '/divination/fingerprint', label: '指纹占卜', desc: '指纹纹型' },
-      { to: '/divination/numerology', label: '数字能量', desc: '生命灵数' },
-      { to: '/divination/birth-code', label: '出生代码', desc: '生命密码' },
-      { to: '/divination/birth-flower', label: '生日花', desc: '生日花语' },
-      { to: '/divination/chenggu', label: '称骨算命', desc: '骨重称命' },
-      { to: '/divination/number', label: '号码吉凶', desc: '手机/车牌测运' },
-      { to: '/divination/dream', label: '梦境解译', desc: '周公解梦' },
-      { to: '/divination/love', label: '爱情占卜', desc: '感情主题' },
-      { to: '/tests', label: '心理测试', desc: '趣味小测' },
+      { to: '/lightfun', label: '轻娱乐大全', desc: '十二款趣味工具总览' },
+      { to: '/tools/cezi', label: '测字', desc: '单字文化拆解' },
+      { to: '/tools/fingerprint-fun', label: '指纹趣味', desc: '九种指纹形态' },
+      { to: '/tools/life-number', label: '生命灵数', desc: '1-9 主命数' },
+      { to: '/tools/birthday-code', label: '生日密码', desc: '366 档日期解读' },
+      { to: '/tools/birth-flower', label: '生日花语', desc: '十二月生辰花' },
+      { to: '/tools/fun-psych-tests', label: '心理趣味小测', desc: '三套自我觉察' },
+      { to: '/tools/blood-type-fun', label: '血型趣味说', desc: 'ABO 文化印象' },
+      { to: '/tools/qinggong-fun', label: '清宫表趣谈', desc: '民俗文化背景' },
+      { to: '/tools/eye-twitch-sneeze-fun', label: '眼跳喷嚏', desc: '十二时辰民俗' },
+      { to: '/topics/celebrity-astrology', label: '名人星盘', desc: '历史人物侧写' },
+      { to: '/knowledge/xiu-degree', label: '二十八宿', desc: '星宿象征参考' },
+      { to: '/tools/yangzhai-fengshui-test', label: '阳宅趣味测', desc: '整理倾向自测' },
     ],
   },
   {
@@ -102,12 +108,19 @@ const GROUPS: NavGroup[] = [
       { to: '/kangxi', label: '康熙字典', desc: '3500 字笔画五行' },
       { to: '/share/birth-chart', label: '生辰卡分享', desc: '生成可分享卡片' },
       { to: '/name/english', label: '英文名测试', desc: '英文名/网名' },
+      { to: '/tools/english-name-persona', label: '英文名人格测试', desc: '社交面具与内在驱动' },
+      { to: '/tools/brand-naming-engine', label: '公司起名引擎', desc: '品牌定位方法论' },
+      { to: '/tools/artisanal-naming', label: '手工起名', desc: '50 汉字心理意象' },
+      { to: '/services/senior-name-consultant', label: '顾问测名', desc: '多维度解读' },
+      { to: '/tools/life-rhythm-calendar', label: '节律月历', desc: '2026 节气能量' },
       { to: '/names/dictionary', label: '起名百科', desc: '五行用字库' },
       { to: '/names/catalog', label: '名字大全', desc: '海量名字' },
       { to: '/names/ranking', label: '名字热度榜', desc: '名字排行' },
-      { to: '/names/manual', label: '手工起名', desc: '大师手工起名' },
+      { to: '/insights/name-popularity-trends', label: '名字热度趋势', desc: 'Top50 热力区间' },
+      { to: '/names/manual', label: '手工起名服务', desc: '大师手工起名' },
       { to: '/names/expert', label: '大师测名', desc: '专家点评' },
       { to: '/names/business', label: '公司起名', desc: '店铺/商名' },
+      { to: '/partners/creator-syndicate', label: '创作者联盟', desc: '分佣与合规' },
     ],
   },
   {
@@ -122,6 +135,12 @@ const GROUPS: NavGroup[] = [
       { to: '/astrology/celebrities', label: '星座名人', desc: '名人星盘资料' },
       { to: '/astrology/parenting', label: '育儿占星', desc: '亲子关系参考' },
       { to: '/wiki/astrology', label: '占星 Wiki', desc: '行星/宫位/相位' },
+      { to: '/knowledge/astrology-terms', label: '占星百科', desc: '27 词条（B 域）' },
+      { to: '/knowledge/astrology/terms', label: '行星星座百科', desc: '27 词条（C 域）' },
+      { to: '/learn/tarot/curriculum', label: '塔罗三阶学习', desc: '19 课从愚者到世界' },
+      { to: '/knowledge/ziwei/pattern-extended', label: '格局详解库', desc: '紫微 10 大主格局' },
+      { to: '/knowledge/parenting', label: '育儿占星指南', desc: '12 星座养育参考' },
+      { to: '/tools/ephemeris', label: '星历表速览', desc: '2026 天象节点' },
     ],
   },
   {
@@ -153,7 +172,6 @@ const GROUPS: NavGroup[] = [
       { to: '/knowledge/ziwei-stars', label: '紫微星曜库', desc: '十四主星百科' },
       { to: '/knowledge/ziwei-palaces', label: '紫微宫位库', desc: '十二宫百科' },
       { to: '/video', label: '视频频道', desc: '命理视频' },
-      { to: '/podcasts', label: '播客', desc: '命理播客节目' },
       { to: '/news', label: '新闻资讯', desc: '运势文化资讯' },
     ],
   },
@@ -198,6 +216,7 @@ export function SiteNav() {
           transform: translateX(-50%);
           z-index: 55;
           display: flex;
+          align-items: center;
           gap: 2px;
           padding: 4px 8px;
           border-radius: 999px;
@@ -206,12 +225,14 @@ export function SiteNav() {
           backdrop-filter: blur(10px);
           -webkit-backdrop-filter: blur(10px);
           box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
-          max-width: calc(100vw - 200px);
+          max-width: calc(100vw - 40px);
           overflow-x: auto;
+          overflow-y: visible;
           scrollbar-width: none;
+          white-space: nowrap;
         }
         .site-nav::-webkit-scrollbar { display: none; }
-        .site-nav__group { position: relative; }
+        .site-nav__group { position: relative; flex-shrink: 0; }
         .site-nav__trigger {
           list-style: none;
           display: inline-block;
@@ -249,6 +270,7 @@ export function SiteNav() {
           max-height: min(72vh, 620px);
           overflow-y: auto;
           scrollbar-width: thin;
+          z-index: 60;
         }
         .site-nav__item {
           display: flex;
@@ -267,7 +289,13 @@ export function SiteNav() {
         .site-nav__item-label { font-size: 13px; font-weight: 500; }
         .site-nav__item-desc { font-size: 11px; color: var(--text-secondary, #8b9bb4); }
         @media (max-width: 900px) {
-          .site-nav { top: 8px; max-width: calc(100vw - 170px); left: 8px; right: 8px; transform: none; }
+          .site-nav { top: 8px; max-width: calc(100vw - 20px); left: 8px; right: 8px; transform: none; }
+          .site-nav__trigger { padding: 6px 10px; font-size: 12px; }
+          .site-nav__panel { left: auto; right: 0; transform: none; min-width: 200px; }
+        }
+        @media (max-width: 480px) {
+          .site-nav { top: 6px; padding: 3px 6px; gap: 1px; border-radius: 14px; }
+          .site-nav__trigger { padding: 5px 8px; font-size: 11px; }
         }
       `}</style>
     </nav>
