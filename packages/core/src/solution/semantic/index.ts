@@ -58,7 +58,7 @@ export { LENORMAND_REGISTRY };
 /** 塔罗（78 张，TR 组；不并入 Top50） */
 export { TAROT_REGISTRY };
 
-/** Top50 完整注册表（50 条） */
+/** Top50 完整注册表（50 条本体 + 塔罗 78 + 雷诺曼 36，共 164 条可检索术语） */
 export const TOP50_REGISTRY: Record<string, TermSchema> = {
   ...TEN_GOD_REGISTRY,
   ...PALACE_REGISTRY,
@@ -69,6 +69,8 @@ export const TOP50_REGISTRY: Record<string, TermSchema> = {
   ...STAR_REGISTRY,
   ...QIMEN_REGISTRY,
   ...LOTTERY_REGISTRY,
+  ...TAROT_REGISTRY,
+  ...LENORMAND_REGISTRY,
 };
 
 /** 十神中文名映射 */
@@ -91,3 +93,55 @@ export const TEN_GOD_NAMES: Record<string, string> = {
 
 export { runSolution, type SolutionInput, type UserProfile } from './solution';
 export type { SolutionOutput, PathOutput, DisplayVariant } from './api';
+
+// ============================================================
+// R3-12 双轨原型 + 意象词典
+// ============================================================
+
+export {
+  ARCHETYPE_MAPPINGS,
+  ARCHETYPE_BY_SHISHEN,
+  TEN_GOD_ID_LIST,
+  normalizeShishenId,
+  getArchetypeMapping,
+  validateArchetypeMappings,
+  type ArchetypeMapping,
+  type ArchetypeTrack,
+  type LifecycleEvolution,
+  type TenGodId,
+} from './archetypes';
+
+export {
+  ARCHETYPE_DOMAINS,
+  DOMAIN_LABELS,
+  FORBIDDEN_CONTEXTS,
+  FORBIDDEN_CONTEXT_LABELS,
+  type ArchetypeDomain,
+  type ForbiddenContext,
+  type CulturalSafety,
+} from './archetype_types';
+
+export {
+  IMAGERY_DICTIONARY,
+  FORBIDDEN_IMAGERY,
+  listImagery,
+  listImageryByDomain,
+  isImageryAllowed,
+  validateImageryDictionary,
+  type ImageryEntry,
+  type ImageryQuery,
+} from './imagery';
+
+export {
+  selectArchetype,
+  selectArchetypes,
+  listAllArchetypes,
+  DEFAULT_TRACK,
+  type ArchetypeResult,
+  type ArchetypeSelectorProfile,
+  type ArchetypeActivation,
+  type ArchetypeState,
+  type ArchetypeTrackKey,
+  type Strength,
+  type UseType,
+} from './archetype_select';
