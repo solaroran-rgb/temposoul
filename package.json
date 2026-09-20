@@ -6,7 +6,7 @@
     "packageManager":  "pnpm@11.9.0",
     "scripts":  {
                     "dev":  "vite",
-                    "build":  "pnpm --filter @temposoul/core build \u0026\u0026 pnpm lint:content \u0026\u0026 tsc -b \u0026\u0026 vite build",
+                    "build":  "pnpm --filter @temposoul/core build \u0026\u0026 pnpm lint:content \u0026\u0026 tsc -b \u0026\u0026 vite build \u0026\u0026 node scripts/prerender-titles.mjs",
                     "preview":  "vite preview",
                     "build:char-index":  "tsx --tsconfig tsconfig.app.json scripts/build-char-index.ts",
                     "test":  "pnpm --filter @temposoul/core build \u0026\u0026 tsx --tsconfig tsconfig.app.json --test \"tests/*.test.ts\"",

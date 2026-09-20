@@ -35,14 +35,15 @@ function segment(ctx: PagesContext): string {
   return m ? m[1] : '';
 }
 
-function json(data: unknown, status = 200): Response {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Access-Control-Allow-Origin': '*',
-    },
-  });
+function json(data: unknown, status = 200, origin?: string): Response {
+  const headers: Record<string, string> = {
+    'Content-Type': 'application/json; charset=utf-8',
+  };
+  // CORS: 仅回显请求 Origin（同域请求无需 CORS header）
+  if (origin) {
+    headers['Access-Control-Allow-Origin'] = origin;
+  }
+  return new Response(JSON.stringify(data), { status, headers });
 }
 
 function bufToB64url(buf: ArrayBuffer | Uint8Array): string {
@@ -134,12 +135,15 @@ export async function onRequest(ctx: PagesContext): Promise<Response> {
   const method = ctx.request.method.toUpperCase();
 
   if (method === 'OPTIONS') {
+    const origin = ctx.request.headers.get('Origin') ?? '';
     return new Response(null, {
       status: 204,
       headers: {
-        'Access-Control-Allow-Origin': '*',
+        // CORS: 仅回显请求 Origin，禁止 `*` 通配（安全审计 F-002）
+        ...(origin ? { 'Access-Control-Allow-Origin': origin } : {}),
         'Access-Control-Allow-Methods': 'POST,GET,OPTIONS',
         'Access-Control-Allow-Headers': 'Content-Type,Authorization',
+        'Access-Control-Max-Age': '600',
       },
     });
   }

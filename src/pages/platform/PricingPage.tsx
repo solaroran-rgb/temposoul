@@ -3,6 +3,9 @@
 // 未配置支付（503 commerce_unavailable）/ 未登录（403）时优雅降级到登录页，不假装支付成功。
 import React, { useCallback, useEffect, useState } from 'react';
 import { trackPricingView } from '../../lib/analytics';
+import { getAuthToken } from '../../lib/auth/token';
+import { SeoHead } from '../../components/SeoHead';
+import './PricingPage.css';
 
 // 对齐后端 PRODUCT_CATALOG（src/lib/server/payment.ts）的 productId 取值
 type ProductId = 'event_9_9' | 'report_39_9' | 'sub_monthly_19_9';
@@ -20,13 +23,7 @@ export const PricingPage: React.FC = () => {
       if (loadingId) return;
       setLoadingId(productId);
       try {
-        const token = (() => {
-          try {
-            return localStorage.getItem('ts_auth_token') || '';
-          } catch {
-            return '';
-          }
-        })();
+        const token = getAuthToken() || '';
         const res = await fetch('/api/v1/checkout', {
           method: 'POST',
           headers: {
@@ -55,6 +52,10 @@ export const PricingPage: React.FC = () => {
 
   return (
     <div className="pricing-page">
+      <SeoHead
+        title="定价方案 · 命律 TempoSoul"
+        description="命律 TempoSoul 会员与单次报告定价，每日 3 次免费 AI 深度解读额度。"
+      />
       <header className="pricing-page__header">
         <h1 className="pricing-page__title">选择适合您的命理探索方案</h1>
         <p className="pricing-page__disclaimer">

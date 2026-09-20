@@ -24,6 +24,11 @@ export function getManualChunk(id: string) {
     return 'celestine-vendor';
   }
 
+  // three.js — 3D 城市/天空渲染（src/lib/sky, src/lib/city），体积大、仅场景页用
+  if (id.includes('node_modules/three/')) {
+    return 'three-vendor';
+  }
+
   if (id.includes('packages/core/src/ziwei/iztro/pattern-detection.ts')) {
     return 'ziwei-patterns';
   }

@@ -198,7 +198,8 @@ export default defineConfig({
     },
   },
   build: {
-    chunkSizeWarningLimit: 700,
+    // three-vendor 已独立成块后，阈值收回 Vite 默认 500，让其余超块暴露出来
+    chunkSizeWarningLimit: 500,
     rollupOptions: {
       output: {
         manualChunks(id) {

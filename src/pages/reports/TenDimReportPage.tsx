@@ -19,6 +19,7 @@ import {
   trackReportLoadError,
   trackReportStatusChange,
 } from '../../lib/analytics/report-events';
+import { getAuthToken } from '../../lib/auth/token';
 
 interface ReportTaskResponse {
   id: string;
@@ -29,16 +30,11 @@ interface ReportTaskResponse {
   error?: string;
 }
 
-// 认证 token 键名对齐现有实现（src/lib/auth/AuthContext.tsx 的 TOKEN_KEY）
-const TOKEN_KEY = 'ts_auth_token';
+// 认证 token 统一走 lib/auth/token（ND-1 修复），隐私模式安全
 const POLL_INTERVAL_MS = 3000;
 
 function safeGetToken(): string | null {
-  try {
-    return localStorage.getItem(TOKEN_KEY);
-  } catch {
-    return null;
-  }
+  return getAuthToken();
 }
 
 async function fetchReport(id: string): Promise<ReportTaskResponse> {

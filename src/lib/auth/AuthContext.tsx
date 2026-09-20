@@ -9,9 +9,11 @@ import {
 } from 'react';
 import { safeStorage } from '@/lib/safe-storage';
 import { fetchMe, loginAccount, logoutAccount, registerAccount, type AuthUser } from './api';
+import { AUTH_TOKEN_KEY } from './token';
 import { trackSignup } from '@/lib/analytics';
 
-const TOKEN_KEY = 'ts_auth_token';
+// token 键名统一走 ./token（ND-1 修复）
+const TOKEN_KEY = AUTH_TOKEN_KEY;
 
 type AuthContextValue = {
   user: AuthUser | null;

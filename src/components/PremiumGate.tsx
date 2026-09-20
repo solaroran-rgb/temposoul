@@ -1,9 +1,11 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { useI18n } from '@/i18n';
 import { safeStorage } from '@/lib/safe-storage';
+import { AUTH_TOKEN_KEY } from '@/lib/auth/token';
 import { trackPaywallView, trackSubscribe } from '@/lib/analytics';
 
-const TOKEN_KEY = 'ts_auth_token';
+// token 键名统一走 lib/auth/token（ND-1 修复）
+const TOKEN_KEY = AUTH_TOKEN_KEY;
 const QUOTA_KEY_PREFIX = 'ts_ai_quota_';
 
 type Tier = 'free' | 'premium' | 'unknown';
