@@ -4,10 +4,10 @@ import { ErrorBoundary } from './components/ErrorBoundary';
 import { StarfieldBackground } from './components/StarfieldBackground';
 import { GlobalControlCluster } from './components/GlobalControlCluster';
 import { SiteNav } from './components/SiteNav';
+import { SiteFooter } from './components/SiteFooter';
 import { TrustBanner } from './components/TrustEngine/TrustBanner';
 import { FavoritesProvider } from './contexts/FavoritesContext';
 import { ProfilesProvider } from './contexts/ProfilesContext';
-import { useI18n } from '@/i18n';
 import { initAnalyticsFromRuntime, trackPageView } from '@/lib/analytics';
 import { A22Routes } from '@/router/A22Routes';
 import { b22Routes } from '@/routes/b22-routes';
@@ -29,6 +29,8 @@ import { ZiweiLearnRoutes } from '@/router/ZiweiLearnRoutes';
 import { DivLearnRoutes } from '@/router/DivLearnRoutes';
 import { NewsletterRoutes } from '@/router/NewsletterRoutes';
 import { SeoRoutes } from '@/router/SeoRoutes';
+import { WestAstroRoutes } from '@/router/WestAstroRoutes';
+import { FemaleRoutes } from '@/router/FemaleRoutes';
 import { ComplianceGuard } from '@/components/platform/ComplianceGuard';
 
 const InputPage = lazy(async () => {
@@ -74,6 +76,11 @@ const LexiconPage = lazy(async () => {
 const SkyPage = lazy(async () => {
   const module = await import('./pages/SkyPage/SkyPage');
   return { default: module.SkyPage };
+});
+
+const SkyEventSharePage = lazy(async () => {
+  const module = await import('./pages/SkyEventSharePage/SkyEventSharePage');
+  return { default: module.SkyEventSharePage };
 });
 
 // 第4轮专家交付新页面（路由接线收尾）
@@ -322,6 +329,11 @@ const ZiweiPalaceDetailPage = lazy(() => import('./pages/knowledge/ZiweiPalaceDe
 const LoveDivinationPage = lazy(() => import('./pages/divination/LoveDivinationPage'));
 const VideoChannelPage = lazy(() => import('./pages/video/VideoChannelPage'));
 
+// 七政四余 / 八宅独立排盘栏目页 + 全站站点地图
+const QizhengPage = lazy(() => import('./pages/qizheng/QizhengPage'));
+const BazhaiPage = lazy(() => import('./pages/fengshui/BazhaiPage'));
+const SiteMapPage = lazy(() => import('./pages/platform/SiteMapPage'));
+
 // 批3a D21C21：社区/会员(C) + 咨询/专家/账户/商城/联盟(D) 路由接线
 const ForumPage = lazy(() => import('./pages/community/ForumPage'));
 const PostDetailPage = lazy(() => import('./pages/community/PostDetailPage'));
@@ -339,6 +351,19 @@ const TopUpPage = lazy(() => import('./pages/account/TopUpPage'));
 const RewardsPage = lazy(() => import('./pages/account/RewardsPage'));
 const ProductsPage = lazy(() => import('./pages/shop/ProductsPage'));
 const ProgramPage = lazy(() => import('./pages/affiliate/ProgramPage'));
+const CalendarPickPage = lazy(async () => {
+  const module = await import('./pages/calendar/CalendarPage');
+  return { default: module.CalendarPage };
+});
+const DailyEnergyPage = lazy(async () => {
+  const module = await import('./pages/daily/DailyPage');
+  return { default: module.DailyPage };
+});
+const SummaryPage = lazy(() => import('./pages/summary/SummaryPage'));
+const PointsPage = lazy(async () => {
+  const module = await import('./pages/account/PointsPage');
+  return { default: module.PointsPage };
+});
 
 function RouteFallback() {
   return (
@@ -358,7 +383,6 @@ function RouteFallback() {
 }
 
 export default function App() {
-  const { t } = useI18n();
   const location = useLocation();
   const isSkyImmersive = location.pathname === '/sky';
 
@@ -384,6 +408,7 @@ export default function App() {
               <Routes>
                 <Route path="/" element={<InputPage />} />
                 <Route path="/sky" element={<SkyPage />} />
+                <Route path="/sky-event/:token" element={<SkyEventSharePage />} />
                 <Route path="/tutorial" element={<TutorialPage />} />
                 <Route path="/records" element={<RecordsPage />} />
                 <Route path="/result" element={<ResultPage />} />
@@ -402,6 +427,10 @@ export default function App() {
                 <Route path="/name-test" element={<NameTestPage />} />
                 <Route path="/search" element={<SearchPage />} />
                 <Route path="/pricing" element={<PricingPage />} />
+                <Route path="/calendar/pick" element={<CalendarPickPage />} />
+                <Route path="/daily/energy" element={<DailyEnergyPage />} />
+                <Route path="/account/points" element={<PointsPage />} />
+                <Route path="/summary" element={<SummaryPage />} />
                 <Route path="/astro/events" element={<EventsPage />} />
                 <Route path="/fortune/daily" element={<DailyFortunePage />} />
                 <Route path="/daily-fortune" element={<DailySignPage />} />
@@ -465,6 +494,10 @@ export default function App() {
                 />
                 <Route path="/divination/love" element={<LoveDivinationPage />} />
                 <Route path="/video" element={<VideoChannelPage />} />
+                {/* 独立排盘栏目页 + 全站站点地图 */}
+                <Route path="/qizheng" element={<QizhengPage />} />
+                <Route path="/fengshui/bazhai" element={<BazhaiPage />} />
+                <Route path="/sitemap" element={<SiteMapPage />} />
                 <Route path="/faq" element={<FaqPage />} />
                 <Route path="/favorites" element={<FavoritesPage />} />
                 <Route path="/profile" element={<ProfilePage />} />
@@ -506,32 +539,14 @@ export default function App() {
                 {DivLearnRoutes}
                 {NewsletterRoutes}
                 {SeoRoutes}
+                {WestAstroRoutes}
+                {FemaleRoutes}
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
               <ComplianceGuard />
             </main>
           </ErrorBoundary>
-          {!isSkyImmersive && (
-            <footer
-              className="global-disclaimer"
-              style={{
-                position: 'fixed',
-                bottom: 0,
-                left: 0,
-                right: 0,
-                zIndex: 50,
-                padding: '6px 12px',
-                fontSize: 11,
-                lineHeight: 1.4,
-                textAlign: 'center',
-                color: '#d8cfe0',
-                background: 'rgba(19, 16, 25, 0.92)',
-                borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-              }}
-            >
-              {t('disclaimer')}
-            </footer>
-          )}
+          {!isSkyImmersive && <SiteFooter />}
         </Suspense>
       </ProfilesProvider>
     </FavoritesProvider>

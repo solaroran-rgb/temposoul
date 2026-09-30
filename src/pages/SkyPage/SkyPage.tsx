@@ -21,6 +21,7 @@ import { constInfoOf } from '../../lib/sky/constellationInfo';
 import { toJulianDay, localSiderealTime, radecToAltAz, DEG } from '../../lib/sky/astro';
 import { isTaipeiCovered, GEO_ENGINE_META } from '../../lib/geo/geoEngine';
 import { NebulaOverlay } from './NebulaOverlay';
+import { SaveMemorialModal, MySkyEventsPanel } from './SkyEventTools';
 
 /** cities.json 最近城市（IP/GPS 定位结果 → 城市中心；±maxDeg° 内视为命中，否则 null）。
  * F1：定位坐标吸附到城市中心，使 /api/geo KV key（geo:v6:{lat.toFixed(2)}:{lon.toFixed(2)}）
@@ -55,6 +56,8 @@ export function SkyPage() {
   const [isPanelOpen, setIsPanelOpen] = useState(false);
   const [err, setErr] = useState('');
   const [hoveredConst, setHoveredConst] = useState<string | null>(null);
+  const [showSave, setShowSave] = useState(false);
+  const [showMyEvents, setShowMyEvents] = useState(false);
 
   const applySpatioTemporal = useCallback((lat: number, lon: number, date: Date) => {
     sceneRef.current?.setTimeLocation(date, { lat, lon });
@@ -347,6 +350,12 @@ export function SkyPage() {
         className="top-right"
         style={{ position: 'absolute', top: 24, right: 24, zIndex: 10, display: 'flex', gap: 8 }}
       >
+        <button className="hud-btn" onClick={() => setShowSave(true)}>
+          保存纪念
+        </button>
+        <button className="hud-btn" onClick={() => setShowMyEvents(true)}>
+          我的纪念
+        </button>
         <button className="hud-btn" onClick={handleSave}>
           保存星图
         </button>
@@ -701,6 +710,21 @@ export function SkyPage() {
         initialCity={city}
         initialDateTime={currentDateTime}
         onApply={handleApply}
+      />
+
+      <SaveMemorialModal
+        open={showSave}
+        onClose={() => setShowSave(false)}
+        eventTime={`${currentDateTime}:00`}
+        lat={city.lat}
+        lng={city.lon}
+        locationName={city.n}
+        defaultTitle={city.n ? `${city.n}的星空` : '我的星空纪念'}
+      />
+      <MySkyEventsPanel
+        open={showMyEvents}
+        onClose={() => setShowMyEvents(false)}
+        onChanged={() => setShowMyEvents(false)}
       />
     </div>
   );
