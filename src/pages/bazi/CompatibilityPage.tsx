@@ -1,8 +1,14 @@
-// 修正：IT-1.1/1.2/1.3/1.7、IT-2.3 依据
+// 修正：IT-1.1/1.2/1.3/1.7、IT-2.3 依据；任务包2.1 接入解盘引擎
 import { useState, useCallback, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { calculateBaziChartFromInput } from '@core/bazi/input';
 import { PageTopbar } from '../../components/PageTopbar';
+import { ReportExportButton } from '../../components/ReportExportButton';
 import { PrivacyHint } from '../../components/PrivacyHint';
+import { SolutionPanel, type SolutionSource } from '../../components/solution/SolutionPanel';
+import { baziSolutionSources } from '../../lib/solution/solutionContext';
+import { runSolutionForBazi } from '../../lib/full-chart-engine/solution-context';
+import { L0SummaryCard } from '../../components/fortune/L0SummaryCard';
 import {
   DayMasterRelationCard,
   type DayMasterRelationInput,
@@ -14,6 +20,7 @@ import {
 import { useAiChat } from '../../hooks/useAiChat';
 import { useFortuneCache } from '../../hooks/useFortuneCache';
 import { trackChartSubmit } from '../../lib/analytics';
+import { SeoHead } from '../../components/SeoHead';
 
 interface PersonInput {
   name: string;
@@ -74,6 +81,47 @@ function asStringArray(v: unknown): string[] {
 function formatApiError(json: { error?: { message?: string } }): string {
   return json?.error?.message || '请求失败';
 }
+
+// 5.2 内容补缺：基于双方日主十神关系推导相处模式与建议（规则化，不显示分数）。
+type TenGodCategory = '比和' | '我生' | '生我' | '我克' | '克我';
+const TEN_GOD_CATEGORY: Record<string, TenGodCategory> = {
+  比肩: '比和',
+  劫财: '比和',
+  食神: '我生',
+  伤官: '我生',
+  正印: '生我',
+  偏印: '生我',
+  正财: '我克',
+  偏财: '我克',
+  正官: '克我',
+  七杀: '克我',
+};
+const COHABIT_ADVICE: Record<TenGodCategory, { mode: string; advice: string }> = {
+  比和: {
+    mode: '同气共振',
+    advice:
+      '双方气场相近、想法易同频，相处自然轻松；但同质化也易缺乏互补，建议保留各自独立空间与兴趣，避免小事上互不相让。',
+  },
+  我生: {
+    mode: '滋养输出',
+    advice:
+      '你方生扶对方，关系里多有付出与照顾；注意平衡给予与接受，避免长期单向消耗，也别忘了表达自身需求。',
+  },
+  生我: {
+    mode: '被滋养接纳',
+    advice:
+      '对方生扶你方，你能在关系中获得支持与安定；可主动回馈，让滋养双向流动，减少一方过度承担。',
+  },
+  我克: {
+    mode: '吸引掌控',
+    advice: '你方对对方有自然的吸引与主导感；关系中需多一份尊重与商量，避免因掌控欲盖过倾听。',
+  },
+  克我: {
+    mode: '张力磨合',
+    advice:
+      '双方存在克制的张力，磨合中易有压力与分歧；建议以沟通与包容消解对立，把张力转化为互相督促的动力。',
+  },
+};
 
 export function CompatibilityPage() {
   const navigate = useNavigate();
@@ -144,6 +192,38 @@ export function CompatibilityPage() {
     const o = asObject(data?.resultSummary?.spousePalaceRelations);
     return o ? asString(o.promptText) : undefined;
   }, [data]);
+
+  // 5.2 相处建议（无分数）：由日主十神关系推导模式与建议。
+  const cohabit = useMemo(() => {
+    const rel = dayMaster?.person1ToPerson2;
+    if (!rel) return null;
+    const cat = TEN_GOD_CATEGORY[rel] ?? '比和';
+    const info = COHABIT_ADVICE[cat];
+    return { rel, mode: info.mode, advice: info.advice };
+  }, [dayMaster]);
+
+  // 任务包2.1：解盘引擎 L0 白话结论（本地补算双方排盘作为引擎上下文）
+  const solutionSources = useMemo<SolutionSource[]>(() => {
+    if (!data) return [];
+    const out: SolutionSource[] = [];
+    try {
+      out.push(...baziSolutionSources(calculateBaziChartFromInput(p1), '本人命盘'));
+      out.push(...baziSolutionSources(calculateBaziChartFromInput(p2), '对方命盘'));
+    } catch {
+      /* 补算失败则不显示引擎解读区，不影响原有展示 */
+    }
+    return out;
+  }, [data, p1, p2]);
+
+  // 首屏 L0 结论卡：以本人（p1）命盘跑解盘引擎；双人盘详细对照留在下方 SolutionPanel
+  const p1Solution = useMemo(() => {
+    if (!data) return null;
+    try {
+      return runSolutionForBazi(calculateBaziChartFromInput(p1));
+    } catch {
+      return null;
+    }
+  }, [data, p1]);
 
   const onSubmit = useCallback(async () => {
     setError(null);
@@ -272,6 +352,10 @@ export function CompatibilityPage() {
 
   return (
     <div className="ts-page ts-page--bazi-compat">
+      <SeoHead
+        title="八字合婚 · 命律 TempoSoul"
+        description="传统八字合婚分析，对比双方日主关系与配偶宫，给出契合度解读。"
+      />
       <PageTopbar title="八字合婚" onBack={() => navigate(-1)} />
       <main className="ts-page__main">
         <h1 className="ts-page__title">八字合婚</h1>
@@ -298,6 +382,21 @@ export function CompatibilityPage() {
           )}
         </section>
 
+        {data && p1Solution && (
+          <L0SummaryCard
+            output={{ pro: p1Solution.pro, meta: p1Solution.meta }}
+            title="合婚 · 一句话结论（以本人命盘）"
+          />
+        )}
+
+        {data && (
+          <SolutionPanel
+            sources={solutionSources}
+            title="详细解读 · 双方命盘"
+            boundary="解释边界：本解读由本地解盘引擎按传统命理规则生成，仅供文化研究与自我参照，不构成任何决策依据，不显示匹配分数或成功率。"
+          />
+        )}
+
         {data && (
           <section className="ts-card">
             <h2 className="ts-card__title">日主关系</h2>
@@ -323,6 +422,9 @@ export function CompatibilityPage() {
               )}
             </div>
             {aiError && <div className="ts-alert ts-alert--error">{aiError}</div>}
+            <div className="ts-ai-actions">
+              <ReportExportButton type="hehun" subject={`${p1.name}-${p2.name}`} />
+            </div>
             {aiText && (
               <div className="ts-ai-panel">
                 <div className="ts-ai-panel__body">{aiText}</div>
@@ -331,6 +433,20 @@ export function CompatibilityPage() {
                 </div>
               </div>
             )}
+          </section>
+        )}
+
+        {data && cohabit && (
+          <section className="ts-card">
+            <h2 className="ts-card__title">相处建议</h2>
+            <div className="ts-cohabit-mode">
+              <span className="ts-cohabit-mode__tag">{cohabit.mode}</span>
+              <span className="ts-cohabit-mode__rel">日主关系：{cohabit.rel}</span>
+            </div>
+            <p className="ts-cohabit-advice">{cohabit.advice}</p>
+            <p className="ts-cohabit-boundary">
+              说明：以上为基于双方日主五行生克与十神关系的文化参考，仅作相处视角的提示，不计算、不显示匹配分数或成功率。
+            </p>
           </section>
         )}
       </main>

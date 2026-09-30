@@ -16,6 +16,9 @@ packages/core/src/location/global-cities-data.js
 output/
 .playwright-cli/
 
+# 报告 PDF 样例（可 pnpm gen:pdf-samples 重新生成，不进版本库）
+artifacts/report-pdf-samples/
+
 # 本地审查、阶段记录和 AI 协作资料（不进入 GitHub）
 .local/
 .workbuddy/

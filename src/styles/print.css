@@ -1,0 +1,58 @@
+/* 报告 PDF 导出 · 打印样式（与 window.print() 配合） */
+
+@page {
+  size: A4;
+  margin: 14mm 12mm;
+}
+
+@media print {
+  /* 站点外壳与交互控件不进 PDF */
+  .site-nav,
+  .page-topbar,
+  .privacy-hint,
+  .ts-field-block,
+  .ts-form-grid,
+  .ts-fieldset,
+  .ts-ai-actions,
+  .ts-ai-panel,
+  .name-report__quota,
+  button,
+  input,
+  textarea,
+  select {
+    display: none !important;
+  }
+
+  /* 报告主体：去掉屏幕端的容器约束与装饰，交还给纸张 */
+  body,
+  main,
+  .ts-page,
+  .ts-page__main,
+  .name-report {
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+    color: #111 !important;
+    box-shadow: none !important;
+    border: 0 !important;
+  }
+
+  /* 流年时间轴只保留目标年一行：全生命轴（1900–2100）摊开会吃掉整本 PDF */
+  .ts-liunian-timeline tbody tr:not(.ts-liunian-timeline__row--selected) {
+    display: none !important;
+  }
+
+  /* 卡片与段落不被跨页切断；标题不孤立在页尾 */
+  .ts-card,
+  .name-report__block,
+  .ts-card__title,
+  h1,
+  h2,
+  h3 {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+}

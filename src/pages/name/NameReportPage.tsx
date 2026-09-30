@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { PageTopbar } from '../../components/PageTopbar';
+import { ReportExportButton } from '../../components/ReportExportButton';
 import { PrivacyHint } from '../../components/PrivacyHint';
 import { PremiumGate } from '../../components/PremiumGate';
 import { useAiChat } from '../../hooks/useAiChat';
@@ -70,6 +71,9 @@ export function NameReportPage(): React.ReactElement {
             <p className="name-report__boundary">
               本档案为事实与民俗文化参考，不含吉凶预测、成功率或必然事件断言。
             </p>
+            <div className="ts-ai-actions">
+              <ReportExportButton type="naming" subject={name} />
+            </div>
             <section className="name-report__block">
               <h2>事实层</h2>
               <p>读音：{profile.fact.phonetics.data.pinyin.join(' ') || '数据准备中'}</p>

@@ -1,7 +1,9 @@
-// 修正：IT-1.1/1.2/1.3/1.7/1.9、IT-2.2 依据 + 契约 §4（targetYear 硬约束）+ 缓存策略
+// 修正：IT-1.1/1.2/1.3/1.7/1.9、IT-2.2 依据 + 契约 §4（targetYear 硬约束）+ 缓存策略 + 流月窗口
 import { useState, useCallback, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { calculateLiuyue } from '@temposoul/core/bazi';
 import { PageTopbar } from '../../components/PageTopbar';
+import { ReportExportButton } from '../../components/ReportExportButton';
 import { PrivacyHint } from '../../components/PrivacyHint';
 import { LiunianTimeline, type LiunianItem } from './components/LiunianTimeline';
 import { AnnualTenGodPanel } from './components/AnnualTriggerList';
@@ -10,6 +12,9 @@ import {
   relationsToEvidence,
   type EvidenceItem,
 } from '../../components/fortune/FortuneEvidenceCard';
+import { L0SummaryCard, type L0TimeWindow } from '../../components/fortune/L0SummaryCard';
+import { runSolutionForBazi } from '../../lib/full-chart-engine/solution-context';
+import { AIChatBox } from '../../components/AIChatBox';
 import { useAiChat } from '../../hooks/useAiChat';
 import { useFortuneCache } from '../../hooks/useFortuneCache';
 import { trackChartSubmit } from '../../lib/analytics';
@@ -28,6 +33,7 @@ interface BaziCalcData {
   liunian?: unknown;
   tenGods?: unknown;
   pillarRelations?: unknown;
+  dayMaster?: { gan: string };
 }
 
 interface BaziPromptData {
@@ -64,7 +70,7 @@ function validateTargetYear(y: number): string | null {
   return null;
 }
 
-function normalizeLiunian(raw: unknown): LiunianItem[] {
+function normalizeLiunian(raw: unknown, dayMasterGan?: string): LiunianItem[] {
   if (!Array.isArray(raw)) return [];
   const out: LiunianItem[] = [];
   for (let i = 0; i < raw.length; i++) {
@@ -73,12 +79,23 @@ function normalizeLiunian(raw: unknown): LiunianItem[] {
     const o = it as Record<string, unknown>;
     const year = typeof o.year === 'number' ? o.year : Number(o.year);
     if (!Number.isFinite(year)) continue;
+    const monthWindows = dayMasterGan
+      ? Array.from({ length: 12 }, (_, m) => {
+          try {
+            const info = calculateLiuyue(year, m + 1, dayMasterGan);
+            return { startDate: info.startDate, endDate: info.endDate };
+          } catch {
+            return null;
+          }
+        }).filter((w): w is NonNullable<typeof w> => w !== null)
+      : undefined;
     out.push({
       year,
       age: typeof o.age === 'number' ? o.age : Number(o.age) || 0,
       ganZhi: typeof o.ganZhi === 'string' ? o.ganZhi : '-',
       tenGod: typeof o.tenGod === 'string' ? o.tenGod : '-',
       tenGodZhi: typeof o.tenGodZhi === 'string' ? o.tenGodZhi : '-',
+      monthWindows,
     });
   }
   return out;
@@ -113,7 +130,10 @@ export function LiunianPage() {
     setBirth((p) => ({ ...p, [k]: v }));
   }, []);
 
-  const liunian = useMemo(() => normalizeLiunian(calcData?.liunian), [calcData]);
+  const liunian = useMemo(
+    () => normalizeLiunian(calcData?.liunian, calcData?.dayMaster?.gan),
+    [calcData],
+  );
   const evidence: EvidenceItem[] = useMemo(
     () => relationsToEvidence(calcData?.pillarRelations),
     [calcData],
@@ -121,6 +141,40 @@ export function LiunianPage() {
   const selected = useMemo(
     () => liunian.find((l) => l.year === targetYear) ?? null,
     [liunian, targetYear],
+  );
+
+  // 解盘引擎接入：排盘结果 → runSolution → L0 白话结论（流年页，直接展示）
+  const l0Output = useMemo(() => (calcData ? runSolutionForBazi(calcData) : null), [calcData]);
+
+  // F04 · AI 追问框上下文：流年目标年 + 流年干支 + 日主 + L0 结论摘要
+  const aiContextPrompt = useMemo(() => {
+    if (!calcData) return '';
+    const l0Text = (l0Output?.pro?.sentences ?? [])
+      .map((s: { text?: string }) => s.text)
+      .filter(Boolean)
+      .join(' ');
+    const selectedYear = liunian.find((l) => l.year === targetYear);
+    return [
+      `【八字流年】${birth.name ? `${birth.name}，` : ''}${birth.gender === 'male' ? '男' : '女'}，${birth.year}-${String(birth.month).padStart(2, '0')}-${String(birth.day).padStart(2, '0')}，目标 ${targetYear} 年`,
+      calcData.dayMaster?.gan && `日主：${calcData.dayMaster.gan}`,
+      selectedYear && `流年：${targetYear} ${selectedYear.ganZhi ?? ''}`,
+      l0Text && `L0 结论：${l0Text}`,
+    ]
+      .filter(Boolean)
+      .join('\n');
+  }, [calcData, l0Output, birth, targetYear, liunian]);
+
+  // L0 结论卡时间窗：目标流年（当年窗口）
+  const l0TimeWindow = useMemo<L0TimeWindow[]>(
+    () => [
+      {
+        scale: 'current',
+        label: `${targetYear} 流年${selected?.ganZhi ? ` · ${selected.ganZhi}` : ''}`,
+        detail: '当年运势窗口，可结合流月进一步细化节奏',
+        share: 1,
+      },
+    ],
+    [targetYear, selected],
   );
 
   const onSubmit = useCallback(async () => {
@@ -308,6 +362,9 @@ export function LiunianPage() {
         {calcData && (
           <section className="ts-card">
             <h2 className="ts-card__title">流年时间轴</h2>
+            {l0Output && (
+              <L0SummaryCard output={l0Output} title="当年运势白话解读" timeWindow={l0TimeWindow} />
+            )}
             <LiunianTimeline items={liunian} targetYear={targetYear} />
             <h3 className="ts-card__subtitle">目标年干支十神</h3>
             <AnnualTenGodPanel item={selected} targetYear={targetYear} />
@@ -324,6 +381,9 @@ export function LiunianPage() {
               )}
             </div>
             {aiError && <div className="ts-alert ts-alert--error">{aiError}</div>}
+            <div className="ts-ai-actions">
+              <ReportExportButton type="liunian" subject={birth.name} />
+            </div>
             {aiText && (
               <div className="ts-ai-panel">
                 <div className="ts-ai-panel__body">{aiText}</div>
@@ -332,6 +392,10 @@ export function LiunianPage() {
                 </div>
               </div>
             )}
+            <AIChatBox
+              contextPrompt={aiContextPrompt}
+              resetKey={`bazi-liunian-${birth.year}-${birth.month}-${birth.day}-${birth.timeIndex}-${targetYear}`}
+            />
           </section>
         )}
       </main>

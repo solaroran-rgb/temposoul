@@ -6,7 +6,7 @@
     "packageManager":  "pnpm@11.9.0",
     "scripts":  {
                     "dev":  "vite",
-                    "build":  "pnpm --filter @temposoul/core build \u0026\u0026 pnpm lint:content \u0026\u0026 tsc -b \u0026\u0026 vite build \u0026\u0026 node scripts/prerender-titles.mjs",
+                    "build":  "pnpm --filter @temposoul/core build \u0026\u0026 pnpm lint:content \u0026\u0026 tsc -b \u0026\u0026 vite build \u0026\u0026 node scripts/prerender-titles.mjs && node scripts/verify-dist-integrity.mjs",
                     "preview":  "vite preview",
                     "build:char-index":  "tsx --tsconfig tsconfig.app.json scripts/build-char-index.ts",
                     "test":  "pnpm --filter @temposoul/core build \u0026\u0026 tsx --tsconfig tsconfig.app.json --test \"tests/*.test.ts\"",
@@ -31,8 +31,11 @@
                     "lint:content":  "node scripts/lint-content.mjs",
                     "gen:content":  "node scripts/gen-content-skeleton.mjs \u0026\u0026 node scripts/gen-names-skeleton.mjs",
                     "build:smoke-exp":  "tsx --tsconfig tsconfig.app.json scripts/build-smoke-expectations.ts",
+                    "gen:pdf-samples":  "tsx scripts/gen-report-pdf-samples.ts",
                     "smoke":  "node scripts/smoke-runner.mjs",
                     "verify:merkle":  "node scripts/verify-merkle.mjs",
+                    "verify:dist":  "node scripts/verify-dist-integrity.mjs dist",
+                    "verify:seo":  "node scripts/verify-dist-seo.mjs dist",
                     "freeze:artifacts":  "tsx --tsconfig tsconfig.app.json scripts/freeze-artifacts.ts",
                     "validate:routes":  "tsx --tsconfig tsconfig.app.json scripts/validate-routes.ts"
                 },
