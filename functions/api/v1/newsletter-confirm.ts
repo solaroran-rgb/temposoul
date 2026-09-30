@@ -22,6 +22,7 @@
  */
 
 import { sendMail, type MailerEnv } from '../../../src/lib/server/mailer';
+import { renderConfirmationMail } from '../../../src/lib/server/mail/flows';
 
 interface KVNamespace {
   get(key: string): Promise<string | null>;
@@ -159,31 +160,8 @@ export async function sendConfirmationEmail(
   const confirmUrl = `${origin}/api/v1/newsletter-confirm?token=${encodeURIComponent(token)}`;
   const brand = env.MAIL_FROM_NAME?.trim() || 'TempoSoul';
 
-  await sendMail(env, {
-    to: email,
-    subject: `[${brand}] 请确认订阅 / Confirm your subscription`,
-    html: [
-      `<div style="font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.7;color:#1a1230;max-width:520px;margin:0 auto;padding:24px;">`,
-      `<h2 style="margin:0 0 12px;font-size:18px;">${brand} · 邮件订阅确认</h2>`,
-      `<p style="margin:0 0 12px;font-size:14px;">你好，</p>`,
-      `<p style="margin:0 0 12px;font-size:14px;">感谢订阅 ${brand}。请点击下面的按钮完成邮箱确认（双确认，7 天内有效）：</p>`,
-      `<p style="margin:0 0 18px;text-align:center;">`,
-      `<a href="${confirmUrl}" style="display:inline-block;padding:10px 26px;border-radius:10px;background:linear-gradient(135deg,#ffd166,#b48cff);color:#1a1230;font-weight:700;text-decoration:none;">确认订阅 / Confirm</a>`,
-      `</p>`,
-      `<p style="margin:0 0 8px;font-size:12px;color:#6b7280;">如果按钮无法点击，复制此链接到浏览器：</p>`,
-      `<p style="margin:0 0 18px;font-size:12px;word-break:break-all;"><a href="${confirmUrl}" style="color:#7c5cff;">${confirmUrl}</a></p>`,
-      `<p style="margin:0;font-size:12px;color:#8b93a7;">若非本人订阅可忽略本邮件，无需退订。</p>`,
-      `</div>`,
-    ].join(''),
-    text: [
-      `${brand} · 邮件订阅确认`,
-      '',
-      `感谢订阅 ${brand}。请访问以下链接完成邮箱确认（双确认，7 天内有效）：`,
-      confirmUrl,
-      '',
-      '若非本人订阅可忽略本邮件。',
-    ].join('\n'),
-  });
+  // 模板统一在 mail/flows.ts（调度器五流共用同一份文案，避免两处漂移）
+  await sendMail(env, { to: email, ...renderConfirmationMail(brand, confirmUrl) });
 }
 
 function json(data: unknown, status = 200): Response {

@@ -8,6 +8,8 @@
  *       故本地开发时认证端点返回 503，客户端优雅降级。
  */
 
+import { enqueueMail, type MailSchedulerEnv } from '../../../src/lib/server/mail/scheduler';
+
 interface KVNamespace {
   get(key: string): Promise<string | null>;
   put(key: string, value: string, opts?: { expirationTtl?: number }): Promise<void>;
@@ -164,6 +166,23 @@ export async function onRequest(ctx: PagesContext): Promise<Response> {
     const salt = bufToB64url(crypto.getRandomValues(new Uint8Array(16)));
     const pwHash = await hashPassword(password, salt);
     await kv.put(`user:${email}`, JSON.stringify({ email, nickname, salt, pwHash, createdAt: Date.now() }));
+
+    // 五流之「注册欢迎信」入队（不 await：注册主流程不受邮件通道影响）。
+    // 队列不可用 / 入队失败一律静默——欢迎信补发无害，注册成功才是主路径。
+    const mailEnv = (ctx.env ?? {}) as unknown as MailSchedulerEnv;
+    void enqueueMail(mailEnv, {
+      flow: 'register_welcome',
+      to: email,
+      payload: { nickname },
+      dedupeKey: `register_welcome:${email}`,
+      dedupeTtlSec: 24 * 60 * 60,
+    }).catch((e: unknown) => {
+      console.error(
+        '[auth] welcome mail enqueue failed:',
+        e instanceof Error ? e.message : String(e),
+      );
+    });
+
     return json({ ok: true });
   }
 

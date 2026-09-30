@@ -46,6 +46,13 @@ AI_MODEL=deepseek-chat
 # MAIL_FROM=TempoSoul <noreply@your-domain.com>   # 须已在 Resend 验证发信域名
 # MAIL_FROM_NAME=TempoSoul 命律
 # PUBLIC_SITE_URL=https://your-domain.com         # 可选，用于拼接确认链接；缺省取请求 origin
+#
+# ── 邮件队列调度（T03 五流调度器）──
+# 未配 RESEND_API_KEY/MAIL_FROM 时调度器走 mock 日志（前缀 [mail-mock]），不发真实邮件；
+# 配齐后自动切 Resend 真实发送，业务代码零改动。
+# MAIL_DISPATCH_TOKEN=请生成强随机串（openssl rand -hex 32）  # 调度端点鉴权；未配则端点 503
+# 定时触发：Cron Triggers / UptimeRobot / GitHub Actions schedule 每 1~5 分钟 POST
+#          /api/v1/mail/dispatch  并带请求头 x-dispatch-token: <上面的 token>
 
 # ── 支付（主 Lemon Squeezy / 备选 PayPal 接口预留）──
 # 选型：Lemon Squeezy 为主（MoR，个人可注册、无公司要求），PayPal 备选接口已抽象预留。

@@ -14,10 +14,17 @@ import {
   sendConfirmationEmail,
   type ConfirmEnv,
 } from './newsletter-confirm';
+import { drainDue, enqueueMail } from '../../../src/lib/server/mail/scheduler';
 
 interface KVNamespace {
   get(key: string): Promise<string | null>;
   put(key: string, value: string, opts?: { expirationTtl?: number }): Promise<void>;
+  delete(key: string): Promise<void>;
+  list(options?: {
+    prefix?: string;
+    limit?: number;
+    cursor?: string;
+  }): Promise<{ keys: Array<{ name: string }>; list_complete: boolean; cursor?: string }>;
 }
 
 interface NewsletterEnv extends ConfirmEnv {
@@ -126,13 +133,30 @@ export async function onRequest(ctx: PagesContext): Promise<Response> {
   };
   await kv.put(key, JSON.stringify(record));
 
-  // 双确认：签发确认 token 并经 Resend 发送确认邮件（env 未配置时静默 no-op）
+  // 双确认：签发确认 token → 走五流调度器发送（带重试 / 频控 / 退订过滤）
   const secret = ctx.env?.AUTH_SECRET;
   if (secret) {
     const exp = Math.floor(Date.now() / 1000) + CONFIRM_TOKEN_TTL_SEC;
     const token = await createConfirmToken(raw, exp, secret);
     const baseUrl = new URL(ctx.request.url).origin;
-    await sendConfirmationEmail(ctx.env ?? {}, raw, token, baseUrl);
+
+    const queued = await enqueueMail(ctx.env ?? {}, {
+      flow: 'newsletter_confirm',
+      to: raw,
+      payload: {
+        confirmUrl: `${(ctx.env?.PUBLIC_SITE_URL || baseUrl).replace(/\/+$/, '')}/api/v1/newsletter-confirm?token=${encodeURIComponent(token)}`,
+      },
+      dedupeKey: `newsletter_confirm:${raw}`,
+      dedupeTtlSec: 7 * 24 * 60 * 60,
+    }).catch(() => null);
+
+    if (queued?.ok) {
+      // 立即 drain 一次（不等外部 tick），失败由队列指数退避重试
+      await drainDue(ctx.env ?? {}, { maxTasks: 10 }).catch(() => undefined);
+    } else if (!queued || queued.reason === 'queue_unavailable') {
+      // 队列不可用 → 回退原有直发，保证订阅主流程不受影响
+      await sendConfirmationEmail(ctx.env ?? {}, raw, token, baseUrl);
+    }
   }
 
   return json({ ok: true, status: 'pending', pendingConfirmation: true });

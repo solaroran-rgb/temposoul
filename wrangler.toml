@@ -32,6 +32,14 @@ id = "b2119365c5ce4357ab33dc2a2c58580a"
 binding = "GEO_CACHE"
 id = "c2637a406a8c4e99aab3b1aa364d6770"
 
+# ── 邮件发送队列（T03 调度器，可选）──
+# 绑定后队列走专用命名空间；未绑定时自动回落到 newsletter_emails（同为邮件域、生产已绑定），
+# 因此不绑定也能跑，只是队列写入与订阅记录共用一份 KV。
+# 创建：wrangler kv namespace create temposoul-mail-queue  → 把返回的 id 填到下面并取消注释
+# [[kv_namespaces]]
+# binding = "MAIL_QUEUE_KV"
+# id = "<namespace-id>"
+
 # ── 非机密运行时变量 ──
 [vars]
 # 是否启用账户认证（置 true 前，必须先绑定上面的 AUTH_KV 并设置 AUTH_SECRET）
@@ -56,6 +64,12 @@ ANALYTICS_SITE_ID = "2681353fab604a86bcd9995f5a47045b"
 # MAIL_FROM = "TempoSoul <noreply@your-domain.com>"
 # MAIL_FROM_NAME = "TempoSoul"
 # PUBLIC_SITE_URL = "https://your-domain.com"
+#
+# ── 邮件队列调度（T03）──
+# MAIL_DISPATCH_TOKEN 未配置时 /api/v1/mail/dispatch 返回 503（fail-closed，绝不匿名开放代发）。
+# 配置后用 Cron Triggers / UptimeRobot / GitHub Actions schedule 每 1~5 分钟打一次该端点。
+# 生成：openssl rand -hex 32
+# MAIL_DISPATCH_TOKEN=<强随机串>
 # PAYMENT_PROVIDER = "lemonsqueezy"
 # LEMONSQUEEZY_STORE_ID = "12345"
 # LEMONSQUEEZY_VARIANT_ID = "67890"

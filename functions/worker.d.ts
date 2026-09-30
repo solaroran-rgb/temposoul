@@ -54,6 +54,10 @@ declare global {
     RESEND_API_KEY?: string;
     MAIL_FROM?: string;
     MAIL_FROM_NAME?: string;
+    /** 邮件发送队列专用 KV；未绑定时调度器回退 newsletter_emails */
+    MAIL_QUEUE_KV?: KVNamespace;
+    /** /api/v1/mail/dispatch 的调度令牌；未配置时端点 503（fail-closed） */
+    MAIL_DISPATCH_TOKEN?: string;
     ANALYTICS_PROVIDER?: string;
     ANALYTICS_SITE_ID?: string;
     // AiEnv 兼容字段（handleAiAnalyze 的 weak-type 检查要求共同属性）
