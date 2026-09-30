@@ -19,10 +19,12 @@ export const zhengYin: TermSchema = {
   combos: [
     { id: 'COMBO-ZY-GY', name: '官印相生', trigger: [{ op: 'has', args: ['tenGods', '正印'] }, { op: 'has', args: ['tenGods', '正官'] }], priority: 20, mutex: [] },
     { id: 'COMBO-ZY-PY', name: '正偏印混杂', trigger: [{ op: 'has', args: ['tenGods', '正印'] }, { op: 'has', args: ['tenGods', '偏印'] }], priority: 15, mutex: [] },
+    { id: 'COMBO-ZY-BASE', name: '正印得令', trigger: [{ op: 'has', args: ['tenGods', '正印'] }], priority: 50, mutex: ['COMBO-ZY-GY', 'COMBO-ZY-PY'] },
   ],
   templates: [
     { comboId: 'COMBO-ZY-GY', pro: '官印相生，官生印护，学业事业双收', mix: '你既有规则意识又有学习能力，事业学业并进', lay: '你做事稳妥，学习能力强，容易得到认可', polarity: '+', modality: 'assert', atomicId: 'ATOM-ZY-GY-001' },
     { comboId: 'COMBO-ZY-PY', pro: '正偏印混杂，学业方向多变，精神世界丰富', mix: '你兴趣广泛但不够专注，需要找到核心方向', lay: '你对很多领域都感兴趣，但可能学的太杂', polarity: '0', modality: 'tend', atomicId: 'ATOM-ZY-PY-001' },
+    { comboId: 'COMBO-ZY-BASE', pro: '正印得令，学习力强，有贵人庇护，适合进修', mix: '你学习能力强，容易遇到肯帮你的贵人或老师', lay: '你挺好学的，身边也常有贵人关照，想进修正合适', polarity: '+', modality: 'assert', atomicId: 'ATOM-ZY-BASE-001' },
   ],
   dimTags: ['DIM_02', 'DIM_04'],
 };

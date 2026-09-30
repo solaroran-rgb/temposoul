@@ -7,6 +7,8 @@
  * 4. 订阅类事件写入 subscription_id（供 FTC 一键取消联动 LS API）
  */
 
+import { OrdersStore } from './orders';
+
 export type PaymentProvider = 'lemonsqueezy' | 'paypal' | 'none';
 
 export type ProductId =
@@ -25,6 +27,7 @@ export interface PaymentEnv {
   PUBLIC_SITE_URL?: string;
   AUTH_KV?: KVNamespace;
   AUTH_SECRET?: string;
+  D1?: D1Database;
 }
 
 export interface CheckoutParams {
@@ -303,8 +306,11 @@ export async function activatePremium(
     productId?: string;
     orderType?: string;
     abBucket?: Record<string, number>;
-    subscriptionId?: string; // 新增：订阅类事件时写入
+    subscriptionId?: string;
+    amount?: number;
+    currency?: string;
   },
+  d1?: D1Database,
 ): Promise<void> {
   const key = `sub:${userId}`;
   const existingRaw = await authKv.get(key);
@@ -352,4 +358,25 @@ export async function activatePremium(
   }
 
   await authKv.put(key, JSON.stringify(record));
+
+  // 写入 orders 表（若 D1 可用）
+  if (d1 && extra?.productId) {
+    try {
+      const store = new OrdersStore(d1);
+      await store.createOrder({
+        user_id: userId,
+        product_id: extra.productId,
+        amount: extra.amount || 0,
+        currency: extra.currency || 'CNY',
+        status: 'completed',
+        paypal_transaction_id: undefined,
+        paypal_status: undefined,
+        live_trade_id: undefined,
+        live_status: undefined,
+      });
+    } catch (err) {
+      // 订单落库失败不影响 KV 主流程，仅 log
+      console.error('orders table write failed:', err);
+    }
+  }
 }

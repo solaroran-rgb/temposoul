@@ -1,11 +1,16 @@
 // src/pages/bazi/TopicsPage.tsx · IT-5.10 / IT-5.11-11 依据；不携 baziFortuneScope
 // 修正：cache 解构稳定化；topic 切换依赖仅 activeTopic；错误分级；中文标签；无 input 不渲染 tabs
+// 任务包2.2：接入解盘引擎 AI 解读区
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { PageTopbar } from '../../components/PageTopbar';
 import { PrivacyHint } from '../../components/PrivacyHint';
 import { TopicTabs, TOPIC_LABEL, isTopic, type Topic } from './components/TopicTabs';
 import { TopicEvidencePanel } from './components/TopicEvidencePanel';
+import { SolutionPanel, type SolutionSource } from '../../components/solution/SolutionPanel';
+import { baziSolutionSources } from '../../lib/solution/solutionContext';
+import { runSolutionForBazi } from '../../lib/full-chart-engine/solution-context';
+import { L0SummaryCard } from '../../components/fortune/L0SummaryCard';
 import { useAiChat } from '../../hooks/useAiChat';
 import { useFortuneCache } from '../../hooks/useFortuneCache';
 import { trackChartSubmit } from '../../lib/analytics';
@@ -218,6 +223,18 @@ export function TopicsPage() {
   const aiText = streamingContent || (turns.length > 0 ? turns[turns.length - 1].content : '');
   const aiBusy = status === 'loading' || status === 'streaming';
 
+  // 任务包2.2：解盘引擎 L0 白话结论
+  const solutionSources = useMemo<SolutionSource[]>(
+    () => (calcData ? baziSolutionSources(calcData, '命盘') : []),
+    [calcData],
+  );
+
+  // 首屏 L0 结论卡：直接对排盘结果跑解盘引擎（API 返回的部分命盘 JSON 同样兼容）
+  const topicSolution = useMemo(
+    () => (calcData ? runSolutionForBazi(calcData) : null),
+    [calcData],
+  );
+
   return (
     <div className="ts-page ts-page--bazi-topics">
       <PageTopbar title="八字主题解读" onBack={onBack} />
@@ -246,6 +263,13 @@ export function TopicsPage() {
           </section>
         )}
 
+        {calcData && topicSolution && (
+          <L0SummaryCard
+            output={{ pro: topicSolution.pro, meta: topicSolution.meta }}
+            title={`一句话结论 · ${TOPIC_LABEL[activeTopic]}`}
+          />
+        )}
+
         {calcData && (
           <section className="ts-card">
             <h2 className="ts-card__title">证据</h2>
@@ -255,6 +279,14 @@ export function TopicsPage() {
               analysis={calcData.analysis}
             />
           </section>
+        )}
+
+        {calcData && (
+          <SolutionPanel
+            sources={solutionSources}
+            title="详细解读 · 解盘引擎"
+            boundary="解释边界：本解读由本地解盘引擎按传统命理规则生成，仅供文化研究与自我参照，不构成任何决策依据。"
+          />
         )}
 
         {calcData && (

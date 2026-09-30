@@ -1,4 +1,4 @@
-// A11-4 · src/data/ziwei-stars/types.ts · 主星数据类型
+﻿// A11-4 · src/data/ziwei-stars/types.ts · 主星数据类型
 export interface StarBrightness {
   level: string;
   note: string;

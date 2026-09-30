@@ -1,0 +1,18 @@
+{
+  "name": "wiki-parenting",
+  "file": "src/data/wiki/astro-wiki.ts",
+  "entries": [
+    {
+      "id": "x.title",
+      "zh": "火象星座儿童的性格探索与引导"
+    },
+    {
+      "id": "x.metaDescription",
+      "zh": "探讨白羊座、狮子座、射手座儿童在占星学中的性格原型，并结合现代心理学提供科学育儿建议。"
+    },
+    {
+      "id": "x.disclaimer",
+      "zh": "本文内容结合了占星文化探讨与科学育儿建议。星象部分仅供娱乐与文化探索，不构成医疗或心理判断。"
+    }
+  ]
+}

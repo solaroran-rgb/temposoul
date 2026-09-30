@@ -1,0 +1,162 @@
+{
+  "name": "news",
+  "file": "src/data/news.ts",
+  "entries": [
+    {
+      "id": "2026-qiu-fen-xing-xiang-guan-cha.title",
+      "zh": "秋分将至：星象观察与文化习俗漫谈"
+    },
+    {
+      "id": "2026-qiu-fen-xing-xiang-guan-cha.metaDescription",
+      "zh": "从天文历法到民俗习惯，了解秋分在传统时间体系中的位置。"
+    },
+    {
+      "id": "2026-qiu-fen-xing-xiang-guan-cha.h1",
+      "zh": "秋分将至：星象观察与文化习俗漫谈"
+    },
+    {
+      "id": "2026-qiu-fen-xing-xiang-guan-cha.tags[0]",
+      "zh": "秋分"
+    },
+    {
+      "id": "2026-qiu-fen-xing-xiang-guan-cha.tags[1]",
+      "zh": "星象"
+    },
+    {
+      "id": "2026-qiu-fen-xing-xiang-guan-cha.tags[2]",
+      "zh": "民俗"
+    },
+    {
+      "id": "2026-qiu-fen-xing-xiang-guan-cha.tags[3]",
+      "zh": "历法"
+    },
+    {
+      "id": "2026-qiu-fen-xing-xiang-guan-cha.sources[0].text",
+      "zh": "《中国天文年历》相关节气说明"
+    },
+    {
+      "id": "2026-qiu-fen-xing-xiang-guan-cha.sources[1].text",
+      "zh": "地方民俗志中的节气记录"
+    },
+    {
+      "id": "2026-qiu-fen-xing-xiang-guan-cha.disclaimer",
+      "zh": "本文为文化知识介绍，不构成运势预测或生活决策建议。"
+    },
+    {
+      "id": "2026-zhong-qiu-yue-xiang-wen-hua.title",
+      "zh": "中秋月相与传统文化中的月亮意象"
+    },
+    {
+      "id": "2026-zhong-qiu-yue-xiang-wen-hua.metaDescription",
+      "zh": "从月相变化到诗词典故，梳理月亮在中国传统文化中的多重意象。"
+    },
+    {
+      "id": "2026-zhong-qiu-yue-xiang-wen-hua.h1",
+      "zh": "中秋月相与传统文化中的月亮意象"
+    },
+    {
+      "id": "2026-zhong-qiu-yue-xiang-wen-hua.tags[0]",
+      "zh": "中秋"
+    },
+    {
+      "id": "2026-zhong-qiu-yue-xiang-wen-hua.tags[1]",
+      "zh": "月相"
+    },
+    {
+      "id": "2026-zhong-qiu-yue-xiang-wen-hua.tags[2]",
+      "zh": "传统文化"
+    },
+    {
+      "id": "2026-zhong-qiu-yue-xiang-wen-hua.tags[3]",
+      "zh": "诗词"
+    },
+    {
+      "id": "2026-zhong-qiu-yue-xiang-wen-hua.sources[0].text",
+      "zh": "《全宋词》苏轼《水调歌头》"
+    },
+    {
+      "id": "2026-zhong-qiu-yue-xiang-wen-hua.sources[1].text",
+      "zh": "《荆楚岁时记》相关节俗记载"
+    },
+    {
+      "id": "2026-zhong-qiu-yue-xiang-wen-hua.disclaimer",
+      "zh": "本文为文化知识介绍，不构成运势预测。"
+    },
+    {
+      "id": "2026-xing-zuo-xing-qu-diao-cha.title",
+      "zh": "星座文化兴趣观察：从娱乐到身份表达"
+    },
+    {
+      "id": "2026-xing-zuo-xing-qu-diao-cha.metaDescription",
+      "zh": "梳理星座文化在当代社交语境中的流行现象。"
+    },
+    {
+      "id": "2026-xing-zuo-xing-qu-diao-cha.h1",
+      "zh": "星座文化兴趣观察：从娱乐到身份表达"
+    },
+    {
+      "id": "2026-xing-zuo-xing-qu-diao-cha.tags[0]",
+      "zh": "星座"
+    },
+    {
+      "id": "2026-xing-zuo-xing-qu-diao-cha.tags[1]",
+      "zh": "流行文化"
+    },
+    {
+      "id": "2026-xing-zuo-xing-qu-diao-cha.tags[2]",
+      "zh": "社交"
+    },
+    {
+      "id": "2026-xing-zuo-xing-qu-diao-cha.tags[3]",
+      "zh": "娱乐"
+    },
+    {
+      "id": "2026-xing-zuo-xing-qu-diao-cha.sources[0].text",
+      "zh": "社交平台公开话题讨论观察"
+    },
+    {
+      "id": "2026-xing-zuo-xing-qu-diao-cha.disclaimer",
+      "zh": "本文为文化现象观察，不构成性格判断或运势预测。"
+    },
+    {
+      "id": "2026-xing-ming-wen-hua-re-chao.title",
+      "zh": "姓名文化热潮：从起名习俗到网络社区"
+    },
+    {
+      "id": "2026-xing-ming-wen-hua-re-chao.metaDescription",
+      "zh": "观察姓名文化在当代的复兴趋势。"
+    },
+    {
+      "id": "2026-xing-ming-wen-hua-re-chao.h1",
+      "zh": "姓名文化热潮：从起名习俗到网络社区"
+    },
+    {
+      "id": "2026-xing-ming-wen-hua-re-chao.tags[0]",
+      "zh": "姓名学"
+    },
+    {
+      "id": "2026-xing-ming-wen-hua-re-chao.tags[1]",
+      "zh": "起名"
+    },
+    {
+      "id": "2026-xing-ming-wen-hua-re-chao.tags[2]",
+      "zh": "社区"
+    },
+    {
+      "id": "2026-xing-ming-wen-hua-re-chao.tags[3]",
+      "zh": "文化"
+    },
+    {
+      "id": "2026-xing-ming-wen-hua-re-chao.sources[0].text",
+      "zh": "网络社区公开讨论观察"
+    },
+    {
+      "id": "2026-xing-ming-wen-hua-re-chao.sources[1].text",
+      "zh": "《百家姓》等传统姓氏文献"
+    },
+    {
+      "id": "2026-xing-ming-wen-hua-re-chao.disclaimer",
+      "zh": "本文为文化观察，不构成起名建议或命理判断。"
+    }
+  ]
+}

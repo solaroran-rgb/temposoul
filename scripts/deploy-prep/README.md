@@ -13,6 +13,7 @@
 | `restore-drill.sh` | G-3 | 异地备份恢复演练 + 数据完整性核对清单（默认只演练不碰库） | 目标服务器（root） | `/opt/temposoul/backups/db/` + `s3://temposoul-backups/` |
 | `loadtest.sh` + `loadtest/*.js` | G-4 | 四条热点路径压测（登录/OTP/报告生成/支付回调），k6 优先、hey 兜底 | 压测机（可本地） | `https://www.temposoul.com` |
 | `amap-probe.sh` | G-12 | 香港 → 高德 API curl 探活 + 延迟统计 + 可达性结论 | 目标服务器 | `webapi.amap.com` / `restapi.amap.com` |
+| `alert-5xx.sh` | **T16** | 应用错误追踪与 5xx 告警轮询：拉取 `/api/v1/errlog` 聚合，超阈值（默认 3/5min）触发 `ALERT_WEBHOOK`，未配则 mock 日志 | 运维机 / CI（cron） | `https://www.temposoul.com/api/v1/errlog` |
 
 ## 二、逐脚本说明
 
@@ -75,6 +76,26 @@
   ```
 - **输出**：逐次探测行 + 统计 + 结论；退出码 0=可达达标，1=不可达/超阈值（建议兜底）。
 - **失败处理**：Key 缺失/无效 → 明确报错并提示控制台路径；业务判定检查 `restapi` 返回 `status=1`，否则告警需兜底。
+
+### 5. alert-5xx.sh（T16 应用错误追踪与 5xx 告警）
+- **做什么**：运维侧二次巡检。定时调用 `GET /api/v1/errlog`（管理令牌 `ERRLOG_ADMIN_TOKEN`）拉取 5 分钟聚合与 pending 告警；对 `error/fatal` 级且 5 分钟内次数 ≥ 阈值（默认 3）的桶触发告警。
+- **告警去向**：
+  - 配置 `ALERT_WEBHOOK`（env 或 `--webhook`）→ `POST` 该 URL（飞书/Slack/通知），随后 `POST /api/v1/errlog?ack=1` 清除 pending，避免重复。
+  - 未配置 → 输出 `[5xx-alert-mock]` 日志 + 配置说明（fail-closed 友好降级，不误报）。
+- **与端点侧的关系**：`functions/api/v1/errlog.ts` 在超阈值时已 best-effort 直接 `fetch(ALERT_WEBHOOK)`（每窗口一次，去重）；本脚本为**二次巡检 + 兜底**，二者通过 `alerted:` / `pending:` KV 标记去重，每窗口至多一次真实告警。
+- **参数化**：`--site`（默认 `https://www.temposoul.com`）、`--admin-token`、`--webhook`、`--threshold`、`--json`、`--dry-run`。
+- **用法**：
+  ```bash
+  ./alert-5xx.sh --admin-token "$ERRLOG_ADMIN_TOKEN"
+  ./alert-5xx.sh --site https://www.temposoul.com --webhook "$ALERT_WEBHOOK"
+  ./alert-5xx.sh --threshold 5 --dry-run
+  ```
+- **cron 示例**（每 5 分钟）：
+  ```cron
+  */5 * * * *  /path/to/alert-5xx.sh --admin-token "$ERRLOG_ADMIN_TOKEN" >> /var/log/temposoul-alert.log 2>&1
+  ```
+- **依赖**：`curl` + `python3`（JSON 解析；缺失则粗解析）。退出码 0=正常（无论是否触发告警），1=拉取/解析失败，2=参数错误。
+- **失败处理**：端点未部署/令牌错 → 明确报错退出 1；webhook 不可达 → 单条告警标记失败但保留 pending 供下次重试。
 
 ## 三、与既有脚本的衔接
 

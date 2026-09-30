@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { LookupCardLayout, LookupState } from '@/components/divination/LookupCardLayout';
-import { TAROT_CARD_MEANINGS, TarotCardMeaning } from '@/data/tarot/card-meanings';
+import { TarotCardMeaning } from '@/data/tarot/card-meanings';
+import { getTarotMeanings } from '@/i18n/body/content';
 import { dateSeed, pickBySeed } from '@/lib/deterministic';
 import { guardText } from '@/lib/assertions-guard';
 import { trackPageView, trackEvent } from '@/lib/analytics';
@@ -24,7 +25,7 @@ export default function DailyTarotPage() {
     setState('loading');
     const dateKey = todayKey();
     const seed = dateSeed(dateKey);
-    const picked = pickBySeed(TAROT_CARD_MEANINGS, seed);
+    const picked = pickBySeed(getTarotMeanings(), seed);
     setCard(picked);
     setReversed(seed % 2 === 1);
     setState(picked.ready ? 'ok' : 'ok-empty');

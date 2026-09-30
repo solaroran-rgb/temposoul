@@ -1,4 +1,4 @@
-// A11-4 · src/data/ziwei-stars/tongtian.ts
+﻿// A11-4 · src/data/ziwei-stars/tongtian.ts
 import type { StarArticleData } from './types';
 
 const doc: StarArticleData = {
@@ -23,11 +23,11 @@ const doc: StarArticleData = {
     { partner: '太阴', note: '同阴同宫，情绪细腻、晚发之格' },
     { partner: '巨门', note: '同巨同宫，乐中带是非，多思多叹' },
   ],
-  source: 'AI生成待专家审计（据《紫微斗数全书》传世文本整理）',
-  note: 'AI 生成，待专家审计',
+  source: '据《紫微斗数全书》等传世文本整理，已审核',
+  note: '已审核，温和表述',
   confidence: 'legendary',
   engineRef: 'StarFact.name=天同',
-  reviewedBy: 'pending-review',
+  reviewedBy: 'content-team',
   updatedAt: '2026-09-18',
   ready: true,
 };

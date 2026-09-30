@@ -161,6 +161,29 @@ export interface AtomicConclusion {
   modality: EpistemicModality;
   /** 触发字段快照（可追溯） */
   evidence: Record<string, unknown>;
+
+  // ============================================================
+  // CIR v2 新增字段（全部可选，向后兼容 cir_v1）
+  // ============================================================
+
+  /** 时间作用域 */
+  time_scope?: 'long_term' | 'current' | 'event' | 'general';
+  /** 归一化因子（指向 Canonical Factor Ontology，如 ['wealth:structural_wealth','career:authority']） */
+  canonical_factors?: string[];
+  /** 同源依赖标记（与同一证据链绑定的原子 ID） */
+  evidence_dependency_ids?: string[];
+  /** CIR schema 版本，如 'cir_v2.0' */
+  schema_version?: string;
+  /** 规则追溯：命中规则 + 评分卡/决策表版本 + 三道闸结果 */
+  rule_trace?: {
+    rule_id: string;
+    rule_version: string;
+    scorecard_version: string;
+    decision_table_version: string;
+    gate_results: { gate: string; passed: boolean; reason: string }[];
+  };
+  /** 普通模式隐藏，专业模式可见 */
+  suppressible?: boolean;
 }
 
 // ============================================================
@@ -204,3 +227,98 @@ export const SOLUTION_ERRORS = {
 } as const;
 
 export type SolutionError = typeof SOLUTION_ERRORS[keyof typeof SOLUTION_ERRORS];
+
+// ============================================================
+// 10. CIR v2 · 统一结论中间层共享类型
+// ============================================================
+
+/**
+ * 结构化事实（snapshot v2 使用）
+ * 命盘输入经各体系排盘后沉淀的可追溯事实单元。
+ */
+export interface Fact {
+  /** 事实 ID */
+  fact_id: string;
+  /** 事实类别（pillar / ten_god / wuxing / palace / star / qimen ...） */
+  kind: string;
+  /** 中文标签 */
+  label: string;
+  /** 事实值 */
+  value: unknown;
+  /** 数据来源（体系/通道） */
+  source?: string;
+}
+
+/**
+ * 证据（规则触发证据）
+ * 与原子结论/规则追溯关联，支撑回溯审计。
+ */
+export interface Evidence {
+  /** 证据 ID */
+  evidence_id: string;
+  /** 证据类别 */
+  kind: 'rule' | 'field' | 'combo' | 'kg';
+  /** 引用 ID（规则/字段/组合/知识边 ID） */
+  ref: string;
+  /** 证据明细 */
+  detail: Record<string, unknown>;
+}
+
+/**
+ * 解盘流程事件（process_log 单元）
+ * 记录 runSolution 每个关键步骤的引擎、耗时与引用，支撑过程审计。
+ *
+ * 注：任务卡原定置于 snapshot.ts；此处与 SolutionSnapshotV2 同文件，
+ * 以避免 types ↔ snapshot 的循环类型导入（SolutionSnapshotV2 直接引用 ProcessEvent）。
+ */
+export interface ProcessEvent {
+  /** 步骤名：input_validation / time_correction / bazi_chart / disambiguation / ds_fusion / atom_generation / dependency_check / gate_check / factor_mapping */
+  step: string;
+  /** 执行引擎：chrono / bazi / ziwei / d1 / d2 / core ... */
+  engine: string;
+  /** 步骤明细 */
+  detail: Record<string, unknown>;
+  /** 耗时（毫秒，相对上一步） */
+  cost_ms: number;
+  /** ISO 时间戳 */
+  timestamp: string;
+  /** 关联引用 ID（原子/事实/证据） */
+  ref_ids?: string[];
+}
+
+/**
+ * CIR v2 统一结论快照
+ * 跨体系融合后的确定性中间层，可复现、可审计、可版本解析。
+ */
+export interface SolutionSnapshotV2 {
+  /** 快照 ID（uuid） */
+  snapshot_id: string;
+  /** 内容指纹：SHA-256(input + school + options + engine_version) 前 16 位 */
+  seed: string;
+  /** CIR schema 版本，固定 'cir_v2.0' */
+  schema_version: 'cir_v2.0';
+  /** 输入上下文 */
+  input: {
+    datetime: string;
+    longitude: number;
+    latitude: number;
+    timezone: string;
+    systems: string[];
+  };
+  /** 启用的命理体系 */
+  systems: string[];
+  /** 结构化事实 */
+  facts: Fact[];
+  /** 原子结论 */
+  atoms: AtomicConclusion[];
+  /** 证据链 */
+  evidence: Evidence[];
+  /** 解盘流程日志 */
+  process_log: ProcessEvent[];
+  /** 关联引用 ID */
+  ref_ids: string[];
+  /** 创建时间（ISO） */
+  created_at: string;
+  /** 引擎版本 */
+  engine_version: string;
+}

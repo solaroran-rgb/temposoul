@@ -17,6 +17,9 @@ import {
 import { djb2, buildBirthSignature, dateKey, getSiteOrigin, safeParseIntBase36 } from '@/lib/hash';
 import { DAILY_CORPUS, pickSentence, type DailyTheme } from '@/data/bazi/daily-corpus';
 import { trackChartSubmit } from '@/lib/analytics';
+import { SeoHead } from '@/components/SeoHead';
+import { L0SummaryCard } from '@/components/fortune/L0SummaryCard';
+import { runSolutionForBazi } from '@/lib/full-chart-engine/solution-context';
 import '../bazi/daily.css';
 
 const THEMES: DailyTheme[] = ['focus', 'advice', 'reminder'];
@@ -37,6 +40,8 @@ export function TodayPage() {
   const [error, setError] = useState<string | null>(null);
   const [dayPillar, setDayPillar] = useState<string>('');
   const [todayGanZhi, setTodayGanZhi] = useState<string>('');
+  const [calcData, setCalcData] = useState<object | null>(null);
+  const l0Output = useMemo(() => (calcData ? runSolutionForBazi(calcData) : null), [calcData]);
 
   const input: BirthInput | null = useMemo(() => parseBirthInput(sp), [sp]);
 
@@ -67,6 +72,7 @@ export function TodayPage() {
         const d = json.data as CalcData;
         const dp = d.pillars?.day?.ganZhi ?? '';
         setDayPillar(dp);
+        setCalcData(json.data);
 
         let tg = '';
         try {
@@ -121,6 +127,10 @@ export function TodayPage() {
 
   return (
     <div className="ts-page ts-page--bazi-daily">
+      <SeoHead
+        title="今日运势 · 命律 TempoSoul"
+        description="基于八字日柱的每日运势，含今日关注、建议与提醒。"
+      />
       <PageTopbar title="每日运势" onBack={onBack} />
       <main className="ts-page__main">
         <h1 className="ts-page__title">每日运势</h1>
@@ -162,6 +172,7 @@ export function TodayPage() {
               </p>
               <DailyShareBar text={shareText} />
             </section>
+            {l0Output && <L0SummaryCard output={l0Output} title="AI 白话解读" />}
           </>
         )}
       </main>

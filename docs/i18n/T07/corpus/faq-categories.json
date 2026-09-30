@@ -1,0 +1,22 @@
+{
+  "name": "faq-categories",
+  "file": "src/data/faq.ts",
+  "entries": [
+    {
+      "id": "product.label",
+      "zh": "产品使用"
+    },
+    {
+      "id": "billing.label",
+      "zh": "付费订阅"
+    },
+    {
+      "id": "privacy.label",
+      "zh": "隐私数据"
+    },
+    {
+      "id": "support.label",
+      "zh": "联系支持"
+    }
+  ]
+}

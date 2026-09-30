@@ -1,0 +1,40 @@
+{
+  "generatedAt": "2026-09-30T16:54:24.914Z",
+  "totalDbOrders": 4,
+  "totalPaypalOrders": 4,
+  "variances": [
+    {
+      "type": "MISSING",
+      "orderId": "order-missing-paypal",
+      "orderBySource": "db",
+      "details": "DB order has no paypal_transaction_id (pending / not synced)"
+    },
+    {
+      "type": "AMOUNT_MISMATCH",
+      "orderId": "order-amount-mismatch",
+      "paypalTransactionId": "I-2261540ead",
+      "orderBySource": "both",
+      "details": "DB ¥88 vs PayPal ¥85"
+    },
+    {
+      "type": "STATUS_MISMATCH",
+      "orderId": "order-status-mismatch",
+      "paypalTransactionId": "I-764e89ae70",
+      "orderBySource": "both",
+      "details": "DB 'refunded' vs PayPal 'COMPLETED'"
+    },
+    {
+      "type": "EXTRA",
+      "orderId": "I-5519695a9e",
+      "paypalTransactionId": "I-5519695a9e",
+      "orderBySource": "paypal",
+      "details": "PayPal transaction without DB record (webhook missed)"
+    }
+  ],
+  "summary": {
+    "missing": 1,
+    "extra": 1,
+    "amountMismatch": 1,
+    "statusMismatch": 1
+  }
+}

@@ -1,14 +1,23 @@
 // D9-3
 // src/pages/platform/ProfilePage.tsx
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useProfiles } from '../../contexts/ProfilesContext';
 import { ProfileForm } from '../../components/profile/ProfileForm';
+import { formatProfileSummary, profileToResultSearch } from '../../lib/user-profile';
 import { UserProfile } from '../../types/profile';
 
 export const ProfilePage: React.FC = () => {
+  const navigate = useNavigate();
   const { profiles, add, update, remove, setCurrent } = useProfiles();
   const [editing, setEditing] = useState<UserProfile | 'new' | null>(null);
   const [error, setError] = useState('');
+
+  // H02 · 档案一次录入：一键排盘（设为当前档案并直接进入结果页）
+  const handleChart = (p: UserProfile) => {
+    setCurrent(p.id);
+    navigate(`/result?${profileToResultSearch(p)}`);
+  };
 
   const handleSave = (data: Omit<UserProfile, 'id'> | UserProfile) => {
     if ('id' in data) {
@@ -59,11 +68,12 @@ export const ProfilePage: React.FC = () => {
             <li key={p.id} className="profile-item">
               <div className="profile-item__info">
                 <strong>{p.name}</strong> ({p.relation})
-                <span className="profile-item__date">
-                  {p.dateType === 'solar' ? '公历' : '农历'} {p.year}-{p.month}-{p.day}
-                </span>
+                <span className="profile-item__date">{formatProfileSummary(p)}</span>
               </div>
               <div className="profile-item__actions">
+                <button className="btn btn-primary" onClick={() => handleChart(p)}>
+                  一键排盘
+                </button>
                 <button className="btn btn-secondary" onClick={() => setCurrent(p.id)}>
                   使用此档案
                 </button>

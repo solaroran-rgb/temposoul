@@ -93,28 +93,24 @@ const POLARITY_VALUE: Record<FactPolarity, number> = {
 };
 
 /**
- * 计算一组因子的合成极性
+ * 合成极性：聚合一组命中 atom 的自身极性（template.polarity）
+ *
+ * 设计校正（R3-10 / task1）：
+ * 原实现按 atomicId 反查 KG 边表做图遍历，因「正官→比劫(-)」「正印→伤官(-)」
+ * 等边在任意盘局都会命中，正负相消导致总极性恒为 '0'（无法区分盘局）。
+ * 原子极性（template.polarity）才是该 COMBO 的真实结论极性，直接聚合即可
+ * 正确反映盘局整体倾向：正官格→+ / 比劫格→- / 伤官格→混合。
+ * KG 边表（getEdgesByCause 等）保留供单条关系解释使用，不再参与总极性合成。
  */
-export function compositePolarity(
-  factorIds: string[],
-  edgeTypeFilter?: KgEdge['edgeType']
-): FactPolarity {
-  let sum = 0;
-  let count = 0;
+export function compositePolarity(polarities: FactPolarity[]): FactPolarity {
+  if (polarities.length === 0) return '0';
 
-  for (const causeId of factorIds) {
-    const edges = getEdgesByCause(causeId).filter(
-      (e) => !edgeTypeFilter || e.edgeType === edgeTypeFilter
-    );
-    for (const edge of edges) {
-      sum += POLARITY_VALUE[edge.polarity];
-      count++;
-    }
+  let sum = 0;
+  for (const p of polarities) {
+    sum += POLARITY_VALUE[p];
   }
 
-  if (count === 0) return '0';
-
-  const avg = sum / count;
+  const avg = sum / polarities.length;
   if (avg <= -1.5) return '--';
   if (avg <= -0.5) return '-';
   if (avg < 0.5) return '0';

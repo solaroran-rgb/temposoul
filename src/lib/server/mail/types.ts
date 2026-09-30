@@ -4,8 +4,8 @@
  * 五流（以仓库现有代码为准）：
  *   1. newsletter_confirm  订阅确认信（双确认第一步）— 既有：functions/api/v1/newsletter-confirm.ts
  *   2. register_welcome    注册欢迎信               — 触发点：functions/api/auth/[[path]].ts#register
- *   3. otp_code            OTP 验证码               — 触发端点尚未落库，模板与策略已就绪
- *   4. password_reset      找回密码                 — 触发端点尚未落库，模板与策略已就绪
+ *   3. otp_code            OTP 验证码               — 触发端点：functions/api/auth/[[path]].ts#otp
+ *   4. password_reset      找回密码                 — 触发端点：functions/api/auth/[[path]].ts#forgot
  *   5. report_delivery     深度报告投递             — 既有：src/lib/server/report/email.ts
  *
  * 设计约束：

@@ -54,6 +54,16 @@ AI_MODEL=deepseek-chat
 # 定时触发：Cron Triggers / UptimeRobot / GitHub Actions schedule 每 1~5 分钟 POST
 #          /api/v1/mail/dispatch  并带请求头 x-dispatch-token: <上面的 token>
 
+# ── 应用错误追踪与 5xx 告警（T16）──
+# ERRLOG_INGEST_TOKEN：公开写入令牌（仅写，可安全嵌入前端）。复制为 VITE_ERRLOG_INGEST_TOKEN 注入构建。
+#   未配置 → /api/v1/errlog 返回 503（fail-closed）。生成：openssl rand -hex 32
+# VITE_ERRLOG_INGEST_TOKEN=请生成强随机串
+# ERRLOG_ADMIN_TOKEN：机密，运维 GET 聚合/确认告警使用；未配置 → 503。生成：openssl rand -hex 32
+# ERRLOG_ADMIN_TOKEN=请生成强随机串
+# ERRLOG_ALERT_THRESHOLD=3        # 5 分钟内 error/fatal 达此数即告警（默认 3）
+# ALERT_WEBHOOK=                  # 超阈值 POST 该 URL 告警；留空则写 pending 由 alert-5xx.sh 轮询 mock 日志
+
+
 # ── 支付（主 Lemon Squeezy / 备选 PayPal 接口预留）──
 # 选型：Lemon Squeezy 为主（MoR，个人可注册、无公司要求），PayPal 备选接口已抽象预留。
 # 开关：PAYMENT_PROVIDER=lemonsqueezy | paypal | 空(=关闭)。账号到位填下列变量即激活。

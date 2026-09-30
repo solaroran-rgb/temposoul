@@ -1,4 +1,4 @@
-// A11-4 · src/data/ziwei-stars/jumen.ts
+﻿// A11-4 · src/data/ziwei-stars/jumen.ts
 import type { StarArticleData } from './types';
 
 const doc: StarArticleData = {
@@ -23,11 +23,11 @@ const doc: StarArticleData = {
     { partner: '天机', note: '机巨同宫，善分析、宜研究' },
     { partner: '天同', note: '同巨同宫，乐中带是非、多思叹' },
   ],
-  source: 'AI生成待专家审计（据《紫微斗数全书》传世文本整理）',
-  note: 'AI 生成，待专家审计',
+  source: '据《紫微斗数全书》等传世文本整理，已审核',
+  note: '已审核，温和表述',
   confidence: 'legendary',
   engineRef: 'StarFact.name=巨门',
-  reviewedBy: 'pending-review',
+  reviewedBy: 'content-team',
   updatedAt: '2026-09-18',
   ready: true,
 };

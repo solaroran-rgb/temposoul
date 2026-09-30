@@ -6,7 +6,7 @@ import { PrivacyHint } from '@/components/PrivacyHint';
 import { ArticleToc } from '@/components/knowledge/ArticleToc';
 import { ArticleBody } from '@/components/knowledge/ArticleBody';
 import { FooterDisclaimer } from '@/components/knowledge/FooterDisclaimer';
-import { newsArticles } from '@/data/news';
+import { getNewsArticles } from '@/i18n/body/content';
 import { guardText } from '@/lib/assertions-guard';
 import { trackPageView } from '@/lib/analytics';
 import { useAsyncPage } from '@/hooks/useAsyncPage';
@@ -14,7 +14,7 @@ import './NewsDetailPage.css';
 
 export default function NewsDetailPage() {
   const { slug } = useParams<{ slug: string }>();
-  const article = newsArticles.find((item) => item.slug === slug);
+  const article = getNewsArticles().find((item) => item.slug === slug);
   const [pageState] = useAsyncPage(article ? [article] : [], Boolean(article));
 
   useEffect(() => { trackPageView(`/news/${slug ?? ''}`); }, [slug]);

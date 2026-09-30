@@ -246,22 +246,22 @@ export const STAR_REGISTRY: Record<string, TermSchema> = {
     ],
     dimTags: ['DIM_11'],
   },
-  QS: {
-    id: 'QS',
+  XQS: {
+    id: 'XQS',
     name: '七杀',
     group: 'XY',
     factors: [
-      { id: 'QS-1', name: '庙旺得位', trigger: [{ op: 'has', args: ['StarFact.brightness', '庙'] }], fieldBinding: ['StarFact.brightness', 'palaces'], defaultWeight: 0.5, schools: { ziping: 0.50, mangpai: 0.48, xinpai: 0.50 } },
-      { id: 'QS-2', name: '威猛开创性', trigger: [{ op: 'has', args: ['birth_mutagen', '星'] }], fieldBinding: ['StarFact.brightness', 'birth_mutagen', 'palaces'], defaultWeight: 0.3, schools: { ziping: 0.28, mangpai: 0.32, xinpai: 0.30 } },
-      { id: 'QS-3', name: '四化引动', trigger: [{ op: 'has', args: ['mutagen_map', '星'] }], fieldBinding: ['birth_mutagen', 'mutagen_map'], defaultWeight: 0.2, schools: { ziping: 0.22, mangpai: 0.20, xinpai: 0.20 } },
+      { id: 'XQS-1', name: '庙旺得位', trigger: [{ op: 'has', args: ['StarFact.brightness', '庙'] }], fieldBinding: ['StarFact.brightness', 'palaces'], defaultWeight: 0.5, schools: { ziping: 0.50, mangpai: 0.48, xinpai: 0.50 } },
+      { id: 'XQS-2', name: '威猛开创性', trigger: [{ op: 'has', args: ['birth_mutagen', '星'] }], fieldBinding: ['StarFact.brightness', 'birth_mutagen', 'palaces'], defaultWeight: 0.3, schools: { ziping: 0.28, mangpai: 0.32, xinpai: 0.30 } },
+      { id: 'XQS-3', name: '四化引动', trigger: [{ op: 'has', args: ['mutagen_map', '星'] }], fieldBinding: ['birth_mutagen', 'mutagen_map'], defaultWeight: 0.2, schools: { ziping: 0.22, mangpai: 0.20, xinpai: 0.20 } },
     ],
     combos: [
-      { id: 'COMBO-QS-FJ', name: '庙旺逢吉', trigger: [{ op: 'has', args: ['StarFact.brightness', '庙'] }, { op: 'has', args: ['mutagen_map', '禄'] }], priority: 10, mutex: [] },
-      { id: 'COMBO-QS-FS', name: '庙旺逢煞', trigger: [{ op: 'has', args: ['StarFact.brightness', '庙'] }, { op: 'has', args: ['mutagen_map', '忌'] }], priority: 20, mutex: [] },
+      { id: 'COMBO-XQS-FJ', name: '庙旺逢吉', trigger: [{ op: 'has', args: ['StarFact.brightness', '庙'] }, { op: 'has', args: ['mutagen_map', '禄'] }], priority: 10, mutex: [] },
+      { id: 'COMBO-XQS-FS', name: '庙旺逢煞', trigger: [{ op: 'has', args: ['StarFact.brightness', '庙'] }, { op: 'has', args: ['mutagen_map', '忌'] }], priority: 20, mutex: [] },
     ],
     templates: [
-      { comboId: 'COMBO-QS-FJ', pro: '七杀入庙逢吉化，将星当位，主威权开创有成', mix: '你的七杀星落在当位又遇吉化，敢闯敢决断，能自己打出局面', lay: '你有股狠劲和决断力，位置对的时候靠自己就能闯出名堂', polarity: '++', modality: 'assert', atomicId: 'ATOM-XY-QS-FJ-001' },
-      { comboId: 'COMBO-QS-FS', pro: '七杀守垣而化忌，将星受制，主孤克耗力', mix: '你的七杀星虽在当位却遇煞化，冲得太猛容易孤身硬扛', lay: '你冲劲足但容易一个人扛到底，位置不对时伤自己也伤关系', polarity: '-', modality: 'likely', atomicId: 'ATOM-XY-QS-FS-001' },
+      { comboId: 'COMBO-XQS-FJ', pro: '七杀入庙逢吉化，将星当位，主威权开创有成', mix: '你的七杀星落在当位又遇吉化，敢闯敢决断，能自己打出局面', lay: '你有股狠劲和决断力，位置对的时候靠自己就能闯出名堂', polarity: '++', modality: 'assert', atomicId: 'ATOM-XY-XQS-FJ-001' },
+      { comboId: 'COMBO-XQS-FS', pro: '七杀守垣而化忌，将星受制，主孤克耗力', mix: '你的七杀星虽在当位却遇煞化，冲得太猛容易孤身硬扛', lay: '你冲劲足但容易一个人扛到底，位置不对时伤自己也伤关系', polarity: '-', modality: 'likely', atomicId: 'ATOM-XY-XQS-FS-001' },
     ],
     dimTags: ['DIM_11'],
   },

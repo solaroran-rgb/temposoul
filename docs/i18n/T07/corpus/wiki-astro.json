@@ -1,0 +1,242 @@
+{
+  "name": "wiki-astro",
+  "file": "src/data/wiki/astro-wiki.ts",
+  "entries": [
+    {
+      "id": "aries.title",
+      "zh": "白羊座 (Aries)"
+    },
+    {
+      "id": "aries.aliases[0]",
+      "zh": "牡羊座"
+    },
+    {
+      "id": "aries.aliases[1]",
+      "zh": "白羊宫"
+    },
+    {
+      "id": "aries.summary",
+      "zh": "黄道十二宫的第一宫，象征开端与原始的生命冲动。"
+    },
+    {
+      "id": "aries.disclaimer",
+      "zh": "星座特质描述属于占星学文化范畴，请勿将其作为人格测试的科学定论。"
+    },
+    {
+      "id": "taurus.title",
+      "zh": "金牛座 (Taurus)"
+    },
+    {
+      "id": "taurus.aliases[0]",
+      "zh": "金牛宫"
+    },
+    {
+      "id": "taurus.summary",
+      "zh": "黄道十二宫的第二宫，象征物质、稳定与感官体验。"
+    },
+    {
+      "id": "taurus.disclaimer",
+      "zh": "星座特质描述属于占星学文化范畴，请勿将其作为人格测试的科学定论。"
+    },
+    {
+      "id": "gemini.title",
+      "zh": "双子座 (Gemini)"
+    },
+    {
+      "id": "gemini.aliases[0]",
+      "zh": "双子宫"
+    },
+    {
+      "id": "gemini.summary",
+      "zh": "黄道十二宫的第三宫，象征沟通、好奇与多元。"
+    },
+    {
+      "id": "gemini.disclaimer",
+      "zh": "星座特质描述属于占星学文化范畴，请勿将其作为人格测试的科学定论。"
+    },
+    {
+      "id": "cancer.title",
+      "zh": "巨蟹座 (Cancer)"
+    },
+    {
+      "id": "cancer.aliases[0]",
+      "zh": "巨蟹宫"
+    },
+    {
+      "id": "cancer.summary",
+      "zh": "黄道十二宫的第四宫，象征情感、家与庇护。"
+    },
+    {
+      "id": "cancer.disclaimer",
+      "zh": "星座特质描述属于占星学文化范畴，请勿将其作为人格测试的科学定论。"
+    },
+    {
+      "id": "leo.title",
+      "zh": "狮子座 (Leo)"
+    },
+    {
+      "id": "leo.aliases[0]",
+      "zh": "狮子宫"
+    },
+    {
+      "id": "leo.summary",
+      "zh": "黄道十二宫的第五宫，象征表现、创造与自信。"
+    },
+    {
+      "id": "leo.disclaimer",
+      "zh": "星座特质描述属于占星学文化范畴，请勿将其作为人格测试的科学定论。"
+    },
+    {
+      "id": "virgo.title",
+      "zh": "处女座 (Virgo)"
+    },
+    {
+      "id": "virgo.aliases[0]",
+      "zh": "室女座"
+    },
+    {
+      "id": "virgo.aliases[1]",
+      "zh": "室女宫"
+    },
+    {
+      "id": "virgo.summary",
+      "zh": "黄道十二宫的第六宫，象征分析、细节与服务。"
+    },
+    {
+      "id": "virgo.disclaimer",
+      "zh": "星座特质描述属于占星学文化范畴，请勿将其作为人格测试的科学定论。"
+    },
+    {
+      "id": "libra.title",
+      "zh": "天秤座 (Libra)"
+    },
+    {
+      "id": "libra.aliases[0]",
+      "zh": "天平座"
+    },
+    {
+      "id": "libra.aliases[1]",
+      "zh": "天秤宫"
+    },
+    {
+      "id": "libra.summary",
+      "zh": "黄道十二宫的第七宫，象征平衡、关系与审美。"
+    },
+    {
+      "id": "libra.disclaimer",
+      "zh": "星座特质描述属于占星学文化范畴，请勿将其作为人格测试的科学定论。"
+    },
+    {
+      "id": "scorpio.title",
+      "zh": "天蝎座 (Scorpio)"
+    },
+    {
+      "id": "scorpio.aliases[0]",
+      "zh": "天蝎宫"
+    },
+    {
+      "id": "scorpio.summary",
+      "zh": "黄道十二宫的第八宫，象征深刻、转化与隐秘。"
+    },
+    {
+      "id": "scorpio.disclaimer",
+      "zh": "星座特质描述属于占星学文化范畴，请勿将其作为人格测试的科学定论。"
+    },
+    {
+      "id": "sagittarius.title",
+      "zh": "射手座 (Sagittarius)"
+    },
+    {
+      "id": "sagittarius.aliases[0]",
+      "zh": "人马座"
+    },
+    {
+      "id": "sagittarius.aliases[1]",
+      "zh": "人马宫"
+    },
+    {
+      "id": "sagittarius.summary",
+      "zh": "黄道十二宫的第九宫，象征探索、远方与信念。"
+    },
+    {
+      "id": "sagittarius.disclaimer",
+      "zh": "星座特质描述属于占星学文化范畴，请勿将其作为人格测试的科学定论。"
+    },
+    {
+      "id": "capricorn.title",
+      "zh": "摩羯座 (Capricorn)"
+    },
+    {
+      "id": "capricorn.aliases[0]",
+      "zh": "山羊座"
+    },
+    {
+      "id": "capricorn.aliases[1]",
+      "zh": "摩羯宫"
+    },
+    {
+      "id": "capricorn.summary",
+      "zh": "黄道十二宫的第十宫，象征结构、责任与成就。"
+    },
+    {
+      "id": "capricorn.disclaimer",
+      "zh": "星座特质描述属于占星学文化范畴，请勿将其作为人格测试的科学定论。"
+    },
+    {
+      "id": "aquarius.title",
+      "zh": "水瓶座 (Aquarius)"
+    },
+    {
+      "id": "aquarius.aliases[0]",
+      "zh": "宝瓶座"
+    },
+    {
+      "id": "aquarius.aliases[1]",
+      "zh": "宝瓶宫"
+    },
+    {
+      "id": "aquarius.summary",
+      "zh": "黄道十二宫的第十一宫，象征独立、创新与群体。"
+    },
+    {
+      "id": "aquarius.disclaimer",
+      "zh": "星座特质描述属于占星学文化范畴，请勿将其作为人格测试的科学定论。"
+    },
+    {
+      "id": "pisces.title",
+      "zh": "双鱼座 (Pisces)"
+    },
+    {
+      "id": "pisces.aliases[0]",
+      "zh": "双鱼宫"
+    },
+    {
+      "id": "pisces.summary",
+      "zh": "黄道十二宫的第十二宫，象征共情、想象与消融。"
+    },
+    {
+      "id": "pisces.disclaimer",
+      "zh": "星座特质描述属于占星学文化范畴，请勿将其作为人格测试的科学定论。"
+    },
+    {
+      "id": "retrograde.title",
+      "zh": "逆行 (Retrograde)"
+    },
+    {
+      "id": "retrograde.aliases[0]",
+      "zh": "水逆"
+    },
+    {
+      "id": "retrograde.aliases[1]",
+      "zh": "行星逆行"
+    },
+    {
+      "id": "retrograde.summary",
+      "zh": "天文学中的视运动现象，在占星学中被赋予反思与回溯的象征。"
+    },
+    {
+      "id": "retrograde.disclaimer",
+      "zh": "逆行是正常天文现象，占星学解读仅供文化参考，请勿产生不必要的心理焦虑。"
+    }
+  ]
+}

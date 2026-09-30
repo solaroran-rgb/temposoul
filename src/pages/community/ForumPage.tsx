@@ -1,5 +1,5 @@
 // src/pages/community/ForumPage.tsx
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { PageTopbar } from '@/components/PageTopbar';
 import { PrivacyHint } from '@/components/PrivacyHint';
@@ -15,31 +15,39 @@ export default function ForumPage() {
   const { boardId } = useParams<{ boardId: string }>();
   const [status, setStatus] = useState<Status>('loading');
   const [posts, setPosts] = useState<ForumPost[]>([]);
-  const [boards] = useState<ForumBoard[]>(FORUM_BOARDS);
+  const [boards, setBoards] = useState<ForumBoard[]>(FORUM_BOARDS);
   const [currentBoardId, setCurrentBoardId] = useState<string | undefined>(boardId);
+
+  // 真实调用 GET /api/v1/forum（?board=xxx）。失败时优雅降级为本地 seed，不白屏。
+  const loadBoard = useCallback(
+    async (bid?: string) => {
+      setStatus('loading');
+      try {
+        const url = bid
+          ? `/api/v1/forum?board=${encodeURIComponent(bid)}`
+          : '/api/v1/forum';
+        const res = await fetch(url, { headers: { Accept: 'application/json' } });
+        if (!res.ok) throw new Error(`http_${res.status}`);
+        const data = await res.json();
+        setBoards(Array.isArray(data.boards) ? data.boards : FORUM_BOARDS);
+        setPosts(Array.isArray(data.posts) ? data.posts : []);
+        setCurrentBoardId(bid);
+        setStatus(Array.isArray(data.posts) && data.posts.length > 0 ? 'ok' : 'ok-empty');
+      } catch {
+        // 降级：接口不可用时回退静态示例数据
+        setBoards(FORUM_BOARDS);
+        setPosts(bid ? FORUM_POSTS.filter((p) => p.boardId === bid) : FORUM_POSTS);
+        setCurrentBoardId(bid);
+        setStatus('degraded');
+      }
+    },
+    [],
+  );
 
   useEffect(() => {
     trackPageView(boardId ? `/community/board/${boardId}` : '/community');
-
-    const timer = setTimeout(() => {
-      if (boardId) {
-        const boardExists = FORUM_BOARDS.some((b) => b.id === boardId);
-        if (!boardExists) {
-          setStatus('error');
-          return;
-        }
-        const boardPosts = FORUM_POSTS.filter((p) => p.boardId === boardId);
-        setPosts(boardPosts);
-        setStatus(boardPosts.length > 0 ? 'ok' : 'ok-empty');
-      } else {
-        setPosts(FORUM_POSTS);
-        setStatus('ok');
-      }
-      setCurrentBoardId(boardId);
-    }, 0);
-
-    return () => clearTimeout(timer);
-  }, [boardId]);
+    loadBoard(boardId);
+  }, [boardId, loadBoard]);
 
   useEffect(() => {
     if (boardId && boardId !== currentBoardId) {
@@ -91,6 +99,9 @@ export default function ForumPage() {
       <div>
         <PageTopbar title="社区论坛" onBack={() => navigate(-1)} />
         <PrivacyHint />
+        {status === 'degraded' && (
+          <div className="error-tip">社区接口暂不可用，当前展示本地示例数据</div>
+        )}
         <div className="forum-boards">
           {boards.map((board) => (
             <button
@@ -117,6 +128,9 @@ export default function ForumPage() {
         onBack={() => navigate('/community')}
       />
       <PrivacyHint />
+      {status === 'degraded' && (
+        <div className="error-tip">社区接口暂不可用，当前展示本地示例数据</div>
+      )}
       <BoardTabs boards={boards} activeId={currentBoardId} onChange={handleBoardChange} />
       <PostComposer boardId={currentBoardId} onPosted={handlePosted} />
       {status === 'ok-empty' || filteredPosts.length === 0 ? (

@@ -1,10 +1,19 @@
 // 修正：接入 useFortuneCache；埋点只在首次成功计算时触发
+// 任务包2.3：接入解盘引擎（紫微十四主星逐宫解读）
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { PageTopbar } from '../../components/PageTopbar';
 import { PrivacyHint } from '../../components/PrivacyHint';
 import { PalaceTable } from './components/PalaceTable';
 import { ZiweiScopeSwitcher } from './components/ZiweiScopeSwitcher';
+import { SolutionPanel } from '../../components/solution/SolutionPanel';
+import { ziweiSolutionSources } from '../../lib/solution/solutionContext';
+import { runSolution } from '@core/solution/semantic';
+import {
+  L0SummaryCard,
+  type L0SummarySource,
+  type L0SummarySentence,
+} from '../../components/fortune/L0SummaryCard';
 import { useAiChat } from '../../hooks/useAiChat';
 import { useFortuneCache } from '../../hooks/useFortuneCache';
 import {
@@ -15,6 +24,7 @@ import {
   type ZiweiChart,
 } from './lib/localZiwei';
 import { trackChartSubmit } from '../../lib/analytics';
+import { SeoHead } from '../../components/SeoHead';
 import './ziwei-palaces.css';
 
 const DEFAULT_QUESTION = '请结合十二宫、四化与大限，给出该命盘的整体解读。';
@@ -134,8 +144,38 @@ export function PalacesPage() {
     ai.streamingContent || (ai.turns.length > 0 ? ai.turns[ai.turns.length - 1].content : '');
   const aiBusy = ai.status === 'loading' || ai.status === 'streaming';
 
+  // 任务包2.3：解盘引擎 L0 白话结论（逐主星）
+  const solutionSources = useMemo(() => ziweiSolutionSources(chart), [chart]);
+
+  // 首屏 L0 结论卡：紫微不走八字引擎，逐星 runSolution 的白话句去重汇总成宽松 L0 source，
+  // 结论文句与下方 SolutionPanel 同源（不硬塞八字算法）。
+  const ziweiL0 = useMemo<L0SummarySource | null>(() => {
+    if (solutionSources.length === 0) return null;
+    const sentences: L0SummarySentence[] = [];
+    const seen = new Set<string>();
+    for (const src of solutionSources) {
+      if (!src.context || Object.keys(src.context).length === 0) continue;
+      try {
+        const out = runSolution({ context: src.context, termIds: src.termIds });
+        for (const s of out.pro.sentences) {
+          if (seen.has(s.text)) continue;
+          seen.add(s.text);
+          sentences.push({ text: s.text, polarity: s.polarity, modality: s.modality });
+        }
+      } catch {
+        /* 单星异常不阻塞 */
+      }
+    }
+    if (sentences.length === 0) return null;
+    return { pro: { sentences } };
+  }, [solutionSources]);
+
   return (
     <div className="ts-page ts-page--ziwei-palaces">
+      <SeoHead
+        title="紫微斗数命盘 · 命律 TempoSoul"
+        description="紫微斗数十二宫排盘与四化解读，含主星逐宫分析。"
+      />
       <PageTopbar title="紫微命盘深化" onBack={onBack} />
       <main className="ts-page__main">
         <h1 className="ts-page__title">紫微命盘深化</h1>
@@ -172,6 +212,18 @@ export function PalacesPage() {
             {loading && <p className="ts-page__note">本地引擎重算中…</p>}
             <PalaceTable palaces={chart.palaces} />
           </section>
+        )}
+
+        {chart && ziweiL0 && (
+          <L0SummaryCard output={ziweiL0} title="紫微命盘 · 一句话结论" />
+        )}
+
+        {chart && (
+          <SolutionPanel
+            sources={solutionSources}
+            title="详细解读 · 十四主星"
+            boundary="解释边界：本解读由本地解盘引擎按传统紫微模型生成，仅供文化研究与自我参照，不构成任何决策依据。"
+          />
         )}
 
         {chart && (

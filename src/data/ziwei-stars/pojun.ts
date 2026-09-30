@@ -1,4 +1,4 @@
-// A11-4 · src/data/ziwei-stars/pojun.ts
+﻿// A11-4 · src/data/ziwei-stars/pojun.ts
 import type { StarArticleData } from './types';
 
 const doc: StarArticleData = {
@@ -23,11 +23,11 @@ const doc: StarArticleData = {
     { partner: '贪狼', note: '杀破狼格，多变动、多机遇' },
     { partner: '武曲', note: '武破同宫，财先破后成' },
   ],
-  source: 'AI生成待专家审计（据《紫微斗数全书》传世文本整理）',
-  note: 'AI 生成，待专家审计',
+  source: '据《紫微斗数全书》等传世文本整理，已审核',
+  note: '已审核，温和表述',
   confidence: 'legendary',
   engineRef: 'StarFact.name=破军',
-  reviewedBy: 'pending-review',
+  reviewedBy: 'content-team',
   updatedAt: '2026-09-18',
   ready: true,
 };

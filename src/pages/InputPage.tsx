@@ -33,7 +33,19 @@ import AlmanacShareCard from '@/components/AlmanacShareCard';
 import { AlmanacCard } from '@/components/almanac/AlmanacCard';
 import { RhythmCard } from '@/components/fortune/RhythmCard';
 import { HomeShortcuts } from '@/components/home/HomeShortcuts';
+import { DualEntryGate } from '@/components/home/DualEntryGate';
+import { StarfieldBackground } from '@/components/StarfieldBackground';
+import { SeoHead } from '@/components/SeoHead';
+import { FeatureHighlights } from './InputPage.FeatureHighlights';
+import { SubmitProgress } from './InputPage.SubmitProgress';
 import { useAlmanacData } from '@/hooks/useAlmanacData';
+import { useProfiles } from '@/contexts/ProfilesContext';
+import {
+  formatProfileSummary,
+  hasCompleteBirthData,
+  inputStateToProfile,
+  profileToInputState,
+} from '@/lib/user-profile';
 
 type InputEntryMode = 'single' | 'compatibility' | 'divination' | 'almanac';
 
@@ -58,6 +70,12 @@ export function InputPage() {
   const tutorialEntryRef = useRef<HTMLDivElement | null>(null);
   const [tutorialEntryPinned, setTutorialEntryPinned] = useState(false);
   const [bottomToolsHeight, setBottomToolsHeight] = useState(0);
+  // 8.1 排盘加载科学性展示：提交后、跳转结果页前的步骤指示器。
+  const [submitBusy, setSubmitBusy] = useState(false);
+
+  // H02 · 档案一次录入：档案系统接入（自动预填 + 提交自动保存）
+  const { currentProfile, add, update, setCurrent } = useProfiles();
+  const didAutoFillProfileRef = useRef(false);
 
   const birthPlace = useBirthPlace({ form, setForm });
 
@@ -121,6 +139,24 @@ export function InputPage() {
     form.birthLongitude,
     form.birthLatitude,
   ]);
+
+  // H02 · 档案一次录入：进入输入页自动复用当前档案。
+  // 仅当表单尚未填写任何生辰字段时预填（didAutoFillProfileRef 保证只生效一次，
+  // 且不覆盖用户正在编辑的内容）。
+  useEffect(() => {
+    if (didAutoFillProfileRef.current) {
+      return;
+    }
+    if (!currentProfile) {
+      return;
+    }
+    if (form.year !== '' || form.month !== '' || form.day !== '') {
+      return;
+    }
+    didAutoFillProfileRef.current = true;
+    setForm((current) => ({ ...current, ...profileToInputState(currentProfile) }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentProfile]);
 
   useEffect(() => {
     if (form.analysisMode !== 'compatibility') {
@@ -246,6 +282,26 @@ export function InputPage() {
     }
   }
 
+  // H02 · 档案一次录入：提交排盘时自动保存/更新档案，保证"一次录入、自动复用"。
+  // 语义：名称未变（或未填写）→ 更新当前档案；无档案或名称变更（视为新的人）→ 新建并设为当前。
+  function saveProfileFromForm() {
+    if (!hasCompleteBirthData(form)) {
+      return;
+    }
+    const name = form.name.trim();
+    if (currentProfile && (!name || name === currentProfile.name)) {
+      update({ ...inputStateToProfile(form, currentProfile), id: currentProfile.id });
+      return;
+    }
+    const created = add({
+      ...inputStateToProfile(form),
+      isDefault: currentProfile ? false : true,
+    });
+    if (created) {
+      setCurrent(created.id);
+    }
+  }
+
   function handleSubmit() {
     setError('');
     const selfLabel = getPersonReferenceLabel(form.analysisMode, 'self');
@@ -334,9 +390,18 @@ export function InputPage() {
       }
     }
 
+    // H02 · 档案一次录入：所有校验通过后自动保存/更新档案，保证"一次录入、自动复用"
+    saveProfileFromForm();
+
     // T0 漏斗：排盘提交（所有校验通过、即将跳转结果页）
     trackChartSubmit({ mode: form.analysisMode, trueSolarTime: form.useTrueSolarTime });
 
+    // 8.1 排盘加载科学性展示：先展示有序步骤指示器，步骤走完再跳转结果页。
+    setSubmitBusy(true);
+  }
+
+  // 真正跳转结果页（由 SubmitProgress 步骤走完后回调触发）。
+  function runResultNavigation() {
     startSubmitTransition(() => {
       navigate({
         pathname: '/result',
@@ -417,11 +482,65 @@ export function InputPage() {
       className={`page-shell input-page-shell ${tutorialEntryPinned ? 'has-floating-tutorial-entry' : ''}`}
       style={{ '--input-bottom-tools-height': `${bottomToolsHeight}px` } as CSSProperties}
     >
+      <SeoHead
+        title="命律 TempoSoul · 八字排盘与命理分析"
+        description="免费在线八字排盘、紫微斗数、西洋星盘与每日运势，输入出生信息即可获得 AI 深度命理解读。"
+      />
       <div className="bazi-view-container">
         <div className="input-page-main-content" ref={mainContentRef}>
           <PrivacyHint />
           {/* P1-2 Trust Engine: 输入页挂载 — 覆盖 T0/T3（空表单）/ T5（已填）/ T4（占卜·择日）。 */}
           <TrustBanner inputMode={entryMode} inputHasContent={inputHasContent} />
+
+          {/* H02 · 档案一次录入：当前档案快捷条（自动复用 + 管理入口） */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 10,
+              maxWidth: 600,
+              margin: '0 auto 14px',
+              padding: '10px 14px',
+              borderRadius: 12,
+              border: '1px solid rgba(255,255,255,0.08)',
+              background: 'rgba(15,23,42,0.45)',
+              fontSize: 13,
+              color: '#94a3b8',
+              flexWrap: 'wrap',
+            }}
+          >
+            <span style={{ fontWeight: 600, color: '#cbd5e1' }}>个人档案</span>
+            {currentProfile ? (
+              <span style={{ flex: '1 1 auto', minWidth: 160 }}>
+                {currentProfile.name}
+                <span style={{ color: '#64748b' }}>
+                  （{formatProfileSummary(currentProfile)}）
+                </span>
+                <span style={{ color: '#64748b' }}> · 已自动带入</span>
+              </span>
+            ) : (
+              <span style={{ flex: '1 1 auto', minWidth: 160, color: '#64748b' }}>
+                首次排盘将自动保存为档案，下次自动复用
+              </span>
+            )}
+            <button
+              type="button"
+              className="top-ai-settings-icon-button"
+              onClick={() => navigate('/profile')}
+              style={{
+                border: '1px solid rgba(255,255,255,0.14)',
+                borderRadius: 8,
+                padding: '5px 10px',
+                fontSize: 12,
+                whiteSpace: 'nowrap',
+              }}
+              aria-label="管理档案"
+              title="管理档案"
+            >
+              管理档案
+            </button>
+          </div>
+
           <div className="analysis-mode-strip">
             <div className="top-switch-control">
               <SegmentedControl
@@ -459,7 +578,34 @@ export function InputPage() {
             </section>
           )}
 
+          {/* 7.1 情绪增长：星空情感锚点（首页默认星空背景 + 情绪文案） */}
+          <section
+            className="sky-emotion-hero"
+            style={{
+              textAlign: 'center',
+              padding: '18px 12px 14px',
+              marginBottom: 16,
+              background: 'linear-gradient(180deg, rgba(10,14,26,0) 0%, rgba(15,23,42,0.55) 100%)',
+              borderRadius: 12,
+              border: '1px solid rgba(255,255,255,0.06)',
+            }}
+          >
+            <StarfieldBackground />
+            <div style={{ fontSize: 13, color: '#94a3b8', lineHeight: 1.7, letterSpacing: '0.03em' }}>
+              ☽ 这是你出生时的真太阳时星空
+            </div>
+            <div style={{ fontSize: 11, color: '#64748b', marginTop: 4 }}>
+              每一颗星星，都是那一刻宇宙给你的第一份礼物
+            </div>
+          </section>
+
+          {/* F03 · 首页双分流门：先选普通 / 专业入口，再进入下方排盘区 */}
+          <DualEntryGate />
+
           <HomeShortcuts />
+
+          {/* 7.2 十二项特色功能清单：每个排盘项目一句"本项特色" */}
+          <FeatureHighlights />
 
           <div className="analysis-view">
             {entryMode === 'divination' || entryMode === 'almanac' ? (
@@ -496,7 +642,11 @@ export function InputPage() {
                     />
                   ) : null}
 
-                  {error ? <div className="form-error-text global-form-error">{error}</div> : null}
+                  {error ? (
+                    <div className="form-error-text global-form-error" role="alert" aria-live="polite">
+                      {error}
+                    </div>
+                  ) : null}
 
                   <div
                     className="form-actions page-submit-actions"
@@ -522,6 +672,7 @@ export function InputPage() {
                       className="primary-button start-submit-button"
                       type="button"
                       onClick={handleSubmit}
+                      disabled={submitBusy}
                       style={{ width: '100%' }}
                     >
                       开始排盘
@@ -580,6 +731,7 @@ export function InputPage() {
           onClose={() => setIsAiSettingsModalOpen(false)}
         />
       ) : null}
+      {submitBusy ? <SubmitProgress onDone={runResultNavigation} /> : null}
     </div>
   );
 }

@@ -68,6 +68,26 @@ jobs:
       - name: Check generated china location data
         run: pnpm run check:location-data
       - run: pnpm run build
+      # 产物完整性硬门禁（B 轨，2026-09-26 线上白屏事故复盘）
+      # 事故根因：dist/assets/ 为空（0 文件），而 dist/index.html 仍引用 6 个 asset，
+      # 坏产物一路通过构建与发布。此处显式独立执行同一断言，让「产物被剥离」这类
+      # 失败在 CI UI 上有具名步骤可见，而不是淹没在 "Run pnpm run build" 的日志尾部。
+      # 关于「是否从 build 链里摘出来」：不摘。build 链尾那道是第一道（覆盖本地开发
+      # 与 Dockerfile），CI 这道是第二道；断言脚本只读、幂等、无副作用，重复执行
+      # 开销可忽略。摘掉第一道等于把门禁从「生产者」降级为「靠每个调用方自觉」，
+      # 反而更脆。
+      # 不设 continue-on-error —— 硬门禁，失败即阻断。
+      - name: Verify dist integrity
+        run: node scripts/verify-dist-integrity.mjs dist
+      # SEO / 元数据门禁（Gate B，软）—— 与 Gate A 物理拆分，避免和「白屏事故」
+      # 共用同一个报警铃：Gate A 报红 = 立刻回滚，Gate B 报红 = 排一张内容工单。
+      # 这些断言（canonical / hreflang / OG·Twitter / title·description 唯一性 /
+      # smoke-expectations 对齐 / JSON-LD / robots / sitemap）会随内容、路由、语种
+      # 正常漂移，属内容工单而非线上事故，故 continue-on-error：可见但不阻断。
+      # 与 verify-merkle 同策略；口径收口稳定后再议升级为硬门禁。
+      - name: Verify dist SEO metadata
+        continue-on-error: true
+        run: node scripts/verify-dist-seo.mjs dist
 
   # Merkle 门禁（线程 B 接入，2026-09-18）
   # 独立校验步：冻结 build/artifacts.json 后跑 verify-merkle，断言全站 sitemap 口径（738）

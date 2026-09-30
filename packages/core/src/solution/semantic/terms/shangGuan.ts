@@ -100,6 +100,13 @@ export const shangGuan: TermSchema = {
       priority: 30,
       mutex: [],
     },
+    {
+      id: 'COMBO-SG-BASE',
+      name: '伤官旺相',
+      trigger: [{ op: 'has', args: ['tenGods', '伤官'] }],
+      priority: 50,
+      mutex: ['COMBO-SG-JG', 'COMBO-SG-PY', 'COMBO-SG-SC'],
+    },
   ],
   templates: [
     {
@@ -119,6 +126,15 @@ export const shangGuan: TermSchema = {
       polarity: '+',
       modality: 'assert',
       atomicId: 'ATOM-SG-PY-001',
+    },
+    {
+      comboId: 'COMBO-SG-BASE',
+      pro: '伤官旺相，才华外露，表达力强，需注意分寸',
+      mix: '你很有想法也敢表达，才华外放，但说话做事留点分寸更好',
+      lay: '你挺有才的，表达也利落，就是有时候得注意下分寸',
+      polarity: '+',
+      modality: 'assert',
+      atomicId: 'ATOM-SG-BASE-001',
     },
   ],
   dimTags: ['DIM_01', 'DIM_02'],

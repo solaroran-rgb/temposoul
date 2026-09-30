@@ -229,13 +229,33 @@ async function handleStaticRequest(request: IncomingMessage, response: ServerRes
 const server = createServer((request, response) => {
   void (async () => {
     const url = new URL(request.url || '/', `http://${request.headers.host || 'localhost'}`);
-
-    if (isPublicApiRequestPath(url.pathname)) {
-      await handleApiRequest(request, response, url);
-      return;
-    }
-
-    await handleStaticRequest(request, response, url);
+      // 路由 IM WebSocket 升级请求
+      if (url.pathname === '/api/v1/consult/im/ws') {
+        return; // 交给 upgrade 事件处理
+      }
+      // 路由撮合 HTTP API
+      if (url.pathname === '/api/v1/consult/matchmaking' && request.method === 'POST') {
+        await handleMatchmakingPost(request, response);
+        return;
+      }
+      if (url.pathname === '/api/v1/consult/matchmaking' && request.method === 'GET') {
+        await handleMatchmakingGet(request, response);
+        return;
+      }
+      if (url.pathname === '/api/v1/consult/matchmaking/queue' && request.method === 'DELETE') {
+        await handleMatchmakingDelete(request, response);
+        return;
+      }
+      // 路由 RTC mock HTTP API
+      if (url.pathname.startsWith('/api/v1/consult/rtc')) {
+        await handleRtcApi(request, response, url);
+        return;
+      }
+      if (isPublicApiRequestPath(url.pathname)) {
+        await handleApiRequest(request, response, url);
+        return;
+      }
+      await handleStaticRequest(request, response, url);
   })().catch((error) => {
     console.error('Docker 服务未处理异常', error);
     if (!response.headersSent) {

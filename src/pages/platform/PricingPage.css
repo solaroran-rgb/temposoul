@@ -1,0 +1,200 @@
+/* ===== 命律 · 定价页 PricingPage 样式 =====
+   依赖全局变量（src/styles.css :root / prefers-color-scheme: dark），
+   自动跟随暗色玻璃主题；变量未命中时回退到 features.css 同款暗色玻璃值。
+   Markup 中当前无“对比表 / 月-年切换器”DOM，故未新增对应死类，待后续接入时再补。
+*/
+
+.pricing-page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 40px 16px 80px;
+  color: var(--text-primary, #e6dceF);
+}
+
+.pricing-page__header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.pricing-page__title {
+  margin: 0 0 12px;
+  font-size: clamp(24px, 4vw, 34px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-strong, #f8f3ff);
+  /* 防标题溢出：长词换行 */
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.pricing-page__disclaimer {
+  margin: 0 auto;
+  max-width: 640px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-muted, #a495b4);
+}
+
+/* 卡片网格：桌面自适应多列，窄屏单列 */
+.pricing-page__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* 单张卡片：暗色玻璃面板 */
+.pricing-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 26px 22px 24px;
+  border-radius: var(--radius-page-card, 16px);
+  border: 1px solid var(--border-soft, rgba(181, 164, 204, 0.22));
+  background: var(--surface-panel, rgba(28, 22, 36, 0.82));
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: var(--shadow-card, 0 14px 40px rgba(0, 0, 0, 0.24));
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-contrast, rgba(232, 108, 176, 0.34));
+  box-shadow: var(--shadow-lg, 0 20px 60px rgba(0, 0, 0, 0.38));
+}
+
+/* 推荐卡片：描边高亮 */
+.pricing-card--pro {
+  border-color: var(--accent, #f187be);
+  box-shadow:
+    0 0 0 1px var(--accent, #f187be),
+    0 18px 50px rgba(241, 135, 190, 0.18),
+    var(--shadow-card, 0 14px 40px rgba(0, 0, 0, 0.24));
+}
+
+.pricing-card--free {
+  /* 基础版：保持玻璃质感但不抢焦点 */
+  opacity: 0.96;
+}
+
+/* 角标（新客首单 / 推荐） */
+.pricing-card__badge {
+  position: absolute;
+  top: -10px;
+  left: 18px;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill, 999px);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent, #f187be), var(--secondary, #c1b4f2));
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.45));
+}
+
+.pricing-card--pro .pricing-card__badge {
+  background: linear-gradient(135deg, var(--accent-strong, #e86cb0), var(--accent, #f187be));
+}
+
+.pricing-card__name {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-strong, #f8f3ff);
+}
+
+/* 价格数字 */
+.pricing-card__price {
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text-strong, #f8f3ff);
+  font-feature-settings: "tnum";
+  letter-spacing: -0.01em;
+}
+
+.pricing-card__unit {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted, #a495b4);
+  margin-left: 2px;
+}
+
+/* 功能清单 */
+.pricing-card__features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--text-secondary, #c3b6d0);
+}
+
+/* 按钮 */
+.pricing-card__btn {
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  border-radius: var(--radius-control, 12px);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.18s ease, transform 0.18s ease, opacity 0.18s ease;
+}
+
+.pricing-card__btn:hover:not(:disabled) {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.pricing-card__btn:disabled {
+  cursor: not-allowed;
+}
+
+.pricing-card__btn--primary {
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent-strong, #e86cb0), var(--secondary-strong, #d3c6ff));
+  box-shadow: 0 8px 22px rgba(232, 108, 176, 0.28);
+}
+
+.pricing-card__btn--primary:disabled {
+  opacity: 0.6;
+}
+
+/* “当前方案”按钮：幽灵态，不抢 CTA */
+.pricing-card__btn--current {
+  color: var(--text-secondary, #c3b6d0);
+  background: transparent;
+  border: 1px solid var(--border-strong, rgba(212, 188, 236, 0.32));
+}
+
+.pricing-card__auto-renew {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--text-muted, #a495b4);
+  text-align: center;
+}
+
+/* 移动端：窄屏单列 */
+@media (max-width: 720px) {
+  .pricing-page {
+    padding: 28px 14px 64px;
+  }
+  .pricing-page__cards {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+  .pricing-card {
+    padding: 22px 18px 20px;
+  }
+  .pricing-card__price {
+    font-size: 32px;
+  }
+}

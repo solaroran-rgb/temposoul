@@ -39,8 +39,8 @@ export const BbRoutes = (
     <Route path="/insights" element={wrap(<B3bList kind="b_fortune" />)} />
     <Route path="/insights/:article_id" element={wrap(<B3bDetail kind="b_fortune" />)} />
 
-    {/* 文化顾问团 */}
-    <Route path="/experts" element={wrap(<B3bList kind="b_expert" />)} />
-    <Route path="/experts/:expert_id" element={wrap(<B3bDetail kind="b_expert" />)} />
+    {/* 文化顾问团（改路径避免与 /experts TeamPage 冲突） */}
+    <Route path="/wiki/experts" element={wrap(<B3bList kind="b_expert" />)} />
+    <Route path="/wiki/experts/:expert_id" element={wrap(<B3bDetail kind="b_expert" />)} />
   </>
 );

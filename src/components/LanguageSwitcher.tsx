@@ -13,7 +13,7 @@ export function LanguageSwitcher() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const mq = window.matchMedia('(max-width: 900px)');
+    const mq = window.matchMedia('(max-width: 1280px)');
     const update = () => setNarrow(mq.matches);
     update();
     mq.addEventListener('change', update);

@@ -22,7 +22,7 @@ export const WUXING_REGISTRY: Record<string, TermSchema> = {
       { id: 'COMBO-J-QUE', name: '金缺失', trigger: [{ op: 'has', args: ['wuxingStrength.missing', '金'] }], priority: 20, mutex: ['COMBO-J-WANG'] },
     ],
     templates: [
-      { comboId: 'COMBO-J-WANG', pro: '金旺肃杀，决断力强而刚，易伤木', mix: '你决断力很强，但偏刚硬，容易与柔和之事相冲', lay: '你做事果断干脆，但有时太较真，容易跟人起冲突', polarity: '0', modality: 'assert', atomicId: 'ATOM-J-WANG-001' },
+      { comboId: 'COMBO-J-WANG', pro: '金旺肃杀，决断力强而刚，易伤木', mix: '你决断力很强，但偏刚硬，容易与柔和之事相冲', lay: '你做事果断干脆，但有时太较真，容易跟人起冲突', polarity: '-', modality: 'assert', atomicId: 'ATOM-J-WANG-001' },
       { comboId: 'COMBO-J-QUE', pro: '金缺，肃杀不足，决断与执行力偏弱', mix: '你在果断决断与执行上偏弱，遇事易犹豫', lay: '你做决定时容易拿不定主意，执行力可以再强一点', polarity: '-', modality: 'tend', atomicId: 'ATOM-J-QUE-001' },
     ],
     dimTags: ['DIM_04'],
@@ -41,7 +41,7 @@ export const WUXING_REGISTRY: Record<string, TermSchema> = {
       { id: 'COMBO-M-QUE', name: '木缺失', trigger: [{ op: 'has', args: ['wuxingStrength.missing', '木'] }], priority: 20, mutex: ['COMBO-M-WANG'] },
     ],
     templates: [
-      { comboId: 'COMBO-M-WANG', pro: '木旺争发，向上欲强而偏争，克土明显', mix: '你上进心强，但竞争欲偏强，容易在资源与立场上跟人争', lay: '你很有上进心，但太要强，容易跟人争高下', polarity: '0', modality: 'assert', atomicId: 'ATOM-M-WANG-001' },
+      { comboId: 'COMBO-M-WANG', pro: '木旺争发，向上欲强而偏争，克土明显', mix: '你上进心强，但竞争欲偏强，容易在资源与立场上跟人争', lay: '你很有上进心，但太要强，容易跟人争高下', polarity: '-', modality: 'assert', atomicId: 'ATOM-M-WANG-001' },
       { comboId: 'COMBO-M-QUE', pro: '木缺，生发不足，向上动力偏弱', mix: '你在向上生长、主动开拓上偏弱，起步易迟', lay: '你做事起步偏慢，主动争取的劲可以再大一点', polarity: '-', modality: 'tend', atomicId: 'ATOM-M-QUE-001' },
     ],
     dimTags: ['DIM_04'],
@@ -60,7 +60,7 @@ export const WUXING_REGISTRY: Record<string, TermSchema> = {
       { id: 'COMBO-S-QUE', name: '水缺失', trigger: [{ op: 'has', args: ['wuxingStrength.missing', '水'] }], priority: 20, mutex: ['COMBO-S-WANG'] },
     ],
     templates: [
-      { comboId: 'COMBO-S-WANG', pro: '水旺泛滥，流动过盛而散，克火明显', mix: '你思维很活，但容易发散，精力与方向偏散乱', lay: '你脑子转得快，但容易东想西想，收不住', polarity: '0', modality: 'assert', atomicId: 'ATOM-S-WANG-001' },
+      { comboId: 'COMBO-S-WANG', pro: '水旺泛滥，流动过盛而散，克火明显', mix: '你思维很活，但容易发散，精力与方向偏散乱', lay: '你脑子转得快，但容易东想西想，收不住', polarity: '-', modality: 'assert', atomicId: 'ATOM-S-WANG-001' },
       { comboId: 'COMBO-S-QUE', pro: '水缺，流动不足，智识与变通偏弱', mix: '你在智识变通与流动性上偏弱，思路易僵', lay: '你思路偏保守，变通和灵活性可以再强一点', polarity: '-', modality: 'tend', atomicId: 'ATOM-S-QUE-001' },
     ],
     dimTags: ['DIM_04'],
@@ -79,7 +79,7 @@ export const WUXING_REGISTRY: Record<string, TermSchema> = {
       { id: 'COMBO-H-QUE', name: '火缺失', trigger: [{ op: 'has', args: ['wuxingStrength.missing', '火'] }], priority: 20, mutex: ['COMBO-H-WANG'] },
     ],
     templates: [
-      { comboId: 'COMBO-H-WANG', pro: '火旺炎上，热情过盛而耗，克金明显', mix: '你热情很高，但容易过耗，精力与情绪起伏大', lay: '你性子很热情，但有时三分钟热度，容易透支', polarity: '0', modality: 'assert', atomicId: 'ATOM-H-WANG-001' },
+      { comboId: 'COMBO-H-WANG', pro: '火旺炎上，热情过盛而耗，克金明显', mix: '你热情很高，但容易过耗，精力与情绪起伏大', lay: '你性子很热情，但有时三分钟热度，容易透支', polarity: '-', modality: 'assert', atomicId: 'ATOM-H-WANG-001' },
       { comboId: 'COMBO-H-QUE', pro: '火缺，炎上不足，热情与表达偏弱', mix: '你在热情表达与感染力上偏弱，气场偏内敛', lay: '你性子偏安静，热情和表达可以再多释放一点', polarity: '-', modality: 'tend', atomicId: 'ATOM-H-QUE-001' },
     ],
     dimTags: ['DIM_04'],

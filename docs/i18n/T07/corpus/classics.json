@@ -1,0 +1,202 @@
+{
+  "name": "classics",
+  "file": "src/data/classics.ts",
+  "entries": [
+    {
+      "id": "zhouyi.title",
+      "zh": "周易"
+    },
+    {
+      "id": "zhouyi.metaDescription",
+      "zh": "群经之首，以卦爻系统阐述变化之道。"
+    },
+    {
+      "id": "zhouyi.h1",
+      "zh": "周易"
+    },
+    {
+      "id": "zhouyi.tags[0]",
+      "zh": "周易"
+    },
+    {
+      "id": "zhouyi.tags[1]",
+      "zh": "易经"
+    },
+    {
+      "id": "zhouyi.tags[2]",
+      "zh": "先秦"
+    },
+    {
+      "id": "zhouyi.sources[0].text",
+      "zh": "《周易正义》（孔颖达疏）"
+    },
+    {
+      "id": "zhouyi.sources[1].text",
+      "zh": "《周易本义》（朱熹）"
+    },
+    {
+      "id": "zhouyi.disclaimer",
+      "zh": "本条目为典籍导读，不提供占断服务。"
+    },
+    {
+      "id": "shangshu.title",
+      "zh": "尚书"
+    },
+    {
+      "id": "shangshu.metaDescription",
+      "zh": "上古政事之书，保存夏商周诰命典谟。"
+    },
+    {
+      "id": "shangshu.h1",
+      "zh": "尚书"
+    },
+    {
+      "id": "shangshu.tags[0]",
+      "zh": "尚书"
+    },
+    {
+      "id": "shangshu.tags[1]",
+      "zh": "书经"
+    },
+    {
+      "id": "shangshu.tags[2]",
+      "zh": "先秦"
+    },
+    {
+      "id": "shangshu.sources[0].text",
+      "zh": "《尚书正义》（孔颖达疏）"
+    },
+    {
+      "id": "shangshu.disclaimer",
+      "zh": "本条目为典籍导读，供学术与文化学习参考。"
+    },
+    {
+      "id": "shijing.title",
+      "zh": "诗经"
+    },
+    {
+      "id": "shijing.metaDescription",
+      "zh": "中国最早的诗歌总集，分风雅颂。"
+    },
+    {
+      "id": "shijing.h1",
+      "zh": "诗经"
+    },
+    {
+      "id": "shijing.tags[0]",
+      "zh": "诗经"
+    },
+    {
+      "id": "shijing.tags[1]",
+      "zh": "诗歌"
+    },
+    {
+      "id": "shijing.tags[2]",
+      "zh": "先秦"
+    },
+    {
+      "id": "shijing.sources[0].text",
+      "zh": "《毛诗正义》"
+    },
+    {
+      "id": "shijing.disclaimer",
+      "zh": "本条目为典籍导读，供学术与文化学习参考。"
+    },
+    {
+      "id": "liji.title",
+      "zh": "礼记"
+    },
+    {
+      "id": "liji.metaDescription",
+      "zh": "记载先秦礼制的文献汇编。"
+    },
+    {
+      "id": "liji.h1",
+      "zh": "礼记"
+    },
+    {
+      "id": "liji.tags[0]",
+      "zh": "礼记"
+    },
+    {
+      "id": "liji.tags[1]",
+      "zh": "礼制"
+    },
+    {
+      "id": "liji.tags[2]",
+      "zh": "西汉"
+    },
+    {
+      "id": "liji.sources[0].text",
+      "zh": "《礼记正义》（孔颖达疏）"
+    },
+    {
+      "id": "liji.disclaimer",
+      "zh": "本条目为典籍导读，供学术与文化学习参考。"
+    },
+    {
+      "id": "daodejing.title",
+      "zh": "道德经"
+    },
+    {
+      "id": "daodejing.metaDescription",
+      "zh": "道家核心经典，以五千言阐述道与德。"
+    },
+    {
+      "id": "daodejing.h1",
+      "zh": "道德经"
+    },
+    {
+      "id": "daodejing.tags[0]",
+      "zh": "道德经"
+    },
+    {
+      "id": "daodejing.tags[1]",
+      "zh": "老子"
+    },
+    {
+      "id": "daodejing.tags[2]",
+      "zh": "道家"
+    },
+    {
+      "id": "daodejing.sources[0].text",
+      "zh": "《老子道德经注》（王弼）"
+    },
+    {
+      "id": "daodejing.disclaimer",
+      "zh": "本条目为典籍导读，供学术与文化学习参考。"
+    },
+    {
+      "id": "zhuangzi.title",
+      "zh": "庄子"
+    },
+    {
+      "id": "zhuangzi.metaDescription",
+      "zh": "道家重要典籍，以寓言探讨自由与自然。"
+    },
+    {
+      "id": "zhuangzi.h1",
+      "zh": "庄子"
+    },
+    {
+      "id": "zhuangzi.tags[0]",
+      "zh": "庄子"
+    },
+    {
+      "id": "zhuangzi.tags[1]",
+      "zh": "道家"
+    },
+    {
+      "id": "zhuangzi.tags[2]",
+      "zh": "战国"
+    },
+    {
+      "id": "zhuangzi.sources[0].text",
+      "zh": "《庄子集释》（郭庆藩）"
+    },
+    {
+      "id": "zhuangzi.disclaimer",
+      "zh": "本条目为典籍导读，供学术与文化学习参考。"
+    }
+  ]
+}

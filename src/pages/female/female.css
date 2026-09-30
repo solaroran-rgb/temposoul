@@ -1,0 +1,69 @@
+/* src/pages/female/female.css · 女性垂直内容页通用样式 */
+.female-page {
+  color: var(--text-primary, #E0E6ED);
+  padding: 16px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.female-page__hero { margin-bottom: 16px; }
+.female-page__title { font-size: 24px; margin: 8px 0 4px; color: var(--neon-cyan, #4DC3FF); }
+.female-page__subtitle { color: var(--text-secondary, #8B9BB4); margin: 0; line-height: 1.6; }
+.female-page__section-title { font-size: 17px; margin: 22px 0 10px; }
+
+.female-page__current {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid var(--neon-cyan, #4DC3FF);
+  border-radius: 12px;
+  padding: 16px;
+}
+.female-page__moon { font-size: 52px; line-height: 1; }
+.female-page__current-meta h2 { margin: 0 0 6px; font-size: 18px; }
+.female-page__illum { color: var(--text-secondary, #8B9BB4); font-size: 14px; font-weight: normal; }
+.female-page__emotion { margin: 0 0 6px; line-height: 1.6; }
+.female-page__date { color: var(--text-secondary, #8B9BB4); font-size: 12px; margin: 0; }
+
+.female-page__cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }
+.female-page__card { border: 1px solid var(--border-color, #2A3548); border-radius: 10px; padding: 12px; }
+.female-page__card--active { border-color: var(--neon-cyan, #4DC3FF); }
+.female-page__card-head { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
+.female-page__card-hint { color: var(--text-secondary, #8B9BB4); font-size: 12px; margin-left: auto; }
+.female-page__card p { margin: 0; font-size: 13px; line-height: 1.6; }
+
+.female-page__prose { line-height: 1.8; font-size: 14px; color: var(--text-primary, #E0E6ED); }
+.female-page__prose p { margin: 0 0 12px; }
+.female-page__prose strong { color: var(--neon-cyan, #4DC3FF); }
+
+.female-page__related { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 20px; }
+.female-page__related a { color: var(--neon-cyan, #4DC3FF); text-decoration: none; }
+.female-page__disclaimer {
+  color: var(--text-secondary, #8B9BB4);
+  font-size: 12px;
+  margin-top: 16px;
+  border-top: 1px dashed var(--border-color, #2A3548);
+  padding-top: 10px;
+  line-height: 1.6;
+}
+
+/* 冥想/情绪记录轻页 */
+.female-page__timer { text-align: center; padding: 24px 16px; border: 1px solid var(--border-color, #2A3548); border-radius: 12px; }
+.female-page__timer-count { font-size: 44px; font-variant-numeric: tabular-nums; margin: 8px 0; }
+.female-page__timer-hint { color: var(--text-secondary, #8B9BB4); font-size: 13px; }
+.female-page__btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 8px 18px;
+  border: 1px solid var(--neon-cyan, #4DC3FF);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--neon-cyan, #4DC3FF);
+  cursor: pointer;
+  font-size: 14px;
+}
+.female-page__btn--ghost { border-color: var(--border-color, #2A3548); color: var(--text-secondary, #8B9BB4); }
+.female-page__mood-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.female-page__mood { font-size: 22px; cursor: pointer; opacity: 0.55; transition: opacity 0.15s; }
+.female-page__mood--active { opacity: 1; transform: scale(1.15); }
+.female-page__note { width: 100%; box-sizing: border-box; min-height: 72px; margin-top: 12px; padding: 10px; border-radius: 8px; border: 1px solid var(--border-color, #2A3548); background: transparent; color: var(--text-primary, #E0E6ED); font-size: 13px; line-height: 1.6; }
+.female-page__saved { color: var(--text-secondary, #8B9BB4); font-size: 12px; margin-top: 8px; }

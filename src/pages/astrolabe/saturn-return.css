@@ -1,0 +1,21 @@
+/* src/pages/astrolabe/saturn-return.css */
+.saturn-return-page { color: var(--text-primary, #E0E6ED); padding: 16px; max-width: 860px; margin: 0 auto; }
+.saturn-return-page__title { font-size: 24px; margin: 8px 0 4px; color: var(--neon-cyan, #4DC3FF); }
+.saturn-return-page__subtitle { color: var(--text-secondary, #8B9BB4); margin: 0 0 16px; }
+.saturn-return-page__section-title { font-size: 17px; margin: 22px 0 10px; }
+.saturn-return-page__age-note { border: 1px solid var(--border-color, #2A3548); border-radius: 8px; padding: 10px 12px; font-size: 13px; }
+
+.saturn-return-page__stage { border: 1px solid var(--border-color, #2A3548); border-radius: 10px; padding: 14px; margin-bottom: 12px; }
+.saturn-return-page__stage h3 { margin: 0 0 6px; font-size: 15px; color: var(--neon-cyan, #4DC3FF); }
+.saturn-return-page__stage-title { font-weight: 600; margin: 0 0 8px; }
+.saturn-return-page__stage-theme { font-size: 13px; line-height: 1.7; margin: 0 0 8px; }
+.saturn-return-page__stage ul { margin: 0; padding-left: 18px; }
+.saturn-return-page__stage li { font-size: 13px; line-height: 1.8; }
+
+.saturn-return-page__task { border-left: 3px solid var(--border-color, #2A3548); padding: 2px 0 2px 12px; margin-bottom: 12px; }
+.saturn-return-page__task h3 { margin: 0 0 4px; font-size: 14px; }
+.saturn-return-page__task p { margin: 0; font-size: 13px; line-height: 1.7; }
+
+.saturn-return-page__related { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 20px; }
+.saturn-return-page__related a { color: var(--neon-cyan, #4DC3FF); text-decoration: none; }
+.saturn-return-page__disclaimer { color: var(--text-secondary, #8B9BB4); font-size: 12px; margin-top: 16px; }

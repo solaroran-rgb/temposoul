@@ -36,6 +36,12 @@ interface MetaphysicsPanelProps {
 
 const DIRECTIONS = ['北', '东北', '东', '东南', '南', '西南', '西', '西北'];
 const LO_SHU_ORDER = [4, 9, 2, 3, 5, 7, 8, 1, 6];
+const BA_ZHAI_GENTLE_EXPLANATION: Record<string, string> = {
+  '绝命': '能量冲克较强，宜缓行调整',
+  '五鬼': '易生口舌是非，宜谨言慎行',
+  '六煞': '人情事务繁杂，宜理清边界',
+  '祸害': '健康留意，宜注重调养',
+};
 
 function BaZhaiCompass({
   result,
@@ -526,9 +532,16 @@ export function MetaphysicsPanel({
               </div>
               <div className="result-tag-cloud">
                 {bazhai.unluckyDirections.map((item) => (
-                  <span className="result-soft-tag" key={`${item.direction}-${item.label}`}>
-                    {item.direction} · {item.label}
-                  </span>
+                  <div key={`${item.direction}-${item.label}`}>
+                    <span className="result-soft-tag">
+                      {item.direction} · {item.label}
+                    </span>
+                    {BA_ZHAI_GENTLE_EXPLANATION[item.label] && (
+                      <small style={{ fontSize: '0.75em', color: 'var(--text-secondary)', marginTop: 2, display: 'block' }}>
+                        {BA_ZHAI_GENTLE_EXPLANATION[item.label]}
+                      </small>
+                    )}
+                  </div>
                 ))}
               </div>
             </div>

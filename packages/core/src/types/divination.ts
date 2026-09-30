@@ -364,6 +364,18 @@ export interface LiuyaoData extends BaseHexagramData {
     sixRelative: string;
     position: number;
   } | null;
+  /** 本卦卦辞（来自 hexagramsData[mainHexagram].description） */
+  guaCi?: string;
+  /** 本卦爻辞（初爻到上爻，来自 hexagramsData[mainHexagram].yaoCi） */
+  yaoCi?: string[];
+  /** 变卦卦辞（来自 hexagramsData[changedHexagram].description） */
+  changedGuaCi?: string;
+  /** 变卦爻辞（初爻到上爻，来自 hexagramsData[changedHexagram].yaoCi） */
+  changedYaoCi?: string[];
+  /** 互卦卦辞（来自 hexagramsData[interHexagram].description） */
+  interGuaCi?: string;
+  /** 互卦爻辞（初爻到上爻，来自 hexagramsData[interHexagram].yaoCi） */
+  interYaoCi?: string[];
 }
 
 export interface MeihuaCalculation {

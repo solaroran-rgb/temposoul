@@ -8,7 +8,9 @@
  *       故本地开发时认证端点返回 503，客户端优雅降级。
  */
 
-import { enqueueMail, type MailSchedulerEnv } from '../../../src/lib/server/mail/scheduler';
+import { drainDue, enqueueMail, type MailSchedulerEnv } from '../../../src/lib/server/mail/scheduler';
+import { renderMail } from '../../../src/lib/server/mail/flows';
+import { isMailConfigured, sendMail, type MailerEnv } from '../../../src/lib/server/mailer';
 
 interface KVNamespace {
   get(key: string): Promise<string | null>;
@@ -16,9 +18,12 @@ interface KVNamespace {
   delete(key: string): Promise<void>;
 }
 
-interface AuthEnv {
+interface AuthEnv extends MailerEnv {
   AUTH_KV?: KVNamespace;
   AUTH_SECRET?: string;
+  MAIL_QUEUE_KV?: KVNamespace;
+  newsletter_emails?: KVNamespace;
+  PUBLIC_SITE_URL?: string;
 }
 
 type PagesContext = {
@@ -132,6 +137,68 @@ async function readJson(req: Request): Promise<Record<string, unknown>> {
   }
 }
 
+const OTP_TTL_SEC = 10 * 60; // 验证码有效期（与 README §7 频控窗口对齐）
+const RESET_TTL_SEC = 30 * 60; // 重置链接有效期
+const OTP_LEN = 6;
+
+function genOtpCode(): string {
+  const buf = crypto.getRandomValues(new Uint8Array(3));
+  const n = (buf[0] * 256 * 256 + buf[1] * 256 + buf[2]) % 10 ** OTP_LEN;
+  return String(n).padStart(OTP_LEN, '0');
+}
+
+function genToken(): string {
+  return bufToB64url(crypto.getRandomValues(new Uint8Array(24)));
+}
+
+/**
+ * 事务邮件统一触发：入队 → 立即 drain 一次（拿重试/频控/闸门保护）→
+ * 队列不可用时回退原直发。绝不因调度层故障丢信。
+ * 模式与 src/lib/server/report/email.ts、functions/api/v1/newsletter.ts 保持一致。
+ */
+async function triggerTransactionalMail(
+  env: AuthEnv,
+  flow: 'otp_code' | 'password_reset',
+  to: string,
+  payload: Record<string, unknown>,
+  dedupeKey: string,
+  dedupeTtlSec: number,
+): Promise<void> {
+  const enqueued = await enqueueMail(env as unknown as MailSchedulerEnv, {
+    flow,
+    to,
+    payload,
+    dedupeKey,
+    dedupeTtlSec,
+  }).catch((e: unknown) => {
+    console.error(`[auth] enqueue ${flow} failed:`, e instanceof Error ? e.message : String(e));
+    return null;
+  });
+
+  if (enqueued?.ok) {
+    await drainDue(env as unknown as MailSchedulerEnv, { maxTasks: 10 }).catch((e: unknown) => {
+      console.error(`[auth] drain ${flow} failed:`, e instanceof Error ? e.message : String(e));
+    });
+    return;
+  }
+
+  if (enqueued && !enqueued.ok && enqueued.reason !== 'queue_unavailable') {
+    console.warn(`[auth] enqueue ${flow} rejected: ${enqueued.reason}`);
+    return;
+  }
+
+  // 队列不可用 → 回退原直发（未配 RESEND 时静默 no-op，与历史降级一致）
+  if (!isMailConfigured(env)) {
+    console.warn(`[auth] mailer not configured, skip ${flow} fallback for ${to}`);
+    return;
+  }
+  try {
+    await sendMail(env, { to, ...renderMail(flow, to, payload, env) });
+  } catch (e) {
+    console.error(`[auth] fallback send ${flow} failed:`, e instanceof Error ? e.message : String(e));
+  }
+}
+
 export async function onRequest(ctx: PagesContext): Promise<Response> {
   const seg = segment(ctx);
   const method = ctx.request.method.toUpperCase();
@@ -200,6 +267,60 @@ export async function onRequest(ctx: PagesContext): Promise<Response> {
     const token = await signJwt({ sub: email, sid, exp: Date.now() + SESSION_TTL * 1000 }, secret);
     await kv.put(`session:${sid}`, email, { expirationTtl: SESSION_TTL });
     return json({ token, user: { email: user.email, nickname: user.nickname } });
+  }
+
+  if (seg === 'otp' && method === 'POST') {
+    // 发送登录/注册验证码邮件（五流之 otp_code）。端点落库 + 入队 + 立即 drain。
+    const body = await readJson(ctx.request);
+    const email = String(body.email ?? '').trim().toLowerCase();
+    if (!EMAIL_RE.test(email)) return json({ error: 'invalid_email' }, 400);
+    // 防邮箱枚举：无论账户是否存在都返回 200；仅当账户存在才生成并发送验证码
+    const rec = await kv.get(`user:${email}`);
+    if (rec) {
+      const code = genOtpCode();
+      await kv.put(`otp:${email}`, JSON.stringify({ code, exp: Date.now() + OTP_TTL_SEC * 1000 }), {
+        expirationTtl: OTP_TTL_SEC,
+      });
+      const mailEnv = (ctx.env ?? {}) as AuthEnv;
+      await triggerTransactionalMail(
+        mailEnv,
+        'otp_code',
+        email,
+        { code, ttlMinutes: String(Math.floor(OTP_TTL_SEC / 60)) },
+        `otp:${email}:${code}`,
+        OTP_TTL_SEC,
+      );
+    }
+    return json({ ok: true });
+  }
+
+  if (seg === 'forgot' && method === 'POST') {
+    // 发送找回密码邮件（五流之 password_reset）。端点落库 + 入队 + 立即 drain。
+    const body = await readJson(ctx.request);
+    const email = String(body.email ?? '').trim().toLowerCase();
+    if (!EMAIL_RE.test(email)) return json({ error: 'invalid_email' }, 400);
+    const rec = await kv.get(`user:${email}`);
+    if (rec) {
+      const token = genToken();
+      await kv.put(
+        `pwreset:${token}`,
+        JSON.stringify({ email, exp: Date.now() + RESET_TTL_SEC * 1000 }),
+        { expirationTtl: RESET_TTL_SEC },
+      );
+      const baseUrl = new URL(ctx.request.url).origin;
+      const siteUrl = (ctx.env?.PUBLIC_SITE_URL || baseUrl).replace(/\/+$/, '');
+      const resetUrl = `${siteUrl}/api/auth/reset?token=${encodeURIComponent(token)}`;
+      const mailEnv = (ctx.env ?? {}) as AuthEnv;
+      await triggerTransactionalMail(
+        mailEnv,
+        'password_reset',
+        email,
+        { resetUrl, ttlMinutes: String(Math.floor(RESET_TTL_SEC / 60)) },
+        `pwdreset:${token}`,
+        RESET_TTL_SEC,
+      );
+    }
+    return json({ ok: true });
   }
 
   if (seg === 'logout' && method === 'POST') {

@@ -6,7 +6,8 @@ import { PageTopbar } from '@/components/PageTopbar';
 import { PrivacyHint } from '@/components/PrivacyHint';
 import { ConfidenceBadge } from '@/components/knowledge/ConfidenceBadge';
 import { ZODIAC_SIGNS } from '@/data/astrology/zodiac-matrix';
-import { ZODIAC_PROFILES, type ProfileTopic } from '@/data/fortune/zodiac-profiles';
+import { type ProfileTopic } from '@/data/fortune/zodiac-profiles';
+import { getZodiacProfiles } from '@/i18n/body/content';
 import { guardText } from '@/lib/assertions-guard';
 import { trackPageView } from '@/lib/analytics';
 import { stableHash } from '@/lib/stable-hash';
@@ -38,7 +39,7 @@ export default function ZodiacProfilePage(): ReactElement {
 
   const sign = ZODIAC_SIGNS.find(s => s.id === signId);
   const validTopic = (['personality', 'love', 'career'].includes(topic || '') ? topic : 'personality') as ProfileTopic;
-  const profile = ZODIAC_PROFILES.find(p => p.signId === signId && p.topic === validTopic);
+  const profile = getZodiacProfiles().find(p => p.signId === signId && p.topic === validTopic);
 
   const content = useMemo(() => {
     if (!sign || !profile || !profile.ready) return null;

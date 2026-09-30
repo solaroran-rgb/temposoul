@@ -8,6 +8,8 @@ import { HouseTable } from './components/HouseTable';
 import { AspectGrid } from './components/AspectGrid';
 import { useAiChat } from '../../hooks/useAiChat';
 import { useFortuneCache } from '../../hooks/useFortuneCache';
+import { SolutionPanel } from '../../components/solution/SolutionPanel';
+import { natalSolutionSources } from '../../lib/solution/solutionContext';
 import {
   computeAstrolabeLocal,
   buildAstrolabePrompt,
@@ -15,6 +17,7 @@ import {
   type AstrolabeChart,
 } from './lib/localAstrolabe';
 import { trackChartSubmit } from '../../lib/analytics';
+import { SeoHead } from '../../components/SeoHead';
 import './astrolabe-natal.css';
 
 const DEFAULT_QUESTION = '请结合行星、宫位与主要相位，给出该本命盘的整体解读。';
@@ -151,8 +154,15 @@ export function NatalPage() {
     ai.streamingContent || (ai.turns.length > 0 ? ai.turns[ai.turns.length - 1].content : '');
   const aiBusy = ai.status === 'loading' || ai.status === 'streaming';
 
+  // 本地解盘引擎 L0 白话结论（西占本命单源透传）
+  const solutionSources = useMemo(() => natalSolutionSources(chart), [chart]);
+
   return (
     <div className="ts-page ts-page--astrolabe-natal">
+      <SeoHead
+        title="西洋星盘本命盘 · 命律 TempoSoul"
+        description="西方占星本命盘解读，含行星、宫位与主要相位分析。"
+      />
       <PageTopbar title="西占本命" onBack={onBack} />
       <main className="ts-page__main">
         <h1 className="ts-page__title">西方星盘本命</h1>
@@ -190,6 +200,11 @@ export function NatalPage() {
               <h2 className="ts-card__title">主要相位（≤8°）</h2>
               <AspectGrid aspects={chart.aspects} />
             </section>
+            <SolutionPanel
+              sources={solutionSources}
+              title="AI 解读 · 本地解盘引擎（西占本命）"
+              boundary="解释边界：本解读由本地解盘引擎按传统占星模型生成，仅供文化研究与自我参照，不构成任何决策依据。"
+            />
             <section className="ts-card">
               <h2 className="ts-card__title">AI 解读</h2>
               <label className="ts-field-block">

@@ -1135,6 +1135,13 @@ export function generateLiuyao(customDate?: Date, options?: LiuyaoGenerationOpti
     sanheWithMonth,
     sanxingInYaos,
     guaShen,
+    // 5.3 内容补缺：将主卦/变卦/互卦的卦辞爻辞随结果一并返回，前端直接渲染，无需再查表。
+    guaCi: mainHexagram.description,
+    yaoCi: mainHexagram.yaoCi,
+    changedGuaCi: changedHexagram.description,
+    changedYaoCi: changedHexagram.yaoCi,
+    interGuaCi: interHexagram.description,
+    interYaoCi: interHexagram.yaoCi,
     generation: resolvedGeneration.generation,
     timestamp,
   };

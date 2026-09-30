@@ -14,9 +14,15 @@ export default function PostDetailPage() {
   const [status, setStatus] = useState<Status>('loading');
   const [post, setPost] = useState<PostDetail | null>(null);
   const [comments, setComments] = useState<PostComment[]>([]);
+  const [degraded, setDegraded] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    let cancelled = false;
+    setStatus('loading');
+    setDegraded(false);
+
+    // 降级：接口不可用时回退本地 seed（找不到则报错态）
+    const applySeed = () => {
       const found = POSTS_SEED.find((item) => item.id === postId);
       if (!found) {
         setStatus('error');
@@ -27,9 +33,30 @@ export default function PostDetailPage() {
       );
       setPost(found);
       setComments(postComments);
+      setDegraded(true);
       setStatus(postComments.length > 0 ? 'ok' : 'ok-empty');
-    }, 0);
-    return () => clearTimeout(timer);
+    };
+
+    (async () => {
+      try {
+        const res = await fetch(`/api/v1/forum/${encodeURIComponent(postId ?? '')}`, {
+          headers: { Accept: 'application/json' },
+        });
+        if (!res.ok) throw new Error(`http_${res.status}`);
+        const data = await res.json();
+        if (cancelled) return;
+        setPost(data.post);
+        setComments(Array.isArray(data.comments) ? data.comments : []);
+        setStatus(Array.isArray(data.comments) && data.comments.length > 0 ? 'ok' : 'ok-empty');
+      } catch {
+        if (cancelled) return;
+        applySeed();
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
   }, [postId]);
 
   const handleCommented = (comment: PostComment) => {
@@ -62,6 +89,7 @@ export default function PostDetailPage() {
     <div>
       <PageTopbar title={post.title} onBack={() => navigate(-1)} />
       <PrivacyHint />
+      {degraded && <div className="error-tip">社区接口暂不可用，当前展示本地示例数据</div>}
       <article className="post-detail">
         <h1>{post.title}</h1>
         <div className="post-meta">

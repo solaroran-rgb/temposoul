@@ -381,4 +381,47 @@
 - **产物**：`docs/design/SKY-VISUAL-STANDARD-v3.md` → **v3.0c**（1316 行 / 99.5 KB / 30 章 / 79 子节）+ `.html`（88.4 KB）｜`docs/sky/ROUND-20260916-520C-审计回应.md` + `.html`｜`assets-520/VERIFY-baseline-chain.png` + `.json` + `.log.txt`
 - **状态**：**审计回应批（全部落在闸 1 内）**；主仓 `src/`、`functions/` **零改动**；worktree 未提交未部署；基准三图（ref-c / CT-1 / annotated）**只读未覆盖**；**未写一行渲染代码**
 
+---
 
+### 批次 R3-14 · 多体系结论冲突仲裁引擎 v2（**✅ 已完成**）
+
+**任务**：任务卡 `E:/KnowledgeOS/AI地图/六项战略任务/2026-09-19_R3-14_任务卡_冲突仲裁引擎v2.md` —— 在 `packages/core/src/solution/semantic/` 落地多体系（八字/紫微/奇门/六爻/塔罗/西占）命理结论冲突仲裁引擎 v2。
+
+- **新增交付**：`packages/core/src/solution/semantic/arbitration.ts`（25325B）—— 6 任务全部落地：
+  1. **时间层分离** `separateByTimeScope`：long_term/current/event/general 四层，跨层不融合只并列
+  2. **同域归一 + 去重** `dedupByCanonicalFactor`：同 time_scope + domain + canonical_factor + 极性方向 → 保留最高置信度、合并 source、记录被合并 atom_id
+  3. **相关性标定** `checkDependencies`：heavy/light/independent 三级依赖判定，independent 走 D-S Yager 融合
+  4. **高冲突检测** `detectConflicts`：三条件（极性相反 likely 以上 + belief mass ≥0.6 + 完整度≥0.7 且适配权重≥0.6）；冲突质量 **K = (1−0.35)**，K > 0.35 判高冲突
+  5. **三层仲裁输出** `arbitrate`：consensus / tension / condition 三层；条件层禁用「一定 / 必须 / 不要」命令式
+  6. **体系权重矩阵** `SYSTEM_WEIGHTS`（6 体系 × 6 领域）+ `systemWeight` 查询
+- **索引导出**：`index.ts` 追加「R3-14 冲突仲裁引擎 v2」分区，具名导出全部符号 + 8 个 type
+- **新增测试**：`tests/r3-14-arbitration.test.ts`（11206B）—— 8 测试全过，覆盖 6 任务 + 3 仲裁示例（career 三体系一致 + 奇门相反 / decision 八字(+) vs 六爻(−) 高冲突 K=0.6396 / 完整度 0.5 不触发 / 全低置信三层全空）
+- **验证闭环**：
+  - `tsc --build tsconfig.json --force` → **EXIT=0**（编译通过）
+  - R3-14 专属测试 **8/8 通过**
+  - 既有 129 core 测试 **1096 pass / 43 fail**：43 fail 全部为 divination 算法 dist 产物（`astrolabe.js` 等）**多文件并发 `ERR_MODULE_NOT_FOUND` 的 flaky**，与本批（仅 semantic/ + arbitration.ts）零交集 —— 实证：单跑 `astrolabe-algorithm.test.ts` **13/13 全过**，`git status` 确认本批未触碰任何 divination 模块
+- **环境铁律**（本批实测）：pnpm/npx 走 WSL 中继或撞 8011 代理（ECONNREFUSED / 502）→ **必须直调本地 node + `node_modules/tsx/dist/cli.mjs`** 跑测试；前序 `tsc --build` 报 502 系瞬时代理干扰，非命令问题
+- **状态**：**实现 + 编译 + 测试全部闭环**；改动仅 `semantic/` 子模块（arbitration.ts + index.ts 导出），未触碰 divination / 线上前端
+
+---
+
+### F03 · 首页双分流门（**✅ 已完成** · 2026-09-19）
+
+**任务卡**：`E:/KnowledgeOS/AI地图/六项战略任务/任务卡包_20260919/第二阶段_收口合并/F03_首页双分流门.md`
+
+- **新增**：`src/components/home/DualEntryGate.tsx`（普通 / 专业两张入口卡 + 收起态）、`src/lib/user-track.ts`（localStorage `ts_user_track` + 埋点 `home_gate_select`）
+- **修改**：`src/pages/InputPage.tsx`（挂载于 `HomeShortcuts` 之前）、`src/styles/features.css`（`.dual-gate*` 样式）
+- **跳转目标**：普通 → `/daily/today`（快捷：星座/塔罗/趣味测验/姓名测试）；专业 → `/?mode=single`（快捷：大运/流年/十神/紫微）
+- **验证**：`tsc -b` EXIT=0、eslint 0 error、`vite build` ✓；headless Chromium 实测两条主 CTA + 两条快捷入口跳转正确、收起态记忆生效、控制台 0 错误
+- **备注**：第一阶段任务卡未全绿（仅任务包 01 部分打勾），F03 不消费第一阶段产物，无阻塞执行
+
+
+
+
+
+## 2026-09-19 · H02 档案一次录入（六项战略任务·第二阶段收口合并）
+
+- **目标**：用户一次录入生辰八字，所有排盘自动复用，无需重复输入
+- **落地**：新增 `src/lib/user-profile.ts`（档案↔排盘双向适配：profileToInputState / inputStateToProfile / hasCompleteBirthData / profileToResultSearch / formatProfileSummary）；ProfilesContext.add 返回新档案（含 id）；InputPage 自动预填当前档案 + 档案快捷条 + 提交自动保存；ProfilePage 一键排盘
+- **验证**：`npx tsc -b --force` 0 错误 ✅ / `npx vite build` 成功（8.45s）✅ / 适配冒烟 11/11 ✅ / Playwright 浏览器验证（自动预填 张三·1990-5-20、提交排盘跳转 /result、一键排盘跳转）✅
+- **改动**：4 文件（1 新增 + 3 修改），未提交（留待 I01 最终回归统一收口）

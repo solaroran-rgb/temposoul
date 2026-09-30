@@ -4,8 +4,13 @@
  * 三路径输出格式（D-5：同 snapshot 切换不重算）
  * 前端根据 display_variant 选择渲染哪一路
  */
-import type { FactPolarity, EpistemicModality, AtomicConclusion } from './types';
+import type { FactPolarity, EpistemicModality, AtomicConclusion, ProcessEvent } from './types';
 import type { WhiteTalkSentence } from './gates';
+import type { ProsePoem } from './prose_generator';
+import type { TranslatorReport } from './translator';
+
+/** CIR v2：process_log 事件类型对外透出（solution.ts 经本层引用，避免直接依赖内部 types） */
+export type { ProcessEvent };
 
 // ============================================================
 // 1. 解盘输出结构
@@ -22,8 +27,18 @@ export interface SolutionOutput {
   mix: PathOutput;
   /** 普通路径（纯白话+吉凶+建议） */
   lay: PathOutput;
+  /** G02 散文诗核心摘要（每命盘一首专属，同盘同诗；降级时为陪伴短句） */
+  prose: ProsePoem;
+  /**
+   * R3-15 三级转译报告（一级词语 → 二级语句 → 三级分域报告）。
+   * 可选字段，向后兼容：translator 抛错或无原子结论时为 degraded 空报告。
+   * 其 l2_poem 与上方 prose 同 atoms/profile，内容一致。
+   */
+  translated?: TranslatorReport;
   /** 元数据 */
   meta: SolutionMeta;
+  /** CIR v2 解盘流程日志（process_log 事件序列，可选向后兼容） */
+  process_log?: ProcessEvent[];
 }
 
 export interface PathOutput {

@@ -1,5 +1,10 @@
 .git
 node_modules
+# Docker 的 .dockerignore 语义非 gitignore：`node_modules` 只匹配上下文根级，
+# 子目录（packages/core/node_modules 等）会被 COPY . . 打进上下文 —— 宿主
+# pnpm 的 Windows junction 在 Linux 镜像里变成指向 E:\ 的断链 symlink，
+# 覆盖 deps stage 已装好的链接，导致 tsc TS2307（2026-09-27 审计实锤）。
+**/node_modules
 dist
 .wrangler
 .dev.vars

@@ -12,31 +12,54 @@ interface PostComposerProps {
 export default function PostComposer({ boardId, onPosted }: PostComposerProps) {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [submitting, setSubmitting] = useState(false);
 
   const sensitive = checkSensitive(`${title} ${content}`);
   const blocked = sensitive.length > 0;
 
   const canSubmit = title.trim().length > 0 && content.trim().length > 0 && !blocked;
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    if (!canSubmit) return;
+    if (!canSubmit || submitting) return;
 
-    const newPost: ForumPost = {
+    const trimmedTitle = title.trim();
+    const trimmedContent = content.trim();
+
+    // 本地乐观回退：接口失败时仍插入列表，保证不白屏
+    const fallback: ForumPost = {
       id: `post-${Date.now()}`,
       boardId,
-      title: title.trim(),
+      title: trimmedTitle,
       authorId: 'current-user',
-      excerpt: content.trim().slice(0, 80),
+      excerpt: trimmedContent.slice(0, 80),
       replyCount: 0,
       createdAt: new Date().toISOString(),
       ready: false,
     };
 
-    onPosted(newPost);
+    setSubmitting(true);
+    try {
+      const res = await fetch('/api/v1/forum', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ boardId, title: trimmedTitle, content: trimmedContent }),
+      });
+      if (res.ok) {
+        const created = await res.json();
+        onPosted({ ...fallback, ...created });
+      } else {
+        onPosted(fallback);
+      }
+    } catch {
+      onPosted(fallback);
+    } finally {
+      setSubmitting(false);
+      setTitle('');
+      setContent('');
+    }
+
     trackEvent('forum_post_submit', { boardId });
-    setTitle('');
-    setContent('');
   };
 
   return (
@@ -60,8 +83,8 @@ export default function PostComposer({ boardId, onPosted }: PostComposerProps) {
           内容包含敏感词：{sensitive.map((s) => s.word).join('、')}，禁止提交。
         </p>
       )}
-      <button type="submit" disabled={!canSubmit}>
-        发布
+      <button type="submit" disabled={!canSubmit || submitting}>
+        {submitting ? '发布中…' : '发布'}
       </button>
     </form>
   );

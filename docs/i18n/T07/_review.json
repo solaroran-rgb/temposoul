@@ -1,0 +1,954 @@
+{
+  "ganzhi-overview.tags[0]": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "why-bazi-limits.title": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "ganzhi-jiazi.title": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "why-data-source.metaDescription": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "why-no-fortune-score.title": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "zodiac-personality.metaDescription": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "ganzhi-sanhe.tags[1]": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "shishen-yinxing.tags[1]": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "ganzhi-canggan.title": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "wuxing-nayin.metaDescription": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "lichun.metaDescription": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "paipan-lunar-solar.tags[0]": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "dashu.metaDescription": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "mangzhong.tags[1]": {
+    "note": "错译：「芒种」被译成夏至对应英文名 Xia Zhi（节气张冠李戴）。改为拼音专有名词 Mang Zhong，与 ja 芒種 / ko 망종 / vi Mang Chủng / th หมางจ้อง 口径一致。",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "fail"
+  },
+  "shishen-shishang.tags[1]": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "zodiac-rat.title": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "ganzhi-overview.metaDescription": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "shensha-taohua.metaDescription": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "why-not-predict.title": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "why-data-source.title": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "why-bazi-limits.tags[0]": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "shishen-shishang.metaDescription": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "zodiac-compat.metaDescription": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "dayun-qiyun.metaDescription": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "shishen-liuqin.metaDescription": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "wuxing-zangxiang.title": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "lixia.tags[1]": {
+    "note": "错译：「立夏」被译成小满对应英文名 Xiao Man（节气张冠李戴）。改为 Li Xia，与 ja 立夏 / ko 입하 / vi Lập Hạ / th ลี่เซี่ย 专有名词口径一致。",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "fail"
+  },
+  "r1.answer": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "p1.question": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "p1.answer": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "privacy.label": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "support.label": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "product.label": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "listDescription": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "listTitle": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "2026-zhong-qiu-yue-xiang-wen-hua.tags[3]": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "2026-qiu-fen-xing-xiang-guan-cha.sources[0].text": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "2026-zhong-qiu-yue-xiang-wen-hua.title": {
+    "note": "错译：Vệ tinh 意为「卫星」，整句语义全错。改为 Giai đoạn trăng Trung Thu（中秋月相）+ hình ảnh mặt trăng trong văn hóa truyền thống（传统文化中的月亮意象）。",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "fail",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "2026-qiu-fen-xing-xiang-guan-cha.title": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "shangshu.title": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "daodejing.description": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "shangshu.description": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "shangshu.tags[1]": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "zhouyi.disclaimer": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "daodejing.tags[2]": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "aquarius.summary": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "aries.aliases[1]": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "sagittarius.aliases[0]": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "virgo.summary": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "cancer.aliases[0]": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "retrograde.title": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "retrograde.disclaimer": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "retrograde.summary": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "x.metaDescription": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "x.disclaimer": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "x.title": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "taurus.career.template": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "aries.career.template": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "aries.personality.template": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "minor-宝剑-9.name": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "minor-权杖-2.upright": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "minor-星币-6.reversed": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "major-21.upright": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "major-16.reversed": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "major-17.name": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "major-13.name": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "major-12.upright": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "major-12.reversed": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "major-6.upright": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "major-18.upright": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "major-3.upright": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "minor-权杖-10.reversed": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "minor-宝剑-7.name": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "major-0.name": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "minor-星币-4.name": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "major-0.upright": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "minor-圣杯-7.reversed": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "minor-圣杯-12.reversed": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "minor-圣杯-4.upright": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "minor-圣杯-13.name": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "minor-星币-11.name": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "major-5.reversed": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "minor-权杖-12.name": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "deceased.modernText": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "plane.modernText": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "boat.aliases[1]": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "lost.traditionalText": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "sheep.aliases[0]": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "shoes.aliases[1]": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "lost.keyword": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "tree.traditionalText": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "wallet.traditionalText": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "tiger.aliases[0]": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "sea.keyword": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "cloud.modernText": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "moon.aliases[0]": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "cat.modernText": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "funeral.aliases[1]": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "hair.aliases[1]": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "child.aliases[1]": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "exam.aliases[0]": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "stairs.keyword": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "money.traditionalText": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "flower.aliases[1]": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "funeral.aliases[0]": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "fall.keyword": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "mountain.keyword": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "elevator.aliases[0]": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "dog.traditionalText": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "thunder.aliases[1]": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "sheep.aliases[1]": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "wedding.traditionalText": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "sheep.traditionalText": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "clock.aliases[0]": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "deceased.aliases[0]": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "ring.aliases[0]": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "bridge.keyword": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "sea.modernText": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  },
+  "source": {
+    "note": "ok",
+    "ja": "pass",
+    "ko-KN": "pass",
+    "vi-VN": "pass",
+    "th-TH": "pass",
+    "es-ES": "pass"
+  }
+}

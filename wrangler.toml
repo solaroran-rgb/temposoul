@@ -40,6 +40,13 @@ id = "c2637a406a8c4e99aab3b1aa364d6770"
 # binding = "MAIL_QUEUE_KV"
 # id = "<namespace-id>"
 
+# ── 应用错误统一落点（T16 · 错误追踪与 5xx 告警）──
+# 创建：wrangler kv namespace create temposoul-errlog  → 把返回的 id 填到下面并取消注释
+# 未绑定 ERRLOG_KV 时，错误写入降级为静默丢弃（不影响业务）；聚合/告警不可用。
+# [[kv_namespaces]]
+# binding = "ERRLOG_KV"
+# id = "<namespace-id>"
+
 # ── 非机密运行时变量 ──
 [vars]
 # 是否启用账户认证（置 true 前，必须先绑定上面的 AUTH_KV 并设置 AUTH_SECRET）
@@ -74,3 +81,17 @@ ANALYTICS_SITE_ID = "2681353fab604a86bcd9995f5a47045b"
 # LEMONSQUEEZY_STORE_ID = "12345"
 # LEMONSQUEEZY_VARIANT_ID = "67890"
 # 激活手册见 docs/commerce/2026-09-12-commerce-setup.md
+
+# ── 错误追踪与 5xx 告警（T16）──
+# ERRLOG_INGEST_TOKEN：公开、仅写权限，可安全嵌入前端（Vite 用 VITE_ERRLOG_INGEST_TOKEN 注入）。
+#   未配置 → /api/v1/errlog 返回 503（fail-closed，绝不匿名开放错误写入）。
+#   生成：openssl rand -hex 32
+# ERRLOG_INGEST_TOKEN=<公开写入令牌>
+# ERRLOG_ADMIN_TOKEN：机密，仅运维 GET 聚合/确认告警使用；未配置 → 503。
+#   生成：openssl rand -hex 32
+# ERRLOG_ADMIN_TOKEN=<运维管理令牌>
+# ERRLOG_ALERT_THRESHOLD：5 分钟内 error/fatal 达到此数即告警（默认 3）。
+# ERRLOG_ALERT_THRESHOLD=3
+# ALERT_WEBHOOK：聚合超阈值时 POST 该 URL 触发告警（通知/飞书/Slack Incoming 等）。
+#   未配置 → 写 pending 记录，由 scripts/deploy-prep/alert-5xx.sh 轮询后以 mock 日志呈现。
+# ALERT_WEBHOOK=https://your-webhook-endpoint

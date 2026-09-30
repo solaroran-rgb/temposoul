@@ -1,0 +1,42 @@
+{
+  "name": "zodiac-profiles",
+  "file": "src/data/fortune/zodiac-profiles.ts",
+  "entries": [
+    {
+      "id": "aries.personality.template",
+      "zh": "{name}作为{element}星座的代表，天生具有{trait}的特质。在人际交往中，{name}往往表现出{social}的一面，这源于{ruler}的深层影响。"
+    },
+    {
+      "id": "aries.love.template",
+      "zh": "在感情世界中，{name}倾向于{style}的表达方式。{element}的属性使得{name}在亲密关系中更注重{focus}，这与{ruler}的能量密切相关。"
+    },
+    {
+      "id": "aries.career.template",
+      "zh": "事业方面，{name}适合{env}的工作环境。{modality}的特质赋予{name}{strength}的能力，在{field}领域往往能发挥出色。"
+    },
+    {
+      "id": "taurus.personality.template",
+      "zh": "{name}作为{element}星座，展现出{trait}的核心特质。{ruler}的守护使{name}对{sense}有着敏锐的感知，性格中带有{quality}的底色。"
+    },
+    {
+      "id": "taurus.love.template",
+      "zh": "{name}在感情中追求{goal}，不会轻易开始一段关系，但一旦投入便{depth}。{element}属性让{name}更看重{aspect}。"
+    },
+    {
+      "id": "taurus.career.template",
+      "zh": "在职场中，{name}擅长{skill}，{modality}特质使其在需要{requirement}的岗位上表现突出。{ruler}的影响让{name}在{field}方面有天赋。"
+    },
+    {
+      "id": "gemini.personality.template",
+      "zh": "{name}受{ruler}守护，思维{mind}，善于{ability}。{element}属性赋予{name}{social}的社交能力，但也可能显得{weakness}。"
+    },
+    {
+      "id": "gemini.love.template",
+      "zh": "在恋爱中，{name}渴望{need}，重视精神层面的{aspect}。{element}特质使{name}在关系中追求{freedom}，不喜欢{dislike}。"
+    },
+    {
+      "id": "gemini.career.template",
+      "zh": "{name}的职业优势在于{advantage}，适合{env}的工作氛围。{modality}特质让{name}能够{adapt}，在{field}领域如鱼得水。"
+    }
+  ]
+}

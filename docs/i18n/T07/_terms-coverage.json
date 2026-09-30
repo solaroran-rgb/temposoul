@@ -1,0 +1,35 @@
+{
+  "total": 1201,
+  "langs": {
+    "en": {
+      "filled": 355,
+      "total": 1201,
+      "coverage": "355/1201"
+    },
+    "ja": {
+      "filled": 691,
+      "total": 1201,
+      "coverage": "691/1201"
+    },
+    "ko": {
+      "filled": 1118,
+      "total": 1201,
+      "coverage": "1118/1201"
+    },
+    "vi": {
+      "filled": 1118,
+      "total": 1201,
+      "coverage": "1118/1201"
+    },
+    "th": {
+      "filled": 1041,
+      "total": 1201,
+      "coverage": "1041/1201"
+    },
+    "es": {
+      "filled": 1119,
+      "total": 1201,
+      "coverage": "1119/1201"
+    }
+  }
+}

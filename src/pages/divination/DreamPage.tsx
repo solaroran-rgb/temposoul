@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { ReactElement } from 'react';
 import { ContentShell } from '@/components/content/ContentShell';
-import { DREAM_ENTRIES, DREAM_SOURCE, searchDream } from '@/data/dream/dream-dict';
+import { searchDream } from '@/data/dream/dream-dict';
+import { getDreamEntries, getDreamSource } from '@/i18n/body/content';
 import { stableRank } from '@/data/content/deterministic';
 import { readUx, writeUx, TTL_7D } from '@/data/content/ux-store';
 import { guardText } from '@/lib/assertions-guard';
@@ -38,10 +39,10 @@ export default function DreamPage(): ReactElement {
     if (recent?.length) setKeyword(recent[0] ?? '');
   }, []);
 
-  const results = useMemo(() => searchDream(keyword), [keyword]);
+  const results = useMemo(() => searchDream(keyword).map((r) => getDreamEntries().find((e) => e.id === r.id) ?? r), [keyword]);
   const related = useMemo(() => {
     if (results.length > 0) return [];
-    return stableRank(DREAM_ENTRIES, keyword || 'hot', () => 0).slice(0, 6);
+    return stableRank(getDreamEntries(), keyword || 'hot', () => 0).slice(0, 6);
   }, [results.length, keyword]);
 
   useEffect(() => {
@@ -52,7 +53,7 @@ export default function DreamPage(): ReactElement {
     setState(results.length > 0 || related.length > 0 ? 'ok' : 'ok-empty');
   }, [keyword, results.length, related.length]);
 
-  const active = DREAM_ENTRIES.find((e) => e.id === activeId);
+  const active = getDreamEntries().find((e) => e.id === activeId);
 
   function submit(value: string): void {
     setKeyword(value);
@@ -114,7 +115,7 @@ export default function DreamPage(): ReactElement {
         </section>
       )}
 
-      <p className="dream__source">来源：{DREAM_SOURCE}</p>
+      <p className="dream__source">{getDreamSource()}</p>
     </ContentShell>
   );
 }

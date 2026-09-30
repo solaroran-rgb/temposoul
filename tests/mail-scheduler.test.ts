@@ -11,6 +11,7 @@ import { MAIL_FLOW_IDS, renderMail } from '../src/lib/server/mail/flows';
 import { JOB_KEY_PREFIX, decodeJob, jobKey } from '../src/lib/server/mail/store';
 import { onRequest as dispatchRequest } from '../functions/api/v1/mail/dispatch';
 import { onRequest as unsubscribeRequest } from '../functions/api/v1/newsletter/unsubscribe';
+import { onRequest as authRequest } from '../functions/api/auth/[[path]]';
 import type { MailFlowId } from '../src/lib/server/mail/types';
 
 // ── 内存 KV 桩（模拟 Cloudflare KV：get/put/delete/list + expirationTtl）──
@@ -374,3 +375,82 @@ test('dispatch：未配 token→503，错 token→401，正确 token→200', asy
   assert.equal(body.ok, true);
   assert.equal(body.sent, 1);
 });
+
+// ── 9. otp_code / password_reset 两流接入（T17）──
+test('otp_code / password_reset 入队→drain 发送（事务流不受退订影响）且幂等去重', async () => {
+  const { kv } = createMemoryKV();
+  const env = makeEnv({ queueKv: kv });
+  await enqueueMail(env, { flow: 'otp_code', to: 'a@b.com', payload: FLOW_PAYLOAD.otp_code });
+  await enqueueMail(env, { flow: 'password_reset', to: 'b@b.com', payload: FLOW_PAYLOAD.password_reset });
+  const r = await drainDue(env, { maxTasks: 10 });
+  assert.equal(r.sent, 2, '两事务流均应发送');
+
+  // 幂等：同 dedupeKey 重复入队只保留一条待发任务
+  const d1 = await enqueueMail(env, { flow: 'otp_code', to: 'a@b.com', payload: FLOW_PAYLOAD.otp_code, dedupeKey: 'otp-k1' });
+  const d2 = await enqueueMail(env, { flow: 'otp_code', to: 'a@b.com', payload: FLOW_PAYLOAD.otp_code, dedupeKey: 'otp-k1' });
+  assert.ok(d1.ok && d2.ok);
+  assert.equal(d2.ok ? d2.deduped : false, true, '同幂等键应去重');
+});
+
+test('端点 /api/auth/otp：存在账户 → 入队 otp_code 并立即 drain 发送，验证码写入 AUTH_KV', async () => {
+  const { kv: queueKv, store } = createMemoryKV();
+  const { kv: authKv } = createMemoryKV();
+  await authKv.put('user:a@b.com', JSON.stringify({ email: 'a@b.com', nickname: 'x', salt: 's', pwHash: 'h' }));
+  const env = { AUTH_KV: asKV(authKv), AUTH_SECRET: 'sec', MAIL_QUEUE_KV: asKV(queueKv) } as never;
+  const res = await authRequest({
+    request: new Request('https://x.test/api/auth/otp', { method: 'POST', body: JSON.stringify({ email: 'a@b.com' }) }),
+    env,
+  });
+  assert.equal(res.status, 200);
+  const jobs = [...store.keys()].filter((k) => k.startsWith(JOB_KEY_PREFIX));
+  assert.equal(jobs.length, 1, '应入队一封 otp_code');
+  const job = decodeJob(store.get(jobs[0] as string)?.v);
+  assert.equal(job?.flow, 'otp_code');
+  assert.equal(job?.status, 'sent', '端点内立即 drain 应已发出');
+  assert.ok(await authKv.get('otp:a@b.com'), '验证码应写入 AUTH_KV');
+});
+
+test('端点 /api/auth/forgot：存在账户 → 入队 password_reset 并落重置 token，resetUrl 渲染进正文', async () => {
+  const { kv: queueKv, store } = createMemoryKV();
+  const { kv: authKv } = createMemoryKV();
+  await authKv.put('user:a@b.com', JSON.stringify({ email: 'a@b.com', nickname: 'x', salt: 's', pwHash: 'h' }));
+  const env = { AUTH_KV: asKV(authKv), AUTH_SECRET: 'sec', MAIL_QUEUE_KV: asKV(queueKv) } as never;
+  const res = await authRequest({
+    request: new Request('https://x.test/api/auth/forgot', { method: 'POST', body: JSON.stringify({ email: 'a@b.com' }) }),
+    env,
+  });
+  assert.equal(res.status, 200);
+  const jobs = [...store.keys()].filter((k) => k.startsWith(JOB_KEY_PREFIX));
+  assert.equal(jobs.length, 1);
+  const job = decodeJob(store.get(jobs[0] as string)?.v);
+  assert.equal(job?.flow, 'password_reset');
+  assert.equal(job?.status, 'sent');
+  const tokenList = await authKv.list({ prefix: 'pwreset:' });
+  assert.equal(tokenList.keys.length, 1, '重置 token 应写入 AUTH_KV');
+});
+
+test('端点 /api/auth/otp：不存在账户亦返回 200 且不入队（防邮箱枚举）', async () => {
+  const { kv: queueKv, store } = createMemoryKV();
+  const { kv: authKv } = createMemoryKV();
+  const env = { AUTH_KV: asKV(authKv), AUTH_SECRET: 'sec', MAIL_QUEUE_KV: asKV(queueKv) } as never;
+  const res = await authRequest({
+    request: new Request('https://x.test/api/auth/otp', { method: 'POST', body: JSON.stringify({ email: 'nobody@b.com' }) }),
+    env,
+  });
+  assert.equal(res.status, 200);
+  const jobs = [...store.keys()].filter((k) => k.startsWith(JOB_KEY_PREFIX));
+  assert.equal(jobs.length, 0, '不存在账户不应入队');
+});
+
+test('端点 /api/auth/otp：队列不可用时回退直发路径不抛错（mock 未配 RESEND 静默 no-op）', async () => {
+  const { kv: authKv } = createMemoryKV();
+  await authKv.put('user:a@b.com', JSON.stringify({ email: 'a@b.com', nickname: 'x', salt: 's', pwHash: 'h' }));
+  // 仅绑 AUTH_KV / AUTH_SECRET，不绑 MAIL_QUEUE_KV → enqueueMail 返回 queue_unavailable → 回退直发
+  const env = { AUTH_KV: asKV(authKv), AUTH_SECRET: 'sec' } as never;
+  const res = await authRequest({
+    request: new Request('https://x.test/api/auth/otp', { method: 'POST', body: JSON.stringify({ email: 'a@b.com' }) }),
+    env,
+  });
+  assert.equal(res.status, 200);
+});
+

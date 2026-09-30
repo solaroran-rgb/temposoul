@@ -76,6 +76,48 @@ function YaoLine(props: {
   );
 }
 
+const YAO_POS_LABELS = ['初爻', '二爻', '三爻', '四爻', '五爻', '上爻'];
+
+function HexagramVerseCard({
+  label,
+  name,
+  guaCi,
+  yaoCi,
+}: {
+  label: string;
+  name?: string;
+  guaCi?: string;
+  yaoCi?: string[];
+}) {
+  if (!guaCi && !yaoCi?.length) return null;
+  return (
+    <div className="traditional-hexagram-verse">
+      <h4 className="traditional-hexagram-verse__title">
+        {label}
+        {name ? `（${name}）` : ''}
+      </h4>
+      {guaCi ? (
+        <p className="traditional-hexagram-verse__gua">
+          <b>卦辞</b>
+          {guaCi}
+        </p>
+      ) : null}
+      {yaoCi?.length ? (
+        <ol className="traditional-hexagram-verse__yaos">
+          {yaoCi.map((c, i) => (
+            <li key={i}>
+              <span className="traditional-hexagram-verse__yaopos">
+                {YAO_POS_LABELS[i] ?? `${i + 1}爻`}
+              </span>
+              {c}
+            </li>
+          ))}
+        </ol>
+      ) : null}
+    </div>
+  );
+}
+
 function LiuyaoTraditionalBoard({ data }: { data: LiuyaoData }) {
   const rows = [...data.yaosDetail].sort((a, b) => b.position - a.position);
   const changing = data.changingYaos
@@ -152,6 +194,28 @@ function LiuyaoTraditionalBoard({ data }: { data: LiuyaoData }) {
               .join('；')}
           </span>
         </div>
+      ) : null}
+      <HexagramVerseCard
+        label="本卦卦辞爻辞"
+        name={data.originalName}
+        guaCi={data.guaCi}
+        yaoCi={data.yaoCi}
+      />
+      {data.changedName && data.changedName !== data.originalName ? (
+        <HexagramVerseCard
+          label="变卦卦辞爻辞"
+          name={data.changedName}
+          guaCi={data.changedGuaCi}
+          yaoCi={data.changedYaoCi}
+        />
+      ) : null}
+      {data.interName ? (
+        <HexagramVerseCard
+          label="互卦卦辞爻辞"
+          name={data.interName}
+          guaCi={data.interGuaCi}
+          yaoCi={data.interYaoCi}
+        />
       ) : null}
     </TraditionalBoardShell>
   );
@@ -363,6 +427,40 @@ function QimenTraditionalBoard({ data }: { data: QimenData }) {
           ['驿马', data.horseStar ? `${data.horseStar.branch}·${data.horseStar.name}` : '无'],
         ]}
       />
+      {data.yingQi ? (
+        <section className="traditional-qimen-yingqi" aria-label="应期">
+          <h4 className="traditional-qimen-yingqi__title">应期（事态显现的节奏与触发）</h4>
+          <div className="traditional-meta-row">
+            <span>
+              <b>节奏</b>
+              {data.yingQi.rhythm}
+            </span>
+            {data.yingQi.minDays != null || data.yingQi.maxDays != null ? (
+              <span>
+                <b>大致区间</b>
+                {data.yingQi.minDays != null ? `${data.yingQi.minDays}天` : '—'}
+                {' ~ '}
+                {data.yingQi.maxDays != null ? `${data.yingQi.maxDays}天` : '—'}
+              </span>
+            ) : null}
+          </div>
+          {data.yingQi.description ? (
+            <p className="traditional-qimen-yingqi__desc">{data.yingQi.description}</p>
+          ) : null}
+          {data.yingQi.triggerConditions?.length ? (
+            <div className="traditional-note-row">
+              <b>触发条件</b>
+              <span>{data.yingQi.triggerConditions.join('；')}</span>
+            </div>
+          ) : null}
+          {data.yingQi.limitations?.length ? (
+            <div className="traditional-note-row">
+              <b>限制</b>
+              <span>{data.yingQi.limitations.join('；')}</span>
+            </div>
+          ) : null}
+        </section>
+      ) : null}
       <div className="traditional-qimen-grid" role="img" aria-label="奇门遁甲九宫盘">
         {QIMEN_LO_SHU_ORDER.map((gong) => {
           const palace = palaceMap.get(gong);

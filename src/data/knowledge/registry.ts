@@ -12,6 +12,7 @@ import { ARTICLE_MANIFEST } from './manifest';
 import { TIANGAN, DIZHI, buildJiazi } from './ganzhi';
 import type { GanzhiEntry } from './ganzhi';
 import { FENGSHUI_ARTICLES } from './fengshui-manifest';
+import { localizedValue, type Locale } from '@/i18n/body';
 
 /** ① 正文按需 loader（显式映射表；2026-09-16 全量接线：56 篇正文全部登记） */
 const CONTENT_LOADERS: Record<string, () => Promise<{ default: KnowledgeArticle }>> = {
@@ -21,16 +22,40 @@ const CONTENT_LOADERS: Record<string, () => Promise<{ default: KnowledgeArticle 
   'shensha-intro': () => import('./content/shensha-intro'),
   'zhuge-intro': () => import('./content/zhuge-intro'),
   'almanac-intro': () => import('./content/almanac-intro'),
-  // B16-补交 · 节气科普（4）
+  // B16-补交 · 节气科普（24）
   'lichun': () => import('./content/solar-terms/lichun'),
+  'yushui': () => import('./content/solar-terms/yushui'),
+  'jingzhe': () => import('./content/solar-terms/jingzhe'),
   'chunfen': () => import('./content/solar-terms/chunfen'),
+  'qingming': () => import('./content/solar-terms/qingming'),
+  'guyu': () => import('./content/solar-terms/guyu'),
+  'lixia': () => import('./content/solar-terms/lixia'),
+  'xiaoman': () => import('./content/solar-terms/xiaoman'),
+  'mangzhong': () => import('./content/solar-terms/mangzhong'),
+  'xiazhi': () => import('./content/solar-terms/xiazhi'),
+  'xiaoshu': () => import('./content/solar-terms/xiaoshu'),
+  'dashu': () => import('./content/solar-terms/dashu'),
   'liqiu': () => import('./content/solar-terms/liqiu'),
+  'chushu': () => import('./content/solar-terms/chushu'),
+  'bailu': () => import('./content/solar-terms/bailu'),
+  'qiufen': () => import('./content/solar-terms/qiufen'),
+  'hanlu': () => import('./content/solar-terms/hanlu'),
+  'shuangjiang': () => import('./content/solar-terms/shuangjiang'),
+  'lidong': () => import('./content/solar-terms/lidong'),
+  'xiaoxue': () => import('./content/solar-terms/xiaoxue'),
+  'daxue': () => import('./content/solar-terms/daxue'),
   'dongzhi': () => import('./content/solar-terms/dongzhi'),
-  // B16-补交 · 生肖文化（4）
+  'xiaohan': () => import('./content/solar-terms/xiaohan'),
+  'dahan': () => import('./content/solar-terms/dahan'),
+  // B16-补交 · 生肖文化（8）
   'zodiac-rat': () => import('./content/zodiac-culture/rat'),
   'zodiac-ox': () => import('./content/zodiac-culture/ox'),
   'zodiac-tiger': () => import('./content/zodiac-culture/tiger'),
   'zodiac-rabbit': () => import('./content/zodiac-culture/rabbit'),
+  'zodiac-legend': () => import('./content/zodiac-culture/legend'),
+  'zodiac-compat': () => import('./content/zodiac-culture/compat'),
+  'zodiac-naming': () => import('./content/zodiac-culture/naming'),
+  'zodiac-personality': () => import('./content/zodiac-culture/personality'),
   // boundary 理性专栏（7）
   'why-no-fortune-score': () => import('./content/why-no-fortune-score'),
   'why-confidence': () => import('./content/why-confidence'),
@@ -39,7 +64,8 @@ const CONTENT_LOADERS: Record<string, () => Promise<{ default: KnowledgeArticle 
   'why-folk-vs-fact': () => import('./content/why-folk-vs-fact'),
   'why-data-source': () => import('./content/why-data-source'),
   'why-rational-decl': () => import('./content/why-rational-decl'),
-  // wuxing 五行（7）
+  // wuxing 五行（8）
+  'wuxing-basics': () => import('./content/wuxing-basics'),
   'wuxing-shengke': () => import('./content/wuxing-shengke'),
   'wuxing-wangshuai': () => import('./content/wuxing-wangshuai'),
   'wuxing-buyi': () => import('./content/wuxing-buyi'),
@@ -202,7 +228,7 @@ export function ganzhiArticles(): KnowledgeArticle[] {
 }
 
 /** 合并后的全量元数据（手写 manifest + 干支编译 + 批4 C23 风水 18 篇） */
-export function allArticleMeta(): ArticleMeta[] {
+export function allArticleMeta(locale?: Locale): ArticleMeta[] {
   const fromGanzhi: ArticleMeta[] = ganzhiArticles().map((a) => ({
     slug: a.slug,
     title: a.title,
@@ -225,15 +251,15 @@ export function allArticleMeta(): ArticleMeta[] {
     updatedAt: a.updatedAt,
     readingMinutes: a.readingMinutes,
   }));
-  return [...ARTICLE_MANIFEST, ...fromGanzhi, ...fromFengshui];
+  return localizedValue('knowledge-meta', [...ARTICLE_MANIFEST, ...fromGanzhi, ...fromFengshui], locale);
 }
 
-export function getMeta(slug: string): ArticleMeta | undefined {
-  return allArticleMeta().find((m) => m.slug === slug);
+export function getMeta(slug: string, locale?: Locale): ArticleMeta | undefined {
+  return allArticleMeta(locale).find((m) => m.slug === slug);
 }
 
-export function listMeta(category?: KnowledgeCategory): ArticleMeta[] {
-  const all = allArticleMeta();
+export function listMeta(category?: KnowledgeCategory, locale?: Locale): ArticleMeta[] {
+  const all = allArticleMeta(locale);
   return category ? all.filter((m) => m.category === category) : all;
 }
 

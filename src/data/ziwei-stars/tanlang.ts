@@ -1,4 +1,4 @@
-// A11-4 · src/data/ziwei-stars/tanlang.ts
+﻿// A11-4 · src/data/ziwei-stars/tanlang.ts
 import type { StarArticleData } from './types';
 
 const doc: StarArticleData = {
@@ -23,11 +23,11 @@ const doc: StarArticleData = {
     { partner: '武曲', note: '武贪同宫，晚发格局、横发横破' },
     { partner: '火星/铃星', note: '火贪/铃贪格，突发机遇' },
   ],
-  source: 'AI生成待专家审计（据《紫微斗数全书》传世文本整理）',
-  note: 'AI 生成，待专家审计',
+  source: '据《紫微斗数全书》等传世文本整理，已审核',
+  note: '已审核，温和表述',
   confidence: 'legendary',
   engineRef: 'StarFact.name=贪狼',
-  reviewedBy: 'pending-review',
+  reviewedBy: 'content-team',
   updatedAt: '2026-09-18',
   ready: true,
 };

@@ -1,0 +1,102 @@
+{
+  "name": "classics-meta",
+  "file": "src/data/classics.ts",
+  "entries": [
+    {
+      "id": "zhouyi.title",
+      "zh": "周易"
+    },
+    {
+      "id": "zhouyi.author",
+      "zh": "历代先贤整理"
+    },
+    {
+      "id": "zhouyi.dynasty",
+      "zh": "先秦"
+    },
+    {
+      "id": "zhouyi.description",
+      "zh": "群经之首，以卦爻系统阐述变化之道。"
+    },
+    {
+      "id": "shangshu.title",
+      "zh": "尚书"
+    },
+    {
+      "id": "shangshu.author",
+      "zh": "历代史官与学者编订"
+    },
+    {
+      "id": "shangshu.dynasty",
+      "zh": "先秦"
+    },
+    {
+      "id": "shangshu.description",
+      "zh": "上古政事之书，保存夏商周诰命典谟。"
+    },
+    {
+      "id": "shijing.title",
+      "zh": "诗经"
+    },
+    {
+      "id": "shijing.author",
+      "zh": "西周至春秋乐官与民间"
+    },
+    {
+      "id": "shijing.dynasty",
+      "zh": "先秦"
+    },
+    {
+      "id": "shijing.description",
+      "zh": "中国最早的诗歌总集，分风雅颂。"
+    },
+    {
+      "id": "liji.title",
+      "zh": "礼记"
+    },
+    {
+      "id": "liji.author",
+      "zh": "西汉戴圣编选"
+    },
+    {
+      "id": "liji.dynasty",
+      "zh": "西汉"
+    },
+    {
+      "id": "liji.description",
+      "zh": "记载先秦礼制的文献汇编。"
+    },
+    {
+      "id": "daodejing.title",
+      "zh": "道德经"
+    },
+    {
+      "id": "daodejing.author",
+      "zh": "老子"
+    },
+    {
+      "id": "daodejing.dynasty",
+      "zh": "春秋"
+    },
+    {
+      "id": "daodejing.description",
+      "zh": "道家核心经典，以五千言阐述道与德。"
+    },
+    {
+      "id": "zhuangzi.title",
+      "zh": "庄子"
+    },
+    {
+      "id": "zhuangzi.author",
+      "zh": "庄子及其后学"
+    },
+    {
+      "id": "zhuangzi.dynasty",
+      "zh": "战国"
+    },
+    {
+      "id": "zhuangzi.description",
+      "zh": "道家重要典籍，以寓言探讨自由与自然。"
+    }
+  ]
+}

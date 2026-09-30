@@ -1,0 +1,14 @@
+{
+  "name": "news-meta",
+  "file": "src/data/news.ts",
+  "entries": [
+    {
+      "id": "listTitle",
+      "zh": "运势资讯"
+    },
+    {
+      "id": "listDescription",
+      "zh": "汇集姓名学、历法、占星、民俗等领域的文化资讯与趋势观察。"
+    }
+  ]
+}

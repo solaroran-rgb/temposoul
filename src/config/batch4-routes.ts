@@ -58,6 +58,9 @@ export const BATCH4_ROUTES: readonly RouteComplianceMeta[] = [
   { path: '/names/manual', isPersonalResult: false, requiresNoindex: false, disclaimerKey: 'names.manual.disclaimer', privacyHintRequired: true },
   { path: '/names/expert', isPersonalResult: false, requiresNoindex: false, disclaimerKey: 'names.expert.disclaimer', privacyHintRequired: true },
   { path: '/names/expert/:id', isPersonalResult: false, requiresNoindex: false, disclaimerKey: 'names.expert.disclaimer', privacyHintRequired: true },
+
+  // ── 解盘引擎测试页（内部演示，禁止收录）────────────────────────────
+  { path: '/solution/test', isPersonalResult: false, requiresNoindex: true, disclaimerKey: 'solution.test.boundary.callout', privacyHintRequired: false },
 ] as const;
 
 /**

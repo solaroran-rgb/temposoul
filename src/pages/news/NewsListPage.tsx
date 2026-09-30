@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { PageTopbar } from '@/components/PageTopbar';
 import { PrivacyHint } from '@/components/PrivacyHint';
 import { ConfidenceBadge } from '@/components/knowledge/ConfidenceBadge';
-import { newsArticles, NEWS_META } from '@/data/news';
+import { getNewsArticles, getNewsMeta } from '@/i18n/body/content';
 import { trackPageView } from '@/lib/analytics';
 import { useAsyncPage } from '@/hooks/useAsyncPage';
 import './NewsListPage.css';
@@ -19,12 +19,12 @@ type FilterValue = typeof FILTERS[number]['value'];
 
 export default function NewsListPage() {
   const [active, setActive] = useState<FilterValue>('all');
-  const [pageState, retry] = useAsyncPage(newsArticles, true);
+  const [pageState, retry] = useAsyncPage(getNewsArticles(), true);
 
   useEffect(() => { trackPageView('/news'); }, []);
 
   const filtered = useMemo(() => {
-    const sorted = [...newsArticles].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
+    const sorted = [...getNewsArticles()].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
     return active === 'all' ? sorted : sorted.filter((a) => (a.category as string) === active);
   }, [active]);
 
@@ -56,9 +56,9 @@ export default function NewsListPage() {
 
   return (
     <div className="news-list">
-      <PageTopbar title={NEWS_META.listTitle} onBack={() => window.history.back()} />
+      <PageTopbar title={getNewsMeta().listTitle} onBack={() => window.history.back()} />
       <main className="news-list__main">
-        <p className="news-list__description">{NEWS_META.listDescription}</p>
+        <p className="news-list__description">{getNewsMeta().listDescription}</p>
         <div className="news-list__filters" role="tablist">
           {FILTERS.map((f) => (
             <button key={f.value} type="button" role="tab" aria-selected={active === f.value}

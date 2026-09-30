@@ -95,6 +95,21 @@ export { runSolution, type SolutionInput, type UserProfile } from './solution';
 export type { SolutionOutput, PathOutput, DisplayVariant } from './api';
 
 // ============================================================
+// CIR v2 · 统一结论中间层
+// ============================================================
+
+export * from './canonical_factors';
+export * from './factor_mapping';
+export {
+  saveSnapshotV2,
+  loadSnapshotV2,
+  listSnapshotsV2,
+  parseSnapshot,
+  type SnapshotV2Options,
+} from './snapshot';
+export type { Fact, Evidence, ProcessEvent, SolutionSnapshotV2 } from './types';
+
+// ============================================================
 // R3-12 双轨原型 + 意象词典
 // ============================================================
 
@@ -145,3 +160,84 @@ export {
   type Strength,
   type UseType,
 } from './archetype_select';
+
+// ============================================================
+// R3-14 冲突仲裁引擎 v2
+// ============================================================
+
+export {
+  SYSTEM_WEIGHTS,
+  systemWeight,
+  polarityDirection,
+  modalityRank,
+  separateByTimeScope,
+  dedupByCanonicalFactor,
+  checkDependencies,
+  checkDependencyPair,
+  detectConflicts,
+  massConflictK,
+  arbitrate,
+  atomDomain,
+  atomSources,
+  atomCompleteness,
+  atomFitWeight,
+  atomToMass,
+  type ArbitratedAtom,
+  type TimeLayeredAtoms,
+  type DedupResult,
+  type DependencyCheckResult,
+  type ConflictDetectionResult,
+  type ConsensusItem,
+  type TensionItem,
+  type ConditionItem,
+  type ArbitrationResult,
+} from './arbitration';
+
+// ============================================================
+// R3-13 反巴纳姆校验 + 散文诗生成
+// ============================================================
+
+export {
+  extractImageryElements,
+  calculateInformationGain,
+  validateAntiBarnum,
+  generalizePoem,
+  isReplaceable,
+  buildEvidenceCorpus,
+  IG_PASS_THRESHOLD,
+  IG_REVIEW_THRESHOLD,
+  type ImageryElement,
+  type ImageryElementType,
+  type AntiBarnumResult,
+  type ExtractOptions,
+  type ValidateOptions,
+} from './anti_barnum';
+
+export {
+  generateProsePoem,
+  GENERIC_COMPANION_LINE,
+  QUOTA_BUCKETS,
+  QUOTA_ORDER,
+  type ProseAtom,
+  type ProsePoem,
+  type ProseLine,
+  type ProseGloss,
+  type ProseOptions,
+  type QuotaBucket,
+} from './prose_generator';
+
+// ============================================================
+// R3-15 三级转译流水线（词语 → 语句 → 报告）
+// ============================================================
+
+export {
+  translate,
+  translateL1Terms,
+  translateL2,
+  buildL3Report,
+  type L1Term,
+  type L2Sentence,
+  type ReportSection,
+  type TranslatorReport,
+  type TranslateInput,
+} from './translator';

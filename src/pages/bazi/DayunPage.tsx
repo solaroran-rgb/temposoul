@@ -10,9 +10,13 @@ import {
   relationsToEvidence,
   type EvidenceItem,
 } from '../../components/fortune/FortuneEvidenceCard';
+import { L0SummaryCard, type L0TimeWindow } from '../../components/fortune/L0SummaryCard';
+import { runSolutionForBazi } from '../../lib/full-chart-engine/solution-context';
+import { AIChatBox } from '../../components/AIChatBox';
 import { useAiChat } from '../../hooks/useAiChat';
 import { useFortuneCache } from '../../hooks/useFortuneCache';
 import { trackChartSubmit } from '../../lib/analytics';
+import { SeoHead } from '../../components/SeoHead';
 
 interface BirthInput {
   name: string;
@@ -126,6 +130,7 @@ export function DayunPage() {
   const [question, setQuestion] = useState('');
   const [calcData, setCalcData] = useState<BaziCalcData | null>(null);
   const [selectedCycleIndex, setSelectedCycleIndex] = useState<number>(-1);
+  const [showL0, setShowL0] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const { analyze, reset, cancel, status, streamingContent, turns, error: aiError } = useAiChat();
@@ -152,9 +157,57 @@ export function DayunPage() {
   );
   const startInfo = useMemo(() => extractStartInfo(calcData?.luckInfo), [calcData]);
 
+  // 解盘引擎接入：排盘结果 → runSolution → L0 白话结论（大运页，按钮展开）
+  const l0Output = useMemo(
+    () => (calcData ? runSolutionForBazi(calcData) : null),
+    [calcData],
+  );
+
+  // F04 · AI 追问框上下文：排盘四柱 + 大运 + L0 结论摘要
+  const aiContextPrompt = useMemo(() => {
+    if (!calcData) return '';
+    const pillars = calcData.pillars ?? {};
+    const pillarText =
+      [
+        pillars.year ? `年柱 ${pillars.year}` : null,
+        pillars.month ? `月柱 ${pillars.month}` : null,
+        pillars.day ? `日柱 ${pillars.day}` : null,
+        pillars.hour ? `时柱 ${pillars.hour}` : null,
+      ]
+        .filter(Boolean)
+        .join('，');
+    const cyclesText = cycles.map((c) => `${c.year}-${c.year + 9} ${c.ganZhi}`).join('，');
+    const l0Text = (l0Output?.pro?.sentences ?? [])
+      .map((s: { text?: string }) => s.text)
+      .filter(Boolean)
+      .join(' ');
+    return [
+      `【八字大运】${birth.name ? `${birth.name}，` : ''}${birth.gender === 'male' ? '男' : '女'}，${birth.year}-${String(birth.month).padStart(2, '0')}-${String(birth.day).padStart(2, '0')}`,
+      pillarText && `四柱：${pillarText}`,
+      cyclesText && `大运：${cyclesText}`,
+      l0Text && `L0 结论：${l0Text}`,
+    ]
+      .filter(Boolean)
+      .join('\n');
+  }, [calcData, cycles, l0Output, birth]);
+
   const onSelectCycle = useCallback((index: number) => {
     setSelectedCycleIndex((prev) => (prev === index ? -1 : index));
   }, []);
+
+  // L0 结论卡时间窗：当前选中（或首步）大运的十年窗口
+  const l0TimeWindow = useMemo<L0TimeWindow[]>(() => {
+    const c = cycles[selectedCycleIndex] ?? cycles[0];
+    if (!c) return [];
+    return [
+      {
+        scale: 'long_term',
+        label: `${c.year}-${c.year + 9} 大运 · ${c.ganZhi}`,
+        detail: `${c.age} 岁起运，十年一运，代表该阶段的长期底色`,
+        share: 1,
+      },
+    ];
+  }, [cycles, selectedCycleIndex]);
 
   const onSubmit = useCallback(async () => {
     setError(null);
@@ -240,6 +293,10 @@ export function DayunPage() {
 
   return (
     <div className="ts-page ts-page--bazi-dayun">
+      <SeoHead
+        title="八字大运流年 · 命律 TempoSoul"
+        description="八字大运走势与十神分析，查看人生各阶段运势起伏。"
+      />
       <PageTopbar title="八字大运" onBack={() => navigate(-1)} />
       <main className="ts-page__main">
         <h1 className="ts-page__title">八字大运</h1>
@@ -328,7 +385,30 @@ export function DayunPage() {
 
         {calcData && (
           <section className="ts-card">
-            <h2 className="ts-card__title">大运时间轴</h2>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                flexWrap: 'wrap',
+                gap: 8,
+              }}
+            >
+              <h2 className="ts-card__title" style={{ margin: 0 }}>
+                大运时间轴
+              </h2>
+              <button
+                className="ts-btn"
+                disabled={!l0Output}
+                onClick={() => setShowL0((v) => !v)}
+                aria-expanded={showL0}
+              >
+                {showL0 ? '收起 AI 解读' : 'AI 解读'}
+              </button>
+            </div>
+            {showL0 && l0Output && (
+              <L0SummaryCard output={l0Output} title="大运白话解读" timeWindow={l0TimeWindow} />
+            )}
             {startInfo && <p className="ts-page__note">起运：{startInfo}</p>}
             <DayunTimeline
               cycles={cycles}
@@ -359,6 +439,10 @@ export function DayunPage() {
                 </div>
               </div>
             )}
+            <AIChatBox
+              contextPrompt={aiContextPrompt}
+              resetKey={`bazi-dayun-${birth.year}-${birth.month}-${birth.day}-${birth.timeIndex}-${selectedCycleIndex}`}
+            />
           </section>
         )}
       </main>

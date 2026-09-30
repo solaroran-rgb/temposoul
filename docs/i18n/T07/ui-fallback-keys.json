@@ -1,0 +1,417 @@
+[
+  {
+    "key": "privacy.disclaimerNote",
+    "zh": "For entertainment and self-reflection purposes only. Not a substitute for professional advice.",
+    "en": "For entertainment and self-reflection purposes only. Not a substitute for professional advice."
+  },
+  {
+    "key": "bazi.dayun.title",
+    "zh": "八字大运",
+    "en": "Bazi Dayun"
+  },
+  {
+    "key": "bazi.dayun.birthInfo",
+    "zh": "出生信息",
+    "en": "Birth Info"
+  },
+  {
+    "key": "bazi.dayun.startInfo",
+    "zh": "起运",
+    "en": "Start"
+  },
+  {
+    "key": "bazi.dayun.timeline",
+    "zh": "大运时间轴",
+    "en": "Dayun Timeline"
+  },
+  {
+    "key": "bazi.dayun.selectHint",
+    "zh": "点击大运条目以定位 AI 解读的分析目标年",
+    "en": "Click dayun entry to set AI target year"
+  },
+  {
+    "key": "bazi.dayun.tenGods",
+    "zh": "四柱十神",
+    "en": "Ten Gods"
+  },
+  {
+    "key": "bazi.dayun.evidence",
+    "zh": "四柱关系证据",
+    "en": "Pillar Evidence"
+  },
+  {
+    "key": "bazi.dayun.aiBtn",
+    "zh": "AI 深度解读",
+    "en": "AI Deep Reading"
+  },
+  {
+    "key": "bazi.dayun.aiBusy",
+    "zh": "AI 解读中…",
+    "en": "AI Reading..."
+  },
+  {
+    "key": "bazi.dayun.cancel",
+    "zh": "取消",
+    "en": "Cancel"
+  },
+  {
+    "key": "bazi.liunian.title",
+    "zh": "八字流年",
+    "en": "Bazi Liunian"
+  },
+  {
+    "key": "bazi.liunian.timeline",
+    "zh": "流年时间轴",
+    "en": "Liunian Timeline"
+  },
+  {
+    "key": "bazi.liunian.targetTenGods",
+    "zh": "目标年干支十神",
+    "en": "Target Ten Gods"
+  },
+  {
+    "key": "bazi.liunian.evidence",
+    "zh": "四柱关系证据",
+    "en": "Pillar Evidence"
+  },
+  {
+    "key": "bazi.compat.title",
+    "zh": "八字合婚",
+    "en": "Bazi Compatibility"
+  },
+  {
+    "key": "bazi.compat.dayMaster",
+    "zh": "日主关系",
+    "en": "Day Master"
+  },
+  {
+    "key": "bazi.compat.spousePalace",
+    "zh": "配偶宫关系",
+    "en": "Spouse Palace"
+  },
+  {
+    "key": "bazi.compat.summary",
+    "zh": "证据汇总",
+    "en": "Evidence Summary"
+  },
+  {
+    "key": "bazi.topics.title",
+    "zh": "八字主题解读",
+    "en": "Bazi Topics"
+  },
+  {
+    "key": "bazi.topics.tab.career",
+    "zh": "事业",
+    "en": "Career"
+  },
+  {
+    "key": "bazi.topics.tab.wealth",
+    "zh": "财运",
+    "en": "Wealth"
+  },
+  {
+    "key": "bazi.topics.tab.marriage",
+    "zh": "感情",
+    "en": "Marriage"
+  },
+  {
+    "key": "bazi.topics.tab.health",
+    "zh": "健康",
+    "en": "Health"
+  },
+  {
+    "key": "bazi.topics.evidenceHeader",
+    "zh": "证据",
+    "en": "Evidence"
+  },
+  {
+    "key": "bazi.topics.aiHeader",
+    "zh": "AI 主题解读",
+    "en": "AI Reading"
+  },
+  {
+    "key": "ziwei.palaces.title",
+    "zh": "紫微命盘深化",
+    "en": "Ziwei Palaces"
+  },
+  {
+    "key": "ziwei.palaces.palacesHeader",
+    "zh": "十二宫",
+    "en": "12 Palaces"
+  },
+  {
+    "key": "ziwei.palaces.aiHeader",
+    "zh": "AI 解读",
+    "en": "AI Reading"
+  },
+  {
+    "key": "ziwei.palaces.algoDefault",
+    "zh": "传统",
+    "en": "Traditional"
+  },
+  {
+    "key": "ziwei.palaces.algoZhongzhou",
+    "zh": "中州派",
+    "en": "Zhongzhou"
+  },
+  {
+    "key": "ziwei.palaces.schoolSanhe",
+    "zh": "三合",
+    "en": "Sanhe"
+  },
+  {
+    "key": "ziwei.palaces.schoolFeixing",
+    "zh": "飞星",
+    "en": "Feixing"
+  },
+  {
+    "key": "ziwei.palaces.schoolSihua",
+    "zh": "四化",
+    "en": "Sihua"
+  },
+  {
+    "key": "ziwei.palaces.scopeDecadal",
+    "zh": "大限",
+    "en": "Decadal"
+  },
+  {
+    "key": "ziwei.palaces.scopeYearly",
+    "zh": "流年",
+    "en": "Yearly"
+  },
+  {
+    "key": "ziwei.palaces.degraded",
+    "zh": "在线深度计算暂不可用，已用本地引擎展示",
+    "en": "Online deep computation unavailable, local engine shown"
+  },
+  {
+    "key": "astrolabe.natal.title",
+    "zh": "西方星盘本命",
+    "en": "Western Natal Chart"
+  },
+  {
+    "key": "astrolabe.natal.planets",
+    "zh": "行星",
+    "en": "Planets"
+  },
+  {
+    "key": "astrolabe.natal.houses",
+    "zh": "宫位",
+    "en": "Houses"
+  },
+  {
+    "key": "astrolabe.natal.aspects",
+    "zh": "主要相位",
+    "en": "Aspects"
+  },
+  {
+    "key": "astrolabe.natal.transitP2",
+    "zh": "行运分析：敬请期待（P2）",
+    "en": "Transit: Coming Soon (P2)"
+  },
+  {
+    "key": "astrolabe.natal.degraded",
+    "zh": "在线深度计算暂不可用，已用本地引擎展示",
+    "en": "Online deep computation unavailable, local engine shown"
+  },
+  {
+    "key": "almanac.today_rhythm",
+    "zh": "今日节律",
+    "en": "Daily Rhythm"
+  },
+  {
+    "key": "almanac.all_yi",
+    "zh": "诸事皆宜",
+    "en": "All Auspicious"
+  },
+  {
+    "key": "almanac.all_ji",
+    "zh": "诸事不忌",
+    "en": "No Taboo"
+  },
+  {
+    "key": "almanac.evidence_trace",
+    "zh": "宜忌溯源",
+    "en": "Trace"
+  },
+  {
+    "key": "almanac.traditional_rhythm",
+    "zh": "传统时辰节律",
+    "en": "Traditional Rhythm"
+  },
+  {
+    "key": "almanac.rhythm_advice",
+    "zh": "顺应四时，起居有常...",
+    "en": "Follow the seasons..."
+  },
+  {
+    "key": "almanac.rhythm_compliance",
+    "zh": "本内容基于子午流注等传统养生节律模型...",
+    "en": "Based on traditional wellness rhythm models..."
+  },
+  {
+    "key": "almanac.evidence_title",
+    "zh": "宜忌推导证据",
+    "en": "Evidence"
+  },
+  {
+    "key": "almanac.sync_error",
+    "zh": "节律数据同步中，请稍后刷新重试。",
+    "en": "Sync failed, please refresh."
+  },
+  {
+    "key": "almanac.share_rhythm",
+    "zh": "分享今日节律",
+    "en": "Share"
+  },
+  {
+    "key": "almanac.copied",
+    "zh": "已复制到剪贴板",
+    "en": "Copied"
+  },
+  {
+    "key": "almanac.select_title",
+    "zh": "智能择日",
+    "en": "Smart Date Selection"
+  },
+  {
+    "key": "almanac.select_date",
+    "zh": "选择日期",
+    "en": "Select Date"
+  },
+  {
+    "key": "almanac.calculating",
+    "zh": "正在推演吉日...",
+    "en": "Calculating..."
+  },
+  {
+    "key": "almanac.disclaimer",
+    "zh": "择日结果基于传统历法算法与民俗典籍，仅供文化参考，不构成现实决策依据。",
+    "en": "For cultural reference only."
+  },
+  {
+    "key": "search.placeholder",
+    "zh": "搜索词库、功能...",
+    "en": "Search lexicon, features..."
+  },
+  {
+    "key": "search.aria_label",
+    "zh": "全局搜索",
+    "en": "Global Search"
+  },
+  {
+    "key": "search.title",
+    "zh": "搜索结果: \"{query}\"",
+    "en": "Results: \"{query}\""
+  },
+  {
+    "key": "search.tab_lexicon",
+    "zh": "词库",
+    "en": "Lexicon"
+  },
+  {
+    "key": "search.tab_feature",
+    "zh": "功能入口",
+    "en": "Features"
+  },
+  {
+    "key": "search.tab_article",
+    "zh": "资讯 (P1)",
+    "en": "Articles (P1)"
+  },
+  {
+    "key": "search.zero_title_with_query",
+    "zh": "未找到与 \"{query}\" 相关的结果",
+    "en": "No results for \"{query}\""
+  },
+  {
+    "key": "search.zero_title_empty",
+    "zh": "请输入搜索内容",
+    "en": "Type to search"
+  },
+  {
+    "key": "search.disclaimer",
+    "zh": "⚠️ 命理内容仅供传统文化探索与娱乐参考，不构成任何绝对化断言、医疗建议或决策依据。",
+    "en": "For cultural exploration and entertainment reference only."
+  },
+  {
+    "key": "search.rec_title",
+    "zh": "热门功能推荐",
+    "en": "Popular Features"
+  },
+  {
+    "key": "pricing.title",
+    "zh": "选择适合您的命理探索方案",
+    "en": "Choose a plan"
+  },
+  {
+    "key": "pricing.disclaimer",
+    "zh": "⚠️ 价格为测试值，以最终结算页为准。所有价格均含税 (¥)。",
+    "en": "Test prices, subject to final checkout."
+  },
+  {
+    "key": "pricing.free.name",
+    "zh": "基础版",
+    "en": "Free"
+  },
+  {
+    "key": "pricing.free.feature_1",
+    "zh": "每日 3 次免费 AI 深度解读额度",
+    "en": "3 free AI reads / day"
+  },
+  {
+    "key": "pricing.free.feature_2",
+    "zh": "基础八字 / 紫微排盘",
+    "en": "Basic charts"
+  },
+  {
+    "key": "pricing.free.feature_3",
+    "zh": "1180+ 命理词库无限制访问",
+    "en": "1180+ lexicon"
+  },
+  {
+    "key": "pricing.free.btn",
+    "zh": "当前方案",
+    "en": "Current Plan"
+  },
+  {
+    "key": "pricing.single.name",
+    "zh": "单次深度报告",
+    "en": "Single Report"
+  },
+  {
+    "key": "pricing.single.unit",
+    "zh": "/份",
+    "en": "/report"
+  },
+  {
+    "key": "pricing.single.btn",
+    "zh": "立即购买",
+    "en": "Buy Now"
+  },
+  {
+    "key": "pricing.pro.badge",
+    "zh": "推荐",
+    "en": "Recommended"
+  },
+  {
+    "key": "pricing.pro.name",
+    "zh": "Pro 会员订阅",
+    "en": "Pro Subscription"
+  },
+  {
+    "key": "pricing.pro.unit",
+    "zh": "/月",
+    "en": "/month"
+  },
+  {
+    "key": "pricing.pro.btn",
+    "zh": "开启订阅",
+    "en": "Subscribe"
+  },
+  {
+    "key": "pricing.pro.auto_renew",
+    "zh": "订阅将自动续费，您可随时在账户设置中取消。",
+    "en": "Auto-renews; cancel anytime."
+  }
+]

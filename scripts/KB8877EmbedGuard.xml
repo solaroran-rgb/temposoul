@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!--
+  KB8877EmbedGuard - vector stack probe + 8877 embed auto-heal (T01)
+  Install (admin PowerShell):
+      Register-ScheduledTask -Xml (Get-Content .\KB8877EmbedGuard.xml -Raw) -TaskName "KB8877EmbedGuard" -Force
+  Or import via Task Scheduler GUI.
+  WARNING: do NOT run together with Startup VBS (KB8877EmbedGuard.vbs) to avoid double-run.
+-->
+<Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+  <RegistrationInfo>
+    <Author>KOJI\oran</Author>
+    <Description>8899/8877 probe; if 8899 alive and 8877 embed.healthy false for N times (or 8877 unreachable), idempotently restart 8877.</Description>
+    <URI>\KB8877EmbedGuard</URI>
+  </RegistrationInfo>
+  <Principals>
+    <Principal id="Author">
+      <UserId>KOJI\oran</UserId>
+      <LogonType>InteractiveToken</LogonType>
+      <RunLevel>LeastPrivilege</RunLevel>
+    </Principal>
+  </Principals>
+  <Settings>
+    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>
+    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>
+    <ExecutionTimeLimit>PT5M</ExecutionTimeLimit>
+    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
+    <StartWhenAvailable>true</StartWhenAvailable>
+  </Settings>
+  <Triggers>
+    <LogonTrigger>
+      <UserId>KOJI\oran</UserId>
+    </LogonTrigger>
+    <TimeTrigger>
+      <StartBoundary>2026-09-30T21:30:00</StartBoundary>
+      <Repetition>
+        <Interval>PT2M</Interval>
+        <Duration>P3650D</Duration>
+      </Repetition>
+      <Enabled>true</Enabled>
+    </TimeTrigger>
+  </Triggers>
+  <Actions Context="Author">
+    <Exec>
+      <Command>C:\Users\oran\AppData\Local\Programs\Python\Python312\pythonw.exe</Command>
+      <Arguments>E:\KnowledgeOS\kb_service\kb_service\kb_8877_embed_guard.py</Arguments>
+      <WorkingDirectory>E:\KnowledgeOS\kb_service\kb_service</WorkingDirectory>
+    </Exec>
+  </Actions>
+</Task>

@@ -1,0 +1,675 @@
+{
+  "generatedAt": "2026-09-30T17:37:06.956Z",
+  "langs": {
+    "ja": {
+      "translated": 1010,
+      "targetChars": 21909,
+      "issues": {
+        "missing": 0,
+        "empty": 0,
+        "extra": 0,
+        "placeholder": 0,
+        "link": 0,
+        "hanResidue": 0,
+        "lengthOutlier": 15
+      },
+      "issueDetail": {
+        "missing": [],
+        "empty": [],
+        "placeholder": [],
+        "link": [],
+        "hanResidue": [],
+        "lengthOutlier": [
+          {
+            "id": "major-8.name",
+            "ratio": 0.5,
+            "median": 1.53
+          },
+          {
+            "id": "major-17.name",
+            "ratio": 0.5,
+            "median": 1.53
+          },
+          {
+            "id": "major-18.name",
+            "ratio": 0.5,
+            "median": 1.53
+          },
+          {
+            "id": "fire.aliases[1]",
+            "ratio": 0.5,
+            "median": 1.53
+          },
+          {
+            "id": "house.aliases[0]",
+            "ratio": 0.5,
+            "median": 1.53
+          },
+          {
+            "id": "road.keyword",
+            "ratio": 0.5,
+            "median": 1.53
+          },
+          {
+            "id": "river.keyword",
+            "ratio": 0.5,
+            "median": 1.53
+          },
+          {
+            "id": "tiger.aliases[0]",
+            "ratio": 0.5,
+            "median": 1.53
+          },
+          {
+            "id": "hair.keyword",
+            "ratio": 0.5,
+            "median": 1.53
+          },
+          {
+            "id": "mirror.keyword",
+            "ratio": 0.5,
+            "median": 1.53
+          },
+          {
+            "id": "food.aliases[1]",
+            "ratio": 0.5,
+            "median": 1.53
+          },
+          {
+            "id": "key.keyword",
+            "ratio": 0.5,
+            "median": 1.53
+          },
+          {
+            "id": "naked.keyword",
+            "ratio": 0.5,
+            "median": 1.53
+          },
+          {
+            "id": "forest.keyword",
+            "ratio": 0.5,
+            "median": 1.53
+          },
+          {
+            "id": "forest.aliases[0]",
+            "ratio": 0.5,
+            "median": 1.53
+          }
+        ]
+      },
+      "corpusCoverage": {
+        "knowledge-manifest": 1,
+        "faq": 1,
+        "faq-categories": 1,
+        "news-meta": 1,
+        "news": 1,
+        "classics-meta": 1,
+        "classics": 1,
+        "wiki-zodiac": 1,
+        "wiki-astro": 1,
+        "wiki-parenting": 1,
+        "zodiac-profiles": 1,
+        "tarot-meanings": 1,
+        "dream-dict": 1,
+        "dream-meta": 1
+      },
+      "uiMissing": []
+    },
+    "ko-KN": {
+      "translated": 1010,
+      "targetChars": 24185,
+      "issues": {
+        "missing": 0,
+        "empty": 0,
+        "extra": 0,
+        "placeholder": 0,
+        "link": 0,
+        "hanResidue": 0,
+        "lengthOutlier": 20
+      },
+      "issueDetail": {
+        "missing": [],
+        "empty": [],
+        "placeholder": [],
+        "link": [],
+        "hanResidue": [],
+        "lengthOutlier": [
+          {
+            "id": "zodiac-rat.tags[0]",
+            "ratio": 0.5,
+            "median": 1.72
+          },
+          {
+            "id": "major-8.name",
+            "ratio": 0.5,
+            "median": 1.72
+          },
+          {
+            "id": "major-17.name",
+            "ratio": 0.5,
+            "median": 1.72
+          },
+          {
+            "id": "major-18.name",
+            "ratio": 0.5,
+            "median": 1.72
+          },
+          {
+            "id": "minor-权杖-12.name",
+            "ratio": 0.57,
+            "median": 1.72
+          },
+          {
+            "id": "minor-权杖-13.name",
+            "ratio": 0.67,
+            "median": 1.72
+          },
+          {
+            "id": "minor-圣杯-11.name",
+            "ratio": 0.63,
+            "median": 1.72
+          },
+          {
+            "id": "minor-圣杯-12.name",
+            "ratio": 0.43,
+            "median": 1.72
+          },
+          {
+            "id": "minor-圣杯-13.name",
+            "ratio": 0.5,
+            "median": 1.72
+          },
+          {
+            "id": "minor-宝剑-12.name",
+            "ratio": 0.57,
+            "median": 1.72
+          },
+          {
+            "id": "minor-宝剑-13.name",
+            "ratio": 0.67,
+            "median": 1.72
+          },
+          {
+            "id": "house.keyword",
+            "ratio": 0.5,
+            "median": 1.72
+          },
+          {
+            "id": "road.keyword",
+            "ratio": 0.5,
+            "median": 1.72
+          },
+          {
+            "id": "river.keyword",
+            "ratio": 0.5,
+            "median": 1.72
+          },
+          {
+            "id": "clothes.keyword",
+            "ratio": 0.5,
+            "median": 1.72
+          },
+          {
+            "id": "star.aliases[0]",
+            "ratio": 0.5,
+            "median": 1.72
+          },
+          {
+            "id": "star.aliases[1]",
+            "ratio": 4.5,
+            "median": 1.72
+          },
+          {
+            "id": "mouse.keyword",
+            "ratio": 0.5,
+            "median": 1.72
+          },
+          {
+            "id": "mouse.aliases[0]",
+            "ratio": 0.5,
+            "median": 1.72
+          },
+          {
+            "id": "forest.keyword",
+            "ratio": 0.5,
+            "median": 1.72
+          }
+        ]
+      },
+      "corpusCoverage": {
+        "knowledge-manifest": 1,
+        "faq": 1,
+        "faq-categories": 1,
+        "news-meta": 1,
+        "news": 1,
+        "classics-meta": 1,
+        "classics": 1,
+        "wiki-zodiac": 1,
+        "wiki-astro": 1,
+        "wiki-parenting": 1,
+        "zodiac-profiles": 1,
+        "tarot-meanings": 1,
+        "dream-dict": 1,
+        "dream-meta": 1
+      },
+      "uiMissing": []
+    },
+    "vi-VN": {
+      "translated": 1010,
+      "targetChars": 54718,
+      "issues": {
+        "missing": 0,
+        "empty": 0,
+        "extra": 0,
+        "placeholder": 0,
+        "link": 0,
+        "hanResidue": 0,
+        "lengthOutlier": 39
+      },
+      "issueDetail": {
+        "missing": [],
+        "empty": [],
+        "placeholder": [],
+        "link": [],
+        "hanResidue": [],
+        "lengthOutlier": [
+          {
+            "id": "why-confidence.title",
+            "ratio": 1.49,
+            "median": 4.15
+          },
+          {
+            "id": "virgo.title",
+            "ratio": 1.64,
+            "median": 4.15
+          },
+          {
+            "id": "scorpio.title",
+            "ratio": 1.62,
+            "median": 4.15
+          },
+          {
+            "id": "sagittarius.title",
+            "ratio": 1.53,
+            "median": 4.15
+          },
+          {
+            "id": "capricorn.title",
+            "ratio": 1.53,
+            "median": 4.15
+          },
+          {
+            "id": "retrograde.aliases[0]",
+            "ratio": 10.5,
+            "median": 4.15
+          },
+          {
+            "id": "minor-权杖-0.name",
+            "ratio": 1.4,
+            "median": 4.15
+          },
+          {
+            "id": "minor-权杖-9.name",
+            "ratio": 1.5,
+            "median": 4.15
+          },
+          {
+            "id": "minor-权杖-11.name",
+            "ratio": 1.13,
+            "median": 4.15
+          },
+          {
+            "id": "minor-权杖-13.name",
+            "ratio": 1.17,
+            "median": 4.15
+          },
+          {
+            "id": "minor-圣杯-0.name",
+            "ratio": 1.6,
+            "median": 4.15
+          },
+          {
+            "id": "minor-圣杯-11.name",
+            "ratio": 1.25,
+            "median": 4.15
+          },
+          {
+            "id": "minor-圣杯-13.name",
+            "ratio": 1.33,
+            "median": 4.15
+          },
+          {
+            "id": "minor-宝剑-0.name",
+            "ratio": 1.6,
+            "median": 4.15
+          },
+          {
+            "id": "minor-宝剑-11.name",
+            "ratio": 1.25,
+            "median": 4.15
+          },
+          {
+            "id": "minor-宝剑-13.name",
+            "ratio": 1.33,
+            "median": 4.15
+          },
+          {
+            "id": "minor-星币-0.name",
+            "ratio": 1.2,
+            "median": 4.15
+          },
+          {
+            "id": "minor-星币-1.name",
+            "ratio": 1.33,
+            "median": 4.15
+          },
+          {
+            "id": "minor-星币-2.name",
+            "ratio": 1.33,
+            "median": 4.15
+          },
+          {
+            "id": "minor-星币-3.name",
+            "ratio": 1.33,
+            "median": 4.15
+          }
+        ]
+      },
+      "corpusCoverage": {
+        "knowledge-manifest": 1,
+        "faq": 1,
+        "faq-categories": 1,
+        "news-meta": 1,
+        "news": 1,
+        "classics-meta": 1,
+        "classics": 1,
+        "wiki-zodiac": 1,
+        "wiki-astro": 1,
+        "wiki-parenting": 1,
+        "zodiac-profiles": 1,
+        "tarot-meanings": 1,
+        "dream-dict": 1,
+        "dream-meta": 1
+      },
+      "uiMissing": []
+    },
+    "th-TH": {
+      "translated": 1010,
+      "targetChars": 47992,
+      "issues": {
+        "missing": 0,
+        "empty": 0,
+        "extra": 0,
+        "placeholder": 0,
+        "link": 0,
+        "hanResidue": 0,
+        "lengthOutlier": 42
+      },
+      "issueDetail": {
+        "missing": [],
+        "empty": [],
+        "placeholder": [],
+        "link": [],
+        "hanResidue": [],
+        "lengthOutlier": [
+          {
+            "id": "wuxing-shengke.tags[1]",
+            "ratio": 11.5,
+            "median": 3.79
+          },
+          {
+            "id": "wuxing-wangshuai.tags[1]",
+            "ratio": 12.5,
+            "median": 3.79
+          },
+          {
+            "id": "wuxing-color.tags[1]",
+            "ratio": 12.5,
+            "median": 3.79
+          },
+          {
+            "id": "ganzhi-clash.tags[1]",
+            "ratio": 9.5,
+            "median": 3.79
+          },
+          {
+            "id": "ganzhi-canggan.tags[0]",
+            "ratio": 9.5,
+            "median": 3.79
+          },
+          {
+            "id": "dayun-suiyun.title",
+            "ratio": 9.5,
+            "median": 3.79
+          },
+          {
+            "id": "dayun-suiyun.tags[0]",
+            "ratio": 10.5,
+            "median": 3.79
+          },
+          {
+            "id": "2026-qiu-fen-xing-xiang-guan-cha.tags[1]",
+            "ratio": 9.5,
+            "median": 3.79
+          },
+          {
+            "id": "2026-zhong-qiu-yue-xiang-wen-hua.tags[0]",
+            "ratio": 9.5,
+            "median": 3.79
+          },
+          {
+            "id": "aries.title",
+            "ratio": 1.36,
+            "median": 3.79
+          },
+          {
+            "id": "taurus.title",
+            "ratio": 1.42,
+            "median": 3.79
+          },
+          {
+            "id": "gemini.title",
+            "ratio": 1.5,
+            "median": 3.79
+          },
+          {
+            "id": "cancer.title",
+            "ratio": 1.42,
+            "median": 3.79
+          },
+          {
+            "id": "libra.title",
+            "ratio": 1.36,
+            "median": 3.79
+          },
+          {
+            "id": "scorpio.title",
+            "ratio": 1.46,
+            "median": 3.79
+          },
+          {
+            "id": "sagittarius.title",
+            "ratio": 1.24,
+            "median": 3.79
+          },
+          {
+            "id": "capricorn.title",
+            "ratio": 1.4,
+            "median": 3.79
+          },
+          {
+            "id": "aquarius.title",
+            "ratio": 1.43,
+            "median": 3.79
+          },
+          {
+            "id": "pisces.title",
+            "ratio": 1.33,
+            "median": 3.79
+          },
+          {
+            "id": "major-13.name",
+            "ratio": 1.5,
+            "median": 3.79
+          }
+        ]
+      },
+      "corpusCoverage": {
+        "knowledge-manifest": 1,
+        "faq": 1,
+        "faq-categories": 1,
+        "news-meta": 1,
+        "news": 1,
+        "classics-meta": 1,
+        "classics": 1,
+        "wiki-zodiac": 1,
+        "wiki-astro": 1,
+        "wiki-parenting": 1,
+        "zodiac-profiles": 1,
+        "tarot-meanings": 1,
+        "dream-dict": 1,
+        "dream-meta": 1
+      },
+      "uiMissing": []
+    },
+    "es-ES": {
+      "translated": 1010,
+      "targetChars": 62923,
+      "issues": {
+        "missing": 0,
+        "empty": 0,
+        "extra": 0,
+        "placeholder": 0,
+        "link": 0,
+        "hanResidue": 0,
+        "lengthOutlier": 34
+      },
+      "issueDetail": {
+        "missing": [],
+        "empty": [],
+        "placeholder": [],
+        "link": [],
+        "hanResidue": [],
+        "lengthOutlier": [
+          {
+            "id": "why-confidence.title",
+            "ratio": 1.91,
+            "median": 4.93
+          },
+          {
+            "id": "wuxing-color.tags[1]",
+            "ratio": 13.5,
+            "median": 4.93
+          },
+          {
+            "id": "wuxing-zangxiang.tags[2]",
+            "ratio": 13,
+            "median": 4.93
+          },
+          {
+            "id": "shensha-yima.title",
+            "ratio": 14,
+            "median": 4.93
+          },
+          {
+            "id": "shensha-yangren.title",
+            "ratio": 15,
+            "median": 4.93
+          },
+          {
+            "id": "dayun-suiyun.title",
+            "ratio": 15.25,
+            "median": 4.93
+          },
+          {
+            "id": "r3.question",
+            "ratio": 1.94,
+            "median": 4.93
+          },
+          {
+            "id": "shangshu.title",
+            "ratio": 18.5,
+            "median": 4.93
+          },
+          {
+            "id": "shijing.title",
+            "ratio": 16,
+            "median": 4.93
+          },
+          {
+            "id": "liji.title",
+            "ratio": 14.5,
+            "median": 4.93
+          },
+          {
+            "id": "daodejing.title",
+            "ratio": 14.33,
+            "median": 4.93
+          },
+          {
+            "id": "daodejing.dynasty",
+            "ratio": 15.5,
+            "median": 4.93
+          },
+          {
+            "id": "zhuangzi.dynasty",
+            "ratio": 17,
+            "median": 4.93
+          },
+          {
+            "id": "zhouyi.tags[1]",
+            "ratio": 16,
+            "median": 4.93
+          },
+          {
+            "id": "shangshu.tags[1]",
+            "ratio": 17.5,
+            "median": 4.93
+          },
+          {
+            "id": "daodejing.tags[2]",
+            "ratio": 13,
+            "median": 4.93
+          },
+          {
+            "id": "aries.title",
+            "ratio": 1.18,
+            "median": 4.93
+          },
+          {
+            "id": "taurus.title",
+            "ratio": 1.17,
+            "median": 4.93
+          },
+          {
+            "id": "gemini.title",
+            "ratio": 1.33,
+            "median": 4.93
+          },
+          {
+            "id": "cancer.title",
+            "ratio": 1.25,
+            "median": 4.93
+          }
+        ]
+      },
+      "corpusCoverage": {
+        "knowledge-manifest": 1,
+        "faq": 1,
+        "faq-categories": 1,
+        "news-meta": 1,
+        "news": 1,
+        "classics-meta": 1,
+        "classics": 1,
+        "wiki-zodiac": 1,
+        "wiki-astro": 1,
+        "wiki-parenting": 1,
+        "zodiac-profiles": 1,
+        "tarot-meanings": 1,
+        "dream-dict": 1,
+        "dream-meta": 1
+      },
+      "uiMissing": []
+    }
+  }
+}

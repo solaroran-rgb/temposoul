@@ -8,7 +8,7 @@ export interface ShortcutItem {
 }
 
 export interface ShortcutGroup {
-  groupId: 'chart' | 'divination' | 'almanac' | 'name';
+  groupId: 'chart' | 'divination' | 'almanac' | 'name' | 'westastro';
   title: string;
   items: ShortcutItem[];
 }
@@ -56,6 +56,20 @@ export const SHORTCUT_GROUPS: ShortcutGroup[] = [
     items: [
       { id: 'nametest', label: '测名', icon: 'icon-name', target: '/name-test' },
       { id: 'names', label: '起名', icon: 'icon-names', target: '/names' },
+    ],
+  },
+  {
+    groupId: 'westastro',
+    title: '西占专题',
+    items: [
+      { id: 'moon-phase', label: '月相盘', icon: 'icon-moon', target: '/astrolabe/moon-phase' },
+      {
+        id: 'saturn-return',
+        label: '土星回归',
+        icon: 'icon-saturn',
+        target: '/astrolabe/saturn-return',
+      },
+      { id: 'quiz-western', label: '星盘气质测验', icon: 'icon-quiz', target: '/quiz/western' },
     ],
   },
 ];

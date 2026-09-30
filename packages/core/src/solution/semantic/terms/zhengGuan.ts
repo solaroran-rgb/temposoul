@@ -21,10 +21,12 @@ export const zhengGuan: TermSchema = {
     { id: 'COMBO-ZG-GY', name: '官印相生', trigger: [{ op: 'has', args: ['tenGods', '正官'] }, { op: 'has', args: ['tenGods', '正印'] }], priority: 20, mutex: ['COMBO-ZG-JSG'] },
     { id: 'COMBO-ZG-CG', name: '财官相生', trigger: [{ op: 'has', args: ['tenGods', '正官'] }, { op: 'has', args: ['tenGods', '正财'] }], priority: 30, mutex: [] },
     { id: 'COMBO-ZG-GS', name: '官杀混杂', trigger: [{ op: 'has', args: ['tenGods', '正官'] }, { op: 'has', args: ['tenGods', '七杀'] }], priority: 15, mutex: [] },
+    { id: 'COMBO-ZG-BASE', name: '正官得位', trigger: [{ op: 'has', args: ['tenGods', '正官'] }], priority: 50, mutex: ['COMBO-ZG-JSG', 'COMBO-ZG-GY', 'COMBO-ZG-CG', 'COMBO-ZG-GS'] },
   ],
   templates: [
     { comboId: 'COMBO-ZG-JSG', pro: '正官见伤官，官星受制，事业宫权威冲突显著', mix: '你在规则与表达之间容易产生张力，职场需留意权威冲突', lay: '工作中你可能不太喜欢被规则束缚，注意沟通方式', polarity: '-', modality: 'assert', atomicId: 'ATOM-ZG-JSG-001' },
     { comboId: 'COMBO-ZG-GY', pro: '官印相生，官星得印护，事业宫职权稳进', mix: '你在职场中较易获得上级认可与支持', lay: '你在工作中可能比较受上级和团队认可', polarity: '+', modality: 'likely', atomicId: 'ATOM-ZG-GY-001' },
+    { comboId: 'COMBO-ZG-BASE', pro: '正官得位，行事有规，责任心强，易得上级认可', mix: '你做事讲规矩、有责任心，容易得到上级和同事的认可', lay: '你办事靠谱、有分寸，长辈和领导多半挺认可你', polarity: '+', modality: 'assert', atomicId: 'ATOM-ZG-BASE-001' },
   ],
   dimTags: ['DIM_01', 'DIM_02'],
 };

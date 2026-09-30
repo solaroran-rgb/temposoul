@@ -2,7 +2,8 @@
 // src/pages/platform/FaqPage.tsx
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FAQ_CATEGORIES, FaqCategory } from '../../data/faq';
+import { FaqCategory } from '../../data/faq';
+import { getFaqCategories } from '../../i18n/body/content';
 import { useFaqSearch } from '../../hooks/useFaqSearch';
 import { ContactForm } from '../../components/faq/ContactForm';
 import { trackEvent } from '../../lib/analytics';
@@ -43,7 +44,7 @@ export const FaqPage: React.FC = () => {
           >
             全部问题
           </button>
-          {FAQ_CATEGORIES.map((c) => (
+          {getFaqCategories().map((c) => (
             <button
               key={c.key}
               className={`faq-page__nav-item ${activeCat === c.key ? 'active' : ''}`}

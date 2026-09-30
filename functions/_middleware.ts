@@ -3,6 +3,7 @@
 // 限流检查前置到 next() 之前，否则请求已处理完限流失效
 
 import { getAiRuntimeConfigScript } from '../src/lib/ai/runtime-config';
+import { logError } from './api/v1/errlog';
 
 /** 运行时配置脚本入口（生产契约：deploy-runbook 要求返回 no-store 的 JS） */
 const RUNTIME_CONFIG_PATH = '/temposoul-runtime-config.js';
@@ -68,7 +69,42 @@ export async function onRequest(context: EventContext<Env>) {
     }
   }
 
-  const response = await next();
+  // 1c. 全局 5xx 捕获（T16）：next() 抛错或返回 ≥500 一律转发到统一错误落点。
+  //     自身 errlog 端点不回环；仅对 /api/* 生效（静态资源不计）。best-effort，失败不阻断响应。
+  let response: Response;
+  try {
+    response = await next();
+  } catch (err) {
+    const e = err as Error;
+    response = new Response(
+      JSON.stringify({ error: 'internal_error' }),
+      { status: 500, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' } },
+    );
+    if (url.pathname.startsWith('/api/') && url.pathname !== '/api/v1/errlog') {
+      context.waitUntil(
+        logError(context.env ?? {}, {
+          level: 'error',
+          scope: url.pathname,
+          message: e?.message || 'unhandled exception in handler',
+          stack: e?.stack,
+        }).catch(() => undefined),
+      );
+    }
+  }
+
+  if (
+    response.status >= 500 &&
+    url.pathname.startsWith('/api/') &&
+    url.pathname !== '/api/v1/errlog'
+  ) {
+    context.waitUntil(
+      logError(context.env ?? {}, {
+        level: 'error',
+        scope: url.pathname,
+        message: `HTTP ${response.status}`,
+      }).catch(() => undefined),
+    );
+  }
 
   // 2. 安全头注入
   response.headers.set('X-Content-Type-Options', 'nosniff');

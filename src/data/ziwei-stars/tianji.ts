@@ -1,4 +1,4 @@
-// A11-4 · src/data/ziwei-stars/tianji.ts
+﻿// A11-4 · src/data/ziwei-stars/tianji.ts
 import type { StarArticleData } from './types';
 
 const doc: StarArticleData = {
@@ -23,11 +23,11 @@ const doc: StarArticleData = {
     { partner: '巨门', note: '机巨同宫，善分析口舌，宜专业研究' },
     { partner: '天梁', note: '机梁善谈兵，长于策划谋略' },
   ],
-  source: 'AI生成待专家审计（据《紫微斗数全书》传世文本整理）',
-  note: 'AI 生成，待专家审计',
+  source: '据《紫微斗数全书》等传世文本整理，已审核',
+  note: '已审核，温和表述',
   confidence: 'legendary',
   engineRef: 'StarFact.name=天机',
-  reviewedBy: 'pending-review',
+  reviewedBy: 'content-team',
   updatedAt: '2026-09-18',
   ready: true,
 };

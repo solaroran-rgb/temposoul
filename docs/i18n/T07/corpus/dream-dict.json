@@ -1,0 +1,1710 @@
+{
+  "name": "dream-dict",
+  "file": "src/data/dream/dream-dict.ts",
+  "entries": [
+    {
+      "id": "water.keyword",
+      "zh": "水"
+    },
+    {
+      "id": "water.aliases[0]",
+      "zh": "河水"
+    },
+    {
+      "id": "water.aliases[1]",
+      "zh": "清水"
+    },
+    {
+      "id": "water.aliases[2]",
+      "zh": "大水"
+    },
+    {
+      "id": "water.traditionalText",
+      "zh": "梦见清水，主顺遂；水势平稳多被解为心境安宁。"
+    },
+    {
+      "id": "water.modernText",
+      "zh": "水在梦中常映射情绪状态，平静的水面通常对应内心较为安稳的阶段。"
+    },
+    {
+      "id": "water.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "fire.keyword",
+      "zh": "火"
+    },
+    {
+      "id": "fire.aliases[0]",
+      "zh": "大火"
+    },
+    {
+      "id": "fire.aliases[1]",
+      "zh": "火焰"
+    },
+    {
+      "id": "fire.traditionalText",
+      "zh": "梦见火，主旺相，也提示情绪激动。"
+    },
+    {
+      "id": "fire.modernText",
+      "zh": "火常与强烈的情绪或紧迫感相关，可留意近期是否处于高消耗状态。"
+    },
+    {
+      "id": "fire.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "fly.keyword",
+      "zh": "飞翔"
+    },
+    {
+      "id": "fly.aliases[0]",
+      "zh": "飞"
+    },
+    {
+      "id": "fly.aliases[1]",
+      "zh": "飞行"
+    },
+    {
+      "id": "fly.traditionalText",
+      "zh": "梦见飞翔，主心愿得展。"
+    },
+    {
+      "id": "fly.modernText",
+      "zh": "飞翔常与对自由的向往或对现状的超越感有关。"
+    },
+    {
+      "id": "fly.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "fall.keyword",
+      "zh": "坠落"
+    },
+    {
+      "id": "fall.aliases[0]",
+      "zh": "掉落"
+    },
+    {
+      "id": "fall.aliases[1]",
+      "zh": "下坠"
+    },
+    {
+      "id": "fall.traditionalText",
+      "zh": "梦见坠落，主心神不定。"
+    },
+    {
+      "id": "fall.modernText",
+      "zh": "坠落多与失控感或对某件事缺乏把握有关。"
+    },
+    {
+      "id": "fall.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "snake.keyword",
+      "zh": "蛇"
+    },
+    {
+      "id": "snake.aliases[0]",
+      "zh": "大蛇"
+    },
+    {
+      "id": "snake.aliases[1]",
+      "zh": "小蛇"
+    },
+    {
+      "id": "snake.traditionalText",
+      "zh": "梦见蛇，传统说法多与隐忧相关，需看情境。"
+    },
+    {
+      "id": "snake.modernText",
+      "zh": "蛇的象征较为复杂，常与潜藏的顾虑或被忽略的细节有关。"
+    },
+    {
+      "id": "snake.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "fish.keyword",
+      "zh": "鱼"
+    },
+    {
+      "id": "fish.aliases[0]",
+      "zh": "钓鱼"
+    },
+    {
+      "id": "fish.aliases[1]",
+      "zh": "抓鱼"
+    },
+    {
+      "id": "fish.traditionalText",
+      "zh": "梦见鱼，主有余庆。"
+    },
+    {
+      "id": "fish.modernText",
+      "zh": "鱼常与收获、机会的意象相连，也与「余」的谐音文化有关。"
+    },
+    {
+      "id": "fish.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "house.keyword",
+      "zh": "房屋"
+    },
+    {
+      "id": "house.aliases[0]",
+      "zh": "房子"
+    },
+    {
+      "id": "house.aliases[1]",
+      "zh": "老宅"
+    },
+    {
+      "id": "house.traditionalText",
+      "zh": "梦见房屋，主家宅安宁；房屋破损则提示留意家中事务。"
+    },
+    {
+      "id": "house.modernText",
+      "zh": "房屋常象征自我空间与安全感，破损多对应边界被扰动。"
+    },
+    {
+      "id": "house.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "road.keyword",
+      "zh": "道路"
+    },
+    {
+      "id": "road.aliases[0]",
+      "zh": "马路"
+    },
+    {
+      "id": "road.aliases[1]",
+      "zh": "小路"
+    },
+    {
+      "id": "road.traditionalText",
+      "zh": "梦见坦途，主顺遂；路阻则提示谋事宜缓。"
+    },
+    {
+      "id": "road.modernText",
+      "zh": "道路常映射方向与进程，阻塞多对应决策未定。"
+    },
+    {
+      "id": "road.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "exam.keyword",
+      "zh": "考试"
+    },
+    {
+      "id": "exam.aliases[0]",
+      "zh": "考场"
+    },
+    {
+      "id": "exam.aliases[1]",
+      "zh": "试题"
+    },
+    {
+      "id": "exam.traditionalText",
+      "zh": "梦见考试，主心有挂碍。"
+    },
+    {
+      "id": "exam.modernText",
+      "zh": "考试梦常与被评价、被检验的压力有关，不限于学生时期。"
+    },
+    {
+      "id": "exam.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "money.keyword",
+      "zh": "钱"
+    },
+    {
+      "id": "money.aliases[0]",
+      "zh": "钞票"
+    },
+    {
+      "id": "money.aliases[1]",
+      "zh": "金币"
+    },
+    {
+      "id": "money.traditionalText",
+      "zh": "梦见得钱，主有进益；失钱则提示留意开支。"
+    },
+    {
+      "id": "money.modernText",
+      "zh": "金钱梦多与安全感与资源感有关，可回顾近期的实际压力源。"
+    },
+    {
+      "id": "money.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "rain.keyword",
+      "zh": "雨"
+    },
+    {
+      "id": "rain.aliases[0]",
+      "zh": "下雨"
+    },
+    {
+      "id": "rain.aliases[1]",
+      "zh": "暴雨"
+    },
+    {
+      "id": "rain.traditionalText",
+      "zh": "梦见雨，主有润泽，也提示情绪宣泄。"
+    },
+    {
+      "id": "rain.modernText",
+      "zh": "雨常对应情绪的释放或外部环境的变动。"
+    },
+    {
+      "id": "rain.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "snow.keyword",
+      "zh": "雪"
+    },
+    {
+      "id": "snow.aliases[0]",
+      "zh": "下雪"
+    },
+    {
+      "id": "snow.aliases[1]",
+      "zh": "积雪"
+    },
+    {
+      "id": "snow.traditionalText",
+      "zh": "梦见雪，主清白宁静。"
+    },
+    {
+      "id": "snow.modernText",
+      "zh": "雪多与冷静、沉淀或暂时的停滞有关。"
+    },
+    {
+      "id": "snow.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "mountain.keyword",
+      "zh": "山"
+    },
+    {
+      "id": "mountain.aliases[0]",
+      "zh": "爬山"
+    },
+    {
+      "id": "mountain.aliases[1]",
+      "zh": "高山"
+    },
+    {
+      "id": "mountain.traditionalText",
+      "zh": "梦见登山，主步步高升；山阻则提示事有阻滞。"
+    },
+    {
+      "id": "mountain.modernText",
+      "zh": "山常对应目标与难度，攀登过程反映投入与阻力。"
+    },
+    {
+      "id": "mountain.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "sea.keyword",
+      "zh": "海"
+    },
+    {
+      "id": "sea.aliases[0]",
+      "zh": "大海"
+    },
+    {
+      "id": "sea.aliases[1]",
+      "zh": "海洋"
+    },
+    {
+      "id": "sea.traditionalText",
+      "zh": "梦见大海，主胸怀开阔，也提示心事浩茫。"
+    },
+    {
+      "id": "sea.modernText",
+      "zh": "海常与广阔但难以掌控的感受相关。"
+    },
+    {
+      "id": "sea.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "river.keyword",
+      "zh": "河流"
+    },
+    {
+      "id": "river.aliases[0]",
+      "zh": "江水"
+    },
+    {
+      "id": "river.aliases[1]",
+      "zh": "溪流"
+    },
+    {
+      "id": "river.traditionalText",
+      "zh": "梦见河流，主事务流转不停。"
+    },
+    {
+      "id": "river.modernText",
+      "zh": "河流常对应时间感与事情的连续推进。"
+    },
+    {
+      "id": "river.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "tree.keyword",
+      "zh": "树"
+    },
+    {
+      "id": "tree.aliases[0]",
+      "zh": "大树"
+    },
+    {
+      "id": "tree.aliases[1]",
+      "zh": "树木"
+    },
+    {
+      "id": "tree.traditionalText",
+      "zh": "梦见树木繁茂，主家业兴旺。"
+    },
+    {
+      "id": "tree.modernText",
+      "zh": "树常与成长、支撑与长期积累有关。"
+    },
+    {
+      "id": "tree.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "flower.keyword",
+      "zh": "花"
+    },
+    {
+      "id": "flower.aliases[0]",
+      "zh": "开花"
+    },
+    {
+      "id": "flower.aliases[1]",
+      "zh": "鲜花"
+    },
+    {
+      "id": "flower.traditionalText",
+      "zh": "梦见花开，主喜事将至。"
+    },
+    {
+      "id": "flower.modernText",
+      "zh": "花多与阶段性成果或情感表达有关。"
+    },
+    {
+      "id": "flower.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "dog.keyword",
+      "zh": "狗"
+    },
+    {
+      "id": "dog.aliases[0]",
+      "zh": "小狗"
+    },
+    {
+      "id": "dog.aliases[1]",
+      "zh": "犬"
+    },
+    {
+      "id": "dog.traditionalText",
+      "zh": "梦见狗，主有友相助。"
+    },
+    {
+      "id": "dog.modernText",
+      "zh": "狗常与忠诚、陪伴与信任关系有关。"
+    },
+    {
+      "id": "dog.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "cat.keyword",
+      "zh": "猫"
+    },
+    {
+      "id": "cat.aliases[0]",
+      "zh": "小猫"
+    },
+    {
+      "id": "cat.traditionalText",
+      "zh": "梦见猫，主需留意身边细微之事。"
+    },
+    {
+      "id": "cat.modernText",
+      "zh": "猫常与独立、敏感或未被言明的直觉有关。"
+    },
+    {
+      "id": "cat.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "bird.keyword",
+      "zh": "鸟"
+    },
+    {
+      "id": "bird.aliases[0]",
+      "zh": "飞鸟"
+    },
+    {
+      "id": "bird.aliases[1]",
+      "zh": "小鸟"
+    },
+    {
+      "id": "bird.traditionalText",
+      "zh": "梦见飞鸟，主音信将至。"
+    },
+    {
+      "id": "bird.modernText",
+      "zh": "鸟常与消息、自由或视角的提升有关。"
+    },
+    {
+      "id": "bird.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "horse.keyword",
+      "zh": "马"
+    },
+    {
+      "id": "horse.aliases[0]",
+      "zh": "骏马"
+    },
+    {
+      "id": "horse.traditionalText",
+      "zh": "梦见马，主奔波进取。"
+    },
+    {
+      "id": "horse.modernText",
+      "zh": "马常与行动力、推进节奏有关。"
+    },
+    {
+      "id": "horse.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "tiger.keyword",
+      "zh": "虎"
+    },
+    {
+      "id": "tiger.aliases[0]",
+      "zh": "老虎"
+    },
+    {
+      "id": "tiger.traditionalText",
+      "zh": "梦见虎，主有强劲对手。"
+    },
+    {
+      "id": "tiger.modernText",
+      "zh": "虎常对应压力源或需要正视的强势力量。"
+    },
+    {
+      "id": "tiger.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "dragon.keyword",
+      "zh": "龙"
+    },
+    {
+      "id": "dragon.aliases[0]",
+      "zh": "飞龙"
+    },
+    {
+      "id": "dragon.traditionalText",
+      "zh": "梦见龙，主贵显之象。"
+    },
+    {
+      "id": "dragon.modernText",
+      "zh": "龙在传统文化中属祥瑞意象，多与宏大期待有关。"
+    },
+    {
+      "id": "dragon.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "phoenix.keyword",
+      "zh": "凤凰"
+    },
+    {
+      "id": "phoenix.aliases[0]",
+      "zh": "凤"
+    },
+    {
+      "id": "phoenix.traditionalText",
+      "zh": "梦见凤凰，主祥瑞和合。"
+    },
+    {
+      "id": "phoenix.modernText",
+      "zh": "凤凰常与转机与新阶段的意象相连。"
+    },
+    {
+      "id": "phoenix.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "deceased.keyword",
+      "zh": "已故之人"
+    },
+    {
+      "id": "deceased.aliases[0]",
+      "zh": "故人"
+    },
+    {
+      "id": "deceased.aliases[1]",
+      "zh": "逝者"
+    },
+    {
+      "id": "deceased.traditionalText",
+      "zh": "梦见故人，多被解为思念所结。"
+    },
+    {
+      "id": "deceased.modernText",
+      "zh": "这类梦多与未完成的情感联结有关，通常反映思念而非其他。"
+    },
+    {
+      "id": "deceased.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "child.keyword",
+      "zh": "小孩"
+    },
+    {
+      "id": "child.aliases[0]",
+      "zh": "婴儿"
+    },
+    {
+      "id": "child.aliases[1]",
+      "zh": "孩童"
+    },
+    {
+      "id": "child.traditionalText",
+      "zh": "梦见孩童，主新生之象。"
+    },
+    {
+      "id": "child.modernText",
+      "zh": "孩童常与新的开始、脆弱或需要照顾的部分有关。"
+    },
+    {
+      "id": "child.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "wedding.keyword",
+      "zh": "婚礼"
+    },
+    {
+      "id": "wedding.aliases[0]",
+      "zh": "结婚"
+    },
+    {
+      "id": "wedding.aliases[1]",
+      "zh": "喜宴"
+    },
+    {
+      "id": "wedding.traditionalText",
+      "zh": "梦见婚嫁，主有合和之喜；亦有解释为事务将定。"
+    },
+    {
+      "id": "wedding.modernText",
+      "zh": "婚礼梦多与承诺、结合或对关系阶段的思考有关。"
+    },
+    {
+      "id": "wedding.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "funeral.keyword",
+      "zh": "丧事"
+    },
+    {
+      "id": "funeral.aliases[0]",
+      "zh": "葬礼"
+    },
+    {
+      "id": "funeral.aliases[1]",
+      "zh": "出殡"
+    },
+    {
+      "id": "funeral.traditionalText",
+      "zh": "梦见丧事，传统说法中反主有喜，需结合情境。"
+    },
+    {
+      "id": "funeral.modernText",
+      "zh": "这类梦常与结束、告别或对变化的心理准备有关。"
+    },
+    {
+      "id": "funeral.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "lost.keyword",
+      "zh": "迷路"
+    },
+    {
+      "id": "lost.aliases[0]",
+      "zh": "走失"
+    },
+    {
+      "id": "lost.aliases[1]",
+      "zh": "找不到路"
+    },
+    {
+      "id": "lost.traditionalText",
+      "zh": "梦见迷路，主方向未明。"
+    },
+    {
+      "id": "lost.modernText",
+      "zh": "迷路常对应目标不清或选择困难。"
+    },
+    {
+      "id": "lost.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "chase.keyword",
+      "zh": "被追赶"
+    },
+    {
+      "id": "chase.aliases[0]",
+      "zh": "追"
+    },
+    {
+      "id": "chase.aliases[1]",
+      "zh": "逃跑"
+    },
+    {
+      "id": "chase.traditionalText",
+      "zh": "梦见被追，主心有压力。"
+    },
+    {
+      "id": "chase.modernText",
+      "zh": "被追赶多与现实中回避的问题有关。"
+    },
+    {
+      "id": "chase.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "fall-teeth.keyword",
+      "zh": "掉牙"
+    },
+    {
+      "id": "fall-teeth.aliases[0]",
+      "zh": "牙齿脱落"
+    },
+    {
+      "id": "fall-teeth.traditionalText",
+      "zh": "梦见掉牙，传统说法多与亲族或口舌相关。"
+    },
+    {
+      "id": "fall-teeth.modernText",
+      "zh": "这类梦常与失控感、形象焦虑或对变化的担忧有关。"
+    },
+    {
+      "id": "fall-teeth.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "hair.keyword",
+      "zh": "头发"
+    },
+    {
+      "id": "hair.aliases[0]",
+      "zh": "掉发"
+    },
+    {
+      "id": "hair.aliases[1]",
+      "zh": "剪发"
+    },
+    {
+      "id": "hair.traditionalText",
+      "zh": "梦见理发，主去旧迎新。"
+    },
+    {
+      "id": "hair.modernText",
+      "zh": "头发常与自我形象与状态的改变有关。"
+    },
+    {
+      "id": "hair.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "clothes.keyword",
+      "zh": "衣服"
+    },
+    {
+      "id": "clothes.aliases[0]",
+      "zh": "新衣"
+    },
+    {
+      "id": "clothes.aliases[1]",
+      "zh": "衣衫"
+    },
+    {
+      "id": "clothes.traditionalText",
+      "zh": "梦见新衣，主有更新之象。"
+    },
+    {
+      "id": "clothes.modernText",
+      "zh": "衣服常对应社会角色与自我呈现。"
+    },
+    {
+      "id": "clothes.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "shoes.keyword",
+      "zh": "鞋"
+    },
+    {
+      "id": "shoes.aliases[0]",
+      "zh": "鞋子"
+    },
+    {
+      "id": "shoes.aliases[1]",
+      "zh": "丢鞋"
+    },
+    {
+      "id": "shoes.traditionalText",
+      "zh": "梦见鞋，主行进之事；失鞋则提示行事宜慎。"
+    },
+    {
+      "id": "shoes.modernText",
+      "zh": "鞋常对应所处的路径与立足点。"
+    },
+    {
+      "id": "shoes.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "mirror.keyword",
+      "zh": "镜子"
+    },
+    {
+      "id": "mirror.aliases[0]",
+      "zh": "照镜"
+    },
+    {
+      "id": "mirror.traditionalText",
+      "zh": "梦见照镜，主自省之象。"
+    },
+    {
+      "id": "mirror.modernText",
+      "zh": "镜子常对应自我审视与身份认同。"
+    },
+    {
+      "id": "mirror.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "food.keyword",
+      "zh": "吃饭"
+    },
+    {
+      "id": "food.aliases[0]",
+      "zh": "进食"
+    },
+    {
+      "id": "food.aliases[1]",
+      "zh": "宴席"
+    },
+    {
+      "id": "food.traditionalText",
+      "zh": "梦见饮食，主有供养之象。"
+    },
+    {
+      "id": "food.modernText",
+      "zh": "进食梦常与需求满足、社交或安全感有关。"
+    },
+    {
+      "id": "food.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "fruit.keyword",
+      "zh": "果实"
+    },
+    {
+      "id": "fruit.aliases[0]",
+      "zh": "水果"
+    },
+    {
+      "id": "fruit.aliases[1]",
+      "zh": "摘果"
+    },
+    {
+      "id": "fruit.traditionalText",
+      "zh": "梦见硕果，主所劳有获。"
+    },
+    {
+      "id": "fruit.modernText",
+      "zh": "果实常对应付出后的阶段成果。"
+    },
+    {
+      "id": "fruit.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "star.keyword",
+      "zh": "星星"
+    },
+    {
+      "id": "star.aliases[0]",
+      "zh": "星辰"
+    },
+    {
+      "id": "star.aliases[1]",
+      "zh": "星空"
+    },
+    {
+      "id": "star.traditionalText",
+      "zh": "梦见星辰，主心愿高远。"
+    },
+    {
+      "id": "star.modernText",
+      "zh": "星辰常与远景、希望与方向感有关。"
+    },
+    {
+      "id": "star.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "moon.keyword",
+      "zh": "月亮"
+    },
+    {
+      "id": "moon.aliases[0]",
+      "zh": "明月"
+    },
+    {
+      "id": "moon.aliases[1]",
+      "zh": "月食"
+    },
+    {
+      "id": "moon.traditionalText",
+      "zh": "梦见明月，主心境澄明。"
+    },
+    {
+      "id": "moon.modernText",
+      "zh": "月亮常与情绪周期、内在感受有关。"
+    },
+    {
+      "id": "moon.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "sun.keyword",
+      "zh": "太阳"
+    },
+    {
+      "id": "sun.aliases[0]",
+      "zh": "日出"
+    },
+    {
+      "id": "sun.aliases[1]",
+      "zh": "阳光"
+    },
+    {
+      "id": "sun.traditionalText",
+      "zh": "梦见日出，主运势转明。"
+    },
+    {
+      "id": "sun.modernText",
+      "zh": "太阳常与清晰、能量与新的开始有关。"
+    },
+    {
+      "id": "sun.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "car.keyword",
+      "zh": "车"
+    },
+    {
+      "id": "car.aliases[0]",
+      "zh": "汽车"
+    },
+    {
+      "id": "car.aliases[1]",
+      "zh": "开车"
+    },
+    {
+      "id": "car.traditionalText",
+      "zh": "梦见行车，主事务推进；车阻则提示宜缓。"
+    },
+    {
+      "id": "car.modernText",
+      "zh": "车常对应对生活的掌控感与推进节奏。"
+    },
+    {
+      "id": "car.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "boat.keyword",
+      "zh": "船"
+    },
+    {
+      "id": "boat.aliases[0]",
+      "zh": "乘船"
+    },
+    {
+      "id": "boat.aliases[1]",
+      "zh": "渡河"
+    },
+    {
+      "id": "boat.traditionalText",
+      "zh": "梦见渡船，主过渡之象。"
+    },
+    {
+      "id": "boat.modernText",
+      "zh": "船常对应阶段转换与跨越。"
+    },
+    {
+      "id": "boat.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "bridge.keyword",
+      "zh": "桥"
+    },
+    {
+      "id": "bridge.aliases[0]",
+      "zh": "过桥"
+    },
+    {
+      "id": "bridge.aliases[1]",
+      "zh": "断桥"
+    },
+    {
+      "id": "bridge.traditionalText",
+      "zh": "梦见过桥，主过渡得济。"
+    },
+    {
+      "id": "bridge.modernText",
+      "zh": "桥常对应连接与过渡，断桥多对应中断感。"
+    },
+    {
+      "id": "bridge.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "stairs.keyword",
+      "zh": "楼梯"
+    },
+    {
+      "id": "stairs.aliases[0]",
+      "zh": "爬楼"
+    },
+    {
+      "id": "stairs.aliases[1]",
+      "zh": "阶梯"
+    },
+    {
+      "id": "stairs.traditionalText",
+      "zh": "梦见登阶，主步步而上。"
+    },
+    {
+      "id": "stairs.modernText",
+      "zh": "阶梯常对应逐步推进的过程与进度感。"
+    },
+    {
+      "id": "stairs.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "door.keyword",
+      "zh": "门"
+    },
+    {
+      "id": "door.aliases[0]",
+      "zh": "开门"
+    },
+    {
+      "id": "door.aliases[1]",
+      "zh": "关门"
+    },
+    {
+      "id": "door.traditionalText",
+      "zh": "梦见开门，主有新机；闭门则提示宜守。"
+    },
+    {
+      "id": "door.modernText",
+      "zh": "门常对应机会与边界的开启或关闭。"
+    },
+    {
+      "id": "door.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "key.keyword",
+      "zh": "钥匙"
+    },
+    {
+      "id": "key.aliases[0]",
+      "zh": "找钥匙"
+    },
+    {
+      "id": "key.traditionalText",
+      "zh": "梦见钥匙，主得解法。"
+    },
+    {
+      "id": "key.modernText",
+      "zh": "钥匙常对应解决问题的方法或突破口。"
+    },
+    {
+      "id": "key.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "book.keyword",
+      "zh": "书"
+    },
+    {
+      "id": "book.aliases[0]",
+      "zh": "读书"
+    },
+    {
+      "id": "book.aliases[1]",
+      "zh": "书籍"
+    },
+    {
+      "id": "book.traditionalText",
+      "zh": "梦见读书，主增益见闻。"
+    },
+    {
+      "id": "book.modernText",
+      "zh": "书常对应学习、求知与信息整理。"
+    },
+    {
+      "id": "book.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "clock.keyword",
+      "zh": "钟表"
+    },
+    {
+      "id": "clock.aliases[0]",
+      "zh": "时钟"
+    },
+    {
+      "id": "clock.aliases[1]",
+      "zh": "手表"
+    },
+    {
+      "id": "clock.traditionalText",
+      "zh": "梦见钟表，主时宜之思。"
+    },
+    {
+      "id": "clock.modernText",
+      "zh": "钟表常对应时间压力与节奏安排。"
+    },
+    {
+      "id": "clock.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "gift.keyword",
+      "zh": "礼物"
+    },
+    {
+      "id": "gift.aliases[0]",
+      "zh": "收礼"
+    },
+    {
+      "id": "gift.aliases[1]",
+      "zh": "送礼"
+    },
+    {
+      "id": "gift.traditionalText",
+      "zh": "梦见受礼，主有外助。"
+    },
+    {
+      "id": "gift.modernText",
+      "zh": "礼物常对应被认可、被在意或关系往来。"
+    },
+    {
+      "id": "gift.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "mouse.keyword",
+      "zh": "老鼠"
+    },
+    {
+      "id": "mouse.aliases[0]",
+      "zh": "耗子"
+    },
+    {
+      "id": "mouse.aliases[1]",
+      "zh": "小鼠"
+    },
+    {
+      "id": "mouse.traditionalText",
+      "zh": "梦见鼠，传统说法多与细微损耗相关。"
+    },
+    {
+      "id": "mouse.modernText",
+      "zh": "老鼠常与被忽略的小困扰或资源流失感有关。"
+    },
+    {
+      "id": "mouse.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "ant.keyword",
+      "zh": "蚂蚁"
+    },
+    {
+      "id": "ant.aliases[0]",
+      "zh": "蚁群"
+    },
+    {
+      "id": "ant.traditionalText",
+      "zh": "梦见蚁群，主小事积累。"
+    },
+    {
+      "id": "ant.modernText",
+      "zh": "蚂蚁常对应忙碌、协作或被琐事缠身的感受。"
+    },
+    {
+      "id": "ant.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "spider.keyword",
+      "zh": "蜘蛛"
+    },
+    {
+      "id": "spider.aliases[0]",
+      "zh": "蛛网"
+    },
+    {
+      "id": "spider.traditionalText",
+      "zh": "梦见蜘蛛，主经营织网之象。"
+    },
+    {
+      "id": "spider.modernText",
+      "zh": "蜘蛛常与耐心经营、人际网络或被缠绕感有关。"
+    },
+    {
+      "id": "spider.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "pig.keyword",
+      "zh": "猪"
+    },
+    {
+      "id": "pig.aliases[0]",
+      "zh": "肥猪"
+    },
+    {
+      "id": "pig.aliases[1]",
+      "zh": "小猪"
+    },
+    {
+      "id": "pig.traditionalText",
+      "zh": "梦见猪，传统说法多与财禄福泽相关。"
+    },
+    {
+      "id": "pig.modernText",
+      "zh": "猪常与富足、慵懒或未被约束的需求感相连。"
+    },
+    {
+      "id": "pig.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "ox.keyword",
+      "zh": "牛"
+    },
+    {
+      "id": "ox.aliases[0]",
+      "zh": "黄牛"
+    },
+    {
+      "id": "ox.aliases[1]",
+      "zh": "水牛"
+    },
+    {
+      "id": "ox.traditionalText",
+      "zh": "梦见牛，主勤恳得助。"
+    },
+    {
+      "id": "ox.modernText",
+      "zh": "牛常对应踏实付出、耐力或承担感。"
+    },
+    {
+      "id": "ox.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "sheep.keyword",
+      "zh": "羊"
+    },
+    {
+      "id": "sheep.aliases[0]",
+      "zh": "绵羊"
+    },
+    {
+      "id": "sheep.aliases[1]",
+      "zh": "山羊"
+    },
+    {
+      "id": "sheep.traditionalText",
+      "zh": "梦见羊，主和顺之象。"
+    },
+    {
+      "id": "sheep.modernText",
+      "zh": "羊常与温顺、从众或安全感的需求有关。"
+    },
+    {
+      "id": "sheep.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "rabbit.keyword",
+      "zh": "兔"
+    },
+    {
+      "id": "rabbit.aliases[0]",
+      "zh": "兔子"
+    },
+    {
+      "id": "rabbit.traditionalText",
+      "zh": "梦见兔，主敏捷避险。"
+    },
+    {
+      "id": "rabbit.modernText",
+      "zh": "兔常与敏感、避险或对舒适感的追求有关。"
+    },
+    {
+      "id": "rabbit.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "blood.keyword",
+      "zh": "血"
+    },
+    {
+      "id": "blood.aliases[0]",
+      "zh": "流血"
+    },
+    {
+      "id": "blood.aliases[1]",
+      "zh": "出血"
+    },
+    {
+      "id": "blood.traditionalText",
+      "zh": "梦见见血，传统说法不一，需看情境。"
+    },
+    {
+      "id": "blood.modernText",
+      "zh": "血常与生命力、消耗感或情绪冲击相关。"
+    },
+    {
+      "id": "blood.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "naked.keyword",
+      "zh": "裸体"
+    },
+    {
+      "id": "naked.aliases[0]",
+      "zh": "光身"
+    },
+    {
+      "id": "naked.aliases[1]",
+      "zh": "赤身"
+    },
+    {
+      "id": "naked.traditionalText",
+      "zh": "梦见裸体，传统说法多与羞惧相关。"
+    },
+    {
+      "id": "naked.modernText",
+      "zh": "裸体梦常与暴露感、自我形象焦虑或缺乏安全感有关。"
+    },
+    {
+      "id": "naked.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "late.keyword",
+      "zh": "迟到"
+    },
+    {
+      "id": "late.aliases[0]",
+      "zh": "赶不上"
+    },
+    {
+      "id": "late.aliases[1]",
+      "zh": "误点"
+    },
+    {
+      "id": "late.traditionalText",
+      "zh": "梦见迟到，主心有急迫。"
+    },
+    {
+      "id": "late.modernText",
+      "zh": "迟到梦常与时间压力、害怕辜负期待有关。"
+    },
+    {
+      "id": "late.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "plane.keyword",
+      "zh": "飞机"
+    },
+    {
+      "id": "plane.aliases[0]",
+      "zh": "坐飞机"
+    },
+    {
+      "id": "plane.aliases[1]",
+      "zh": "航班"
+    },
+    {
+      "id": "plane.traditionalText",
+      "zh": "梦见飞行远行，主志向高远。"
+    },
+    {
+      "id": "plane.modernText",
+      "zh": "飞机常与远行、跨越或对更高视野的向往有关。"
+    },
+    {
+      "id": "plane.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "train.keyword",
+      "zh": "火车"
+    },
+    {
+      "id": "train.aliases[0]",
+      "zh": "列车"
+    },
+    {
+      "id": "train.aliases[1]",
+      "zh": "坐火车"
+    },
+    {
+      "id": "train.traditionalText",
+      "zh": "梦见乘车，主随轨而行。"
+    },
+    {
+      "id": "train.modernText",
+      "zh": "火车常与既定节奏、集体进程或身不由己感有关。"
+    },
+    {
+      "id": "train.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "phone.keyword",
+      "zh": "电话"
+    },
+    {
+      "id": "phone.aliases[0]",
+      "zh": "手机"
+    },
+    {
+      "id": "phone.aliases[1]",
+      "zh": "来电"
+    },
+    {
+      "id": "phone.traditionalText",
+      "zh": "梦见通话，主有信息至。"
+    },
+    {
+      "id": "phone.modernText",
+      "zh": "电话常与沟通、联系或未被回应的期待有关。"
+    },
+    {
+      "id": "phone.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "wallet.keyword",
+      "zh": "钱包"
+    },
+    {
+      "id": "wallet.aliases[0]",
+      "zh": "皮夹"
+    },
+    {
+      "id": "wallet.aliases[1]",
+      "zh": "丢钱包"
+    },
+    {
+      "id": "wallet.traditionalText",
+      "zh": "梦见失包，主留意财物。"
+    },
+    {
+      "id": "wallet.modernText",
+      "zh": "钱包常与安全感、价值感或自我边界有关。"
+    },
+    {
+      "id": "wallet.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "ring.keyword",
+      "zh": "戒指"
+    },
+    {
+      "id": "ring.aliases[0]",
+      "zh": "指环"
+    },
+    {
+      "id": "ring.aliases[1]",
+      "zh": "钻戒"
+    },
+    {
+      "id": "ring.traditionalText",
+      "zh": "梦见戴戒，主有承诺。"
+    },
+    {
+      "id": "ring.modernText",
+      "zh": "戒指常与承诺、联结或契约感有关。"
+    },
+    {
+      "id": "ring.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "candle.keyword",
+      "zh": "蜡烛"
+    },
+    {
+      "id": "candle.aliases[0]",
+      "zh": "烛火"
+    },
+    {
+      "id": "candle.traditionalText",
+      "zh": "梦见烛明，主有明烛之象。"
+    },
+    {
+      "id": "candle.modernText",
+      "zh": "蜡烛常与温暖、希望或有限而珍贵的能量有关。"
+    },
+    {
+      "id": "candle.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "hospital.keyword",
+      "zh": "医院"
+    },
+    {
+      "id": "hospital.aliases[0]",
+      "zh": "看病"
+    },
+    {
+      "id": "hospital.aliases[1]",
+      "zh": "病房"
+    },
+    {
+      "id": "hospital.traditionalText",
+      "zh": "梦见就医，传统说法多与调养相关。"
+    },
+    {
+      "id": "hospital.modernText",
+      "zh": "医院常与修复、照料或对健康状态的关注有关。"
+    },
+    {
+      "id": "hospital.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "school.keyword",
+      "zh": "学校"
+    },
+    {
+      "id": "school.aliases[0]",
+      "zh": "上课"
+    },
+    {
+      "id": "school.aliases[1]",
+      "zh": "校园"
+    },
+    {
+      "id": "school.traditionalText",
+      "zh": "梦见学堂，主温习旧学。"
+    },
+    {
+      "id": "school.modernText",
+      "zh": "学校常与学习、评价或对成长阶段的回看有关。"
+    },
+    {
+      "id": "school.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "elevator.keyword",
+      "zh": "电梯"
+    },
+    {
+      "id": "elevator.aliases[0]",
+      "zh": "升降梯"
+    },
+    {
+      "id": "elevator.traditionalText",
+      "zh": "梦见升降，主运有起伏。"
+    },
+    {
+      "id": "elevator.modernText",
+      "zh": "电梯常与阶段升降、节奏被他人带动的感受有关。"
+    },
+    {
+      "id": "elevator.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "forest.keyword",
+      "zh": "森林"
+    },
+    {
+      "id": "forest.aliases[0]",
+      "zh": "树林"
+    },
+    {
+      "id": "forest.aliases[1]",
+      "zh": "丛林"
+    },
+    {
+      "id": "forest.traditionalText",
+      "zh": "梦见入林，主幽深未测。"
+    },
+    {
+      "id": "forest.modernText",
+      "zh": "森林常与未知、潜意识或需要探索的内心领域有关。"
+    },
+    {
+      "id": "forest.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "cloud.keyword",
+      "zh": "云"
+    },
+    {
+      "id": "cloud.aliases[0]",
+      "zh": "乌云"
+    },
+    {
+      "id": "cloud.aliases[1]",
+      "zh": "白云"
+    },
+    {
+      "id": "cloud.traditionalText",
+      "zh": "梦见云聚，主事有端倪。"
+    },
+    {
+      "id": "cloud.modernText",
+      "zh": "云常与思绪、心境变化或情绪的浮动有关。"
+    },
+    {
+      "id": "cloud.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "thunder.keyword",
+      "zh": "雷"
+    },
+    {
+      "id": "thunder.aliases[0]",
+      "zh": "打雷"
+    },
+    {
+      "id": "thunder.aliases[1]",
+      "zh": "雷鸣"
+    },
+    {
+      "id": "thunder.traditionalText",
+      "zh": "梦见雷声，主警醒之象。"
+    },
+    {
+      "id": "thunder.modernText",
+      "zh": "雷常与突发信息、警醒或情绪的骤然波动有关。"
+    },
+    {
+      "id": "thunder.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "shower.keyword",
+      "zh": "洗澡"
+    },
+    {
+      "id": "shower.aliases[0]",
+      "zh": "沐浴"
+    },
+    {
+      "id": "shower.aliases[1]",
+      "zh": "冲澡"
+    },
+    {
+      "id": "shower.traditionalText",
+      "zh": "梦见沐浴，主去垢更新。"
+    },
+    {
+      "id": "shower.modernText",
+      "zh": "洗澡常与卸下负担、净化或重新出发的意愿有关。"
+    },
+    {
+      "id": "shower.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    },
+    {
+      "id": "cry.keyword",
+      "zh": "哭泣"
+    },
+    {
+      "id": "cry.aliases[0]",
+      "zh": "大哭"
+    },
+    {
+      "id": "cry.aliases[1]",
+      "zh": "流泪"
+    },
+    {
+      "id": "cry.traditionalText",
+      "zh": "梦见哭泣，传统说法多主情绪宣泄。"
+    },
+    {
+      "id": "cry.modernText",
+      "zh": "梦中哭泣常对应未在白天表达的情绪释放。"
+    },
+    {
+      "id": "cry.caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    }
+  ]
+}

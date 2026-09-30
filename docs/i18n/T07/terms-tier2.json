@@ -1,0 +1,5078 @@
+[
+  {
+    "key": "bazi:wuxing:mushenghuo",
+    "zh": "木生火",
+    "pinyin": "mùshēnghuǒ",
+    "category": "五行"
+  },
+  {
+    "key": "bazi:wuxing:huoshengtu",
+    "zh": "火生土",
+    "pinyin": "huǒshēngtǔ",
+    "category": "五行"
+  },
+  {
+    "key": "bazi:wuxing:tushengjin",
+    "zh": "土生金",
+    "pinyin": "tǔshēngjīn",
+    "category": "五行"
+  },
+  {
+    "key": "bazi:wuxing:jinshengshui",
+    "zh": "金生水",
+    "pinyin": "jīnshēngshuǐ",
+    "category": "五行"
+  },
+  {
+    "key": "bazi:wuxing:shuishengmu",
+    "zh": "水生木",
+    "pinyin": "shuǐshēngmù",
+    "category": "五行"
+  },
+  {
+    "key": "bazi:wuxing:muketu",
+    "zh": "木克土",
+    "pinyin": "mùkètǔ",
+    "category": "五行"
+  },
+  {
+    "key": "bazi:wuxing:tukeshui",
+    "zh": "土克水",
+    "pinyin": "tǔkèshuǐ",
+    "category": "五行"
+  },
+  {
+    "key": "bazi:wuxing:shuikehuo",
+    "zh": "水克火",
+    "pinyin": "shuǐkèhuǒ",
+    "category": "五行"
+  },
+  {
+    "key": "bazi:wuxing:huokejin",
+    "zh": "火克金",
+    "pinyin": "huǒkèjīn",
+    "category": "五行"
+  },
+  {
+    "key": "bazi:wuxing:jinkemu",
+    "zh": "金克木",
+    "pinyin": "jīnkèmù",
+    "category": "五行"
+  },
+  {
+    "key": "bazi:wuxing:xiangcheng",
+    "zh": "相乘",
+    "pinyin": "xiāngchéng",
+    "category": "五行"
+  },
+  {
+    "key": "bazi:wuxing:xiangwu",
+    "zh": "相侮",
+    "pinyin": "xiāngwǔ",
+    "category": "五行"
+  },
+  {
+    "key": "bazi:wuxing:muzhugan",
+    "zh": "木主肝",
+    "pinyin": "mùzhǔgān",
+    "category": "五行"
+  },
+  {
+    "key": "bazi:wuxing:huozhuxin",
+    "zh": "火主心",
+    "pinyin": "huǒzhǔxīn",
+    "category": "五行"
+  },
+  {
+    "key": "bazi:wuxing:tuzhupi",
+    "zh": "土主脾",
+    "pinyin": "tǔzhǔpí",
+    "category": "五行"
+  },
+  {
+    "key": "bazi:wuxing:jinzhufei",
+    "zh": "金主肺",
+    "pinyin": "jīnzhǔfèi",
+    "category": "五行"
+  },
+  {
+    "key": "bazi:wuxing:shuizhushen",
+    "zh": "水主肾",
+    "pinyin": "shuǐzhǔshèn",
+    "category": "五行"
+  },
+  {
+    "key": "bazi:wuxing:muxinghangye",
+    "zh": "木行行业",
+    "pinyin": "mùxínghángyè",
+    "category": "五行"
+  },
+  {
+    "key": "bazi:wuxing:huoxinghangye",
+    "zh": "火行行业",
+    "pinyin": "huǒxínghángyè",
+    "category": "五行"
+  },
+  {
+    "key": "bazi:wuxing:tuxinghangye",
+    "zh": "土行行业",
+    "pinyin": "tǔxínghángyè",
+    "category": "五行"
+  },
+  {
+    "key": "bazi:wuxing:jinxinghangye",
+    "zh": "金行行业",
+    "pinyin": "jīnxínghángyè",
+    "category": "五行"
+  },
+  {
+    "key": "bazi:wuxing:shuixinghangye",
+    "zh": "水行行业",
+    "pinyin": "shuǐxínghángyè",
+    "category": "五行"
+  },
+  {
+    "key": "bazi:shishen:shangguanjianguan",
+    "zh": "伤官见官",
+    "pinyin": "shāngguānjiànguān",
+    "category": "十神"
+  },
+  {
+    "key": "bazi:shishen:shishenzhisha",
+    "zh": "食神制杀",
+    "pinyin": "shíshénzhìshā",
+    "category": "十神"
+  },
+  {
+    "key": "bazi:shishen:guanyinxiangsheng",
+    "zh": "官印相生",
+    "pinyin": "guānyìnxiāngshēng",
+    "category": "十神"
+  },
+  {
+    "key": "bazi:shishen:caiguanshuangmei",
+    "zh": "财官双美",
+    "pinyin": "cáiguānshuāngměi",
+    "category": "十神"
+  },
+  {
+    "key": "bazi:shishen:shayinxiangsheng",
+    "zh": "杀印相生",
+    "pinyin": "shāyìnxiāngshēng",
+    "category": "十神"
+  },
+  {
+    "key": "bazi:shishen:bijiezhengcai",
+    "zh": "比劫争财",
+    "pinyin": "bǐjiézhēngcái",
+    "category": "十神"
+  },
+  {
+    "key": "bazi:shishen:shangguanshangjin",
+    "zh": "伤官伤尽",
+    "pinyin": "shāngguānshāngjìn",
+    "category": "十神"
+  },
+  {
+    "key": "bazi:shishen:shishenshengcai",
+    "zh": "食神生财",
+    "pinyin": "shíshénshēngcái",
+    "category": "十神"
+  },
+  {
+    "key": "bazi:shishen:yinshouhushen",
+    "zh": "印绶护身",
+    "pinyin": "yìnshòuhùshēn",
+    "category": "十神"
+  },
+  {
+    "key": "bazi:shishen:guanshahunza",
+    "zh": "官杀混杂",
+    "pinyin": "guānshāhùnzá",
+    "category": "十神"
+  },
+  {
+    "key": "bazi:shishen:yangrenjiasha",
+    "zh": "羊刃驾杀",
+    "pinyin": "yángrènjiàshā",
+    "category": "十神"
+  },
+  {
+    "key": "bazi:shishen:shangguanpeiyin",
+    "zh": "伤官配印",
+    "pinyin": "shāngguānpèiyìn",
+    "category": "十神"
+  },
+  {
+    "key": "bazi:shishen:caixingpoyin",
+    "zh": "财星破印",
+    "pinyin": "cáixīngpòyìn",
+    "category": "十神"
+  },
+  {
+    "key": "bazi:shishen:riguige",
+    "zh": "日贵格",
+    "pinyin": "rìguìgé",
+    "category": "十神"
+  },
+  {
+    "key": "bazi:shishen:jinyuge",
+    "zh": "金舆格",
+    "pinyin": "jīnyúgé",
+    "category": "十神"
+  },
+  {
+    "key": "bazi:shishen:xuetangge",
+    "zh": "学堂格",
+    "pinyin": "xuétánggé",
+    "category": "十神"
+  },
+  {
+    "key": "bazi:shishen:lumatongxiang",
+    "zh": "禄马同乡",
+    "pinyin": "lùmǎtóngxiāng",
+    "category": "十神"
+  },
+  {
+    "key": "bazi:shishen:tianganwuhe",
+    "zh": "天干五合",
+    "pinyin": "tiāngānwǔhé",
+    "category": "十神"
+  },
+  {
+    "key": "bazi:shishen:jiajihe",
+    "zh": "甲己合",
+    "pinyin": "jiǎjǐhé",
+    "category": "十神"
+  },
+  {
+    "key": "bazi:shishen:yigenghe",
+    "zh": "乙庚合",
+    "pinyin": "yǐgēnghé",
+    "category": "十神"
+  },
+  {
+    "key": "bazi:shishen:bingxinhe",
+    "zh": "丙辛合",
+    "pinyin": "bǐngxīnhé",
+    "category": "十神"
+  },
+  {
+    "key": "bazi:shishen:dingranhe",
+    "zh": "丁壬合",
+    "pinyin": "dīngránhé",
+    "category": "十神"
+  },
+  {
+    "key": "bazi:shishen:wuguihe",
+    "zh": "戊癸合",
+    "pinyin": "wùguǐhé",
+    "category": "十神"
+  },
+  {
+    "key": "ziwei:star:tianxing",
+    "zh": "天刑",
+    "pinyin": "tiānxíng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:tianyao",
+    "zh": "天姚",
+    "pinyin": "tiānyáo",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:tianxu",
+    "zh": "天虚",
+    "pinyin": "tiānxū",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:tiangui",
+    "zh": "天贵",
+    "pinyin": "tiānguì",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:enguang",
+    "zh": "恩光",
+    "pinyin": "ēnguāng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:tiankong",
+    "zh": "天空",
+    "pinyin": "tiānkōng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:junchenqinghui",
+    "zh": "君臣庆会",
+    "pinyin": "jūnchénqìnghuì",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:jixiangliming",
+    "zh": "极向离明",
+    "pinyin": "jíxiànglímíng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:zifutonggong",
+    "zh": "紫府同宫",
+    "pinyin": "zǐfǔtónggōng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:shapolang",
+    "zh": "杀破狼",
+    "pinyin": "shāpòláng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:jiyuetongliang",
+    "zh": "机月同梁",
+    "pinyin": "jīyuètóngliáng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:juritonggong",
+    "zh": "巨日同宫",
+    "pinyin": "jùrìtónggōng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:rizhaoleimen",
+    "zh": "日照雷门",
+    "pinyin": "rìzhàoléimén",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:yueshenghangcang",
+    "zh": "月生沧海",
+    "pinyin": "yuèshēnghāngcāng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:huotange",
+    "zh": "火贪格",
+    "pinyin": "huǒtāngé",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:matoudaijian",
+    "zh": "马头带箭",
+    "pinyin": "mǎtóudàijiàn",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:shizhongyinyu",
+    "zh": "石中隐玉",
+    "pinyin": "shízhōngyǐnyù",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:ziweimiaowang",
+    "zh": "紫微庙旺",
+    "pinyin": "zǐwēimiàowàng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:taiyangmiaowang",
+    "zh": "太阳庙旺",
+    "pinyin": "tàiyángmiàowàng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:wuqumiaowang",
+    "zh": "武曲庙旺",
+    "pinyin": "wǔqūmiàowàng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:taiyinmiaowang",
+    "zh": "太阴庙旺",
+    "pinyin": "tàiyīnmiàowàng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:tiantongmiaowang",
+    "zh": "天同庙旺",
+    "pinyin": "tiāntóngmiàowàng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:lianzhenmiaowang",
+    "zh": "廉贞庙旺",
+    "pinyin": "liánzhēnmiàowàng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:tianfumiaowang",
+    "zh": "天府庙旺",
+    "pinyin": "tiānfǔmiàowàng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:tianxiangmiaowang",
+    "zh": "天相庙旺",
+    "pinyin": "tiānxiàngmiàowàng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:tianliangmiaowang",
+    "zh": "天梁庙旺",
+    "pinyin": "tiānliángmiàowàng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:qishamiaowang",
+    "zh": "七杀庙旺",
+    "pinyin": "qīshāmiàowàng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:pojunmiaowang",
+    "zh": "破军庙旺",
+    "pinyin": "pòjūnmiàowàng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "common:term:shengong",
+    "zh": "身宫",
+    "pinyin": "shēngōng",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:zhentaiyangshi",
+    "zh": "真太阳时",
+    "pinyin": "zhēntàiyángshí",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:jieqi",
+    "zh": "节气",
+    "pinyin": "jiéqì",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:nayin",
+    "zh": "纳音",
+    "pinyin": "nàyīn",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:gongwei",
+    "zh": "宫位",
+    "pinyin": "gōngwèi",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:sanfangsizheng",
+    "zh": "三方四正",
+    "pinyin": "sānfāngsìzhèng",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:wuxingshengke",
+    "zh": "五行生克",
+    "pinyin": "wǔxíngshēngkè",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:yongshen",
+    "zh": "用神",
+    "pinyin": "yòngshén",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:wangshuai",
+    "zh": "旺衰",
+    "pinyin": "wàngshuāi",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:liuyue",
+    "zh": "流月",
+    "pinyin": "liúyuè",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:taiyuan",
+    "zh": "胎元",
+    "pinyin": "tāiyuán",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:minggongqifa",
+    "zh": "命宫起法",
+    "pinyin": "mìnggōngqǐfǎ",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:shiergongming",
+    "zh": "十二宫名",
+    "pinyin": "shíèrgōngmíng",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:rizhu",
+    "zh": "日主",
+    "pinyin": "rìzhǔ",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:yueling",
+    "zh": "月令",
+    "pinyin": "yuèlìng",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:geju",
+    "zh": "格局",
+    "pinyin": "géjú",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:tiaohou",
+    "zh": "调候",
+    "pinyin": "tiáohòu",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:tongguan",
+    "zh": "通关",
+    "pinyin": "tōngguān",
+    "category": "基础"
+  },
+  {
+    "key": "bazi:shensha:tiandehe",
+    "zh": "天德合",
+    "pinyin": "tiāndéhé",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:yuedehe",
+    "zh": "月德合",
+    "pinyin": "yuèdéhé",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:suipo",
+    "zh": "岁破",
+    "pinyin": "suìpò",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:dahao",
+    "zh": "大耗",
+    "pinyin": "dàhào",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:posui",
+    "zh": "破碎",
+    "pinyin": "pòsuì",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:yinsha",
+    "zh": "阴煞",
+    "pinyin": "yīnshā",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:tianyao",
+    "zh": "天姚",
+    "pinyin": "tiānyáo",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:tianxing",
+    "zh": "天刑",
+    "pinyin": "tiānxíng",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:jieshen",
+    "zh": "解神",
+    "pinyin": "jiěshén",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:longde",
+    "zh": "龙德",
+    "pinyin": "lóngdé",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:baobai",
+    "zh": "暴败",
+    "pinyin": "bàobài",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:sangmen",
+    "zh": "丧门",
+    "pinyin": "sāngmén",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:diaoke",
+    "zh": "吊客",
+    "pinyin": "diàokè",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:panan",
+    "zh": "攀鞍",
+    "pinyin": "pānān",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:suiyi",
+    "zh": "岁驿",
+    "pinyin": "suìyì",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:xishen",
+    "zh": "息神",
+    "pinyin": "xīshén",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:tianchu",
+    "zh": "天厨",
+    "pinyin": "tiānchú",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:tiancai",
+    "zh": "天才",
+    "pinyin": "tiāncái",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:tianshou",
+    "zh": "天寿",
+    "pinyin": "tiānshòu",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:guasuguchen",
+    "zh": "寡宿孤辰并见",
+    "pinyin": "guǎsùgūchén",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:taohuadaisha",
+    "zh": "桃花带杀",
+    "pinyin": "táohuādàishā",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:guirenruming",
+    "zh": "贵人入命",
+    "pinyin": "guìrénrùmìng",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:yimafengchong",
+    "zh": "驿马逢冲",
+    "pinyin": "yìmǎféngchōng",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:huagaifengkong",
+    "zh": "华盖逢空",
+    "pinyin": "huágàiféngkōng",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:sanqiguiren",
+    "zh": "三奇贵人",
+    "pinyin": "sānqíguìrén",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:tiandeyuede",
+    "zh": "天德月德并临",
+    "pinyin": "tiāndéyuèdé",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:feiren",
+    "zh": "飞刃",
+    "pinyin": "fēirèn",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:xueren",
+    "zh": "血刃",
+    "pinyin": "xuèrèn",
+    "category": "神煞"
+  },
+  {
+    "key": "common:school:zipingbazi",
+    "zh": "子平八字",
+    "pinyin": "zǐpíngbāzì",
+    "category": "命理流派"
+  },
+  {
+    "key": "common:school:qimendunjia",
+    "zh": "奇门遁甲",
+    "pinyin": "qíméndùnjiǎ",
+    "category": "命理流派"
+  },
+  {
+    "key": "common:school:daliuren",
+    "zh": "大六壬",
+    "pinyin": "dàliùrén",
+    "category": "命理流派"
+  },
+  {
+    "key": "common:school:taiyishenshu",
+    "zh": "太乙神数",
+    "pinyin": "tàiyǐshénshù",
+    "category": "命理流派"
+  },
+  {
+    "key": "common:school:tiebanshenshu",
+    "zh": "铁板神数",
+    "pinyin": "tiěbǎnshénshù",
+    "category": "命理流派"
+  },
+  {
+    "key": "common:school:meihuayishu",
+    "zh": "梅花易数",
+    "pinyin": "méihuāyìshù",
+    "category": "命理流派"
+  },
+  {
+    "key": "common:school:shaozishenshu",
+    "zh": "邵子神数",
+    "pinyin": "shàozǐshénshù",
+    "category": "命理流派"
+  },
+  {
+    "key": "common:school:cezi",
+    "zh": "测字",
+    "pinyin": "cèzì",
+    "category": "命理流派"
+  },
+  {
+    "key": "common:school:mianxiang",
+    "zh": "面相",
+    "pinyin": "miànxiàng",
+    "category": "命理流派"
+  },
+  {
+    "key": "common:school:shouxiang",
+    "zh": "手相",
+    "pinyin": "shǒuxiàng",
+    "category": "命理流派"
+  },
+  {
+    "key": "common:school:fengshuiluantou",
+    "zh": "风水峦头",
+    "pinyin": "fēngshuǐluántóu",
+    "category": "命理流派"
+  },
+  {
+    "key": "common:school:fengshuiliqi",
+    "zh": "风水理气",
+    "pinyin": "fēngshuǐlǐqì",
+    "category": "命理流派"
+  },
+  {
+    "key": "common:school:qizhengsiyu",
+    "zh": "七政四余",
+    "pinyin": "qīzhèngsìyú",
+    "category": "命理流派"
+  },
+  {
+    "key": "common:school:guolaoxingzong",
+    "zh": "果老星宗",
+    "pinyin": "guǒlǎoxīngzōng",
+    "category": "命理流派"
+  },
+  {
+    "key": "common:school:yanqin",
+    "zh": "演禽",
+    "pinyin": "yǎnqín",
+    "category": "命理流派"
+  },
+  {
+    "key": "common:school:jiugongfeixing",
+    "zh": "九宫飞星",
+    "pinyin": "jiǔgōngfēixīng",
+    "category": "命理流派"
+  },
+  {
+    "key": "common:school:xuankongfeixing",
+    "zh": "玄空飞星",
+    "pinyin": "xuánkōngfēixīng",
+    "category": "命理流派"
+  },
+  {
+    "key": "common:sancai:taiji",
+    "zh": "太极",
+    "pinyin": "tàijí",
+    "category": "三才四象"
+  },
+  {
+    "key": "common:sancai:liangyi",
+    "zh": "两仪",
+    "pinyin": "liǎngyí",
+    "category": "三才四象"
+  },
+  {
+    "key": "common:sancai:sancai",
+    "zh": "三才",
+    "pinyin": "sāncái",
+    "category": "三才四象"
+  },
+  {
+    "key": "common:sancai:sixiang",
+    "zh": "四象",
+    "pinyin": "sìxiàng",
+    "category": "三才四象"
+  },
+  {
+    "key": "common:sancai:yinyang",
+    "zh": "阴阳",
+    "pinyin": "yīnyáng",
+    "category": "三才四象"
+  },
+  {
+    "key": "common:sancai:wuji",
+    "zh": "无极",
+    "pinyin": "wújí",
+    "category": "三才四象"
+  },
+  {
+    "key": "common:sancai:daoshengyi",
+    "zh": "道生一",
+    "pinyin": "dàoshēngyī",
+    "category": "三才四象"
+  },
+  {
+    "key": "common:sancai:xiantianbagua",
+    "zh": "先天八卦",
+    "pinyin": "xiāntiānbāguà",
+    "category": "三才四象"
+  },
+  {
+    "key": "common:sancai:houtianbagua",
+    "zh": "后天八卦",
+    "pinyin": "hòutiānbāguà",
+    "category": "三才四象"
+  },
+  {
+    "key": "common:sancai:hetu",
+    "zh": "河图",
+    "pinyin": "hétú",
+    "category": "三才四象"
+  },
+  {
+    "key": "common:sancai:luoshu",
+    "zh": "洛书",
+    "pinyin": "luòshū",
+    "category": "三才四象"
+  },
+  {
+    "key": "yijing:heluo:tianyishengshui",
+    "zh": "天一生水",
+    "pinyin": "tiānyīshēngshuǐ",
+    "category": "河洛"
+  },
+  {
+    "key": "yijing:heluo:diershenghuo",
+    "zh": "地二生火",
+    "pinyin": "dìèrshēnghuǒ",
+    "category": "河洛"
+  },
+  {
+    "key": "yijing:heluo:tiansanshengmu",
+    "zh": "天三生木",
+    "pinyin": "tiānsānshēngmù",
+    "category": "河洛"
+  },
+  {
+    "key": "yijing:heluo:disishengjin",
+    "zh": "地四生金",
+    "pinyin": "dìsìshēngjīn",
+    "category": "河洛"
+  },
+  {
+    "key": "yijing:heluo:tianwushengtu",
+    "zh": "天五生土",
+    "pinyin": "tiānwǔshēngtǔ",
+    "category": "河洛"
+  },
+  {
+    "key": "yijing:heluo:shengchengshu",
+    "zh": "生成数",
+    "pinyin": "shēngchéngshù",
+    "category": "河洛"
+  },
+  {
+    "key": "yijing:heluo:xiantianshu",
+    "zh": "先天数",
+    "pinyin": "xiāntiānshù",
+    "category": "河洛"
+  },
+  {
+    "key": "yijing:heluo:houtianshu",
+    "zh": "后天数",
+    "pinyin": "hòutiānshù",
+    "category": "河洛"
+  },
+  {
+    "key": "astrology:qizheng:ri",
+    "zh": "日",
+    "pinyin": "rì",
+    "category": "七政四余"
+  },
+  {
+    "key": "astrology:qizheng:yue",
+    "zh": "月",
+    "pinyin": "yuè",
+    "category": "七政四余"
+  },
+  {
+    "key": "astrology:qizheng:jinxing",
+    "zh": "金星",
+    "pinyin": "jīnxīng",
+    "category": "七政四余"
+  },
+  {
+    "key": "astrology:qizheng:muxing",
+    "zh": "木星",
+    "pinyin": "mùxīng",
+    "category": "七政四余"
+  },
+  {
+    "key": "astrology:qizheng:shuixing",
+    "zh": "水星",
+    "pinyin": "shuǐxīng",
+    "category": "七政四余"
+  },
+  {
+    "key": "astrology:qizheng:tuxing",
+    "zh": "土星",
+    "pinyin": "tǔxīng",
+    "category": "七政四余"
+  },
+  {
+    "key": "astrology:qizheng:luohou",
+    "zh": "罗睺",
+    "pinyin": "luóhóu",
+    "category": "七政四余"
+  },
+  {
+    "key": "astrology:qizheng:jidou",
+    "zh": "计都",
+    "pinyin": "jìdōu",
+    "category": "七政四余"
+  },
+  {
+    "key": "astrology:qizheng:ziqi",
+    "zh": "紫气",
+    "pinyin": "zǐqì",
+    "category": "七政四余"
+  },
+  {
+    "key": "astrology:qizheng:yuebei",
+    "zh": "月孛",
+    "pinyin": "yuèbèi",
+    "category": "七政四余"
+  },
+  {
+    "key": "qimen:term:tianpeng",
+    "zh": "天蓬",
+    "pinyin": "tiānpéng",
+    "category": "奇门遁甲"
+  },
+  {
+    "key": "qimen:term:tianrui",
+    "zh": "天芮",
+    "pinyin": "tiānruì",
+    "category": "奇门遁甲"
+  },
+  {
+    "key": "qimen:term:tianchong",
+    "zh": "天冲",
+    "pinyin": "tiānchōng",
+    "category": "奇门遁甲"
+  },
+  {
+    "key": "qimen:term:tianfu",
+    "zh": "天辅",
+    "pinyin": "tiānfǔ",
+    "category": "奇门遁甲"
+  },
+  {
+    "key": "qimen:term:tianqin",
+    "zh": "天禽",
+    "pinyin": "tiānqín",
+    "category": "奇门遁甲"
+  },
+  {
+    "key": "qimen:term:tianxin",
+    "zh": "天心",
+    "pinyin": "tiānxīn",
+    "category": "奇门遁甲"
+  },
+  {
+    "key": "qimen:term:tianzhu",
+    "zh": "天柱",
+    "pinyin": "tiānzhù",
+    "category": "奇门遁甲"
+  },
+  {
+    "key": "qimen:term:tianren",
+    "zh": "天任",
+    "pinyin": "tiānrèn",
+    "category": "奇门遁甲"
+  },
+  {
+    "key": "qimen:term:tianying",
+    "zh": "天英",
+    "pinyin": "tiānyīng",
+    "category": "奇门遁甲"
+  },
+  {
+    "key": "qimen:term:xiumen",
+    "zh": "休门",
+    "pinyin": "xiūmén",
+    "category": "奇门遁甲"
+  },
+  {
+    "key": "qimen:term:shengmen",
+    "zh": "生门",
+    "pinyin": "shēngmén",
+    "category": "奇门遁甲"
+  },
+  {
+    "key": "qimen:term:shangmen",
+    "zh": "伤门",
+    "pinyin": "shāngmén",
+    "category": "奇门遁甲"
+  },
+  {
+    "key": "qimen:term:dumen",
+    "zh": "杜门",
+    "pinyin": "dùmén",
+    "category": "奇门遁甲"
+  },
+  {
+    "key": "qimen:term:jingmen",
+    "zh": "景门",
+    "pinyin": "jǐngmén",
+    "category": "奇门遁甲"
+  },
+  {
+    "key": "qimen:term:simen",
+    "zh": "死门",
+    "pinyin": "sǐmén",
+    "category": "奇门遁甲"
+  },
+  {
+    "key": "qimen:term:jingmen_2",
+    "zh": "惊门",
+    "pinyin": "jīngmén",
+    "category": "奇门遁甲"
+  },
+  {
+    "key": "qimen:term:kaimen",
+    "zh": "开门",
+    "pinyin": "kāimén",
+    "category": "奇门遁甲"
+  },
+  {
+    "key": "qimen:term:zhifu",
+    "zh": "值符",
+    "pinyin": "zhífú",
+    "category": "奇门遁甲"
+  },
+  {
+    "key": "qimen:term:liuhe",
+    "zh": "六合",
+    "pinyin": "liùhé",
+    "category": "奇门遁甲"
+  },
+  {
+    "key": "qimen:term:jiudi",
+    "zh": "九地",
+    "pinyin": "jiǔdì",
+    "category": "奇门遁甲"
+  },
+  {
+    "key": "qimen:term:jiutian",
+    "zh": "九天",
+    "pinyin": "jiǔtiān",
+    "category": "奇门遁甲"
+  },
+  {
+    "key": "liuren:term:guiren",
+    "zh": "贵人",
+    "pinyin": "guìrén",
+    "category": "六壬"
+  },
+  {
+    "key": "liuren:term:liuhe",
+    "zh": "六合",
+    "pinyin": "liùhé",
+    "category": "六壬"
+  },
+  {
+    "key": "liuren:term:tiankong",
+    "zh": "天空",
+    "pinyin": "tiānkōng",
+    "category": "六壬"
+  },
+  {
+    "key": "liuren:term:taichang",
+    "zh": "太常",
+    "pinyin": "tàicháng",
+    "category": "六壬"
+  },
+  {
+    "key": "liuren:term:tianhou",
+    "zh": "天后",
+    "pinyin": "tiānhòu",
+    "category": "六壬"
+  },
+  {
+    "key": "calendar:zeri:jian",
+    "zh": "建",
+    "pinyin": "jiàn",
+    "category": "择日"
+  },
+  {
+    "key": "calendar:zeri:chu",
+    "zh": "除",
+    "pinyin": "chú",
+    "category": "择日"
+  },
+  {
+    "key": "calendar:zeri:man",
+    "zh": "满",
+    "pinyin": "mǎn",
+    "category": "择日"
+  },
+  {
+    "key": "calendar:zeri:ping",
+    "zh": "平",
+    "pinyin": "píng",
+    "category": "择日"
+  },
+  {
+    "key": "calendar:zeri:ding",
+    "zh": "定",
+    "pinyin": "dìng",
+    "category": "择日"
+  },
+  {
+    "key": "calendar:zeri:zhi",
+    "zh": "执",
+    "pinyin": "zhí",
+    "category": "择日"
+  },
+  {
+    "key": "calendar:zeri:po",
+    "zh": "破",
+    "pinyin": "pò",
+    "category": "择日"
+  },
+  {
+    "key": "calendar:zeri:wei",
+    "zh": "危",
+    "pinyin": "wēi",
+    "category": "择日"
+  },
+  {
+    "key": "calendar:zeri:cheng",
+    "zh": "成",
+    "pinyin": "chéng",
+    "category": "择日"
+  },
+  {
+    "key": "calendar:zeri:shou",
+    "zh": "收",
+    "pinyin": "shōu",
+    "category": "择日"
+  },
+  {
+    "key": "calendar:zeri:kai",
+    "zh": "开",
+    "pinyin": "kāi",
+    "category": "择日"
+  },
+  {
+    "key": "calendar:zeri:bi",
+    "zh": "闭",
+    "pinyin": "bì",
+    "category": "择日"
+  },
+  {
+    "key": "calendar:zeri:mingtang",
+    "zh": "明堂",
+    "pinyin": "míngtáng",
+    "category": "择日"
+  },
+  {
+    "key": "calendar:zeri:tianxing",
+    "zh": "天刑",
+    "pinyin": "tiānxíng",
+    "category": "择日"
+  },
+  {
+    "key": "calendar:zeri:jingui",
+    "zh": "金匮",
+    "pinyin": "jīnguì",
+    "category": "择日"
+  },
+  {
+    "key": "calendar:zeri:yutang",
+    "zh": "玉堂",
+    "pinyin": "yùtáng",
+    "category": "择日"
+  },
+  {
+    "key": "calendar:zeri:tianlao",
+    "zh": "天牢",
+    "pinyin": "tiānláo",
+    "category": "择日"
+  },
+  {
+    "key": "calendar:zeri:siming",
+    "zh": "司命",
+    "pinyin": "sīmìng",
+    "category": "择日"
+  },
+  {
+    "key": "fengshui:sanyuan:yiyunkan",
+    "zh": "一运坎",
+    "pinyin": "yīyùnkǎn",
+    "category": "三元九运"
+  },
+  {
+    "key": "fengshui:sanyuan:eryunkun",
+    "zh": "二运坤",
+    "pinyin": "èryùnkūn",
+    "category": "三元九运"
+  },
+  {
+    "key": "fengshui:sanyuan:sanyunzhen",
+    "zh": "三运震",
+    "pinyin": "sānyùnzhèn",
+    "category": "三元九运"
+  },
+  {
+    "key": "fengshui:sanyuan:siyunxun",
+    "zh": "四运巽",
+    "pinyin": "sìyùnxùn",
+    "category": "三元九运"
+  },
+  {
+    "key": "fengshui:sanyuan:wuyunzhong",
+    "zh": "五运中",
+    "pinyin": "wǔyùnzhōng",
+    "category": "三元九运"
+  },
+  {
+    "key": "fengshui:sanyuan:liuyunqian",
+    "zh": "六运乾",
+    "pinyin": "liùyùnqián",
+    "category": "三元九运"
+  },
+  {
+    "key": "fengshui:sanyuan:qiyundui",
+    "zh": "七运兑",
+    "pinyin": "qīyùnduì",
+    "category": "三元九运"
+  },
+  {
+    "key": "fengshui:sanyuan:bayungen",
+    "zh": "八运艮",
+    "pinyin": "bāyùngèn",
+    "category": "三元九运"
+  },
+  {
+    "key": "fengshui:sanyuan:jiuyunli",
+    "zh": "九运离",
+    "pinyin": "jiǔyùnlí",
+    "category": "三元九运"
+  },
+  {
+    "key": "fengshui:shan24:zishan",
+    "zh": "子山",
+    "pinyin": "zǐshān",
+    "category": "二十四山"
+  },
+  {
+    "key": "fengshui:shan24:guishan",
+    "zh": "癸山",
+    "pinyin": "guǐshān",
+    "category": "二十四山"
+  },
+  {
+    "key": "fengshui:shan24:choushan",
+    "zh": "丑山",
+    "pinyin": "chǒushān",
+    "category": "二十四山"
+  },
+  {
+    "key": "fengshui:shan24:genshan",
+    "zh": "艮山",
+    "pinyin": "gènshān",
+    "category": "二十四山"
+  },
+  {
+    "key": "fengshui:shan24:yinshan",
+    "zh": "寅山",
+    "pinyin": "yínshān",
+    "category": "二十四山"
+  },
+  {
+    "key": "fengshui:shan24:jiashan",
+    "zh": "甲山",
+    "pinyin": "jiǎshān",
+    "category": "二十四山"
+  },
+  {
+    "key": "fengshui:shan24:maoshan",
+    "zh": "卯山",
+    "pinyin": "mǎoshān",
+    "category": "二十四山"
+  },
+  {
+    "key": "fengshui:shan24:yishan",
+    "zh": "乙山",
+    "pinyin": "yǐshān",
+    "category": "二十四山"
+  },
+  {
+    "key": "fengshui:shan24:chenshan",
+    "zh": "辰山",
+    "pinyin": "chénshān",
+    "category": "二十四山"
+  },
+  {
+    "key": "fengshui:shan24:xunshan",
+    "zh": "巽山",
+    "pinyin": "xùnshān",
+    "category": "二十四山"
+  },
+  {
+    "key": "fengshui:shan24:sishan",
+    "zh": "巳山",
+    "pinyin": "sìshān",
+    "category": "二十四山"
+  },
+  {
+    "key": "fengshui:shan24:bingshan",
+    "zh": "丙山",
+    "pinyin": "bǐngshān",
+    "category": "二十四山"
+  },
+  {
+    "key": "fengshui:shan24:wushan",
+    "zh": "午山",
+    "pinyin": "wǔshān",
+    "category": "二十四山"
+  },
+  {
+    "key": "fengshui:shan24:dingshan",
+    "zh": "丁山",
+    "pinyin": "dīngshān",
+    "category": "二十四山"
+  },
+  {
+    "key": "fengshui:shan24:weishan",
+    "zh": "未山",
+    "pinyin": "wèishān",
+    "category": "二十四山"
+  },
+  {
+    "key": "fengshui:shan24:kunshan",
+    "zh": "坤山",
+    "pinyin": "kūnshān",
+    "category": "二十四山"
+  },
+  {
+    "key": "fengshui:shan24:shenshan",
+    "zh": "申山",
+    "pinyin": "shēnshān",
+    "category": "二十四山"
+  },
+  {
+    "key": "fengshui:shan24:gengshan",
+    "zh": "庚山",
+    "pinyin": "gēngshān",
+    "category": "二十四山"
+  },
+  {
+    "key": "fengshui:shan24:youshan",
+    "zh": "酉山",
+    "pinyin": "yǒushān",
+    "category": "二十四山"
+  },
+  {
+    "key": "fengshui:shan24:xinshan",
+    "zh": "辛山",
+    "pinyin": "xīnshān",
+    "category": "二十四山"
+  },
+  {
+    "key": "fengshui:shan24:xushan",
+    "zh": "戌山",
+    "pinyin": "xūshān",
+    "category": "二十四山"
+  },
+  {
+    "key": "fengshui:shan24:qianshan",
+    "zh": "乾山",
+    "pinyin": "qiánshān",
+    "category": "二十四山"
+  },
+  {
+    "key": "fengshui:shan24:haishan",
+    "zh": "亥山",
+    "pinyin": "hàishān",
+    "category": "二十四山"
+  },
+  {
+    "key": "fengshui:shan24:renshan",
+    "zh": "壬山",
+    "pinyin": "rénshān",
+    "category": "二十四山"
+  },
+  {
+    "key": "fengshui:term:xunlong",
+    "zh": "寻龙",
+    "pinyin": "xúnlóng",
+    "category": "风水"
+  },
+  {
+    "key": "fengshui:term:dianxue",
+    "zh": "点穴",
+    "pinyin": "diǎnxué",
+    "category": "风水"
+  },
+  {
+    "key": "fengshui:term:chasha",
+    "zh": "察砂",
+    "pinyin": "cháshā",
+    "category": "风水"
+  },
+  {
+    "key": "fengshui:term:mishui",
+    "zh": "觅水",
+    "pinyin": "mìshuǐ",
+    "category": "风水"
+  },
+  {
+    "key": "fengshui:term:lixiang",
+    "zh": "立向",
+    "pinyin": "lìxiàng",
+    "category": "风水"
+  },
+  {
+    "key": "fengshui:jiugong:yibaikan",
+    "zh": "一白坎",
+    "pinyin": "yībáikǎn",
+    "category": "九宫"
+  },
+  {
+    "key": "fengshui:jiugong:erheikun",
+    "zh": "二黑坤",
+    "pinyin": "èrhēikūn",
+    "category": "九宫"
+  },
+  {
+    "key": "fengshui:jiugong:sanbizhen",
+    "zh": "三碧震",
+    "pinyin": "sānbìzhèn",
+    "category": "九宫"
+  },
+  {
+    "key": "fengshui:jiugong:siluxun",
+    "zh": "四绿巽",
+    "pinyin": "sìlǜxùn",
+    "category": "九宫"
+  },
+  {
+    "key": "fengshui:jiugong:wuhuangzhong",
+    "zh": "五黄中",
+    "pinyin": "wǔhuángzhōng",
+    "category": "九宫"
+  },
+  {
+    "key": "fengshui:jiugong:liubaiqian",
+    "zh": "六白乾",
+    "pinyin": "liùbáiqián",
+    "category": "九宫"
+  },
+  {
+    "key": "fengshui:jiugong:qichidui",
+    "zh": "七赤兑",
+    "pinyin": "qīchìduì",
+    "category": "九宫"
+  },
+  {
+    "key": "fengshui:jiugong:babaigen",
+    "zh": "八白艮",
+    "pinyin": "bābáigèn",
+    "category": "九宫"
+  },
+  {
+    "key": "fengshui:jiugong:jiuzili",
+    "zh": "九紫离",
+    "pinyin": "jiǔzǐlí",
+    "category": "九宫"
+  },
+  {
+    "key": "astrology:xiu28:jiaoxiu",
+    "zh": "角宿",
+    "pinyin": "jiǎoxiù",
+    "category": "二十八宿"
+  },
+  {
+    "key": "astrology:xiu28:kangxiu",
+    "zh": "亢宿",
+    "pinyin": "kàngxiù",
+    "category": "二十八宿"
+  },
+  {
+    "key": "astrology:xiu28:dixiu",
+    "zh": "氐宿",
+    "pinyin": "dīxiù",
+    "category": "二十八宿"
+  },
+  {
+    "key": "astrology:xiu28:fangxiu",
+    "zh": "房宿",
+    "pinyin": "fángxiù",
+    "category": "二十八宿"
+  },
+  {
+    "key": "astrology:xiu28:xinxiu",
+    "zh": "心宿",
+    "pinyin": "xīnxìù",
+    "category": "二十八宿"
+  },
+  {
+    "key": "astrology:xiu28:weixiu",
+    "zh": "尾宿",
+    "pinyin": "wěixìù",
+    "category": "二十八宿"
+  },
+  {
+    "key": "astrology:xiu28:jixiu",
+    "zh": "箕宿",
+    "pinyin": "jīxìù",
+    "category": "二十八宿"
+  },
+  {
+    "key": "astrology:xiu28:douxiu",
+    "zh": "斗宿",
+    "pinyin": "dǒuxìù",
+    "category": "二十八宿"
+  },
+  {
+    "key": "astrology:xiu28:niuxiu",
+    "zh": "牛宿",
+    "pinyin": "niúxìù",
+    "category": "二十八宿"
+  },
+  {
+    "key": "astrology:xiu28:nuxiu",
+    "zh": "女宿",
+    "pinyin": "nǚxìù",
+    "category": "二十八宿"
+  },
+  {
+    "key": "astrology:xiu28:xuxiu",
+    "zh": "虚宿",
+    "pinyin": "xūxìù",
+    "category": "二十八宿"
+  },
+  {
+    "key": "astrology:xiu28:weixiu_2",
+    "zh": "危宿",
+    "pinyin": "wēixìù",
+    "category": "二十八宿"
+  },
+  {
+    "key": "astrology:xiu28:shixiu",
+    "zh": "室宿",
+    "pinyin": "shìxìù",
+    "category": "二十八宿"
+  },
+  {
+    "key": "astrology:xiu28:bixiu",
+    "zh": "壁宿",
+    "pinyin": "bìxìù",
+    "category": "二十八宿"
+  },
+  {
+    "key": "astrology:xiu28:kuixiu",
+    "zh": "奎宿",
+    "pinyin": "kuíxìù",
+    "category": "二十八宿"
+  },
+  {
+    "key": "astrology:xiu28:louxiu",
+    "zh": "娄宿",
+    "pinyin": "lóuxìù",
+    "category": "二十八宿"
+  },
+  {
+    "key": "astrology:xiu28:weixiu_3",
+    "zh": "胃宿",
+    "pinyin": "wèixìù",
+    "category": "二十八宿"
+  },
+  {
+    "key": "astrology:xiu28:maoxiu",
+    "zh": "昴宿",
+    "pinyin": "mǎoxìù",
+    "category": "二十八宿"
+  },
+  {
+    "key": "astrology:xiu28:bixiu_2",
+    "zh": "毕宿",
+    "pinyin": "bìxìù",
+    "category": "二十八宿"
+  },
+  {
+    "key": "astrology:xiu28:zixiu",
+    "zh": "觜宿",
+    "pinyin": "zīxìù",
+    "category": "二十八宿"
+  },
+  {
+    "key": "astrology:xiu28:shenxiu",
+    "zh": "参宿",
+    "pinyin": "shēnxìù",
+    "category": "二十八宿"
+  },
+  {
+    "key": "astrology:xiu28:jingxiu",
+    "zh": "井宿",
+    "pinyin": "jǐngxìù",
+    "category": "二十八宿"
+  },
+  {
+    "key": "astrology:xiu28:guixiu",
+    "zh": "鬼宿",
+    "pinyin": "guǐxìù",
+    "category": "二十八宿"
+  },
+  {
+    "key": "astrology:xiu28:liuxiu",
+    "zh": "柳宿",
+    "pinyin": "liǔxìù",
+    "category": "二十八宿"
+  },
+  {
+    "key": "astrology:xiu28:xingxiu",
+    "zh": "星宿",
+    "pinyin": "xīngxìù",
+    "category": "二十八宿"
+  },
+  {
+    "key": "astrology:xiu28:zhangxiu",
+    "zh": "张宿",
+    "pinyin": "zhāngxìù",
+    "category": "二十八宿"
+  },
+  {
+    "key": "astrology:xiu28:yixiu",
+    "zh": "翼宿",
+    "pinyin": "yìxìù",
+    "category": "二十八宿"
+  },
+  {
+    "key": "astrology:xiu28:zhenxiu",
+    "zh": "轸宿",
+    "pinyin": "zhěnxìù",
+    "category": "二十八宿"
+  },
+  {
+    "key": "bazi:nayin:jiazi",
+    "zh": "甲子",
+    "pinyin": "jiǎzǐ",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:yichou",
+    "zh": "乙丑",
+    "pinyin": "yǐchǒu",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:bingyin",
+    "zh": "丙寅",
+    "pinyin": "bǐngyín",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:dingmao",
+    "zh": "丁卯",
+    "pinyin": "dīngmǎo",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:wuchen",
+    "zh": "戊辰",
+    "pinyin": "wùchén",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:jisi",
+    "zh": "己巳",
+    "pinyin": "jǐsì",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:gengwu",
+    "zh": "庚午",
+    "pinyin": "gēngwǔ",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:xinwei",
+    "zh": "辛未",
+    "pinyin": "xīnwèi",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:renshen",
+    "zh": "壬申",
+    "pinyin": "rénshēn",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:guiyou",
+    "zh": "癸酉",
+    "pinyin": "guǐyǒu",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:jiaxu",
+    "zh": "甲戌",
+    "pinyin": "jiǎxū",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:yihai",
+    "zh": "乙亥",
+    "pinyin": "yǐhài",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:bingzi",
+    "zh": "丙子",
+    "pinyin": "bǐngzǐ",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:dingchou",
+    "zh": "丁丑",
+    "pinyin": "dīngchǒu",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:wuyin",
+    "zh": "戊寅",
+    "pinyin": "wùyín",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:jimao",
+    "zh": "己卯",
+    "pinyin": "jǐmǎo",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:gengchen",
+    "zh": "庚辰",
+    "pinyin": "gēngchén",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:xinsi",
+    "zh": "辛巳",
+    "pinyin": "xīnsì",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:renwu",
+    "zh": "壬午",
+    "pinyin": "rénwǔ",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:guiwei",
+    "zh": "癸未",
+    "pinyin": "guǐwèi",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:jiashen",
+    "zh": "甲申",
+    "pinyin": "jiǎshēn",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:yiyou",
+    "zh": "乙酉",
+    "pinyin": "yǐyǒu",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:bingxu",
+    "zh": "丙戌",
+    "pinyin": "bǐngxū",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:dinghai",
+    "zh": "丁亥",
+    "pinyin": "dīnghài",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:wuzi",
+    "zh": "戊子",
+    "pinyin": "wùzǐ",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:jichou",
+    "zh": "己丑",
+    "pinyin": "jǐchǒu",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:gengyin",
+    "zh": "庚寅",
+    "pinyin": "gēngyín",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:xinmao",
+    "zh": "辛卯",
+    "pinyin": "xīnmǎo",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:renchen",
+    "zh": "壬辰",
+    "pinyin": "rénchén",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:guisi",
+    "zh": "癸巳",
+    "pinyin": "guǐsì",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:jiawu",
+    "zh": "甲午",
+    "pinyin": "jiǎwǔ",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:yiwei",
+    "zh": "乙未",
+    "pinyin": "yǐwèi",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:bingshen",
+    "zh": "丙申",
+    "pinyin": "bǐngshēn",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:dingyou",
+    "zh": "丁酉",
+    "pinyin": "dīngyǒu",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:wuxu",
+    "zh": "戊戌",
+    "pinyin": "wùxū",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:jihai",
+    "zh": "己亥",
+    "pinyin": "jǐhài",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:gengzi",
+    "zh": "庚子",
+    "pinyin": "gēngzǐ",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:xinchou",
+    "zh": "辛丑",
+    "pinyin": "xīnchǒu",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:renyin",
+    "zh": "壬寅",
+    "pinyin": "rényín",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:guimao",
+    "zh": "癸卯",
+    "pinyin": "guǐmǎo",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:jiachen",
+    "zh": "甲辰",
+    "pinyin": "jiǎchén",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:yisi",
+    "zh": "乙巳",
+    "pinyin": "yǐsì",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:bingwu",
+    "zh": "丙午",
+    "pinyin": "bǐngwǔ",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:dingwei",
+    "zh": "丁未",
+    "pinyin": "dīngwèi",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:wushen",
+    "zh": "戊申",
+    "pinyin": "wùshēn",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:jiyou",
+    "zh": "己酉",
+    "pinyin": "jǐyǒu",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:gengxu",
+    "zh": "庚戌",
+    "pinyin": "gēngxū",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:xinhai",
+    "zh": "辛亥",
+    "pinyin": "xīnhài",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:renzi",
+    "zh": "壬子",
+    "pinyin": "rénzǐ",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:guichou",
+    "zh": "癸丑",
+    "pinyin": "guǐchǒu",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:jiayin",
+    "zh": "甲寅",
+    "pinyin": "jiǎyín",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:yimao",
+    "zh": "乙卯",
+    "pinyin": "yǐmǎo",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:bingchen",
+    "zh": "丙辰",
+    "pinyin": "bǐngchén",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:dingsi",
+    "zh": "丁巳",
+    "pinyin": "dīngsì",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:wuwu",
+    "zh": "戊午",
+    "pinyin": "wùwǔ",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:jiwei",
+    "zh": "己未",
+    "pinyin": "jǐwèi",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:gengshen",
+    "zh": "庚申",
+    "pinyin": "gēngshēn",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:xinyou",
+    "zh": "辛酉",
+    "pinyin": "xīnyǒu",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:renxu",
+    "zh": "壬戌",
+    "pinyin": "rénxū",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:nayin:guihai",
+    "zh": "癸亥",
+    "pinyin": "guǐhài",
+    "category": "纳音"
+  },
+  {
+    "key": "bazi:branch_rel:shenzichenheshui",
+    "zh": "申子辰合水",
+    "pinyin": "shēnzǐchénhéshuǐ",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:haimaoweihemu",
+    "zh": "亥卯未合木",
+    "pinyin": "hàimǎowèihémù",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:yinmuxuhehuo",
+    "zh": "寅午戌合火",
+    "pinyin": "yínmǔxūhéhuǒ",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:siyouchouhejin",
+    "zh": "巳酉丑合金",
+    "pinyin": "sìyǒuchǒuhéjīn",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:zichouhetu",
+    "zh": "子丑合土",
+    "pinyin": "zǐchǒuhétǔ",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:yinhaihemu",
+    "zh": "寅亥合木",
+    "pinyin": "yínhàihémù",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:maoxuhehuo",
+    "zh": "卯戌合火",
+    "pinyin": "mǎoxūhéhuǒ",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:chenyouhejin",
+    "zh": "辰酉合金",
+    "pinyin": "chényǒuhéjīn",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:sishenheshui",
+    "zh": "巳申合水",
+    "pinyin": "sìshēnhéshuǐ",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:wuweihehuo",
+    "zh": "午未合火",
+    "pinyin": "wǔwèihéhuǒ",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:yinmaochendongfangmu",
+    "zh": "寅卯辰东方木",
+    "pinyin": "yínmǎochéndōngfāngmù",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:siwuweinanfanghuo",
+    "zh": "巳午未南方火",
+    "pinyin": "sìwǔwèinánfānghuǒ",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:shenyouxuxifangjin",
+    "zh": "申酉戌西方金",
+    "pinyin": "shēnyǒuxūxīfāngjīn",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:haizichoubeifangshui",
+    "zh": "亥子丑北方水",
+    "pinyin": "hàizǐchǒuběifāngshuǐ",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:ziwuchong",
+    "zh": "子午冲",
+    "pinyin": "zǐwǔchōng",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:chouweichong",
+    "zh": "丑未冲",
+    "pinyin": "chǒuwèichōng",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:yinshenchong",
+    "zh": "寅申冲",
+    "pinyin": "yínshēnchōng",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:maoyouchong",
+    "zh": "卯酉冲",
+    "pinyin": "mǎoyǒuchōng",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:chenxuchong",
+    "zh": "辰戌冲",
+    "pinyin": "chénxūchōng",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:sihaichong",
+    "zh": "巳亥冲",
+    "pinyin": "sìhàichōng",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:yinsishensanxing",
+    "zh": "寅巳申三刑",
+    "pinyin": "yínsìshēnsānxíng",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:chouxuweisanxing",
+    "zh": "丑戌未三刑",
+    "pinyin": "chǒuxūwèisānxíng",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:zimaoxiangxing",
+    "zh": "子卯相刑",
+    "pinyin": "zǐmǎoxiāngxíng",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:chenchenzixing",
+    "zh": "辰辰自刑",
+    "pinyin": "chénchénzìxíng",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:wuwuzixing",
+    "zh": "午午自刑",
+    "pinyin": "wǔwǔzìxíng",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:youyouzixing",
+    "zh": "酉酉自刑",
+    "pinyin": "yǒuyǒuzìxíng",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:haihaizixing",
+    "zh": "亥亥自刑",
+    "pinyin": "hàihàizìxíng",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:ziweixianghai",
+    "zh": "子未相害",
+    "pinyin": "zǐwèixiānghài",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:chouwuxianghai",
+    "zh": "丑午相害",
+    "pinyin": "chǒuwǔxiānghài",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:yinsixianghai",
+    "zh": "寅巳相害",
+    "pinyin": "yínsìxiānghài",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:maochenxianghai",
+    "zh": "卯辰相害",
+    "pinyin": "mǎochénxiānghài",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:shenhaixianghai",
+    "zh": "申亥相害",
+    "pinyin": "shēnhàixiānghài",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:youxuxianghai",
+    "zh": "酉戌相害",
+    "pinyin": "yǒuxūxiānghài",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:ziyouxiangpo",
+    "zh": "子酉相破",
+    "pinyin": "zǐyǒuxiāngpò",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:yinhaixiangpo",
+    "zh": "寅亥相破",
+    "pinyin": "yínhàixiāngpò",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:maowuxiangpo",
+    "zh": "卯午相破",
+    "pinyin": "mǎowǔxiāngpò",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:chenchouxiangpo",
+    "zh": "辰丑相破",
+    "pinyin": "chénchǒuxiāngpò",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:sishenxiangpo",
+    "zh": "巳申相破",
+    "pinyin": "sìshēnxiāngpò",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:wumaoxiangpo",
+    "zh": "午卯相破",
+    "pinyin": "wǔmǎoxiāngpò",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:zicanggui",
+    "zh": "子藏癸",
+    "pinyin": "zǐcángguǐ",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:choucangjiguixin",
+    "zh": "丑藏己癸辛",
+    "pinyin": "chǒucángjǐguǐxīn",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:yincangjiabingwu",
+    "zh": "寅藏甲丙戊",
+    "pinyin": "yíncángjiǎbǐngwù",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:maocangyi",
+    "zh": "卯藏乙",
+    "pinyin": "mǎocángyǐ",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:chencangwuyigui",
+    "zh": "辰藏戊乙癸",
+    "pinyin": "chéncángwùyǐguǐ",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:sicangbingwugeng",
+    "zh": "巳藏丙戊庚",
+    "pinyin": "sìcángbǐngwùgēng",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:wucangdingji",
+    "zh": "午藏丁己",
+    "pinyin": "wǔcángdīngjǐ",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:weicangjidingyi",
+    "zh": "未藏己丁乙",
+    "pinyin": "wèicángjǐdīngyǐ",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:shencanggengrenwu",
+    "zh": "申藏庚壬戊",
+    "pinyin": "shēncánggēngrénwù",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:youcangxin",
+    "zh": "酉藏辛",
+    "pinyin": "yǒucángxīn",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:xucangwuxinding",
+    "zh": "戌藏戊辛丁",
+    "pinyin": "xūcángwùxīndīng",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:haicangrenjia",
+    "zh": "亥藏壬甲",
+    "pinyin": "hàicángrénjiǎ",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:ganhe:jiajihetu",
+    "zh": "甲己合土",
+    "pinyin": "jiǎjǐhétǔ",
+    "category": "天干五合"
+  },
+  {
+    "key": "bazi:ganhe:yigenghejin",
+    "zh": "乙庚合金",
+    "pinyin": "yǐgēnghéjīn",
+    "category": "天干五合"
+  },
+  {
+    "key": "bazi:ganhe:bingxinheshui",
+    "zh": "丙辛合水",
+    "pinyin": "bǐngxīnhéshuǐ",
+    "category": "天干五合"
+  },
+  {
+    "key": "bazi:ganhe:dingrenhemu",
+    "zh": "丁壬合木",
+    "pinyin": "dīngrénhémù",
+    "category": "天干五合"
+  },
+  {
+    "key": "bazi:ganhe:wuguihehuo",
+    "zh": "戊癸合火",
+    "pinyin": "wùguǐhéhuǒ",
+    "category": "天干五合"
+  },
+  {
+    "key": "bazi:sanhe:yinmaoxusanhehuo",
+    "zh": "寅午戌三合火",
+    "pinyin": "yínmǎoxūsānhéhuǒ",
+    "category": "三合三会"
+  },
+  {
+    "key": "bazi:sanhe:shenzichesanheshui",
+    "zh": "申子辰三合水",
+    "pinyin": "shēnzǐchésānhéshuǐ",
+    "category": "三合三会"
+  },
+  {
+    "key": "bazi:sanhe:siyouchousanhejin",
+    "zh": "巳酉丑三合金",
+    "pinyin": "sìyǒuchǒusānhéjīn",
+    "category": "三合三会"
+  },
+  {
+    "key": "bazi:sanhe:haimaoweisanhemu",
+    "zh": "亥卯未三合木",
+    "pinyin": "hàimǎowèisānhémù",
+    "category": "三合三会"
+  },
+  {
+    "key": "bazi:sanhe:yinmaochensanhui",
+    "zh": "寅卯辰三会木",
+    "pinyin": "yínmǎochénsānhuì",
+    "category": "三合三会"
+  },
+  {
+    "key": "bazi:sanhe:siwuweisanhui",
+    "zh": "巳午未三会火",
+    "pinyin": "sìwǔwèisānhuì",
+    "category": "三合三会"
+  },
+  {
+    "key": "bazi:sanhe:shenyouxusanhui",
+    "zh": "申酉戌三会金",
+    "pinyin": "shēnyǒuxūsānhuì",
+    "category": "三合三会"
+  },
+  {
+    "key": "bazi:sanhe:haizichousanhui",
+    "zh": "亥子丑三会水",
+    "pinyin": "hàizǐchǒusānhuì",
+    "category": "三合三会"
+  },
+  {
+    "key": "yijing:heluo:hetuyiliushui",
+    "zh": "河图一六水",
+    "pinyin": "hétúyīliùshuǐ",
+    "category": "河洛"
+  },
+  {
+    "key": "yijing:heluo:hetuerqihuo",
+    "zh": "河图二七火",
+    "pinyin": "hétúèrqīhuǒ",
+    "category": "河洛"
+  },
+  {
+    "key": "yijing:heluo:hetusanbamu",
+    "zh": "河图三八木",
+    "pinyin": "hétúsānbāmù",
+    "category": "河洛"
+  },
+  {
+    "key": "yijing:heluo:hetusijiujin",
+    "zh": "河图四九金",
+    "pinyin": "hétúsìjiǔjīn",
+    "category": "河洛"
+  },
+  {
+    "key": "yijing:heluo:hetuwushitu",
+    "zh": "河图五十土",
+    "pinyin": "hétúwǔshítǔ",
+    "category": "河洛"
+  },
+  {
+    "key": "yijing:heluo:luoshudaijiuluyi",
+    "zh": "洛书戴九履一",
+    "pinyin": "luòshūdàijiǔlǚyī",
+    "category": "河洛"
+  },
+  {
+    "key": "yijing:heluo:luoshuzuosan_youqi",
+    "zh": "洛书左三右七",
+    "pinyin": "luòshūzuǒsān yòuqī",
+    "category": "河洛"
+  },
+  {
+    "key": "yijing:heluo:luoshuersiweijian",
+    "zh": "洛书二四为肩",
+    "pinyin": "luòshūèrsìwéijiān",
+    "category": "河洛"
+  },
+  {
+    "key": "yijing:heluo:luoshuliubaweizu",
+    "zh": "洛书六八为足",
+    "pinyin": "luòshūliùbāwéizú",
+    "category": "河洛"
+  },
+  {
+    "key": "yijing:heluo:luoshuwujuzhongyang",
+    "zh": "洛书五居中央",
+    "pinyin": "luòshūwǔjūzhōngyāng",
+    "category": "河洛"
+  },
+  {
+    "key": "common:classic:sanmingtonghui",
+    "zh": "《三命通会》",
+    "pinyin": "sānmìngtōnghuì",
+    "category": "命理典籍"
+  },
+  {
+    "key": "common:classic:yuanhaiziping",
+    "zh": "《渊海子平》",
+    "pinyin": "yuānhǎizǐpíng",
+    "category": "命理典籍"
+  },
+  {
+    "key": "common:classic:ditiansui",
+    "zh": "《滴天髓》",
+    "pinyin": "dītiānsuǐ",
+    "category": "命理典籍"
+  },
+  {
+    "key": "common:classic:qiongtongbaojian",
+    "zh": "《穷通宝鉴》",
+    "pinyin": "qióngtōngbǎojiàn",
+    "category": "命理典籍"
+  },
+  {
+    "key": "common:classic:zipingzhenquan",
+    "zh": "《子平真诠》",
+    "pinyin": "zǐpíngzhēnquán",
+    "category": "命理典籍"
+  },
+  {
+    "key": "common:classic:shenfengtongkao",
+    "zh": "《神峰通考》",
+    "pinyin": "shénfēngtōngkǎo",
+    "category": "命理典籍"
+  },
+  {
+    "key": "common:classic:ziweidoushuquanji",
+    "zh": "《紫微斗数全集》",
+    "pinyin": "zǐwēidǒushùquánjí",
+    "category": "命理典籍"
+  },
+  {
+    "key": "common:classic:xiejibianfangshu",
+    "zh": "《协纪辨方书》",
+    "pinyin": "xiéjìbiànfāngshū",
+    "category": "命理典籍"
+  },
+  {
+    "key": "common:classic:qimendunjia",
+    "zh": "《奇门遁甲》",
+    "pinyin": "qíméndùnjiǎ",
+    "category": "命理典籍"
+  },
+  {
+    "key": "common:classic:liurendaquan",
+    "zh": "《六壬大全》",
+    "pinyin": "liùréndàquán",
+    "category": "命理典籍"
+  },
+  {
+    "key": "common:classic:taiyishenshu",
+    "zh": "《太乙神数》",
+    "pinyin": "tàiyǐshénshù",
+    "category": "命理典籍"
+  },
+  {
+    "key": "common:classic:yuxiaji",
+    "zh": "《玉匣记》",
+    "pinyin": "yùxiájì",
+    "category": "命理典籍"
+  },
+  {
+    "key": "common:classic:zangshu",
+    "zh": "《葬书》",
+    "pinyin": "zàngshū",
+    "category": "命理典籍"
+  },
+  {
+    "key": "common:classic:zhaijing",
+    "zh": "《宅经》",
+    "pinyin": "zháijīng",
+    "category": "命理典籍"
+  },
+  {
+    "key": "common:classic:zhouyi",
+    "zh": "《周易》",
+    "pinyin": "zhōuyì",
+    "category": "命理典籍"
+  },
+  {
+    "key": "astrology:beidou:tanlangxing",
+    "zh": "贪狼星",
+    "pinyin": "tānlángxīng",
+    "category": "北斗七星"
+  },
+  {
+    "key": "astrology:beidou:jumenxing",
+    "zh": "巨门星",
+    "pinyin": "jùménxīng",
+    "category": "北斗七星"
+  },
+  {
+    "key": "astrology:beidou:lucunxing",
+    "zh": "禄存星",
+    "pinyin": "lùcúnxīng",
+    "category": "北斗七星"
+  },
+  {
+    "key": "astrology:beidou:wenquxing",
+    "zh": "文曲星",
+    "pinyin": "wénqǔxīng",
+    "category": "北斗七星"
+  },
+  {
+    "key": "astrology:beidou:lianzhenxing",
+    "zh": "廉贞星",
+    "pinyin": "liánzhēnxīng",
+    "category": "北斗七星"
+  },
+  {
+    "key": "astrology:beidou:wuquxing",
+    "zh": "武曲星",
+    "pinyin": "wǔqǔxīng",
+    "category": "北斗七星"
+  },
+  {
+    "key": "astrology:beidou:pojunxing",
+    "zh": "破军星",
+    "pinyin": "pòjūnxīng",
+    "category": "北斗七星"
+  },
+  {
+    "key": "bazi:shiganlu:jialuzaiyin",
+    "zh": "甲禄在寅",
+    "pinyin": "jiǎlùzàiyín",
+    "category": "十干禄"
+  },
+  {
+    "key": "bazi:shiganlu:yiluzaimao",
+    "zh": "乙禄在卯",
+    "pinyin": "yǐlùzàimǎo",
+    "category": "十干禄"
+  },
+  {
+    "key": "bazi:shiganlu:bingluzaisi",
+    "zh": "丙禄在巳",
+    "pinyin": "bǐnglùzàisì",
+    "category": "十干禄"
+  },
+  {
+    "key": "bazi:shiganlu:dingluzaiwu",
+    "zh": "丁禄在午",
+    "pinyin": "dīnglùzàiwǔ",
+    "category": "十干禄"
+  },
+  {
+    "key": "bazi:shiganlu:wuluzaisi",
+    "zh": "戊禄在巳",
+    "pinyin": "wùlùzàisì",
+    "category": "十干禄"
+  },
+  {
+    "key": "bazi:shiganlu:jiluzaiwu",
+    "zh": "己禄在午",
+    "pinyin": "jǐlùzàiwǔ",
+    "category": "十干禄"
+  },
+  {
+    "key": "bazi:shiganlu:gengluzaishen",
+    "zh": "庚禄在申",
+    "pinyin": "gēnglùzàishēn",
+    "category": "十干禄"
+  },
+  {
+    "key": "bazi:shiganlu:xinluzaiyou",
+    "zh": "辛禄在酉",
+    "pinyin": "xīnlùzàiyǒu",
+    "category": "十干禄"
+  },
+  {
+    "key": "bazi:shiganlu:renluzaihai",
+    "zh": "壬禄在亥",
+    "pinyin": "rénlùzàihài",
+    "category": "十干禄"
+  },
+  {
+    "key": "bazi:shiganlu:guiluzaizi",
+    "zh": "癸禄在子",
+    "pinyin": "guǐlùzàizǐ",
+    "category": "十干禄"
+  },
+  {
+    "key": "common:school:taiyuan",
+    "zh": "胎元",
+    "pinyin": "tāiyuán",
+    "category": "推命体系"
+  },
+  {
+    "key": "common:school:shengong",
+    "zh": "身宫",
+    "pinyin": "shēngōng",
+    "category": "推命体系"
+  },
+  {
+    "key": "ziwei:star:tianguan",
+    "zh": "天官",
+    "pinyin": "tiānguān",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:tianfu_2",
+    "zh": "天福",
+    "pinyin": "tiānfú",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:santai",
+    "zh": "三台",
+    "pinyin": "sāntái",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:bazuo",
+    "zh": "八座",
+    "pinyin": "bāzuò",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:longchi",
+    "zh": "龙池",
+    "pinyin": "lóngchí",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:fengge",
+    "zh": "凤阁",
+    "pinyin": "fènggé",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:taifu",
+    "zh": "台辅",
+    "pinyin": "táifǔ",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:fenggao",
+    "zh": "封诰",
+    "pinyin": "fēnggào",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:tianku",
+    "zh": "天哭",
+    "pinyin": "tiānkū",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:tianwu",
+    "zh": "天巫",
+    "pinyin": "tiānwū",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:tianyue_2",
+    "zh": "天月",
+    "pinyin": "tiānyuè",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:tianshang",
+    "zh": "天伤",
+    "pinyin": "tiānshāng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:tianshi",
+    "zh": "天使",
+    "pinyin": "tiānshǐ",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:jiekong",
+    "zh": "截空",
+    "pinyin": "jiékōng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:xunkong",
+    "zh": "旬空",
+    "pinyin": "xúnkōng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:hongfen",
+    "zh": "红粉",
+    "pinyin": "hóngfěn",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:xishen",
+    "zh": "喜神",
+    "pinyin": "xǐshén",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:zoushu",
+    "zh": "奏书",
+    "pinyin": "zòushū",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:feilian",
+    "zh": "飞廉",
+    "pinyin": "fēilián",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:boshi",
+    "zh": "博士",
+    "pinyin": "bóshì",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:lishi",
+    "zh": "力士",
+    "pinyin": "lìshì",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:jiangjun",
+    "zh": "将军",
+    "pinyin": "jiāngjūn",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:fubing",
+    "zh": "伏兵",
+    "pinyin": "fúbīng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:guanfu",
+    "zh": "官府",
+    "pinyin": "guānfǔ",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:suijian",
+    "zh": "岁建",
+    "pinyin": "suìjiàn",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:huiqi",
+    "zh": "晦气",
+    "pinyin": "huìqì",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:guansuo",
+    "zh": "贯索",
+    "pinyin": "guànsuǒ",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:guanfu_2",
+    "zh": "官符",
+    "pinyin": "guānfú",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:diaoke",
+    "zh": "吊客",
+    "pinyin": "diàokè",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:tiansha",
+    "zh": "天煞",
+    "pinyin": "tiānshà",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:zhibei",
+    "zh": "指背",
+    "pinyin": "zhǐbèi",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:yuesha",
+    "zh": "月煞",
+    "pinyin": "yuèshà",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:wangshen",
+    "zh": "亡神",
+    "pinyin": "wángshén",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:miao",
+    "zh": "庙",
+    "pinyin": "miào",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:wang",
+    "zh": "旺",
+    "pinyin": "wàng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:dedi",
+    "zh": "得地",
+    "pinyin": "dédì",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:liyi",
+    "zh": "利益",
+    "pinyin": "lìyì",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:pinghe",
+    "zh": "平和",
+    "pinyin": "pínghé",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:luoxian",
+    "zh": "落陷",
+    "pinyin": "luòxiàn",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:budedi",
+    "zh": "不得地",
+    "pinyin": "bùdédì",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:xiaoxian",
+    "zh": "小限",
+    "pinyin": "xiǎoxiàn",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:doujun",
+    "zh": "斗君",
+    "pinyin": "dòujūn",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:paipan",
+    "zh": "排盘",
+    "pinyin": "páipán",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:anxing",
+    "zh": "安星",
+    "pinyin": "ānxīng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:zhengyao",
+    "zh": "正曜",
+    "pinyin": "zhèngyào",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:fuyao",
+    "zh": "辅曜",
+    "pinyin": "fǔyào",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:zuoyao",
+    "zh": "佐曜",
+    "pinyin": "zuǒyào",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:zaoyao",
+    "zh": "杂曜",
+    "pinyin": "záoyào",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:suiyao",
+    "zh": "岁曜",
+    "pinyin": "suìyào",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:liujixing",
+    "zh": "六吉星",
+    "pinyin": "liùjíxīng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:liushaxing",
+    "zh": "六煞星",
+    "pinyin": "liùshàxīng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:nandouxing",
+    "zh": "南斗星",
+    "pinyin": "nándǒuxīng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:beidouxing",
+    "zh": "北斗星",
+    "pinyin": "běidǒuxīng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:zhongtianxing",
+    "zh": "中天星",
+    "pinyin": "zhōngtiānxīng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:dongdouxing",
+    "zh": "东斗星",
+    "pinyin": "dōngdǒuxīng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:xidouxing",
+    "zh": "西斗星",
+    "pinyin": "xīdǒuxīng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:mingpan",
+    "zh": "命盘",
+    "pinyin": "mìngpán",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:qiziwei",
+    "zh": "起紫微",
+    "pinyin": "qǐzǐwēi",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:anshisizhengyao",
+    "zh": "安十四正曜",
+    "pinyin": "ānshísìzhèngyào",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:sanfangsizheng",
+    "zh": "三方四正",
+    "pinyin": "sānfāngsìzhèng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:duigong",
+    "zh": "对宫",
+    "pinyin": "duìgōng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:hegong",
+    "zh": "合宫",
+    "pinyin": "hégōng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:jiagong",
+    "zh": "夹宫",
+    "pinyin": "jiágōng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:gongming",
+    "zh": "拱命",
+    "pinyin": "gǒngmìng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:zhaoming",
+    "zh": "照命",
+    "pinyin": "zhàomìng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:zuoming",
+    "zh": "坐命",
+    "pinyin": "zuòmìng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:shouming",
+    "zh": "守命",
+    "pinyin": "shǒumìng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:rumiao",
+    "zh": "入庙",
+    "pinyin": "rùmiào",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:jiexingangong",
+    "zh": "借星安宫",
+    "pinyin": "jièxīngāngōng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:mingwuzhengyao",
+    "zh": "命无正曜",
+    "pinyin": "mìngwúzhèngyào",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:zuoyoutonggong",
+    "zh": "左右同宫",
+    "pinyin": "zuǒyòutónggōng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:changqutonggong",
+    "zh": "昌曲同宫",
+    "pinyin": "chāngqūtónggōng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:kuiyuejiaming",
+    "zh": "魁钺夹命",
+    "pinyin": "kuíyuèjiāmìng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:lumajiaochi",
+    "zh": "禄马交驰",
+    "pinyin": "lùmǎjiāochí",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:huotan",
+    "zh": "火贪",
+    "pinyin": "huǒtān",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:lingtan",
+    "zh": "铃贪",
+    "pinyin": "língtān",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:tanwutongxing",
+    "zh": "贪武同行",
+    "pinyin": "tānwǔtóngxíng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:riyuebingming",
+    "zh": "日月并明",
+    "pinyin": "riyuèbìngmíng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:riyuefanbei",
+    "zh": "日月反背",
+    "pinyin": "riyuèfǎnbèi",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:xingjiaoyin",
+    "zh": "刑囚夹印",
+    "pinyin": "xíngjiáoyìn",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:fanshuitaohua",
+    "zh": "泛水桃花",
+    "pinyin": "fànshuǐtáohuā",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:fengliucaizhang",
+    "zh": "风流彩杖",
+    "pinyin": "fēngliúcǎizhàng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:juhuoqingyang",
+    "zh": "巨火擎羊",
+    "pinyin": "jùhuǒqíngyáng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:zifuchaoyuan",
+    "zh": "紫府朝垣",
+    "pinyin": "zǐfǔcháoyuán",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:fuxiangchaoyuan",
+    "zh": "府相朝垣",
+    "pinyin": "fǔxiàngcháoyuán",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:wutantongxing",
+    "zh": "武贪同行",
+    "pinyin": "wǔtāntóngxíng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:liantantonggong",
+    "zh": "廉贪同宫",
+    "pinyin": "liántāntónggōng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:tonglianghuizhao",
+    "zh": "同梁会照",
+    "pinyin": "tóngliánghuìzhào",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:jijutonglin",
+    "zh": "机巨同临",
+    "pinyin": "jījùtónglín",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:mingzhu",
+    "zh": "命主",
+    "pinyin": "mìngzhǔ",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:shenzhu",
+    "zh": "身主",
+    "pinyin": "shēnzhǔ",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:doushu",
+    "zh": "斗数",
+    "pinyin": "dòushù",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:feixing",
+    "zh": "飞星",
+    "pinyin": "fēixīng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:gonggan",
+    "zh": "宫干",
+    "pinyin": "gōnggàn",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:laiyingong",
+    "zh": "来因宫",
+    "pinyin": "láiyīngōng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:guoweigong",
+    "zh": "果位宫",
+    "pinyin": "guǒwèigōng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:tiyong",
+    "zh": "体用",
+    "pinyin": "tǐyòng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:sihua:shengnianlu",
+    "zh": "生年禄",
+    "pinyin": "shēngniánlù",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:shengnianquan",
+    "zh": "生年权",
+    "pinyin": "shēngniánquán",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:shengnianke",
+    "zh": "生年科",
+    "pinyin": "shēngniánkē",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:shengnianji",
+    "zh": "生年忌",
+    "pinyin": "shēngniánjì",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:mingzhulu",
+    "zh": "命主禄",
+    "pinyin": "mìngzhǔlù",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:mingzhuquan",
+    "zh": "命主权",
+    "pinyin": "mìngzhǔquán",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:mingzhuke",
+    "zh": "命主科",
+    "pinyin": "mìngzhǔkē",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:mingzhuji",
+    "zh": "命主忌",
+    "pinyin": "mìngzhǔjì",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:daxianlu",
+    "zh": "大限禄",
+    "pinyin": "dàxiànlù",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:daxianquan",
+    "zh": "大限权",
+    "pinyin": "dàxiànquán",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:daxianke",
+    "zh": "大限科",
+    "pinyin": "dàxiànkē",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:daxianji",
+    "zh": "大限忌",
+    "pinyin": "dàxiànjì",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:liunianlu",
+    "zh": "流年禄",
+    "pinyin": "liúniánlù",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:liunianquan",
+    "zh": "流年权",
+    "pinyin": "liúniánquán",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:liunianke",
+    "zh": "流年科",
+    "pinyin": "liúniánkē",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:liunianji",
+    "zh": "流年忌",
+    "pinyin": "liúniánjì",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:xiaoxianlu",
+    "zh": "小限禄",
+    "pinyin": "xiǎoxiànlù",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:xiaoxianquan",
+    "zh": "小限权",
+    "pinyin": "xiǎoxiànquán",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:xiaoxianke",
+    "zh": "小限科",
+    "pinyin": "xiǎoxiànkē",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:xiaoxianji",
+    "zh": "小限忌",
+    "pinyin": "xiǎoxiànjì",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:zihualu",
+    "zh": "自化禄",
+    "pinyin": "zìhuàlù",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:zihuaquan",
+    "zh": "自化权",
+    "pinyin": "zìhuàquán",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:zihuake",
+    "zh": "自化科",
+    "pinyin": "zìhuàkē",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:zihuaji",
+    "zh": "自化忌",
+    "pinyin": "zìhuàjì",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:feihualu",
+    "zh": "飞化禄",
+    "pinyin": "fēihuàlù",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:feihuaquan",
+    "zh": "飞化权",
+    "pinyin": "fēihuàquán",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:feihuake",
+    "zh": "飞化科",
+    "pinyin": "fēihuàkē",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:feihuaji",
+    "zh": "飞化忌",
+    "pinyin": "fēihuàjì",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:dielu",
+    "zh": "叠禄",
+    "pinyin": "diélù",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:diequan",
+    "zh": "叠权",
+    "pinyin": "diéquán",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:dieke",
+    "zh": "叠科",
+    "pinyin": "diékē",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:dieji",
+    "zh": "叠忌",
+    "pinyin": "diéjì",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:jichu",
+    "zh": "忌出",
+    "pinyin": "jìchū",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:jiru",
+    "zh": "忌入",
+    "pinyin": "jìrù",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:luru",
+    "zh": "禄入",
+    "pinyin": "lùrù",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:quanru",
+    "zh": "权入",
+    "pinyin": "quánrù",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:keru",
+    "zh": "科入",
+    "pinyin": "kērù",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:geju:fuxiangchaoyuange",
+    "zh": "府相朝垣格",
+    "pinyin": "fǔxiàngcháoyuángé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:tanwutongxingge",
+    "zh": "贪武同行格",
+    "pinyin": "tānwǔtóngxínggé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:riyuebingmingge",
+    "zh": "日月并明格",
+    "pinyin": "riyuèbìngmínggé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:riyuefanbeige",
+    "zh": "日月反背格",
+    "pinyin": "riyuèfǎnbèigé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:minglifengkongge",
+    "zh": "命里逢空格",
+    "pinyin": "mìngliféngkōnggé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:xingjiaoyinge",
+    "zh": "刑囚夹印格",
+    "pinyin": "xíngjiáoyìngé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:fanshuitaohuage",
+    "zh": "泛水桃花格",
+    "pinyin": "fànshuǐtáohuāgé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:fengliucaizhange",
+    "zh": "风流彩杖格",
+    "pinyin": "fēngliúcǎizhàngé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:juhuoqingyange",
+    "zh": "巨火擎羊格",
+    "pinyin": "jùhuǒqíngyángé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:zifuchaoyuange",
+    "zh": "紫府朝垣格",
+    "pinyin": "zǐfǔcháoyuángé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:wutantongxingge",
+    "zh": "武贪同行格",
+    "pinyin": "wǔtāntóngxínggé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:liantantonggongge",
+    "zh": "廉贪同宫格",
+    "pinyin": "liántāntónggōnggé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:tonglianghuizhaoge",
+    "zh": "同梁会照格",
+    "pinyin": "tóngliánghuìzhàogé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:jijutonglinge",
+    "zh": "机巨同临格",
+    "pinyin": "jījùtónglíngé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:taiyangjuge",
+    "zh": "太阳居午格",
+    "pinyin": "tàiyángjǔgé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:taiyinjuzige",
+    "zh": "太阴居子格",
+    "pinyin": "tàiyīnjūzǐgé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:zuoyoutonggongge",
+    "zh": "左右同宫格",
+    "pinyin": "zuǒyòutónggōnggé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:changqutonggongge",
+    "zh": "昌曲同宫格",
+    "pinyin": "chāngqūtónggōnggé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:kuiyuejiaminge",
+    "zh": "魁钺夹命格",
+    "pinyin": "kuíyuèjiāmìngé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:lumajiaochige",
+    "zh": "禄马交驰格",
+    "pinyin": "lùmǎjiāochígé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:huotange",
+    "zh": "火贪格",
+    "pinyin": "huǒtāngé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:lingtange",
+    "zh": "铃贪格",
+    "pinyin": "língtāngé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:matoudaijiange",
+    "zh": "马头带剑格",
+    "pinyin": "mǎtóudàijiàngé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:mingwuzhengyaoge",
+    "zh": "命无正曜格",
+    "pinyin": "mìngwúzhèngyàogé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:shizhongyinyuge",
+    "zh": "石中隐玉格",
+    "pinyin": "shízhōngyǐnyùgé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:jixiangliminge",
+    "zh": "极向离明格",
+    "pinyin": "jíxiànglímíngé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:rizhaoleimenge",
+    "zh": "日照雷门格",
+    "pinyin": "rìzhàoléiméngé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:yueshengcanghaige",
+    "zh": "月生沧海格",
+    "pinyin": "yuèshēngcānghǎigé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:shapolange",
+    "zh": "杀破狼格",
+    "pinyin": "shāpòlángé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:jiyuetongliange",
+    "zh": "机月同梁格",
+    "pinyin": "jīyuètóngliángé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:zifutonggongge",
+    "zh": "紫府同宫格",
+    "pinyin": "zǐfǔtónggōnggé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:juritonggongge",
+    "zh": "巨日同宫格",
+    "pinyin": "jùrìtónggōnggé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:junchenqinghuige",
+    "zh": "君臣庆会格",
+    "pinyin": "jūnchénqìnghuìgé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:matoudaijiange_2",
+    "zh": "马头带箭格",
+    "pinyin": "mǎtóudàijiàngé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "bazi:geju:conge",
+    "zh": "从格",
+    "pinyin": "cóngé",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:congwang",
+    "zh": "从旺",
+    "pinyin": "cóngwàng",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:congqiang",
+    "zh": "从强",
+    "pinyin": "cóngqiáng",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:congruo",
+    "zh": "从弱",
+    "pinyin": "cóngruò",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:huage",
+    "zh": "化格",
+    "pinyin": "huàgé",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:huaqige",
+    "zh": "化气格",
+    "pinyin": "huàqìgé",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:quzhige",
+    "zh": "曲直格",
+    "pinyin": "qūzhígé",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:yanshangge",
+    "zh": "炎上格",
+    "pinyin": "yánshànggé",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:jiasege",
+    "zh": "稼穑格",
+    "pinyin": "jiàsègé",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:conggege",
+    "zh": "从革格",
+    "pinyin": "cónggégé",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:runxiage",
+    "zh": "润下格",
+    "pinyin": "rùnxiàgé",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:liangshenchengxiang",
+    "zh": "两神成象",
+    "pinyin": "liǎngshénchéngxiàng",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:liangganbuza",
+    "zh": "两干不杂",
+    "pinyin": "liǎnggànbùzá",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:tianyuanzuolu",
+    "zh": "天元坐禄",
+    "pinyin": "tiānyuánzuòlù",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:feitianluma",
+    "zh": "飞天禄马",
+    "pinyin": "fēitiānlùmǎ",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:renqilongbei",
+    "zh": "壬骑龙背",
+    "pinyin": "rénqílóngbèi",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:liuyinchaoyang",
+    "zh": "六阴朝阳",
+    "pinyin": "liùyīncháoyáng",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:jinglanchage",
+    "zh": "井栏叉格",
+    "pinyin": "jǐnglánchāgé",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:jinshenge",
+    "zh": "金神格",
+    "pinyin": "jīnshéngé",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:shishangpiancai",
+    "zh": "时上偏财",
+    "pinyin": "shíshàngpiāncái",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:shishangyiweigui",
+    "zh": "时上一位贵",
+    "pinyin": "shíshàngyīwèiguì",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:jianluge",
+    "zh": "建禄格",
+    "pinyin": "jiànlùgé",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:yuerenge",
+    "zh": "月刃格",
+    "pinyin": "yuèrèngé",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:zaqicaiguan",
+    "zh": "杂气财官",
+    "pinyin": "záqìcáiguān",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:muku",
+    "zh": "墓库",
+    "pinyin": "mùkù",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:tianyuan",
+    "zh": "天元",
+    "pinyin": "tiānyuán",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:diyuan",
+    "zh": "地元",
+    "pinyin": "dìyuán",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:renyuan",
+    "zh": "人元",
+    "pinyin": "rényuán",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:canggan",
+    "zh": "藏干",
+    "pinyin": "cánggān",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:renyuansiling",
+    "zh": "人元司令",
+    "pinyin": "rényuánsìlìng",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:deling",
+    "zh": "得令",
+    "pinyin": "délìng",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:shiling",
+    "zh": "失令",
+    "pinyin": "shīlìng",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:dedi",
+    "zh": "得地",
+    "pinyin": "dédì",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:shidi",
+    "zh": "失地",
+    "pinyin": "shīdì",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:deshi",
+    "zh": "得势",
+    "pinyin": "déshì",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:shishi",
+    "zh": "失势",
+    "pinyin": "shīshì",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:shenqiang",
+    "zh": "身强",
+    "pinyin": "shēnqiáng",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:shenruo",
+    "zh": "身弱",
+    "pinyin": "shēnruò",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:zhonghe",
+    "zh": "中和",
+    "pinyin": "zhōnghé",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:pianwang",
+    "zh": "偏旺",
+    "pinyin": "piānwàng",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:pianruo",
+    "zh": "偏弱",
+    "pinyin": "piānruò",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:yongshen",
+    "zh": "用神",
+    "pinyin": "yòngshén",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:xishen",
+    "zh": "喜神",
+    "pinyin": "xǐshén",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:jishen",
+    "zh": "忌神",
+    "pinyin": "jìshén",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:choushen",
+    "zh": "仇神",
+    "pinyin": "chóushén",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:xianshen",
+    "zh": "闲神",
+    "pinyin": "xiánshén",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:tongguan",
+    "zh": "通关",
+    "pinyin": "tōngguān",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:fuyi",
+    "zh": "扶抑",
+    "pinyin": "fúyì",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:tiaohou",
+    "zh": "调候",
+    "pinyin": "tiáohòu",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:bingyao",
+    "zh": "病药",
+    "pinyin": "bìngyào",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:yuanliu",
+    "zh": "源流",
+    "pinyin": "yuánliú",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:quge",
+    "zh": "取格",
+    "pinyin": "qǔgé",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:biange",
+    "zh": "变格",
+    "pinyin": "biàngé",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:waige",
+    "zh": "外格",
+    "pinyin": "wàigé",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:neige",
+    "zh": "内格",
+    "pinyin": "nèigé",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:chenge",
+    "zh": "成格",
+    "pinyin": "chéngé",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:geju:poge",
+    "zh": "破格",
+    "pinyin": "pògé",
+    "category": "八字格局"
+  },
+  {
+    "key": "bazi:shensha:tianyi",
+    "zh": "天医",
+    "pinyin": "tiānyī",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:fuxingguiren",
+    "zh": "福星贵人",
+    "pinyin": "fúxīngguìrén",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:yutangguiren",
+    "zh": "玉堂贵人",
+    "pinyin": "yùtángguìrén",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:jinyu",
+    "zh": "金舆",
+    "pinyin": "jīnyú",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:guoyunguiren",
+    "zh": "国印贵人",
+    "pinyin": "guóyùnguìrén",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:tianchuguiren",
+    "zh": "天厨贵人",
+    "pinyin": "tiānchúguìrén",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:sifei",
+    "zh": "四废",
+    "pinyin": "sìfèi",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:wumu",
+    "zh": "五墓",
+    "pinyin": "wǔmù",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:shi_ebabai",
+    "zh": "十恶大败",
+    "pinyin": "shi ebabai",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:yinyangcuo",
+    "zh": "阴阳差错",
+    "pinyin": "yīnyángcuò",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:silisijue",
+    "zh": "四离四绝",
+    "pinyin": "sìlísìjué",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:dasha",
+    "zh": "大煞",
+    "pinyin": "dàshà",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:wuxing:xiuqiu",
+    "zh": "休囚",
+    "pinyin": "xiūqiú",
+    "category": "五行"
+  },
+  {
+    "key": "bazi:wuxing:wangxiang",
+    "zh": "旺相",
+    "pinyin": "wàngxiàng",
+    "category": "五行"
+  },
+  {
+    "key": "bazi:wuxing:sijue",
+    "zh": "死绝",
+    "pinyin": "sǐjué",
+    "category": "五行"
+  },
+  {
+    "key": "bazi:shensha:jielukongwang",
+    "zh": "截路空亡",
+    "pinyin": "jiélùkōngwáng",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:xunkong",
+    "zh": "旬空",
+    "pinyin": "xúnkōng",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:shensha:guxu",
+    "zh": "孤虚",
+    "pinyin": "gūxū",
+    "category": "神煞"
+  },
+  {
+    "key": "bazi:wuxing:nayiwuxing",
+    "zh": "纳音五行",
+    "pinyin": "nàyīwǔxíng",
+    "category": "五行"
+  },
+  {
+    "key": "bazi:wuxing:zhengwuxing",
+    "zh": "正五行",
+    "pinyin": "zhèngwǔxíng",
+    "category": "五行"
+  },
+  {
+    "key": "bazi:wuxing:huaqiwuxing",
+    "zh": "化气五行",
+    "pinyin": "huàqìwǔxíng",
+    "category": "五行"
+  },
+  {
+    "key": "bazi:jiazi:ganzhitongqi",
+    "zh": "干支同气",
+    "pinyin": "gànzhītóngqì",
+    "category": "干支组合"
+  },
+  {
+    "key": "bazi:jiazi:gaitou",
+    "zh": "盖头",
+    "pinyin": "gàitóu",
+    "category": "干支组合"
+  },
+  {
+    "key": "bazi:jiazi:jiejiao",
+    "zh": "截脚",
+    "pinyin": "jiéjiǎo",
+    "category": "干支组合"
+  },
+  {
+    "key": "bazi:branch_rel:tiankedichong",
+    "zh": "天克地冲",
+    "pinyin": "tiānkèdìchōng",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:tianshengdichong",
+    "zh": "天生地冲",
+    "pinyin": "tiānshēngdìchōng",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:tiankedihe",
+    "zh": "天克地合",
+    "pinyin": "tiānkèdìhé",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:fuyin",
+    "zh": "伏吟",
+    "pinyin": "fúyín",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:fanyin",
+    "zh": "反吟",
+    "pinyin": "fǎnyín",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:anhe",
+    "zh": "暗合",
+    "pinyin": "ànhé",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:yaohe",
+    "zh": "遥合",
+    "pinyin": "yáohé",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:yaochong",
+    "zh": "遥冲",
+    "pinyin": "yáochōng",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:gonghe",
+    "zh": "拱合",
+    "pinyin": "gǒnghé",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:gongjia",
+    "zh": "拱夹",
+    "pinyin": "gǒngjiā",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:sanxing",
+    "zh": "三刑",
+    "pinyin": "sānxíng",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:zixing",
+    "zh": "自刑",
+    "pinyin": "zìxíng",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:wu_en_zhi_xing",
+    "zh": "无恩之刑",
+    "pinyin": "wu en zhi xing",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:shishizhixing",
+    "zh": "恃势之刑",
+    "pinyin": "shìshìzhīxíng",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:wulizhixing",
+    "zh": "无礼之刑",
+    "pinyin": "wúlǐzhīxíng",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:hehua",
+    "zh": "合化",
+    "pinyin": "héhuà",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:duhe",
+    "zh": "妒合",
+    "pinyin": "dùhé",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:zhenghe",
+    "zh": "争合",
+    "pinyin": "zhēnghé",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:tanhewangchong",
+    "zh": "贪合忘冲",
+    "pinyin": "tānhéwàngchōng",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:tanhewangke",
+    "zh": "贪合忘克",
+    "pinyin": "tānhéwàngkè",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:he_er_bu_hua",
+    "zh": "合而不化",
+    "pinyin": "he er bu hua",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:chongzhongfenghe",
+    "zh": "冲中逢合",
+    "pinyin": "chōngzhōngfénghé",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:hechufengchong",
+    "zh": "合处逢冲",
+    "pinyin": "héchùféngchōng",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:banhe",
+    "zh": "半合",
+    "pinyin": "bànhé",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:shengdibanhe",
+    "zh": "生地半合",
+    "pinyin": "shēngdìbànhé",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:mudibanhe",
+    "zh": "墓地半合",
+    "pinyin": "mùdìbànhé",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:fangju",
+    "zh": "方局",
+    "pinyin": "fāngjú",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:sanhui",
+    "zh": "三会",
+    "pinyin": "sànhuì",
+    "category": "地支关系"
+  },
+  {
+    "key": "bazi:branch_rel:anchong",
+    "zh": "暗冲",
+    "pinyin": "ànchōng",
+    "category": "地支关系"
+  },
+  {
+    "key": "common:school:paisizhu",
+    "zh": "排四柱",
+    "pinyin": "páisìzhù",
+    "category": "推命体系"
+  },
+  {
+    "key": "common:school:paidayun",
+    "zh": "排大运",
+    "pinyin": "páidàyùn",
+    "category": "推命体系"
+  },
+  {
+    "key": "common:school:pailiunian",
+    "zh": "排流年",
+    "pinyin": "páiliúnián",
+    "category": "推命体系"
+  },
+  {
+    "key": "common:school:qiyunshu",
+    "zh": "起运数",
+    "pinyin": "qǐyùnshù",
+    "category": "推命体系"
+  },
+  {
+    "key": "common:school:shunpai",
+    "zh": "顺排",
+    "pinyin": "shùnpái",
+    "category": "推命体系"
+  },
+  {
+    "key": "common:school:nipai",
+    "zh": "逆排",
+    "pinyin": "nìpái",
+    "category": "推命体系"
+  },
+  {
+    "key": "common:school:jiaoyun",
+    "zh": "交运",
+    "pinyin": "jiāoyùn",
+    "category": "推命体系"
+  },
+  {
+    "key": "common:school:tuoyun",
+    "zh": "脱运",
+    "pinyin": "tuōyùn",
+    "category": "推命体系"
+  },
+  {
+    "key": "common:school:huanyun",
+    "zh": "换运",
+    "pinyin": "huànyùn",
+    "category": "推命体系"
+  },
+  {
+    "key": "common:school:xiaoyun",
+    "zh": "小运",
+    "pinyin": "xiǎoyùn",
+    "category": "推命体系"
+  },
+  {
+    "key": "common:school:mingxian",
+    "zh": "命限",
+    "pinyin": "mìngxiàn",
+    "category": "推命体系"
+  },
+  {
+    "key": "common:school:shenfengtongkao",
+    "zh": "神峰通考",
+    "pinyin": "shénfēngtōngkǎo",
+    "category": "推命体系"
+  },
+  {
+    "key": "common:term:mingshu",
+    "zh": "命书",
+    "pinyin": "mìngshū",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:tuiming",
+    "zh": "推命",
+    "pinyin": "tuīmìng",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:suanming",
+    "zh": "算命",
+    "pinyin": "suànmìng",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:pibazi",
+    "zh": "批八字",
+    "pinyin": "pībāzì",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:paipan",
+    "zh": "排盘",
+    "pinyin": "páipán",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:qipan",
+    "zh": "起盘",
+    "pinyin": "qǐpán",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:dingpan",
+    "zh": "定盘",
+    "pinyin": "dìngpán",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:gaiyun",
+    "zh": "改运",
+    "pinyin": "gǎiyùn",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:suanmingxiansheng",
+    "zh": "算命先生",
+    "pinyin": "suànmìngxiānsheng",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:shushi",
+    "zh": "术士",
+    "pinyin": "shùshì",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:shushu",
+    "zh": "术数",
+    "pinyin": "shùshù",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:mingli",
+    "zh": "命理",
+    "pinyin": "mìnglǐ",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:mingyun",
+    "zh": "命运",
+    "pinyin": "mìngyùn",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:suming",
+    "zh": "宿命",
+    "pinyin": "sùmìng",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:gaiming",
+    "zh": "改命",
+    "pinyin": "gǎimìng",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:zaoming",
+    "zh": "造命",
+    "pinyin": "zàomìng",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:zhiming",
+    "zh": "知命",
+    "pinyin": "zhīmìng",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:liming",
+    "zh": "立命",
+    "pinyin": "lìmìng",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:anxing",
+    "zh": "安星",
+    "pinyin": "ānxīng",
+    "category": "基础"
+  },
+  {
+    "key": "common:term:luogong",
+    "zh": "落宫",
+    "pinyin": "luògōng",
+    "category": "基础"
+  },
+  {
+    "key": "ziwei:palace:shengong",
+    "zh": "身宫",
+    "pinyin": "shēngōng",
+    "category": "十二宫"
+  },
+  {
+    "key": "ziwei:star:xiaohao",
+    "zh": "小耗",
+    "pinyin": "xiǎohào",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:bingfu",
+    "zh": "病符",
+    "pinyin": "bìngfú",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:sangmen",
+    "zh": "丧门",
+    "pinyin": "sàngmén",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:longde",
+    "zh": "龙德",
+    "pinyin": "lóngdé",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:suipo",
+    "zh": "岁破",
+    "pinyin": "suìpò",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:wuxingju",
+    "zh": "五行局",
+    "pinyin": "wǔxíngjú",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:shui_er_ju",
+    "zh": "水二局",
+    "pinyin": "shui er ju",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:musanju",
+    "zh": "木三局",
+    "pinyin": "mùsānjú",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:jinsiju",
+    "zh": "金四局",
+    "pinyin": "jīnsìjú",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:tuwuju",
+    "zh": "土五局",
+    "pinyin": "tǔwǔjú",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:huoliuju",
+    "zh": "火六局",
+    "pinyin": "huǒliùjú",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:yangnan",
+    "zh": "阳男",
+    "pinyin": "yángnán",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:yinu",
+    "zh": "阴女",
+    "pinyin": "yīnǚ",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:yingnan",
+    "zh": "阴男",
+    "pinyin": "yīngnán",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:yangnu",
+    "zh": "阳女",
+    "pinyin": "yángnǚ",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:shunxing",
+    "zh": "顺行",
+    "pinyin": "shùnxíng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:nixing",
+    "zh": "逆行",
+    "pinyin": "nìxíng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:shunbu",
+    "zh": "顺布",
+    "pinyin": "shùnbù",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:nibu",
+    "zh": "逆布",
+    "pinyin": "nìbù",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:anshengong",
+    "zh": "安身宫",
+    "pinyin": "ānshēngōng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:qixiaoxian",
+    "zh": "起小限",
+    "pinyin": "qǐxiǎoxiàn",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:qiliunian",
+    "zh": "起流年",
+    "pinyin": "qǐliúnián",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:anfuyao",
+    "zh": "安辅曜",
+    "pinyin": "ānfǔyào",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:anshayao",
+    "zh": "安煞曜",
+    "pinyin": "ānshàyào",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:ansihua",
+    "zh": "安四化",
+    "pinyin": "ānsìhuà",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:paidaxian",
+    "zh": "排大限",
+    "pinyin": "páidàxiàn",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:dingziwei",
+    "zh": "定紫微星",
+    "pinyin": "dìngzǐwēi",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:qidoujun",
+    "zh": "起斗君",
+    "pinyin": "qǐdòujūn",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:anminggong",
+    "zh": "安命宫",
+    "pinyin": "ānmìnggōng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:an_shi_er_gong",
+    "zh": "安十二宫",
+    "pinyin": "an shi er gong",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:qishengong",
+    "zh": "起身宫",
+    "pinyin": "qǐshēngōng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:mingshentonggong",
+    "zh": "命身同宫",
+    "pinyin": "mìngshēntónggōng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:mingshenduizhao",
+    "zh": "命身对照",
+    "pinyin": "mìngshēnduìzhào",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:mingshenfengong",
+    "zh": "命身分宫",
+    "pinyin": "mìngshēnfēngōng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:daxianminggong",
+    "zh": "大限命宫",
+    "pinyin": "dàxiànmìnggōng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:liunianminggong",
+    "zh": "流年命宫",
+    "pinyin": "liúniánmìnggōng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:xiaoxianminggong",
+    "zh": "小限命宫",
+    "pinyin": "xiǎoxiànmìnggōng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:xingyao",
+    "zh": "星曜",
+    "pinyin": "xīngyào",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:liangdu",
+    "zh": "亮度",
+    "pinyin": "liàngdù",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:pingxian",
+    "zh": "平闲",
+    "pinyin": "píngxián",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:luoxianxing",
+    "zh": "落陷星",
+    "pinyin": "luòxiànxīng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:sihua:sihua",
+    "zh": "四化",
+    "pinyin": "sìhuà",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:huaqi",
+    "zh": "化气",
+    "pinyin": "huàqì",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:gonggansihua",
+    "zh": "宫干四化",
+    "pinyin": "gōnggànsìhuà",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:feixingsihua",
+    "zh": "飞星四化",
+    "pinyin": "fēixīngsìhuà",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:shengniansihua",
+    "zh": "生年四化",
+    "pinyin": "shēngniánsìhuà",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:daxiansihua",
+    "zh": "大限四化",
+    "pinyin": "dàxiànsìhuà",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:liuniansihua",
+    "zh": "流年四化",
+    "pinyin": "liúniánsìhuà",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:xiaoxiansihua",
+    "zh": "小限四化",
+    "pinyin": "xiǎoxiànsìhuà",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:sanqijiahui",
+    "zh": "三奇加会",
+    "pinyin": "sānqíjiāhuì",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:luquankehui",
+    "zh": "禄权科会",
+    "pinyin": "lùquánkēhuì",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:huajichong",
+    "zh": "化忌冲",
+    "pinyin": "huàjìchōng",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:hualufengkong",
+    "zh": "化禄逢空",
+    "pinyin": "huàlùféngkōng",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:huaquanyusha",
+    "zh": "化权遇煞",
+    "pinyin": "huàquányùshà",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:sihua:huakefengji",
+    "zh": "化科逢忌",
+    "pinyin": "huàkēféngjì",
+    "category": "紫微四化"
+  },
+  {
+    "key": "ziwei:geju:tanlange",
+    "zh": "贪狼格",
+    "pinyin": "tānlángé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:wuquge",
+    "zh": "武曲格",
+    "pinyin": "wǔqūgé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:lianzhenge",
+    "zh": "廉贞格",
+    "pinyin": "liánzhēngé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:tianfuge",
+    "zh": "天府格",
+    "pinyin": "tiānfǔgé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:taiyangge",
+    "zh": "太阳格",
+    "pinyin": "tàiyánggé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:taiyinge",
+    "zh": "太阴格",
+    "pinyin": "tàiyīngé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:tianjige",
+    "zh": "天机格",
+    "pinyin": "tiānjīgé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:tiantonge",
+    "zh": "天同格",
+    "pinyin": "tiāntóngé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:tianliange",
+    "zh": "天梁格",
+    "pinyin": "tiānliángé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:tianxiangge",
+    "zh": "天相格",
+    "pinyin": "tiānxiànggé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:jumenge",
+    "zh": "巨门格",
+    "pinyin": "jùméngé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:pojunge",
+    "zh": "破军格",
+    "pinyin": "pòjūngé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:qishage",
+    "zh": "七杀格",
+    "pinyin": "qīshāgé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:ziweige",
+    "zh": "紫微格",
+    "pinyin": "zǐwēigé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:xingshajiazhige",
+    "zh": "刑杀夹制格",
+    "pinyin": "xíngshājiázhìgé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:tanwubufashaoniange",
+    "zh": "贪武不发少年格",
+    "pinyin": "tānwǔbùfāshàoniángé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:mingshentonggongge",
+    "zh": "命身同宫格",
+    "pinyin": "mìngshēntónggōnggé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:sanfangguige",
+    "zh": "三方贵格",
+    "pinyin": "sānfāngguìgé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:sizhengxiongge",
+    "zh": "四正凶格",
+    "pinyin": "sìzhèngxiōnggé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:xingyaobingminge",
+    "zh": "星曜并明格",
+    "pinyin": "xīngyàobìngmíngé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:mingzuoguige",
+    "zh": "命坐贵格",
+    "pinyin": "mìngzuòguìgé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:shenzuoguige",
+    "zh": "身坐贵格",
+    "pinyin": "shēnzuòguìgé",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:star:mingzhuxing",
+    "zh": "命主星",
+    "pinyin": "mìngzhǔxīng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:shenzhuxing",
+    "zh": "身主星",
+    "pinyin": "shēnzhǔxīng",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:star:ziweidoushumingpan",
+    "zh": "紫微斗数命盘",
+    "pinyin": "zǐwēidòushùmìngpán",
+    "category": "紫微星曜"
+  },
+  {
+    "key": "ziwei:geju:minggongshengongguanxi",
+    "zh": "命宫身宫关系",
+    "pinyin": "mìnggōngshēngōngguānxì",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:sanfangsizhenghuizhao",
+    "zh": "三方四正会照",
+    "pinyin": "sānfāngsìzhènghuìzhào",
+    "category": "紫微格局"
+  },
+  {
+    "key": "ziwei:geju:ziweizaiwu",
+    "zh": "紫微在午",
+    "pinyin": "zǐwēizàiwǔ",
+    "category": "紫微格局"
+  }
+]

@@ -14,7 +14,7 @@ const MansionDetailPage = lazy(() => import('@/pages/astrolabe/mansions/MansionD
 
 const FengshuiTestPage = lazy(() => import('@/pages/divination/fengshui-test/FengshuiTestPage'));
 
-const QinggongPage = lazy(() => import('@/pages/divination/qinggong/QinggongPage'));
+const QinggongNoticePage = lazy(() => import('@/pages/divination/qinggong/QinggongNoticePage'));
 
 const TarotLearnHomePage = lazy(() => import('@/pages/tarot/learn/TarotLearnHomePage'));
 const TarotLearnDailyPage = lazy(() => import('@/pages/tarot/learn/TarotLearnDailyPage'));
@@ -38,8 +38,8 @@ export const A23Routes = (
     {/* A23-3 阳宅风水测试 */}
     <Route path="/divination/fengshui-test" element={wrap(<FengshuiTestPage />)} />
 
-    {/* A23-4 清宫表 */}
-    <Route path="/divination/qinggong" element={wrap(<QinggongPage />)} />
+    {/* A23-4 清宫表（合规下线，直链统一落地说明页） */}
+    <Route path="/divination/qinggong" element={wrap(<QinggongNoticePage />)} />
 
     {/* A23-5 塔罗学习（daily 静态段置于 :group 之前） */}
     <Route path="/tarot/learn" element={wrap(<TarotLearnHomePage />)} />

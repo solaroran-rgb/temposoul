@@ -1,0 +1,68 @@
+{
+  "generatedAt": "2026-09-30T17:36:45.578Z",
+  "queueEntries": 1010,
+  "queueChars": 13105,
+  "uiKeys": 83,
+  "langs": {
+    "ja": {
+      "entries": 1010,
+      "translated": 1010,
+      "missing": 0,
+      "emptyValues": 0,
+      "extraKeys": 0,
+      "targetChars": 21909,
+      "uiKeys": 83,
+      "uiTranslated": 83,
+      "uiMissing": [],
+      "missingSample": []
+    },
+    "ko-KN": {
+      "entries": 1010,
+      "translated": 1010,
+      "missing": 0,
+      "emptyValues": 0,
+      "extraKeys": 0,
+      "targetChars": 24185,
+      "uiKeys": 83,
+      "uiTranslated": 83,
+      "uiMissing": [],
+      "missingSample": []
+    },
+    "vi-VN": {
+      "entries": 1010,
+      "translated": 1010,
+      "missing": 0,
+      "emptyValues": 0,
+      "extraKeys": 0,
+      "targetChars": 54718,
+      "uiKeys": 83,
+      "uiTranslated": 83,
+      "uiMissing": [],
+      "missingSample": []
+    },
+    "th-TH": {
+      "entries": 1010,
+      "translated": 1010,
+      "missing": 0,
+      "emptyValues": 0,
+      "extraKeys": 0,
+      "targetChars": 47992,
+      "uiKeys": 83,
+      "uiTranslated": 83,
+      "uiMissing": [],
+      "missingSample": []
+    },
+    "es-ES": {
+      "entries": 1010,
+      "translated": 1010,
+      "missing": 0,
+      "emptyValues": 0,
+      "extraKeys": 0,
+      "targetChars": 62923,
+      "uiKeys": 83,
+      "uiTranslated": 83,
+      "uiMissing": [],
+      "missingSample": []
+    }
+  }
+}

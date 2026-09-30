@@ -3,8 +3,8 @@
  * 灵签页 (支持 type='lingsign')
  * @module B'11-6
  */
-import { useState, useEffect } from 'react';
-import { useParams, Navigate, useNavigate } from 'react-router-dom';
+import { useState, useEffect, useMemo } from 'react';
+import { useParams, Navigate, useNavigate, useSearchParams } from 'react-router-dom';
 import {
   loadLingSignData,
   isValidCode,
@@ -17,6 +17,10 @@ import { PageTopbar } from '@/components/PageTopbar';
 import { trackPageView, trackChartSubmit } from '@/lib/analytics';
 import { guardText } from '@/lib/assertions-guard';
 import { PrivacyHint } from '@/components/PrivacyHint';
+import { L0SummaryCard } from '@/components/fortune/L0SummaryCard';
+import { runSolutionForBazi } from '@/lib/full-chart-engine/solution-context';
+import { parseInputState } from '@/lib/query-state';
+import { buildPersonFromInput, calculateFullBaziChart } from '@/lib/full-chart-engine/bazi';
 
 type PageState = 'idle' | 'loading' | 'ok' | 'ok-empty' | 'degraded' | 'error';
 
@@ -26,6 +30,7 @@ interface Props {
 
 export default function DailySignPage({ type }: Props) {
   const nav = useNavigate();
+  const [searchParams] = useSearchParams();
   const { code } = useParams<{ code: string }>();
   const [state, setState] = useState<PageState>('idle');
   const [mod, setMod] = useState<LingSignModule | null>(null);
@@ -53,6 +58,39 @@ export default function DailySignPage({ type }: Props) {
       .catch(() => setState('error'));
   }, [code, type]);
 
+  // 真实出生输入：从 URL 查询串读排盘参数 → 计算 chart → runSolution（与 ResultPage 一致）
+  const input = useMemo(
+    () => parseInputState(new URLSearchParams(searchParams)),
+    [searchParams],
+  );
+  const chart = useMemo(() => {
+    try {
+      const person = buildPersonFromInput({
+        gender: input.gender,
+        year: input.year,
+        month: input.month,
+        day: input.day,
+        timeIndex: input.timeIndex,
+        dateType: input.dateType,
+        isLeapMonth: input.isLeapMonth,
+        useTrueSolarTime: input.useTrueSolarTime,
+        birthHour: input.birthHour,
+        birthMinute: input.birthMinute,
+        birthPlace: input.birthPlace,
+        birthLongitude: input.birthLongitude,
+        applyChinaDst: input.applyChinaDst,
+      });
+      return calculateFullBaziChart(person);
+    } catch (e) {
+      console.error('排盘计算失败:', e);
+      return null;
+    }
+  }, [input]);
+  const solutionOutput = useMemo(
+    () => (chart ? runSolutionForBazi(chart) : null),
+    [chart],
+  );
+
   if (type === 'lingsign' && code && !isValidCode(code)) {
     return <Navigate to="/lingsign/guanyin" replace />;
   }
@@ -61,8 +99,11 @@ export default function DailySignPage({ type }: Props) {
     if (!mod) return;
     const seed = djb2(`${code}|${Date.now()}`);
     const idx = Math.abs(parseInt(seed, 36)) % mod.SIGNS.length;
-    setCurrent(mod.SIGNS[idx]);
+    const drawn = mod.SIGNS[idx];
+    setCurrent(drawn);
     trackChartSubmit({ mode: 'ling_sign', trueSolarTime: false });
+    // AI 解读直接复用真实 chart 跑出的 solutionOutput，不再喂假八字；
+    // 无有效出生输入时不生成解读（由下方空态提示）。
   };
 
   return (
@@ -80,6 +121,11 @@ export default function DailySignPage({ type }: Props) {
           >
             抽签
           </button>
+          {!chart && (
+            <p role="alert" style={{ margin: '12px 0', color: '#f59e0b' }}>
+              请先排盘/输入出生信息后，再为您生成真实八字解读。
+            </p>
+          )}
           {current && (
             <article className="sign-card" aria-label="签文结果">
               <h3>{guardText(current.signTitle)}</h3>
@@ -91,6 +137,9 @@ export default function DailySignPage({ type }: Props) {
               </button>
               <PrivacyHint />
             </article>
+          )}
+          {current && solutionOutput && (
+            <L0SummaryCard output={solutionOutput} title="AI 灵签解读" />
           )}
         </>
       )}

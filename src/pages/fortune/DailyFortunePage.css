@@ -11,4 +11,28 @@
 .sign-draw-panel__tube { width: 60px; height: 120px; margin: 0 auto 20px; background: linear-gradient(180deg, #8b5a2b, #5c3a18); border-radius: 8px 8px 0 0; border: 2px solid #3d260f; box-shadow: 0 0 20px rgba(255,77,109,0.2); }
 .sign-draw-panel__btn { padding: 12px 32px; background: var(--neon-pink); border: none; border-radius: 24px; color: #fff; font-weight: bold; cursor: pointer; box-shadow: 0 0 16px rgba(255,77,109,0.4); }
 
-.ai-content { background: var(--bg-glass-dark); padding: 16px; border-radius: 8px; line-height: 1.6; font-size: 0.95rem; color: var(--text-secondary); white-space: pre-wrap; border-left: 3px solid var(--neon-cyan); }第三部分：路由注册与跨域联动契约1. App.tsx 路由注册片段tsx
+.ai-content { background: var(--bg-glass-dark); padding: 16px; border-radius: 8px; line-height: 1.6; font-size: 0.95rem; color: var(--text-secondary); white-space: pre-wrap; border-left: 3px solid var(--neon-cyan); }
+
+/* 日/周/月/年 时间维度切换（SegmentedControl，沿用霓虹主题变量） */
+.scope-tabs { display: flex; gap: 8px; margin: 16px 24px; }
+.scope-tabs__tab {
+  flex: 1;
+  padding: 10px 0;
+  background: var(--bg-glass-dark);
+  border: 1px solid var(--border-dim);
+  border-radius: 10px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.scope-tabs__tab:hover { border-color: var(--neon-cyan); }
+.scope-tabs__tab.is-active {
+  border-color: var(--neon-pink);
+  color: var(--neon-pink);
+  background: rgba(255, 77, 109, 0.08);
+  box-shadow: 0 0 12px rgba(255, 77, 109, 0.25);
+}
+.scope-tabs__tab:focus-visible { outline: 2px solid var(--neon-cyan); outline-offset: 2px; }
+
+第三部分：路由注册与跨域联动契约1. App.tsx 路由注册片段tsx

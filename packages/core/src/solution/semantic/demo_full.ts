@@ -9,6 +9,8 @@
  * 5. 三路径输出汇总
  */
 import { TOP50_REGISTRY } from './index';
+import { runSolution } from './solution';
+import { saveSnapshotV2, listSnapshotsV2 } from './snapshot';
 import { disambiguate } from './disambiguation';
 import { runGates, type WhiteTalkSentence } from './gates';
 import { confidenceToModality, netConfidence } from './confidence';
@@ -153,5 +155,83 @@ console.log(`通过：${gatePass}`);
 console.log(`失败：${gateFail}`);
 console.log(`通过率：${(gatePass / (gatePass + gateFail) * 100).toFixed(1)}%\n`);
 
-console.log('=== Demo 完成 ===');
-console.log('Top50 数据层 ✅ | 消歧引擎 ✅ | D-S 置信度 ✅ | 三道闸 ✅ | KG 边表 ✅');
+// ============================================================
+// 6. 三盘格局验证（R3-10 task1-6 修复后）
+// ============================================================
+
+type ChartCtx = Record<string, unknown>;
+
+function mkChart(tenGods: Record<string, string>, dominant: string): ChartCtx {
+  return {
+    tenGods,
+    hiddenStems: { year: [], month: [], day: [], hour: [] },
+    wuxingStrength: { missing: [], present: ['金', '木', '水', '火', '土'], dominantByRule: dominant, ruleBasis: '月令' },
+    analysis: { usefulGod: { favorable: ['火', '土'], unfavorable: ['水', '木'], useful: '火', avoid: '水' } },
+    pillars: {
+      year: { gan: '甲', zhi: '子', ganZhi: '甲子' },
+      month: { gan: '丙', zhi: '寅', ganZhi: '丙寅' },
+      day: { gan: '甲', zhi: '午', ganZhi: '甲午' },
+      hour: { gan: '丁', zhi: '卯', ganZhi: '丁卯' },
+    },
+    luckInfo: { cycles: [] as Array<{ tenGod: string; ganZhi: string }> },
+    liunian: [] as Array<{ tenGod: string; ganZhi: string }>,
+    shensha: [] as string[],
+    baziShenSha: [] as string[],
+    kongWang: [] as string[],
+  };
+}
+
+const chartCases: Array<[string, ChartCtx, string]> = [
+  ['正官格', mkChart({ year: '正官', month: '正印', day: '日主', hour: '正财' }, '金'), '+'],
+  ['伤官格', mkChart({ year: '伤官', month: '正印', day: '正官', hour: '正财' }, '火'), '0'],
+  ['比劫格', mkChart({ year: '比肩', month: '劫财', day: '日主', hour: '正财' }, '木'), '-'],
+];
+
+console.log('\n=== 三盘格局验证（总极性 / mix·lay 句数）===\n');
+for (const [name, ctx, expect] of chartCases) {
+  const r = runSolution({ context: ctx });
+  const ok = r.pro.overallPolarity === expect ? '✅' : '⚠️';
+  console.log(
+    `${ok} ${name}：总极性=${r.pro.overallPolarity} (期望 ${expect}) | pro:${r.pro.sentences.length} mix:${r.mix.sentences.length} lay:${r.lay.sentences.length}`,
+  );
+}
+
+// ============================================================
+// 7. CIR v2 演示（process_log + canonical_factors + snapshot）
+// ============================================================
+
+console.log('\n=== CIR v2 · 解盘流程日志 process_log ===\n');
+
+// 用完整模拟命盘跑一遍（含消歧 / 三道闸 / D-S 融合）
+const cirOut = runSolution({ context: mockBaziContext });
+
+console.log(`process_log 事件数：${cirOut.process_log?.length ?? 0}\n`);
+for (const ev of cirOut.process_log ?? []) {
+  const keys = Object.keys(ev.detail).join(', ');
+  console.log(`  [${ev.step.padEnd(16)}] engine=${ev.engine.padEnd(6)} cost=${String(ev.cost_ms).padStart(4)}ms | detail: ${keys}`);
+}
+
+console.log('\n=== CIR v2 · 原子归一化因子 canonical_factors ===\n');
+
+let annotatedAtoms = 0;
+const factorSet = new Set<string>();
+for (const atom of cirOut.meta.atoms) {
+  const factors = atom.canonical_factors ?? [];
+  if (factors.length > 0) annotatedAtoms++;
+  for (const f of factors) factorSet.add(f);
+  console.log(
+    `  ${atom.atomicId.padEnd(10)} term=${atom.termId.padEnd(5)} time=${String(atom.time_scope).padEnd(9)} factors=[${factors.join(', ')}]`,
+  );
+}
+console.log(`\n归一化标注原子：${annotatedAtoms} / ${cirOut.meta.atoms.length}`);
+console.log(`命中去重因子：${factorSet.size} 个 → [${[...factorSet].join(', ')}]`);
+
+// schema_version 与快照序列化
+console.log(`\n解盘 schema_version：${cirOut.meta.version}`);
+const snap = saveSnapshotV2(cirOut, { systems: ['bazi', 'top50'], engine_version: 'cir_v2.0' });
+console.log(`快照已固化：seed=${snap.seed}  snapshot_id=${snap.snapshot_id}`);
+console.log(`  原子=${snap.atoms.length}  process_log=${snap.process_log.length}  ref_ids=${snap.ref_ids.length}  schema=${snap.schema_version}`);
+console.log(`  内存快照总数(listSnapshotsV2)：${listSnapshotsV2().length}`);
+
+console.log('\n=== Demo 完成 ===');
+console.log('Top50 数据层 ✅ | 消歧引擎 ✅ | D-S 置信度 ✅ | 三道闸 ✅ | KG 边表 ✅ | 三盘验证 ✅ | CIR v2 ✅');

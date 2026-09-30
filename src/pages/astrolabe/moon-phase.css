@@ -1,0 +1,28 @@
+/* src/pages/astrolabe/moon-phase.css */
+.moon-phase-page { color: var(--text-primary, #E0E6ED); padding: 16px; max-width: 960px; margin: 0 auto; }
+.moon-phase-page__title { font-size: 24px; margin: 8px 0 4px; color: var(--neon-cyan, #4DC3FF); }
+.moon-phase-page__subtitle { color: var(--text-secondary, #8B9BB4); margin: 0 0 16px; }
+.moon-phase-page__section-title { font-size: 17px; margin: 20px 0 10px; }
+
+.moon-phase-page__current { display: flex; align-items: center; gap: 16px; border: 1px solid var(--neon-cyan, #4DC3FF); border-radius: 12px; padding: 16px; }
+.moon-phase-page__moon { font-size: 52px; line-height: 1; }
+.moon-phase-page__current-meta h2 { margin: 0 0 6px; font-size: 18px; }
+.moon-phase-page__illum { color: var(--text-secondary, #8B9BB4); font-size: 14px; font-weight: normal; }
+.moon-phase-page__emotion { margin: 0 0 6px; }
+.moon-phase-page__date { color: var(--text-secondary, #8B9BB4); font-size: 12px; margin: 0; }
+
+.moon-phase-page__grid { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 8px; }
+.moon-phase-page__cell { display: flex; flex-direction: column; align-items: center; gap: 4px; border: 1px solid var(--border-color, #2A3548); border-radius: 8px; padding: 10px 4px; font-size: 12px; }
+.moon-phase-page__cell-emoji { font-size: 24px; }
+.moon-phase-page__cell--next { opacity: 0.55; }
+
+.moon-phase-page__cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+.moon-phase-page__card { border: 1px solid var(--border-color, #2A3548); border-radius: 10px; padding: 12px; }
+.moon-phase-page__card--active { border-color: var(--neon-cyan, #4DC3FF); }
+.moon-phase-page__card-head { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
+.moon-phase-page__card-hint { color: var(--text-secondary, #8B9BB4); font-size: 12px; margin-left: auto; }
+.moon-phase-page__card p { margin: 0; font-size: 13px; line-height: 1.6; }
+
+.moon-phase-page__related { display: flex; gap: 16px; margin-top: 20px; }
+.moon-phase-page__related a { color: var(--neon-cyan, #4DC3FF); text-decoration: none; }
+.moon-phase-page__disclaimer { color: var(--text-secondary, #8B9BB4); font-size: 12px; margin-top: 16px; }

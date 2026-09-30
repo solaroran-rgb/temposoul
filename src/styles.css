@@ -2720,6 +2720,24 @@ select {
   background: var(--text-secondary);
 }
 
+.secondary-button:active {
+  transform: translateY(1px);
+}
+
+.secondary-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--accent-soft-strong);
+}
+
+.secondary-button:disabled,
+.secondary-button:disabled:hover,
+.secondary-button:disabled:active {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  background: var(--text-secondary);
+}
+
 .chart-result-block {
   display: grid;
   gap: 18px;
@@ -3596,6 +3614,14 @@ select {
 .top-switch-control .segmented-control-react {
   flex: 1 1 auto;
   min-width: 0;
+}
+
+/* P0-4: 390px 窄屏顶部 tab 不溢出——item 允许收缩并截断省略 */
+.top-switch-control .segmented-control-item-react {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .input-page-bottom-tools {
@@ -6158,6 +6184,26 @@ div.form-actions.page-submit-actions {
 
 .primary-button:hover {
   background: var(--accent-deep);
+}
+
+.primary-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 6px 14px var(--accent-soft-strong);
+}
+
+.primary-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--accent-soft-strong), 0 14px 28px var(--accent-soft-strong);
+}
+
+.primary-button:disabled,
+.primary-button:disabled:hover,
+.primary-button:disabled:active {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  background: linear-gradient(180deg, var(--accent-strong), #a43c7f);
+  box-shadow: 0 14px 28px var(--accent-soft-strong);
 }
 
 .start-submit-button {

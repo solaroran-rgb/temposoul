@@ -5,6 +5,14 @@ import { renderToStaticMarkup } from 'react-dom/server';
 
 import { baziCalculator } from '@core/bazi/baziCalculator';
 import { BaziChartBoard } from '../src/pages/ResultPage/components/BaziChartBoard';
+import { I18nProvider } from '../src/i18n';
+
+// BaziChartBoard 内部经 useTermLabel -> useI18n，SSR 渲染需包裹 I18nProvider（默认 zh-CN）。
+function renderBoard(props: Parameters<typeof createElement<typeof BaziChartBoard>>[1]) {
+  return renderToStaticMarkup(
+    createElement(I18nProvider, null, createElement(BaziChartBoard, props)),
+  );
+}
 
 test('八字结果盘应展示排盘预警和稳定基础参考', () => {
   const result = baziCalculator.calculateBazi({
@@ -21,13 +29,11 @@ test('八字结果盘应展示排盘预警和稳定基础参考', () => {
     applyChinaDst: true,
   });
 
-  const html = renderToStaticMarkup(
-    createElement(BaziChartBoard, {
-      title: '八字排盘',
-      name: '测试命盘',
-      result,
-    }),
-  );
+  const html = renderBoard({
+    title: '八字排盘',
+    name: '测试命盘',
+    result,
+  });
 
   assert.match(html, /排盘预警/);
   assert.match(html, /夏令时/);
@@ -69,13 +75,11 @@ test('八字女命日柱应标注元女', () => {
     gender: 'female',
   });
 
-  const html = renderToStaticMarkup(
-    createElement(BaziChartBoard, {
-      title: '八字排盘',
-      name: '测试女命',
-      result,
-    }),
-  );
+  const html = renderBoard({
+    title: '八字排盘',
+    name: '测试女命',
+    result,
+  });
 
   assert.match(html, /元女/);
   assert.doesNotMatch(html, /元男/);

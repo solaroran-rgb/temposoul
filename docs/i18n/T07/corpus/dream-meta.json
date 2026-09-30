@@ -1,0 +1,14 @@
+{
+  "name": "dream-meta",
+  "file": "src/data/dream/dream-dict.ts",
+  "entries": [
+    {
+      "id": "source",
+      "zh": "民间流传《周公解梦》类说法（民俗文化参考）"
+    },
+    {
+      "id": "caution",
+      "zh": "本内容为民俗文化参考，不构成医学或心理方面的判断；如相关困扰持续存在，请咨询专业机构。"
+    }
+  ]
+}

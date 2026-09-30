@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 /**
@@ -75,7 +76,6 @@ const GROUPS: NavGroup[] = [
       { to: '/tools/palmistry', label: '手相', desc: '三大主线文化辞典' },
       { to: '/divination/gufa', label: '古法论命', desc: '三流派语料' },
       { to: '/divination/fengshui-test', label: '阳宅风水测试', desc: '8 题自测' },
-      { to: '/divination/qinggong', label: '清宫表', desc: '生男生女趣味' },
       { to: '/divination/superstition', label: '眼跳喷嚏', desc: '测吉凶民俗' },
       { to: '/yijing/hexagrams', label: '易经六十四卦', desc: '卦辞爻辞详解' },
     ],
@@ -91,7 +91,6 @@ const GROUPS: NavGroup[] = [
       { to: '/tools/birth-flower', label: '生日花语', desc: '十二月生辰花' },
       { to: '/tools/fun-psych-tests', label: '心理趣味小测', desc: '三套自我觉察' },
       { to: '/tools/blood-type-fun', label: '血型趣味说', desc: 'ABO 文化印象' },
-      { to: '/tools/qinggong-fun', label: '清宫表趣谈', desc: '民俗文化背景' },
       { to: '/tools/eye-twitch-sneeze-fun', label: '眼跳喷嚏', desc: '十二时辰民俗' },
       { to: '/topics/celebrity-astrology', label: '名人星盘', desc: '历史人物侧写' },
       { to: '/knowledge/xiu-degree', label: '二十八宿', desc: '星宿象征参考' },
@@ -186,6 +185,9 @@ const GROUPS: NavGroup[] = [
       { to: '/experts', label: '专家团队', desc: '专家展示' },
       { to: '/account/credits', label: '积分充值', desc: '充值档位' },
       { to: '/account/rewards', label: '奖励中心', desc: '任务/流水' },
+      { to: '/account/points', label: '积分中心', desc: '积分展示与任务' },
+      { to: '/calendar/pick', label: '择时工具', desc: '选日子/选时辰' },
+      { to: '/daily/energy', label: '每日能量', desc: '财神方位/幸运色/避忌' },
       { to: '/shop', label: '商城', desc: '民俗文创商品' },
       { to: '/affiliate', label: '联盟营销', desc: '分佣层级' },
     ],
@@ -193,8 +195,36 @@ const GROUPS: NavGroup[] = [
 ];
 
 export function SiteNav() {
+  const navRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const closeAll = () => {
+      navRef.current?.querySelectorAll('details[open]').forEach((el) => el.removeAttribute('open'));
+    };
+    const onDocClick = (e: MouseEvent) => {
+      if (!navRef.current || !navRef.current.contains(e.target as Node)) closeAll();
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeAll();
+    };
+    const onNavClick = (e: MouseEvent) => {
+      const summary = (e.target as HTMLElement).closest('.site-nav__trigger');
+      if (!summary) return;
+      const mine = summary.parentElement;
+      navRef.current?.querySelectorAll('details[open]').forEach((el) => {
+        if (el !== mine) el.removeAttribute('open');
+      });
+    };
+    document.addEventListener('click', onDocClick);
+    document.addEventListener('keydown', onKey);
+    navRef.current?.addEventListener('click', onNavClick);
+    return () => {
+      document.removeEventListener('click', onDocClick);
+      document.removeEventListener('keydown', onKey);
+      navRef.current?.removeEventListener('click', onNavClick);
+    };
+  }, []);
   return (
-    <nav className="site-nav" aria-label="全站功能导航">
+    <nav className="site-nav" aria-label="全站功能导航" ref={navRef}>
       {GROUPS.map((group) => (
         <details key={group.label} className="site-nav__group">
           <summary className="site-nav__trigger" title={`${group.label}（点击展开）`}>
@@ -238,8 +268,7 @@ export function SiteNav() {
           -webkit-backdrop-filter: blur(10px);
           box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
           max-width: calc(100vw - 40px);
-          overflow-x: auto;
-          overflow-y: visible;
+          overflow: visible;
           scrollbar-width: none;
           white-space: nowrap;
         }

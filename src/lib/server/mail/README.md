@@ -8,8 +8,8 @@
 |---|------|------|------|---------|-------------|-----------|
 | 1 | `newsletter_confirm` | 订阅确认信 | marketing | ✅ | 5 | ✅ 已接入 `functions/api/v1/newsletter.ts`（模板统一到 flows.ts，队列不可用时回退原直发） |
 | 2 | `register_welcome` | 注册欢迎信 | marketing | ✅ | 5 | ✅ 已接入 `functions/api/auth/[[path]].ts#register` |
-| 3 | `otp_code` | OTP 验证码 | transactional | ❌ | 3 | 触发端点尚未落库，模板与策略已就绪 |
-| 4 | `password_reset` | 找回密码 | transactional | ❌ | 5 | 触发端点尚未落库，模板与策略已就绪 |
+| 3 | `otp_code` | OTP 验证码 | transactional | ❌ | 3 | ✅ 已接入 `functions/api/auth/[[path]].ts#otp` |
+| 4 | `password_reset` | 找回密码 | transactional | ❌ | 5 | ✅ 已接入 `functions/api/auth/[[path]].ts#forgot` |
 | 5 | `report_delivery` | 深度报告投递 | transactional | ❌ | 6 | ✅ 已接入 `src/lib/server/report/email.ts` |
 
 「退订可拦 = ❌」不是绕过退订：事务邮件（安全凭证、已付费交付物）本就不属于营销触达，
@@ -112,7 +112,7 @@ MAIL_DISPATCH_TOKEN=<强随机串，调度端点鉴权>
 MAIL_QUEUE_KV=<KV 命名空间绑定，可选>
 ```
 
-## 9. 接入指引（`otp_code` / `password_reset` 触发端点尚未落库，模板与策略已就绪）
+## 9. 接入指引（五流现已全部接入；`otp_code` / `password_reset` 由 `functions/api/auth/[[path]].ts` 的 `otp` / `forgot` 段触发）
 
 ```ts
 import { enqueueMail } from '@/lib/server/mail/scheduler';
@@ -134,7 +134,7 @@ await enqueueMail(env, {
 });
 ```
 
-已接入的三处均为「入队 → 立即 drain 一次 → 队列不可用时回退原直发」的写法，
+五处接入点均为「入队 → 立即 drain 一次 → 队列不可用时回退原直发」的写法，
 新接入点照抄即可保证主流程零回归。
 
 ## 10. 已知限制

@@ -1,6 +1,6 @@
 ﻿import { useState, useEffect, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { astroWikiRegistry } from '@/data/wiki/astro-wiki';
+import { getAstroWiki } from '@/i18n/body/content';
 import { PageTopbar } from '@/components/PageTopbar';
 import { PrivacyHint } from '@/components/PrivacyHint';
 import { ConfidenceBadge } from '@/components/knowledge/ConfidenceBadge';
@@ -35,7 +35,7 @@ export default function AstroWikiEntryPage() {
  const [entry, setEntry] = useState<AstroWikiEntry | null>(null);
 
  useEffect(() => {
- const found = astroWikiRegistry.find(e => e.id === id);
+ const found = getAstroWiki().find(e => e.id === id);
  if (found) {
  setEntry(found);
  setState('ok');

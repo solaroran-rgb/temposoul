@@ -7,14 +7,14 @@ import { ChapterToc } from '@/components/knowledge/ChapterToc';
 import { ArticleBlocks } from '@/components/knowledge/ArticleBlocks';
 import { CitationBlock } from '@/components/knowledge/CitationBlock';
 import { FooterDisclaimer } from '@/components/knowledge/FooterDisclaimer';
-import { classicsArticles } from '@/data/classics';
+import { getClassicsArticles } from '@/i18n/body/content';
 import { guardText } from '@/lib/assertions-guard';
 import { trackPageView } from '@/lib/analytics';
 import { useAsyncPage } from '@/hooks/useAsyncPage';
 
 export default function ClassicDetailPage() {
   const { slug } = useParams<{ slug: string }>();
-  const article = classicsArticles.find((item) => item.slug === slug);
+  const article = getClassicsArticles().find((item) => item.slug === slug);
   const [pageState] = useAsyncPage(article ? [article] : [], Boolean(article));
 
   useEffect(() => { trackPageView(`/knowledge/classics/${slug ?? ''}`); }, [slug]);

@@ -41,9 +41,14 @@ declare global {
   interface Env {
     AUTH_SECRET: string;
     AUTH_KV: KVNamespace;
+    D1?: D1Database;
     newsletter_emails?: KVNamespace;
     GEO_CACHE?: KVNamespace;
     PAYMENT_PROVIDER?: string;
+    /** T14 商店：积分抵扣策略 JSON（覆盖代码默认值，非法值回退默认） */
+    SHOP_POINTS_POLICY_JSON?: string;
+    /** T06 促销规则集 JSON（透传 settleOrder） */
+    PROMO_RULES_JSON?: string;
     LEMONSQUEEZY_API_KEY?: string;
     LEMONSQUEEZY_STORE_ID?: string;
     LEMONSQUEEZY_VARIANT_ID?: string;
@@ -58,6 +63,16 @@ declare global {
     MAIL_QUEUE_KV?: KVNamespace;
     /** /api/v1/mail/dispatch 的调度令牌；未配置时端点 503（fail-closed） */
     MAIL_DISPATCH_TOKEN?: string;
+    /** 错误统一落点 KV（T16） */
+    ERRLOG_KV?: KVNamespace;
+    /** /api/v1/errlog 写入令牌（公开、仅写）；未配置时端点 503（fail-closed） */
+    ERRLOG_INGEST_TOKEN?: string;
+    /** /api/v1/errlog 管理令牌（机密，GET 聚合/确认）；未配置时 503 */
+    ERRLOG_ADMIN_TOKEN?: string;
+    /** 5 分钟内 error/fatal 达到此数即告警（默认 3） */
+    ERRLOG_ALERT_THRESHOLD?: string;
+    /** 聚合超阈值时 POST 该 URL 触发告警；未配置则写 pending 由监控脚本轮询 */
+    ALERT_WEBHOOK?: string;
     ANALYTICS_PROVIDER?: string;
     ANALYTICS_SITE_ID?: string;
     // AiEnv 兼容字段（handleAiAnalyze 的 weak-type 检查要求共同属性）

@@ -40,9 +40,9 @@ export const CcRoutes = (
       element={wrap(<CcDetail kind="c_astrology_terms" />)}
     />
 
-    {/* C-4 国学典籍（10 部详情） */}
-    <Route path="/knowledge/classics" element={wrap(<CcList kind="c_classics_guide" />)} />
-    <Route path="/knowledge/classics/:id" element={wrap(<CcDetail kind="c_classics_guide" />)} />
+    {/* C-4 国学典籍（10 部详情）— 改路径避免与 C22Routes /knowledge/classics 冲突 */}
+    <Route path="/knowledge/classics-guide" element={wrap(<CcList kind="c_classics_guide" />)} />
+    <Route path="/knowledge/classics-guide/:id" element={wrap(<CcDetail kind="c_classics_guide" />)} />
 
     {/* C-5 育儿占星（12 档详情） */}
     <Route path="/knowledge/parenting" element={wrap(<CcList kind="c_parenting_astrology" />)} />

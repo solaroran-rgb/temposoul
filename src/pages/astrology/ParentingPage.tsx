@@ -1,5 +1,5 @@
 ﻿import { useState } from 'react';
-import { parentingData } from '@/data/wiki/astro-wiki';
+import { getParenting } from '@/i18n/body/content';
 import { PageTopbar } from '@/components/PageTopbar';
 import { PrivacyHint } from '@/components/PrivacyHint';
 import { ConfidenceBadge } from '@/components/knowledge/ConfidenceBadge';
@@ -11,7 +11,7 @@ export default function ParentingPage() {
  const [state] = useState<PageState>('ok');
  const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
 
- const selectedArticle = selectedSlug ? parentingData.find(a => a.slug === selectedSlug) : null;
+ const selectedArticle = selectedSlug ? getParenting().find(a => a.slug === selectedSlug) : null;
 
  if (state === 'error' || state === 'degraded') {
  return (
@@ -44,7 +44,7 @@ export default function ParentingPage() {
  </div>
 
  {!selectedArticle ? (
- <div className="article-list" style={{ padding: '0 16px' }}>51 {parentingData.map(article => (
+ <div className="article-list" style={{ padding: '0 16px' }}>51 {getParenting().map(article => (
  <div
  key={article.slug}
  onClick={() => setSelectedSlug(article.slug)}

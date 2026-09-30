@@ -3,6 +3,7 @@ import { activatePremium } from '../../../src/lib/server/payment';
 interface Env {
   LEMONSQUEEZY_WEBHOOK_SECRET?: string;
   AUTH_KV?: KVNamespace;
+  D1?: D1Database;
 }
 
 const SUCCESS_EVENTS = new Set([
@@ -99,7 +100,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
       orderType: customData.order_type,
       abBucket: customData.ab_bucket,
       subscriptionId,
-    });
+    }, env.D1);
   }
 
   // 退款/取消事件 → 更新状态（单一事实源）

@@ -7,7 +7,7 @@ import { UserProfile } from '../types/profile';
 interface ProfilesContextType {
   profiles: UserProfile[];
   currentProfile: UserProfile | null;
-  add: (p: Omit<UserProfile, 'id'>) => boolean;
+  add: (p: Omit<UserProfile, 'id'>) => UserProfile | null;
   update: (p: UserProfile) => void;
   remove: (id: string) => void;
   setCurrent: (id: string) => void;
@@ -44,10 +44,10 @@ export const ProfilesProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   const add = useCallback(
     (p: Omit<UserProfile, 'id'>) => {
-      if (profiles.length >= 20) return false;
+      if (profiles.length >= 20) return null;
       const newP: UserProfile = { ...p, id: generateId() };
       setProfiles((prev) => [...prev, newP]);
-      return true;
+      return newP;
     },
     [profiles],
   );

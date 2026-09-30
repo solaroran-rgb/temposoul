@@ -1,4 +1,4 @@
-// A9-4 · 显式映射表 + 就绪白名单（修正：未就绪星返回 null，不加载任何文件）
+﻿// A9-4 · 显式映射表 + 就绪白名单（修正：未就绪星返回 null，不加载任何文件）
 import type { ZiweiStarDoc, StarId } from './types';
 
 /** 唯一就绪白名单（StarsPage 与 loadStarDoc 共享）

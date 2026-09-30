@@ -1,0 +1,47 @@
+/* AI 解读区（解盘引擎）· 任务包 2 */
+.ts-sol__list {
+  list-style: none;
+  margin: 8px 0 12px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ts-sol__item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(127, 127, 127, 0.06);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.ts-sol__tag {
+  flex: none;
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: #fff;
+  background: #8a8f98;
+}
+
+.ts-sol__tag--good2 { background: #1a7f4b; }
+.ts-sol__tag--good { background: #3f9d6d; }
+.ts-sol__tag--flat { background: #8a8f98; }
+.ts-sol__tag--bad { background: #c0653a; }
+.ts-sol__tag--bad2 { background: #b23b3b; }
+
+.ts-sol__text {
+  flex: 1 1 auto;
+  min-width: 200px;
+}
+
+.ts-sol__meta {
+  flex: none;
+  font-size: 12px;
+  color: #98a0ab;
+}

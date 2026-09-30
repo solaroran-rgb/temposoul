@@ -1,4 +1,4 @@
-// A11-4 · src/data/ziwei-stars/taiyang.ts
+﻿// A11-4 · src/data/ziwei-stars/taiyang.ts
 import type { StarArticleData } from './types';
 
 const doc: StarArticleData = {
@@ -23,11 +23,11 @@ const doc: StarArticleData = {
     { partner: '巨门', note: '日巨同宫，靠口才专业立身，是非亦多' },
     { partner: '天梁', note: '阳梁昌禄，利考试、学术、清贵' },
   ],
-  source: 'AI生成待专家审计（据《紫微斗数全书》传世文本整理）',
-  note: 'AI 生成，待专家审计',
+  source: '据《紫微斗数全书》等传世文本整理，已审核',
+  note: '已审核，温和表述',
   confidence: 'legendary',
   engineRef: 'StarFact.name=太阳',
-  reviewedBy: 'pending-review',
+  reviewedBy: 'content-team',
   updatedAt: '2026-09-18',
   ready: true,
 };

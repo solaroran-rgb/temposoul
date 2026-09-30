@@ -1,6 +1,6 @@
 ﻿import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { astroWikiRegistry } from '@/data/wiki/astro-wiki';
+import { getAstroWiki } from '@/i18n/body/content';
 import { PageTopbar } from '@/components/PageTopbar';
 import { PrivacyHint } from '@/components/PrivacyHint';
 
@@ -13,7 +13,7 @@ export default function AstroWikiIndexPage() {
  const [activeTab, setActiveTab] = useState<CategoryTab>('all');
 
  const filteredEntries = useMemo(() => {
- let result = astroWikiRegistry;
+ let result = getAstroWiki();
  if (activeTab !== 'all') {
  result = result.filter(e => e.category === activeTab);
  }
