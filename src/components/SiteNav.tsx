@@ -18,6 +18,7 @@ const GROUPS: NavGroup[] = [
     items: [
       { to: '/', label: '八字排盘', desc: '四柱/十神/大运流年' },
       { to: '/bazi/dayun', label: '大运详批', desc: '十年一步大运' },
+      { to: '/synthesis', label: '八字紫微合参', desc: '双盘并置对照互参' },
       { to: '/bazi/liunian', label: '流年详批', desc: '逐年逐月引动' },
       { to: '/bazi/compatibility', label: '八字合婚', desc: '双盘合参' },
       { to: '/bazi/topics/career', label: '八字主题解读', desc: '事业/财运/感情/健康' },

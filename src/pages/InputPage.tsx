@@ -81,6 +81,8 @@ export function InputPage() {
 
   // B4 挂载：今日节律卡 + 黄历分享卡（专家 B 交付）
   const { data: almanacData } = useAlmanacData();
+  // 首页黄历区常驻：失败时由节律卡自身展示降级 UI，而非整区消失（N33 修复）
+  const almanacSectionVisible = true;
 
   // P1-2 Trust Engine: 输入页横幅判定用——表单是否已填入任一实质字段。
   const inputHasContent =
@@ -565,13 +567,13 @@ export function InputPage() {
             </div>
           </div>
 
-          {almanacData && (
+          {almanacSectionVisible && (
             <section
               className="input-page__almanac-section"
               style={{ marginBottom: '24px', maxWidth: '600px', margin: '0 auto 24px' }}
             >
               <DailyRhythmCard />
-              <AlmanacShareCard data={almanacData} />
+              {almanacData && <AlmanacShareCard data={almanacData} />}
               {/* 批1 R3 接线：1.2 今日黄历卡 / 1.3 节律卡（B'11 新版） */}
               <AlmanacCard />
               <RhythmCard />
@@ -603,6 +605,36 @@ export function InputPage() {
           <DualEntryGate />
 
           <HomeShortcuts />
+
+          {/* X1-D-03 · 合参首页入口卡：双盘并置对照互参 */}
+          <button
+            type="button"
+            onClick={() => navigate('/synthesis')}
+            style={{
+              display: 'flex',
+              width: '100%',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: 12,
+              margin: '0 0 16px',
+              padding: '14px 16px',
+              textAlign: 'left',
+              borderRadius: 12,
+              border: '1px solid rgba(255, 77, 109, 0.28)',
+              background: 'linear-gradient(135deg, rgba(255,77,109,0.10) 0%, rgba(77,195,255,0.10) 100%)',
+              cursor: 'pointer',
+            }}
+          >
+            <span>
+              <span style={{ display: 'block', fontSize: 15, fontWeight: 600, color: '#f1f5f9' }}>
+                八字紫微合参
+              </span>
+              <span style={{ display: 'block', fontSize: 12, color: '#94a3b8', marginTop: 4, lineHeight: 1.6 }}>
+                并置八字与紫微两套命盘，逐主题结构化对照互参
+              </span>
+            </span>
+            <span style={{ fontSize: 18, color: '#ff4d6d', flexShrink: 0 }}>›</span>
+          </button>
 
           {/* 7.2 十二项特色功能清单：每个排盘项目一句"本项特色" */}
           <FeatureHighlights />
