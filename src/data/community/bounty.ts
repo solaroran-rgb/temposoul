@@ -1,4 +1,8 @@
 // src/data/community/bounty.ts
+// ⚠ 2026-10-08（T-11）：BOUNTY_SEED 已停止消费 —— BountyListPage 改为读取
+//   GET /api/v1/community/bounty（N-09 canonical 端点）。反假红线：不再用演示假数据兜底页面。
+//   本文件当前仅保留 BountyQuestion / BountyStatus 类型作为前端契约类型来源；
+//   BOUNTY_SEED 待确认无其他引用后移除（暂留，避免连带破坏）。
 export type BountyStatus = 'open' | 'solved' | 'closed';
 
 export interface BountyQuestion {

@@ -1,0 +1,105 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://temposoul.pages.dev/schemas/content-schema.json",
+  "title": "TempoSoul 术语百科内容模式（WP-18 十段规范）",
+  "description": "对齐 WP-18 §5 输出格式（###TERM_BEGIN/END）与总规范 §2.1 字数下限。导入脚本按本模式逐字段校验，缺段/字数不足报错到行。",
+  "type": "object",
+  "required": [
+    "id",
+    "category",
+    "slug",
+    "title",
+    "tdk",
+    "s0_summary",
+    "s1_meaning",
+    "s2_method",
+    "s3_combination",
+    "s4_traditional",
+    "s5_misconception",
+    "s6_source",
+    "s7_selfcheck",
+    "s8_related",
+    "s9_tool",
+    "s10_disclaimer"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+-[a-z0-9-]+$",
+      "description": "<分类>-<拼音>"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "bazi",
+        "ziwei",
+        "divination",
+        "sanshi",
+        "fengshui",
+        "name",
+        "astro",
+        "tarot",
+        "almanac",
+        "nayin",
+        "shensha",
+        "shishen"
+      ]
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "description": "kebab-case，全库唯一"
+    },
+    "title": {
+      "type": "object",
+      "required": ["zh", "en"],
+      "additionalProperties": true,
+      "properties": {
+        "zh": { "type": "string", "minLength": 1, "maxLength": 10 },
+        "en": { "type": "string", "minLength": 1, "maxLength": 120 }
+      }
+    },
+    "tdk": {
+      "type": "object",
+      "required": ["title", "desc"],
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "type": "object",
+          "required": ["zh"],
+          "additionalProperties": true,
+          "properties": { "zh": { "type": "string", "minLength": 1, "maxLength": 30 } }
+        },
+        "desc": {
+          "type": "object",
+          "required": ["zh"],
+          "additionalProperties": true,
+          "properties": { "zh": { "type": "string", "minLength": 1, "maxLength": 80 } }
+        }
+      }
+    },
+    "s0_summary": { "type": "string", "minLength": 80, "maxLength": 150 },
+    "s1_meaning": { "type": "string", "minLength": 150, "maxLength": 250 },
+    "s2_method": { "type": "string", "minLength": 100, "maxLength": 200 },
+    "s3_combination": { "type": "string", "minLength": 150, "maxLength": 300 },
+    "s4_traditional": { "type": "string", "minLength": 200, "maxLength": 400 },
+    "s5_misconception": { "type": "string", "minLength": 2 },
+    "s6_source": { "type": "string", "minLength": 1 },
+    "s7_selfcheck": { "type": "string", "minLength": 1 },
+    "s8_related": { "type": "string", "minLength": 1 },
+    "s9_tool": { "type": "string", "pattern": "^/[a-z0-9/-]+(\\?term=[a-z0-9-]+)?$" },
+    "s10_disclaimer": { "type": "string", "minLength": 1 },
+    "batchId": { "type": "string" },
+    "updatedAt": { "type": "string" },
+    "version": { "type": "string" },
+    "lang": { "type": "string" }
+  },
+  "x-temposoul-rules": {
+    "C-TRAD": "s4_traditional 必须包含合规句「此为传统命理观点」（强制，缺失即拒收）",
+    "C-LINK": "s8_related 的每个 slug 必须已入库或登记在 data/content/lexicon/planned-slugs.txt 待建清单（死链即拒收）",
+    "C-SOURCE": "s6_source 无出处时必须写「出处待考 ;; 无 ;; 无」，编造出处即拒收",
+    "C-WORDING": "全文不得命中禁词红线（医疗/法律/投资/宿命断言），复用 scripts/lint-content.mjs 词表口径",
+    "MIN_TOTAL_CHARS": 800
+  }
+}

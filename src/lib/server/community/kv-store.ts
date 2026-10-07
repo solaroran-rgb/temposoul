@@ -61,10 +61,12 @@ export interface CommunityKVStore {
   checkRateLimit(key: string, max: number): Promise<{ allowed: boolean; current: number }>;
 }
 
-/** 生成按时间排序的复合键 */
-function genTimeKey(prefix: string, entityId: string, createdAt: string): string {
-  // ISO 字符串按字典序即按时间序，格式：prefix + entityId + ':' + createdAt + ':' + id
-  return `${prefix}${entityId}:${createdAt}:${entityId}`;
+/** 生成按时间排序的复合键
+ *  格式：prefix + groupId + ':' + createdAt + ':' + recordId
+ *  注意：键尾必须是记录自身 ID（listPosts/listComments 用 split(':').pop() 取回），
+ *  groupId（boardId/postId）只用于前缀过滤。 */
+function genTimeKey(prefix: string, groupId: string, createdAt: string, recordId: string): string {
+  return `${prefix}${groupId}:${createdAt}:${recordId}`;
 }
 
 export function createCommunityKVStore(kv: CommunityKV): CommunityKVStore {
@@ -73,7 +75,7 @@ export function createCommunityKVStore(kv: CommunityKV): CommunityKVStore {
     async createPost(post: Post) {
       await Promise.all([
         kv.put(`${KV_PREFIXES.POST}${post.id}`, JSON.stringify(post)),
-        kv.put(genTimeKey(KV_PREFIXES.POST_BY_BOARD, post.boardId, post.createdAt), post.id),
+        kv.put(genTimeKey(KV_PREFIXES.POST_BY_BOARD, post.boardId, post.createdAt, post.id), post.id),
       ]);
     },
     
@@ -94,7 +96,7 @@ export function createCommunityKVStore(kv: CommunityKV): CommunityKVStore {
       if (!post) return;
       await Promise.all([
         kv.delete(`${KV_PREFIXES.POST}${id}`),
-        kv.delete(genTimeKey(KV_PREFIXES.POST_BY_BOARD, post.boardId, post.createdAt)),
+        kv.delete(genTimeKey(KV_PREFIXES.POST_BY_BOARD, post.boardId, post.createdAt, post.id)),
       ]);
     },
     
@@ -119,7 +121,7 @@ export function createCommunityKVStore(kv: CommunityKV): CommunityKVStore {
     async createComment(comment: Comment) {
       await Promise.all([
         kv.put(`${KV_PREFIXES.COMMENT}${comment.id}`, JSON.stringify(comment)),
-        kv.put(genTimeKey(KV_PREFIXES.COMMENT_BY_POST, comment.postId, comment.createdAt), comment.id),
+        kv.put(genTimeKey(KV_PREFIXES.COMMENT_BY_POST, comment.postId, comment.createdAt, comment.id), comment.id),
       ]);
     },
     
@@ -140,7 +142,7 @@ export function createCommunityKVStore(kv: CommunityKV): CommunityKVStore {
       if (!comment) return;
       await Promise.all([
         kv.delete(`${KV_PREFIXES.COMMENT}${id}`),
-        kv.delete(genTimeKey(KV_PREFIXES.COMMENT_BY_POST, comment.postId, comment.createdAt)),
+        kv.delete(genTimeKey(KV_PREFIXES.COMMENT_BY_POST, comment.postId, comment.createdAt, comment.id)),
       ]);
     },
     

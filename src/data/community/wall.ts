@@ -1,4 +1,7 @@
 // src/data/community/wall.ts
+// ⚠ 2026-10-08（T-11）：SHARE_CARDS_SEED 已停止消费 —— ShareWallPage 改为读取
+//   GET /api/v1/community/wall（N-09 canonical 端点）。反假红线：不再用演示假数据兜底页面。
+//   分享卡类型枚举以服务端 entities.ts 的 WallShareType 为准（+ starmark），本文件待清理。
 export type ShareCardType = "birth" | "bazi" | "tarot" | "numerology" | "name";
 
 export interface ShareCard {

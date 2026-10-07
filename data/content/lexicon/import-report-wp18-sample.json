@@ -1,0 +1,32 @@
+{
+  "batchId": "wp18-sample",
+  "source": "data/content/lexicon/samples/wp18-sample-batch.txt",
+  "dryRun": false,
+  "generatedAt": "2026-10-07T17:36:22.270Z",
+  "total": 3,
+  "success": [
+    {
+      "line": 5,
+      "slug": "zheng-guan",
+      "totalChars": 1074,
+      "warnings": [],
+      "upsert": true
+    },
+    {
+      "line": 26,
+      "slug": "hua-lu",
+      "totalChars": 1042,
+      "warnings": [],
+      "upsert": true
+    },
+    {
+      "line": 47,
+      "slug": "liu-yao",
+      "totalChars": 1113,
+      "warnings": [],
+      "upsert": false
+    }
+  ],
+  "failed": [],
+  "skipped": []
+}

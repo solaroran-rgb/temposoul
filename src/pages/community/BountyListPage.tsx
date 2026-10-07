@@ -3,12 +3,22 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { PageTopbar } from '@/components/PageTopbar';
 import { PrivacyHint } from '@/components/PrivacyHint';
-import { BOUNTY_SEED, BountyQuestion, BountyStatus } from '@/data/community/bounty';
+import type { BountyQuestion, BountyStatus } from '@/data/community/bounty';
 import { trackPageView, trackEvent } from '@/lib/analytics';
 
 type Status = 'idle' | 'loading' | 'ok' | 'ok-empty' | 'degraded' | 'error';
 type Filter = 'all' | BountyStatus;
 
+/**
+ * 真实数据源：GET /api/v1/community/bounty（N-09 canonical 端点）。
+ * 反假红线：取不到数据时呈诚实空态/降级态，不再回落本地 seed（seed 为演示用假数据）。
+ */
+async function fetchBounties(signal?: AbortSignal): Promise<BountyQuestion[]> {
+  const res = await fetch('/api/v1/community/bounty?limit=50', { signal });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const body = (await res.json()) as { items?: BountyQuestion[] };
+  return Array.isArray(body.items) ? body.items : [];
+}
 
 export default function BountyListPage() {
   const navigate = useNavigate();
@@ -18,11 +28,18 @@ export default function BountyListPage() {
 
   useEffect(() => {
     trackPageView('/community/bounty');
-    const timer = setTimeout(() => {
-      setQuestions(BOUNTY_SEED);
-      setStatus(BOUNTY_SEED.length > 0 ? 'ok' : 'ok-empty');
-    }, 0);
-    return () => clearTimeout(timer);
+    const controller = new AbortController();
+    fetchBounties(controller.signal)
+      .then((items) => {
+        setQuestions(items);
+        setStatus(items.length > 0 ? 'ok' : 'ok-empty');
+      })
+      .catch((e: unknown) => {
+        if (controller.signal.aborted) return;
+        // 端点未配置（503）→ 降级；其余 → 错误态
+        setStatus(String((e as Error)?.message ?? '').includes('503') ? 'degraded' : 'error');
+      });
+    return () => controller.abort();
   }, []);
 
   const filtered = questions
@@ -73,7 +90,11 @@ export default function BountyListPage() {
         })}
       </div>
 
-      {filtered.length > 0 ? (
+      {status === 'error' ? (
+        <div className="empty-tip">悬赏列表加载失败，请稍后重试</div>
+      ) : status === 'degraded' ? (
+        <div className="empty-tip">悬赏功能暂未开放（服务未配置）</div>
+      ) : filtered.length > 0 ? (
         <div className="bounty-list">
           {filtered.map((question) => (
             <div key={question.id} className="bounty-card">

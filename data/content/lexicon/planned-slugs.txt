@@ -1,0 +1,60 @@
+# 待建 slug 清单（C-LINK 白名单）
+# 用途：WP-18 720 条量产前，内链可指向「已规划但未入库」的条目。
+# 规则：slug 一旦入库即从本清单移除（由 import-content 维护）；不在库也不在本清单 → 判定死链。
+# 维护：每批导入后人工复核，避免清单无限膨胀。
+
+# ── 十神格局 ──
+zheng-guan
+qi-sha
+zheng-cai
+pian-cai
+zheng-yin
+pian-yin
+shi-shen
+shang-guan
+bi-jian
+jie-cai
+ri-zhu
+shi-shen-ge-ju
+
+# ── 八字基础 ──
+wu-xing-sheng-ke
+tian-gan
+di-zhi
+na-yin
+shen-sha
+da-yun
+liu-nian
+yong-shen
+ri-zhu-qiang-ruo
+
+# ── 紫微 ──
+hua-lu
+hua-quan
+hua-ke
+hua-ji
+zi-wei-xing
+shi-er-gong
+si-hua
+da-xian
+ming-pan
+
+# ── 卜筮 / 三式 ──
+liu-yao
+mei-hua-yi-shu
+qi-men-dun-jia
+tai-yi
+da-liu-ren
+gua-xiang
+dong-gua
+
+# ── 风水 / 姓名 / 星象 / 塔罗 / 历法 ──
+xuan-kong
+ba-zhai
+wu-xing-xing-ming
+xing-ming-xue
+er-shi-ba-xing-xiu
+ta-luo-pai-zhen
+nong-li
+jie-qi
+gan-zhi

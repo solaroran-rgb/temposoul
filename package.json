@@ -37,7 +37,12 @@
     "verify:dist": "node scripts/verify-dist-integrity.mjs dist",
     "verify:seo": "node scripts/verify-dist-seo.mjs dist",
     "freeze:artifacts": "tsx --tsconfig tsconfig.app.json scripts/freeze-artifacts.ts",
-    "validate:routes": "tsx --tsconfig tsconfig.app.json scripts/validate-routes.ts"
+    "validate:routes": "tsx --tsconfig tsconfig.app.json scripts/validate-routes.ts",
+    "gate:compliance": "node scripts/gate-compliance.mjs",
+    "content:import": "node scripts/import-content.mjs",
+    "content:verify": "node scripts/verify-content.mjs",
+    "content:rollback": "node scripts/rollback-content.mjs",
+    "db:cascade": "node scripts/db/cascade-delete.mjs"
   },
   "dependencies": {
     "@temposoul/core": "workspace:*",
