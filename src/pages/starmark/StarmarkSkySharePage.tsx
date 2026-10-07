@@ -89,7 +89,7 @@ export function StarmarkSkySharePage() {
           · 证书库为 P0 进程内内存实现，冷启动后无历史证书，持久化（KV）待接；
         </p>
         <p style={{ margin: 0 }}>
-          · 「内容模板待填充」：正式证书出图端点 /api/starmark/sky/:cert_id 与分享版式留后续批次。
+          · 正式证书出图端点 /api/starmark/sky/:cert_id 与分享版式留后续批次（当前显示本页内嵌说明）。
         </p>
       </div>
 
