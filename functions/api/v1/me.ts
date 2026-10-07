@@ -1,10 +1,10 @@
-import { readIdentity } from '../../../src/lib/server/auth';
+import { readIdentityWithSession } from '../../../src/lib/server/auth';
 import { listUserTasks, deleteUserData } from '../../../src/lib/server/report/store';
 
 export const onRequestGet: PagesFunction<Env> = async (context) => {
   const token = context.request.headers.get('Authorization')?.replace('Bearer ', '');
   const identity = token
-    ? await readIdentity(token, context.env.AUTH_SECRET).catch(() => null)
+    ? await readIdentityWithSession(token, context.env.AUTH_SECRET, context.env.AUTH_KV).catch(() => null)
     : null;
   if (!identity) return new Response(JSON.stringify({ error: 'unauthorized' }), { status: 401 });
 
@@ -31,7 +31,7 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
 export const onRequestDelete: PagesFunction<Env> = async (context) => {
   const token = context.request.headers.get('Authorization')?.replace('Bearer ', '');
   const identity = token
-    ? await readIdentity(token, context.env.AUTH_SECRET).catch(() => null)
+    ? await readIdentityWithSession(token, context.env.AUTH_SECRET, context.env.AUTH_KV).catch(() => null)
     : null;
   if (!identity) return new Response(JSON.stringify({ error: 'unauthorized' }), { status: 401 });
 

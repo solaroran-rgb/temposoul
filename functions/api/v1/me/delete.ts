@@ -11,7 +11,7 @@
  * 未鉴权：一律 401。二次确认失败：403。限流：每用户 5 次/分钟（复用 GEO_CACHE）。
  */
 
-import { readIdentity } from '../../../../src/lib/server/auth';
+import { readIdentityWithSession, type SessionKV } from '../../../../src/lib/server/auth';
 import {
   CONFIRM_TOKEN_TTL_SEC,
   issueDeleteConfirmToken,
@@ -50,12 +50,13 @@ async function readJson(req: Request): Promise<Record<string, unknown>> {
 async function authedUser(
   request: Request,
   secret: string,
+  kv?: SessionKV,
 ): Promise<{ userId: string; email?: string } | null> {
   const auth = request.headers.get('Authorization') ?? '';
   const token = auth.startsWith('Bearer ') ? auth.slice(7) : '';
   if (!token) return null;
   try {
-    const identity = await readIdentity(token, secret);
+    const identity = await readIdentityWithSession(token, secret, kv);
     if (!identity?.sub) return null;
     return { userId: identity.sub, email: identity.email };
   } catch {
@@ -84,7 +85,7 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     return json({ error: 'service_unavailable' }, 503);
   }
 
-  const user = await authedUser(request, env.AUTH_SECRET);
+  const user = await authedUser(request, env.AUTH_SECRET, env.AUTH_KV);
   if (!user) return json({ error: 'unauthorized' }, 401);
 
   if (await rateLimited(env, user.userId)) {

@@ -1,4 +1,4 @@
-import { readIdentity } from '../../../src/lib/server/auth';
+import { readIdentityWithSession } from '../../../src/lib/server/auth';
 
 interface Env {
   AUTH_SECRET?: string;
@@ -14,7 +14,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   const token = authHeader.slice(7);
   let userId: string;
   try {
-    const identity = await readIdentity(token, env.AUTH_SECRET || '');
+    const identity = await readIdentityWithSession(token, env.AUTH_SECRET || '', env.AUTH_KV);
     userId = identity.sub || '';
   } catch {
     return Response.json({ error: 'unauthorized' }, { status: 401 });

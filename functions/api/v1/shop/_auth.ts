@@ -4,7 +4,7 @@
  * - 管理员：复用社区模块的 requireAdmin（X-Admin-Token = HMAC(AUTH_SECRET,'community-admin')）
  */
 
-import { readIdentity, type Identity } from '../../../../src/lib/server/auth.ts';
+import { readIdentityWithSession, type Identity, type SessionKV } from '../../../../src/lib/server/auth.ts';
 import { requireAdmin } from '../../../../src/lib/server/community/auth.ts';
 
 export interface AuthedUser {
@@ -12,14 +12,15 @@ export interface AuthedUser {
   identity: Identity;
 }
 
-/** 提取并校验用户身份；失败返回 null（调用方回 401）。 */
-export async function authUser(request: Request, secret?: string): Promise<AuthedUser | null> {
+/** 提取并校验用户身份；失败返回 null（调用方回 401）。
+ *  传 kv 时启用 session:<sid> 双查（登出/吊销生效）；不传则仅令牌校验。 */
+export async function authUser(request: Request, secret?: string, kv?: SessionKV): Promise<AuthedUser | null> {
   if (!secret) return null;
   const auth = request.headers.get('Authorization') ?? '';
   const token = auth.startsWith('Bearer ') ? auth.slice(7) : '';
   if (!token) return null;
   try {
-    const identity = await readIdentity(token, secret);
+    const identity = await readIdentityWithSession(token, secret, kv);
     if (!identity?.sub) return null;
     return { userId: identity.sub, identity };
   } catch {

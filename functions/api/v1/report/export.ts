@@ -2,7 +2,7 @@
 // 选型背景：站点跑在 Cloudflare Pages（edge runtime），跑不了无头浏览器（puppeteer/playwright
 // 需要子进程与 CDP，edge 无此能力），所以正文 PDF 由客户端打印引擎产出。本端点是导出链路的
 // 服务端闸门：鉴权 + 限流 + 类型校验，未登录一律 401（满足「导出接口未登录被拒」验收项）。
-import { readIdentity } from '../../../../src/lib/server/auth';
+import { readIdentityWithSession } from '../../../../src/lib/server/auth';
 
 export const REPORT_EXPORT_TYPES = ['liunian', 'hehun', 'naming'] as const;
 export type ReportExportType = (typeof REPORT_EXPORT_TYPES)[number];
@@ -24,7 +24,7 @@ function json(body: unknown, status: number, headers?: Record<string, string>): 
 export const onRequestPost: PagesFunction<Env> = async (context) => {
   const bearer = context.request.headers.get('Authorization')?.replace(/^Bearer\s+/i, '') ?? '';
   const identity = bearer
-    ? await readIdentity(bearer, context.env.AUTH_SECRET).catch(() => null)
+    ? await readIdentityWithSession(bearer, context.env.AUTH_SECRET, context.env.AUTH_KV).catch(() => null)
     : null;
   if (!identity) return json({ error: 'unauthorized' }, 401);
 

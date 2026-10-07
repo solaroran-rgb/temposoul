@@ -1,5 +1,5 @@
 import { createCheckoutSession, resolveProductId } from '../../../src/lib/server/payment';
-import { readIdentity } from '../../../src/lib/server/auth';
+import { readIdentityWithSession } from '../../../src/lib/server/auth';
 
 interface Env {
   AUTH_SECRET?: string;
@@ -34,7 +34,7 @@ export const onRequest: PagesFunction<Env> = async ({ request, env }) => {
     if (authHeader.startsWith('Bearer ')) {
       const token = authHeader.slice(7);
       try {
-        const identity = await readIdentity(token, env.AUTH_SECRET || '');
+        const identity = await readIdentityWithSession(token, env.AUTH_SECRET || '', env.AUTH_KV);
         userId = identity.sub || 'anonymous';
         email = typeof identity.email === 'string' ? identity.email : undefined;
       } catch {

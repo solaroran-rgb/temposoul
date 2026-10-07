@@ -1,4 +1,4 @@
-import { readIdentity } from '../../../src/lib/server/auth';
+import { readIdentityWithSession } from '../../../src/lib/server/auth';
 
 export async function onRequestPost(context: EventContext<Env>) {
   const { request, env } = context;
@@ -12,7 +12,7 @@ export async function onRequestPost(context: EventContext<Env>) {
   }
 
   try {
-    const identity = await readIdentity(authHeader.split(' ')[1], env.AUTH_SECRET);
+    const identity = await readIdentityWithSession(authHeader.split(' ')[1], env.AUTH_SECRET, env.AUTH_KV);
     if (!identity) {
       return new Response(JSON.stringify({ error: 'invalid_token' }), {
         status: 401,

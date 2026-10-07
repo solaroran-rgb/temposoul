@@ -1,4 +1,4 @@
-import { readIdentity } from '../../../../src/lib/server/auth';
+import { readIdentityWithSession } from '../../../../src/lib/server/auth';
 
 // 精准匹配 DELETE /api/v1/me/data
 export async function onRequestDelete(context: EventContext<Env>) {
@@ -9,7 +9,7 @@ export async function onRequestDelete(context: EventContext<Env>) {
   }
 
   try {
-    const identity = await readIdentity(authHeader.split(' ')[1], env.AUTH_SECRET);
+    const identity = await readIdentityWithSession(authHeader.split(' ')[1], env.AUTH_SECRET, env.AUTH_KV);
     if (!identity) return new Response(JSON.stringify({ error: 'invalid_token' }), { status: 401 });
 
     const { userId, email } = identity;

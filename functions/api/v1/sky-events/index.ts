@@ -22,7 +22,7 @@ export async function onRequest(context: EventContext<Env>): Promise<Response> {
 
   // GET：列出本人事件
   if (request.method.toUpperCase() === 'GET') {
-    const user = await authUser(request, env.AUTH_SECRET);
+    const user = await authUser(request, env.AUTH_SECRET, env.AUTH_KV);
     if (!user) return json({ error: 'unauthorized' }, 401);
     const events = await listOwnSkyEvents(env, user.userId);
     return json({ events });
@@ -30,7 +30,7 @@ export async function onRequest(context: EventContext<Env>): Promise<Response> {
 
   // POST：创建
   if (request.method.toUpperCase() === 'POST') {
-    const user = await authUser(request, env.AUTH_SECRET);
+    const user = await authUser(request, env.AUTH_SECRET, env.AUTH_KV);
     if (!user) return json({ error: 'unauthorized' }, 401);
     const body = await readJson(request);
     const parsed = parseEventInput(body);
