@@ -28,7 +28,7 @@ tier1 = [r for r in rows if r['status'].startswith('tier1')]
 sha = hashlib.sha256(io.open(CSV, 'rb').read()).hexdigest()
 
 LANG_COLS = [('zh-CN', 'zh'), ('en', 'en'), ('es-ES', 'es'), ('ja', 'ja'),
-             ('ko-KN', 'ko'), ('th-TH', 'th'), ('vi-VN', 'vi')]
+             ('ko-KR', 'ko'), ('th-TH', 'th'), ('vi-VN', 'vi')]
 
 ts_rows = ',\n  '.join(
     '{ key: %s, pinyin: %s, category: %s, status: %s, i18n: { %s } }' % (
@@ -47,7 +47,7 @@ TS = '''/**
  * Scope: tier1 rows only (filled/partial/supplement)；tier2_pending 不入前端包（体积治理）。
  * 口径：docs/audit/2026-09-13-上线前加固/thread-03-多语言翻译实现与准确性/output/02_准确性口径定义.md
  */
-export type TermLocale = 'zh-CN' | 'en' | 'es-ES' | 'ja' | 'ko-KN' | 'th-TH' | 'vi-VN';
+export type TermLocale = 'zh-CN' | 'en' | 'es-ES' | 'ja' | 'ko-KR' | 'th-TH' | 'vi-VN';
 
 export interface TermEntry {
   key: string;

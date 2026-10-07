@@ -12,7 +12,7 @@ import {
 // 键变更属破坏性变更（T4「键即契约」），须四线程会签并同步更新本测试与快照。
 
 const KEY_RE = /^[a-z]+:[a-z0-9_]+:[a-z0-9_]+$/;
-const NON_ZH_LOCALES = ['en', 'es-ES', 'ja', 'ko-KN', 'th-TH', 'vi-VN'] as const;
+const NON_ZH_LOCALES = ['en', 'es-ES', 'ja', 'ko-KR', 'th-TH', 'vi-VN'] as const;
 
 test('术语表规模与键格式（T4 v1 三段式）', () => {
   assert.equal(TERMS_7LANG.length, 355, 'tier1 行数变化须有意为之并同步快照');
@@ -44,7 +44,7 @@ test('translateTerm 确定性抽查（干支/组合/宫位/卦名）', () => {
   assert.equal(translateTerm('甲子', 'en'), 'Jia Zi');
   assert.equal(translateTerm('甲子', 'vi-VN'), 'Giáp Tý');
   // 命宫 按 zh 是多键（基础/推命体系/十二宫），须按 archetype_key 查
-  assert.equal(translateTerm('ziwei:palace:minggong', 'ko-KN'), '명궁');
+  assert.equal(translateTerm('ziwei:palace:minggong', 'ko-KR'), '명궁');
   assert.equal(translateTerm('乾为天', 'vi-VN'), 'Càn');
   assert.equal(translateTerm('比肩', 'en'), 'Friend');
   assert.equal(translateTerm('立春', 'ja'), '立春');

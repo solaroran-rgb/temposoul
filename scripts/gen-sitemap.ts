@@ -12,6 +12,7 @@ import { writeFileSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getSitemapEntries, SITEMAP_COUNT } from '../src/data/content/bazi-ziwei/sitemap-entries';
+import { MULTILANG_PAGES } from '../src/data/seo-pages/multilang-pages';
 
 const ROOT = process.cwd();
 const OUT = join(ROOT, 'public', 'sitemap.xml');
@@ -74,6 +75,16 @@ function main(): void {
     out.push({ slug: e.slug, ...contentPriority(e.slug) });
   }
 
+  // T-17 子项A：7 语 × 21 系统 = 147 多语页位（/<lang>/<system>），独立 SEO 轨。
+  // 与既有 /wiki、/tools 无 slug 前缀冲突；固定 monthly / 0.6。
+  let multilangCount = 0;
+  for (const p of MULTILANG_PAGES) {
+    if (seen.has(p.slug)) continue;
+    seen.add(p.slug);
+    out.push({ slug: p.slug, changefreq: 'monthly', priority: '0.6' });
+    multilangCount += 1;
+  }
+
   const xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<!-- 生产域名：www.temposoul.com（由 scripts/gen-sitemap.ts 生成，勿手改） -->',
@@ -88,7 +99,7 @@ function main(): void {
 
   const shellCount = SHELL_ROUTES.length;
   console.log(`[gen-sitemap] 写入 ${OUT}`);
-  console.log(`  壳路由 ${shellCount} + 内容 ${content.length} = ${out.length} 条 URL（去重后）`);
+  console.log(`  壳路由 ${shellCount} + 内容 ${content.length} + 多语 ${multilangCount} = ${out.length} 条 URL（去重后）`);
 }
 
 const isMain = process.argv[1] === fileURLToPath(import.meta.url);

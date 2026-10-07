@@ -71,7 +71,7 @@ const SYSTEM_PROMPT_SINGLE = '请根据用户提供的排盘资料和问题直�
 const SYSTEM_PROMPT_CHAT = '用户的第一条消息是本次排盘资料和问题。请继续围绕这份资料解读。';
 
 // T3 多语言（M1）：AI 链路语言控制。口径见 docs/audit/2026-09-13-上线前加固/thread-03-*/output/02
-const SUPPORTED_AI_LOCALES = ['zh-CN', 'en', 'es-ES', 'ja', 'ko-KN', 'th-TH', 'vi-VN'] as const;
+const SUPPORTED_AI_LOCALES = ['zh-CN', 'en', 'es-ES', 'ja', 'ko-KR', 'th-TH', 'vi-VN'] as const;
 type SupportedAiLocale = (typeof SUPPORTED_AI_LOCALES)[number];
 
 // 语言标签与受限翻译档模板统一由 ./translate-templates 提供（L1/L3/L5 × 7 语言）。
@@ -103,6 +103,26 @@ async function buildTermInjection(inputText: string, locale: SupportedAiLocale):
   }
   if (matched.length === 0) return '';
   return `\n术语对照表（译文必须采用以下译法，key 为 archetype_key）：${JSON.stringify(matched)}`;
+}
+
+/**
+ * A8 白话映射库查表入口（T-17 子项 B）。
+ * key(mappingKey) → 白话三语；查不到返回明确信号（缺词条）。
+ * 只做静态查表，禁止在此引入运行时 LLM 直译关键术语（缺词条先补词库）。
+ */
+export type A8VernacularLookupResult =
+  | { found: true; text: string }
+  | { found: false; reason: 'missing-mapping' };
+
+export async function lookupA8Vernacular(
+  mappingKey: string,
+  locale: 'zhCN' | 'zhTW' | 'en',
+): Promise<A8VernacularLookupResult> {
+  const { getMappingVernacular } = await import('../../data/mappings/a8-wave1');
+  const text = getMappingVernacular(mappingKey, locale);
+  return text
+    ? { found: true, text }
+    : { found: false, reason: 'missing-mapping' };
 }
 
 /**

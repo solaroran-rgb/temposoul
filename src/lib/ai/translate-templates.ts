@@ -112,3 +112,21 @@ export function createTranslatedTagFilter() {
     },
   };
 }
+
+// ---- A8 白话映射库查表（T-17 子项 B）------------------------------------
+// 仅追加导出，不改上方既有模板/过滤契约。
+// getMappingVernacular(mappingKey, locale) 查 57 条白话三语；
+// getTermVernacular(lexiconKey, locale) 查引用某 lexicon 术语的全部映射白话；
+// 多义体系由调用方按 a8-polysemy.ts 的 senseId 选定 lexicon key 后再传入。
+// 查不到一律返回 null（= 缺词条信号），禁止运行时 LLM 直译关键术语。
+export {
+  getMappingVernacular,
+  getTermVernacular,
+  A8_WAVE1_MAPPINGS,
+  A8_ORPHAN_REFS,
+} from '../../data/mappings/a8-wave1';
+export type {
+  A8MappingEntry,
+  A8Vernacular,
+  A8VernacularLocale,
+} from '../../data/mappings/a8-wave1';
