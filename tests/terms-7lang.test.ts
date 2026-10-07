@@ -15,7 +15,7 @@ const KEY_RE = /^[a-z]+:[a-z0-9_]+:[a-z0-9_]+$/;
 const NON_ZH_LOCALES = ['en', 'es-ES', 'ja', 'ko-KR', 'th-TH', 'vi-VN'] as const;
 
 test('术语表规模与键格式（T4 v1 三段式）', () => {
-  assert.equal(TERMS_7LANG.length, 355, 'tier1 行数变化须有意为之并同步快照');
+  assert.equal(TERMS_7LANG.length, 374, 'tier1 行数变化须有意为之并同步快照');
   const keys = TERMS_7LANG.map((entry) => entry.key);
   assert.equal(new Set(keys).size, keys.length, 'archetype_key 不得重复');
   for (const entry of TERMS_7LANG) {

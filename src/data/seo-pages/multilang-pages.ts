@@ -1185,13 +1185,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "これは伝統的な命理の見解であり、伝統文化の参考としてのみ提供され、いかなる意思決定の根拠となるものではありません。",
   },
   {
-    lang: "ja", system: "qizheng", systemName: "Qi Zheng Si Yu", slug: "/ja/qizheng",
-    title: "Qi Zheng Si Yu — TempoSoul",
-    description: "Qi Zheng Si Yu: traditional 命理 system presented as cultural reference only — TempoSoul.",
-    h1: "Qi Zheng Si Yu",
+    lang: "ja", system: "qizheng", systemName: "七政四余", slug: "/ja/qizheng",
+    title: "七政四余 — TempoSoul",
+    description: "七政四余: traditional 命理 system presented as cultural reference only — TempoSoul.",
+    h1: "七政四余",
     sections: [
       { heading: "Overview", paragraphs: [
-        "このページは伝統的な命理・占術体系「Qi Zheng Si Yu」を紹介します。出典のない部分では断定しません。文化参考のみです。",
+        "このページは伝統的な命理・占術体系「七政四余」を紹介します。出典のない部分では断定しません。文化参考のみです。",
       ] },
       { heading: "Core concepts", paragraphs: [
         "核心概念の用語（用語集より）：陰, 陽, 木, 火, 土, 金, 水, 比肩, 子, 午。いずれも傾向として読み、単一の吉凶を断定しません。",
@@ -1209,13 +1209,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "これは伝統的な命理の見解であり、伝統文化の参考としてのみ提供され、いかなる意思決定の根拠となるものではありません。",
   },
   {
-    lang: "ja", system: "taiyi", systemName: "Tai Yi Shen Shu", slug: "/ja/taiyi",
-    title: "Tai Yi Shen Shu — TempoSoul",
-    description: "Tai Yi Shen Shu: traditional 命理 system presented as cultural reference only — TempoSoul.",
-    h1: "Tai Yi Shen Shu",
+    lang: "ja", system: "taiyi", systemName: "太乙神数", slug: "/ja/taiyi",
+    title: "太乙神数 — TempoSoul",
+    description: "太乙神数: traditional 命理 system presented as cultural reference only — TempoSoul.",
+    h1: "太乙神数",
     sections: [
       { heading: "Overview", paragraphs: [
-        "このページは伝統的な命理・占術体系「Tai Yi Shen Shu」を紹介します。出典のない部分では断定しません。文化参考のみです。",
+        "このページは伝統的な命理・占術体系「太乙神数」を紹介します。出典のない部分では断定しません。文化参考のみです。",
       ] },
       { heading: "Core concepts", paragraphs: [
         "核心概念の用語（用語集より）：陰, 陽, 木, 火, 土, 金, 水, 比肩, 子, 午。いずれも傾向として読み、単一の吉凶を断定しません。",
@@ -1233,13 +1233,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "これは伝統的な命理の見解であり、伝統文化の参考としてのみ提供され、いかなる意思決定の根拠となるものではありません。",
   },
   {
-    lang: "ja", system: "huangji-jingshi", systemName: "Huangji Jingshi", slug: "/ja/huangji-jingshi",
-    title: "Huangji Jingshi — TempoSoul",
-    description: "Huangji Jingshi: traditional 命理 system presented as cultural reference only — TempoSoul.",
-    h1: "Huangji Jingshi",
+    lang: "ja", system: "huangji-jingshi", systemName: "皇極経世", slug: "/ja/huangji-jingshi",
+    title: "皇極経世 — TempoSoul",
+    description: "皇極経世: traditional 命理 system presented as cultural reference only — TempoSoul.",
+    h1: "皇極経世",
     sections: [
       { heading: "Overview", paragraphs: [
-        "このページは伝統的な命理・占術体系「Huangji Jingshi」を紹介します。出典のない部分では断定しません。文化参考のみです。",
+        "このページは伝統的な命理・占術体系「皇極経世」を紹介します。出典のない部分では断定しません。文化参考のみです。",
       ] },
       { heading: "Core concepts", paragraphs: [
         "核心概念の用語（用語集より）：陰, 陽, 木, 火, 土, 金, 水, 比肩, 子, 午。いずれも傾向として読み、単一の吉凶を断定しません。",
@@ -1257,13 +1257,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "これは伝統的な命理の見解であり、伝統文化の参考としてのみ提供され、いかなる意思決定の根拠となるものではありません。",
   },
   {
-    lang: "ja", system: "wuyun-liuqi", systemName: "Wu Yun Liu Qi", slug: "/ja/wuyun-liuqi",
-    title: "Wu Yun Liu Qi — TempoSoul",
-    description: "Wu Yun Liu Qi: traditional 命理 system presented as cultural reference only — TempoSoul.",
-    h1: "Wu Yun Liu Qi",
+    lang: "ja", system: "wuyun-liuqi", systemName: "五運六気", slug: "/ja/wuyun-liuqi",
+    title: "五運六気 — TempoSoul",
+    description: "五運六気: traditional 命理 system presented as cultural reference only — TempoSoul.",
+    h1: "五運六気",
     sections: [
       { heading: "Overview", paragraphs: [
-        "このページは伝統的な命理・占術体系「Wu Yun Liu Qi」を紹介します。出典のない部分では断定しません。文化参考のみです。",
+        "このページは伝統的な命理・占術体系「五運六気」を紹介します。出典のない部分では断定しません。文化参考のみです。",
       ] },
       { heading: "Core concepts", paragraphs: [
         "核心概念の用語（用語集より）：陰, 陽, 木, 火, 土, 金, 水, 比肩, 子, 午。いずれも傾向として読み、単一の吉凶を断定しません。",
@@ -1305,13 +1305,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "これは伝統的な命理の見解であり、伝統文化の参考としてのみ提供され、いかなる意思決定の根拠となるものではありません。",
   },
   {
-    lang: "ja", system: "qimen", systemName: "Qi Men Dun Jia", slug: "/ja/qimen",
-    title: "Qi Men Dun Jia — TempoSoul",
-    description: "Qi Men Dun Jia: traditional 占卜 system presented as cultural reference only — TempoSoul.",
-    h1: "Qi Men Dun Jia",
+    lang: "ja", system: "qimen", systemName: "奇門遁甲", slug: "/ja/qimen",
+    title: "奇門遁甲 — TempoSoul",
+    description: "奇門遁甲: traditional 占卜 system presented as cultural reference only — TempoSoul.",
+    h1: "奇門遁甲",
     sections: [
       { heading: "Overview", paragraphs: [
-        "このページは伝統的な命理・占術体系「Qi Men Dun Jia」を紹介します。出典のない部分では断定しません。文化参考のみです。",
+        "このページは伝統的な命理・占術体系「奇門遁甲」を紹介します。出典のない部分では断定しません。文化参考のみです。",
       ] },
       { heading: "Core concepts", paragraphs: [
         "核心概念の用語（用語集より）：陰, 陽, 木, 火, 土, 金, 水, 比肩, 子, 午。いずれも傾向として読み、単一の吉凶を断定しません。",
@@ -1329,13 +1329,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "これは伝統的な命理の見解であり、伝統文化の参考としてのみ提供され、いかなる意思決定の根拠となるものではありません。",
   },
   {
-    lang: "ja", system: "liuyao", systemName: "Liu Yao Divination", slug: "/ja/liuyao",
-    title: "Liu Yao Divination — TempoSoul",
-    description: "Liu Yao Divination: traditional 占卜 system presented as cultural reference only — TempoSoul.",
-    h1: "Liu Yao Divination",
+    lang: "ja", system: "liuyao", systemName: "六爻", slug: "/ja/liuyao",
+    title: "六爻 — TempoSoul",
+    description: "六爻: traditional 占卜 system presented as cultural reference only — TempoSoul.",
+    h1: "六爻",
     sections: [
       { heading: "Overview", paragraphs: [
-        "このページは伝統的な命理・占術体系「Liu Yao Divination」を紹介します。出典のない部分では断定しません。文化参考のみです。",
+        "このページは伝統的な命理・占術体系「六爻」を紹介します。出典のない部分では断定しません。文化参考のみです。",
       ] },
       { heading: "Core concepts", paragraphs: [
         "核心概念の用語（用語集より）：陰, 陽, 木, 火, 土, 金, 水, 比肩, 子, 午。いずれも傾向として読み、単一の吉凶を断定しません。",
@@ -1353,13 +1353,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "これは伝統的な命理の見解であり、伝統文化の参考としてのみ提供され、いかなる意思決定の根拠となるものではありません。",
   },
   {
-    lang: "ja", system: "meihua", systemName: "Mei Hua Yi Shu", slug: "/ja/meihua",
-    title: "Mei Hua Yi Shu — TempoSoul",
-    description: "Mei Hua Yi Shu: traditional 占卜 system presented as cultural reference only — TempoSoul.",
-    h1: "Mei Hua Yi Shu",
+    lang: "ja", system: "meihua", systemName: "梅花易数", slug: "/ja/meihua",
+    title: "梅花易数 — TempoSoul",
+    description: "梅花易数: traditional 占卜 system presented as cultural reference only — TempoSoul.",
+    h1: "梅花易数",
     sections: [
       { heading: "Overview", paragraphs: [
-        "このページは伝統的な命理・占術体系「Mei Hua Yi Shu」を紹介します。出典のない部分では断定しません。文化参考のみです。",
+        "このページは伝統的な命理・占術体系「梅花易数」を紹介します。出典のない部分では断定しません。文化参考のみです。",
       ] },
       { heading: "Core concepts", paragraphs: [
         "核心概念の用語（用語集より）：陰, 陽, 木, 火, 土, 金, 水, 比肩, 子, 午。いずれも傾向として読み、単一の吉凶を断定しません。",
@@ -1377,13 +1377,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "これは伝統的な命理の見解であり、伝統文化の参考としてのみ提供され、いかなる意思決定の根拠となるものではありません。",
   },
   {
-    lang: "ja", system: "xiaoliuren", systemName: "Xiao Liu Ren", slug: "/ja/xiaoliuren",
-    title: "Xiao Liu Ren — TempoSoul",
-    description: "Xiao Liu Ren: traditional 占卜 system presented as cultural reference only — TempoSoul.",
-    h1: "Xiao Liu Ren",
+    lang: "ja", system: "xiaoliuren", systemName: "小六壬", slug: "/ja/xiaoliuren",
+    title: "小六壬 — TempoSoul",
+    description: "小六壬: traditional 占卜 system presented as cultural reference only — TempoSoul.",
+    h1: "小六壬",
     sections: [
       { heading: "Overview", paragraphs: [
-        "このページは伝統的な命理・占術体系「Xiao Liu Ren」を紹介します。出典のない部分では断定しません。文化参考のみです。",
+        "このページは伝統的な命理・占術体系「小六壬」を紹介します。出典のない部分では断定しません。文化参考のみです。",
       ] },
       { heading: "Core concepts", paragraphs: [
         "核心概念の用語（用語集より）：陰, 陽, 木, 火, 土, 金, 水, 比肩, 子, 午。いずれも傾向として読み、単一の吉凶を断定しません。",
@@ -1401,13 +1401,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "これは伝統的な命理の見解であり、伝統文化の参考としてのみ提供され、いかなる意思決定の根拠となるものではありません。",
   },
   {
-    lang: "ja", system: "jinkoujue", systemName: "Jin Kou Jue", slug: "/ja/jinkoujue",
-    title: "Jin Kou Jue — TempoSoul",
-    description: "Jin Kou Jue: traditional 占卜 system presented as cultural reference only — TempoSoul.",
-    h1: "Jin Kou Jue",
+    lang: "ja", system: "jinkoujue", systemName: "金口訣", slug: "/ja/jinkoujue",
+    title: "金口訣 — TempoSoul",
+    description: "金口訣: traditional 占卜 system presented as cultural reference only — TempoSoul.",
+    h1: "金口訣",
     sections: [
       { heading: "Overview", paragraphs: [
-        "このページは伝統的な命理・占術体系「Jin Kou Jue」を紹介します。出典のない部分では断定しません。文化参考のみです。",
+        "このページは伝統的な命理・占術体系「金口訣」を紹介します。出典のない部分では断定しません。文化参考のみです。",
       ] },
       { heading: "Core concepts", paragraphs: [
         "核心概念の用語（用語集より）：陰, 陽, 木, 火, 土, 金, 水, 比肩, 子, 午。いずれも傾向として読み、単一の吉凶を断定しません。",
@@ -1425,13 +1425,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "これは伝統的な命理の見解であり、伝統文化の参考としてのみ提供され、いかなる意思決定の根拠となるものではありません。",
   },
   {
-    lang: "ja", system: "liuren", systemName: "Da Liu Ren", slug: "/ja/liuren",
-    title: "Da Liu Ren — TempoSoul",
-    description: "Da Liu Ren: traditional 占卜 system presented as cultural reference only — TempoSoul.",
-    h1: "Da Liu Ren",
+    lang: "ja", system: "liuren", systemName: "大六壬", slug: "/ja/liuren",
+    title: "大六壬 — TempoSoul",
+    description: "大六壬: traditional 占卜 system presented as cultural reference only — TempoSoul.",
+    h1: "大六壬",
     sections: [
       { heading: "Overview", paragraphs: [
-        "このページは伝統的な命理・占術体系「Da Liu Ren」を紹介します。出典のない部分では断定しません。文化参考のみです。",
+        "このページは伝統的な命理・占術体系「大六壬」を紹介します。出典のない部分では断定しません。文化参考のみです。",
       ] },
       { heading: "Core concepts", paragraphs: [
         "核心概念の用語（用語集より）：陰, 陽, 木, 火, 土, 金, 水, 比肩, 子, 午。いずれも傾向として読み、単一の吉凶を断定しません。",
@@ -1449,13 +1449,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "これは伝統的な命理の見解であり、伝統文化の参考としてのみ提供され、いかなる意思決定の根拠となるものではありません。",
   },
   {
-    lang: "ja", system: "tarot", systemName: "Tarot", slug: "/ja/tarot",
-    title: "Tarot — TempoSoul",
-    description: "Tarot: traditional 占卜 system presented as cultural reference only — TempoSoul.",
-    h1: "Tarot",
+    lang: "ja", system: "tarot", systemName: "タロット", slug: "/ja/tarot",
+    title: "タロット — TempoSoul",
+    description: "タロット: traditional 占卜 system presented as cultural reference only — TempoSoul.",
+    h1: "タロット",
     sections: [
       { heading: "Overview", paragraphs: [
-        "このページは伝統的な命理・占術体系「Tarot」を紹介します。出典のない部分では断定しません。文化参考のみです。",
+        "このページは伝統的な命理・占術体系「タロット」を紹介します。出典のない部分では断定しません。文化参考のみです。",
       ] },
       { heading: "Core concepts", paragraphs: [
         "核心概念の用語（用語集より）：陰, 陽, 木, 火, 土, 金, 水, 比肩, 子, 午。いずれも傾向として読み、単一の吉凶を断定しません。",
@@ -1473,13 +1473,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "これは伝統的な命理の見解であり、伝統文化の参考としてのみ提供され、いかなる意思決定の根拠となるものではありません。",
   },
   {
-    lang: "ja", system: "lenormand", systemName: "Lenormand", slug: "/ja/lenormand",
-    title: "Lenormand — TempoSoul",
-    description: "Lenormand: traditional 占卜 system presented as cultural reference only — TempoSoul.",
-    h1: "Lenormand",
+    lang: "ja", system: "lenormand", systemName: "ルノルマン", slug: "/ja/lenormand",
+    title: "ルノルマン — TempoSoul",
+    description: "ルノルマン: traditional 占卜 system presented as cultural reference only — TempoSoul.",
+    h1: "ルノルマン",
     sections: [
       { heading: "Overview", paragraphs: [
-        "このページは伝統的な命理・占術体系「Lenormand」を紹介します。出典のない部分では断定しません。文化参考のみです。",
+        "このページは伝統的な命理・占術体系「ルノルマン」を紹介します。出典のない部分では断定しません。文化参考のみです。",
       ] },
       { heading: "Core concepts", paragraphs: [
         "核心概念の用語（用語集より）：陰, 陽, 木, 火, 土, 金, 水, 比肩, 子, 午。いずれも傾向として読み、単一の吉凶を断定しません。",
@@ -1545,13 +1545,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "これは伝統的な命理の見解であり、伝統文化の参考としてのみ提供され、いかなる意思決定の根拠となるものではありません。",
   },
   {
-    lang: "ja", system: "bazhai", systemName: "Ba Zhai (Eight Mansions)", slug: "/ja/bazhai",
-    title: "Ba Zhai (Eight Mansions) — TempoSoul",
-    description: "Ba Zhai (Eight Mansions): traditional 环境 system presented as cultural reference only — TempoSoul.",
-    h1: "Ba Zhai (Eight Mansions)",
+    lang: "ja", system: "bazhai", systemName: "八宅", slug: "/ja/bazhai",
+    title: "八宅 — TempoSoul",
+    description: "八宅: traditional 环境 system presented as cultural reference only — TempoSoul.",
+    h1: "八宅",
     sections: [
       { heading: "Overview", paragraphs: [
-        "このページは伝統的な命理・占術体系「Ba Zhai (Eight Mansions)」を紹介します。出典のない部分では断定しません。文化参考のみです。",
+        "このページは伝統的な命理・占術体系「八宅」を紹介します。出典のない部分では断定しません。文化参考のみです。",
       ] },
       { heading: "Core concepts", paragraphs: [
         "核心概念の用語（用語集より）：陰, 陽, 木, 火, 土, 金, 水, 比肩, 子, 午。いずれも傾向として読み、単一の吉凶を断定しません。",
@@ -1569,13 +1569,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "これは伝統的な命理の見解であり、伝統文化の参考としてのみ提供され、いかなる意思決定の根拠となるものではありません。",
   },
   {
-    lang: "ja", system: "xuankong", systemName: "Xuan Kong Flying Stars", slug: "/ja/xuankong",
-    title: "Xuan Kong Flying Stars — TempoSoul",
-    description: "Xuan Kong Flying Stars: traditional 环境 system presented as cultural reference only — TempoSoul.",
-    h1: "Xuan Kong Flying Stars",
+    lang: "ja", system: "xuankong", systemName: "玄空飛星", slug: "/ja/xuankong",
+    title: "玄空飛星 — TempoSoul",
+    description: "玄空飛星: traditional 环境 system presented as cultural reference only — TempoSoul.",
+    h1: "玄空飛星",
     sections: [
       { heading: "Overview", paragraphs: [
-        "このページは伝統的な命理・占術体系「Xuan Kong Flying Stars」を紹介します。出典のない部分では断定しません。文化参考のみです。",
+        "このページは伝統的な命理・占術体系「玄空飛星」を紹介します。出典のない部分では断定しません。文化参考のみです。",
       ] },
       { heading: "Core concepts", paragraphs: [
         "核心概念の用語（用語集より）：陰, 陽, 木, 火, 土, 金, 水, 比肩, 子, 午。いずれも傾向として読み、単一の吉凶を断定しません。",
@@ -1593,13 +1593,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "これは伝統的な命理の見解であり、伝統文化の参考としてのみ提供され、いかなる意思決定の根拠となるものではありません。",
   },
   {
-    lang: "ja", system: "residential", systemName: "Residential Feng Shui", slug: "/ja/residential",
-    title: "Residential Feng Shui — TempoSoul",
-    description: "Residential Feng Shui: traditional 环境 system presented as cultural reference only — TempoSoul.",
-    h1: "Residential Feng Shui",
+    lang: "ja", system: "residential", systemName: "住宅風水", slug: "/ja/residential",
+    title: "住宅風水 — TempoSoul",
+    description: "住宅風水: traditional 环境 system presented as cultural reference only — TempoSoul.",
+    h1: "住宅風水",
     sections: [
       { heading: "Overview", paragraphs: [
-        "このページは伝統的な命理・占術体系「Residential Feng Shui」を紹介します。出典のない部分では断定しません。文化参考のみです。",
+        "このページは伝統的な命理・占術体系「住宅風水」を紹介します。出典のない部分では断定しません。文化参考のみです。",
       ] },
       { heading: "Core concepts", paragraphs: [
         "核心概念の用語（用語集より）：陰, 陽, 木, 火, 土, 金, 水, 比肩, 子, 午。いずれも傾向として読み、単一の吉凶を断定しません。",
@@ -1689,13 +1689,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "이 콘텐츠는 전통 명리 관점으로, 전통 문화 참고용으로만 제공되며 어떠한 의사결정 근거도 되지 않습니다.",
   },
   {
-    lang: "ko", system: "qizheng", systemName: "Qi Zheng Si Yu", slug: "/ko/qizheng",
-    title: "Qi Zheng Si Yu — TempoSoul",
-    description: "Qi Zheng Si Yu: traditional 命理 system presented as cultural reference only — TempoSoul.",
-    h1: "Qi Zheng Si Yu",
+    lang: "ko", system: "qizheng", systemName: "칠정사여", slug: "/ko/qizheng",
+    title: "칠정사여 — TempoSoul",
+    description: "칠정사여: traditional 命理 system presented as cultural reference only — TempoSoul.",
+    h1: "칠정사여",
     sections: [
       { heading: "Overview", paragraphs: [
-        "이 페이지는 전통 명리·점술 체계「Qi Zheng Si Yu」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
+        "이 페이지는 전통 명리·점술 체계「칠정사여」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "핵심 개념 용어(용어집 출처): 음, 양, 목, 화, 토, 금, 수, 비견, 자, 오. 모두 경향으로 읽을 뿐 단일한 길흉을 단정하지 않습니다.",
@@ -1713,13 +1713,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "이 콘텐츠는 전통 명리 관점으로, 전통 문화 참고용으로만 제공되며 어떠한 의사결정 근거도 되지 않습니다.",
   },
   {
-    lang: "ko", system: "taiyi", systemName: "Tai Yi Shen Shu", slug: "/ko/taiyi",
-    title: "Tai Yi Shen Shu — TempoSoul",
-    description: "Tai Yi Shen Shu: traditional 命理 system presented as cultural reference only — TempoSoul.",
-    h1: "Tai Yi Shen Shu",
+    lang: "ko", system: "taiyi", systemName: "태을신수", slug: "/ko/taiyi",
+    title: "태을신수 — TempoSoul",
+    description: "태을신수: traditional 命理 system presented as cultural reference only — TempoSoul.",
+    h1: "태을신수",
     sections: [
       { heading: "Overview", paragraphs: [
-        "이 페이지는 전통 명리·점술 체계「Tai Yi Shen Shu」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
+        "이 페이지는 전통 명리·점술 체계「태을신수」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "핵심 개념 용어(용어집 출처): 음, 양, 목, 화, 토, 금, 수, 비견, 자, 오. 모두 경향으로 읽을 뿐 단일한 길흉을 단정하지 않습니다.",
@@ -1737,13 +1737,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "이 콘텐츠는 전통 명리 관점으로, 전통 문화 참고용으로만 제공되며 어떠한 의사결정 근거도 되지 않습니다.",
   },
   {
-    lang: "ko", system: "huangji-jingshi", systemName: "Huangji Jingshi", slug: "/ko/huangji-jingshi",
-    title: "Huangji Jingshi — TempoSoul",
-    description: "Huangji Jingshi: traditional 命理 system presented as cultural reference only — TempoSoul.",
-    h1: "Huangji Jingshi",
+    lang: "ko", system: "huangji-jingshi", systemName: "황극경세", slug: "/ko/huangji-jingshi",
+    title: "황극경세 — TempoSoul",
+    description: "황극경세: traditional 命理 system presented as cultural reference only — TempoSoul.",
+    h1: "황극경세",
     sections: [
       { heading: "Overview", paragraphs: [
-        "이 페이지는 전통 명리·점술 체계「Huangji Jingshi」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
+        "이 페이지는 전통 명리·점술 체계「황극경세」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "핵심 개념 용어(용어집 출처): 음, 양, 목, 화, 토, 금, 수, 비견, 자, 오. 모두 경향으로 읽을 뿐 단일한 길흉을 단정하지 않습니다.",
@@ -1761,13 +1761,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "이 콘텐츠는 전통 명리 관점으로, 전통 문화 참고용으로만 제공되며 어떠한 의사결정 근거도 되지 않습니다.",
   },
   {
-    lang: "ko", system: "wuyun-liuqi", systemName: "Wu Yun Liu Qi", slug: "/ko/wuyun-liuqi",
-    title: "Wu Yun Liu Qi — TempoSoul",
-    description: "Wu Yun Liu Qi: traditional 命理 system presented as cultural reference only — TempoSoul.",
-    h1: "Wu Yun Liu Qi",
+    lang: "ko", system: "wuyun-liuqi", systemName: "오운육기", slug: "/ko/wuyun-liuqi",
+    title: "오운육기 — TempoSoul",
+    description: "오운육기: traditional 命理 system presented as cultural reference only — TempoSoul.",
+    h1: "오운육기",
     sections: [
       { heading: "Overview", paragraphs: [
-        "이 페이지는 전통 명리·점술 체계「Wu Yun Liu Qi」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
+        "이 페이지는 전통 명리·점술 체계「오운육기」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "핵심 개념 용어(용어집 출처): 음, 양, 목, 화, 토, 금, 수, 비견, 자, 오. 모두 경향으로 읽을 뿐 단일한 길흉을 단정하지 않습니다.",
@@ -1809,13 +1809,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "이 콘텐츠는 전통 명리 관점으로, 전통 문화 참고용으로만 제공되며 어떠한 의사결정 근거도 되지 않습니다.",
   },
   {
-    lang: "ko", system: "qimen", systemName: "Qi Men Dun Jia", slug: "/ko/qimen",
-    title: "Qi Men Dun Jia — TempoSoul",
-    description: "Qi Men Dun Jia: traditional 占卜 system presented as cultural reference only — TempoSoul.",
-    h1: "Qi Men Dun Jia",
+    lang: "ko", system: "qimen", systemName: "기문둔갑", slug: "/ko/qimen",
+    title: "기문둔갑 — TempoSoul",
+    description: "기문둔갑: traditional 占卜 system presented as cultural reference only — TempoSoul.",
+    h1: "기문둔갑",
     sections: [
       { heading: "Overview", paragraphs: [
-        "이 페이지는 전통 명리·점술 체계「Qi Men Dun Jia」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
+        "이 페이지는 전통 명리·점술 체계「기문둔갑」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "핵심 개념 용어(용어집 출처): 음, 양, 목, 화, 토, 금, 수, 비견, 자, 오. 모두 경향으로 읽을 뿐 단일한 길흉을 단정하지 않습니다.",
@@ -1833,13 +1833,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "이 콘텐츠는 전통 명리 관점으로, 전통 문화 참고용으로만 제공되며 어떠한 의사결정 근거도 되지 않습니다.",
   },
   {
-    lang: "ko", system: "liuyao", systemName: "Liu Yao Divination", slug: "/ko/liuyao",
-    title: "Liu Yao Divination — TempoSoul",
-    description: "Liu Yao Divination: traditional 占卜 system presented as cultural reference only — TempoSoul.",
-    h1: "Liu Yao Divination",
+    lang: "ko", system: "liuyao", systemName: "육효", slug: "/ko/liuyao",
+    title: "육효 — TempoSoul",
+    description: "육효: traditional 占卜 system presented as cultural reference only — TempoSoul.",
+    h1: "육효",
     sections: [
       { heading: "Overview", paragraphs: [
-        "이 페이지는 전통 명리·점술 체계「Liu Yao Divination」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
+        "이 페이지는 전통 명리·점술 체계「육효」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "핵심 개념 용어(용어집 출처): 음, 양, 목, 화, 토, 금, 수, 비견, 자, 오. 모두 경향으로 읽을 뿐 단일한 길흉을 단정하지 않습니다.",
@@ -1857,13 +1857,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "이 콘텐츠는 전통 명리 관점으로, 전통 문화 참고용으로만 제공되며 어떠한 의사결정 근거도 되지 않습니다.",
   },
   {
-    lang: "ko", system: "meihua", systemName: "Mei Hua Yi Shu", slug: "/ko/meihua",
-    title: "Mei Hua Yi Shu — TempoSoul",
-    description: "Mei Hua Yi Shu: traditional 占卜 system presented as cultural reference only — TempoSoul.",
-    h1: "Mei Hua Yi Shu",
+    lang: "ko", system: "meihua", systemName: "매화역수", slug: "/ko/meihua",
+    title: "매화역수 — TempoSoul",
+    description: "매화역수: traditional 占卜 system presented as cultural reference only — TempoSoul.",
+    h1: "매화역수",
     sections: [
       { heading: "Overview", paragraphs: [
-        "이 페이지는 전통 명리·점술 체계「Mei Hua Yi Shu」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
+        "이 페이지는 전통 명리·점술 체계「매화역수」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "핵심 개념 용어(용어집 출처): 음, 양, 목, 화, 토, 금, 수, 비견, 자, 오. 모두 경향으로 읽을 뿐 단일한 길흉을 단정하지 않습니다.",
@@ -1881,13 +1881,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "이 콘텐츠는 전통 명리 관점으로, 전통 문화 참고용으로만 제공되며 어떠한 의사결정 근거도 되지 않습니다.",
   },
   {
-    lang: "ko", system: "xiaoliuren", systemName: "Xiao Liu Ren", slug: "/ko/xiaoliuren",
-    title: "Xiao Liu Ren — TempoSoul",
-    description: "Xiao Liu Ren: traditional 占卜 system presented as cultural reference only — TempoSoul.",
-    h1: "Xiao Liu Ren",
+    lang: "ko", system: "xiaoliuren", systemName: "소육임", slug: "/ko/xiaoliuren",
+    title: "소육임 — TempoSoul",
+    description: "소육임: traditional 占卜 system presented as cultural reference only — TempoSoul.",
+    h1: "소육임",
     sections: [
       { heading: "Overview", paragraphs: [
-        "이 페이지는 전통 명리·점술 체계「Xiao Liu Ren」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
+        "이 페이지는 전통 명리·점술 체계「소육임」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "핵심 개념 용어(용어집 출처): 음, 양, 목, 화, 토, 금, 수, 비견, 자, 오. 모두 경향으로 읽을 뿐 단일한 길흉을 단정하지 않습니다.",
@@ -1905,13 +1905,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "이 콘텐츠는 전통 명리 관점으로, 전통 문화 참고용으로만 제공되며 어떠한 의사결정 근거도 되지 않습니다.",
   },
   {
-    lang: "ko", system: "jinkoujue", systemName: "Jin Kou Jue", slug: "/ko/jinkoujue",
-    title: "Jin Kou Jue — TempoSoul",
-    description: "Jin Kou Jue: traditional 占卜 system presented as cultural reference only — TempoSoul.",
-    h1: "Jin Kou Jue",
+    lang: "ko", system: "jinkoujue", systemName: "금구결", slug: "/ko/jinkoujue",
+    title: "금구결 — TempoSoul",
+    description: "금구결: traditional 占卜 system presented as cultural reference only — TempoSoul.",
+    h1: "금구결",
     sections: [
       { heading: "Overview", paragraphs: [
-        "이 페이지는 전통 명리·점술 체계「Jin Kou Jue」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
+        "이 페이지는 전통 명리·점술 체계「금구결」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "핵심 개념 용어(용어집 출처): 음, 양, 목, 화, 토, 금, 수, 비견, 자, 오. 모두 경향으로 읽을 뿐 단일한 길흉을 단정하지 않습니다.",
@@ -1929,13 +1929,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "이 콘텐츠는 전통 명리 관점으로, 전통 문화 참고용으로만 제공되며 어떠한 의사결정 근거도 되지 않습니다.",
   },
   {
-    lang: "ko", system: "liuren", systemName: "Da Liu Ren", slug: "/ko/liuren",
-    title: "Da Liu Ren — TempoSoul",
-    description: "Da Liu Ren: traditional 占卜 system presented as cultural reference only — TempoSoul.",
-    h1: "Da Liu Ren",
+    lang: "ko", system: "liuren", systemName: "대육임", slug: "/ko/liuren",
+    title: "대육임 — TempoSoul",
+    description: "대육임: traditional 占卜 system presented as cultural reference only — TempoSoul.",
+    h1: "대육임",
     sections: [
       { heading: "Overview", paragraphs: [
-        "이 페이지는 전통 명리·점술 체계「Da Liu Ren」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
+        "이 페이지는 전통 명리·점술 체계「대육임」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "핵심 개념 용어(용어집 출처): 음, 양, 목, 화, 토, 금, 수, 비견, 자, 오. 모두 경향으로 읽을 뿐 단일한 길흉을 단정하지 않습니다.",
@@ -1953,13 +1953,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "이 콘텐츠는 전통 명리 관점으로, 전통 문화 참고용으로만 제공되며 어떠한 의사결정 근거도 되지 않습니다.",
   },
   {
-    lang: "ko", system: "tarot", systemName: "Tarot", slug: "/ko/tarot",
-    title: "Tarot — TempoSoul",
-    description: "Tarot: traditional 占卜 system presented as cultural reference only — TempoSoul.",
-    h1: "Tarot",
+    lang: "ko", system: "tarot", systemName: "타로", slug: "/ko/tarot",
+    title: "타로 — TempoSoul",
+    description: "타로: traditional 占卜 system presented as cultural reference only — TempoSoul.",
+    h1: "타로",
     sections: [
       { heading: "Overview", paragraphs: [
-        "이 페이지는 전통 명리·점술 체계「Tarot」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
+        "이 페이지는 전통 명리·점술 체계「타로」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "핵심 개념 용어(용어집 출처): 음, 양, 목, 화, 토, 금, 수, 비견, 자, 오. 모두 경향으로 읽을 뿐 단일한 길흉을 단정하지 않습니다.",
@@ -1977,13 +1977,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "이 콘텐츠는 전통 명리 관점으로, 전통 문화 참고용으로만 제공되며 어떠한 의사결정 근거도 되지 않습니다.",
   },
   {
-    lang: "ko", system: "lenormand", systemName: "Lenormand", slug: "/ko/lenormand",
-    title: "Lenormand — TempoSoul",
-    description: "Lenormand: traditional 占卜 system presented as cultural reference only — TempoSoul.",
-    h1: "Lenormand",
+    lang: "ko", system: "lenormand", systemName: "르놀만", slug: "/ko/lenormand",
+    title: "르놀만 — TempoSoul",
+    description: "르놀만: traditional 占卜 system presented as cultural reference only — TempoSoul.",
+    h1: "르놀만",
     sections: [
       { heading: "Overview", paragraphs: [
-        "이 페이지는 전통 명리·점술 체계「Lenormand」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
+        "이 페이지는 전통 명리·점술 체계「르놀만」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "핵심 개념 용어(용어집 출처): 음, 양, 목, 화, 토, 금, 수, 비견, 자, 오. 모두 경향으로 읽을 뿐 단일한 길흉을 단정하지 않습니다.",
@@ -2049,13 +2049,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "이 콘텐츠는 전통 명리 관점으로, 전통 문화 참고용으로만 제공되며 어떠한 의사결정 근거도 되지 않습니다.",
   },
   {
-    lang: "ko", system: "bazhai", systemName: "Ba Zhai (Eight Mansions)", slug: "/ko/bazhai",
-    title: "Ba Zhai (Eight Mansions) — TempoSoul",
-    description: "Ba Zhai (Eight Mansions): traditional 环境 system presented as cultural reference only — TempoSoul.",
-    h1: "Ba Zhai (Eight Mansions)",
+    lang: "ko", system: "bazhai", systemName: "팔택", slug: "/ko/bazhai",
+    title: "팔택 — TempoSoul",
+    description: "팔택: traditional 环境 system presented as cultural reference only — TempoSoul.",
+    h1: "팔택",
     sections: [
       { heading: "Overview", paragraphs: [
-        "이 페이지는 전통 명리·점술 체계「Ba Zhai (Eight Mansions)」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
+        "이 페이지는 전통 명리·점술 체계「팔택」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "핵심 개념 용어(용어집 출처): 음, 양, 목, 화, 토, 금, 수, 비견, 자, 오. 모두 경향으로 읽을 뿐 단일한 길흉을 단정하지 않습니다.",
@@ -2073,13 +2073,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "이 콘텐츠는 전통 명리 관점으로, 전통 문화 참고용으로만 제공되며 어떠한 의사결정 근거도 되지 않습니다.",
   },
   {
-    lang: "ko", system: "xuankong", systemName: "Xuan Kong Flying Stars", slug: "/ko/xuankong",
-    title: "Xuan Kong Flying Stars — TempoSoul",
-    description: "Xuan Kong Flying Stars: traditional 环境 system presented as cultural reference only — TempoSoul.",
-    h1: "Xuan Kong Flying Stars",
+    lang: "ko", system: "xuankong", systemName: "현공비성", slug: "/ko/xuankong",
+    title: "현공비성 — TempoSoul",
+    description: "현공비성: traditional 环境 system presented as cultural reference only — TempoSoul.",
+    h1: "현공비성",
     sections: [
       { heading: "Overview", paragraphs: [
-        "이 페이지는 전통 명리·점술 체계「Xuan Kong Flying Stars」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
+        "이 페이지는 전통 명리·점술 체계「현공비성」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "핵심 개념 용어(용어집 출처): 음, 양, 목, 화, 토, 금, 수, 비견, 자, 오. 모두 경향으로 읽을 뿐 단일한 길흉을 단정하지 않습니다.",
@@ -2097,13 +2097,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "이 콘텐츠는 전통 명리 관점으로, 전통 문화 참고용으로만 제공되며 어떠한 의사결정 근거도 되지 않습니다.",
   },
   {
-    lang: "ko", system: "residential", systemName: "Residential Feng Shui", slug: "/ko/residential",
-    title: "Residential Feng Shui — TempoSoul",
-    description: "Residential Feng Shui: traditional 环境 system presented as cultural reference only — TempoSoul.",
-    h1: "Residential Feng Shui",
+    lang: "ko", system: "residential", systemName: "주택풍수", slug: "/ko/residential",
+    title: "주택풍수 — TempoSoul",
+    description: "주택풍수: traditional 环境 system presented as cultural reference only — TempoSoul.",
+    h1: "주택풍수",
     sections: [
       { heading: "Overview", paragraphs: [
-        "이 페이지는 전통 명리·점술 체계「Residential Feng Shui」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
+        "이 페이지는 전통 명리·점술 체계「주택풍수」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "핵심 개념 용어(용어집 출처): 음, 양, 목, 화, 토, 금, 수, 비견, 자, 오. 모두 경향으로 읽을 뿐 단일한 길흉을 단정하지 않습니다.",
@@ -2457,13 +2457,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "เนื้อหานี้นำเสนอมุมมองโหราศาสตร์แบบดั้งเดิมเพื่อการอ้างอิงทางวัฒนธรรมเท่านั้น และไม่ใช่หลักฐานสำหรับการตัดสินใจใด ๆ",
   },
   {
-    lang: "th", system: "tarot", systemName: "Tarot", slug: "/th/tarot",
-    title: "Tarot — TempoSoul",
-    description: "Tarot: traditional 占卜 system presented as cultural reference only — TempoSoul.",
-    h1: "Tarot",
+    lang: "th", system: "tarot", systemName: "ไพ่ทาโรต์", slug: "/th/tarot",
+    title: "ไพ่ทาโรต์ — TempoSoul",
+    description: "ไพ่ทาโรต์: traditional 占卜 system presented as cultural reference only — TempoSoul.",
+    h1: "ไพ่ทาโรต์",
     sections: [
       { heading: "Overview", paragraphs: [
-        "หน้านี้นำเสนอระบบโหราศาสตร์และการทำนายแบบดั้งเดิม «Tarot» เฉพาะเพื่อการอ้างอิงทางวัฒนธรรม ไม่กล่าวอ้างในส่วนที่ไม่มีแหล่งอ้างอิง",
+        "หน้านี้นำเสนอระบบโหราศาสตร์และการทำนายแบบดั้งเดิม «ไพ่ทาโรต์» เฉพาะเพื่อการอ้างอิงทางวัฒนธรรม ไม่กล่าวอ้างในส่วนที่ไม่มีแหล่งอ้างอิง",
       ] },
       { heading: "Core concepts", paragraphs: [
         "คำศัพท์แนวคิดหลัก (จากคลังคำศัพท์): หยิน, หยาง, ไม้, ไฟ, ดิน, โลหะ, น้ำ, ปี้เจี้ยน, จื้อ, อู่ ทั้งหมดอ่านในเชิงแนวโน้ม ไม่ชี้ชะตาเพียงปัจจัยเดียว",
@@ -2697,13 +2697,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "Nội dung này trình bày quan điểm mệnh lý truyền thống, chỉ mang tính tham khảo văn hóa và không phải cơ sở cho bất kỳ quyết định nào.",
   },
   {
-    lang: "vi", system: "qizheng", systemName: "Qi Zheng Si Yu", slug: "/vi/qizheng",
-    title: "Qi Zheng Si Yu — TempoSoul",
-    description: "Qi Zheng Si Yu: traditional 命理 system presented as cultural reference only — TempoSoul.",
-    h1: "Qi Zheng Si Yu",
+    lang: "vi", system: "qizheng", systemName: "Thất Chính Tư Dư", slug: "/vi/qizheng",
+    title: "Thất Chính Tư Dư — TempoSoul",
+    description: "Thất Chính Tư Dư: traditional 命理 system presented as cultural reference only — TempoSoul.",
+    h1: "Thất Chính Tư Dư",
     sections: [
       { heading: "Overview", paragraphs: [
-        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Qi Zheng Si Yu», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
+        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Thất Chính Tư Dư», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "Thuật ngữ khái niệm cốt lõi (từ ngân hàng thuật ngữ): Âm, Dương, Mộc, Hỏa, Thổ, Kim, Thủy, Tỷ Kiến, Tý, Ngọ. Tất cả được đọc theo xu hướng, không phán đoán cát hung từ một yếu tố duy nhất.",
@@ -2721,13 +2721,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "Nội dung này trình bày quan điểm mệnh lý truyền thống, chỉ mang tính tham khảo văn hóa và không phải cơ sở cho bất kỳ quyết định nào.",
   },
   {
-    lang: "vi", system: "taiyi", systemName: "Tai Yi Shen Shu", slug: "/vi/taiyi",
-    title: "Tai Yi Shen Shu — TempoSoul",
-    description: "Tai Yi Shen Shu: traditional 命理 system presented as cultural reference only — TempoSoul.",
-    h1: "Tai Yi Shen Shu",
+    lang: "vi", system: "taiyi", systemName: "Thái Ất Thần Số", slug: "/vi/taiyi",
+    title: "Thái Ất Thần Số — TempoSoul",
+    description: "Thái Ất Thần Số: traditional 命理 system presented as cultural reference only — TempoSoul.",
+    h1: "Thái Ất Thần Số",
     sections: [
       { heading: "Overview", paragraphs: [
-        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Tai Yi Shen Shu», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
+        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Thái Ất Thần Số», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "Thuật ngữ khái niệm cốt lõi (từ ngân hàng thuật ngữ): Âm, Dương, Mộc, Hỏa, Thổ, Kim, Thủy, Tỷ Kiến, Tý, Ngọ. Tất cả được đọc theo xu hướng, không phán đoán cát hung từ một yếu tố duy nhất.",
@@ -2745,13 +2745,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "Nội dung này trình bày quan điểm mệnh lý truyền thống, chỉ mang tính tham khảo văn hóa và không phải cơ sở cho bất kỳ quyết định nào.",
   },
   {
-    lang: "vi", system: "huangji-jingshi", systemName: "Huangji Jingshi", slug: "/vi/huangji-jingshi",
-    title: "Huangji Jingshi — TempoSoul",
-    description: "Huangji Jingshi: traditional 命理 system presented as cultural reference only — TempoSoul.",
-    h1: "Huangji Jingshi",
+    lang: "vi", system: "huangji-jingshi", systemName: "Hoàng Cực Kinh Thế", slug: "/vi/huangji-jingshi",
+    title: "Hoàng Cực Kinh Thế — TempoSoul",
+    description: "Hoàng Cực Kinh Thế: traditional 命理 system presented as cultural reference only — TempoSoul.",
+    h1: "Hoàng Cực Kinh Thế",
     sections: [
       { heading: "Overview", paragraphs: [
-        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Huangji Jingshi», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
+        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Hoàng Cực Kinh Thế», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "Thuật ngữ khái niệm cốt lõi (từ ngân hàng thuật ngữ): Âm, Dương, Mộc, Hỏa, Thổ, Kim, Thủy, Tỷ Kiến, Tý, Ngọ. Tất cả được đọc theo xu hướng, không phán đoán cát hung từ một yếu tố duy nhất.",
@@ -2769,13 +2769,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "Nội dung này trình bày quan điểm mệnh lý truyền thống, chỉ mang tính tham khảo văn hóa và không phải cơ sở cho bất kỳ quyết định nào.",
   },
   {
-    lang: "vi", system: "wuyun-liuqi", systemName: "Wu Yun Liu Qi", slug: "/vi/wuyun-liuqi",
-    title: "Wu Yun Liu Qi — TempoSoul",
-    description: "Wu Yun Liu Qi: traditional 命理 system presented as cultural reference only — TempoSoul.",
-    h1: "Wu Yun Liu Qi",
+    lang: "vi", system: "wuyun-liuqi", systemName: "Vũ Vận Lục Khí", slug: "/vi/wuyun-liuqi",
+    title: "Vũ Vận Lục Khí — TempoSoul",
+    description: "Vũ Vận Lục Khí: traditional 命理 system presented as cultural reference only — TempoSoul.",
+    h1: "Vũ Vận Lục Khí",
     sections: [
       { heading: "Overview", paragraphs: [
-        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Wu Yun Liu Qi», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
+        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Vũ Vận Lục Khí», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "Thuật ngữ khái niệm cốt lõi (từ ngân hàng thuật ngữ): Âm, Dương, Mộc, Hỏa, Thổ, Kim, Thủy, Tỷ Kiến, Tý, Ngọ. Tất cả được đọc theo xu hướng, không phán đoán cát hung từ một yếu tố duy nhất.",
@@ -2817,13 +2817,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "Nội dung này trình bày quan điểm mệnh lý truyền thống, chỉ mang tính tham khảo văn hóa và không phải cơ sở cho bất kỳ quyết định nào.",
   },
   {
-    lang: "vi", system: "qimen", systemName: "Qi Men Dun Jia", slug: "/vi/qimen",
-    title: "Qi Men Dun Jia — TempoSoul",
-    description: "Qi Men Dun Jia: traditional 占卜 system presented as cultural reference only — TempoSoul.",
-    h1: "Qi Men Dun Jia",
+    lang: "vi", system: "qimen", systemName: "Kỳ Môn Độn Giáp", slug: "/vi/qimen",
+    title: "Kỳ Môn Độn Giáp — TempoSoul",
+    description: "Kỳ Môn Độn Giáp: traditional 占卜 system presented as cultural reference only — TempoSoul.",
+    h1: "Kỳ Môn Độn Giáp",
     sections: [
       { heading: "Overview", paragraphs: [
-        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Qi Men Dun Jia», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
+        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Kỳ Môn Độn Giáp», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "Thuật ngữ khái niệm cốt lõi (từ ngân hàng thuật ngữ): Âm, Dương, Mộc, Hỏa, Thổ, Kim, Thủy, Tỷ Kiến, Tý, Ngọ. Tất cả được đọc theo xu hướng, không phán đoán cát hung từ một yếu tố duy nhất.",
@@ -2841,13 +2841,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "Nội dung này trình bày quan điểm mệnh lý truyền thống, chỉ mang tính tham khảo văn hóa và không phải cơ sở cho bất kỳ quyết định nào.",
   },
   {
-    lang: "vi", system: "liuyao", systemName: "Liu Yao Divination", slug: "/vi/liuyao",
-    title: "Liu Yao Divination — TempoSoul",
-    description: "Liu Yao Divination: traditional 占卜 system presented as cultural reference only — TempoSoul.",
-    h1: "Liu Yao Divination",
+    lang: "vi", system: "liuyao", systemName: "Lục Hào", slug: "/vi/liuyao",
+    title: "Lục Hào — TempoSoul",
+    description: "Lục Hào: traditional 占卜 system presented as cultural reference only — TempoSoul.",
+    h1: "Lục Hào",
     sections: [
       { heading: "Overview", paragraphs: [
-        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Liu Yao Divination», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
+        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Lục Hào», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "Thuật ngữ khái niệm cốt lõi (từ ngân hàng thuật ngữ): Âm, Dương, Mộc, Hỏa, Thổ, Kim, Thủy, Tỷ Kiến, Tý, Ngọ. Tất cả được đọc theo xu hướng, không phán đoán cát hung từ một yếu tố duy nhất.",
@@ -2865,13 +2865,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "Nội dung này trình bày quan điểm mệnh lý truyền thống, chỉ mang tính tham khảo văn hóa và không phải cơ sở cho bất kỳ quyết định nào.",
   },
   {
-    lang: "vi", system: "meihua", systemName: "Mei Hua Yi Shu", slug: "/vi/meihua",
-    title: "Mei Hua Yi Shu — TempoSoul",
-    description: "Mei Hua Yi Shu: traditional 占卜 system presented as cultural reference only — TempoSoul.",
-    h1: "Mei Hua Yi Shu",
+    lang: "vi", system: "meihua", systemName: "Mai Hoa Dịch Số", slug: "/vi/meihua",
+    title: "Mai Hoa Dịch Số — TempoSoul",
+    description: "Mai Hoa Dịch Số: traditional 占卜 system presented as cultural reference only — TempoSoul.",
+    h1: "Mai Hoa Dịch Số",
     sections: [
       { heading: "Overview", paragraphs: [
-        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Mei Hua Yi Shu», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
+        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Mai Hoa Dịch Số», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "Thuật ngữ khái niệm cốt lõi (từ ngân hàng thuật ngữ): Âm, Dương, Mộc, Hỏa, Thổ, Kim, Thủy, Tỷ Kiến, Tý, Ngọ. Tất cả được đọc theo xu hướng, không phán đoán cát hung từ một yếu tố duy nhất.",
@@ -2889,13 +2889,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "Nội dung này trình bày quan điểm mệnh lý truyền thống, chỉ mang tính tham khảo văn hóa và không phải cơ sở cho bất kỳ quyết định nào.",
   },
   {
-    lang: "vi", system: "xiaoliuren", systemName: "Xiao Liu Ren", slug: "/vi/xiaoliuren",
-    title: "Xiao Liu Ren — TempoSoul",
-    description: "Xiao Liu Ren: traditional 占卜 system presented as cultural reference only — TempoSoul.",
-    h1: "Xiao Liu Ren",
+    lang: "vi", system: "xiaoliuren", systemName: "Tiểu Lục Nhâm", slug: "/vi/xiaoliuren",
+    title: "Tiểu Lục Nhâm — TempoSoul",
+    description: "Tiểu Lục Nhâm: traditional 占卜 system presented as cultural reference only — TempoSoul.",
+    h1: "Tiểu Lục Nhâm",
     sections: [
       { heading: "Overview", paragraphs: [
-        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Xiao Liu Ren», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
+        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Tiểu Lục Nhâm», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "Thuật ngữ khái niệm cốt lõi (từ ngân hàng thuật ngữ): Âm, Dương, Mộc, Hỏa, Thổ, Kim, Thủy, Tỷ Kiến, Tý, Ngọ. Tất cả được đọc theo xu hướng, không phán đoán cát hung từ một yếu tố duy nhất.",
@@ -2913,13 +2913,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "Nội dung này trình bày quan điểm mệnh lý truyền thống, chỉ mang tính tham khảo văn hóa và không phải cơ sở cho bất kỳ quyết định nào.",
   },
   {
-    lang: "vi", system: "jinkoujue", systemName: "Jin Kou Jue", slug: "/vi/jinkoujue",
-    title: "Jin Kou Jue — TempoSoul",
-    description: "Jin Kou Jue: traditional 占卜 system presented as cultural reference only — TempoSoul.",
-    h1: "Jin Kou Jue",
+    lang: "vi", system: "jinkoujue", systemName: "Kim Khẩu Quyết", slug: "/vi/jinkoujue",
+    title: "Kim Khẩu Quyết — TempoSoul",
+    description: "Kim Khẩu Quyết: traditional 占卜 system presented as cultural reference only — TempoSoul.",
+    h1: "Kim Khẩu Quyết",
     sections: [
       { heading: "Overview", paragraphs: [
-        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Jin Kou Jue», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
+        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Kim Khẩu Quyết», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "Thuật ngữ khái niệm cốt lõi (từ ngân hàng thuật ngữ): Âm, Dương, Mộc, Hỏa, Thổ, Kim, Thủy, Tỷ Kiến, Tý, Ngọ. Tất cả được đọc theo xu hướng, không phán đoán cát hung từ một yếu tố duy nhất.",
@@ -2937,13 +2937,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "Nội dung này trình bày quan điểm mệnh lý truyền thống, chỉ mang tính tham khảo văn hóa và không phải cơ sở cho bất kỳ quyết định nào.",
   },
   {
-    lang: "vi", system: "liuren", systemName: "Da Liu Ren", slug: "/vi/liuren",
-    title: "Da Liu Ren — TempoSoul",
-    description: "Da Liu Ren: traditional 占卜 system presented as cultural reference only — TempoSoul.",
-    h1: "Da Liu Ren",
+    lang: "vi", system: "liuren", systemName: "Đại Lục Nhâm", slug: "/vi/liuren",
+    title: "Đại Lục Nhâm — TempoSoul",
+    description: "Đại Lục Nhâm: traditional 占卜 system presented as cultural reference only — TempoSoul.",
+    h1: "Đại Lục Nhâm",
     sections: [
       { heading: "Overview", paragraphs: [
-        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Da Liu Ren», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
+        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Đại Lục Nhâm», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "Thuật ngữ khái niệm cốt lõi (từ ngân hàng thuật ngữ): Âm, Dương, Mộc, Hỏa, Thổ, Kim, Thủy, Tỷ Kiến, Tý, Ngọ. Tất cả được đọc theo xu hướng, không phán đoán cát hung từ một yếu tố duy nhất.",
@@ -3057,13 +3057,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "Nội dung này trình bày quan điểm mệnh lý truyền thống, chỉ mang tính tham khảo văn hóa và không phải cơ sở cho bất kỳ quyết định nào.",
   },
   {
-    lang: "vi", system: "bazhai", systemName: "Ba Zhai (Eight Mansions)", slug: "/vi/bazhai",
-    title: "Ba Zhai (Eight Mansions) — TempoSoul",
-    description: "Ba Zhai (Eight Mansions): traditional 环境 system presented as cultural reference only — TempoSoul.",
-    h1: "Ba Zhai (Eight Mansions)",
+    lang: "vi", system: "bazhai", systemName: "Bát Trạch", slug: "/vi/bazhai",
+    title: "Bát Trạch — TempoSoul",
+    description: "Bát Trạch: traditional 环境 system presented as cultural reference only — TempoSoul.",
+    h1: "Bát Trạch",
     sections: [
       { heading: "Overview", paragraphs: [
-        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Ba Zhai (Eight Mansions)», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
+        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Bát Trạch», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "Thuật ngữ khái niệm cốt lõi (từ ngân hàng thuật ngữ): Âm, Dương, Mộc, Hỏa, Thổ, Kim, Thủy, Tỷ Kiến, Tý, Ngọ. Tất cả được đọc theo xu hướng, không phán đoán cát hung từ một yếu tố duy nhất.",
@@ -3081,13 +3081,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "Nội dung này trình bày quan điểm mệnh lý truyền thống, chỉ mang tính tham khảo văn hóa và không phải cơ sở cho bất kỳ quyết định nào.",
   },
   {
-    lang: "vi", system: "xuankong", systemName: "Xuan Kong Flying Stars", slug: "/vi/xuankong",
-    title: "Xuan Kong Flying Stars — TempoSoul",
-    description: "Xuan Kong Flying Stars: traditional 环境 system presented as cultural reference only — TempoSoul.",
-    h1: "Xuan Kong Flying Stars",
+    lang: "vi", system: "xuankong", systemName: "Huyền Không Phi Tinh", slug: "/vi/xuankong",
+    title: "Huyền Không Phi Tinh — TempoSoul",
+    description: "Huyền Không Phi Tinh: traditional 环境 system presented as cultural reference only — TempoSoul.",
+    h1: "Huyền Không Phi Tinh",
     sections: [
       { heading: "Overview", paragraphs: [
-        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Xuan Kong Flying Stars», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
+        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Huyền Không Phi Tinh», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "Thuật ngữ khái niệm cốt lõi (từ ngân hàng thuật ngữ): Âm, Dương, Mộc, Hỏa, Thổ, Kim, Thủy, Tỷ Kiến, Tý, Ngọ. Tất cả được đọc theo xu hướng, không phán đoán cát hung từ một yếu tố duy nhất.",
@@ -3345,13 +3345,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "Este contenido presenta la perspectiva tradicional de la astrología china solo como referencia cultural y no constituye base para ninguna decisión.",
   },
   {
-    lang: "es", system: "liuyao", systemName: "Liu Yao Divination", slug: "/es/liuyao",
-    title: "Liu Yao Divination — TempoSoul",
-    description: "Liu Yao Divination: traditional 占卜 system presented as cultural reference only — TempoSoul.",
-    h1: "Liu Yao Divination",
+    lang: "es", system: "liuyao", systemName: "Liu Yao", slug: "/es/liuyao",
+    title: "Liu Yao — TempoSoul",
+    description: "Liu Yao: traditional 占卜 system presented as cultural reference only — TempoSoul.",
+    h1: "Liu Yao",
     sections: [
       { heading: "Overview", paragraphs: [
-        "Esta página presenta el sistema tradicional de metafísica china «Liu Yao Divination», solo como referencia cultural y sin afirmaciones donde no hay fuente.",
+        "Esta página presenta el sistema tradicional de metafísica china «Liu Yao», solo como referencia cultural y sin afirmaciones donde no hay fuente.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "Términos conceptuales clave (de la base terminológica): Yin, Yang, Madera, Fuego, Tierra, Metal, Agua, Compañero, Zi, Wu. Se leen como tendencias, no como veredictos fijos de fortuna.",
@@ -3561,13 +3561,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "Este contenido presenta la perspectiva tradicional de la astrología china solo como referencia cultural y no constituye base para ninguna decisión.",
   },
   {
-    lang: "es", system: "bazhai", systemName: "Ba Zhai (Eight Mansions)", slug: "/es/bazhai",
-    title: "Ba Zhai (Eight Mansions) — TempoSoul",
-    description: "Ba Zhai (Eight Mansions): traditional 环境 system presented as cultural reference only — TempoSoul.",
-    h1: "Ba Zhai (Eight Mansions)",
+    lang: "es", system: "bazhai", systemName: "Ba Zhai", slug: "/es/bazhai",
+    title: "Ba Zhai — TempoSoul",
+    description: "Ba Zhai: traditional 环境 system presented as cultural reference only — TempoSoul.",
+    h1: "Ba Zhai",
     sections: [
       { heading: "Overview", paragraphs: [
-        "Esta página presenta el sistema tradicional de metafísica china «Ba Zhai (Eight Mansions)», solo como referencia cultural y sin afirmaciones donde no hay fuente.",
+        "Esta página presenta el sistema tradicional de metafísica china «Ba Zhai», solo como referencia cultural y sin afirmaciones donde no hay fuente.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "Términos conceptuales clave (de la base terminológica): Yin, Yang, Madera, Fuego, Tierra, Metal, Agua, Compañero, Zi, Wu. Se leen como tendencias, no como veredictos fijos de fortuna.",
@@ -3585,13 +3585,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "Este contenido presenta la perspectiva tradicional de la astrología china solo como referencia cultural y no constituye base para ninguna decisión.",
   },
   {
-    lang: "es", system: "xuankong", systemName: "Xuan Kong Flying Stars", slug: "/es/xuankong",
-    title: "Xuan Kong Flying Stars — TempoSoul",
-    description: "Xuan Kong Flying Stars: traditional 环境 system presented as cultural reference only — TempoSoul.",
-    h1: "Xuan Kong Flying Stars",
+    lang: "es", system: "xuankong", systemName: "Xuan Kong", slug: "/es/xuankong",
+    title: "Xuan Kong — TempoSoul",
+    description: "Xuan Kong: traditional 环境 system presented as cultural reference only — TempoSoul.",
+    h1: "Xuan Kong",
     sections: [
       { heading: "Overview", paragraphs: [
-        "Esta página presenta el sistema tradicional de metafísica china «Xuan Kong Flying Stars», solo como referencia cultural y sin afirmaciones donde no hay fuente.",
+        "Esta página presenta el sistema tradicional de metafísica china «Xuan Kong», solo como referencia cultural y sin afirmaciones donde no hay fuente.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "Términos conceptuales clave (de la base terminológica): Yin, Yang, Madera, Fuego, Tierra, Metal, Agua, Compañero, Zi, Wu. Se leen como tendencias, no como veredictos fijos de fortuna.",
@@ -3609,13 +3609,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "Este contenido presenta la perspectiva tradicional de la astrología china solo como referencia cultural y no constituye base para ninguna decisión.",
   },
   {
-    lang: "es", system: "residential", systemName: "Residential Feng Shui", slug: "/es/residential",
-    title: "Residential Feng Shui — TempoSoul",
-    description: "Residential Feng Shui: traditional 环境 system presented as cultural reference only — TempoSoul.",
-    h1: "Residential Feng Shui",
+    lang: "es", system: "residential", systemName: "Feng Shui residencial", slug: "/es/residential",
+    title: "Feng Shui residencial — TempoSoul",
+    description: "Feng Shui residencial: traditional 环境 system presented as cultural reference only — TempoSoul.",
+    h1: "Feng Shui residencial",
     sections: [
       { heading: "Overview", paragraphs: [
-        "Esta página presenta el sistema tradicional de metafísica china «Residential Feng Shui», solo como referencia cultural y sin afirmaciones donde no hay fuente.",
+        "Esta página presenta el sistema tradicional de metafísica china «Feng Shui residencial», solo como referencia cultural y sin afirmaciones donde no hay fuente.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "Términos conceptuales clave (de la base terminológica): Yin, Yang, Madera, Fuego, Tierra, Metal, Agua, Compañero, Zi, Wu. Se leen como tendencias, no como veredictos fijos de fortuna.",
