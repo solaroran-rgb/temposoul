@@ -6,22 +6,21 @@
  *   并在 <Routes> 内与其他 *Routes 并列处追加 {M1Routes}。
  *
  * 范围（本块只新增，不动既有 109 条 path）：
- *   13 个零路由板块最小占位页 + /synthesis 合参一级路由（X1-D-03）
+ *   13 个零路由板块 + /synthesis 合参一级路由（X1-D-03）
  *   + A7 StarMark 证书复现落地位 /starmark/sky/:cert_id。
  *
- * 占位纪律：所有板块页为「中文标题+说明+结果占位+内容模板待填充」，
- *   不产生假数据/假盘面；合参 /synthesis 同为例行占位（结构化合参内容留后续）。
+ * 占位纪律：13 个板块已全部接线真实排盘页（波4 完成、批次3 移除占位回落）；
+ *   合参 /synthesis 为真实双盘合参页（波4）。
  */
 import { lazy, Suspense, type ComponentType, type LazyExoticComponent, type ReactNode } from 'react';
 import { Route } from 'react-router-dom';
 import { RouteFallback } from '@/components/RouteFallback';
-import { BoardPlaceholderPage } from '@/pages/m1/BoardPlaceholderPage';
 
 const StarmarkSkySharePage = lazy(() => import('@/pages/starmark/StarmarkSkySharePage'));
 
 /**
  * 波4·内容模板填充 —— 14 个占位板块升级为真实排盘页（引擎/内容就绪，页面层接线）。
- * 按 path 映射真实页面组件；未映射的板块继续回落 BoardPlaceholderPage 占位。
+ * 按 path 映射真实页面组件；13 个 BOARDS 全部命中真实页，占位回落已随批次3 移除。
  * 只做 element 接线，不增删任何路由 path、不改 BOARDS 结构、不动 App.tsx 挂载。
  */
 const REAL_BOARD_PAGES: Record<string, LazyExoticComponent<ComponentType>> = {
@@ -60,9 +59,8 @@ interface M1Board {
 
 /**
  * 13 个零路由板块 + 合参 /synthesis（X1-D-03）
- * 【修复批次2 任务8c】本数组 13 个板块均已在 REAL_BOARD_PAGES 接线真实排盘页（@temposoul/core 引擎），
- *   下方 description 中「落地占位/待内容模板填充」为历史残留文案，仅在未命中 REAL_BOARD_PAGES 的兜底分支才展示，
- *   路由逻辑不变；保留 description 字段以兼容 BoardPlaceholderPage 兜底签名。
+ * 【修复批次2 任务8c + 批次3】本数组 13 个板块均已在 REAL_BOARD_PAGES 接线真实排盘页（@temposoul/core 引擎），
+ *   占位回落分支已随批次3 移除；description 字段保留作数据注释与展示兜底（未命中时抛错，不再占位渲染）。
  */
 const BOARDS: M1Board[] = [
   // —— 术数历法三（太乙 / 皇极经世 / 五运六气）——（已接线真实页）
@@ -179,24 +177,11 @@ export const M1Routes = (
   <>
     {BOARDS.map((b) => {
       const BoardPage = REAL_BOARD_PAGES[b.path];
-      return (
-        <Route
-          key={b.path}
-          path={b.path}
-          element={
-            BoardPage
-              ? wrap(<BoardPage />)
-              : wrap(
-                  <BoardPlaceholderPage
-                    slug={b.slug}
-                    title={b.title}
-                    category={b.category}
-                    description={b.description}
-                  />,
-                )
-          }
-        />
-      );
+      // 波4·批次3：13 个 BOARDS 全部映射真实排盘页；未映射即构建期缺陷，运行时抛错而非占位渲染。
+      if (!BoardPage) {
+        throw new Error(`[M1Routes] 板块未接线真实排盘页: ${b.path}`);
+      }
+      return <Route key={b.path} path={b.path} element={wrap(<BoardPage />)} />;
     })}
 
     {/* 合参一级路由（X1-D-03：建一级路由；导航第3位/首页入口卡属共享组件改动，见波3 W3.1 交付说明） */}
