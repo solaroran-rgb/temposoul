@@ -7,9 +7,28 @@
 
 import { generateLiuyao } from '../divination/algorithms/liuyao';
 import { createRandomContext, randomInt } from '../shared/random';
-import type { LiuyaoQuestionInput, LiuyaoResult } from './types';
+import type { LiuyaoQuestionInput, LiuyaoResult, LiuyaoCategory } from './types';
 import { isSensitiveHit, SENSITIVE_BLOCK_MESSAGE } from './compliance';
 import { assembleSections } from './lexicon';
+
+/** 规则分类器关键词词典（B2 五：零 LLM，命中即归类；未命中落 general 综合兜底） */
+const CLASSIFIER_LEXICON: readonly (readonly [LiuyaoCategory, readonly string[]])[] = [
+  ['party', ['聚会', '聚餐', '饭局', '请客', '应酬', '生日', '朋友', '约会', '团建', '宴席']],
+  ['direction', ['出行', '出发', '搬家', '搬迁', '迁', '方位', '旅游', '旅行', '出差', '方向', '行程']],
+  ['lost', ['失物', '丢', '丢了', '遗失', '找', '钥匙', '钱包', '手机', '证件', '掉落']],
+  ['career', ['工作', '事业', '面试', '辞职', '入职', '升职', '项目', '跳槽', '老板', '职场', '考核']],
+  ['love', ['感情', '恋爱', '复合', '表白', '婚姻', '对象', '分手', '喜欢', '桃花', '相亲']],
+];
+
+/** 规则分类器：用户问题 → 类别（零 LLM；未命中落 general） */
+export function classifyQuestion(question?: string): LiuyaoCategory {
+  const t = (question || '').toLowerCase();
+  if (!t.trim()) return 'general';
+  for (const [cat, words] of CLASSIFIER_LEXICON) {
+    if (words.some((w) => t.includes(w.toLowerCase()))) return cat;
+  }
+  return 'general';
+}
 
 /** 类别 → 种子域（避免跨类别碰撞） */
 const CATEGORY_SEED_DOMAIN: Record<string, string> = {

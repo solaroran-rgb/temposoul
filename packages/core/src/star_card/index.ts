@@ -10,7 +10,7 @@
  */
 
 import type { StarCardInput, StarCardOutput, StarCardBlock, LiuyaoCategory } from './types';
-import { buildBlocks, dayGanzhi } from './rules';
+import { buildBlocks, dayGanzhi, buildWeather, buildDirections, buildDeepLinks } from './rules';
 import { evaluateLiuyaoQuestion } from './liuyao';
 import { buildCacheKeys, DEFAULT_FLAGS } from './cache';
 import { withDisclaimer, sanitizeForbidden } from './compliance';
@@ -34,6 +34,17 @@ const STATIC_FALLBACK: StarCardBlock[] = [
 export function generateStarCard(input: StarCardInput): StarCardOutput {
   const climateZone = input.climateZone ?? 'temperate';
   const weatherWarning = input.weatherWarning ?? '';
+
+  /** B2 升级富化：零依赖天气 + 结构化方位 + 卡底深链 + 双层视图（两路径一致挂载） */
+  const enrich = () => ({
+    weather: buildWeather(input.dateKey, input.ruleVersion, climateZone, weatherWarning),
+    directions: buildDirections(input.dateKey, input.ruleVersion),
+    deepLinks: buildDeepLinks(input.ruleVersion),
+    layers: {
+      global: { dateKey: input.dateKey, ruleVersion: input.ruleVersion },
+      personal: input.uidHash ? { uidHash: input.uidHash } : null,
+    },
+  });
 
   let blocks: StarCardBlock[];
   let fallbackLevel: 0 | 1 | 2 | 3 = 0;
@@ -67,6 +78,7 @@ export function generateStarCard(input: StarCardInput): StarCardOutput {
       fallbackLevel: 3,
       ruleVersion: input.ruleVersion,
       personalized: Boolean(input.uidHash),
+      ...enrich(),
     };
   }
 
@@ -75,6 +87,7 @@ export function generateStarCard(input: StarCardInput): StarCardOutput {
     fallbackLevel,
     ruleVersion: input.ruleVersion,
     personalized: Boolean(input.uidHash),
+    ...enrich(),
   };
 }
 
@@ -96,3 +109,4 @@ export function getDayGanzhi(dateKey: string) {
 }
 
 export { buildCacheKeys, DEFAULT_FLAGS };
+export { classifyQuestion } from './liuyao';

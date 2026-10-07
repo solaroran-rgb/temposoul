@@ -50,7 +50,44 @@ export interface StarCardBlock {
   sourceKey: string;
 }
 
-/** 每日星图输出（L0 完整；熔断时降级） */
+/** 零依赖天气参考（B2 P2：节气+气候带静态表，纯本地规则，不接第三方 API） */
+export interface WeatherInfo {
+  /** 当日近似节气（24 节气静态表推算） */
+  solarTerm: string;
+  /** 气候带微调提示（叠加在节气要点后） */
+  climateNote: string;
+  /** 是否触发极端天气保守分支 */
+  extremeRisk: boolean;
+  sourceKey: string;
+}
+
+/** 方位条目（B2 二、运势方位：一行一位+简注） */
+export interface DirectionItem {
+  direction: string;
+  note: string;
+}
+
+/** 结构化三方位（财神/煞/贵人） */
+export interface DirectionsInfo {
+  /** 财神方位（传统方位参考，非投资建议） */
+  wealth: DirectionItem;
+  /** 煞/宜避方位 */
+  sha: DirectionItem;
+  /** 贵人方位 */
+  noble: DirectionItem;
+  sourceKey: string;
+}
+
+/** 卡底深链条目（B2 二、区块7：节气文章/宜忌详情/StarMark 出口） */
+export interface DeepLink {
+  id: string;
+  label: string;
+  href: string;
+}
+
+/** 每日星图输出（L0 完整；熔断时降级）
+ * 升级说明：blocks/fallbackLevel/ruleVersion/personalized 为既有字段，保持兼容；
+ * weather/directions/deepLinks/layers 为 B2 升级新增（可选），旧消费方不受影响。 */
 export interface StarCardOutput {
   blocks: StarCardBlock[];
   /** 熔断等级 L0-L3 */
@@ -58,6 +95,17 @@ export interface StarCardOutput {
   ruleVersion: string;
   /** 是否个人层增强（仅影响呈现顺序与侧重，不进内容） */
   personalized: boolean;
+  /** 【新增】零依赖天气参考（节气+气候带静态表） */
+  weather?: WeatherInfo;
+  /** 【新增】结构化三方位 */
+  directions?: DirectionsInfo;
+  /** 【新增】卡底深链区 */
+  deepLinks?: DeepLink[];
+  /** 【新增】双层卡片物理隔离视图（全局层无个人信息；个人层仅 uid 哈希） */
+  layers?: {
+    global: { dateKey: DateKey; ruleVersion: string };
+    personal: { uidHash: string } | null;
+  };
 }
 
 /** 六爻输入 */

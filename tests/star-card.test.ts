@@ -6,11 +6,11 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { generateStarCard, starCardLiuyao, getDayGanzhi, buildCacheKeys } from '../packages/core/src/star_card/index';
+import { generateStarCard, starCardLiuyao, getDayGanzhi, buildCacheKeys, classifyQuestion } from '../packages/core/src/star_card/index';
 import { TOP20_HEXAGRAMS, lookupReading, assembleSections } from '../packages/core/src/star_card/lexicon';
 import { sanitizeForbidden, isSensitiveHit, isExtremeWeather } from '../packages/core/src/star_card/compliance';
 import { evaluateLiuyaoQuestion } from '../packages/core/src/star_card/liuyao';
-import { dayGanzhi } from '../packages/core/src/star_card/rules';
+import { dayGanzhi, solarTermOf, buildWeather, buildDirections, buildDeepLinks } from '../packages/core/src/star_card/rules';
 
 const RULE_VERSION = '20261007-1';
 const CATEGORIES = ['party', 'direction', 'lost', 'career', 'love', 'general'];
@@ -109,4 +109,67 @@ test('日干支标准算法（2026-10-07 定值）', () => {
   assert.equal(gz.ganzhi.length, 2);
   const viaApi = getDayGanzhi('2026-10-07');
   assert.equal(viaApi.ganzhi, gz.ganzhi, '入口与规则层口径一致');
+});
+
+/* ============ B2 升级用例（T-06） ============ */
+
+test('零依赖天气：输出节气+气候带静态参考，不接第三方', () => {
+  const w = buildWeather('2026-10-08', RULE_VERSION, 'subtropical', '');
+  assert.ok(w.solarTerm.length >= 2, '应有节气名');
+  assert.ok(w.climateNote.length > 0 || w.climateNote.length === 0, '气候带微调可空');
+  assert.equal(w.extremeRisk, false);
+  assert.ok(w.sourceKey.includes('weather'));
+  // 极端天气触发保守分支
+  const w2 = buildWeather('2026-01-15', RULE_VERSION, 'cold', '寒潮预警');
+  assert.equal(w2.extremeRisk, true);
+  // generateStarCard 输出携带 weather
+  const out = generateStarCard({ dateKey: '2026-10-08', ruleVersion: RULE_VERSION, climateZone: 'temperate' });
+  assert.ok(out.weather, '输出应含 weather 字段');
+});
+
+test('结构化三方位：财神/煞/贵人各一位+简注', () => {
+  const d = buildDirections('2026-10-08', RULE_VERSION);
+  for (const k of ['wealth', 'sha', 'noble'] as const) {
+    assert.ok(d[k].direction.length >= 2, `${k} 方位缺失`);
+    assert.ok(d[k].note.length > 4, `${k} 缺简注`);
+    // 合规：不得出现投资收益承诺
+    assert.ok(!d[k].note.includes('发财') && !d[k].note.includes('必然'));
+  }
+  assert.ok(d.sourceKey.includes('direction'));
+});
+
+test('卡底深链区：节气文章/宜忌/StarMark 出口三条', () => {
+  const links = buildDeepLinks(RULE_VERSION);
+  assert.equal(links.length, 3);
+  const ids = links.map((l) => l.id);
+  assert.ok(ids.includes('solar-term') && ids.includes('yi-ji') && ids.includes('starmark'));
+  assert.ok(links.every((l) => l.href.startsWith('/') && l.label.length > 0));
+});
+
+test('双层卡片视图：全局层无 uid，个人层仅含 uid 哈希', () => {
+  const anon = generateStarCard({ dateKey: '2026-10-08', ruleVersion: RULE_VERSION });
+  assert.ok(anon.layers, '应含 layers');
+  assert.equal(anon.layers!.personal, null, '匿名个人层为 null');
+  assert.ok(!JSON.stringify(anon.layers!.global).includes('u123'), '全局层不含 uid');
+
+  const personal = generateStarCard({ dateKey: '2026-10-08', ruleVersion: RULE_VERSION, uidHash: 'u1234567890abcdef' });
+  assert.equal(personal.layers!.personal!.uidHash, 'u1234567890abcdef');
+  assert.equal(personal.personalized, true);
+});
+
+test('六爻规则分类器：关键词命中归类，未命中落综合', () => {
+  assert.equal(classifyQuestion('今晚有个聚会去不去'), 'party');
+  assert.equal(classifyQuestion('我出差该走哪个方向'), 'direction');
+  assert.equal(classifyQuestion('钥匙丢了在哪'), 'lost');
+  assert.equal(classifyQuestion('下周面试准备'), 'career');
+  assert.equal(classifyQuestion('和对象最近有点冷'), 'love');
+  assert.equal(classifyQuestion('今天运气如何'), 'general');
+  assert.equal(classifyQuestion(''), 'general');
+});
+
+test('节气静态表推算（定值）', () => {
+  // 2026-10-08 ≈ 寒露；2026-06-21 ≈ 夏至；2026-01-10 ≈ 小寒
+  assert.equal(solarTermOf('2026-10-08'), '寒露');
+  assert.equal(solarTermOf('2026-06-21'), '夏至');
+  assert.equal(solarTermOf('2026-01-10'), '小寒');
 });

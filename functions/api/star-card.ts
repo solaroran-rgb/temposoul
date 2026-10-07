@@ -17,8 +17,10 @@ import {
   generateStarCard,
   buildCacheKeys,
   DEFAULT_FLAGS,
+  starCardLiuyao,
+  classifyQuestion,
 } from '../../packages/core/src/star_card/index';
-import type { StarCardInput, ClimateZone } from '../../packages/core/src/star_card/types';
+import type { StarCardInput, ClimateZone, LiuyaoCategory } from '../../packages/core/src/star_card/types';
 
 const CORS_HEADERS: Record<string, string> = {
   'Access-Control-Allow-Origin': '*',
@@ -26,9 +28,10 @@ const CORS_HEADERS: Record<string, string> = {
   'Access-Control-Allow-Headers': 'Content-Type, Authorization',
 };
 
-/** 规则版本：与 core 规则表绑定，变更即缓存失效 */
-const RULE_VERSION = '20261007-1';
+/** 规则版本：与 core 规则表绑定，变更即缓存失效（B2 升级：新增天气/方位结构化/深链） */
+const RULE_VERSION = '20261008-1';
 const VALID_CLIMATE: ClimateZone[] = ['cold', 'temperate', 'subtropical', 'tropical', 'plateau'];
+const VALID_CATEGORY: LiuyaoCategory[] = ['party', 'direction', 'lost', 'career', 'love', 'general'];
 
 /** Asia/Shanghai 当日 YYYY-MM-DD（不依赖第三方日期库） */
 function todayShanghai(): string {
@@ -62,13 +65,26 @@ export const onRequestGet: PagesFunction = async ({ request }) => {
     ruleVersion: RULE_VERSION,
     climateZone,
     uidHash,
-    weatherWarning: '', // P0 不接实时天气
+    weatherWarning: '', // P0 不接实时天气（零依赖静态气候带）
   };
 
   // 读缓存键（P0 仅计算并回传，不做 KV 落库；确定性函数本身幂等）
   const cacheKeys = buildCacheKeys(dateKey, RULE_VERSION, tz, uidHash);
 
   const card = generateStarCard(input);
+
+  // 六爻·每日一问（个人层，B2 P3）：仅当登录用户(uidHash)且带 category 时叠加。
+  // 全局层（匿名 GET，CDN 可缓存）不受影响；无 uidHash 时不产出个人层内容。
+  // 问题文本 q 用于医/法/金敏感拦截；未显式传 category 时用关键词分类器。
+  let liuyao: unknown = null;
+  if (uidHash) {
+    const q = sp.get('q') || undefined;
+    const catRaw = sp.get('category') || '';
+    const category: LiuyaoCategory = (VALID_CATEGORY as string[]).includes(catRaw)
+      ? (catRaw as LiuyaoCategory)
+      : classifyQuestion(q);
+    liuyao = starCardLiuyao({ uidHash, dateKey, category, question: q });
+  }
 
   return Response.json(
     {
@@ -78,6 +94,7 @@ export const onRequestGet: PagesFunction = async ({ request }) => {
         cacheKeys,
         flags: DEFAULT_FLAGS,
         ruleVersion: RULE_VERSION,
+        liuyao,
       },
     },
     { status: 200, headers: CORS_HEADERS },

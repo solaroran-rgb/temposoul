@@ -5,7 +5,7 @@
  * 完整内容扩充（每表 ≥6 条模板）列入 A5 P1 内容生产批次。
  */
 
-import type { DateKey, StarCardBlock, ClimateZone } from './types';
+import type { DateKey, StarCardBlock, ClimateZone, WeatherInfo, DirectionsInfo, DeepLink } from './types';
 import { sanitizeForbidden, isExtremeWeather, EXTREME_WEATHER_SAFE_SUFFIX, withDisclaimer } from './compliance';
 
 /** 儒略日整数（UTC） */
@@ -171,4 +171,78 @@ export function buildBlocks(
     },
   ];
   return blocks;
+}
+
+/* ================= B2 升级：零依赖天气 / 结构化方位 / 卡底深链 ================= */
+
+/** 24 节气近似日期表（[mmdd, 名称]，按公历近似日；纯本地静态表，不接天文库/第三方） */
+const SOLAR_TERMS: readonly (readonly [number, string])[] = [
+  [106, '小寒'], [120, '大寒'], [204, '立春'], [219, '雨水'],
+  [306, '惊蛰'], [321, '春分'], [405, '清明'], [420, '谷雨'],
+  [506, '立夏'], [521, '小满'], [606, '芒种'], [621, '夏至'],
+  [707, '小暑'], [723, '大暑'], [808, '立秋'], [823, '处暑'],
+  [908, '白露'], [923, '秋分'], [1008, '寒露'], [1023, '霜降'],
+  [1107, '立冬'], [1122, '小雪'], [1207, '大雪'], [1222, '冬至'],
+];
+
+/** 由日期键推算当日所在节气（取最近一个 mmdd <= 当日的节气；年初回落到冬至） */
+export function solarTermOf(dateKey: DateKey): string {
+  const mm = Number(dateKey.slice(5, 7));
+  const dd = Number(dateKey.slice(8, 10));
+  if (!mm || !dd) return '冬至';
+  const cur = mm * 100 + dd;
+  let name = '冬至';
+  for (const [bound, label] of SOLAR_TERMS) {
+    if (cur >= bound) name = label;
+    else break;
+  }
+  return name;
+}
+
+/** 零依赖天气参考：节气要点 + 气候带微调（纯本地静态表，无第三方 API） */
+export function buildWeather(
+  dateKey: DateKey,
+  ruleVersion: string,
+  climateZone: ClimateZone,
+  weatherWarning: string,
+): WeatherInfo {
+  const solarTerm = solarTermOf(dateKey);
+  const climateNote = CLIMATE_DIET[climateZone] ?? '';
+  const extremeRisk = isExtremeWeather(weatherWarning);
+  return {
+    solarTerm,
+    climateNote,
+    extremeRisk,
+    sourceKey: `rule:${ruleVersion}:weather:${solarTerm}:${climateZone}`,
+  };
+}
+
+/** 结构化三方位（财神/煞/贵人），一行一位+简注；保持正向、合规口径 */
+export function buildDirections(dateKey: DateKey, ruleVersion: string): DirectionsInfo {
+  const stem = dayGanzhi(dateKey).ganzhi[0];
+  return {
+    wealth: {
+      direction: CAISHEN_DIRECTION[stem],
+      note: '传统财位参考，宜从容布置与交流（非投资建议）。',
+    },
+    sha: {
+      direction: AVOID_DIRECTION[stem],
+      note: '传统避位参考，重要安排宜避开此向，留有余地。',
+    },
+    noble: {
+      direction: GUIREN_DIRECTION[stem],
+      note: '传统贵位参考，宜在此方位沟通与请教。',
+    },
+    sourceKey: `rule:${ruleVersion}:direction:${stem}`,
+  };
+}
+
+/** 卡底深链区（B2 二、区块7：节气文章 / 宜忌详情 / StarMark 出口） */
+export function buildDeepLinks(ruleVersion: string): DeepLink[] {
+  const rv = `?rv=${encodeURIComponent(ruleVersion)}`;
+  return [
+    { id: 'solar-term', label: '今日节气详解', href: `/almanac${rv}` },
+    { id: 'yi-ji', label: '今日宜忌详情', href: `/almanac${rv}` },
+    { id: 'starmark', label: '把今天这片星空做成卡片', href: `/starmark${rv}` },
+  ];
 }
