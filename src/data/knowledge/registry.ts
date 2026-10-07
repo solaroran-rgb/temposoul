@@ -136,6 +136,18 @@ const CONTENT_LOADERS: Record<string, () => Promise<{ default: KnowledgeArticle 
   "bazhai-intro": () => import('./content/board-terms/bazhai-intro'),
   "xuankong-intro": () => import('./content/board-terms/xuankong-intro'),
   "residential-intro": () => import('./content/board-terms/residential-intro'),
+  // T-10B 回炉 · vedic 板块 WP-18 十段词条（11 篇，2026-10-08）
+  "vedic-rasi-intro": () => import('./content/board-terms/vedic-rasi-intro'),
+  "vedic-navamsa-intro": () => import('./content/board-terms/vedic-navamsa-intro'),
+  "vedic-graha-intro": () => import('./content/board-terms/vedic-graha-intro'),
+  "vedic-divisional-intro": () => import('./content/board-terms/vedic-divisional-intro'),
+  "vedic-nakshatra-intro": () => import('./content/board-terms/vedic-nakshatra-intro'),
+  "vedic-dasha-intro": () => import('./content/board-terms/vedic-dasha-intro'),
+  "vedic-lagna-intro": () => import('./content/board-terms/vedic-lagna-intro'),
+  "vedic-ayanamsa-intro": () => import('./content/board-terms/vedic-ayanamsa-intro'),
+  "vedic-yoga-intro": () => import('./content/board-terms/vedic-yoga-intro'),
+  "vedic-dosha-intro": () => import('./content/board-terms/vedic-dosha-intro'),
+  "vedic-bhava-intro": () => import('./content/board-terms/vedic-bhava-intro'),
 
 };
 
