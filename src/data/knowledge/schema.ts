@@ -6,7 +6,9 @@ export type Confidence = 'verified' | 'probable' | 'legendary';
 export type CitationStrategy = 'engine' | 'public-domain' | 'paraphrase';
 export type KnowledgeCategory =
   | 'wuxing' | 'ganzhi' | 'shishen' | 'paipan' | 'shensha' | 'dayun' | 'boundary'
-  | 'solar-terms' | 'zodiac-culture' | 'fengshui';
+  | 'solar-terms' | 'zodiac-culture' | 'fengshui'
+  // T-10 回炉新增：三式/术数 与 占卜（板块就绪推进 · WP-18 十段词条）
+  | 'sanshi' | 'divination';
 
 export interface ContentBlock {
   kind: 'paragraph' | 'list' | 'table' | 'quote' | 'callout' | 'engineRef';

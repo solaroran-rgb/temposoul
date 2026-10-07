@@ -120,6 +120,23 @@ const CONTENT_LOADERS: Record<string, () => Promise<{ default: KnowledgeArticle 
   'dayun-jiaoyun': () => import('./content/dayun-jiaoyun'),
   'dayun-liuyue': () => import('./content/dayun-liuyue'),
   'dayun-boundary': () => import('./content/dayun-boundary'),
+  // T-10 回炉 · 板块 WP-18 十段词条（15 篇，2026-10-08）
+  "qizheng-intro": () => import('./content/board-terms/qizheng-intro'),
+  "taiyi-intro": () => import('./content/board-terms/taiyi-intro'),
+  "huangji-jingshi-intro": () => import('./content/board-terms/huangji-jingshi-intro'),
+  "wuyun-liuqi-intro": () => import('./content/board-terms/wuyun-liuqi-intro'),
+  "qimen-intro": () => import('./content/board-terms/qimen-intro'),
+  "liuyao-intro": () => import('./content/board-terms/liuyao-intro'),
+  "meihua-intro": () => import('./content/board-terms/meihua-intro'),
+  "xiaoliuren-intro": () => import('./content/board-terms/xiaoliuren-intro'),
+  "jinkoujue-intro": () => import('./content/board-terms/jinkoujue-intro'),
+  "liuren-intro": () => import('./content/board-terms/liuren-intro'),
+  "lenormand-intro": () => import('./content/board-terms/lenormand-intro'),
+  "ssgw-intro": () => import('./content/board-terms/ssgw-intro'),
+  "bazhai-intro": () => import('./content/board-terms/bazhai-intro'),
+  "xuankong-intro": () => import('./content/board-terms/xuankong-intro'),
+  "residential-intro": () => import('./content/board-terms/residential-intro'),
+
 };
 
 /** ② 干支真值表 → 文章编译器（1 表驱动 22 页，永不与引擎分叉） */
