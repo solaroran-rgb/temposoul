@@ -37,17 +37,22 @@ export type LexiconCategory =
   | '推命体系'
   | '紫微四化'
   | '紫微格局'
-  | '八字格局';
+  | '八字格局'
+  | '吠陀';
 
 export type LexiconLayer = 'L0' | 'L1' | 'L2' | 'L3';
 
+// T-14（X1-D-41）：新增 key（<namespace>:<term>，全局唯一）与可选 disambiguation（多义词标注适用体系）。
+// namespace 与 category 解耦，按所属排盘体系归类；vedic 条目使用语义版本命名空间 vedic@1。
 export type LexiconEntry = {
+  key: string;
   term: string;
   pinyin: string;
   category: LexiconCategory;
   definition: string;
   source: string;
   layer_tag: LexiconLayer;
+  disambiguation?: string;
 };
 
 const SRC = '命律词库（扩充版种子数据）';
@@ -55,10 +60,12 @@ const SRC = '命律词库（扩充版种子数据）';
 /**
  * 扩充版命理词库：覆盖天干/地支/五行/十神/紫微星曜/神煞/纳音/二十八宿/九宫/八卦/
  * 六十四卦/十二长生/地支关系/十二宫/奇门遁甲/六壬/风水/择日/节气/三元九运/
- * 二十四山/河洛/七政四余/三才四象/命理流派等，共 777 条真实中华命理词条。
+ * 二十四山/河洛/七政四余/三才四象/命理流派等。
+ * T-14 收口：已补 key、按 K3 去纯冗余、多义词并列并加 disambiguation。
  */
 const baseLexicon: LexiconEntry[] = [
   {
+    key: 'common:甲',
     term: '甲',
     pinyin: 'jiǎ',
     category: '天干',
@@ -67,6 +74,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:乙',
     term: '乙',
     pinyin: 'yǐ',
     category: '天干',
@@ -75,6 +83,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:丙',
     term: '丙',
     pinyin: 'bǐng',
     category: '天干',
@@ -83,6 +92,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:丁',
     term: '丁',
     pinyin: 'dīng',
     category: '天干',
@@ -91,6 +101,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:戊',
     term: '戊',
     pinyin: 'wù',
     category: '天干',
@@ -99,6 +110,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:己',
     term: '己',
     pinyin: 'jǐ',
     category: '天干',
@@ -107,6 +119,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:庚',
     term: '庚',
     pinyin: 'gēng',
     category: '天干',
@@ -115,6 +128,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:辛',
     term: '辛',
     pinyin: 'xīn',
     category: '天干',
@@ -123,6 +137,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:壬',
     term: '壬',
     pinyin: 'rén',
     category: '天干',
@@ -131,6 +146,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:癸',
     term: '癸',
     pinyin: 'guǐ',
     category: '天干',
@@ -139,6 +155,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:子',
     term: '子',
     pinyin: 'zǐ',
     category: '地支',
@@ -147,6 +164,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:丑',
     term: '丑',
     pinyin: 'chǒu',
     category: '地支',
@@ -155,6 +173,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:寅',
     term: '寅',
     pinyin: 'yín',
     category: '地支',
@@ -163,6 +182,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:卯',
     term: '卯',
     pinyin: 'mǎo',
     category: '地支',
@@ -171,6 +191,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:辰',
     term: '辰',
     pinyin: 'chén',
     category: '地支',
@@ -179,6 +200,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:巳',
     term: '巳',
     pinyin: 'sì',
     category: '地支',
@@ -187,6 +209,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:午',
     term: '午',
     pinyin: 'wǔ',
     category: '地支',
@@ -195,6 +218,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:未',
     term: '未',
     pinyin: 'wèi',
     category: '地支',
@@ -203,6 +227,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:申',
     term: '申',
     pinyin: 'shēn',
     category: '地支',
@@ -211,6 +236,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:酉',
     term: '酉',
     pinyin: 'yǒu',
     category: '地支',
@@ -219,6 +245,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:戌',
     term: '戌',
     pinyin: 'xū',
     category: '地支',
@@ -227,6 +254,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:亥',
     term: '亥',
     pinyin: 'hài',
     category: '地支',
@@ -235,6 +263,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:木',
     term: '木',
     pinyin: 'mù',
     category: '五行',
@@ -243,6 +272,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:火',
     term: '火',
     pinyin: 'huǒ',
     category: '五行',
@@ -251,6 +281,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:土',
     term: '土',
     pinyin: 'tǔ',
     category: '五行',
@@ -259,6 +290,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:金',
     term: '金',
     pinyin: 'jīn',
     category: '五行',
@@ -267,6 +299,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:水',
     term: '水',
     pinyin: 'shuǐ',
     category: '五行',
@@ -275,6 +308,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:木生火',
     term: '木生火',
     pinyin: 'mùshēnghuǒ',
     category: '五行',
@@ -283,6 +317,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:火生土',
     term: '火生土',
     pinyin: 'huǒshēngtǔ',
     category: '五行',
@@ -291,6 +326,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:土生金',
     term: '土生金',
     pinyin: 'tǔshēngjīn',
     category: '五行',
@@ -299,6 +335,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:金生水',
     term: '金生水',
     pinyin: 'jīnshēngshuǐ',
     category: '五行',
@@ -307,6 +344,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:水生木',
     term: '水生木',
     pinyin: 'shuǐshēngmù',
     category: '五行',
@@ -315,6 +353,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:木克土',
     term: '木克土',
     pinyin: 'mùkètǔ',
     category: '五行',
@@ -323,6 +362,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:土克水',
     term: '土克水',
     pinyin: 'tǔkèshuǐ',
     category: '五行',
@@ -331,6 +371,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:水克火',
     term: '水克火',
     pinyin: 'shuǐkèhuǒ',
     category: '五行',
@@ -339,6 +380,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:火克金',
     term: '火克金',
     pinyin: 'huǒkèjīn',
     category: '五行',
@@ -347,6 +389,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:金克木',
     term: '金克木',
     pinyin: 'jīnkèmù',
     category: '五行',
@@ -355,6 +398,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:相乘',
     term: '相乘',
     pinyin: 'xiāngchéng',
     category: '五行',
@@ -363,6 +407,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:相侮',
     term: '相侮',
     pinyin: 'xiāngwǔ',
     category: '五行',
@@ -371,6 +416,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:木主肝',
     term: '木主肝',
     pinyin: 'mùzhǔgān',
     category: '五行',
@@ -379,6 +425,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:火主心',
     term: '火主心',
     pinyin: 'huǒzhǔxīn',
     category: '五行',
@@ -387,6 +434,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:土主脾',
     term: '土主脾',
     pinyin: 'tǔzhǔpí',
     category: '五行',
@@ -395,6 +443,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:金主肺',
     term: '金主肺',
     pinyin: 'jīnzhǔfèi',
     category: '五行',
@@ -403,6 +452,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:水主肾',
     term: '水主肾',
     pinyin: 'shuǐzhǔshèn',
     category: '五行',
@@ -411,6 +461,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:木行行业',
     term: '木行行业',
     pinyin: 'mùxínghángyè',
     category: '五行',
@@ -419,6 +470,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:火行行业',
     term: '火行行业',
     pinyin: 'huǒxínghángyè',
     category: '五行',
@@ -427,6 +479,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:土行行业',
     term: '土行行业',
     pinyin: 'tǔxínghángyè',
     category: '五行',
@@ -435,6 +488,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:金行行业',
     term: '金行行业',
     pinyin: 'jīnxínghángyè',
     category: '五行',
@@ -443,6 +497,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:水行行业',
     term: '水行行业',
     pinyin: 'shuǐxínghángyè',
     category: '五行',
@@ -451,6 +506,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:比肩',
     term: '比肩',
     pinyin: 'bǐjiān',
     category: '十神',
@@ -459,6 +515,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:劫财',
     term: '劫财',
     pinyin: 'jiécái',
     category: '十神',
@@ -467,6 +524,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:食神',
     term: '食神',
     pinyin: 'shíshén',
     category: '十神',
@@ -475,6 +533,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:伤官',
     term: '伤官',
     pinyin: 'shāngguān',
     category: '十神',
@@ -483,6 +542,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:正财',
     term: '正财',
     pinyin: 'zhèngcái',
     category: '十神',
@@ -491,6 +551,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:偏财',
     term: '偏财',
     pinyin: 'piāncái',
     category: '十神',
@@ -499,6 +560,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:正官',
     term: '正官',
     pinyin: 'zhèngguān',
     category: '十神',
@@ -507,14 +569,17 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:七杀',
     term: '七杀',
     pinyin: 'qīshā',
     category: '十神',
     definition: '又名偏官，克日干且异阴阳，主压力、魄力、权威与挑战。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '八字命理',
   },
   {
+    key: 'bazi:正印',
     term: '正印',
     pinyin: 'zhèngyìn',
     category: '十神',
@@ -523,6 +588,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:偏印',
     term: '偏印',
     pinyin: 'piānyìn',
     category: '十神',
@@ -531,6 +597,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:伤官见官',
     term: '伤官见官',
     pinyin: 'shāngguānjiànguān',
     category: '十神',
@@ -539,6 +606,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:食神制杀',
     term: '食神制杀',
     pinyin: 'shíshénzhìshā',
     category: '十神',
@@ -547,6 +615,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:官印相生',
     term: '官印相生',
     pinyin: 'guānyìnxiāngshēng',
     category: '十神',
@@ -555,6 +624,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:财官双美',
     term: '财官双美',
     pinyin: 'cáiguānshuāngměi',
     category: '十神',
@@ -563,6 +633,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:杀印相生',
     term: '杀印相生',
     pinyin: 'shāyìnxiāngshēng',
     category: '十神',
@@ -571,6 +642,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:比劫争财',
     term: '比劫争财',
     pinyin: 'bǐjiézhēngcái',
     category: '十神',
@@ -579,6 +651,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:伤官伤尽',
     term: '伤官伤尽',
     pinyin: 'shāngguānshāngjìn',
     category: '十神',
@@ -587,6 +660,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:食神生财',
     term: '食神生财',
     pinyin: 'shíshénshēngcái',
     category: '十神',
@@ -595,6 +669,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:印绶护身',
     term: '印绶护身',
     pinyin: 'yìnshòuhùshēn',
     category: '十神',
@@ -603,6 +678,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:官杀混杂',
     term: '官杀混杂',
     pinyin: 'guānshāhùnzá',
     category: '十神',
@@ -611,6 +687,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:羊刃驾杀',
     term: '羊刃驾杀',
     pinyin: 'yángrènjiàshā',
     category: '十神',
@@ -619,6 +696,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:伤官配印',
     term: '伤官配印',
     pinyin: 'shāngguānpèiyìn',
     category: '十神',
@@ -627,6 +705,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:财星破印',
     term: '财星破印',
     pinyin: 'cáixīngpòyìn',
     category: '十神',
@@ -635,6 +714,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:日贵格',
     term: '日贵格',
     pinyin: 'rìguìgé',
     category: '十神',
@@ -643,6 +723,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:魁罡格',
     term: '魁罡格',
     pinyin: 'kuígānggé',
     category: '十神',
@@ -651,6 +732,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:金舆格',
     term: '金舆格',
     pinyin: 'jīnyúgé',
     category: '十神',
@@ -659,6 +741,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:学堂格',
     term: '学堂格',
     pinyin: 'xuétánggé',
     category: '十神',
@@ -667,6 +750,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:禄马同乡',
     term: '禄马同乡',
     pinyin: 'lùmǎtóngxiāng',
     category: '十神',
@@ -675,6 +759,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:天干五合',
     term: '天干五合',
     pinyin: 'tiāngānwǔhé',
     category: '十神',
@@ -683,6 +768,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:甲己合',
     term: '甲己合',
     pinyin: 'jiǎjǐhé',
     category: '十神',
@@ -691,6 +777,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:乙庚合',
     term: '乙庚合',
     pinyin: 'yǐgēnghé',
     category: '十神',
@@ -699,6 +786,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:丙辛合',
     term: '丙辛合',
     pinyin: 'bǐngxīnhé',
     category: '十神',
@@ -707,6 +795,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:丁壬合',
     term: '丁壬合',
     pinyin: 'dīngránhé',
     category: '十神',
@@ -715,6 +804,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'bazi:戊癸合',
     term: '戊癸合',
     pinyin: 'wùguǐhé',
     category: '十神',
@@ -723,6 +813,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:紫微',
     term: '紫微',
     pinyin: 'zǐwēi',
     category: '紫微星曜',
@@ -731,6 +822,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:天机',
     term: '天机',
     pinyin: 'tiānjī',
     category: '紫微星曜',
@@ -739,6 +831,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:太阳',
     term: '太阳',
     pinyin: 'tàiyáng',
     category: '紫微星曜',
@@ -747,6 +840,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:武曲',
     term: '武曲',
     pinyin: 'wǔqū',
     category: '紫微星曜',
@@ -755,6 +849,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:天同',
     term: '天同',
     pinyin: 'tiāntóng',
     category: '紫微星曜',
@@ -763,6 +858,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:廉贞',
     term: '廉贞',
     pinyin: 'liánzhēn',
     category: '紫微星曜',
@@ -771,6 +867,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:天府',
     term: '天府',
     pinyin: 'tiānfǔ',
     category: '紫微星曜',
@@ -779,14 +876,17 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:太阴',
     term: '太阴',
     pinyin: 'tàiyīn',
     category: '紫微星曜',
     definition: '月亮，主阴柔、财帛、母星与内省。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '紫微斗数',
   },
   {
+    key: 'ziwei:贪狼',
     term: '贪狼',
     pinyin: 'tānláng',
     category: '紫微星曜',
@@ -795,6 +895,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:巨门',
     term: '巨门',
     pinyin: 'jùmén',
     category: '紫微星曜',
@@ -803,6 +904,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:天相',
     term: '天相',
     pinyin: 'tiānxiàng',
     category: '紫微星曜',
@@ -811,6 +913,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:天梁',
     term: '天梁',
     pinyin: 'tiānliáng',
     category: '紫微星曜',
@@ -819,14 +922,17 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:七杀',
     term: '七杀',
     pinyin: 'qīshā',
     category: '紫微星曜',
     definition: '将星，主冲劲、孤克与开创。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '紫微斗数',
   },
   {
+    key: 'ziwei:破军',
     term: '破军',
     pinyin: 'pòjūn',
     category: '紫微星曜',
@@ -835,6 +941,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:左辅',
     term: '左辅',
     pinyin: 'zuǒfǔ',
     category: '紫微星曜',
@@ -843,6 +950,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:右弼',
     term: '右弼',
     pinyin: 'yòubì',
     category: '紫微星曜',
@@ -851,6 +959,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:文昌',
     term: '文昌',
     pinyin: 'wénchāng',
     category: '紫微星曜',
@@ -859,6 +968,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:文曲',
     term: '文曲',
     pinyin: 'wénqǔ',
     category: '紫微星曜',
@@ -867,6 +977,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:天魁',
     term: '天魁',
     pinyin: 'tiānkuí',
     category: '紫微星曜',
@@ -875,6 +986,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:天钺',
     term: '天钺',
     pinyin: 'tiānyuè',
     category: '紫微星曜',
@@ -883,6 +995,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:禄存',
     term: '禄存',
     pinyin: 'lùcún',
     category: '紫微星曜',
@@ -891,6 +1004,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:天马',
     term: '天马',
     pinyin: 'tiānmǎ',
     category: '紫微星曜',
@@ -899,6 +1013,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:擎羊',
     term: '擎羊',
     pinyin: 'qíngyáng',
     category: '紫微星曜',
@@ -907,6 +1022,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:陀罗',
     term: '陀罗',
     pinyin: 'tuóluó',
     category: '紫微星曜',
@@ -915,14 +1031,17 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:火星',
     term: '火星',
     pinyin: 'huǒxīng',
     category: '紫微星曜',
     definition: '重煞，主突发、暴躁与变动。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '紫微斗数',
   },
   {
+    key: 'ziwei:铃星',
     term: '铃星',
     pinyin: 'língxīng',
     category: '紫微星曜',
@@ -931,6 +1050,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:地空',
     term: '地空',
     pinyin: 'dìkōng',
     category: '紫微星曜',
@@ -939,6 +1059,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:地劫',
     term: '地劫',
     pinyin: 'dìjié',
     category: '紫微星曜',
@@ -947,14 +1068,17 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:天刑',
     term: '天刑',
     pinyin: 'tiānxíng',
     category: '紫微星曜',
     definition: '主刑伤、法律、自律与孤克。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '紫微斗数',
   },
   {
+    key: 'ziwei:天姚',
     term: '天姚',
     pinyin: 'tiānyáo',
     category: '紫微星曜',
@@ -963,6 +1087,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:红鸾',
     term: '红鸾',
     pinyin: 'hóngluán',
     category: '紫微星曜',
@@ -971,6 +1096,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:天喜',
     term: '天喜',
     pinyin: 'tiānxǐ',
     category: '紫微星曜',
@@ -979,6 +1105,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:孤辰',
     term: '孤辰',
     pinyin: 'gūchén',
     category: '紫微星曜',
@@ -987,6 +1114,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:寡宿',
     term: '寡宿',
     pinyin: 'guǎsù',
     category: '紫微星曜',
@@ -995,6 +1123,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:天虚',
     term: '天虚',
     pinyin: 'tiānxū',
     category: '紫微星曜',
@@ -1003,6 +1132,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:天贵',
     term: '天贵',
     pinyin: 'tiānguì',
     category: '紫微星曜',
@@ -1011,6 +1141,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:恩光',
     term: '恩光',
     pinyin: 'ēnguāng',
     category: '紫微星曜',
@@ -1019,14 +1150,17 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:天空',
     term: '天空',
     pinyin: 'tiānkōng',
     category: '紫微星曜',
     definition: '主虚妄、超脱、不染尘累。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '紫微斗数',
   },
   {
+    key: 'ziwei:化禄',
     term: '化禄',
     pinyin: 'huàlù',
     category: '紫微星曜',
@@ -1035,6 +1169,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:化权',
     term: '化权',
     pinyin: 'huàquán',
     category: '紫微星曜',
@@ -1043,6 +1178,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:化科',
     term: '化科',
     pinyin: 'huàkē',
     category: '紫微星曜',
@@ -1051,6 +1187,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:化忌',
     term: '化忌',
     pinyin: 'huàjì',
     category: '紫微星曜',
@@ -1059,6 +1196,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:君臣庆会',
     term: '君臣庆会',
     pinyin: 'jūnchénqìnghuì',
     category: '紫微星曜',
@@ -1067,6 +1205,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:极向离明',
     term: '极向离明',
     pinyin: 'jíxiànglímíng',
     category: '紫微星曜',
@@ -1075,6 +1214,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:紫府同宫',
     term: '紫府同宫',
     pinyin: 'zǐfǔtónggōng',
     category: '紫微星曜',
@@ -1083,6 +1223,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:杀破狼',
     term: '杀破狼',
     pinyin: 'shāpòláng',
     category: '紫微星曜',
@@ -1091,6 +1232,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:机月同梁',
     term: '机月同梁',
     pinyin: 'jīyuètóngliáng',
     category: '紫微星曜',
@@ -1099,6 +1241,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:巨日同宫',
     term: '巨日同宫',
     pinyin: 'jùrìtónggōng',
     category: '紫微星曜',
@@ -1107,6 +1250,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:日照雷门',
     term: '日照雷门',
     pinyin: 'rìzhàoléimén',
     category: '紫微星曜',
@@ -1115,6 +1259,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:月生沧海',
     term: '月生沧海',
     pinyin: 'yuèshēnghāngcāng',
     category: '紫微星曜',
@@ -1123,14 +1268,17 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:火贪格',
     term: '火贪格',
     pinyin: 'huǒtāngé',
     category: '紫微星曜',
     definition: '火星贪狼同守，主暴发、机遇突发。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '紫微斗数',
   },
   {
+    key: 'ziwei:马头带箭',
     term: '马头带箭',
     pinyin: 'mǎtóudàijiàn',
     category: '紫微星曜',
@@ -1139,6 +1287,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:石中隐玉',
     term: '石中隐玉',
     pinyin: 'shízhōngyǐnyù',
     category: '紫微星曜',
@@ -1147,6 +1296,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:紫微庙旺',
     term: '紫微庙旺',
     pinyin: 'zǐwēimiàowàng',
     category: '紫微星曜',
@@ -1155,6 +1305,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:太阳庙旺',
     term: '太阳庙旺',
     pinyin: 'tàiyángmiàowàng',
     category: '紫微星曜',
@@ -1163,6 +1314,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:武曲庙旺',
     term: '武曲庙旺',
     pinyin: 'wǔqūmiàowàng',
     category: '紫微星曜',
@@ -1171,6 +1323,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:太阴庙旺',
     term: '太阴庙旺',
     pinyin: 'tàiyīnmiàowàng',
     category: '紫微星曜',
@@ -1179,6 +1332,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:天同庙旺',
     term: '天同庙旺',
     pinyin: 'tiāntóngmiàowàng',
     category: '紫微星曜',
@@ -1187,6 +1341,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:廉贞庙旺',
     term: '廉贞庙旺',
     pinyin: 'liánzhēnmiàowàng',
     category: '紫微星曜',
@@ -1195,6 +1350,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:天府庙旺',
     term: '天府庙旺',
     pinyin: 'tiānfǔmiàowàng',
     category: '紫微星曜',
@@ -1203,6 +1359,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:天相庙旺',
     term: '天相庙旺',
     pinyin: 'tiānxiàngmiàowàng',
     category: '紫微星曜',
@@ -1211,6 +1368,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:天梁庙旺',
     term: '天梁庙旺',
     pinyin: 'tiānliángmiàowàng',
     category: '紫微星曜',
@@ -1219,6 +1377,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:七杀庙旺',
     term: '七杀庙旺',
     pinyin: 'qīshāmiàowàng',
     category: '紫微星曜',
@@ -1227,6 +1386,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:破军庙旺',
     term: '破军庙旺',
     pinyin: 'pòjūnmiàowàng',
     category: '紫微星曜',
@@ -1235,22 +1395,27 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:命宫',
     term: '命宫',
     pinyin: 'mìnggōng',
     category: '基础',
     definition: '紫微十二宫之首，主先天禀赋与性格基调。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '通用/基础命理',
   },
   {
+    key: 'common:身宫',
     term: '身宫',
     pinyin: 'shēngōng',
     category: '基础',
     definition: '主后天趋向与中年以后的人生重心。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '通用/基础命理',
   },
   {
+    key: 'common:四柱',
     term: '四柱',
     pinyin: 'sìzhù',
     category: '基础',
@@ -1259,6 +1424,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:八字',
     term: '八字',
     pinyin: 'bāzì',
     category: '基础',
@@ -1267,6 +1433,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:真太阳时',
     term: '真太阳时',
     pinyin: 'zhēntàiyángshí',
     category: '基础',
@@ -1275,6 +1442,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:节气',
     term: '节气',
     pinyin: 'jiéqì',
     category: '基础',
@@ -1283,6 +1451,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:纳音',
     term: '纳音',
     pinyin: 'nàyīn',
     category: '基础',
@@ -1291,6 +1460,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:宫位',
     term: '宫位',
     pinyin: 'gōngwèi',
     category: '基础',
@@ -1299,14 +1469,17 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:三方四正',
     term: '三方四正',
     pinyin: 'sānfāngsìzhèng',
     category: '基础',
     definition: '本宫、对宫（四正）与三合宫（三方），论命核心格局。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '通用/基础命理',
   },
   {
+    key: 'common:五行生克',
     term: '五行生克',
     pinyin: 'wǔxíngshēngkè',
     category: '基础',
@@ -1315,14 +1488,17 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:用神',
     term: '用神',
     pinyin: 'yòngshén',
     category: '基础',
     definition: '命局中最能平衡日主干支旺衰的五行，为调候与补救之所依。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '通用/基础命理',
   },
   {
+    key: 'common:旺衰',
     term: '旺衰',
     pinyin: 'wàngshuāi',
     category: '基础',
@@ -1331,6 +1507,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:大运',
     term: '大运',
     pinyin: 'dàyùn',
     category: '基础',
@@ -1339,6 +1516,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:流年',
     term: '流年',
     pinyin: 'liúnián',
     category: '基础',
@@ -1347,6 +1525,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:流月',
     term: '流月',
     pinyin: 'liúyuè',
     category: '基础',
@@ -1355,14 +1534,17 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:空亡',
     term: '空亡',
     pinyin: 'kōngwáng',
     category: '基础',
     definition: '旬空之地，主虚浮、落空、事多不成。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '通用/基础命理',
   },
   {
+    key: 'common:胎元',
     term: '胎元',
     pinyin: 'tāiyuán',
     category: '基础',
@@ -1371,6 +1553,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:命宫起法',
     term: '命宫起法',
     pinyin: 'mìnggōngqǐfǎ',
     category: '基础',
@@ -1379,6 +1562,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:十二宫名',
     term: '十二宫名',
     pinyin: 'shíèrgōngmíng',
     category: '基础',
@@ -1387,6 +1571,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:日主',
     term: '日主',
     pinyin: 'rìzhǔ',
     category: '基础',
@@ -1395,6 +1580,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:月令',
     term: '月令',
     pinyin: 'yuèlìng',
     category: '基础',
@@ -1403,6 +1589,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:格局',
     term: '格局',
     pinyin: 'géjú',
     category: '基础',
@@ -1411,110 +1598,27 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:调候',
     term: '调候',
     pinyin: 'tiáohòu',
     category: '基础',
     definition: '寒暖燥湿失衡时，以恰当五行调和气候。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '通用/基础命理',
   },
   {
+    key: 'common:通关',
     term: '通关',
     pinyin: 'tōngguān',
     category: '基础',
     definition: '两行相战，以中间五行化解，谓之通关。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '通用/基础命理',
   },
   {
-    term: '文昌',
-    pinyin: 'wénchāng',
-    category: '神煞',
-    definition: '文采、学业与聪慧之星。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '文曲',
-    pinyin: 'wénqǔ',
-    category: '神煞',
-    definition: '才艺、口才与文艺之星。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '左辅',
-    pinyin: 'zuǒfǔ',
-    category: '神煞',
-    definition: '辅佐、助力与贵人星。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '右弼',
-    pinyin: 'yòubì',
-    category: '神煞',
-    definition: '辅佐、协力与暗助星。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '天魁',
-    pinyin: 'tiānkuí',
-    category: '神煞',
-    definition: '昼贵，天乙贵人，主功名助力。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '天钺',
-    pinyin: 'tiānyuè',
-    category: '神煞',
-    definition: '夜贵，天乙贵人，主机缘荫护。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '禄存',
-    pinyin: 'lùcún',
-    category: '神煞',
-    definition: '俸禄与稳定之财，逢凶化吉。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '擎羊',
-    pinyin: 'qíngyáng',
-    category: '神煞',
-    definition: '刑伤、刚锐与竞争之星。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '陀罗',
-    pinyin: 'tuóluó',
-    category: '神煞',
-    definition: '纠缠、拖延与暗滞之星。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '火星',
-    pinyin: 'huǒxīng',
-    category: '神煞',
-    definition: '重煞，主突发、暴躁与变动。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '铃星',
-    pinyin: 'língxīng',
-    category: '神煞',
-    definition: '重煞，主内敛、暗涌与积怨。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
+    key: 'shasha:天乙贵人',
     term: '天乙贵人',
     pinyin: 'tiānyǐguìrén',
     category: '神煞',
@@ -1523,6 +1627,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'shasha:太极贵人',
     term: '太极贵人',
     pinyin: 'tàijíguìrén',
     category: '神煞',
@@ -1531,14 +1636,17 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'shasha:天德',
     term: '天德',
     pinyin: 'tiāndé',
     category: '神煞',
     definition: '月德之尊，主化解灾厄、积德转运。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '神煞',
   },
   {
+    key: 'shasha:月德',
     term: '月德',
     pinyin: 'yuèdé',
     category: '神煞',
@@ -1547,6 +1655,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'shasha:天德合',
     term: '天德合',
     pinyin: 'tiāndéhé',
     category: '神煞',
@@ -1555,6 +1664,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'shasha:月德合',
     term: '月德合',
     pinyin: 'yuèdéhé',
     category: '神煞',
@@ -1563,6 +1673,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'shasha:桃花',
     term: '桃花',
     pinyin: 'táohuā',
     category: '神煞',
@@ -1571,14 +1682,17 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'shasha:咸池',
     term: '咸池',
     pinyin: 'xiánchí',
     category: '神煞',
     definition: '子午卯酉见之，主情欲、艺术气质。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '神煞',
   },
   {
+    key: 'shasha:驿马',
     term: '驿马',
     pinyin: 'yìmǎ',
     category: '神煞',
@@ -1587,30 +1701,17 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'shasha:华盖',
     term: '华盖',
     pinyin: 'huágài',
     category: '神煞',
     definition: '主孤高、艺术、宗教与玄学缘分。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '神煞',
   },
   {
-    term: '孤辰',
-    pinyin: 'gūchén',
-    category: '神煞',
-    definition: '主孤僻、离群、六亲缘薄。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '寡宿',
-    pinyin: 'guǎsù',
-    category: '神煞',
-    definition: '主寡淡、清寂、晚婚或独处。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
+    key: 'shasha:劫煞',
     term: '劫煞',
     pinyin: 'jiéshā',
     category: '神煞',
@@ -1619,6 +1720,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'shasha:灾煞',
     term: '灾煞',
     pinyin: 'zāishā',
     category: '神煞',
@@ -1627,14 +1729,17 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'shasha:岁破',
     term: '岁破',
     pinyin: 'suìpò',
     category: '神煞',
     definition: '冲犯太岁之方，主动荡破耗。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '神煞',
   },
   {
+    key: 'shasha:大耗',
     term: '大耗',
     pinyin: 'dàhào',
     category: '神煞',
@@ -1643,6 +1748,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'shasha:破碎',
     term: '破碎',
     pinyin: 'pòsuì',
     category: '神煞',
@@ -1651,22 +1757,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
-    term: '红鸾',
-    pinyin: 'hóngluán',
-    category: '神煞',
-    definition: '主婚姻喜庆、姻缘桃花。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '天喜',
-    pinyin: 'tiānxǐ',
-    category: '神煞',
-    definition: '主喜事、添丁、欢愉。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
+    key: 'shasha:阴煞',
     term: '阴煞',
     pinyin: 'yīnshā',
     category: '神煞',
@@ -1675,22 +1766,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
-    term: '天姚',
-    pinyin: 'tiānyáo',
-    category: '神煞',
-    definition: '桃花、风流与神秘之星。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '天刑',
-    pinyin: 'tiānxíng',
-    category: '神煞',
-    definition: '主刑伤、法律、自律与孤克。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
+    key: 'shasha:解神',
     term: '解神',
     pinyin: 'jiěshén',
     category: '神煞',
@@ -1699,14 +1775,17 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'shasha:龙德',
     term: '龙德',
     pinyin: 'lóngdé',
     category: '神煞',
     definition: '主贵人、祥瑞、逢凶化吉。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '神煞',
   },
   {
+    key: 'shasha:暴败',
     term: '暴败',
     pinyin: 'bàobài',
     category: '神煞',
@@ -1715,30 +1794,37 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'shasha:丧门',
     term: '丧门',
     pinyin: 'sāngmén',
     category: '神煞',
     definition: '主孝服、哀伤之事。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '神煞',
   },
   {
+    key: 'shasha:吊客',
     term: '吊客',
     pinyin: 'diàokè',
     category: '神煞',
     definition: '主吊唁、烦忧、小耗。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '神煞',
   },
   {
+    key: 'shasha:白虎',
     term: '白虎',
     pinyin: 'báihǔ',
     category: '神煞',
     definition: '主血光、刑伤、凶暴。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '神煞',
   },
   {
+    key: 'shasha:将星',
     term: '将星',
     pinyin: 'jiāngxīng',
     category: '神煞',
@@ -1747,6 +1833,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'shasha:攀鞍',
     term: '攀鞍',
     pinyin: 'pānān',
     category: '神煞',
@@ -1755,6 +1842,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'shasha:岁驿',
     term: '岁驿',
     pinyin: 'suìyì',
     category: '神煞',
@@ -1763,6 +1851,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'shasha:息神',
     term: '息神',
     pinyin: 'xīshén',
     category: '神煞',
@@ -1771,6 +1860,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'shasha:天厨',
     term: '天厨',
     pinyin: 'tiānchú',
     category: '神煞',
@@ -1779,6 +1869,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'shasha:天才',
     term: '天才',
     pinyin: 'tiāncái',
     category: '神煞',
@@ -1786,8 +1877,17 @@ const baseLexicon: LexiconEntry[] = [
     source: SRC,
     layer_tag: 'L2',
   },
-  { term: '天寿', pinyin: 'tiānshòu', category: '神煞', definition: '主长寿、安康。', source: SRC, layer_tag: 'L2', },
   {
+    key: 'shasha:天寿',
+    term: '天寿',
+    pinyin: 'tiānshòu',
+    category: '神煞',
+    definition: '主长寿、安康。',
+    source: SRC,
+    layer_tag: 'L2',
+  },
+  {
+    key: 'shasha:寡宿孤辰并见',
     term: '寡宿孤辰并见',
     pinyin: 'guǎsùgūchén',
     category: '神煞',
@@ -1796,6 +1896,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'shasha:桃花带杀',
     term: '桃花带杀',
     pinyin: 'táohuādàishā',
     category: '神煞',
@@ -1804,6 +1905,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'shasha:贵人入命',
     term: '贵人入命',
     pinyin: 'guìrénrùmìng',
     category: '神煞',
@@ -1812,6 +1914,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'shasha:驿马逢冲',
     term: '驿马逢冲',
     pinyin: 'yìmǎféngchōng',
     category: '神煞',
@@ -1820,6 +1923,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'shasha:华盖逢空',
     term: '华盖逢空',
     pinyin: 'huágàiféngkōng',
     category: '神煞',
@@ -1828,6 +1932,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'shasha:三奇贵人',
     term: '三奇贵人',
     pinyin: 'sānqíguìrén',
     category: '神煞',
@@ -1836,6 +1941,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'shasha:天德月德并临',
     term: '天德月德并临',
     pinyin: 'tiāndéyuèdé',
     category: '神煞',
@@ -1844,6 +1950,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'shasha:羊刃',
     term: '羊刃',
     pinyin: 'yángrèn',
     category: '神煞',
@@ -1852,6 +1959,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'shasha:飞刃',
     term: '飞刃',
     pinyin: 'fēirèn',
     category: '神煞',
@@ -1859,8 +1967,17 @@ const baseLexicon: LexiconEntry[] = [
     source: SRC,
     layer_tag: 'L2',
   },
-  { term: '血刃', pinyin: 'xuèrèn', category: '神煞', definition: '主血光之灾。', source: SRC, layer_tag: 'L2', },
   {
+    key: 'shasha:血刃',
+    term: '血刃',
+    pinyin: 'xuèrèn',
+    category: '神煞',
+    definition: '主血光之灾。',
+    source: SRC,
+    layer_tag: 'L2',
+  },
+  {
+    key: 'common:子平八字',
     term: '子平八字',
     pinyin: 'zǐpíngbāzì',
     category: '命理流派',
@@ -1869,6 +1986,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:紫微斗数',
     term: '紫微斗数',
     pinyin: 'zǐwēidǒushù',
     category: '命理流派',
@@ -1877,6 +1995,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:奇门遁甲',
     term: '奇门遁甲',
     pinyin: 'qíméndùnjiǎ',
     category: '命理流派',
@@ -1885,6 +2004,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:大六壬',
     term: '大六壬',
     pinyin: 'dàliùrén',
     category: '命理流派',
@@ -1893,6 +2013,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:太乙神数',
     term: '太乙神数',
     pinyin: 'tàiyǐshénshù',
     category: '命理流派',
@@ -1901,6 +2022,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:铁板神数',
     term: '铁板神数',
     pinyin: 'tiěbǎnshénshù',
     category: '命理流派',
@@ -1909,6 +2031,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:梅花易数',
     term: '梅花易数',
     pinyin: 'méihuāyìshù',
     category: '命理流派',
@@ -1917,6 +2040,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:邵子神数',
     term: '邵子神数',
     pinyin: 'shàozǐshénshù',
     category: '命理流派',
@@ -1925,6 +2049,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:测字',
     term: '测字',
     pinyin: 'cèzì',
     category: '命理流派',
@@ -1933,6 +2058,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:面相',
     term: '面相',
     pinyin: 'miànxiàng',
     category: '命理流派',
@@ -1941,6 +2067,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:手相',
     term: '手相',
     pinyin: 'shǒuxiàng',
     category: '命理流派',
@@ -1949,6 +2076,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:风水峦头',
     term: '风水峦头',
     pinyin: 'fēngshuǐluántóu',
     category: '命理流派',
@@ -1957,6 +2085,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:风水理气',
     term: '风水理气',
     pinyin: 'fēngshuǐlǐqì',
     category: '命理流派',
@@ -1965,6 +2094,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:七政四余',
     term: '七政四余',
     pinyin: 'qīzhèngsìyú',
     category: '命理流派',
@@ -1973,6 +2103,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:果老星宗',
     term: '果老星宗',
     pinyin: 'guǒlǎoxīngzōng',
     category: '命理流派',
@@ -1981,6 +2112,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:演禽',
     term: '演禽',
     pinyin: 'yǎnqín',
     category: '命理流派',
@@ -1989,6 +2121,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:九宫飞星',
     term: '九宫飞星',
     pinyin: 'jiǔgōngfēixīng',
     category: '命理流派',
@@ -1997,6 +2130,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:玄空飞星',
     term: '玄空飞星',
     pinyin: 'xuánkōngfēixīng',
     category: '命理流派',
@@ -2005,6 +2139,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:太极',
     term: '太极',
     pinyin: 'tàijí',
     category: '三才四象',
@@ -2013,6 +2148,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:两仪',
     term: '两仪',
     pinyin: 'liǎngyí',
     category: '三才四象',
@@ -2021,6 +2157,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:三才',
     term: '三才',
     pinyin: 'sāncái',
     category: '三才四象',
@@ -2029,6 +2166,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:四象',
     term: '四象',
     pinyin: 'sìxiàng',
     category: '三才四象',
@@ -2037,6 +2175,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:阴阳',
     term: '阴阳',
     pinyin: 'yīnyáng',
     category: '三才四象',
@@ -2045,6 +2184,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:无极',
     term: '无极',
     pinyin: 'wújí',
     category: '三才四象',
@@ -2053,6 +2193,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:道生一',
     term: '道生一',
     pinyin: 'dàoshēngyī',
     category: '三才四象',
@@ -2061,6 +2202,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:先天八卦',
     term: '先天八卦',
     pinyin: 'xiāntiānbāguà',
     category: '三才四象',
@@ -2069,6 +2211,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:后天八卦',
     term: '后天八卦',
     pinyin: 'hòutiānbāguà',
     category: '三才四象',
@@ -2077,6 +2220,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:河图',
     term: '河图',
     pinyin: 'hétú',
     category: '三才四象',
@@ -2085,6 +2229,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:洛书',
     term: '洛书',
     pinyin: 'luòshū',
     category: '三才四象',
@@ -2093,6 +2238,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:天一生水',
     term: '天一生水',
     pinyin: 'tiānyīshēngshuǐ',
     category: '河洛',
@@ -2101,6 +2247,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:地二生火',
     term: '地二生火',
     pinyin: 'dìèrshēnghuǒ',
     category: '河洛',
@@ -2109,6 +2256,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:天三生木',
     term: '天三生木',
     pinyin: 'tiānsānshēngmù',
     category: '河洛',
@@ -2117,6 +2265,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:地四生金',
     term: '地四生金',
     pinyin: 'dìsìshēngjīn',
     category: '河洛',
@@ -2125,6 +2274,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:天五生土',
     term: '天五生土',
     pinyin: 'tiānwǔshēngtǔ',
     category: '河洛',
@@ -2133,6 +2283,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:生成数',
     term: '生成数',
     pinyin: 'shēngchéngshù',
     category: '河洛',
@@ -2141,6 +2292,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:先天数',
     term: '先天数',
     pinyin: 'xiāntiānshù',
     category: '河洛',
@@ -2149,6 +2301,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:后天数',
     term: '后天数',
     pinyin: 'hòutiānshù',
     category: '河洛',
@@ -2157,6 +2310,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qizheng:日',
     term: '日',
     pinyin: 'rì',
     category: '七政四余',
@@ -2165,6 +2319,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qizheng:月',
     term: '月',
     pinyin: 'yuè',
     category: '七政四余',
@@ -2173,6 +2328,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qizheng:金星',
     term: '金星',
     pinyin: 'jīnxīng',
     category: '七政四余',
@@ -2181,6 +2337,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qizheng:木星',
     term: '木星',
     pinyin: 'mùxīng',
     category: '七政四余',
@@ -2189,6 +2346,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qizheng:水星',
     term: '水星',
     pinyin: 'shuǐxīng',
     category: '七政四余',
@@ -2197,14 +2355,17 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qizheng:火星',
     term: '火星',
     pinyin: 'huǒxīng',
     category: '七政四余',
     definition: '荧惑，主礼法、暴烈与灾厄。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '七政四余',
   },
   {
+    key: 'qizheng:土星',
     term: '土星',
     pinyin: 'tǔxīng',
     category: '七政四余',
@@ -2213,6 +2374,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qizheng:罗睺',
     term: '罗睺',
     pinyin: 'luóhóu',
     category: '七政四余',
@@ -2221,6 +2383,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qizheng:计都',
     term: '计都',
     pinyin: 'jìdōu',
     category: '七政四余',
@@ -2229,6 +2392,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qizheng:紫气',
     term: '紫气',
     pinyin: 'zǐqì',
     category: '七政四余',
@@ -2237,6 +2401,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qizheng:月孛',
     term: '月孛',
     pinyin: 'yuèbèi',
     category: '七政四余',
@@ -2245,6 +2410,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qimen:天蓬',
     term: '天蓬',
     pinyin: 'tiānpéng',
     category: '奇门遁甲',
@@ -2253,6 +2419,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qimen:天芮',
     term: '天芮',
     pinyin: 'tiānruì',
     category: '奇门遁甲',
@@ -2261,6 +2428,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qimen:天冲',
     term: '天冲',
     pinyin: 'tiānchōng',
     category: '奇门遁甲',
@@ -2269,6 +2437,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qimen:天辅',
     term: '天辅',
     pinyin: 'tiānfǔ',
     category: '奇门遁甲',
@@ -2277,6 +2446,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qimen:天禽',
     term: '天禽',
     pinyin: 'tiānqín',
     category: '奇门遁甲',
@@ -2285,6 +2455,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qimen:天心',
     term: '天心',
     pinyin: 'tiānxīn',
     category: '奇门遁甲',
@@ -2293,6 +2464,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qimen:天柱',
     term: '天柱',
     pinyin: 'tiānzhù',
     category: '奇门遁甲',
@@ -2301,6 +2473,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qimen:天任',
     term: '天任',
     pinyin: 'tiānrèn',
     category: '奇门遁甲',
@@ -2309,6 +2482,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qimen:天英',
     term: '天英',
     pinyin: 'tiānyīng',
     category: '奇门遁甲',
@@ -2317,6 +2491,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qimen:休门',
     term: '休门',
     pinyin: 'xiūmén',
     category: '奇门遁甲',
@@ -2325,6 +2500,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qimen:生门',
     term: '生门',
     pinyin: 'shēngmén',
     category: '奇门遁甲',
@@ -2333,6 +2509,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qimen:伤门',
     term: '伤门',
     pinyin: 'shāngmén',
     category: '奇门遁甲',
@@ -2341,6 +2518,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qimen:杜门',
     term: '杜门',
     pinyin: 'dùmén',
     category: '奇门遁甲',
@@ -2349,6 +2527,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qimen:景门',
     term: '景门',
     pinyin: 'jǐngmén',
     category: '奇门遁甲',
@@ -2357,6 +2536,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qimen:死门',
     term: '死门',
     pinyin: 'sǐmén',
     category: '奇门遁甲',
@@ -2365,6 +2545,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qimen:惊门',
     term: '惊门',
     pinyin: 'jīngmén',
     category: '奇门遁甲',
@@ -2373,6 +2554,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qimen:开门',
     term: '开门',
     pinyin: 'kāimén',
     category: '奇门遁甲',
@@ -2381,6 +2563,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qimen:值符',
     term: '值符',
     pinyin: 'zhífú',
     category: '奇门遁甲',
@@ -2389,46 +2572,57 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qimen:螣蛇',
     term: '螣蛇',
     pinyin: 'téngshé',
     category: '奇门遁甲',
     definition: '奇门八神，主虚惊、怪异、缠绕。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '奇门遁甲',
   },
   {
+    key: 'qimen:太阴',
     term: '太阴',
     pinyin: 'tàiyīn',
     category: '奇门遁甲',
     definition: '奇门八神，主隐秘、谋划、阴护。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '奇门遁甲',
   },
   {
+    key: 'qimen:六合',
     term: '六合',
     pinyin: 'liùhé',
     category: '奇门遁甲',
     definition: '奇门八神，主和合、婚姻、中介。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '奇门遁甲',
   },
   {
+    key: 'qimen:白虎',
     term: '白虎',
     pinyin: 'báihǔ',
     category: '奇门遁甲',
     definition: '奇门八神，主凶伤、兵戈、威猛。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '奇门遁甲',
   },
   {
+    key: 'qimen:玄武',
     term: '玄武',
     pinyin: 'xuánwǔ',
     category: '奇门遁甲',
     definition: '奇门八神，主盗贼、暗昧、文书错。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '奇门遁甲',
   },
   {
+    key: 'qimen:九地',
     term: '九地',
     pinyin: 'jiǔdì',
     category: '奇门遁甲',
@@ -2437,6 +2631,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'qimen:九天',
     term: '九天',
     pinyin: 'jiǔtiān',
     category: '奇门遁甲',
@@ -2445,6 +2640,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'liuren:贵人',
     term: '贵人',
     pinyin: 'guìrén',
     category: '六壬',
@@ -2453,62 +2649,77 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'liuren:螣蛇',
     term: '螣蛇',
     pinyin: 'téngshé',
     category: '六壬',
     definition: '六壬天将，主惊怪、虚诈。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '大六壬',
   },
   {
+    key: 'liuren:朱雀',
     term: '朱雀',
     pinyin: 'zhūquè',
     category: '六壬',
     definition: '六壬天将，主文书、口舌、南方火。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '大六壬',
   },
   {
+    key: 'liuren:六合',
     term: '六合',
     pinyin: 'liùhé',
     category: '六壬',
     definition: '六壬天将，主和合、婚姻、东方木。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '大六壬',
   },
   {
+    key: 'liuren:勾陈',
     term: '勾陈',
     pinyin: 'gōuchén',
     category: '六壬',
     definition: '六壬天将，主迟滞、争斗、中央土。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '大六壬',
   },
   {
+    key: 'liuren:青龙',
     term: '青龙',
     pinyin: 'qīnglóng',
     category: '六壬',
     definition: '六壬天将，主喜庆、财禄、东方木。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '大六壬',
   },
   {
+    key: 'liuren:天空',
     term: '天空',
     pinyin: 'tiānkōng',
     category: '六壬',
     definition: '六壬天将，主虚诈、空亡。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '大六壬',
   },
   {
+    key: 'liuren:白虎',
     term: '白虎',
     pinyin: 'báihǔ',
     category: '六壬',
     definition: '六壬天将，主凶丧、兵戈、西方金。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '大六壬',
   },
   {
+    key: 'liuren:太常',
     term: '太常',
     pinyin: 'tàicháng',
     category: '六壬',
@@ -2517,22 +2728,27 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'liuren:玄武',
     term: '玄武',
     pinyin: 'xuánwǔ',
     category: '六壬',
     definition: '六壬天将，主盗贼、阴私、北方水。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '大六壬',
   },
   {
+    key: 'liuren:太阴',
     term: '太阴',
     pinyin: 'tàiyīn',
     category: '六壬',
     definition: '六壬天将，主阴私、妇女、西方金。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '大六壬',
   },
   {
+    key: 'liuren:天后',
     term: '天后',
     pinyin: 'tiānhòu',
     category: '六壬',
@@ -2541,6 +2757,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:立春',
     term: '立春',
     pinyin: 'lìchūn',
     category: '节气',
@@ -2549,6 +2766,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:雨水',
     term: '雨水',
     pinyin: 'yǔshuǐ',
     category: '节气',
@@ -2557,6 +2775,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:惊蛰',
     term: '惊蛰',
     pinyin: 'jīngzhé',
     category: '节气',
@@ -2565,6 +2784,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:春分',
     term: '春分',
     pinyin: 'chūnfēn',
     category: '节气',
@@ -2573,6 +2793,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:清明',
     term: '清明',
     pinyin: 'qīngmíng',
     category: '节气',
@@ -2581,6 +2802,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:谷雨',
     term: '谷雨',
     pinyin: 'gǔyǔ',
     category: '节气',
@@ -2589,6 +2811,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:立夏',
     term: '立夏',
     pinyin: 'lìxià',
     category: '节气',
@@ -2597,6 +2820,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:小满',
     term: '小满',
     pinyin: 'xiǎomǎn',
     category: '节气',
@@ -2605,6 +2829,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:芒种',
     term: '芒种',
     pinyin: 'mángzhòng',
     category: '节气',
@@ -2613,6 +2838,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:夏至',
     term: '夏至',
     pinyin: 'xiàzhì',
     category: '节气',
@@ -2621,6 +2847,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:小暑',
     term: '小暑',
     pinyin: 'xiǎoshǔ',
     category: '节气',
@@ -2629,6 +2856,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:大暑',
     term: '大暑',
     pinyin: 'dàshǔ',
     category: '节气',
@@ -2637,6 +2865,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:立秋',
     term: '立秋',
     pinyin: 'lìqiū',
     category: '节气',
@@ -2645,6 +2874,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:处暑',
     term: '处暑',
     pinyin: 'chǔshǔ',
     category: '节气',
@@ -2653,6 +2883,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:白露',
     term: '白露',
     pinyin: 'báilù',
     category: '节气',
@@ -2661,6 +2892,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:秋分',
     term: '秋分',
     pinyin: 'qiūfēn',
     category: '节气',
@@ -2669,6 +2901,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:寒露',
     term: '寒露',
     pinyin: 'hánlù',
     category: '节气',
@@ -2677,6 +2910,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:霜降',
     term: '霜降',
     pinyin: 'shuāngjiàng',
     category: '节气',
@@ -2685,6 +2919,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:立冬',
     term: '立冬',
     pinyin: 'lìdōng',
     category: '节气',
@@ -2693,6 +2928,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:小雪',
     term: '小雪',
     pinyin: 'xiǎoxuě',
     category: '节气',
@@ -2701,6 +2937,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:大雪',
     term: '大雪',
     pinyin: 'dàxuě',
     category: '节气',
@@ -2709,6 +2946,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:冬至',
     term: '冬至',
     pinyin: 'dōngzhì',
     category: '节气',
@@ -2717,6 +2955,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:小寒',
     term: '小寒',
     pinyin: 'xiǎohán',
     category: '节气',
@@ -2725,6 +2964,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:大寒',
     term: '大寒',
     pinyin: 'dàhán',
     category: '节气',
@@ -2733,6 +2973,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'zeiri:建',
     term: '建',
     pinyin: 'jiàn',
     category: '择日',
@@ -2740,8 +2981,17 @@ const baseLexicon: LexiconEntry[] = [
     source: SRC,
     layer_tag: 'L2',
   },
-  { term: '除', pinyin: 'chú', category: '择日', definition: '主清除、解除、去旧。', source: SRC, layer_tag: 'L2', },
   {
+    key: 'zeiri:除',
+    term: '除',
+    pinyin: 'chú',
+    category: '择日',
+    definition: '主清除、解除、去旧。',
+    source: SRC,
+    layer_tag: 'L2',
+  },
+  {
+    key: 'zeiri:满',
     term: '满',
     pinyin: 'mǎn',
     category: '择日',
@@ -2749,10 +2999,35 @@ const baseLexicon: LexiconEntry[] = [
     source: SRC,
     layer_tag: 'L2',
   },
-  { term: '平', pinyin: 'píng', category: '择日', definition: '主平和、安稳。', source: SRC, layer_tag: 'L2', },
-  { term: '定', pinyin: 'dìng', category: '择日', definition: '主安定、决策。', source: SRC, layer_tag: 'L2', },
-  { term: '执', pinyin: 'zhí', category: '择日', definition: '主执持、防守。', source: SRC, layer_tag: 'L2', },
   {
+    key: 'zeiri:平',
+    term: '平',
+    pinyin: 'píng',
+    category: '择日',
+    definition: '主平和、安稳。',
+    source: SRC,
+    layer_tag: 'L2',
+  },
+  {
+    key: 'zeiri:定',
+    term: '定',
+    pinyin: 'dìng',
+    category: '择日',
+    definition: '主安定、决策。',
+    source: SRC,
+    layer_tag: 'L2',
+  },
+  {
+    key: 'zeiri:执',
+    term: '执',
+    pinyin: 'zhí',
+    category: '择日',
+    definition: '主执持、防守。',
+    source: SRC,
+    layer_tag: 'L2',
+  },
+  {
+    key: 'zeiri:破',
     term: '破',
     pinyin: 'pò',
     category: '择日',
@@ -2760,20 +3035,63 @@ const baseLexicon: LexiconEntry[] = [
     source: SRC,
     layer_tag: 'L2',
   },
-  { term: '危', pinyin: 'wēi', category: '择日', definition: '主高险、戒慎。', source: SRC, layer_tag: 'L2', },
-  { term: '成', pinyin: 'chéng', category: '择日', definition: '主成就、圆满。', source: SRC, layer_tag: 'L2', },
-  { term: '收', pinyin: 'shōu', category: '择日', definition: '主收敛、收获。', source: SRC, layer_tag: 'L2', },
-  { term: '开', pinyin: 'kāi', category: '择日', definition: '主开通、开始，大吉。', source: SRC, layer_tag: 'L2', },
-  { term: '闭', pinyin: 'bì', category: '择日', definition: '主闭藏、收敛，宜静。', source: SRC, layer_tag: 'L2', },
   {
+    key: 'zeiri:危',
+    term: '危',
+    pinyin: 'wēi',
+    category: '择日',
+    definition: '主高险、戒慎。',
+    source: SRC,
+    layer_tag: 'L2',
+  },
+  {
+    key: 'zeiri:成',
+    term: '成',
+    pinyin: 'chéng',
+    category: '择日',
+    definition: '主成就、圆满。',
+    source: SRC,
+    layer_tag: 'L2',
+  },
+  {
+    key: 'zeiri:收',
+    term: '收',
+    pinyin: 'shōu',
+    category: '择日',
+    definition: '主收敛、收获。',
+    source: SRC,
+    layer_tag: 'L2',
+  },
+  {
+    key: 'zeiri:开',
+    term: '开',
+    pinyin: 'kāi',
+    category: '择日',
+    definition: '主开通、开始，大吉。',
+    source: SRC,
+    layer_tag: 'L2',
+  },
+  {
+    key: 'zeiri:闭',
+    term: '闭',
+    pinyin: 'bì',
+    category: '择日',
+    definition: '主闭藏、收敛，宜静。',
+    source: SRC,
+    layer_tag: 'L2',
+  },
+  {
+    key: 'zeiri:青龙',
     term: '青龙',
     pinyin: 'qīnglóng',
     category: '择日',
     definition: '黄道吉神，主喜庆、腾达。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '择日',
   },
   {
+    key: 'zeiri:明堂',
     term: '明堂',
     pinyin: 'míngtáng',
     category: '择日',
@@ -2782,22 +3100,27 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'zeiri:天刑',
     term: '天刑',
     pinyin: 'tiānxíng',
     category: '择日',
     definition: '黑道凶神，主刑伤、官非。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '择日',
   },
   {
+    key: 'zeiri:朱雀',
     term: '朱雀',
     pinyin: 'zhūquè',
     category: '择日',
     definition: '黑道凶神，主口舌、文书。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '择日',
   },
   {
+    key: 'zeiri:金匮',
     term: '金匮',
     pinyin: 'jīnguì',
     category: '择日',
@@ -2806,22 +3129,27 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'zeiri:天德',
     term: '天德',
     pinyin: 'tiāndé',
     category: '择日',
     definition: '黄道吉神，主福德、化解。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '择日',
   },
   {
+    key: 'zeiri:白虎',
     term: '白虎',
     pinyin: 'báihǔ',
     category: '择日',
     definition: '黑道凶神，主凶伤、血光。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '择日',
   },
   {
+    key: 'zeiri:玉堂',
     term: '玉堂',
     pinyin: 'yùtáng',
     category: '择日',
@@ -2830,6 +3158,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'zeiri:天牢',
     term: '天牢',
     pinyin: 'tiānláo',
     category: '择日',
@@ -2838,14 +3167,17 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'zeiri:玄武',
     term: '玄武',
     pinyin: 'xuánwǔ',
     category: '择日',
     definition: '黑道凶神，主盗失、阴私。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '择日',
   },
   {
+    key: 'zeiri:司命',
     term: '司命',
     pinyin: 'sīmìng',
     category: '择日',
@@ -2854,14 +3186,17 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'zeiri:勾陈',
     term: '勾陈',
     pinyin: 'gōuchén',
     category: '择日',
     definition: '黑道凶神，主迟滞、争讼。',
     source: SRC,
     layer_tag: 'L2',
+    disambiguation: '择日',
   },
   {
+    key: 'fengshui:一运坎',
     term: '一运坎',
     pinyin: 'yīyùnkǎn',
     category: '三元九运',
@@ -2870,6 +3205,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:二运坤',
     term: '二运坤',
     pinyin: 'èryùnkūn',
     category: '三元九运',
@@ -2878,6 +3214,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:三运震',
     term: '三运震',
     pinyin: 'sānyùnzhèn',
     category: '三元九运',
@@ -2886,6 +3223,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:四运巽',
     term: '四运巽',
     pinyin: 'sìyùnxùn',
     category: '三元九运',
@@ -2894,6 +3232,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:五运中',
     term: '五运中',
     pinyin: 'wǔyùnzhōng',
     category: '三元九运',
@@ -2902,6 +3241,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:六运乾',
     term: '六运乾',
     pinyin: 'liùyùnqián',
     category: '三元九运',
@@ -2910,6 +3250,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:七运兑',
     term: '七运兑',
     pinyin: 'qīyùnduì',
     category: '三元九运',
@@ -2918,6 +3259,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:八运艮',
     term: '八运艮',
     pinyin: 'bāyùngèn',
     category: '三元九运',
@@ -2926,6 +3268,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:九运离',
     term: '九运离',
     pinyin: 'jiǔyùnlí',
     category: '三元九运',
@@ -2934,6 +3277,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:子山',
     term: '子山',
     pinyin: 'zǐshān',
     category: '二十四山',
@@ -2942,6 +3286,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:癸山',
     term: '癸山',
     pinyin: 'guǐshān',
     category: '二十四山',
@@ -2950,6 +3295,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:丑山',
     term: '丑山',
     pinyin: 'chǒushān',
     category: '二十四山',
@@ -2958,6 +3304,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:艮山',
     term: '艮山',
     pinyin: 'gènshān',
     category: '二十四山',
@@ -2966,6 +3313,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:寅山',
     term: '寅山',
     pinyin: 'yínshān',
     category: '二十四山',
@@ -2974,6 +3322,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:甲山',
     term: '甲山',
     pinyin: 'jiǎshān',
     category: '二十四山',
@@ -2982,6 +3331,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:卯山',
     term: '卯山',
     pinyin: 'mǎoshān',
     category: '二十四山',
@@ -2990,6 +3340,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:乙山',
     term: '乙山',
     pinyin: 'yǐshān',
     category: '二十四山',
@@ -2998,6 +3349,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:辰山',
     term: '辰山',
     pinyin: 'chénshān',
     category: '二十四山',
@@ -3006,6 +3358,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:巽山',
     term: '巽山',
     pinyin: 'xùnshān',
     category: '二十四山',
@@ -3014,6 +3367,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:巳山',
     term: '巳山',
     pinyin: 'sìshān',
     category: '二十四山',
@@ -3022,6 +3376,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:丙山',
     term: '丙山',
     pinyin: 'bǐngshān',
     category: '二十四山',
@@ -3030,6 +3385,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:午山',
     term: '午山',
     pinyin: 'wǔshān',
     category: '二十四山',
@@ -3038,6 +3394,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:丁山',
     term: '丁山',
     pinyin: 'dīngshān',
     category: '二十四山',
@@ -3046,6 +3403,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:未山',
     term: '未山',
     pinyin: 'wèishān',
     category: '二十四山',
@@ -3054,6 +3412,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:坤山',
     term: '坤山',
     pinyin: 'kūnshān',
     category: '二十四山',
@@ -3062,6 +3421,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:申山',
     term: '申山',
     pinyin: 'shēnshān',
     category: '二十四山',
@@ -3070,6 +3430,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:庚山',
     term: '庚山',
     pinyin: 'gēngshān',
     category: '二十四山',
@@ -3078,6 +3439,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:酉山',
     term: '酉山',
     pinyin: 'yǒushān',
     category: '二十四山',
@@ -3086,6 +3448,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:辛山',
     term: '辛山',
     pinyin: 'xīnshān',
     category: '二十四山',
@@ -3094,6 +3457,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:戌山',
     term: '戌山',
     pinyin: 'xūshān',
     category: '二十四山',
@@ -3102,6 +3466,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:乾山',
     term: '乾山',
     pinyin: 'qiánshān',
     category: '二十四山',
@@ -3110,6 +3475,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:亥山',
     term: '亥山',
     pinyin: 'hàishān',
     category: '二十四山',
@@ -3118,6 +3484,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:壬山',
     term: '壬山',
     pinyin: 'rénshān',
     category: '二十四山',
@@ -3126,6 +3493,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:寻龙',
     term: '寻龙',
     pinyin: 'xúnlóng',
     category: '风水',
@@ -3134,6 +3502,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:点穴',
     term: '点穴',
     pinyin: 'diǎnxué',
     category: '风水',
@@ -3142,6 +3511,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:察砂',
     term: '察砂',
     pinyin: 'cháshā',
     category: '风水',
@@ -3150,6 +3520,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:觅水',
     term: '觅水',
     pinyin: 'mìshuǐ',
     category: '风水',
@@ -3158,6 +3529,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'fengshui:立向',
     term: '立向',
     pinyin: 'lìxiàng',
     category: '风水',
@@ -3166,6 +3538,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:兄弟宫',
     term: '兄弟宫',
     pinyin: 'xiōngdìgōng',
     category: '十二宫',
@@ -3174,6 +3547,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:夫妻宫',
     term: '夫妻宫',
     pinyin: 'fūqīgōng',
     category: '十二宫',
@@ -3182,6 +3556,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:子女宫',
     term: '子女宫',
     pinyin: 'zǐnǚgōng',
     category: '十二宫',
@@ -3190,6 +3565,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:财帛宫',
     term: '财帛宫',
     pinyin: 'cáibógōng',
     category: '十二宫',
@@ -3198,6 +3574,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:疾厄宫',
     term: '疾厄宫',
     pinyin: 'jíègōng',
     category: '十二宫',
@@ -3206,6 +3583,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:迁移宫',
     term: '迁移宫',
     pinyin: 'qiānyígōng',
     category: '十二宫',
@@ -3214,6 +3592,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:交友宫',
     term: '交友宫',
     pinyin: 'jiāoyǒugōng',
     category: '十二宫',
@@ -3222,6 +3601,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:官禄宫',
     term: '官禄宫',
     pinyin: 'guānlùgōng',
     category: '十二宫',
@@ -3230,6 +3610,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:田宅宫',
     term: '田宅宫',
     pinyin: 'tiánzháigōng',
     category: '十二宫',
@@ -3238,6 +3619,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:福德宫',
     term: '福德宫',
     pinyin: 'fúdégōng',
     category: '十二宫',
@@ -3246,6 +3628,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'ziwei:父母宫',
     term: '父母宫',
     pinyin: 'fùmǔgōng',
     category: '十二宫',
@@ -3254,6 +3637,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:长生',
     term: '长生',
     pinyin: 'chángshēng',
     category: '十二长生',
@@ -3262,6 +3646,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:沐浴',
     term: '沐浴',
     pinyin: 'mùyù',
     category: '十二长生',
@@ -3270,6 +3655,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:冠带',
     term: '冠带',
     pinyin: 'guāndài',
     category: '十二长生',
@@ -3278,6 +3664,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:临官',
     term: '临官',
     pinyin: 'línguān',
     category: '十二长生',
@@ -3286,6 +3673,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:帝旺',
     term: '帝旺',
     pinyin: 'dìwàng',
     category: '十二长生',
@@ -3293,10 +3681,35 @@ const baseLexicon: LexiconEntry[] = [
     source: SRC,
     layer_tag: 'L2',
   },
-  { term: '衰', pinyin: 'shuāi', category: '十二长生', definition: '主退气、乏力。', source: SRC, layer_tag: 'L2', },
-  { term: '病', pinyin: 'bìng', category: '十二长生', definition: '主困顿、疾厄。', source: SRC, layer_tag: 'L2', },
-  { term: '死', pinyin: 'sǐ', category: '十二长生', definition: '主沉寂、终结。', source: SRC, layer_tag: 'L2', },
   {
+    key: 'common:衰',
+    term: '衰',
+    pinyin: 'shuāi',
+    category: '十二长生',
+    definition: '主退气、乏力。',
+    source: SRC,
+    layer_tag: 'L2',
+  },
+  {
+    key: 'common:病',
+    term: '病',
+    pinyin: 'bìng',
+    category: '十二长生',
+    definition: '主困顿、疾厄。',
+    source: SRC,
+    layer_tag: 'L2',
+  },
+  {
+    key: 'common:死',
+    term: '死',
+    pinyin: 'sǐ',
+    category: '十二长生',
+    definition: '主沉寂、终结。',
+    source: SRC,
+    layer_tag: 'L2',
+  },
+  {
+    key: 'common:墓',
     term: '墓',
     pinyin: 'mù',
     category: '十二长生',
@@ -3305,6 +3718,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:绝',
     term: '绝',
     pinyin: 'jué',
     category: '十二长生',
@@ -3312,8 +3726,17 @@ const baseLexicon: LexiconEntry[] = [
     source: SRC,
     layer_tag: 'L2',
   },
-  { term: '胎', pinyin: 'tāi', category: '十二长生', definition: '主孕育、初萌。', source: SRC, layer_tag: 'L2', },
   {
+    key: 'common:胎',
+    term: '胎',
+    pinyin: 'tāi',
+    category: '十二长生',
+    definition: '主孕育、初萌。',
+    source: SRC,
+    layer_tag: 'L2',
+  },
+  {
+    key: 'common:养',
     term: '养',
     pinyin: 'yǎng',
     category: '十二长生',
@@ -3322,6 +3745,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:一白坎',
     term: '一白坎',
     pinyin: 'yībáikǎn',
     category: '九宫',
@@ -3330,6 +3754,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:二黑坤',
     term: '二黑坤',
     pinyin: 'èrhēikūn',
     category: '九宫',
@@ -3338,6 +3763,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:三碧震',
     term: '三碧震',
     pinyin: 'sānbìzhèn',
     category: '九宫',
@@ -3346,6 +3772,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:四绿巽',
     term: '四绿巽',
     pinyin: 'sìlǜxùn',
     category: '九宫',
@@ -3354,6 +3781,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:五黄中',
     term: '五黄中',
     pinyin: 'wǔhuángzhōng',
     category: '九宫',
@@ -3362,6 +3790,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:六白乾',
     term: '六白乾',
     pinyin: 'liùbáiqián',
     category: '九宫',
@@ -3370,6 +3799,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:七赤兑',
     term: '七赤兑',
     pinyin: 'qīchìduì',
     category: '九宫',
@@ -3378,6 +3808,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:八白艮',
     term: '八白艮',
     pinyin: 'bābáigèn',
     category: '九宫',
@@ -3386,6 +3817,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:九紫离',
     term: '九紫离',
     pinyin: 'jiǔzǐlí',
     category: '九宫',
@@ -3394,6 +3826,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:乾',
     term: '乾',
     pinyin: 'qián',
     category: '八卦',
@@ -3402,6 +3835,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:兑',
     term: '兑',
     pinyin: 'duì',
     category: '八卦',
@@ -3410,6 +3844,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:离',
     term: '离',
     pinyin: 'lí',
     category: '八卦',
@@ -3418,6 +3853,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:震',
     term: '震',
     pinyin: 'zhèn',
     category: '八卦',
@@ -3426,6 +3862,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:巽',
     term: '巽',
     pinyin: 'xùn',
     category: '八卦',
@@ -3434,6 +3871,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:坎',
     term: '坎',
     pinyin: 'kǎn',
     category: '八卦',
@@ -3442,6 +3880,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:艮',
     term: '艮',
     pinyin: 'gèn',
     category: '八卦',
@@ -3450,6 +3889,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:坤',
     term: '坤',
     pinyin: 'kūn',
     category: '八卦',
@@ -3458,6 +3898,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:角宿',
     term: '角宿',
     pinyin: 'jiǎoxiù',
     category: '二十八宿',
@@ -3466,6 +3907,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:亢宿',
     term: '亢宿',
     pinyin: 'kàngxiù',
     category: '二十八宿',
@@ -3474,6 +3916,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:氐宿',
     term: '氐宿',
     pinyin: 'dīxiù',
     category: '二十八宿',
@@ -3482,6 +3925,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:房宿',
     term: '房宿',
     pinyin: 'fángxiù',
     category: '二十八宿',
@@ -3490,6 +3934,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:心宿',
     term: '心宿',
     pinyin: 'xīnxìù',
     category: '二十八宿',
@@ -3498,6 +3943,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:尾宿',
     term: '尾宿',
     pinyin: 'wěixìù',
     category: '二十八宿',
@@ -3506,6 +3952,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:箕宿',
     term: '箕宿',
     pinyin: 'jīxìù',
     category: '二十八宿',
@@ -3514,6 +3961,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:斗宿',
     term: '斗宿',
     pinyin: 'dǒuxìù',
     category: '二十八宿',
@@ -3522,6 +3970,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:牛宿',
     term: '牛宿',
     pinyin: 'niúxìù',
     category: '二十八宿',
@@ -3530,6 +3979,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:女宿',
     term: '女宿',
     pinyin: 'nǚxìù',
     category: '二十八宿',
@@ -3538,6 +3988,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:虚宿',
     term: '虚宿',
     pinyin: 'xūxìù',
     category: '二十八宿',
@@ -3546,6 +3997,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:危宿',
     term: '危宿',
     pinyin: 'wēixìù',
     category: '二十八宿',
@@ -3554,6 +4006,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:室宿',
     term: '室宿',
     pinyin: 'shìxìù',
     category: '二十八宿',
@@ -3562,6 +4015,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:壁宿',
     term: '壁宿',
     pinyin: 'bìxìù',
     category: '二十八宿',
@@ -3570,6 +4024,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:奎宿',
     term: '奎宿',
     pinyin: 'kuíxìù',
     category: '二十八宿',
@@ -3578,6 +4033,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:娄宿',
     term: '娄宿',
     pinyin: 'lóuxìù',
     category: '二十八宿',
@@ -3586,6 +4042,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:胃宿',
     term: '胃宿',
     pinyin: 'wèixìù',
     category: '二十八宿',
@@ -3594,6 +4051,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:昴宿',
     term: '昴宿',
     pinyin: 'mǎoxìù',
     category: '二十八宿',
@@ -3602,6 +4060,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:毕宿',
     term: '毕宿',
     pinyin: 'bìxìù',
     category: '二十八宿',
@@ -3610,6 +4069,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:觜宿',
     term: '觜宿',
     pinyin: 'zīxìù',
     category: '二十八宿',
@@ -3618,6 +4078,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:参宿',
     term: '参宿',
     pinyin: 'shēnxìù',
     category: '二十八宿',
@@ -3626,6 +4087,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:井宿',
     term: '井宿',
     pinyin: 'jǐngxìù',
     category: '二十八宿',
@@ -3634,6 +4096,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:鬼宿',
     term: '鬼宿',
     pinyin: 'guǐxìù',
     category: '二十八宿',
@@ -3642,6 +4105,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:柳宿',
     term: '柳宿',
     pinyin: 'liǔxìù',
     category: '二十八宿',
@@ -3650,6 +4114,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:星宿',
     term: '星宿',
     pinyin: 'xīngxìù',
     category: '二十八宿',
@@ -3658,6 +4123,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:张宿',
     term: '张宿',
     pinyin: 'zhāngxìù',
     category: '二十八宿',
@@ -3666,6 +4132,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:翼宿',
     term: '翼宿',
     pinyin: 'yìxìù',
     category: '二十八宿',
@@ -3674,6 +4141,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:轸宿',
     term: '轸宿',
     pinyin: 'zhěnxìù',
     category: '二十八宿',
@@ -3682,6 +4150,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:甲子',
     term: '甲子',
     pinyin: 'jiǎzǐ',
     category: '纳音',
@@ -3690,6 +4159,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:乙丑',
     term: '乙丑',
     pinyin: 'yǐchǒu',
     category: '纳音',
@@ -3698,6 +4168,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:丙寅',
     term: '丙寅',
     pinyin: 'bǐngyín',
     category: '纳音',
@@ -3706,6 +4177,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:丁卯',
     term: '丁卯',
     pinyin: 'dīngmǎo',
     category: '纳音',
@@ -3714,6 +4186,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:戊辰',
     term: '戊辰',
     pinyin: 'wùchén',
     category: '纳音',
@@ -3722,6 +4195,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:己巳',
     term: '己巳',
     pinyin: 'jǐsì',
     category: '纳音',
@@ -3730,6 +4204,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:庚午',
     term: '庚午',
     pinyin: 'gēngwǔ',
     category: '纳音',
@@ -3738,6 +4213,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:辛未',
     term: '辛未',
     pinyin: 'xīnwèi',
     category: '纳音',
@@ -3746,6 +4222,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:壬申',
     term: '壬申',
     pinyin: 'rénshēn',
     category: '纳音',
@@ -3754,6 +4231,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:癸酉',
     term: '癸酉',
     pinyin: 'guǐyǒu',
     category: '纳音',
@@ -3762,6 +4240,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:甲戌',
     term: '甲戌',
     pinyin: 'jiǎxū',
     category: '纳音',
@@ -3770,6 +4249,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:乙亥',
     term: '乙亥',
     pinyin: 'yǐhài',
     category: '纳音',
@@ -3778,6 +4258,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:丙子',
     term: '丙子',
     pinyin: 'bǐngzǐ',
     category: '纳音',
@@ -3786,6 +4267,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:丁丑',
     term: '丁丑',
     pinyin: 'dīngchǒu',
     category: '纳音',
@@ -3794,6 +4276,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:戊寅',
     term: '戊寅',
     pinyin: 'wùyín',
     category: '纳音',
@@ -3802,6 +4285,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:己卯',
     term: '己卯',
     pinyin: 'jǐmǎo',
     category: '纳音',
@@ -3810,6 +4294,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:庚辰',
     term: '庚辰',
     pinyin: 'gēngchén',
     category: '纳音',
@@ -3818,6 +4303,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:辛巳',
     term: '辛巳',
     pinyin: 'xīnsì',
     category: '纳音',
@@ -3826,6 +4312,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:壬午',
     term: '壬午',
     pinyin: 'rénwǔ',
     category: '纳音',
@@ -3834,6 +4321,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:癸未',
     term: '癸未',
     pinyin: 'guǐwèi',
     category: '纳音',
@@ -3842,6 +4330,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:甲申',
     term: '甲申',
     pinyin: 'jiǎshēn',
     category: '纳音',
@@ -3850,6 +4339,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:乙酉',
     term: '乙酉',
     pinyin: 'yǐyǒu',
     category: '纳音',
@@ -3858,6 +4348,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:丙戌',
     term: '丙戌',
     pinyin: 'bǐngxū',
     category: '纳音',
@@ -3866,6 +4357,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:丁亥',
     term: '丁亥',
     pinyin: 'dīnghài',
     category: '纳音',
@@ -3874,6 +4366,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:戊子',
     term: '戊子',
     pinyin: 'wùzǐ',
     category: '纳音',
@@ -3882,6 +4375,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:己丑',
     term: '己丑',
     pinyin: 'jǐchǒu',
     category: '纳音',
@@ -3890,6 +4384,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:庚寅',
     term: '庚寅',
     pinyin: 'gēngyín',
     category: '纳音',
@@ -3898,6 +4393,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:辛卯',
     term: '辛卯',
     pinyin: 'xīnmǎo',
     category: '纳音',
@@ -3906,6 +4402,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:壬辰',
     term: '壬辰',
     pinyin: 'rénchén',
     category: '纳音',
@@ -3914,6 +4411,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:癸巳',
     term: '癸巳',
     pinyin: 'guǐsì',
     category: '纳音',
@@ -3922,6 +4420,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:甲午',
     term: '甲午',
     pinyin: 'jiǎwǔ',
     category: '纳音',
@@ -3930,6 +4429,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:乙未',
     term: '乙未',
     pinyin: 'yǐwèi',
     category: '纳音',
@@ -3938,6 +4438,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:丙申',
     term: '丙申',
     pinyin: 'bǐngshēn',
     category: '纳音',
@@ -3946,6 +4447,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:丁酉',
     term: '丁酉',
     pinyin: 'dīngyǒu',
     category: '纳音',
@@ -3954,6 +4456,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:戊戌',
     term: '戊戌',
     pinyin: 'wùxū',
     category: '纳音',
@@ -3962,6 +4465,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:己亥',
     term: '己亥',
     pinyin: 'jǐhài',
     category: '纳音',
@@ -3970,6 +4474,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:庚子',
     term: '庚子',
     pinyin: 'gēngzǐ',
     category: '纳音',
@@ -3978,6 +4483,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:辛丑',
     term: '辛丑',
     pinyin: 'xīnchǒu',
     category: '纳音',
@@ -3986,6 +4492,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:壬寅',
     term: '壬寅',
     pinyin: 'rényín',
     category: '纳音',
@@ -3994,6 +4501,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:癸卯',
     term: '癸卯',
     pinyin: 'guǐmǎo',
     category: '纳音',
@@ -4002,6 +4510,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:甲辰',
     term: '甲辰',
     pinyin: 'jiǎchén',
     category: '纳音',
@@ -4010,6 +4519,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:乙巳',
     term: '乙巳',
     pinyin: 'yǐsì',
     category: '纳音',
@@ -4018,6 +4528,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:丙午',
     term: '丙午',
     pinyin: 'bǐngwǔ',
     category: '纳音',
@@ -4026,6 +4537,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:丁未',
     term: '丁未',
     pinyin: 'dīngwèi',
     category: '纳音',
@@ -4034,6 +4546,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:戊申',
     term: '戊申',
     pinyin: 'wùshēn',
     category: '纳音',
@@ -4042,6 +4555,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:己酉',
     term: '己酉',
     pinyin: 'jǐyǒu',
     category: '纳音',
@@ -4050,6 +4564,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:庚戌',
     term: '庚戌',
     pinyin: 'gēngxū',
     category: '纳音',
@@ -4058,6 +4573,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:辛亥',
     term: '辛亥',
     pinyin: 'xīnhài',
     category: '纳音',
@@ -4066,6 +4582,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:壬子',
     term: '壬子',
     pinyin: 'rénzǐ',
     category: '纳音',
@@ -4074,6 +4591,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:癸丑',
     term: '癸丑',
     pinyin: 'guǐchǒu',
     category: '纳音',
@@ -4082,6 +4600,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:甲寅',
     term: '甲寅',
     pinyin: 'jiǎyín',
     category: '纳音',
@@ -4090,6 +4609,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:乙卯',
     term: '乙卯',
     pinyin: 'yǐmǎo',
     category: '纳音',
@@ -4098,6 +4618,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:丙辰',
     term: '丙辰',
     pinyin: 'bǐngchén',
     category: '纳音',
@@ -4106,6 +4627,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:丁巳',
     term: '丁巳',
     pinyin: 'dīngsì',
     category: '纳音',
@@ -4114,6 +4636,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:戊午',
     term: '戊午',
     pinyin: 'wùwǔ',
     category: '纳音',
@@ -4122,6 +4645,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:己未',
     term: '己未',
     pinyin: 'jǐwèi',
     category: '纳音',
@@ -4130,6 +4654,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:庚申',
     term: '庚申',
     pinyin: 'gēngshēn',
     category: '纳音',
@@ -4138,6 +4663,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:辛酉',
     term: '辛酉',
     pinyin: 'xīnyǒu',
     category: '纳音',
@@ -4146,6 +4672,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:壬戌',
     term: '壬戌',
     pinyin: 'rénxū',
     category: '纳音',
@@ -4154,6 +4681,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'nayin:癸亥',
     term: '癸亥',
     pinyin: 'guǐhài',
     category: '纳音',
@@ -4162,6 +4690,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:乾为天',
     term: '乾为天',
     pinyin: 'qiánwéitiān',
     category: '六十四卦',
@@ -4170,6 +4699,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:坤为地',
     term: '坤为地',
     pinyin: 'kūnwéidì',
     category: '六十四卦',
@@ -4178,6 +4708,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:水雷屯',
     term: '水雷屯',
     pinyin: 'shuǐléitún',
     category: '六十四卦',
@@ -4186,6 +4717,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:山水蒙',
     term: '山水蒙',
     pinyin: 'shānshuǐméng',
     category: '六十四卦',
@@ -4194,6 +4726,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:水天需',
     term: '水天需',
     pinyin: 'shuǐtiānxū',
     category: '六十四卦',
@@ -4202,6 +4735,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:天水讼',
     term: '天水讼',
     pinyin: 'tiānshuǐsòng',
     category: '六十四卦',
@@ -4210,6 +4744,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:地水师',
     term: '地水师',
     pinyin: 'dìshuǐshī',
     category: '六十四卦',
@@ -4218,6 +4753,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:水地比',
     term: '水地比',
     pinyin: 'shuǐdìbǐ',
     category: '六十四卦',
@@ -4226,6 +4762,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:风天小畜',
     term: '风天小畜',
     pinyin: 'fēngtiānxiǎoxù',
     category: '六十四卦',
@@ -4234,6 +4771,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:天泽履',
     term: '天泽履',
     pinyin: 'tiānzélǚ',
     category: '六十四卦',
@@ -4242,6 +4780,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:地天泰',
     term: '地天泰',
     pinyin: 'dìtiāntài',
     category: '六十四卦',
@@ -4250,6 +4789,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:天地否',
     term: '天地否',
     pinyin: 'tiāndìpǐ',
     category: '六十四卦',
@@ -4258,6 +4798,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:天火同人',
     term: '天火同人',
     pinyin: 'tiānhuǒtóngrén',
     category: '六十四卦',
@@ -4266,6 +4807,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:火天大有',
     term: '火天大有',
     pinyin: 'huǒtiāndàyǒu',
     category: '六十四卦',
@@ -4274,6 +4816,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:地山谦',
     term: '地山谦',
     pinyin: 'dìshānqiān',
     category: '六十四卦',
@@ -4282,6 +4825,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:雷地豫',
     term: '雷地豫',
     pinyin: 'léidìyù',
     category: '六十四卦',
@@ -4290,6 +4834,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:泽雷随',
     term: '泽雷随',
     pinyin: 'zéléisuí',
     category: '六十四卦',
@@ -4298,6 +4843,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:山风蛊',
     term: '山风蛊',
     pinyin: 'shānfēnggǔ',
     category: '六十四卦',
@@ -4306,6 +4852,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:地泽临',
     term: '地泽临',
     pinyin: 'dìzélín',
     category: '六十四卦',
@@ -4314,6 +4861,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:风地观',
     term: '风地观',
     pinyin: 'fēngdìguān',
     category: '六十四卦',
@@ -4322,6 +4870,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:火雷噬嗑',
     term: '火雷噬嗑',
     pinyin: 'huǒléishìkè',
     category: '六十四卦',
@@ -4330,6 +4879,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:山火贲',
     term: '山火贲',
     pinyin: 'shānhuǒbì',
     category: '六十四卦',
@@ -4338,6 +4888,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:山地剥',
     term: '山地剥',
     pinyin: 'shāndìbō',
     category: '六十四卦',
@@ -4346,6 +4897,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:地雷复',
     term: '地雷复',
     pinyin: 'dìléifù',
     category: '六十四卦',
@@ -4354,6 +4906,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:天雷无妄',
     term: '天雷无妄',
     pinyin: 'tiānléiwúwàng',
     category: '六十四卦',
@@ -4362,6 +4915,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:山天大畜',
     term: '山天大畜',
     pinyin: 'shāntiāndàxù',
     category: '六十四卦',
@@ -4370,6 +4924,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:山雷颐',
     term: '山雷颐',
     pinyin: 'shānléiyí',
     category: '六十四卦',
@@ -4378,6 +4933,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:泽风大过',
     term: '泽风大过',
     pinyin: 'zéfēngdàguò',
     category: '六十四卦',
@@ -4386,6 +4942,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:坎为水',
     term: '坎为水',
     pinyin: 'kǎnwéishuǐ',
     category: '六十四卦',
@@ -4394,6 +4951,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:离为火',
     term: '离为火',
     pinyin: 'líwéihuǒ',
     category: '六十四卦',
@@ -4402,6 +4960,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:泽山咸',
     term: '泽山咸',
     pinyin: 'zéshānxián',
     category: '六十四卦',
@@ -4410,6 +4969,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:雷风恒',
     term: '雷风恒',
     pinyin: 'léifēnghéng',
     category: '六十四卦',
@@ -4418,6 +4978,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:天山遁',
     term: '天山遁',
     pinyin: 'tiānshāndùn',
     category: '六十四卦',
@@ -4426,6 +4987,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:雷天大壮',
     term: '雷天大壮',
     pinyin: 'léitiāndàzhuàng',
     category: '六十四卦',
@@ -4434,6 +4996,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:火地晋',
     term: '火地晋',
     pinyin: 'huǒdìjìn',
     category: '六十四卦',
@@ -4442,6 +5005,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:地火明夷',
     term: '地火明夷',
     pinyin: 'dìhuǒmíngyí',
     category: '六十四卦',
@@ -4450,6 +5014,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:风火家人',
     term: '风火家人',
     pinyin: 'fēnghuǒjiārén',
     category: '六十四卦',
@@ -4458,6 +5023,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:火泽睽',
     term: '火泽睽',
     pinyin: 'huǒzékuí',
     category: '六十四卦',
@@ -4466,6 +5032,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:水山蹇',
     term: '水山蹇',
     pinyin: 'shuǐshānjiǎn',
     category: '六十四卦',
@@ -4474,6 +5041,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:雷水解',
     term: '雷水解',
     pinyin: 'léishuǐxiè',
     category: '六十四卦',
@@ -4482,6 +5050,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:山泽损',
     term: '山泽损',
     pinyin: 'shānzésǔn',
     category: '六十四卦',
@@ -4490,6 +5059,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:风雷益',
     term: '风雷益',
     pinyin: 'fēngléiyì',
     category: '六十四卦',
@@ -4498,6 +5068,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:泽天夬',
     term: '泽天夬',
     pinyin: 'zétiānguài',
     category: '六十四卦',
@@ -4506,6 +5077,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:天风姤',
     term: '天风姤',
     pinyin: 'tiānfēnggòu',
     category: '六十四卦',
@@ -4514,6 +5086,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:泽地萃',
     term: '泽地萃',
     pinyin: 'zédìcuì',
     category: '六十四卦',
@@ -4522,6 +5095,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:地风升',
     term: '地风升',
     pinyin: 'dìfēngshēng',
     category: '六十四卦',
@@ -4530,6 +5104,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:泽水困',
     term: '泽水困',
     pinyin: 'zéshuǐkùn',
     category: '六十四卦',
@@ -4538,6 +5113,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:水风井',
     term: '水风井',
     pinyin: 'shuǐfēngjǐng',
     category: '六十四卦',
@@ -4546,6 +5122,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:泽火革',
     term: '泽火革',
     pinyin: 'zéhuǒgé',
     category: '六十四卦',
@@ -4554,6 +5131,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:火风鼎',
     term: '火风鼎',
     pinyin: 'huǒfēngdǐng',
     category: '六十四卦',
@@ -4562,6 +5140,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:震为雷',
     term: '震为雷',
     pinyin: 'zhènwéiléi',
     category: '六十四卦',
@@ -4570,6 +5149,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:艮为山',
     term: '艮为山',
     pinyin: 'gènwéishān',
     category: '六十四卦',
@@ -4578,6 +5158,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:风山渐',
     term: '风山渐',
     pinyin: 'fēngshānjiàn',
     category: '六十四卦',
@@ -4586,6 +5167,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:雷泽归妹',
     term: '雷泽归妹',
     pinyin: 'léizéguīmèi',
     category: '六十四卦',
@@ -4594,6 +5176,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:雷火丰',
     term: '雷火丰',
     pinyin: 'léihuǒfēng',
     category: '六十四卦',
@@ -4602,6 +5185,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:火山旅',
     term: '火山旅',
     pinyin: 'huǒshānlǚ',
     category: '六十四卦',
@@ -4610,6 +5194,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:巽为风',
     term: '巽为风',
     pinyin: 'xùnwéifēng',
     category: '六十四卦',
@@ -4618,6 +5203,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:兑为泽',
     term: '兑为泽',
     pinyin: 'duìwéizé',
     category: '六十四卦',
@@ -4626,6 +5212,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:风水涣',
     term: '风水涣',
     pinyin: 'fēngshuǐhuàn',
     category: '六十四卦',
@@ -4634,6 +5221,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:水泽节',
     term: '水泽节',
     pinyin: 'shuǐzéjié',
     category: '六十四卦',
@@ -4642,6 +5230,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:风泽中孚',
     term: '风泽中孚',
     pinyin: 'fēngzézhōngfú',
     category: '六十四卦',
@@ -4650,6 +5239,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:雷山小过',
     term: '雷山小过',
     pinyin: 'léishānxiǎoguò',
     category: '六十四卦',
@@ -4658,6 +5248,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:水火既济',
     term: '水火既济',
     pinyin: 'shuǐhuǒjìjì',
     category: '六十四卦',
@@ -4666,6 +5257,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:火水未济',
     term: '火水未济',
     pinyin: 'huǒshuǐwèijì',
     category: '六十四卦',
@@ -4674,6 +5266,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:申子辰合水',
     term: '申子辰合水',
     pinyin: 'shēnzǐchénhéshuǐ',
     category: '地支关系',
@@ -4682,6 +5275,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:亥卯未合木',
     term: '亥卯未合木',
     pinyin: 'hàimǎowèihémù',
     category: '地支关系',
@@ -4690,6 +5284,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:寅午戌合火',
     term: '寅午戌合火',
     pinyin: 'yínmǔxūhéhuǒ',
     category: '地支关系',
@@ -4698,6 +5293,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:巳酉丑合金',
     term: '巳酉丑合金',
     pinyin: 'sìyǒuchǒuhéjīn',
     category: '地支关系',
@@ -4706,6 +5302,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:子丑合土',
     term: '子丑合土',
     pinyin: 'zǐchǒuhétǔ',
     category: '地支关系',
@@ -4714,6 +5311,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:寅亥合木',
     term: '寅亥合木',
     pinyin: 'yínhàihémù',
     category: '地支关系',
@@ -4722,6 +5320,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:卯戌合火',
     term: '卯戌合火',
     pinyin: 'mǎoxūhéhuǒ',
     category: '地支关系',
@@ -4730,6 +5329,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:辰酉合金',
     term: '辰酉合金',
     pinyin: 'chényǒuhéjīn',
     category: '地支关系',
@@ -4738,6 +5338,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:巳申合水',
     term: '巳申合水',
     pinyin: 'sìshēnhéshuǐ',
     category: '地支关系',
@@ -4746,6 +5347,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:午未合火',
     term: '午未合火',
     pinyin: 'wǔwèihéhuǒ',
     category: '地支关系',
@@ -4754,6 +5356,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:寅卯辰东方木',
     term: '寅卯辰东方木',
     pinyin: 'yínmǎochéndōngfāngmù',
     category: '地支关系',
@@ -4762,6 +5365,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:巳午未南方火',
     term: '巳午未南方火',
     pinyin: 'sìwǔwèinánfānghuǒ',
     category: '地支关系',
@@ -4770,6 +5374,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:申酉戌西方金',
     term: '申酉戌西方金',
     pinyin: 'shēnyǒuxūxīfāngjīn',
     category: '地支关系',
@@ -4778,6 +5383,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:亥子丑北方水',
     term: '亥子丑北方水',
     pinyin: 'hàizǐchǒuběifāngshuǐ',
     category: '地支关系',
@@ -4786,6 +5392,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:子午冲',
     term: '子午冲',
     pinyin: 'zǐwǔchōng',
     category: '地支关系',
@@ -4794,6 +5401,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:丑未冲',
     term: '丑未冲',
     pinyin: 'chǒuwèichōng',
     category: '地支关系',
@@ -4802,6 +5410,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:寅申冲',
     term: '寅申冲',
     pinyin: 'yínshēnchōng',
     category: '地支关系',
@@ -4810,6 +5419,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:卯酉冲',
     term: '卯酉冲',
     pinyin: 'mǎoyǒuchōng',
     category: '地支关系',
@@ -4818,6 +5428,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:辰戌冲',
     term: '辰戌冲',
     pinyin: 'chénxūchōng',
     category: '地支关系',
@@ -4826,6 +5437,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:巳亥冲',
     term: '巳亥冲',
     pinyin: 'sìhàichōng',
     category: '地支关系',
@@ -4834,6 +5446,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:寅巳申三刑',
     term: '寅巳申三刑',
     pinyin: 'yínsìshēnsānxíng',
     category: '地支关系',
@@ -4842,6 +5455,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:丑戌未三刑',
     term: '丑戌未三刑',
     pinyin: 'chǒuxūwèisānxíng',
     category: '地支关系',
@@ -4850,6 +5464,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:子卯相刑',
     term: '子卯相刑',
     pinyin: 'zǐmǎoxiāngxíng',
     category: '地支关系',
@@ -4858,6 +5473,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:辰辰自刑',
     term: '辰辰自刑',
     pinyin: 'chénchénzìxíng',
     category: '地支关系',
@@ -4866,6 +5482,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:午午自刑',
     term: '午午自刑',
     pinyin: 'wǔwǔzìxíng',
     category: '地支关系',
@@ -4874,6 +5491,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:酉酉自刑',
     term: '酉酉自刑',
     pinyin: 'yǒuyǒuzìxíng',
     category: '地支关系',
@@ -4882,6 +5500,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:亥亥自刑',
     term: '亥亥自刑',
     pinyin: 'hàihàizìxíng',
     category: '地支关系',
@@ -4890,6 +5509,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:子未相害',
     term: '子未相害',
     pinyin: 'zǐwèixiānghài',
     category: '地支关系',
@@ -4898,6 +5518,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:丑午相害',
     term: '丑午相害',
     pinyin: 'chǒuwǔxiānghài',
     category: '地支关系',
@@ -4906,6 +5527,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:寅巳相害',
     term: '寅巳相害',
     pinyin: 'yínsìxiānghài',
     category: '地支关系',
@@ -4914,6 +5536,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:卯辰相害',
     term: '卯辰相害',
     pinyin: 'mǎochénxiānghài',
     category: '地支关系',
@@ -4922,6 +5545,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:申亥相害',
     term: '申亥相害',
     pinyin: 'shēnhàixiānghài',
     category: '地支关系',
@@ -4930,6 +5554,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:酉戌相害',
     term: '酉戌相害',
     pinyin: 'yǒuxūxiānghài',
     category: '地支关系',
@@ -4938,6 +5563,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:子酉相破',
     term: '子酉相破',
     pinyin: 'zǐyǒuxiāngpò',
     category: '地支关系',
@@ -4946,6 +5572,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:寅亥相破',
     term: '寅亥相破',
     pinyin: 'yínhàixiāngpò',
     category: '地支关系',
@@ -4954,6 +5581,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:卯午相破',
     term: '卯午相破',
     pinyin: 'mǎowǔxiāngpò',
     category: '地支关系',
@@ -4962,6 +5590,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:辰丑相破',
     term: '辰丑相破',
     pinyin: 'chénchǒuxiāngpò',
     category: '地支关系',
@@ -4970,6 +5599,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:巳申相破',
     term: '巳申相破',
     pinyin: 'sìshēnxiāngpò',
     category: '地支关系',
@@ -4978,6 +5608,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:午卯相破',
     term: '午卯相破',
     pinyin: 'wǔmǎoxiāngpò',
     category: '地支关系',
@@ -4986,6 +5617,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:子藏癸',
     term: '子藏癸',
     pinyin: 'zǐcángguǐ',
     category: '地支关系',
@@ -4994,6 +5626,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:丑藏己癸辛',
     term: '丑藏己癸辛',
     pinyin: 'chǒucángjǐguǐxīn',
     category: '地支关系',
@@ -5002,6 +5635,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:寅藏甲丙戊',
     term: '寅藏甲丙戊',
     pinyin: 'yíncángjiǎbǐngwù',
     category: '地支关系',
@@ -5010,6 +5644,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:卯藏乙',
     term: '卯藏乙',
     pinyin: 'mǎocángyǐ',
     category: '地支关系',
@@ -5018,6 +5653,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:辰藏戊乙癸',
     term: '辰藏戊乙癸',
     pinyin: 'chéncángwùyǐguǐ',
     category: '地支关系',
@@ -5026,6 +5662,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:巳藏丙戊庚',
     term: '巳藏丙戊庚',
     pinyin: 'sìcángbǐngwùgēng',
     category: '地支关系',
@@ -5034,6 +5671,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:午藏丁己',
     term: '午藏丁己',
     pinyin: 'wǔcángdīngjǐ',
     category: '地支关系',
@@ -5042,6 +5680,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:未藏己丁乙',
     term: '未藏己丁乙',
     pinyin: 'wèicángjǐdīngyǐ',
     category: '地支关系',
@@ -5050,6 +5689,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:申藏庚壬戊',
     term: '申藏庚壬戊',
     pinyin: 'shēncánggēngrénwù',
     category: '地支关系',
@@ -5058,6 +5698,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:酉藏辛',
     term: '酉藏辛',
     pinyin: 'yǒucángxīn',
     category: '地支关系',
@@ -5066,6 +5707,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:戌藏戊辛丁',
     term: '戌藏戊辛丁',
     pinyin: 'xūcángwùxīndīng',
     category: '地支关系',
@@ -5074,6 +5716,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:亥藏壬甲',
     term: '亥藏壬甲',
     pinyin: 'hàicángrénjiǎ',
     category: '地支关系',
@@ -5082,486 +5725,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
-    term: '甲子',
-    pinyin: 'jiǎzǐ',
-    category: '干支组合',
-    definition: '六十甲子第1位，由甲子组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '乙丑',
-    pinyin: 'yǐchǒu',
-    category: '干支组合',
-    definition: '六十甲子第2位，由乙丑组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '丙寅',
-    pinyin: 'bǐngyín',
-    category: '干支组合',
-    definition: '六十甲子第3位，由丙寅组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '丁卯',
-    pinyin: 'dīngmǎo',
-    category: '干支组合',
-    definition: '六十甲子第4位，由丁卯组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '戊辰',
-    pinyin: 'wùchén',
-    category: '干支组合',
-    definition: '六十甲子第5位，由戊辰组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '己巳',
-    pinyin: 'jǐsì',
-    category: '干支组合',
-    definition: '六十甲子第6位，由己巳组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '庚午',
-    pinyin: 'gēngwǔ',
-    category: '干支组合',
-    definition: '六十甲子第7位，由庚午组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '辛未',
-    pinyin: 'xīnwèi',
-    category: '干支组合',
-    definition: '六十甲子第8位，由辛未组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '壬申',
-    pinyin: 'rénshēn',
-    category: '干支组合',
-    definition: '六十甲子第9位，由壬申组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '癸酉',
-    pinyin: 'guǐyǒu',
-    category: '干支组合',
-    definition: '六十甲子第10位，由癸酉组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '甲戌',
-    pinyin: 'jiǎxū',
-    category: '干支组合',
-    definition: '六十甲子第11位，由甲戌组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '乙亥',
-    pinyin: 'yǐhài',
-    category: '干支组合',
-    definition: '六十甲子第12位，由乙亥组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '丙子',
-    pinyin: 'bǐngzǐ',
-    category: '干支组合',
-    definition: '六十甲子第13位，由丙子组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '丁丑',
-    pinyin: 'dīngchǒu',
-    category: '干支组合',
-    definition: '六十甲子第14位，由丁丑组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '戊寅',
-    pinyin: 'wùyín',
-    category: '干支组合',
-    definition: '六十甲子第15位，由戊寅组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '己卯',
-    pinyin: 'jǐmǎo',
-    category: '干支组合',
-    definition: '六十甲子第16位，由己卯组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '庚辰',
-    pinyin: 'gēngchén',
-    category: '干支组合',
-    definition: '六十甲子第17位，由庚辰组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '辛巳',
-    pinyin: 'xīnsì',
-    category: '干支组合',
-    definition: '六十甲子第18位，由辛巳组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '壬午',
-    pinyin: 'rénwǔ',
-    category: '干支组合',
-    definition: '六十甲子第19位，由壬午组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '癸未',
-    pinyin: 'guǐwèi',
-    category: '干支组合',
-    definition: '六十甲子第20位，由癸未组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '甲申',
-    pinyin: 'jiǎshēn',
-    category: '干支组合',
-    definition: '六十甲子第21位，由甲申组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '乙酉',
-    pinyin: 'yǐyǒu',
-    category: '干支组合',
-    definition: '六十甲子第22位，由乙酉组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '丙戌',
-    pinyin: 'bǐngxū',
-    category: '干支组合',
-    definition: '六十甲子第23位，由丙戌组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '丁亥',
-    pinyin: 'dīnghài',
-    category: '干支组合',
-    definition: '六十甲子第24位，由丁亥组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '戊子',
-    pinyin: 'wùzǐ',
-    category: '干支组合',
-    definition: '六十甲子第25位，由戊子组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '己丑',
-    pinyin: 'jǐchǒu',
-    category: '干支组合',
-    definition: '六十甲子第26位，由己丑组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '庚寅',
-    pinyin: 'gēngyín',
-    category: '干支组合',
-    definition: '六十甲子第27位，由庚寅组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '辛卯',
-    pinyin: 'xīnmǎo',
-    category: '干支组合',
-    definition: '六十甲子第28位，由辛卯组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '壬辰',
-    pinyin: 'rénchén',
-    category: '干支组合',
-    definition: '六十甲子第29位，由壬辰组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '癸巳',
-    pinyin: 'guǐsì',
-    category: '干支组合',
-    definition: '六十甲子第30位，由癸巳组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '甲午',
-    pinyin: 'jiǎwǔ',
-    category: '干支组合',
-    definition: '六十甲子第31位，由甲午组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '乙未',
-    pinyin: 'yǐwèi',
-    category: '干支组合',
-    definition: '六十甲子第32位，由乙未组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '丙申',
-    pinyin: 'bǐngshēn',
-    category: '干支组合',
-    definition: '六十甲子第33位，由丙申组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '丁酉',
-    pinyin: 'dīngyǒu',
-    category: '干支组合',
-    definition: '六十甲子第34位，由丁酉组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '戊戌',
-    pinyin: 'wùxū',
-    category: '干支组合',
-    definition: '六十甲子第35位，由戊戌组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '己亥',
-    pinyin: 'jǐhài',
-    category: '干支组合',
-    definition: '六十甲子第36位，由己亥组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '庚子',
-    pinyin: 'gēngzǐ',
-    category: '干支组合',
-    definition: '六十甲子第37位，由庚子组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '辛丑',
-    pinyin: 'xīnchǒu',
-    category: '干支组合',
-    definition: '六十甲子第38位，由辛丑组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '壬寅',
-    pinyin: 'rényín',
-    category: '干支组合',
-    definition: '六十甲子第39位，由壬寅组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '癸卯',
-    pinyin: 'guǐmǎo',
-    category: '干支组合',
-    definition: '六十甲子第40位，由癸卯组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '甲辰',
-    pinyin: 'jiǎchén',
-    category: '干支组合',
-    definition: '六十甲子第41位，由甲辰组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '乙巳',
-    pinyin: 'yǐsì',
-    category: '干支组合',
-    definition: '六十甲子第42位，由乙巳组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '丙午',
-    pinyin: 'bǐngwǔ',
-    category: '干支组合',
-    definition: '六十甲子第43位，由丙午组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '丁未',
-    pinyin: 'dīngwèi',
-    category: '干支组合',
-    definition: '六十甲子第44位，由丁未组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '戊申',
-    pinyin: 'wùshēn',
-    category: '干支组合',
-    definition: '六十甲子第45位，由戊申组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '己酉',
-    pinyin: 'jǐyǒu',
-    category: '干支组合',
-    definition: '六十甲子第46位，由己酉组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '庚戌',
-    pinyin: 'gēngxū',
-    category: '干支组合',
-    definition: '六十甲子第47位，由庚戌组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '辛亥',
-    pinyin: 'xīnhài',
-    category: '干支组合',
-    definition: '六十甲子第48位，由辛亥组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '壬子',
-    pinyin: 'rénzǐ',
-    category: '干支组合',
-    definition: '六十甲子第49位，由壬子组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '癸丑',
-    pinyin: 'guǐchǒu',
-    category: '干支组合',
-    definition: '六十甲子第50位，由癸丑组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '甲寅',
-    pinyin: 'jiǎyín',
-    category: '干支组合',
-    definition: '六十甲子第51位，由甲寅组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '乙卯',
-    pinyin: 'yǐmǎo',
-    category: '干支组合',
-    definition: '六十甲子第52位，由乙卯组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '丙辰',
-    pinyin: 'bǐngchén',
-    category: '干支组合',
-    definition: '六十甲子第53位，由丙辰组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '丁巳',
-    pinyin: 'dīngsì',
-    category: '干支组合',
-    definition: '六十甲子第54位，由丁巳组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '戊午',
-    pinyin: 'wùwǔ',
-    category: '干支组合',
-    definition: '六十甲子第55位，由戊午组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '己未',
-    pinyin: 'jǐwèi',
-    category: '干支组合',
-    definition: '六十甲子第56位，由己未组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '庚申',
-    pinyin: 'gēngshēn',
-    category: '干支组合',
-    definition: '六十甲子第57位，由庚申组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '辛酉',
-    pinyin: 'xīnyǒu',
-    category: '干支组合',
-    definition: '六十甲子第58位，由辛酉组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '壬戌',
-    pinyin: 'rénxū',
-    category: '干支组合',
-    definition: '六十甲子第59位，由壬戌组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '癸亥',
-    pinyin: 'guǐhài',
-    category: '干支组合',
-    definition: '六十甲子第60位，由癸亥组成，用于八字纪年与日柱，循环统摄时空。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
+    key: 'common:甲己合土',
     term: '甲己合土',
     pinyin: 'jiǎjǐhétǔ',
     category: '天干五合',
@@ -5570,6 +5734,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:乙庚合金',
     term: '乙庚合金',
     pinyin: 'yǐgēnghéjīn',
     category: '天干五合',
@@ -5578,6 +5743,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:丙辛合水',
     term: '丙辛合水',
     pinyin: 'bǐngxīnhéshuǐ',
     category: '天干五合',
@@ -5586,6 +5752,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:丁壬合木',
     term: '丁壬合木',
     pinyin: 'dīngrénhémù',
     category: '天干五合',
@@ -5594,6 +5761,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:戊癸合火',
     term: '戊癸合火',
     pinyin: 'wùguǐhéhuǒ',
     category: '天干五合',
@@ -5602,6 +5770,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:寅午戌三合火',
     term: '寅午戌三合火',
     pinyin: 'yínmǎoxūsānhéhuǒ',
     category: '三合三会',
@@ -5610,6 +5779,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:申子辰三合水',
     term: '申子辰三合水',
     pinyin: 'shēnzǐchésānhéshuǐ',
     category: '三合三会',
@@ -5618,6 +5788,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:巳酉丑三合金',
     term: '巳酉丑三合金',
     pinyin: 'sìyǒuchǒusānhéjīn',
     category: '三合三会',
@@ -5626,6 +5797,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:亥卯未三合木',
     term: '亥卯未三合木',
     pinyin: 'hàimǎowèisānhémù',
     category: '三合三会',
@@ -5634,6 +5806,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:寅卯辰三会木',
     term: '寅卯辰三会木',
     pinyin: 'yínmǎochénsānhuì',
     category: '三合三会',
@@ -5642,6 +5815,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:巳午未三会火',
     term: '巳午未三会火',
     pinyin: 'sìwǔwèisānhuì',
     category: '三合三会',
@@ -5650,6 +5824,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:申酉戌三会金',
     term: '申酉戌三会金',
     pinyin: 'shēnyǒuxūsānhuì',
     category: '三合三会',
@@ -5658,6 +5833,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:亥子丑三会水',
     term: '亥子丑三会水',
     pinyin: 'hàizǐchǒusānhuì',
     category: '三合三会',
@@ -5666,6 +5842,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:复卦',
     term: '复卦',
     pinyin: 'fùguà',
     category: '十二消息卦',
@@ -5674,6 +5851,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:临卦',
     term: '临卦',
     pinyin: 'línguà',
     category: '十二消息卦',
@@ -5682,6 +5860,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:泰卦',
     term: '泰卦',
     pinyin: 'tàiguà',
     category: '十二消息卦',
@@ -5690,6 +5869,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:大壮卦',
     term: '大壮卦',
     pinyin: 'dàzhuàngguà',
     category: '十二消息卦',
@@ -5698,6 +5878,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:夬卦',
     term: '夬卦',
     pinyin: 'guàiguà',
     category: '十二消息卦',
@@ -5706,6 +5887,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:乾卦',
     term: '乾卦',
     pinyin: 'qiánguà',
     category: '十二消息卦',
@@ -5714,6 +5896,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:姤卦',
     term: '姤卦',
     pinyin: 'gòuguà',
     category: '十二消息卦',
@@ -5722,6 +5905,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:遁卦',
     term: '遁卦',
     pinyin: 'dùnguà',
     category: '十二消息卦',
@@ -5730,6 +5914,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:否卦',
     term: '否卦',
     pinyin: 'pǐguà',
     category: '十二消息卦',
@@ -5738,6 +5923,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:观卦',
     term: '观卦',
     pinyin: 'guānguà',
     category: '十二消息卦',
@@ -5746,6 +5932,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:剥卦',
     term: '剥卦',
     pinyin: 'bōguà',
     category: '十二消息卦',
@@ -5754,6 +5941,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:坤卦',
     term: '坤卦',
     pinyin: 'kūnguà',
     category: '十二消息卦',
@@ -5762,6 +5950,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:河图一六水',
     term: '河图一六水',
     pinyin: 'hétúyīliùshuǐ',
     category: '河洛',
@@ -5770,6 +5959,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:河图二七火',
     term: '河图二七火',
     pinyin: 'hétúèrqīhuǒ',
     category: '河洛',
@@ -5778,6 +5968,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:河图三八木',
     term: '河图三八木',
     pinyin: 'hétúsānbāmù',
     category: '河洛',
@@ -5786,6 +5977,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:河图四九金',
     term: '河图四九金',
     pinyin: 'hétúsìjiǔjīn',
     category: '河洛',
@@ -5794,6 +5986,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:河图五十土',
     term: '河图五十土',
     pinyin: 'hétúwǔshítǔ',
     category: '河洛',
@@ -5802,6 +5995,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:洛书戴九履一',
     term: '洛书戴九履一',
     pinyin: 'luòshūdàijiǔlǚyī',
     category: '河洛',
@@ -5810,6 +6004,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:洛书左三右七',
     term: '洛书左三右七',
     pinyin: 'luòshūzuǒsān yòuqī',
     category: '河洛',
@@ -5818,6 +6013,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:洛书二四为肩',
     term: '洛书二四为肩',
     pinyin: 'luòshūèrsìwéijiān',
     category: '河洛',
@@ -5826,6 +6022,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:洛书六八为足',
     term: '洛书六八为足',
     pinyin: 'luòshūliùbāwéizú',
     category: '河洛',
@@ -5834,6 +6031,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:洛书五居中央',
     term: '洛书五居中央',
     pinyin: 'luòshūwǔjūzhōngyāng',
     category: '河洛',
@@ -5842,6 +6040,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:《三命通会》',
     term: '《三命通会》',
     pinyin: 'sānmìngtōnghuì',
     category: '命理典籍',
@@ -5850,6 +6049,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:《渊海子平》',
     term: '《渊海子平》',
     pinyin: 'yuānhǎizǐpíng',
     category: '命理典籍',
@@ -5858,6 +6058,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:《滴天髓》',
     term: '《滴天髓》',
     pinyin: 'dītiānsuǐ',
     category: '命理典籍',
@@ -5866,6 +6067,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:《穷通宝鉴》',
     term: '《穷通宝鉴》',
     pinyin: 'qióngtōngbǎojiàn',
     category: '命理典籍',
@@ -5874,6 +6076,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:《子平真诠》',
     term: '《子平真诠》',
     pinyin: 'zǐpíngzhēnquán',
     category: '命理典籍',
@@ -5882,6 +6085,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:《神峰通考》',
     term: '《神峰通考》',
     pinyin: 'shénfēngtōngkǎo',
     category: '命理典籍',
@@ -5890,6 +6094,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:《紫微斗数全集》',
     term: '《紫微斗数全集》',
     pinyin: 'zǐwēidǒushùquánjí',
     category: '命理典籍',
@@ -5898,6 +6103,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:《协纪辨方书》',
     term: '《协纪辨方书》',
     pinyin: 'xiéjìbiànfāngshū',
     category: '命理典籍',
@@ -5906,6 +6112,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:《奇门遁甲》',
     term: '《奇门遁甲》',
     pinyin: 'qíméndùnjiǎ',
     category: '命理典籍',
@@ -5914,6 +6121,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:《六壬大全》',
     term: '《六壬大全》',
     pinyin: 'liùréndàquán',
     category: '命理典籍',
@@ -5922,6 +6130,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:《太乙神数》',
     term: '《太乙神数》',
     pinyin: 'tàiyǐshénshù',
     category: '命理典籍',
@@ -5930,6 +6139,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:《玉匣记》',
     term: '《玉匣记》',
     pinyin: 'yùxiájì',
     category: '命理典籍',
@@ -5938,6 +6148,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:《葬书》',
     term: '《葬书》',
     pinyin: 'zàngshū',
     category: '命理典籍',
@@ -5946,6 +6157,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:《宅经》',
     term: '《宅经》',
     pinyin: 'zháijīng',
     category: '命理典籍',
@@ -5954,6 +6166,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:《周易》',
     term: '《周易》',
     pinyin: 'zhōuyì',
     category: '命理典籍',
@@ -5962,6 +6175,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:贪狼星',
     term: '贪狼星',
     pinyin: 'tānlángxīng',
     category: '北斗七星',
@@ -5970,6 +6184,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:巨门星',
     term: '巨门星',
     pinyin: 'jùménxīng',
     category: '北斗七星',
@@ -5978,6 +6193,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:禄存星',
     term: '禄存星',
     pinyin: 'lùcúnxīng',
     category: '北斗七星',
@@ -5986,6 +6202,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:文曲星',
     term: '文曲星',
     pinyin: 'wénqǔxīng',
     category: '北斗七星',
@@ -5994,6 +6211,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:廉贞星',
     term: '廉贞星',
     pinyin: 'liánzhēnxīng',
     category: '北斗七星',
@@ -6002,6 +6220,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:武曲星',
     term: '武曲星',
     pinyin: 'wǔqǔxīng',
     category: '北斗七星',
@@ -6010,6 +6229,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:破军星',
     term: '破军星',
     pinyin: 'pòjūnxīng',
     category: '北斗七星',
@@ -6018,6 +6238,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:甲禄在寅',
     term: '甲禄在寅',
     pinyin: 'jiǎlùzàiyín',
     category: '十干禄',
@@ -6026,6 +6247,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:乙禄在卯',
     term: '乙禄在卯',
     pinyin: 'yǐlùzàimǎo',
     category: '十干禄',
@@ -6034,6 +6256,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:丙禄在巳',
     term: '丙禄在巳',
     pinyin: 'bǐnglùzàisì',
     category: '十干禄',
@@ -6042,6 +6265,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:丁禄在午',
     term: '丁禄在午',
     pinyin: 'dīnglùzàiwǔ',
     category: '十干禄',
@@ -6050,6 +6274,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:戊禄在巳',
     term: '戊禄在巳',
     pinyin: 'wùlùzàisì',
     category: '十干禄',
@@ -6058,6 +6283,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:己禄在午',
     term: '己禄在午',
     pinyin: 'jǐlùzàiwǔ',
     category: '十干禄',
@@ -6066,6 +6292,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:庚禄在申',
     term: '庚禄在申',
     pinyin: 'gēnglùzàishēn',
     category: '十干禄',
@@ -6074,6 +6301,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:辛禄在酉',
     term: '辛禄在酉',
     pinyin: 'xīnlùzàiyǒu',
     category: '十干禄',
@@ -6082,6 +6310,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:壬禄在亥',
     term: '壬禄在亥',
     pinyin: 'rénlùzàihài',
     category: '十干禄',
@@ -6090,6 +6319,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:癸禄在子',
     term: '癸禄在子',
     pinyin: 'guǐlùzàizǐ',
     category: '十干禄',
@@ -6098,6 +6328,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:年柱',
     term: '年柱',
     pinyin: 'niánzhù',
     category: '推命体系',
@@ -6106,6 +6337,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:月柱',
     term: '月柱',
     pinyin: 'yuèzhù',
     category: '推命体系',
@@ -6114,6 +6346,7 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:日柱',
     term: '日柱',
     pinyin: 'rìzhù',
     category: '推命体系',
@@ -6122,50 +6355,11 @@ const baseLexicon: LexiconEntry[] = [
     layer_tag: 'L2',
   },
   {
+    key: 'common:时柱',
     term: '时柱',
     pinyin: 'shízhù',
     category: '推命体系',
     definition: '四柱之一，以出生时干支表子女、晚年归宿。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '大运',
-    pinyin: 'dàyùn',
-    category: '推命体系',
-    definition: '十年一运的运势起伏周期，顺逆依年干阴阳而定。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '流年',
-    pinyin: 'liúnián',
-    category: '推命体系',
-    definition: '逐年太岁干支，主当年吉凶祸福之应。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '胎元',
-    pinyin: 'tāiyuán',
-    category: '推命体系',
-    definition: '受胎之月干支，补论先天禀赋。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '命宫',
-    pinyin: 'mìnggōng',
-    category: '推命体系',
-    definition: '生时落点所属宫位，统观一生格局。',
-    source: SRC,
-    layer_tag: 'L2',
-  },
-  {
-    term: '身宫',
-    pinyin: 'shēngōng',
-    category: '推命体系',
-    definition: '主后天安身立命之所，辅命宫论断。',
     source: SRC,
     layer_tag: 'L2',
   },
