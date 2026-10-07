@@ -1,0 +1,14 @@
+{
+  "name": "temposoul-pdf-render",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "E-08 报告 PDF 渲染管线（pdfkit + CJK 字体子集）。独立目录，不接入根 pnpm workspace。",
+  "scripts": {
+    "gen:sample": "node gen-sample.mjs"
+  },
+  "dependencies": {
+    "pdfkit": "^0.20.2",
+    "subset-font": "^2.9.0"
+  }
+}
