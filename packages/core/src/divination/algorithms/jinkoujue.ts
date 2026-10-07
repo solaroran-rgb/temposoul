@@ -351,6 +351,35 @@ function resolveYinYangUse(positions: Record<string, JinkoujueFourPosition>) {
   return { pattern, yinCount, yangCount, usePosition, rule, isVoid: use.isVoid };
 }
 
+/**
+ * 应期方向（X1-D-29）。按《六壬神课金口诀古本》取用旺衰、空亡的定性规则，
+ * 只给快慢与待应条件，不机械换算具体日辰，也不断言事件成败。
+ */
+function buildYingQi(usePosition: JinkoujueFourPosition) {
+  const clues: string[] = [];
+  // 1. 旺衰定迟速。
+  if (usePosition.seasonState === '旺' || usePosition.seasonState === '相') {
+    clues.push(`用位${usePosition.element}${usePosition.seasonState}，气机有助，应期偏快`);
+  } else if (
+    usePosition.seasonState === '休' ||
+    usePosition.seasonState === '囚' ||
+    usePosition.seasonState === '死'
+  ) {
+    clues.push(`用位${usePosition.element}${usePosition.seasonState}，气机偏弱，应期迟缓，待旺相之期方应`);
+  }
+  // 2. 旬空待出空/填实。
+  if (usePosition.isVoid) {
+    clues.push(`用位${usePosition.branch}落旬空，待出空、填实或冲空之期方应，未出空前主迟滞`);
+  }
+  // 3. 始终提示：应期只给方向，不取绝对日期。
+  clues.push('应期仅作迟速与待应方向参考，不换算具体日辰，更不预测事件成败');
+  return {
+    usePosition: usePosition.name,
+    clues,
+    source: '《六壬神课金口诀古本》应期取象（旺衰迟速、空亡待填实）',
+  };
+}
+
 function buildMovements(positions: Record<string, JinkoujueFourPosition>) {
   const { renYuan, guiShen, jiangShen, diFen } = positions;
   const movements: JinkoujueMovement[] = [];
@@ -565,6 +594,7 @@ export function generateJinkoujue(
     relations,
     yinYangUse,
     movements,
+    yingQi: buildYingQi(usePosition),
     mainLine,
     calculation: {
       method,

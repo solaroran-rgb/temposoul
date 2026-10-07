@@ -84,6 +84,15 @@ export interface XuanKongResult {
     summary: string;
   };
   measurement?: XuanKongMeasurement;
+  /**
+   * 实现范围标注（X1-D-27）。当前仅实现下卦三盘（运/山/向）与到山到向；
+   * 替卦（兼向替星）、玄空大卦与形峦断法未实现，引擎在此显式声明，不伪装为完整体系。
+   */
+  scope?: {
+    implemented: readonly string[];
+    notImplemented: string[];
+    note: string;
+  };
   evidenceAnalysis: XuanKongEvidenceAnalysis;
   /** 玄空四字段证据链（v3.0 证据契约）。 */
   evidenceTrail?: import('../shared/evidence').EvidenceTrail;
@@ -426,6 +435,11 @@ export function generateXuanKong(input: XuanKongInput): XuanKongResult {
     },
     daoShanXiang,
     ...(measurement ? { measurement } : {}),
+    scope: {
+      implemented: ['下卦三盘'] as const,
+      notImplemented: ['替卦（兼向替星）', '玄空大卦', '形峦断法'],
+      note: '当前仅排下卦运/山/向三盘与到山到向；替卦、玄空大卦与形峦断法未实现，待排期或专家口径后补。',
+    },
   };
 
   const evidenceAnalysis = analyzeXuanKongEvidence(partial);

@@ -37,7 +37,7 @@ export function buildHuangjiJingshiEvidenceTrail(result: HuangjiJingshiCalculati
     source: { type: 'classical', name: '邵雍《皇极经世》（元会运世周期）' },
     boundary: {
       applicableWhen: ['提供公历年份'],
-      cautionWhen: ['仅实现元会运世数学周期，不含值年卦/卦气/事件预测'],
+      cautionWhen: ['值卦给到本会辟卦层；逐年值卦细法待顾问终审，不含卦气事件预测'],
     },
     counterEvidence: [{ description: '皇极经世数理周期是传统历法模型', severity: 'alternative' }],
     confidence: 'medium',

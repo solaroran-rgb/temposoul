@@ -32,7 +32,14 @@ export type XiaoliurenDivinationMethod = 'time';
 
 export interface MeihuaSettings extends RandomOptions {
   method?: MeihuaDivinationMethod;
+  /** 单个数起卦（数字起卦法）用的正整数。 */
   number?: number;
+  /**
+   * 两数起卦（传统变通报数法）用的第二个正整数。
+   * 与 `number` 同时提供且 `method === 'number'` 时启用两数法：
+   * 上卦=第一数取卦，下卦=第二数取卦，动爻=两数之和取爻，不再叠加时支。
+   */
+  number2?: number;
 }
 
 export interface XiaoliurenPalaceDetail {
@@ -144,6 +151,18 @@ export interface JinkoujueData {
     isVoid: boolean;
   };
   movements: JinkoujueMovement[];
+  /**
+   * 应期方向（X1-D-29）。按《六壬神课金口诀古本》取用旺衰、空亡、冲合的**定性**应期规则，
+   * 只给快慢与待应条件，不机械换算具体日/月；不派生事件成败断言。
+   */
+  yingQi?: {
+    /** 取用位（发用）的应期方向说明。 */
+    usePosition: JinkoujuePositionName;
+    /** 定性应期线索（旺衰迟速、空亡待填实、逢冲逢合等）。 */
+    clues: string[];
+    /** 口径来源。 */
+    source: string;
+  };
   mainLine: string;
   calculation: {
     method: JinkoujueDivinationMethod;
@@ -383,6 +402,8 @@ export interface MeihuaCalculation {
   numbers?: number[];
   time?: string;
   number?: number;
+  /** 两数起卦法的第二数。 */
+  number2?: number;
   month?: number;
   day?: number;
   yearZhi?: string;
@@ -393,7 +414,12 @@ export interface MeihuaCalculation {
   lowerTrigramIndex?: number;
   movingYaoIndex?: number;
   methodKey?: MeihuaDivinationMethod;
-  [key: string]: unknown;
+  /** 数字起卦（单个数）法中叠加时支后的总取数。 */
+  totalWithTime?: number;
+  /** 起卦公式的文字说明。 */
+  formula?: string;
+  /** 历史兼容入口的口径说明。 */
+  compatibilityNote?: string;
 }
 
 export interface MeihuaData extends BaseHexagramData {
@@ -766,6 +792,18 @@ export interface LiurenData {
   monthLeader: string;
   /** 占时地支（起课时辰） */
   divinationBranch: string;
+  /**
+   * 占时历法口径（X1-D-13）。当前排盘按东八区民用时干支取占时，未按观测地经度做真太阳时修正；
+   * 真太阳时占时须传入观测地经度后另行换算，本字段显式标注以免误用。
+   */
+  timePolicy?: {
+    /** 当前占时所依据的时间基准。 */
+    basis: '东八区民用时干支';
+    /** 是否已做真太阳时（经度）修正。 */
+    trueSolarTimeApplied: false;
+    /** 口径说明。 */
+    note: string;
+  };
   /** @deprecated 旧版误设字段，无独立六壬含义；新结果不再生成。 */
   dayOfficer?: string;
   /** 贵人临支 */
@@ -824,6 +862,48 @@ export interface LiurenData {
     limitations: string[];
   }>;
   timingEvidence?: string[];
+  /**
+   * 占者年命（出生年地支）在课盘中的定位。
+   * 仅在调用方显式传入年命地支时产出——红线 1.2-75「年命纳入」要求；
+   * 未传入时不猜测，保持旧版输出不变。
+   */
+  yearMing?: {
+    /** 年命地支（出生年地支） */
+    branch: string;
+    /** 年命支上神（天盘加临之地支） */
+    upperBranch: string;
+    /** 年命支上所乘天将 */
+    upperGod: string;
+    /** 月令旺衰 */
+    seasonState: string;
+    /** 是否落入旬空 */
+    isVoid: boolean;
+    /** 与日支的六合/冲/刑/害等关系描述 */
+    dayRelation: string;
+    /** 年命是否入三传 */
+    inTransmission: boolean;
+    /** 与初传的生克关系描述 */
+    initialRelation: string;
+    note: string;
+  };
+  /**
+   * 按问题主题取用的类神（规则表硬编码，红线 1.2-77「类神取用」）。
+   * 仅在调用方显式传入主题时产出；未传入时不固定把日支/天将当用神。
+   */
+  leiShen?: {
+    /** 主题键：general/ganqing/shiye/caifu */
+    topic: string;
+    /** 该类事项优先取用的天将 */
+    gods: string[];
+    /** 该类事项优先取用的地支类象 */
+    branches: string[];
+    /** 取用依据 */
+    basis: string;
+    /** 古籍来源 */
+    sources: string[];
+    /** 使用限制（不得单项定吉凶等） */
+    limitations: string[];
+  };
 }
 
 export interface TarotData {
@@ -1090,6 +1170,21 @@ export interface LenormandData {
   evidenceTrail?: import('../shared/evidence').EvidenceTrail;
 }
 
+/**
+ * 西洋星盘宫位制（红线 1.2-83）。
+ * 与 celestine 的 HouseSystem 对齐；极端纬度下 celestine 会自动排除 quadrant 制
+ * （如 68.5°N 仅剩 equal / whole-sign / porphyry / regiomontanus / campanus），
+ * 引擎侧据此降级并在 houseSystemEvidence 中记录。
+ */
+export type AstrolabeHouseSystem =
+  | 'placidus'
+  | 'koch'
+  | 'equal'
+  | 'whole-sign'
+  | 'porphyry'
+  | 'regiomontanus'
+  | 'campanus';
+
 export interface AstrolabeBirthInput {
   name: string;
   gender: AlmanacParticipantGender;
@@ -1104,6 +1199,8 @@ export interface AstrolabeBirthInput {
   timeZoneId?: string;
   locationName?: string;
   useTrueSolarTime?: boolean;
+  /** 宫位制，默认 placidus（1.2-83） */
+  houseSystem?: AstrolabeHouseSystem;
 }
 
 export interface AstrolabePoint {
@@ -1165,6 +1262,27 @@ export interface AstrolabeData {
   houses: AstrolabePoint[];
   aspects: AstrolabeAspect[];
   solarIllumination?: SolarIlluminationEvidence;
+  /** 宫位制解析证据（1.2-83 / 1.2-84 极端纬度降级） */
+  houseSystemEvidence?: {
+    requested: AstrolabeHouseSystem;
+    applied: AstrolabeHouseSystem;
+    fallbackApplied: boolean;
+    availableAtLatitude: AstrolabeHouseSystem[];
+    note: string;
+  };
+  /** 星历口径证据（1.2-81：站内统一 astronomy-engine，非覆盖天体显式标注） */
+  ephemerisCaliber?: {
+    library: string;
+    version: string;
+    timeScale: string;
+    coordinate: string;
+    covers: string[];
+    notCovered: string[];
+    note: string;
+    unifiedBodies: string[];
+    fallbackBodies: string[];
+    reason: string;
+  };
   summary: {
     elements: Record<string, string[]>;
     modalities: Record<string, string[]>;

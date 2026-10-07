@@ -33,6 +33,56 @@ export const HUANGJI_JINGSHI_SOURCES = [
   },
 ] as const;
 
+/**
+ * 十二辟卦（消息卦）配十二会。
+ *
+ * 古籍锚定：邵雍《皇极经世》以先天易学的十二消息卦当十二会之「值卦」，
+ * 自子会复卦一阳生起，阳长至巳会乾卦纯阳，阴生午会姤卦至亥会坤卦纯阴，
+ * 即「复临泰大壮夬乾姤遯否观剥坤」的阴阳消长次序。此层为历代通行、无版本争议的高置信对应。
+ * （逐年值卦细法在圆图/方图/先后天上有多家口径，须另由命理顾问终审，不在此处臆推。）
+ */
+export interface HuangjiHuiHexagram {
+  /** 本会序号（1=子会 … 12=亥会）。 */
+  huiIndex: number;
+  /** 辟卦通行简称。 */
+  name: string;
+  /** 六十四卦通行全称（周易卦序）。 */
+  fullName: string;
+  /** 卦象符号。 */
+  symbol: string;
+  /** 阴阳消长相位：子至巳为阳长（息），午至亥为阴长（消）。 */
+  phase: '阳长' | '阴长';
+}
+
+export const HUI_SOVEREIGN_HEXAGRAMS: readonly HuangjiHuiHexagram[] = [
+  { huiIndex: 1, name: '复', fullName: '地雷复', symbol: '䷗', phase: '阳长' },
+  { huiIndex: 2, name: '临', fullName: '地泽临', symbol: '䷒', phase: '阳长' },
+  { huiIndex: 3, name: '泰', fullName: '地天泰', symbol: '䷊', phase: '阳长' },
+  { huiIndex: 4, name: '大壮', fullName: '雷天大壮', symbol: '䷡', phase: '阳长' },
+  { huiIndex: 5, name: '夬', fullName: '泽天夬', symbol: '䷪', phase: '阳长' },
+  { huiIndex: 6, name: '乾', fullName: '乾为天', symbol: '䷀', phase: '阳长' },
+  { huiIndex: 7, name: '姤', fullName: '天风姤', symbol: '䷫', phase: '阴长' },
+  { huiIndex: 8, name: '遯', fullName: '天山遯', symbol: '䷠', phase: '阴长' },
+  { huiIndex: 9, name: '否', fullName: '天地否', symbol: '䷋', phase: '阴长' },
+  { huiIndex: 10, name: '观', fullName: '风地观', symbol: '䷓', phase: '阴长' },
+  { huiIndex: 11, name: '剥', fullName: '山地剥', symbol: '䷖', phase: '阴长' },
+  { huiIndex: 12, name: '坤', fullName: '坤为地', symbol: '䷁', phase: '阴长' },
+] as const;
+
+/**
+ * 取本会值卦（辟卦）。huiIndex 必须在 1..12。
+ */
+export function resolveHuiHexagram(huiIndex: number): HuangjiHuiHexagram {
+  if (!Number.isInteger(huiIndex) || huiIndex < 1 || huiIndex > 12) {
+    throw new Error(`会序必须是 1-12，当前为 ${String(huiIndex)}。`);
+  }
+  const hexagram = HUI_SOVEREIGN_HEXAGRAMS[huiIndex - 1];
+  if (!hexagram) {
+    throw new Error(`缺少第 ${huiIndex} 会的辟卦资料。`);
+  }
+  return { ...hexagram };
+}
+
 export interface HuangjiJingshiInput {
   /** 某一元第一年的整数坐标，必须明确提供。 */
   epochYear: number;
@@ -84,6 +134,17 @@ export interface HuangjiJingshiCalculation {
     yearsPerHui: 10800;
     huiPerYuan: 12;
     yearsPerYuan: 129600;
+  };
+  /**
+   * 本会值卦（辟卦/消息卦）。高置信层：十二辟卦配十二会为历代通行口径。
+   * 逐年值卦细法传世多口径，须由命理顾问终审，故本层只给到「会值卦」，不臆推逐年卦。
+   */
+  valueHexagram: {
+    hui: HuangjiHuiHexagram;
+    /** 目标年在本会内的进度（0-1），用于观察阴阳消长所处阶段。 */
+    yearProgressInHui: number;
+    /** 值卦口径说明。 */
+    basis: string;
   };
   calculationChain: string[];
   sources: Array<{ title: string; scope: string }>;
@@ -192,6 +253,7 @@ export function buildHuangjiJingshiPrompt(
     `运：本元第 ${position.yun.indexInYuan} 运、本会第 ${position.yun.indexInHui} 运，${position.yun.startYear} 至 ${position.yun.endYear}`,
     `世：本元第 ${position.shi.indexInYuan} 世、本运第 ${position.shi.indexInYun} 世，${position.shi.startYear} 至 ${position.shi.endYear}`,
     `年：本世第 ${position.year.indexInShi} 年、本元第 ${position.year.indexInYuan} 年`,
+    `本会值卦：${result.valueHexagram.hui.fullName}（${result.valueHexagram.hui.symbol}，${result.valueHexagram.hui.phase}），目标年在本会内进度 ${(result.valueHexagram.yearProgressInHui * 100).toFixed(1)}%`,
     `周期边界：本世当前为第 ${result.progress.shi.currentYearIndex} 年，当前年后尚余 ${result.progress.shi.remainingYearsAfterCurrent} 个完整年，下一世始于 ${result.progress.shi.nextCycleStartYear}；下一运始于 ${result.progress.yun.nextCycleStartYear}；下一会始于 ${result.progress.hui.nextCycleStartYear}；下一元始于 ${result.progress.yuan.nextCycleStartYear}`,
     '',
     '【换算规则】',
@@ -280,6 +342,12 @@ export function calculateHuangjiJingshi(input: HuangjiJingshiInput): HuangjiJing
       huiPerYuan: 12,
       yearsPerYuan: 129600,
     },
+    valueHexagram: {
+      hui: resolveHuiHexagram(huiIndex),
+      yearProgressInHui: Number(((normalized.year - huiStart) / HUANGJI_CYCLE_YEARS.hui).toFixed(6)),
+      basis:
+        '本会值卦取十二辟卦（消息卦）配十二会的历代通行口径；逐年值卦细法传世多口径，须命理顾问终审，不臆推。',
+    },
     calculationChain: [
       `${normalized.year} - ${normalized.epochYear} = ${elapsed}（距纪元已过年数）`,
       `${elapsed} ÷ 129600 定位第 ${yuanOffset + 1} 元，本元内偏移 ${offsetInYuan} 年`,
@@ -291,7 +359,7 @@ export function calculateHuangjiJingshi(input: HuangjiJingshiInput): HuangjiJing
     limitations: [
       '结果使用整数年坐标，不自动解释为公元、民国或其他历史纪年。',
       '纪元由调用方明确提供；更换纪元会改变全部元会运世位置。',
-      '当前只实现元会运世数学周期，不含值年卦、卦气或事件预测。',
+      '值卦只给到本会辟卦（消息卦）层；逐年值卦细法传世多口径，须命理顾问终审，不派生事件预测。',
     ],
   };
 
@@ -306,6 +374,8 @@ export const huangjiJingshi = {
   HUANGJI_CYCLE_YEARS,
   HUANGJI_CYCLE_COUNTS,
   HUANGJI_JINGSHI_SOURCES,
+  HUI_SOVEREIGN_HEXAGRAMS,
+  resolveHuiHexagram,
   calculateHuangjiJingshi,
   buildHuangjiJingshiPrompt,
 };

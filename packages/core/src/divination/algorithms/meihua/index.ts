@@ -24,6 +24,7 @@ import { findHexagramByTrigrams, resolveTiYongByMovingYao } from './helpers/hexa
 import {
   resolveTimeTrigramMethod,
   resolveNumberMethod,
+  resolveTwoNumberMethod,
   resolveRandomMethod,
   resolveTimeMethod,
   type MeihuaMethodResult,
@@ -162,7 +163,9 @@ export function generateMeihua(customDate?: Date, settings?: MeihuaSettings): Me
   const methodResult: MeihuaMethodResult = (() => {
     switch (method) {
       case 'number':
-        return resolveNumberMethod(settings?.number ?? 0, ganzhi.hour.slice(-1));
+        return settings?.number2 !== undefined
+          ? resolveTwoNumberMethod(settings?.number ?? 0, settings.number2)
+          : resolveNumberMethod(settings?.number ?? 0, ganzhi.hour.slice(-1));
       case 'random':
         return resolveRandomMethod(settings);
       case 'timeTrigram':
@@ -381,7 +384,7 @@ export function generateMeihua(customDate?: Date, settings?: MeihuaSettings): Me
   };
   const resultWithMeta = attachResultMeta(result, {
     algorithm: 'meihua',
-    input: { method, number: settings?.number, timestamp },
+    input: { method, number: settings?.number, number2: settings?.number2, timestamp },
     calculatedAt: timestamp,
     random: randomTrace,
   });

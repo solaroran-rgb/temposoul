@@ -26,6 +26,11 @@ import {
 } from './helpers/transmission';
 import { analyzeLiurenEvidence } from '../../liuren-evidence';
 import { buildLiurenEvidenceTrail } from '../../liurenEvidence';
+import {
+  getLiurenLeiShenLimitations,
+  getLiurenLeiShenRule,
+  type LiurenLeiShenTopic,
+} from './helpers/lei-shen';
 
 const MONTH_LEADER_BY_ZHONGQI: Record<string, string> = {
   雨水: '亥',
@@ -407,21 +412,46 @@ function getMonthLeaderByZhongqi(timeInfo: ReturnType<typeof getDivinationTime>[
 }
 
 /**
+ * 大六壬排盘可选入参。
+ *
+ * 两项均为**显式传入才生效**：不传年命则不猜测占者出生年地支，不传主题则不固定类神，
+ * 保证旧调用方（含 G3 黄金样例）的输出字段与既有快照完全一致。
+ */
+export interface LiurenOptions {
+  /**
+   * 占者年命地支（出生年地支）。红线 1.2-75「年命纳入」要求年命参与课式分析；
+   * 未传入时输出不含 `yearMing` 字段。
+   */
+  yearBranch?: string;
+  /**
+   * 所占事项主题，用于取用类神（红线 1.2-77）。默认不取，保持"按问题主题从明列盘面选取"的旧口径。
+   */
+  topic?: LiurenLeiShenTopic;
+}
+
+/**
  * 生成大六壬完整课盘
  *
  * 按月将加时、天地盘、四课、三传、天将、神煞顺序完成排盘。
  * 支持传入自定义时间，不传则使用当前时间。
  *
  * @param customDate 自定义排盘时间（可选），不传则使用当前时间。
+ * @param options    可选入参：`yearBranch` 纳入占者年命（红线 1.2-75）、`topic` 取用事项类神（红线 1.2-77）。
  * @returns 完整的大六壬课盘数据对象 LiurenData。
  *
  * @example
  * ```ts
  * const result = generateLiuren();
  * // result 包含 fourLessons（四课）、threeTransmissions（三传）等字段
+ *
+ * const withMing = generateLiuren(new Date('2026-10-07T10:00:00+08:00'), {
+ *   yearBranch: '午',
+ *   topic: 'shiye',
+ * });
+ * // withMing.yearMing / withMing.leiShen 生效
  * ```
  */
-export function generateLiuren(customDate?: Date): LiurenData {
+export function generateLiuren(customDate?: Date, options?: LiurenOptions): LiurenData {
   const { ganzhi, timeInfo, timestamp } = getDivinationTime(customDate);
   const dayStem = ganzhi.day.charAt(0);
   const dayBranch = ganzhi.day.charAt(1);
@@ -558,6 +588,68 @@ export function generateLiuren(customDate?: Date): LiurenData {
       limitations: ['具体类神仍须按问题主题从明列盘面中选取'],
     },
   ];
+
+  // ── 年命纳入（红线 1.2-75）：仅显式传入 yearBranch 时生效，绝不猜测 ──
+  let yearMing: NonNullable<LiurenData['yearMing']> | undefined;
+  const requestedYearBranch = options?.yearBranch?.trim();
+  if (requestedYearBranch) {
+    if (!(DIZHI as readonly string[]).includes(requestedYearBranch)) {
+      throw new Error(`年命地支必须是十二地支之一，收到「${requestedYearBranch}」。`);
+    }
+    const mingPlate = getPlateItemByBranch(heavenlyPlate, requestedYearBranch);
+    const mingWuxing = getBranchWuxing(requestedYearBranch);
+    const mingSeason = getSeasonState(mingWuxing, ganzhi.month.charAt(1));
+    const mingIsVoid = xunKong.includes(requestedYearBranch);
+    const mingInTransmission = transmissionBranches.includes(requestedYearBranch);
+    const mingDayRelation = describeRelation(requestedYearBranch, dayBranch);
+    const mingInitialRelation = describeRelation(requestedYearBranch, firstTransmission.branch);
+    yearMing = {
+      branch: requestedYearBranch,
+      upperBranch: mingPlate.under,
+      upperGod: mingPlate.god,
+      seasonState: mingSeason,
+      isVoid: mingIsVoid,
+      dayRelation: mingDayRelation,
+      inTransmission: mingInTransmission,
+      initialRelation: mingInitialRelation,
+      note: `年命${requestedYearBranch}乘${mingPlate.god}、上见${mingPlate.under}；月令${mingSeason}；${mingIsVoid ? '落旬空' : '不落旬空'}；${mingInTransmission ? '年命入三传，须并入主线同看' : '年命未入三传，仅作我方背景参证'}；与日支${mingDayRelation}，与初传${mingInitialRelation}。`,
+    };
+    focusEvidence.push({
+      target: `年命${requestedYearBranch}乘${mingPlate.god}`,
+      role: '占者本命',
+      level: '辅证',
+      evidence: [
+        `年命支${requestedYearBranch}上见${mingPlate.under}、乘${mingPlate.god}`,
+        `月令${mingSeason}${mingIsVoid ? '、落旬空' : ''}`,
+        mingInTransmission ? '年命入三传' : '年命未入三传',
+        `与初传${mingInitialRelation}`,
+      ],
+      limitations: mingIsVoid
+        ? ['年命落空，本命一方的信息须待出空或冲实后再看']
+        : ['年命只作我方背景，不得替代初传发用主轴'],
+    });
+  }
+
+  // ── 类神取用（红线 1.2-77）：仅显式传入 topic 时生效 ──
+  let leiShen: NonNullable<LiurenData['leiShen']> | undefined;
+  if (options?.topic) {
+    const rule = getLiurenLeiShenRule(options.topic);
+    leiShen = {
+      topic: rule.topic,
+      gods: [...rule.gods],
+      branches: [...rule.branches],
+      basis: rule.basis,
+      sources: [...rule.sources],
+      limitations: getLiurenLeiShenLimitations(),
+    };
+    focusEvidence.push({
+      target: `${rule.label}类神：${rule.gods.join('、')}${rule.branches.length ? `／${rule.branches.join('、')}` : ''}`,
+      role: '事项用神',
+      level: '辅证',
+      evidence: [rule.basis, ...rule.sources],
+      limitations: getLiurenLeiShenLimitations(),
+    });
+  }
   const timingEvidence = [
     `一级发用：先看初传${firstTransmission.branch}${firstTransmission.isVoid ? '空亡，待出空或冲实' : '不空，可直接作为起始信号'}`,
     `二级三传：${threeTransmissions.map((item) => `${item.stage}${item.branch}（月令${item.seasonState}${item.isVoid ? '、空' : ''}）`).join('→')}`,
@@ -595,6 +687,11 @@ export function generateLiuren(customDate?: Date): LiurenData {
     dayNight,
     monthLeader,
     divinationBranch: hourBranch,
+    timePolicy: {
+      basis: '东八区民用时干支',
+      trueSolarTimeApplied: false,
+      note: '占时按东八区民用时干支取用，未按观测地经度做真太阳时修正；真太阳时占时须提供观测地经度后换算（红线 1.2-80）。',
+    },
     noblemanBranch,
     noblemanGroundBranch,
     xunKong,
@@ -617,6 +714,8 @@ export function generateLiuren(customDate?: Date): LiurenData {
     tianJiangProps,
     focusEvidence,
     timingEvidence,
+    ...(yearMing ? { yearMing } : {}),
+    ...(leiShen ? { leiShen } : {}),
   };
   result.evidenceAnalysis = analyzeLiurenEvidence(result);
   result.evidenceTrail = buildLiurenEvidenceTrail(result);
@@ -629,6 +728,12 @@ export {
   getLiurenTransmissionGuaTi,
   REGISTERED_LIUREN_GUA_TI_COUNT,
 } from './helpers/transmission';
+export {
+  getLiurenLeiShenRule,
+  listLiurenLeiShenTopics,
+  LEI_SHEN_RULES,
+} from './helpers/lei-shen';
+export type { LiurenLeiShenRule, LiurenLeiShenTopic } from './helpers/lei-shen';
 export type {
   LiurenCounterEvidenceFact,
   LiurenCounterSummaryFact,

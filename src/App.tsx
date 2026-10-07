@@ -31,6 +31,7 @@ import { NewsletterRoutes } from '@/router/NewsletterRoutes';
 import { SeoRoutes } from '@/router/SeoRoutes';
 import { WestAstroRoutes } from '@/router/WestAstroRoutes';
 import { FemaleRoutes } from '@/router/FemaleRoutes';
+import { M1Routes } from '@/router/M1Routes';
 import { ComplianceGuard } from '@/components/platform/ComplianceGuard';
 
 const InputPage = lazy(async () => {
@@ -541,6 +542,8 @@ export default function App() {
                 {SeoRoutes}
                 {WestAstroRoutes}
                 {FemaleRoutes}
+                {/* 波2·M1 路由补全：13 零路由板块 + /synthesis 合参 + A7 证书复现 */}
+                {M1Routes}
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
               <ComplianceGuard />

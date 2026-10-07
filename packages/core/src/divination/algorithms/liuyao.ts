@@ -158,6 +158,14 @@ function checkSanheWithTrigger(
  */
 const VALID_LIUYAO_WUXING = new Set(Object.keys(wuxing));
 
+/**
+ * 单值动变关系（兼容展示字段）。
+ *
+ * 口径（D-V5-LY-02 收口）：变爻逢旬空时本字段优先返回「化空」，这是**有意的展示语义**——
+ * 单值字段只给一个最醒目结论；完整的并见关系（回头生/克/冲 + 化空）一律以
+ * {@link getLiuyaoChangeRelations} 返回的数组为准，前端与提示词必须读该数组，不得据单值字段
+ * 推断变爻与生克关系无关。该口径已被既有黄金样例锁定，不随调用方升级而突变。
+ */
 export function getLiuyaoChangeRelation(
   originalWuxing: string,
   changedWuxing: string,
@@ -255,7 +263,7 @@ export function getLiuyaoGuaShenBranch(shiPosition: number, shiYaoIsYang: boolea
 }
 
 /**
- * 判断是否为日破：爻的地支被日辰地支冲克
+ * 判断是否为日破：爻的地支被日辰地支相冲（旺衰区分暗动/日破，见 yaosDetail）
  */
 function isDayBreak(branch: string, dayBranch: string): boolean {
   return isLiuchong(branch, dayBranch);

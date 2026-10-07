@@ -126,6 +126,41 @@ export function resolveNumberMethod(number: number, timeBranch: string): MeihuaM
   };
 }
 
+/**
+ * 两数起卦法（《梅花易数》传统报数变通式）。
+ * 传统口径：随心报两正整数，第一数取上卦、第二数取下卦，两数之和取动爻，不再叠加时支。
+ * 八卦取先天卦数（乾1兑2离3震4巽5坎6艮7坤8），以 8 卦、6 爻循环归一。
+ */
+export function resolveTwoNumberMethod(number1: number, number2: number): MeihuaMethodResult {
+  for (const [value, label] of [
+    [number1, '第一数'],
+    [number2, '第二数'],
+  ] as const) {
+    if (!Number.isSafeInteger(value) || value <= 0) {
+      throw new Error(`${label}必须是安全范围内的正整数`);
+    }
+  }
+  const upperTrigramIndex = number1 % 8 || 8;
+  const lowerTrigramIndex = number2 % 8 || 8;
+  const movingYaoIndex = (number1 + number2) % 6 || 6;
+
+  return {
+    upperTrigramIndex,
+    lowerTrigramIndex,
+    movingYaoIndex,
+    calculation: {
+      method: '两数起卦法（报数变通式）',
+      methodKey: 'number',
+      number: number1,
+      number2,
+      upperTrigramIndex,
+      lowerTrigramIndex,
+      movingYaoIndex,
+      formula: '上卦=第一数%8；下卦=第二数%8；动爻=(第一数+第二数)%6（整除归一到8/6）。',
+    },
+  };
+}
+
 export function resolveRandomMethod(options?: RandomOptions): MeihuaMethodResult {
   const context = createRandomContext(options);
   const rng = context.random;
