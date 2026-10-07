@@ -1,12 +1,18 @@
 // 任务包 10.1 · 月相盘：当月月相 + 情绪影响解读
-// 纯前端天文近似（精度约 ±1 天），仅供情绪觉察与反思，非医疗/命理断言。
-import { useEffect, useMemo } from 'react';
+// 双轨真值源（T-15C · C2）：core 星历（@temposoul/core/calendar calculateMoonPhaseEvidence，celestine）优先；
+//   core 不可用（chunk 加载失败 / 计算抛错 / 年份越界）时显式降级回本地纯前端天文近似（精度约 ±1 天）。
+// 仅供情绪觉察与反思，非医疗/命理断言。
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { trackPageView } from '@/lib/analytics';
+import {
+  approxPoint,
+  corePointFromFn,
+  loadMoonPhaseCoreFn,
+  type CoreMoonPhaseFn,
+  type MoonTrack,
+} from './lib/moonPhaseSource';
 import './moon-phase.css';
-
-const SYNODIC = 29.530588853;
-const REF_NEW_MOON_JD = 2451550.1; // 2000-01-06 18:14 UTC 新月参考点
 
 type PhaseInfo = {
   index: number;
@@ -84,27 +90,6 @@ const PHASES: PhaseInfo[] = [
   },
 ];
 
-function julianDate(d: Date): number {
-  // 以当地正午为基准，规避跨日边界
-  const noon = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 12, 0, 0, 0);
-  return noon.getTime() / 86400000 + 2440587.5;
-}
-
-function phaseFraction(d: Date): number {
-  const jd = julianDate(d);
-  let p = ((jd - REF_NEW_MOON_JD) % SYNODIC) / SYNODIC;
-  if (p < 0) p += 1;
-  return p;
-}
-
-function illumination(frac: number): number {
-  return (1 - Math.cos(2 * Math.PI * frac)) / 2;
-}
-
-function phaseIndexOf(frac: number): number {
-  return Math.floor(frac * 8) % 8;
-}
-
 function daysInMonth(year: number, month: number): number {
   return new Date(year, month + 1, 0).getDate();
 }
@@ -120,15 +105,34 @@ export default function MoonPhasePage() {
 
   const now = useMemo(() => new Date(), []);
 
-  const current = useMemo(() => {
-    const frac = phaseFraction(now);
-    const idx = phaseIndexOf(frac);
-    return {
-      frac,
-      info: PHASES[idx],
-      illumPct: Math.round(illumination(frac) * 100),
+  // core 月相能力位渐进式加载（S-5/celestine 星历）；加载失败或计算异常时 coreFn=null → 走 approx 降级。
+  const [coreFn, setCoreFn] = useState<CoreMoonPhaseFn | null>(null);
+  useEffect(() => {
+    let alive = true;
+    loadMoonPhaseCoreFn().then((fn) => {
+      if (alive) setCoreFn(fn);
+    });
+    return () => {
+      alive = false;
     };
-  }, [now]);
+  }, []);
+
+  // 单点真值：core 优先，core 计算失败当场降级 approx。
+  const pointAt = (d: Date) =>
+    coreFn ? corePointFromFn(coreFn, d) ?? approxPoint(d) : approxPoint(d);
+
+  const track: MoonTrack = coreFn ? 'core' : 'approx';
+  const sourceLabel = track === 'core' ? 'core 星历' : '本地近似降级';
+
+  const current = useMemo(() => {
+    const p = pointAt(now);
+    return {
+      frac: p.frac,
+      info: PHASES[p.idx],
+      illumPct: p.illumPct,
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [now, coreFn]);
 
   // 当月 8 相首次出现日期
   const monthPhases = useMemo(() => {
@@ -138,14 +142,15 @@ export default function MoonPhasePage() {
     const seen = new Map<number, Date>();
     for (let day = 1; day <= total; day += 1) {
       const d = new Date(year, month, day, 12, 0, 0, 0);
-      const idx = phaseIndexOf(phaseFraction(d));
+      const idx = pointAt(d).idx;
       if (!seen.has(idx)) seen.set(idx, d);
     }
     return PHASES.map((p) => ({
       ...p,
       date: seen.get(p.index) ?? null,
     }));
-  }, [now]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [now, coreFn]);
 
   return (
     <div className="moon-phase-page">
@@ -156,7 +161,7 @@ export default function MoonPhasePage() {
         </p>
       </header>
 
-      <section className="moon-phase-page__current" aria-label="当前月相">
+      <section className="moon-phase-page__current" aria-label="当前月相" data-source={track}>
         <div className="moon-phase-page__moon" data-phase={current.info.key}>
           <span className="moon-phase-page__moon-emoji" aria-hidden="true">
             {current.info.emoji}
@@ -168,7 +173,9 @@ export default function MoonPhasePage() {
             <span className="moon-phase-page__illum"> · 照度 {current.illumPct}%</span>
           </h2>
           <p className="moon-phase-page__emotion">{current.info.emotion}</p>
-          <p className="moon-phase-page__date">观测基准日：{fmtDate(now)}（当地时间正午估算）</p>
+          <p className="moon-phase-page__date">
+            观测基准日：{fmtDate(now)}（当地时间正午估算）· 真值源：{sourceLabel}
+          </p>
         </div>
       </section>
 
