@@ -377,8 +377,8 @@ async function purgeCommunityData(kv: KVNamespace, userId: string): Promise<{
 
   out.communityPosts = await anonymize(P.post, ':board:', 'authorId');
   out.communityComments = await anonymize(P.comment, ':post:', 'authorId');
-  out.communityReports = await anonymize(P.report, ':', 'reporterId');
-  out.communityReviews = await anonymize(P.review, ':', 'reviewerId');
+  out.communityReports = await anonymize(P.report, ':target:', 'reporterId');
+  out.communityReviews = await anonymize(P.review, ':target:', 'reviewerId');
   return out;
 }
 

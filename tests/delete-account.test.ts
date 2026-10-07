@@ -311,7 +311,7 @@ function post(body: unknown, token?: string): Request {
 
 test('未鉴权请求被拒绝（401）', async () => {
   const h = await buildHarness();
-  const res = await deleteEndpoint(endpointCtx(post({ password: PASSWORD }), undefined));
+  const res = await deleteEndpoint(endpointCtx(post({ password: PASSWORD }), h));
   assert.equal(res.status, 401);
   const body = await res.json();
   assert.equal(body.error, 'unauthorized');
@@ -320,7 +320,7 @@ test('未鉴权请求被拒绝（401）', async () => {
 test('缺少二次确认 → 400', async () => {
   const h = await buildHarness();
   const token = await signJwt({ sub: EMAIL, sid: 'sid-alice-1', exp: Date.now() + 60_000 }, SECRET);
-  const res = await deleteEndpoint(endpointCtx(post({}), token));
+  const res = await deleteEndpoint(endpointCtx(post({}, token), h));
   assert.equal(res.status, 400);
   assert.equal((await res.json()).error, 'missing_confirmation');
 });
@@ -328,7 +328,7 @@ test('缺少二次确认 → 400', async () => {
 test('密码错误 → 403', async () => {
   const h = await buildHarness();
   const token = await signJwt({ sub: EMAIL, sid: 'sid-alice-1', exp: Date.now() + 60_000 }, SECRET);
-  const res = await deleteEndpoint(endpointCtx(post({ password: 'wrong-password' }), token));
+  const res = await deleteEndpoint(endpointCtx(post({ password: 'wrong-password' }, token), h));
   assert.equal(res.status, 403);
   assert.equal((await res.json()).error, 'invalid_confirmation');
 });
@@ -337,7 +337,7 @@ test('二次确认 token：他人 token 不可用（403）', async () => {
   const h = await buildHarness();
   const token = await signJwt({ sub: EMAIL, sid: 'sid-alice-1', exp: Date.now() + 60_000 }, SECRET);
   const otherToken = await issueDeleteConfirmToken(SECRET, OTHER);
-  const res = await deleteEndpoint(endpointCtx(post({ confirmToken: otherToken }), token));
+  const res = await deleteEndpoint(endpointCtx(post({ confirmToken: otherToken }, token), h));
   assert.equal(res.status, 403);
 });
 
@@ -346,7 +346,7 @@ test('二次确认 token：过期 token 不可用（403）', async () => {
   const token = await signJwt({ sub: EMAIL, sid: 'sid-alice-1', exp: Date.now() + 60_000 }, SECRET);
   const past = Math.floor(Date.now() / 1000) - 60;
   const expired = await issueDeleteConfirmToken(SECRET, EMAIL, 1, past);
-  const res = await deleteEndpoint(endpointCtx(post({ confirmToken: expired }), token));
+  const res = await deleteEndpoint(endpointCtx(post({ confirmToken: expired }, token), h));
   assert.equal(res.status, 403);
   assert.equal((await res.json()).error, 'invalid_confirmation');
 });
@@ -379,7 +379,7 @@ test('重输密码 → 全数据面级联清理 + 幂等重试返回已删除', 
   const h = await buildHarness();
   const token = await signJwt({ sub: EMAIL, sid: 'sid-alice-1', exp: Date.now() + 60_000 }, SECRET);
 
-  const res = await deleteEndpoint(endpointCtx(post({ password: PASSWORD }), token), h);
+  const res = await deleteEndpoint(endpointCtx(post({ password: PASSWORD }, token), h));
   assert.equal(res.status, 200);
   const body = await res.json();
   assert.equal(body.success, true);
@@ -443,7 +443,7 @@ test('重输密码 → 全数据面级联清理 + 幂等重试返回已删除', 
   assert.ok(await h.authKv.get(`deletion_receipt:${EMAIL}`));
 
   // ── 幂等重试：返回 alreadyDeleted ──
-  const retry = await deleteEndpoint(endpointCtx(post({ password: PASSWORD }), token), h);
+  const retry = await deleteEndpoint(endpointCtx(post({ password: PASSWORD }, token), h));
   assert.equal(retry.status, 200);
   const retryBody = await retry.json();
   assert.equal(retryBody.success, true);

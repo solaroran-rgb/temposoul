@@ -11,7 +11,7 @@
  * 未鉴权：一律 401。二次确认失败：403。限流：每用户 5 次/分钟（复用 GEO_CACHE）。
  */
 
-import { readIdentityWithSession, type SessionKV } from '../../../../src/lib/server/auth';
+import { readIdentity, readIdentityWithSession, type SessionKV } from '../../../../src/lib/server/auth';
 import {
   CONFIRM_TOKEN_TTL_SEC,
   issueDeleteConfirmToken,
@@ -86,7 +86,36 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   }
 
   const user = await authedUser(request, env.AUTH_SECRET, env.AUTH_KV);
-  if (!user) return json({ error: 'unauthorized' }, 401);
+  if (!user) {
+    // 幂等兜底：删号成功后 session 已随级联清除，authedUser 因 session 缺失返回 null；
+    // 但若 JWT 签名本身有效且该账号已有删除回执（客户端网络重试同一删除请求），
+    // 应返回 alreadyDeleted 而非 401，符合幂等删除语义（HTTP DELETE 幂等）。
+    if (method === 'POST') {
+      const auth = request.headers.get('Authorization') ?? '';
+      const token = auth.startsWith('Bearer ') ? auth.slice(7) : '';
+      if (token) {
+        try {
+          const identity = await readIdentity(token, env.AUTH_SECRET);
+          if (identity?.sub) {
+            const receipt = await readDeletionReceipt(env.AUTH_KV, identity.sub);
+            if (receipt) {
+              return json({
+                success: true,
+                alreadyDeleted: true,
+                receiptId: receipt.receiptId,
+                deletedAt: receipt.deletedAt,
+                stats: receipt.stats,
+                message: '该账号此前已完成删除（幂等回执）',
+              });
+            }
+          }
+        } catch {
+          // 签名/时间声明无效 → 维持 401
+        }
+      }
+    }
+    return json({ error: 'unauthorized' }, 401);
+  }
 
   if (await rateLimited(env, user.userId)) {
     return json({ error: 'rate_limit_exceeded' }, 429);
