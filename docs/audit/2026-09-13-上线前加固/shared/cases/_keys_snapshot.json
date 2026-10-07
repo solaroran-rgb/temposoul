@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-10-08T05:31:27",
+ "generated_at": "2026-10-08T06:11:23",
  "source_csv": "docs\\audit\\2026-09-13-上线前加固\\thread-03-多语言翻译实现与准确性\\output\\terms\\7lang-terms.csv",
- "source_csv_sha256": "7a4ad343fd43c070bb99fa3ba9a7968f257b625d857d2ab68acc4e7503b6c3ae",
+ "source_csv_sha256": "a9e8700df6c8f0418c1726f3f91fb56010668dd3df837ab4ca4ae1e8f6b24362",
  "total_keys": 1214,
  "tier1_keys": 374,
  "keys": [

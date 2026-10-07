@@ -230,7 +230,7 @@ common:school:zipingbazi,子平八字,zǐpíngbāzì,命理流派,—,—,—,�
 common:school:ziweidoushu,紫微斗数,zǐwēidǒushù,命理流派,Zi Wei Dou Shu,Zi Wei Dou Shu,紫微斗数,자미두수,จื่อเหวยโดวซู,Tử Vi Đẩu Số,Sino-xenic 定读(ja/ko/vi)+pinyin 通行(en/es)+th 音译或意译；待母语复核,tier1_filled
 common:school:qimendunjia,奇门遁甲,qíméndùnjiǎ,命理流派,Qi Men Dun Jia,Qi Men Dun Jia,奇門遁甲,기문둔갑,—,Kỳ Môn Độn Giáp,T-17D补全;Sino-xenic定读(ja/ko/vi)+es拼音专名;th除tarot外待母语复核,tier1_partial
 common:school:daliuren,大六壬,dàliùrén,命理流派,Da Liu Ren,Da Liu Ren,大六壬,대육임,—,Đại Lục Nhâm,T-17D补全;Sino-xenic定读(ja/ko/vi)+es拼音专名;th除tarot外待母语复核,tier1_partial
-common:school:taiyishenshu,太乙神数,tàiyǐshénshù,命理流派,Tai Yi Shen Shu,Tai Yi Shen Shu,太乙神数,태을신수,—,Thái Ất Thần Số,T-17D补全;Sino-xenic定读(ja/ko/vi)+es拼音专名;th除tarot外待母语复核,tier1_partial
+common:school:taiyishenshu,太乙神数,tàiyǐshénshù,命理流派,Tai Yi Shen Shu,Tai Yi Shen Shu,太乙神数,태을신수,ไท่อี้เซินซู,Thái Ất Thần Số,T-17D补全;Sino-xenic定读(ja/ko/vi)+es拼音专名;th除tarot外待母语复核,tier1_filled
 common:school:tiebanshenshu,铁板神数,tiěbǎnshénshù,命理流派,—,—,—,—,—,—,,tier2_pending
 common:school:meihuayishu,梅花易数,méihuāyìshù,命理流派,Mei Hua Yi Shu,Mei Hua Yi Shu,梅花易数,매화역수,—,Mai Hoa Dịch Số,T-17D补全;Sino-xenic定读(ja/ko/vi)+es拼音专名;th除tarot外待母语复核,tier1_partial
 common:school:shaozishenshu,邵子神数,shàozǐshénshù,命理流派,—,—,—,—,—,—,,tier2_pending
@@ -1209,7 +1209,7 @@ common:school:jinkoujue,金口诀,jīnkǒujué,命理流派,Jin Kou Jue,Jin Kou 
 common:school:taluo,塔罗,tǎluō,占卜,Tarot,Tarot,タロット,타로,ไพ่ทาโรต์,Tarot,T-17D补全;Sino-xenic定读(ja/ko/vi)+es拼音专名;th除tarot外待母语复核,tier1_filled
 common:school:leinuoman,雷诺曼,léinuòmàn,占卜,Lenormand,Lenormand,ルノルマン,르놀만,—,Lenormand,T-17D补全;Sino-xenic定读(ja/ko/vi)+es拼音专名;th除tarot外待母语复核,tier1_partial
 common:school:zhuzhaifengshui,住宅风水,zhùzháifēngshuǐ,风水,Residential Feng Shui,Feng Shui residencial,住宅風水,주택풍수,—,—,T-17D补全;Sino-xenic定读(ja/ko/vi)+es拼音专名;th除tarot外待母语复核,tier1_partial
-common:school:huanglizheri,黄历择日,huánglìzérì,择日,Chinese Almanac (Huang Li),—,—,—,—,—,T-17D补全;Sino-xenic定读(ja/ko/vi)+es拼音专名;th除tarot外待母语复核,tier1_partial
-common:school:xiyangxingpan,西洋星盘,xīyángxīngpán,西洋占星,Western Astrolabe,—,—,—,—,—,T-17D补全;Sino-xenic定读(ja/ko/vi)+es拼音专名;th除tarot外待母语复核,tier1_partial
-common:school:sanshanguowang,三山国王灵签,sānshānguówánglíngqiān,占卜,Sanshan Guowang Oracle,—,—,—,—,—,T-17D补全;Sino-xenic定读(ja/ko/vi)+es拼音专名;th除tarot外待母语复核,tier1_partial
-common:school:shengxiaoliunian,生肖流年,shēngxiàoliúnián,命理流派,Zodiac Annual Fortune,—,—,—,—,—,T-17D补全;Sino-xenic定读(ja/ko/vi)+es拼音专名;th除tarot外待母语复核,tier1_partial
+common:school:huanglizheri,黄历择日,huánglìzérì,择日,Chinese Almanac (Huang Li),—,—,황력택일,—,Hoàng lịch trạch nhật,T-17D补全;Sino-xenic定读(ja/ko/vi)+es拼音专名;th除tarot外待母语复核,tier1_partial
+common:school:xiyangxingpan,西洋星盘,xīyángxīngpán,西洋占星,Western Astrolabe,—,西洋星盤,서양성반,—,Tây Dương tinh bàn,T-17D补全;Sino-xenic定读(ja/ko/vi)+es拼音专名;th除tarot外待母语复核,tier1_partial
+common:school:sanshanguowang,三山国王灵签,sānshānguówánglíngqiān,占卜,Sanshan Guowang Oracle,—,三山国王霊籤,삼산국왕영천,—,Tam Sơn Quốc Vương Linh Thiềm,T-17D补全;Sino-xenic定读(ja/ko/vi)+es拼音专名;th除tarot外待母语复核,tier1_partial
+common:school:shengxiaoliunian,生肖流年,shēngxiàoliúnián,命理流派,Zodiac Annual Fortune,—,生肖流年,생초유년,—,Sinh Tiếu Lưu Niên,T-17D补全;Sino-xenic定读(ja/ko/vi)+es拼音专名;th除tarot外待母语复核,tier1_partial

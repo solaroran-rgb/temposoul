@@ -1281,13 +1281,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "これは伝統的な命理の見解であり、伝統文化の参考としてのみ提供され、いかなる意思決定の根拠となるものではありません。",
   },
   {
-    lang: "ja", system: "zodiac", systemName: "Zodiac Annual Fortune", slug: "/ja/zodiac",
-    title: "Zodiac Annual Fortune — TempoSoul",
-    description: "Zodiac Annual Fortune: traditional 命理 system presented as cultural reference only — TempoSoul.",
-    h1: "Zodiac Annual Fortune",
+    lang: "ja", system: "zodiac", systemName: "生肖流年", slug: "/ja/zodiac",
+    title: "生肖流年 — TempoSoul",
+    description: "生肖流年: traditional 命理 system presented as cultural reference only — TempoSoul.",
+    h1: "生肖流年",
     sections: [
       { heading: "Overview", paragraphs: [
-        "このページは伝統的な命理・占術体系「Zodiac Annual Fortune」を紹介します。出典のない部分では断定しません。文化参考のみです。",
+        "このページは伝統的な命理・占術体系「生肖流年」を紹介します。出典のない部分では断定しません。文化参考のみです。",
       ] },
       { heading: "Core concepts", paragraphs: [
         "核心概念の用語（用語集より）：陰, 陽, 木, 火, 土, 金, 水, 比肩, 子, 午。いずれも傾向として読み、単一の吉凶を断定しません。",
@@ -1497,13 +1497,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "これは伝統的な命理の見解であり、伝統文化の参考としてのみ提供され、いかなる意思決定の根拠となるものではありません。",
   },
   {
-    lang: "ja", system: "ssgw", systemName: "Sanshan Guowang Oracle", slug: "/ja/ssgw",
-    title: "Sanshan Guowang Oracle — TempoSoul",
-    description: "Sanshan Guowang Oracle: traditional 占卜 system presented as cultural reference only — TempoSoul.",
-    h1: "Sanshan Guowang Oracle",
+    lang: "ja", system: "ssgw", systemName: "三山国王霊籤", slug: "/ja/ssgw",
+    title: "三山国王霊籤 — TempoSoul",
+    description: "三山国王霊籤: traditional 占卜 system presented as cultural reference only — TempoSoul.",
+    h1: "三山国王霊籤",
     sections: [
       { heading: "Overview", paragraphs: [
-        "このページは伝統的な命理・占術体系「Sanshan Guowang Oracle」を紹介します。出典のない部分では断定しません。文化参考のみです。",
+        "このページは伝統的な命理・占術体系「三山国王霊籤」を紹介します。出典のない部分では断定しません。文化参考のみです。",
       ] },
       { heading: "Core concepts", paragraphs: [
         "核心概念の用語（用語集より）：陰, 陽, 木, 火, 土, 金, 水, 比肩, 子, 午。いずれも傾向として読み、単一の吉凶を断定しません。",
@@ -1617,13 +1617,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "これは伝統的な命理の見解であり、伝統文化の参考としてのみ提供され、いかなる意思決定の根拠となるものではありません。",
   },
   {
-    lang: "ja", system: "astrolabe", systemName: "Western Astrolabe", slug: "/ja/astrolabe",
-    title: "Western Astrolabe — TempoSoul",
-    description: "Western Astrolabe: traditional 环境 system presented as cultural reference only — TempoSoul.",
-    h1: "Western Astrolabe",
+    lang: "ja", system: "astrolabe", systemName: "西洋星盤", slug: "/ja/astrolabe",
+    title: "西洋星盤 — TempoSoul",
+    description: "西洋星盤: traditional 环境 system presented as cultural reference only — TempoSoul.",
+    h1: "西洋星盤",
     sections: [
       { heading: "Overview", paragraphs: [
-        "このページは伝統的な命理・占術体系「Western Astrolabe」を紹介します。出典のない部分では断定しません。文化参考のみです。",
+        "このページは伝統的な命理・占術体系「西洋星盤」を紹介します。出典のない部分では断定しません。文化参考のみです。",
       ] },
       { heading: "Core concepts", paragraphs: [
         "核心概念の用語（用語集より）：陰, 陽, 木, 火, 土, 金, 水, 比肩, 子, 午。いずれも傾向として読み、単一の吉凶を断定しません。",
@@ -1785,13 +1785,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "이 콘텐츠는 전통 명리 관점으로, 전통 문화 참고용으로만 제공되며 어떠한 의사결정 근거도 되지 않습니다.",
   },
   {
-    lang: "ko", system: "zodiac", systemName: "Zodiac Annual Fortune", slug: "/ko/zodiac",
-    title: "Zodiac Annual Fortune — TempoSoul",
-    description: "Zodiac Annual Fortune: traditional 命理 system presented as cultural reference only — TempoSoul.",
-    h1: "Zodiac Annual Fortune",
+    lang: "ko", system: "zodiac", systemName: "생초유년", slug: "/ko/zodiac",
+    title: "생초유년 — TempoSoul",
+    description: "생초유년: traditional 命理 system presented as cultural reference only — TempoSoul.",
+    h1: "생초유년",
     sections: [
       { heading: "Overview", paragraphs: [
-        "이 페이지는 전통 명리·점술 체계「Zodiac Annual Fortune」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
+        "이 페이지는 전통 명리·점술 체계「생초유년」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "핵심 개념 용어(용어집 출처): 음, 양, 목, 화, 토, 금, 수, 비견, 자, 오. 모두 경향으로 읽을 뿐 단일한 길흉을 단정하지 않습니다.",
@@ -2001,13 +2001,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "이 콘텐츠는 전통 명리 관점으로, 전통 문화 참고용으로만 제공되며 어떠한 의사결정 근거도 되지 않습니다.",
   },
   {
-    lang: "ko", system: "ssgw", systemName: "Sanshan Guowang Oracle", slug: "/ko/ssgw",
-    title: "Sanshan Guowang Oracle — TempoSoul",
-    description: "Sanshan Guowang Oracle: traditional 占卜 system presented as cultural reference only — TempoSoul.",
-    h1: "Sanshan Guowang Oracle",
+    lang: "ko", system: "ssgw", systemName: "삼산국왕영천", slug: "/ko/ssgw",
+    title: "삼산국왕영천 — TempoSoul",
+    description: "삼산국왕영천: traditional 占卜 system presented as cultural reference only — TempoSoul.",
+    h1: "삼산국왕영천",
     sections: [
       { heading: "Overview", paragraphs: [
-        "이 페이지는 전통 명리·점술 체계「Sanshan Guowang Oracle」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
+        "이 페이지는 전통 명리·점술 체계「삼산국왕영천」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "핵심 개념 용어(용어집 출처): 음, 양, 목, 화, 토, 금, 수, 비견, 자, 오. 모두 경향으로 읽을 뿐 단일한 길흉을 단정하지 않습니다.",
@@ -2025,13 +2025,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "이 콘텐츠는 전통 명리 관점으로, 전통 문화 참고용으로만 제공되며 어떠한 의사결정 근거도 되지 않습니다.",
   },
   {
-    lang: "ko", system: "almanac", systemName: "Chinese Almanac (Huang Li)", slug: "/ko/almanac",
-    title: "Chinese Almanac (Huang Li) — TempoSoul",
-    description: "Chinese Almanac (Huang Li): traditional 择日 system presented as cultural reference only — TempoSoul.",
-    h1: "Chinese Almanac (Huang Li)",
+    lang: "ko", system: "almanac", systemName: "황력택일", slug: "/ko/almanac",
+    title: "황력택일 — TempoSoul",
+    description: "황력택일: traditional 择日 system presented as cultural reference only — TempoSoul.",
+    h1: "황력택일",
     sections: [
       { heading: "Overview", paragraphs: [
-        "이 페이지는 전통 명리·점술 체계「Chinese Almanac (Huang Li)」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
+        "이 페이지는 전통 명리·점술 체계「황력택일」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "핵심 개념 용어(용어집 출처): 음, 양, 목, 화, 토, 금, 수, 비견, 자, 오. 모두 경향으로 읽을 뿐 단일한 길흉을 단정하지 않습니다.",
@@ -2121,13 +2121,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "이 콘텐츠는 전통 명리 관점으로, 전통 문화 참고용으로만 제공되며 어떠한 의사결정 근거도 되지 않습니다.",
   },
   {
-    lang: "ko", system: "astrolabe", systemName: "Western Astrolabe", slug: "/ko/astrolabe",
-    title: "Western Astrolabe — TempoSoul",
-    description: "Western Astrolabe: traditional 环境 system presented as cultural reference only — TempoSoul.",
-    h1: "Western Astrolabe",
+    lang: "ko", system: "astrolabe", systemName: "서양성반", slug: "/ko/astrolabe",
+    title: "서양성반 — TempoSoul",
+    description: "서양성반: traditional 环境 system presented as cultural reference only — TempoSoul.",
+    h1: "서양성반",
     sections: [
       { heading: "Overview", paragraphs: [
-        "이 페이지는 전통 명리·점술 체계「Western Astrolabe」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
+        "이 페이지는 전통 명리·점술 체계「서양성반」을 소개합니다. 출전이 없는 부분에서는 단정하지 않으며 문화 참고용으로만 제공합니다.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "핵심 개념 용어(용어집 출처): 음, 양, 목, 화, 토, 금, 수, 비견, 자, 오. 모두 경향으로 읽을 뿐 단일한 길흉을 단정하지 않습니다.",
@@ -2217,13 +2217,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "เนื้อหานี้นำเสนอมุมมองโหราศาสตร์แบบดั้งเดิมเพื่อการอ้างอิงทางวัฒนธรรมเท่านั้น และไม่ใช่หลักฐานสำหรับการตัดสินใจใด ๆ",
   },
   {
-    lang: "th", system: "taiyi", systemName: "Tai Yi Shen Shu", slug: "/th/taiyi",
-    title: "Tai Yi Shen Shu — TempoSoul",
-    description: "Tai Yi Shen Shu: traditional 命理 system presented as cultural reference only — TempoSoul.",
-    h1: "Tai Yi Shen Shu",
+    lang: "th", system: "taiyi", systemName: "ไท่อี้เซินซู", slug: "/th/taiyi",
+    title: "ไท่อี้เซินซู — TempoSoul",
+    description: "ไท่อี้เซินซู: traditional 命理 system presented as cultural reference only — TempoSoul.",
+    h1: "ไท่อี้เซินซู",
     sections: [
       { heading: "Overview", paragraphs: [
-        "หน้านี้นำเสนอระบบโหราศาสตร์และการทำนายแบบดั้งเดิม «Tai Yi Shen Shu» เฉพาะเพื่อการอ้างอิงทางวัฒนธรรม ไม่กล่าวอ้างในส่วนที่ไม่มีแหล่งอ้างอิง",
+        "หน้านี้นำเสนอระบบโหราศาสตร์และการทำนายแบบดั้งเดิม «ไท่อี้เซินซู» เฉพาะเพื่อการอ้างอิงทางวัฒนธรรม ไม่กล่าวอ้างในส่วนที่ไม่มีแหล่งอ้างอิง",
       ] },
       { heading: "Core concepts", paragraphs: [
         "คำศัพท์แนวคิดหลัก (จากคลังคำศัพท์): หยิน, หยาง, ไม้, ไฟ, ดิน, โลหะ, น้ำ, ปี้เจี้ยน, จื้อ, อู่ ทั้งหมดอ่านในเชิงแนวโน้ม ไม่ชี้ชะตาเพียงปัจจัยเดียว",
@@ -2793,13 +2793,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "Nội dung này trình bày quan điểm mệnh lý truyền thống, chỉ mang tính tham khảo văn hóa và không phải cơ sở cho bất kỳ quyết định nào.",
   },
   {
-    lang: "vi", system: "zodiac", systemName: "Zodiac Annual Fortune", slug: "/vi/zodiac",
-    title: "Zodiac Annual Fortune — TempoSoul",
-    description: "Zodiac Annual Fortune: traditional 命理 system presented as cultural reference only — TempoSoul.",
-    h1: "Zodiac Annual Fortune",
+    lang: "vi", system: "zodiac", systemName: "Sinh Tiếu Lưu Niên", slug: "/vi/zodiac",
+    title: "Sinh Tiếu Lưu Niên — TempoSoul",
+    description: "Sinh Tiếu Lưu Niên: traditional 命理 system presented as cultural reference only — TempoSoul.",
+    h1: "Sinh Tiếu Lưu Niên",
     sections: [
       { heading: "Overview", paragraphs: [
-        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Zodiac Annual Fortune», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
+        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Sinh Tiếu Lưu Niên», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "Thuật ngữ khái niệm cốt lõi (từ ngân hàng thuật ngữ): Âm, Dương, Mộc, Hỏa, Thổ, Kim, Thủy, Tỷ Kiến, Tý, Ngọ. Tất cả được đọc theo xu hướng, không phán đoán cát hung từ một yếu tố duy nhất.",
@@ -3009,13 +3009,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "Nội dung này trình bày quan điểm mệnh lý truyền thống, chỉ mang tính tham khảo văn hóa và không phải cơ sở cho bất kỳ quyết định nào.",
   },
   {
-    lang: "vi", system: "ssgw", systemName: "Sanshan Guowang Oracle", slug: "/vi/ssgw",
-    title: "Sanshan Guowang Oracle — TempoSoul",
-    description: "Sanshan Guowang Oracle: traditional 占卜 system presented as cultural reference only — TempoSoul.",
-    h1: "Sanshan Guowang Oracle",
+    lang: "vi", system: "ssgw", systemName: "Tam Sơn Quốc Vương Linh Thiềm", slug: "/vi/ssgw",
+    title: "Tam Sơn Quốc Vương Linh Thiềm — TempoSoul",
+    description: "Tam Sơn Quốc Vương Linh Thiềm: traditional 占卜 system presented as cultural reference only — TempoSoul.",
+    h1: "Tam Sơn Quốc Vương Linh Thiềm",
     sections: [
       { heading: "Overview", paragraphs: [
-        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Sanshan Guowang Oracle», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
+        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Tam Sơn Quốc Vương Linh Thiềm», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "Thuật ngữ khái niệm cốt lõi (từ ngân hàng thuật ngữ): Âm, Dương, Mộc, Hỏa, Thổ, Kim, Thủy, Tỷ Kiến, Tý, Ngọ. Tất cả được đọc theo xu hướng, không phán đoán cát hung từ một yếu tố duy nhất.",
@@ -3033,13 +3033,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "Nội dung này trình bày quan điểm mệnh lý truyền thống, chỉ mang tính tham khảo văn hóa và không phải cơ sở cho bất kỳ quyết định nào.",
   },
   {
-    lang: "vi", system: "almanac", systemName: "Chinese Almanac (Huang Li)", slug: "/vi/almanac",
-    title: "Chinese Almanac (Huang Li) — TempoSoul",
-    description: "Chinese Almanac (Huang Li): traditional 择日 system presented as cultural reference only — TempoSoul.",
-    h1: "Chinese Almanac (Huang Li)",
+    lang: "vi", system: "almanac", systemName: "Hoàng lịch trạch nhật", slug: "/vi/almanac",
+    title: "Hoàng lịch trạch nhật — TempoSoul",
+    description: "Hoàng lịch trạch nhật: traditional 择日 system presented as cultural reference only — TempoSoul.",
+    h1: "Hoàng lịch trạch nhật",
     sections: [
       { heading: "Overview", paragraphs: [
-        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Chinese Almanac (Huang Li)», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
+        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Hoàng lịch trạch nhật», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "Thuật ngữ khái niệm cốt lõi (từ ngân hàng thuật ngữ): Âm, Dương, Mộc, Hỏa, Thổ, Kim, Thủy, Tỷ Kiến, Tý, Ngọ. Tất cả được đọc theo xu hướng, không phán đoán cát hung từ một yếu tố duy nhất.",
@@ -3129,13 +3129,13 @@ export const MULTILANG_PAGES: MultilangSeoPage[] = [
     compliance: "Nội dung này trình bày quan điểm mệnh lý truyền thống, chỉ mang tính tham khảo văn hóa và không phải cơ sở cho bất kỳ quyết định nào.",
   },
   {
-    lang: "vi", system: "astrolabe", systemName: "Western Astrolabe", slug: "/vi/astrolabe",
-    title: "Western Astrolabe — TempoSoul",
-    description: "Western Astrolabe: traditional 环境 system presented as cultural reference only — TempoSoul.",
-    h1: "Western Astrolabe",
+    lang: "vi", system: "astrolabe", systemName: "Tây Dương tinh bàn", slug: "/vi/astrolabe",
+    title: "Tây Dương tinh bàn — TempoSoul",
+    description: "Tây Dương tinh bàn: traditional 环境 system presented as cultural reference only — TempoSoul.",
+    h1: "Tây Dương tinh bàn",
     sections: [
       { heading: "Overview", paragraphs: [
-        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Western Astrolabe», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
+        "Trang này giới thiệu hệ thống mệnh lý và bói toán truyền thống «Tây Dương tinh bàn», chỉ mang tính tham khảo văn hóa và không khẳng định ở phần thiếu nguồn.",
       ] },
       { heading: "Core concepts", paragraphs: [
         "Thuật ngữ khái niệm cốt lõi (từ ngân hàng thuật ngữ): Âm, Dương, Mộc, Hỏa, Thổ, Kim, Thủy, Tỷ Kiến, Tý, Ngọ. Tất cả được đọc theo xu hướng, không phán đoán cát hung từ một yếu tố duy nhất.",
