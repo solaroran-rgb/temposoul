@@ -1,0 +1,37 @@
+{
+  "_meta": {
+    "sample": "sample-1900-beijing",
+    "task": "T-15 S-2 E-05 Track A 金标重做",
+    "generated_at": "2026-10-08",
+    "purpose": "1900 北京仲裁金标，三方对拍基准（外部权威星历 vs celestine vs 引擎）",
+    "local_civil": "1900-01-15 12:00:00 (UTC+8)",
+    "ut": "1900-01-15 04:00:00 UTC",
+    "jd_ut": 2415034.6666666665,
+    "latitude": 39.9042,
+    "longitude": 116.4074,
+    "note": "失败样本实际入参为 1900-01-15（任务书写 01-01，按真实失败入参对齐）"
+  },
+  "generation_parameters": {
+    "ephemeris_library": "pyswisseph 2.10.3.2 / Swiss Ephemeris 2.10.03",
+    "ephemeris_mode": "SEFLG_MOSEPH (内置 Moshier 分析星历，无 *.se1 数据文件)",
+    "deltaT_model": "swe.deltat() (Morrison-Stephenson 多项式, TT-UT)",
+    "deltat_TT_minus_UT_seconds": -2.25e-05,
+    "coordinate_system": "地心视黄经 (geocentric apparent ecliptic longitude)",
+    "epoch": "回归坐标/当日分点 (tropical, equinox of date)",
+    "precession_nutation": "swisseph 默认视位置 (含章动, 当日分点)",
+    "comparison_basis": "与 E-04 口径一致"
+  },
+  "bodies": {
+    "Sun":      { "longitude_deg": 294.59155, "longitude_speed_deg_day": 1.018143 },
+    "Moon":     { "longitude_deg": 107.514684, "longitude_speed_deg_day": 12.293028 },
+    "Mercury":  { "longitude_deg": 278.871453, "longitude_speed_deg_day": 1.492312 },
+    "Venus":    { "longitude_deg": 323.946133, "longitude_speed_deg_day": 1.236551 },
+    "Mars":     { "longitude_deg": 294.839383, "longitude_speed_deg_day": 0.778176 },
+    "Jupiter":  { "longitude_deg": 243.779711, "longitude_speed_deg_day": 0.176816 },
+    "Saturn":   { "longitude_deg": 269.32848, "longitude_speed_deg_day": 0.110583 },
+    "Uranus":   { "longitude_deg": 250.877541, "longitude_speed_deg_day": 0.048552 },
+    "Neptune":  { "longitude_deg": 84.854685, "longitude_speed_deg_day": -0.023805 },
+    "Pluto":    { "longitude_deg": 75.02606, "longitude_speed_deg_day": -0.014302 },
+    "MeanNode": { "longitude_deg": 258.411329, "longitude_speed_deg_day": -0.05293 }
+  }
+}
