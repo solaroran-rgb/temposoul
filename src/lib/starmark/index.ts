@@ -20,4 +20,11 @@ export * from './fingerprint';
 export * from './pixel-surface';
 export * from './renderer-l1';
 export * from './reproduce';
+// B3 升级叠加（T-07，纯函数，浏览器/node 同构；不重写上方已验证逻辑）
+export * from './presets';
+export * from './share-url';
+export * from './privacy';
+export * from './experiments';
+export * from './wechat';
+// cert-summary 依赖 verify→astro-view→星表数据，仅在需要逐星报告的场景显式 import，不进默认 barrel
 // scene-l2（three 浏览器端）不在 barrel 内导出，避免 node 侧误 import three

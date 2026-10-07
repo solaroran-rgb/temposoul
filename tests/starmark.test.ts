@@ -21,6 +21,29 @@ import { renderL1 } from '../src/lib/starmark/renderer-l1';
 import { previewGate } from '../src/lib/starmark/gating';
 import { STAR_MARK_EVENTS } from '../src/lib/starmark/analytics';
 import { generateCard, reproduceBySkyId, _resetCertStore } from '../src/lib/starmark/reproduce';
+import {
+  buildPresetObservation,
+  STAR_MARK_PRESETS,
+  NAME_TEMPLATES,
+  applyNameTemplate,
+  DEFAULT_LOCATION,
+} from '../src/lib/starmark/presets';
+import {
+  formatCompactUtc,
+  parseCompactUtc,
+  encodeObservationToParamPath,
+  parseParamPath,
+  buildPublicShareUrl,
+} from '../src/lib/starmark/share-url';
+import {
+  blurToCityLevel,
+  resolveShareableCoords,
+  CITY_LEVEL_EPS_DEG,
+} from '../src/lib/starmark/privacy';
+import { buildCertReport } from '../src/lib/starmark/cert-summary';
+import { buildCertificateContent } from '../src/lib/starmark/version';
+import { getExperimentFlags, STARMARK_EXPERIMENTS } from '../src/lib/starmark/experiments';
+import { detectWechatIn } from '../src/lib/starmark/wechat';
 
 const base: SkyParams = {
   unixMs: Date.UTC(2024, 5, 1, 13, 47, 0),
@@ -147,4 +170,99 @@ test('⑤ 输入 sky_id → 取回同参数重渲染，逐星一致', async () =
   // 不存在的 sky_id
   const miss = await reproduceBySkyId('ZZZZZZZZ');
   assert.equal(miss.found, false);
+});
+
+/* ============ B3 升级叠加（T-07）：纯函数新增用例，不改动上方 12 项 ============ */
+
+test('P0-1 参数预设：三预设齐全 + 注入 now 确定性 + 默认观测点', () => {
+  assert.equal(STAR_MARK_PRESETS.length, 3);
+  for (const id of ['birthday', 'anniversary', 'now']) {
+    assert.ok(STAR_MARK_PRESETS.some((p) => p.id === id), `缺预设 ${id}`);
+  }
+  const NOW = Date.UTC(2024, 5, 1, 13, 47, 0);
+  // now 预设直接取注入时刻（确定性）
+  const nowObs = buildPresetObservation('now', { now: NOW });
+  assert.equal(nowObs.unixMs, NOW);
+  // birthday 给真实时刻用真实时刻，默认落济南
+  const bday = buildPresetObservation('birthday', { now: NOW, unixMs: Date.UTC(2000, 0, 1, 1, 30, 0) });
+  assert.equal(bday.unixMs, Date.UTC(2000, 0, 1, 1, 30, 0));
+  assert.equal(bday.latDeg, DEFAULT_LOCATION.latDeg);
+  assert.equal(bday.lngDeg, DEFAULT_LOCATION.lngDeg);
+});
+
+test('P12 称谓模板：≥3 套且套用结果正确', () => {
+  assert.ok(NAME_TEMPLATES.length >= 3);
+  assert.equal(applyNameTemplate('for', '小满'), '给小满');
+  assert.equal(applyNameTemplate('to', '小满'), '致小满');
+  assert.equal(applyNameTemplate('exclusive', '小满'), '小满的专属星空');
+  assert.equal(applyNameTemplate('不存在的模板', '小满'), '给小满', '未知模板回落第一个');
+});
+
+test('URL 复现：紧凑 UTC 往返 + 参数路径编码解析一致 + 隐私链接只含 certId', () => {
+  assert.equal(formatCompactUtc(Date.UTC(2024, 5, 1, 13, 47, 0)), '20240601T134700Z');
+  assert.equal(parseCompactUtc('20240601T134700Z'), Date.UTC(2024, 5, 1, 13, 47, 0));
+  const obs = { unixMs: Date.UTC(2024, 5, 1, 13, 47, 0), latDeg: 36.6512, lngDeg: 117.1201, dirDeg: 0 };
+  const path = encodeObservationToParamPath(obs);
+  const back = parseParamPath(path);
+  assert.ok(back, '参数路径应能解析');
+  assert.equal(back!.unixMs, obs.unixMs);
+  assert.equal(back!.latDeg, obs.latDeg);
+  // 再编码必须与原路径逐字节一致（URL 复现确定性）
+  assert.equal(encodeObservationToParamPath(back!), path);
+  // 隐私分享链接只放 certId，不含经纬度/称谓
+  assert.equal(buildPublicShareUrl('QUCBSKFD'), '/starmark/sky/QUCBSKFD');
+  assert.ok(!buildPublicShareUrl('QUCBSKFD').includes('36.65'), '隐私链接不得暴露经纬度');
+  // 只带 certId 的隐私路径不是参数路径
+  assert.equal(parseParamPath('/starmark/sky/QUCBSKFD'), null);
+});
+
+test('P13 隐私：坐标默认模糊到城市级 0.1°，授权才出精确级', () => {
+  assert.equal(CITY_LEVEL_EPS_DEG, 0.1);
+  const b = blurToCityLevel(36.6512, 117.1201);
+  assert.equal(b.lat, Math.round(36.6512 / 0.1) * 0.1); // 36.7
+  assert.equal(b.lng, Math.round(117.1201 / 0.1) * 0.1); // 117.1
+  const city = resolveShareableCoords(36.6512, 117.1201);
+  assert.equal(city.precision, 'city');
+  const exact = resolveShareableCoords(36.6512, 117.1201, { precisionAuthorized: true });
+  assert.equal(exact.precision, 'exact');
+  assert.equal(exact.lat, 36.6512);
+});
+
+test('证书校验报告：buildCertReport 结构可截图（通过/篡改两态）', () => {
+  const cert = buildCertificateContent(6.0, 0);
+  const ok = buildCertReport({
+    certId: 'QUCBSKFD',
+    verify: { pass: true, reason: '复现一致', comparedStars: 278, driftStars: 0, maxDriftPx: 0 },
+    fingerprint: 'abc12345',
+    cert,
+  });
+  assert.equal(ok.passed, true);
+  assert.equal(ok.headline, '复现一致 ✓');
+  assert.equal(ok.screenshotReady, true);
+  assert.ok(ok.detailLines.length >= 8);
+  assert.ok(ok.detailLines.some((l) => l.includes('QUCBSKFD')));
+  assert.ok(ok.disclaimer.length > 0);
+
+  const bad = buildCertReport({
+    certId: 'QUCBSKFD',
+    verify: { pass: false, reason: '参数已被修改', comparedStars: 278, driftStars: 278, maxDriftPx: Number.POSITIVE_INFINITY },
+    fingerprint: 'abc12345',
+    cert,
+  });
+  assert.equal(bad.passed, false);
+  assert.equal(bad.headline, '参数已被修改 ✗');
+});
+
+test('P0-2 实验开关：冻结变体 + 返回副本不污染常量', () => {
+  const f = getExperimentFlags();
+  assert.equal(f.e1_formFriction, 'preset');
+  assert.equal(f.e2_paywallPosition, 'preview30s');
+  assert.equal(f.e4_l3Position, 'douyin_clip');
+  f.e1_formFriction = 'form';
+  assert.equal(STARMARK_EXPERIMENTS.e1_formFriction, 'preset', '改副本不得污染冻结值');
+});
+
+test('wechat_in 必埋：UA 纯函数判定', () => {
+  assert.equal(detectWechatIn('Mozilla/5.0 (iPhone) MicroMessenger/8.0.20'), true);
+  assert.equal(detectWechatIn('Mozilla/5.0 (Windows NT 10.0) Chrome/120.0'), false);
 });
