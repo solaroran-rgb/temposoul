@@ -148,7 +148,27 @@ const CONTENT_LOADERS: Record<string, () => Promise<{ default: KnowledgeArticle 
   "vedic-yoga-intro": () => import('./content/board-terms/vedic-yoga-intro'),
   "vedic-dosha-intro": () => import('./content/board-terms/vedic-dosha-intro'),
   "vedic-bhava-intro": () => import('./content/board-terms/vedic-bhava-intro'),
-
+  // T-18 续批 · WP-18 十段词条（20 篇，2026-10-08）
+  "vedic-tithi-intro": () => import('./content/board-terms/vedic-tithi-intro'),
+  "ziwei-intro": () => import('./content/board-terms/ziwei-intro'),
+  "ziwei-stars-intro": () => import('./content/board-terms/ziwei-stars-intro'),
+  "ziwei-sihua-intro": () => import('./content/board-terms/ziwei-sihua-intro'),
+  "ziwei-palaces-intro": () => import('./content/board-terms/ziwei-palaces-intro'),
+  "ziwei-pattern-intro": () => import('./content/board-terms/ziwei-pattern-intro'),
+  "ziwei-luck-intro": () => import('./content/board-terms/ziwei-luck-intro'),
+  "qimen-pan-intro": () => import('./content/board-terms/qimen-pan-intro'),
+  "liuren-general-intro": () => import('./content/board-terms/liuren-general-intro'),
+  "zeri-jianchu-intro": () => import('./content/board-terms/zeri-jianchu-intro'),
+  "zeri-huangdao-intro": () => import('./content/board-terms/zeri-huangdao-intro'),
+  "xingming-wuge-intro": () => import('./content/board-terms/xingming-wuge-intro'),
+  "cezi-intro": () => import('./content/board-terms/cezi-intro'),
+  "sancai-sixiang-intro": () => import('./content/board-terms/sancai-sixiang-intro'),
+  "hetu-luoshu-intro": () => import('./content/board-terms/hetu-luoshu-intro'),
+  "ershiba-su-intro": () => import('./content/board-terms/ershiba-su-intro'),
+  "qizheng-siyu-intro": () => import('./content/board-terms/qizheng-siyu-intro'),
+  "shier-changsheng-intro": () => import('./content/board-terms/shier-changsheng-intro'),
+  "mingli-classics-intro": () => import('./content/board-terms/mingli-classics-intro'),
+  "vedic-karana-intro": () => import('./content/board-terms/vedic-karana-intro'),
 };
 
 /** ② 干支真值表 → 文章编译器（1 表驱动 22 页，永不与引擎分叉） */
