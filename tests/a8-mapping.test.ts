@@ -46,19 +46,17 @@ test('57 条载体逐条可解析（mappingKey 唯一/字段合法/三语非空/
   assert.equal(byDomain.almanac, 18, 'almanac 须 18 条');
 });
 
-test('每条 termRef 已绑定 lexicon key 或显式登记为孤儿（Critical）', () => {
-  const orphanSet = new Set(A8_ORPHAN_REFS);
+test('每条 termRef 已绑定 lexicon key（T-17B 孤儿归零，A8_ORPHAN_REFS 为空）', () => {
+  // T-17B：11 个孤儿键已补词库并回填绑定，孤儿集合归零。
+  assert.equal(A8_ORPHAN_REFS.length, 0, '孤儿 termRef 须全部补词库并回填绑定');
   for (const m of A8_WAVE1_MAPPINGS as A8MappingEntry[]) {
     m.termRefs.forEach((tr, i) => {
       const bound = m.termRefBindings[i];
-      if (bound === null) {
-        assert.ok(orphanSet.has(tr), `未登记孤儿却无绑定: ${m.mappingKey} -> ${tr}`);
-      } else {
-        assert.ok(bound.includes(':'), `绑定 key 格式异常: ${bound}`);
-      }
+      assert.ok(bound !== null, `未绑定 termRef: ${m.mappingKey} -> ${tr}`);
+      assert.ok(bound.includes(':'), `绑定 key 格式异常: ${bound}`);
     });
   }
-  // 汇总：52 个唯一 termRef = 已绑定 ∪ 孤儿
+  // 汇总：52 个唯一 termRef 全部已绑定
   const allRefs = new Set<string>();
   for (const m of A8_WAVE1_MAPPINGS as A8MappingEntry[]) for (const tr of m.termRefs) allRefs.add(tr);
   assert.equal(allRefs.size, 52, '唯一 termRef 须 52');

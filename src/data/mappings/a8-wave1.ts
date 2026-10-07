@@ -44,20 +44,8 @@ export interface A8MappingEntry {
   i18nKey: string;
 }
 
-/** 孤儿 term_refs（lexicon 无对应词条，Critical——须补词库，禁硬译） */
-export const A8_ORPHAN_REFS: readonly string[] = [
-  "term:almanac:chong-sha",
-  "term:almanac:yi-ji:an-chuang",
-  "term:almanac:yi-ji:chu-xing",
-  "term:almanac:yi-ji:dong-tu",
-  "term:almanac:yi-ji:ji-si",
-  "term:almanac:yi-ji:jia-qu",
-  "term:almanac:yi-ji:kai-shi",
-  "term:almanac:yi-ji:ru-xue",
-  "term:almanac:yi-ji:zai-zhong",
-  "term:ziwei:palace:guan-lu",
-  "term:ziwei:palace:jiao-you"
-];
+/** 孤儿 term_refs（T-17B 已全部补词库并回填绑定，归零；保留空数组占位契约） */
+export const A8_ORPHAN_REFS: readonly string[] = [];
 
 /** wave1 57 条映射载体 */
 export const A8_WAVE1_MAPPINGS: A8MappingEntry[] = [
@@ -1149,9 +1137,11 @@ export const A8_WAVE1_MAPPINGS: A8MappingEntry[] = [
       "term:ziwei:palace:guan-lu"
     ],
     "termRefBindings": [
-      null
+      "ziwei:官禄宫"
     ],
-    "boundLexiconKey": [],
+    "boundLexiconKey": [
+      "ziwei:官禄宫"
+    ],
     "personalFlag": true,
     "redlineTags": [],
     "i18nKey": "mapping.ziwei.C3.career_palace"
@@ -1175,9 +1165,11 @@ export const A8_WAVE1_MAPPINGS: A8MappingEntry[] = [
       "term:ziwei:palace:jiao-you"
     ],
     "termRefBindings": [
-      null
+      "ziwei:交友宫"
     ],
-    "boundLexiconKey": [],
+    "boundLexiconKey": [
+      "ziwei:交友宫"
+    ],
     "personalFlag": true,
     "redlineTags": [],
     "i18nKey": "mapping.ziwei.C3.social_palace"
@@ -1201,9 +1193,11 @@ export const A8_WAVE1_MAPPINGS: A8MappingEntry[] = [
       "term:almanac:yi-ji:jia-qu"
     ],
     "termRefBindings": [
-      null
+      "zeiri:嫁娶"
     ],
-    "boundLexiconKey": [],
+    "boundLexiconKey": [
+      "zeiri:嫁娶"
+    ],
     "personalFlag": false,
     "redlineTags": [],
     "i18nKey": "mapping.almanac.C1.yi_jia_qu"
@@ -1227,9 +1221,11 @@ export const A8_WAVE1_MAPPINGS: A8MappingEntry[] = [
       "term:almanac:yi-ji:chu-xing"
     ],
     "termRefBindings": [
-      null
+      "zeiri:出行"
     ],
-    "boundLexiconKey": [],
+    "boundLexiconKey": [
+      "zeiri:出行"
+    ],
     "personalFlag": false,
     "redlineTags": [],
     "i18nKey": "mapping.almanac.C1.yi_chu_xing"
@@ -1253,9 +1249,11 @@ export const A8_WAVE1_MAPPINGS: A8MappingEntry[] = [
       "term:almanac:yi-ji:kai-shi"
     ],
     "termRefBindings": [
-      null
+      "zeiri:开市"
     ],
-    "boundLexiconKey": [],
+    "boundLexiconKey": [
+      "zeiri:开市"
+    ],
     "personalFlag": false,
     "redlineTags": [],
     "i18nKey": "mapping.almanac.C1.yi_kai_shi"
@@ -1279,9 +1277,11 @@ export const A8_WAVE1_MAPPINGS: A8MappingEntry[] = [
       "term:almanac:yi-ji:dong-tu"
     ],
     "termRefBindings": [
-      null
+      "zeiri:动土"
     ],
-    "boundLexiconKey": [],
+    "boundLexiconKey": [
+      "zeiri:动土"
+    ],
     "personalFlag": false,
     "redlineTags": [],
     "i18nKey": "mapping.almanac.C1.yi_dong_tu"
@@ -1305,9 +1305,11 @@ export const A8_WAVE1_MAPPINGS: A8MappingEntry[] = [
       "term:almanac:yi-ji:ji-si"
     ],
     "termRefBindings": [
-      null
+      "zeiri:祭祀"
     ],
-    "boundLexiconKey": [],
+    "boundLexiconKey": [
+      "zeiri:祭祀"
+    ],
     "personalFlag": false,
     "redlineTags": [],
     "i18nKey": "mapping.almanac.C1.yi_ji_si"
@@ -1331,9 +1333,11 @@ export const A8_WAVE1_MAPPINGS: A8MappingEntry[] = [
       "term:almanac:yi-ji:an-chuang"
     ],
     "termRefBindings": [
-      null
+      "zeiri:安床"
     ],
-    "boundLexiconKey": [],
+    "boundLexiconKey": [
+      "zeiri:安床"
+    ],
     "personalFlag": false,
     "redlineTags": [],
     "i18nKey": "mapping.almanac.C1.yi_an_chuang"
@@ -1357,9 +1361,11 @@ export const A8_WAVE1_MAPPINGS: A8MappingEntry[] = [
       "term:almanac:yi-ji:zai-zhong"
     ],
     "termRefBindings": [
-      null
+      "zeiri:栽种"
     ],
-    "boundLexiconKey": [],
+    "boundLexiconKey": [
+      "zeiri:栽种"
+    ],
     "personalFlag": false,
     "redlineTags": [],
     "i18nKey": "mapping.almanac.C1.yi_zai_zhong"
@@ -1383,9 +1389,11 @@ export const A8_WAVE1_MAPPINGS: A8MappingEntry[] = [
       "term:almanac:yi-ji:ru-xue"
     ],
     "termRefBindings": [
-      null
+      "zeiri:入学"
     ],
-    "boundLexiconKey": [],
+    "boundLexiconKey": [
+      "zeiri:入学"
+    ],
     "personalFlag": false,
     "redlineTags": [],
     "i18nKey": "mapping.almanac.C1.yi_ru_xue"
@@ -1577,9 +1585,11 @@ export const A8_WAVE1_MAPPINGS: A8MappingEntry[] = [
       "term:almanac:chong-sha"
     ],
     "termRefBindings": [
-      null
+      "zeiri:冲煞"
     ],
-    "boundLexiconKey": [],
+    "boundLexiconKey": [
+      "zeiri:冲煞"
+    ],
     "personalFlag": false,
     "redlineTags": [
       "decision-hedge"
