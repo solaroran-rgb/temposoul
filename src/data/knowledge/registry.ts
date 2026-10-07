@@ -169,6 +169,19 @@ const CONTENT_LOADERS: Record<string, () => Promise<{ default: KnowledgeArticle 
   "shier-changsheng-intro": () => import('./content/board-terms/shier-changsheng-intro'),
   "mingli-classics-intro": () => import('./content/board-terms/mingli-classics-intro'),
   "vedic-karana-intro": () => import('./content/board-terms/vedic-karana-intro'),
+  // T-18B 量产批 · WP-18 十段词条（12 篇，2026-10-08）
+  "tarot-intro": () => import('./content/board-terms/tarot-intro'),
+  "bagua-intro": () => import('./content/board-terms/bagua-intro'),
+  "mianxiang-intro": () => import('./content/board-terms/mianxiang-intro'),
+  "shouxiang-intro": () => import('./content/board-terms/shouxiang-intro'),
+  "mengzhan-intro": () => import('./content/board-terms/mengzhan-intro'),
+  "luopan-intro": () => import('./content/board-terms/luopan-intro'),
+  "ershisi-shan-intro": () => import('./content/board-terms/ershisi-shan-intro'),
+  "taisui-intro": () => import('./content/board-terms/taisui-intro'),
+  "bazi-geju-intro": () => import('./content/board-terms/bazi-geju-intro'),
+  "ziwei-fuyao-intro": () => import('./content/board-terms/ziwei-fuyao-intro'),
+  "western-zodiac-intro": () => import('./content/board-terms/western-zodiac-intro'),
+  "vedic-uccha-intro": () => import('./content/board-terms/vedic-uccha-intro'),
 };
 
 /** ② 干支真值表 → 文章编译器（1 表驱动 22 页，永不与引擎分叉） */
