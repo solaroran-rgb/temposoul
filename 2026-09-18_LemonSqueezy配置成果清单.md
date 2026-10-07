@@ -28,7 +28,7 @@
 | 项 | 值 |
 |---|---|
 | Callback URL | https://www.temposoul.com/api/v1/ls-webhook |
-| Signing Secret | ts_webhook_secret_2026_temposoul |
+| Signing Secret | <REDACTED: 见密钥管理器> |
 | Webhook ID | 135151 |
 | 订阅事件（12） | order_created / order_refunded / subscription_created / subscription_updated / subscription_cancelled / subscription_resumed / subscription_expired / subscription_payment_failed / subscription_payment_success / subscription_payment_recovered / subscription_payment_refunded / subscription_plan_changed |
 | 模式 | ⚠️ Test mode（需商店激活后配置 Live mode） |
@@ -57,7 +57,7 @@ PAYMENT_PROVIDER=lemonsqueezy
 LEMONSQUEEZY_API_KEY=<Live API Key>
 LEMONSQUEEZY_STORE_ID=473001
 LEMONSQUEEZY_VARIANTS={"event_9_9":"2141798","sub_monthly_19_9":"2141845","report_39_9":"2141856","premium_88":"2141858","sub_yearly_168":"2141859"}
-LEMONSQUEEZY_WEBHOOK_SECRET=ts_webhook_secret_2026_temposoul
+LEMONSQUEEZY_WEBHOOK_SECRET=<REDACTED: 见密钥管理器>
 ```
 
 > 注：Test mode 的 webhook secret 与 Live mode 不同，Live 激活后需重新生成并更新。
