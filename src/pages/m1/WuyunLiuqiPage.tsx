@@ -11,9 +11,11 @@
  *   - 岁运/司天/在泉/关系结论卡
  * 合规：涉健康 → 常驻「非医疗建议」角标；引擎空/异常时显示「排盘数据待补」，禁止编造盘面。
  */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { calculateWuyunLiuqi } from '@temposoul/core/wuyun-liuqi';
 import type { WuyunLiuqiResult, WuyunElement } from '@temposoul/core/wuyun-liuqi';
+import { ParamSnapshot, readParam } from '@/lib/m1-snapshot';
 
 /** 五行色（全站统一，引自 A6 导读 §1.1） */
 const ELEMENT_COLOR: Record<WuyunElement, string> = {
@@ -27,13 +29,17 @@ const ELEMENT_COLOR: Record<WuyunElement, string> = {
 type PageState = 'idle' | 'ok' | 'empty' | 'error';
 
 export function WuyunLiuqiPage() {
-  const [yearInput, setYearInput] = useState<string>('2026');
+  const [searchParams, setSearchParams] = useSearchParams();
+  // 修复批次2 P1-①：URL 读初始年，合法链接直达即复现
+  const initYear = readParam(searchParams, 'year', '2026');
+  const [yearInput, setYearInput] = useState<string>(initYear);
   const [state, setState] = useState<PageState>('idle');
   const [error, setError] = useState<string>('');
   const [result, setResult] = useState<WuyunLiuqiResult | null>(null);
 
-  const run = () => {
-    const year = Number.parseInt(yearInput, 10);
+  const run = (overrideYear?: string) => {
+    const y = overrideYear ?? yearInput;
+    const year = Number.parseInt(y, 10);
     if (!Number.isInteger(year) || year < 1 || year > 9999) {
       setState('error');
       setError('请输入 1-9999 之间的公历年。');
@@ -50,12 +56,19 @@ export function WuyunLiuqiPage() {
       setResult(r);
       setState('ok');
       setError('');
+      setSearchParams({ year: String(year) }, { replace: true });
     } catch (e) {
       setState('error');
       setError(e instanceof Error ? e.message : '排盘失败。');
       setResult(null);
     }
   };
+
+  // 带年直达（分享链接）时自动排盘
+  useEffect(() => {
+    if (searchParams.get('year')) run(initYear);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="wylq-page">
@@ -116,7 +129,7 @@ export function WuyunLiuqiPage() {
             if (e.key === 'Enter') run();
           }}
         />
-        <button type="button" className="wylq-btn" onClick={run}>
+        <button type="button" className="wylq-btn" onClick={() => run()}>
           排盘
         </button>
       </div>
@@ -128,7 +141,13 @@ export function WuyunLiuqiPage() {
       )}
       {state === 'empty' && <div className="wylq-empty">排盘数据待补。</div>}
 
-      {state === 'ok' && result && <WuyunResult result={result} />}
+      {state === 'ok' && result && (
+        <>
+          {/* 参数快照 + 引擎版本角标（修复批次2 P1-①：可复现 URL / 引擎 semver） */}
+          <ParamSnapshot params={{ year: result.input.year ?? yearInput }} engineName="五运六气 · 岁运六气" />
+          <WuyunResult result={result} />
+        </>
+      )}
 
       <p className="wylq-foot">
         五运六气为传统历法气候模型，仅供文化参考与娱乐，不构成任何医疗、健康或决策建议。

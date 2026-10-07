@@ -73,7 +73,7 @@ export const zhCN = {
     perks: ['无限次 AI 深度解读', '专业级合盘与择日报告', '优先体验新体系功能'],
     cta: '立即升级',
     checkoutCta: '立即支付',
-    quotaHint: '今日剩余免费次数',
+    quotaHint: '免费层为规则骨架解读（0 次 AI 深度解读）',
     loginHint: '登录后可管理订阅',
   },
   analytics: {
@@ -259,7 +259,7 @@ export const zhCN = {
     disclaimer: '⚠️ 价格为测试值，以最终结算页为准。所有价格均含税 (¥)。',
     free: {
       name: '基础版',
-      feature_1: '每日 3 次免费 AI 深度解读额度',
+      feature_1: '每日 3 次免费排盘 + 规则骨架解读（AI 深度解读为订阅权益）',
       feature_2: '基础八字 / 紫微排盘',
       feature_3: '1180+ 命理词库无限制访问',
       btn: '当前方案',

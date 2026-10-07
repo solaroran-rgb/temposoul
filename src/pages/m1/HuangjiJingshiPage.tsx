@@ -10,9 +10,11 @@
  *   - 本会值卦（十二辟卦/消息卦）展示
  * 能力边界（如实标注）：值年卦给到「本会辟卦」层；逐年值卦细法传世多口径，待专家终审，不臆推。
  */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { calculateHuangjiJingshi } from '@temposoul/core/huangji-jingshi';
 import type { HuangjiJingshiResult } from '@temposoul/core/huangji-jingshi';
+import { ParamSnapshot, readParam } from '@/lib/m1-snapshot';
 
 type PageState = 'idle' | 'ok' | 'empty' | 'error';
 
@@ -20,15 +22,21 @@ const pct = (part: number, whole: number) =>
   Math.min(100, Math.max(0, (part / whole) * 100));
 
 export function HuangjiJingshiPage() {
-  const [epochInput, setEpochInput] = useState<string>('1984');
-  const [yearInput, setYearInput] = useState<string>('2026');
+  const [searchParams, setSearchParams] = useSearchParams();
+  // 修复批次2 P1-①：URL 读初始坐标，合法链接直达即复现
+  const initEpoch = readParam(searchParams, 'epoch', '1984');
+  const initYear = readParam(searchParams, 'year', '2026');
+  const [epochInput, setEpochInput] = useState<string>(initEpoch);
+  const [yearInput, setYearInput] = useState<string>(initYear);
   const [state, setState] = useState<PageState>('idle');
   const [error, setError] = useState<string>('');
   const [result, setResult] = useState<HuangjiJingshiResult | null>(null);
 
-  const run = () => {
-    const epochYear = Number.parseInt(epochInput, 10);
-    const year = Number.parseInt(yearInput, 10);
+  const run = (overrideEpoch?: string, overrideYear?: string) => {
+    const e = overrideEpoch ?? epochInput;
+    const y = overrideYear ?? yearInput;
+    const epochYear = Number.parseInt(e, 10);
+    const year = Number.parseInt(y, 10);
     if (!Number.isSafeInteger(epochYear) || !Number.isSafeInteger(year)) {
       setState('error');
       setError('纪元与目标年都必须是整数年坐标。');
@@ -51,12 +59,19 @@ export function HuangjiJingshiPage() {
       setResult(r);
       setState('ok');
       setError('');
-    } catch (e) {
+      setSearchParams({ epoch: String(epochYear), year: String(year) }, { replace: true });
+    } catch (e2) {
       setState('error');
-      setError(e instanceof Error ? e.message : '排盘失败。');
+      setError(e2 instanceof Error ? e2.message : '排盘失败。');
       setResult(null);
     }
   };
+
+  // 带坐标直达（分享链接）时自动定位
+  useEffect(() => {
+    if (searchParams.get('epoch') || searchParams.get('year')) run(initEpoch, initYear);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="hjs-page">
@@ -122,7 +137,7 @@ export function HuangjiJingshiPage() {
             if (e.key === 'Enter') run();
           }}
         />
-        <button type="button" className="hjs-btn" onClick={run}>
+        <button type="button" className="hjs-btn" onClick={() => run()}>
           定位
         </button>
       </div>
@@ -134,7 +149,16 @@ export function HuangjiJingshiPage() {
       )}
       {state === 'empty' && <div className="hjs-empty">排盘数据待补。</div>}
 
-      {state === 'ok' && result && <HuangjiResult result={result} />}
+      {state === 'ok' && result && (
+        <>
+          {/* 参数快照 + 引擎版本角标（修复批次2 P1-①：可复现 URL / 引擎 semver） */}
+          <ParamSnapshot
+            params={{ epoch: result.input.epochYear, year: result.input.year }}
+            engineName="皇极经世 · 元会运世"
+          />
+          <HuangjiResult result={result} />
+        </>
+      )}
 
       <p className="hjs-foot">
         皇极经世为传统时间易学模型，仅供文化研究与娱乐参考，不构成任何决策建议。

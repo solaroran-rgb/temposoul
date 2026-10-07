@@ -14,11 +14,12 @@
  * 合规：双盘资料仅供文化/娱乐参考；不编造合参结论——conflicts/synergies 字段为 P2，
  *   引擎未输出则不展示；空/异常时显示「排盘数据待补」。
  */
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { PageTopbar } from '@/components/PageTopbar';
 import { PrivacyHint } from '@/components/PrivacyHint';
 import { calculateBaziZiweiCombinedReading } from '@temposoul/core/synthesis';
+import { ParamSnapshot, readParam, numParam } from '@/lib/m1-snapshot';
 
 type CombinedReading = Awaited<ReturnType<typeof calculateBaziZiweiCombinedReading>>;
 
@@ -64,15 +65,26 @@ function todayStr() {
 
 export function SynthesisPage() {
   const nav = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+  // 修复批次2 P1-①：URL 读初始值（双盘入参较长，键名用简短缩写；称呼仅展示不入链）
+  const initGender = readParam(searchParams, 'g', 'female', (v) =>
+    v === 'male' || v === 'female' ? v : null,
+  );
+  const initYear = readParam(searchParams, 'by', 1990, numParam);
+  const initMonth = readParam(searchParams, 'bm', 1, numParam);
+  const initDay = readParam(searchParams, 'bd', 1, numParam);
+  const initTime = readParam(searchParams, 'bt', 8, numParam);
+  const initHD = readParam(searchParams, 'wd', todayStr());
+  const initHH = readParam(searchParams, 'wh', 8, numParam);
 
   const [name, setName] = useState('');
-  const [gender, setGender] = useState<'male' | 'female'>('female');
-  const [year, setYear] = useState(1990);
-  const [month, setMonth] = useState(1);
-  const [day, setDay] = useState(1);
-  const [timeIndex, setTimeIndex] = useState(8);
-  const [horoscopeDate, setHoroscopeDate] = useState(todayStr());
-  const [horoscopeHour, setHoroscopeHour] = useState(8);
+  const [gender, setGender] = useState<'male' | 'female'>(initGender);
+  const [year, setYear] = useState(initYear);
+  const [month, setMonth] = useState(initMonth);
+  const [day, setDay] = useState(initDay);
+  const [timeIndex, setTimeIndex] = useState(initTime);
+  const [horoscopeDate, setHoroscopeDate] = useState(initHD);
+  const [horoscopeHour, setHoroscopeHour] = useState(initHH);
 
   const [state, setState] = useState<PageState>('idle');
   const [result, setResult] = useState<CombinedReading | null>(null);
@@ -88,6 +100,11 @@ export function SynthesisPage() {
   const basicInfo = result?.bundle.ziwei?.payloadByScope.origin?.basic_info;
 
   async function handleSubmit() {
+    // 修复批次2 P1-①：提交写回 URL（双盘入参缩写键），分享链接可复现
+    setSearchParams(
+      { g: gender, by: String(year), bm: String(month), bd: String(day), bt: String(timeIndex), wd: horoscopeDate, wh: String(horoscopeHour) },
+      { replace: true },
+    );
     setState('loading');
     setErrorMsg('');
     try {
@@ -120,6 +137,12 @@ export function SynthesisPage() {
       setState('error');
     }
   }
+
+  // 带出生年直达（分享链接）时自动复现双盘
+  useEffect(() => {
+    if (searchParams.get('by')) handleSubmit();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const evidenceTotal = result
     ? result.synthesis.evidenceCount.bazi + result.synthesis.evidenceCount.ziwei
@@ -235,7 +258,7 @@ export function SynthesisPage() {
             ))}
           </select>
         </label>
-        <button type="button" className="syn-submit" onClick={handleSubmit}>
+        <button type="button" className="syn-submit" onClick={() => handleSubmit()}>
           {state === 'loading' ? '双盘排盘中…' : '并排八字与紫微双盘'}
         </button>
       </div>
@@ -248,6 +271,16 @@ export function SynthesisPage() {
 
       {state === 'ok' && result && (
         <>
+          {/* 参数快照 + 引擎版本角标（修复批次2 P1-①：双盘入参缩写 / 引擎 semver） */}
+          <ParamSnapshot
+            params={{
+              g: gender === 'male' ? '男' : '女',
+              bazi: `${year}-${month}-${day} 时${timeIndex}`,
+              ziwei: `${horoscopeDate} 时${horoscopeHour}`,
+            }}
+            engineName="八字紫微合参 · 双引擎"
+          />
+
           <p style={{ margin: '16px 0 0' }}>
             <span className="syn-status">{result.synthesis.status}</span>
             <span style={{ fontSize: 13, opacity: .65, marginLeft: 10 }}>

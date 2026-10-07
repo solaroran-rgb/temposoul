@@ -58,16 +58,21 @@ interface M1Board {
   description: string;
 }
 
-/** 13 个零路由板块 + 合参 /synthesis（X1-D-03） */
+/**
+ * 13 个零路由板块 + 合参 /synthesis（X1-D-03）
+ * 【修复批次2 任务8c】本数组 13 个板块均已在 REAL_BOARD_PAGES 接线真实排盘页（@temposoul/core 引擎），
+ *   下方 description 中「落地占位/待内容模板填充」为历史残留文案，仅在未命中 REAL_BOARD_PAGES 的兜底分支才展示，
+ *   路由逻辑不变；保留 description 字段以兼容 BoardPlaceholderPage 兜底签名。
+ */
 const BOARDS: M1Board[] = [
-  // —— 术数历法三（太乙 / 皇极经世 / 五运六气）——
+  // —— 术数历法三（太乙 / 皇极经世 / 五运六气）——（已接线真实页）
   {
     path: '/metaphysics/taiyi',
     slug: 'taiyi',
     title: '太乙神数',
     category: '术数 · 三式',
     description:
-      '太乙神数为古代三式之首，以太乙积年与九宫十六神推国运与岁时大势。本页为板块落地占位，排盘结果待内容模板填充。',
+      '太乙神数为古代三式之首，以太乙积年与九宫十六神推国运与岁时大势。（已接线真实排盘页，description 仅作兜底展示）',
   },
   {
     path: '/metaphysics/huangji-jingshi',
@@ -75,7 +80,7 @@ const BOARDS: M1Board[] = [
     title: '皇极经世',
     category: '术数 · 历法易数',
     description:
-      '皇极经世以元会运世推步天地气化与治乱节律，属宏观时间易学。本页为板块落地占位，推演结果待内容模板填充。',
+      '皇极经世以元会运世推步天地气化与治乱节律，属宏观时间易学。（已接线真实排盘页，description 仅作兜底展示）',
   },
   {
     path: '/metaphysics/wuyun-liuqi',
@@ -83,16 +88,16 @@ const BOARDS: M1Board[] = [
     title: '五运六气',
     category: '术数 · 历法易数',
     description:
-      '五运六气依天干地支推每年岁运与客气主气，附会物候与健康参考。本页为板块落地占位，推演结果待内容模板填充。',
+      '五运六气依天干地支推每年岁运与客气主气，附会物候与健康参考。（已接线真实排盘页，description 仅作兜底展示）',
   },
-  // —— 三式类（奇门遁甲 / 大六壬 / 金口诀）——
+  // —— 三式类（奇门遁甲 / 大六壬 / 金口诀）——（已接线真实页）
   {
     path: '/divination/qimen',
     slug: 'qimen',
     title: '奇门遁甲',
     category: '占卜 · 三式',
     description:
-      '奇门遁甲以九宫八门九星八神将时空格局用于方位与择时参考。本页为板块落地占位，排盘结果待内容模板填充。',
+      '奇门遁甲以九宫八门九星八神将时空格局用于方位与择时参考。（已接线真实排盘页，description 仅作兜底展示）',
   },
   {
     path: '/divination/liuren',
@@ -100,7 +105,7 @@ const BOARDS: M1Board[] = [
     title: '大六壬',
     category: '占卜 · 三式',
     description:
-      '大六壬以月将加时起四课三传，占事物缘起与发展。本页为板块落地占位，排盘结果待内容模板填充。',
+      '大六壬以月将加时起四课三传，占事物缘起与发展。（已接线真实排盘页，description 仅作兜底展示）',
   },
   {
     path: '/divination/jinkoujue',
@@ -108,16 +113,16 @@ const BOARDS: M1Board[] = [
     title: '金口诀',
     category: '占卜 · 三式',
     description:
-      '金口诀（大六壬金口诀）以地分将神人元简化课式，直断吉凶方位。本页为板块落地占位，排盘结果待内容模板填充。',
+      '金口诀（大六壬金口诀）以地分将神人元简化课式，直断吉凶方位。（已接线真实排盘页，description 仅作兜底展示）',
   },
-  // —— 占卜轻量（六爻 / 梅花易数 / 小六壬 / 雷诺曼 / 三山国王灵签）——
+  // —— 占卜轻量（六爻 / 梅花易数 / 小六壬 / 雷诺曼 / 三山国王灵签）——（已接线真实页）
   {
     path: '/divination/liuyao',
     slug: 'liuyao',
     title: '六爻',
     category: '占卜 · 易占',
     description:
-      '六爻以铜钱摇卦装六亲六神断事，为传统易占主流之一。本页为板块落地占位，起卦断卦交互待内容模板填充。',
+      '六爻以铜钱摇卦装六亲六神断事，为传统易占主流之一。（已接线真实排盘页，description 仅作兜底展示）',
   },
   {
     path: '/divination/meihua',
@@ -125,7 +130,7 @@ const BOARDS: M1Board[] = [
     title: '梅花易数',
     category: '占卜 · 易占',
     description:
-      '梅花易数以心动起卦、体用生克断事，重即时外应。本页为板块落地占位，起卦解卦交互待内容模板填充。',
+      '梅花易数以心动起卦、体用生克断事，重即时外应。（已接线真实排盘页，description 仅作兜底展示）',
   },
   {
     path: '/divination/xiaoliuren',
@@ -133,7 +138,7 @@ const BOARDS: M1Board[] = [
     title: '小六壬',
     category: '占卜 · 速占',
     description:
-      '小六壬以月日时落六宫（大安留连速喜赤口小空亡）做速断。本页为板块落地占位，速占交互待内容模板填充。',
+      '小六壬以月日时落六宫（大安留连速喜赤口小吉空亡）做速断。（已接线真实排盘页，description 仅作兜底展示）',
   },
   {
     path: '/divination/lenormand',
@@ -141,7 +146,7 @@ const BOARDS: M1Board[] = [
     title: '雷诺曼',
     category: '占卜 · 西洋牌阵',
     description:
-      '雷诺曼牌以 36 张象征牌读具体人事与走向，牌阵简明。本页为板块落地占位，抽牌解读交互待内容模板填充。',
+      '雷诺曼牌以 36 张象征牌读具体人事与走向，牌阵简明。（已接线真实排盘页，description 仅作兜底展示）',
   },
   {
     path: '/divination/ssgw',
@@ -149,16 +154,16 @@ const BOARDS: M1Board[] = [
     title: '三山国王灵签',
     category: '占卜 · 灵签',
     description:
-      '三山国王灵签为地方信仰签诗，抽签得号附签诗解。本页为板块落地占位，抽签解签交互待内容模板填充。',
+      '三山国王灵签为地方信仰签诗，抽签得号附签诗解。（已接线真实排盘页，description 仅作兜底展示）',
   },
-  // —— 风水二（玄空飞星 / 住宅风水）——
+  // —— 风水二（玄空飞星 / 住宅风水）——（已接线真实页）
   {
     path: '/fengshui/xuankong',
     slug: 'xuankong',
     title: '玄空飞星',
     category: '风水 · 理气',
     description:
-      '玄空飞星以三元九运与山向飞星论断宅运吉凶。本页为板块落地占位，飞星排盘待内容模板填充。',
+      '玄空飞星以三元九运与山向飞星论断宅运吉凶。（已接线真实排盘页，description 仅作兜底展示）',
   },
   {
     path: '/fengshui/residential',
@@ -166,7 +171,7 @@ const BOARDS: M1Board[] = [
     title: '住宅风水',
     category: '风水 · 形势',
     description:
-      '住宅风水依坐向、户型与外部形势做居住环境参考。本页为板块落地占位，户型分析交互待内容模板填充。',
+      '住宅风水依坐向、户型与外部形势做居住环境参考。（已接线真实排盘页，description 仅作兜底展示）',
   },
 ];
 

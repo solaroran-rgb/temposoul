@@ -23,7 +23,7 @@ export const MembershipPage: React.FC = () => {
             今日剩余:<strong>{status.aiQuota.limit - status.aiQuota.used}</strong>/
             {status.aiQuota.limit}次
           </p>
-          <p className="membership-page__quota-hint">每日3次免费AI深度解读额度，次日00:00重置。</p>
+          <p className="membership-page__quota-hint">免费层为规则骨架解读（0 次 AI 深度解读）；AI 深度解读为订阅/单次权益。</p>
         </div>
         {!canUse && status.tier === 'free' && (
           <div className="membership-page__actions">

@@ -10,9 +10,11 @@
  *   - 引擎 scope 透明标注（已实现/未实现）
  * 能力边界（X1-D-27，如实标注）：当前仅下卦三盘；替卦（兼向替星）、玄空大卦、形峦断法【待排期/专家】。
  */
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { generateXuanKong } from '@temposoul/core/xuankong';
 import type { XuanKongResult } from '@temposoul/core/xuankong';
+import { ParamSnapshot, readParam } from '@/lib/m1-snapshot';
 
 /** 二十四山（用于坐山下拉；引擎侧做成员校验） */
 const MOUNTAINS = [
@@ -30,14 +32,22 @@ const GRID: number[][] = [
 type PageState = 'idle' | 'ok' | 'empty' | 'error';
 
 export function XuankongPage() {
-  const [yearInput, setYearInput] = useState<string>('2024');
-  const [sit, setSit] = useState<string>('子');
+  const [searchParams, setSearchParams] = useSearchParams();
+  // 修复批次2 P1-①：URL 读初始值（坐山按二十四山校验），合法链接直达即复现
+  const initYear = readParam(searchParams, 'year', '2024');
+  const initSit = readParam(searchParams, 'sit', '子', (v) =>
+    (MOUNTAINS as readonly string[]).includes(v) ? v : null,
+  );
+  const [yearInput, setYearInput] = useState<string>(initYear);
+  const [sit, setSit] = useState<string>(initSit);
   const [state, setState] = useState<PageState>('idle');
   const [error, setError] = useState<string>('');
   const [result, setResult] = useState<XuanKongResult | null>(null);
 
-  const run = () => {
-    const year = Number.parseInt(yearInput, 10);
+  const run = (overrideYear?: string, overrideSit?: string) => {
+    const y = overrideYear ?? yearInput;
+    const s = overrideSit ?? sit;
+    const year = Number.parseInt(y, 10);
     if (!Number.isSafeInteger(year) || year < 1 || year > 9999) {
       setState('error');
       setError('请输入 1-9999 的建造/起运年。');
@@ -45,7 +55,7 @@ export function XuankongPage() {
       return;
     }
     try {
-      const r = generateXuanKong({ year, sitMountain: sit });
+      const r = generateXuanKong({ year, sitMountain: s });
       if (!r || !r.palaces?.length) {
         setState('empty');
         setResult(null);
@@ -54,12 +64,19 @@ export function XuankongPage() {
       setResult(r);
       setState('ok');
       setError('');
+      setSearchParams({ year: String(year), sit: s }, { replace: true });
     } catch (e) {
       setState('error');
       setError(e instanceof Error ? e.message : '排盘失败。');
       setResult(null);
     }
   };
+
+  // 带参数直达（分享链接）时自动排盘
+  useEffect(() => {
+    if (searchParams.get('year') || searchParams.get('sit')) run(initYear, initSit);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="xkx-page">
@@ -138,7 +155,7 @@ export function XuankongPage() {
             </option>
           ))}
         </select>
-        <button type="button" className="xkx-btn" onClick={run}>
+        <button type="button" className="xkx-btn" onClick={() => run()}>
           排盘
         </button>
       </div>
@@ -150,7 +167,17 @@ export function XuankongPage() {
       )}
       {state === 'empty' && <div className="xkx-empty">排盘数据待补。</div>}
 
-      {state === 'ok' && result && <XuankongResultView result={result} />}
+      {state === 'ok' && result && (
+        <>
+          {/* 参数快照 + 引擎版本角标（修复批次2 P1-①：引擎输出 engine.name/version 优先，不伪造） */}
+          <ParamSnapshot
+            params={{ year: Number.parseInt(yearInput, 10), sit: result.sitMountain }}
+            engineName={result.engine.name}
+            engineVersion={result.engine.version}
+          />
+          <XuankongResultView result={result} />
+        </>
+      )}
 
       <p className="xkx-foot">
         玄空飞星为传统风水理气模型，仅供文化研究与娱乐参考，不构成购房、装修或任何工程/安全决策建议。

@@ -190,7 +190,7 @@ export const en: Dict = {
     placeholder: 'Search lexicon, features...', aria_label: 'Global Search', title: 'Results: "{query}"', tab_lexicon: 'Lexicon', tab_feature: 'Features', tab_article: 'Articles (P1)', zero_title_with_query: 'No results for "{query}"', zero_title_empty: 'Type to search', disclaimer: 'For cultural exploration and entertainment reference only.', rec_title: 'Popular Features',
   },
   pricing: {
-    title: 'Choose a plan', disclaimer: 'Test prices, subject to final checkout.', free: { name: 'Free', feature_1: '3 free AI reads / day', feature_2: 'Basic charts', feature_3: '1180+ lexicon', btn: 'Current Plan' }, single: { name: 'Single Report', unit: '/report', btn: 'Buy Now' }, pro: { badge: 'Recommended', name: 'Pro Subscription', unit: '/month', btn: 'Subscribe', auto_renew: 'Auto-renews; cancel anytime.' },
+    title: 'Choose a plan', disclaimer: 'Test prices, subject to final checkout.', free: { name: 'Free', feature_1: '3 free chart casts + rule-skeleton reading (AI deep reading is a subscription benefit)', feature_2: 'Basic charts', feature_3: '1180+ lexicon', btn: 'Current Plan' }, single: { name: 'Single Report', unit: '/report', btn: 'Buy Now' }, pro: { badge: 'Recommended', name: 'Pro Subscription', unit: '/month', btn: 'Subscribe', auto_renew: 'Auto-renews; cancel anytime.' },
   },  theme: {
     label: 'Theme',
   },

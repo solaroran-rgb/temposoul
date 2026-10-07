@@ -11,9 +11,11 @@
  *   - 综合一致/互补列表 + 行动建议清单
  * 合规：常驻「居住环境参考，不构成任何工程/安全建议」角标；不涉购房/投资断言。
  */
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { generateResidentialFengshui } from '@temposoul/core/residential-fengshui';
 import type { ResidentialFengshuiResult } from '@temposoul/core/residential-fengshui';
+import { ParamSnapshot, readParam } from '@/lib/m1-snapshot';
 
 const MOUNTAINS = [
   '壬', '子', '癸', '丑', '艮', '寅', '甲', '卯', '乙', '辰', '巽', '巳',
@@ -36,24 +38,38 @@ const COMPASS_GRID: Array<{ dir: string; row: number; col: number }> = [
 type PageState = 'idle' | 'ok' | 'empty' | 'error';
 
 export function ResidentialPage() {
-  const [yearInput, setYearInput] = useState<string>('2010');
-  const [birthYearInput, setBirthYearInput] = useState<string>('1990');
-  const [gender, setGender] = useState<'male' | 'female'>('male');
-  const [sit, setSit] = useState<string>('子');
+  const [searchParams, setSearchParams] = useSearchParams();
+  // 修复批次2 P1-①：URL 读初始值（坐山按二十四山、性别校验），合法链接直达即复现
+  const initYear = readParam(searchParams, 'year', '2010');
+  const initBy = readParam(searchParams, 'by', '1990');
+  const initGender = readParam(searchParams, 'g', 'male', (v) =>
+    v === 'male' || v === 'female' ? v : null,
+  );
+  const initSit = readParam(searchParams, 'sit', '子', (v) =>
+    (MOUNTAINS as readonly string[]).includes(v) ? v : null,
+  );
+  const [yearInput, setYearInput] = useState<string>(initYear);
+  const [birthYearInput, setBirthYearInput] = useState<string>(initBy);
+  const [gender, setGender] = useState<'male' | 'female'>(initGender);
+  const [sit, setSit] = useState<string>(initSit);
   const [state, setState] = useState<PageState>('idle');
   const [error, setError] = useState<string>('');
   const [result, setResult] = useState<ResidentialFengshuiResult | null>(null);
 
-  const run = () => {
-    const year = Number.parseInt(yearInput, 10);
-    const birthYear = Number.parseInt(birthYearInput, 10);
+  const run = (override?: { year?: string; by?: string; g?: 'male' | 'female'; sit?: string }) => {
+    const y = override?.year ?? yearInput;
+    const by = override?.by ?? birthYearInput;
+    const g = override?.g ?? gender;
+    const s = override?.sit ?? sit;
+    const year = Number.parseInt(y, 10);
+    const birthYear = Number.parseInt(by, 10);
     const hasYear = Number.isSafeInteger(year) && year >= 1 && year <= 9999;
     const hasBirth = Number.isSafeInteger(birthYear) && birthYear >= 1 && birthYear <= 9999;
     try {
       const r = generateResidentialFengshui({
         ...(hasYear ? { year } : {}),
-        ...(hasBirth ? { birthYear, gender } : {}),
-        sitMountain: sit,
+        ...(hasBirth ? { birthYear, gender: g } : {}),
+        sitMountain: s,
       });
       if (!r || (!r.bazhai && !r.xuankong)) {
         setState('empty');
@@ -63,12 +79,22 @@ export function ResidentialPage() {
       setResult(r);
       setState('ok');
       setError('');
+      // 提交写回 URL
+      setSearchParams({ year: y, by, g, sit: s }, { replace: true });
     } catch (e) {
       setState('error');
       setError(e instanceof Error ? e.message : '排盘失败。');
       setResult(null);
     }
   };
+
+  // 带参数直达（分享链接）时自动排盘
+  useEffect(() => {
+    if (searchParams.get('year') || searchParams.get('by') || searchParams.get('sit')) {
+      run({ year: initYear, by: initBy, g: initGender, sit: initSit });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="res-page">
@@ -143,7 +169,7 @@ export function ResidentialPage() {
             </option>
           ))}
         </select>
-        <button type="button" className="res-btn" onClick={run}>
+        <button type="button" className="res-btn" onClick={() => run()}>
           排盘
         </button>
       </div>
@@ -155,7 +181,21 @@ export function ResidentialPage() {
       )}
       {state === 'empty' && <div className="res-empty">排盘数据待补。</div>}
 
-      {state === 'ok' && result && <ResidentialResult result={result} />}
+      {state === 'ok' && result && (
+        <>
+          {/* 参数快照 + 引擎版本角标（修复批次2 P1-①：可复现 URL / 引擎 semver） */}
+          <ParamSnapshot
+            params={{
+              year: Number.parseInt(yearInput, 10),
+              by: Number.parseInt(birthYearInput, 10),
+              g: gender === 'male' ? '男' : '女',
+              sit,
+            }}
+            engineName="住宅风水 · 八宅+玄空"
+          />
+          <ResidentialResult result={result} />
+        </>
+      )}
 
       <p className="res-foot">
         住宅风水为传统居住环境参考，不构成购房、装修、结构改动或任何工程/安全决策建议。

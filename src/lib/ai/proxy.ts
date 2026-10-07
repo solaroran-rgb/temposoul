@@ -11,6 +11,10 @@ import {
   readLimitedRequestText,
   RequestBodyTooLargeError,
 } from '../http/request-body';
+import { readIdentity } from '../server/auth';
+import type { EntitlementKv } from '../entitlement/store';
+import type { FreeSkeleton } from '../entitlement/freeSkeleton';
+import { decideDeepInterpretation } from '../entitlement/wiring';
 import {
   buildTranslateSystemPrompt,
   createTranslatedTagFilter,
@@ -46,6 +50,10 @@ export type AiEnv = {
   AI_DEFAULT_ENABLED?: string;
   /** 内容语言启用集（CSV）；缺省全部启用。未启用语言显式 400，不静默降级（口径 G5） */
   I18N_ENABLED_LOCALES?: string;
+  /** 权益 KV 绑定（CF Pages AUTH_KV）；存在时对 report.deep 深度解读启用配额闸口（P1-②）。 */
+  AUTH_KV?: EntitlementKv;
+  /** 签发 JWT 的密钥；用于从 Authorization 解析用户 sub。 */
+  AUTH_SECRET?: string;
 };
 
 type ChatMessage = { role: 'user' | 'assistant'; content: string };
@@ -214,6 +222,18 @@ export async function handleAiAnalyze(request: Request, env?: AiEnv): Promise<Re
   const systemPrompt = translationMode
     ? buildTranslateSystemPrompt(translateLayer, locale, termInjection)
     : `${baseSystemPrompt}${languageDirective}`;
+
+  // P1-②：report.deep 深度解读闸口。在调用上游 LLM 前「权益校验 + 配额扣减」。
+  // 受限翻译档（mode=translate）属另一权益档，不在本闸口范围；KV 未绑定时跳过（向后兼容）。
+  // 无权益/用尽/匿名 → 直接返回规则骨架 SSE（0 次 LLM），不得回退上游。
+  if (!translationMode && env?.AUTH_KV) {
+    const userId = await resolveUserIdFromRequest(request, env.AUTH_SECRET);
+    const decision = await decideDeepInterpretation({ kv: env.AUTH_KV, userId });
+    // -b 构建模式下 allowed 字面量判别收窄偶发失效，用 in 运算符显式收窄拒绝变体
+    if ('skeleton' in decision) {
+      return buildSkeletonSseResponse(decision.skeleton);
+    }
+  }
 
   const endpoint = `${provider.baseUrl}/chat/completions`;
   const upstreamResult = await fetchUpstreamWithRetry(endpoint, {
@@ -420,6 +440,34 @@ export async function handleAiModels(request: Request, env?: AiEnv): Promise<Res
       'Access-Control-Allow-Origin': '*',
       'Content-Type': 'application/json; charset=utf-8',
     },
+  });
+}
+
+/** 从 Authorization Bearer 解析用户 sub；未登录/解析失败一律返回 null（走免费骨架）。 */
+async function resolveUserIdFromRequest(request: Request, secret?: string): Promise<string | null> {
+  if (!secret) return null;
+  const authHeader = request.headers.get('Authorization') || '';
+  if (!authHeader.startsWith('Bearer ')) return null;
+  try {
+    const identity = await readIdentity(authHeader.slice(7), secret);
+    return identity.sub || null;
+  } catch {
+    return null;
+  }
+}
+
+/** 把免费规则骨架以 SSE 帧下发（复用前端既有流解析，0 次 LLM，不回退上游）。 */
+function buildSkeletonSseResponse(skeleton: FreeSkeleton): Response {
+  const encoder = new TextEncoder();
+  const sectionsText = skeleton.sections.map((s) => `【${s.heading}】\n${s.body}`).join('\n\n');
+  const payload = JSON.stringify({
+    content: `${sectionsText}\n\n${skeleton.upsell}`,
+    free_skeleton: true,
+    unlockKey: skeleton.unlockKey,
+  });
+  return new Response(encoder.encode(`data: ${payload}\n\ndata: [DONE]\n\n`), {
+    status: 200,
+    headers: SSE_HEADERS,
   });
 }
 

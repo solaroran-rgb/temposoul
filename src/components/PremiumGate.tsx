@@ -3,44 +3,31 @@ import { useI18n } from '@/i18n';
 import { safeStorage } from '@/lib/safe-storage';
 import { AUTH_TOKEN_KEY } from '@/lib/auth/token';
 import { trackPaywallView, trackSubscribe } from '@/lib/analytics';
+import { freeTierGateState } from '@/lib/entitlement/freeTierGate';
+import { PaymentConsent } from './commerce/PaymentConsent';
 
 // token 键名统一走 lib/auth/token（ND-1 修复）
 const TOKEN_KEY = AUTH_TOKEN_KEY;
-const QUOTA_KEY_PREFIX = 'ts_ai_quota_';
 
 type Tier = 'free' | 'premium' | 'unknown';
 type GateState = 'checking' | 'unlocked' | 'locked';
 
-function todayKey(): string {
-  return new Date().toISOString().slice(0, 10);
-}
-
-function readRemaining(quota: number): number {
-  const key = `${QUOTA_KEY_PREFIX}${todayKey()}`;
-  const raw = safeStorage.get(key);
-  const n = Number(raw);
-  if (Number.isInteger(n) && n >= 0 && n <= quota) return n;
-  return quota;
-}
-
-function persistRemaining(_quota: number, remaining: number): void {
-  safeStorage.set(`${QUOTA_KEY_PREFIX}${todayKey()}`, String(remaining));
-}
-
 /**
- * 订阅墙（P3 商业化 · 订阅墙首刀）
- * 用法：<PremiumGate quota={5}>受保护内容</PremiumGate>
- * 机制：
- *   - tier=premium（/api/v1/subscription 判定）→ 无限放行，不扣配额
- *   - 未登录 / free → 每日免费 quota 次（打开即扣 1，localStorage 计数，MVP 客户端配额）
- *   - 今日剩余 0 → 升级卡片（CTA 登录/注册；接支付后替换为支付链接）
+ * 订阅墙（P3 商业化 · 订阅墙）
+ * 用法：<PremiumGate>受保护内容</PremiumGate>
+ *   （旧版 quota prop 仅保留在类型上以向后兼容，不再授予任何免费 LLM 额度。）
+ *
+ * 口径（冻结，修复批次2 P0-2）：
+ *   - 免费层 = 规则骨架版，0 次 AI 深度解读（FREE_LAYER_DEEP_LLM_CALLS=0）。
+ *   - AI 深度解读（report.deep）为订阅/单次权益，服务端由 consumeEntitlement 闸口判定，
+ *     不再有客户端 localStorage「每日 N 次放行 LLM」逻辑（原 quota=5 已移除）。
+ *   - tier=premium（/api/v1/subscription 判定）→ 放行 children；
+ *   - 未登录 / free → 一律展示升级引导（规则骨架版），不产生任何 LLM 配额计数。
  */
-export function PremiumGate({ children, quota = 5 }: { children: ReactNode; quota?: number }) {
+export function PremiumGate({ children }: { children: ReactNode; quota?: number }) {
   const { t } = useI18n();
   const [tier, setTier] = useState<Tier>('unknown');
-  const [remaining, setRemaining] = useState(() => readRemaining(quota));
   const [checkoutLoading, setCheckoutLoading] = useState(false);
-  const consumedRef = useRef(false);
   const subscribeReportedRef = useRef(false);
   const paywallReportedRef = useRef(false);
 
@@ -69,28 +56,15 @@ export function PremiumGate({ children, quota = 5 }: { children: ReactNode; quot
     };
   }, []);
 
-  // 打开即扣：free 用户渲染 children 时消费 1 次配额（每打开一次面板计一次）
-  useEffect(() => {
-    if (tier === 'premium' || consumedRef.current || remaining <= 0) return;
-    consumedRef.current = true;
-    const next = remaining - 1;
-    setRemaining(next);
-    persistRemaining(quota, next);
-  }, [tier, remaining, quota]);
+  // 纯函数门态：free/匿名 → locked（规则骨架版引导），不再读写 localStorage LLM 配额。
+  const state: GateState = useMemo<GateState>(() => freeTierGateState(tier), [tier]);
 
-  const state: GateState = useMemo<GateState>(() => {
-    if (tier === 'unknown') return 'checking';
-    if (tier === 'premium') return 'unlocked';
-    if (remaining > 0) return 'unlocked';
-    return 'locked';
-  }, [tier, remaining]);
-
-  // T3 漏斗：订阅墙触发（免费额度耗尽、升级卡片可见；每次挂载只报一次）
+  // T3 漏斗：订阅墙触发（免费层升级卡片可见；每次挂载只报一次）。免费层 LLM 配额恒为 0。
   useEffect(() => {
     if (state !== 'locked' || paywallReportedRef.current) return;
     paywallReportedRef.current = true;
-    trackPaywallView({ remaining, quota });
-  }, [state, remaining, quota]);
+    trackPaywallView({ remaining: 0, quota: 0 });
+  }, [state]);
 
   // Checkout：向 /api/v1/checkout 取托管收银台 URL（Lemon Squeezy，PayPal 备选）并跳转。
   // 未配置支付（503）或网络失败 → 优雅降级到登录/注册页（与仓库现有降级风格一致）。
@@ -152,7 +126,8 @@ export function PremiumGate({ children, quota = 5 }: { children: ReactNode; quot
       <div style={{ fontSize: 18, fontWeight: 700, color: '#ffd166', marginBottom: 6 }}>
         {t('premium.title')}
       </div>
-      <div style={{ fontSize: 14, color: '#c6cbd8', marginBottom: 14 }}>{t('premium.desc')}</div>
+      <div style={{ fontSize: 14, color: '#c6cbd8', marginBottom: 6 }}>{t('premium.desc')}</div>
+      <div style={{ fontSize: 12, color: '#8b93a7', marginBottom: 14 }}>{t('premium.quotaHint')}</div>
       <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 14px', textAlign: 'left' }}>
         {(t('premium.perks') as unknown as string[]).map((perk) => (
           <li
@@ -169,25 +144,12 @@ export function PremiumGate({ children, quota = 5 }: { children: ReactNode; quot
           </li>
         ))}
       </ul>
-      <button
-        type="button"
-        onClick={startCheckout}
-        disabled={checkoutLoading}
-        style={{
-          display: 'inline-block',
-          padding: '10px 28px',
-          borderRadius: 10,
-          background: 'linear-gradient(135deg, #ffd166, #b48cff)',
-          color: '#1a1230',
-          fontWeight: 700,
-          fontSize: 14,
-          border: 'none',
-          cursor: checkoutLoading ? 'wait' : 'pointer',
-          opacity: checkoutLoading ? 0.7 : 1,
-        }}
-      >
-        {checkoutLoading ? t('common.loading') : t('premium.checkoutCta')}
-      </button>
+      {/* P0-3：升级订阅走 PaymentConsent 双同意门控后才发 /api/v1/checkout。
+          startCheckout 自身已带 checkoutLoading 重入保护，重复点击为空操作。 */}
+      <PaymentConsent
+        submitLabel={checkoutLoading ? t('common.loading') : t('premium.checkoutCta')}
+        onSubmit={startCheckout}
+      />
       <div style={{ fontSize: 11, color: '#8b93a7', marginTop: 12 }}>{t('premium.loginHint')}</div>
     </div>
   );

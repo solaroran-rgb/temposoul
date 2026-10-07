@@ -1,10 +1,11 @@
-// 终版修正：决策 22 依据，文案精确对齐“每日 3 次免费 AI 深度解读额度”
+// 口径统一（修复批次2 P0-2）：免费层 = 3 次免费排盘 + 规则骨架解读，AI 深度解读为订阅/单次权益（FREE_LAYER_DEEP_LLM_CALLS=0）
 // 2026-09-17 M1：购买/订阅按钮由 alert 占位桩接线至 /api/v1/checkout（Lemon Squeezy）
 // 未配置支付（503 commerce_unavailable）/ 未登录（403）时优雅降级到登录页，不假装支付成功。
 import React, { useCallback, useEffect, useState } from 'react';
 import { trackPricingView } from '../../lib/analytics';
 import { getAuthToken } from '../../lib/auth/token';
 import { SeoHead } from '../../components/SeoHead';
+import { PaymentConsent } from '../../components/commerce/PaymentConsent';
 import './PricingPage.css';
 
 // 对齐后端 PRODUCT_CATALOG（src/lib/server/payment.ts）的 productId 取值
@@ -12,6 +13,10 @@ type ProductId = 'event_9_9' | 'report_39_9' | 'sub_monthly_19_9';
 
 export const PricingPage: React.FC = () => {
   const [loadingId, setLoadingId] = useState<ProductId | null>(null);
+  // P0-3：付费下单必须先过 PaymentConsent 双同意门控。
+  // 点击付费 CTA 不再直接发 checkout，而是挂起待提交商品 → 弹出同意面板；
+  // 面板勾选完成后才由 PaymentConsent 的提交按钮回调触发真正的 startCheckout。
+  const [pendingProduct, setPendingProduct] = useState<{ id: ProductId; name: string } | null>(null);
 
   useEffect(() => {
     trackPricingView();
@@ -54,7 +59,7 @@ export const PricingPage: React.FC = () => {
     <div className="pricing-page">
       <SeoHead
         title="定价方案 · 命律 TempoSoul"
-        description="命律 TempoSoul 会员与单次报告定价，每日 3 次免费 AI 深度解读额度。"
+        description="命律 TempoSoul 会员与单次报告定价：免费层含每日 3 次免费排盘与规则骨架解读，AI 深度解读为订阅权益。"
       />
       <header className="pricing-page__header">
         <h1 className="pricing-page__title">选择适合您的命理探索方案</h1>
@@ -78,7 +83,7 @@ export const PricingPage: React.FC = () => {
           <button
             className="pricing-card__btn pricing-card__btn--primary"
             disabled={loadingId !== null}
-            onClick={() => startCheckout('event_9_9', '新客首单 ¥9.9')}
+            onClick={() => setPendingProduct({ id: 'event_9_9', name: '新客首单 ¥9.9' })}
           >
             {loadingId === 'event_9_9' ? '正在跳转…' : '¥9.9 立即体验'}
           </button>
@@ -88,7 +93,7 @@ export const PricingPage: React.FC = () => {
           <h2 className="pricing-card__name">基础版</h2>
           <div className="pricing-card__price">¥0</div>
           <ul className="pricing-card__features">
-            <li>✅ 每日 3 次免费 AI 深度解读额度</li>
+            <li>✅ 每日 3 次免费排盘 + 规则骨架解读（AI 深度解读为订阅权益）</li>
             <li>✅ 基础八字 / 紫微排盘</li>
             <li>✅ 1180+ 命理词库无限制访问</li>
           </ul>
@@ -110,7 +115,7 @@ export const PricingPage: React.FC = () => {
           <button
             className="pricing-card__btn pricing-card__btn--primary"
             disabled={loadingId !== null}
-            onClick={() => startCheckout('report_39_9', '单次深度报告')}
+            onClick={() => setPendingProduct({ id: 'report_39_9', name: '单次深度报告' })}
           >
             {loadingId === 'report_39_9' ? '正在跳转…' : '立即购买'}
           </button>
@@ -130,13 +135,27 @@ export const PricingPage: React.FC = () => {
           <button
             className="pricing-card__btn pricing-card__btn--primary"
             disabled={loadingId !== null}
-            onClick={() => startCheckout('sub_monthly_19_9', 'Pro 会员订阅')}
+            onClick={() => setPendingProduct({ id: 'sub_monthly_19_9', name: 'Pro 会员订阅' })}
           >
             {loadingId === 'sub_monthly_19_9' ? '正在跳转…' : '开启订阅'}
           </button>
           <p className="pricing-card__auto-renew">订阅将自动续费，您可随时在账户设置中取消。</p>
         </section>
       </main>
+
+      {/* P0-3 付费双同意门控：仅在用户选定付费档位后出现；
+          免费档（¥0「当前方案」disabled）不进入此流程，无任何强制勾选。 */}
+      {pendingProduct && (
+        <div
+          className="pricing-page__consent"
+          style={{ maxWidth: 480, margin: '0 auto', padding: '8px 22px 40px' }}
+        >
+          <PaymentConsent
+            submitLabel={`确认并支付 · ${pendingProduct.name}`}
+            onSubmit={() => startCheckout(pendingProduct.id, pendingProduct.name)}
+          />
+        </div>
+      )}
     </div>
   );
 };
