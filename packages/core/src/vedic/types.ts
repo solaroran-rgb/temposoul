@@ -126,8 +126,15 @@ export interface VedicData {
     D1: VedicVarga;
     D9?: VedicVarga;
   };
-  yogas?: unknown[];
-  doshas?: unknown[];
+  /** Yoga 判定（1.2-102）：含未命中条目与判定依据，便于页面「参数透明」 */
+  yogas?: import('./yoga-dosha').VedicYogaFinding[];
+  /** Dosha 判定（1.2-103）：含未命中条目与局限说明 */
+  doshas?: import('./yoga-dosha').VedicDoshaFinding[];
+  yogaDoshaSummary?: import('./yoga-dosha').VedicYogaDoshaResult['summary'];
+  /** 需命理顾问终审的未实现条目（显式列出，不臆造） */
+  yogaDoshaPendingReview?: import('./yoga-dosha').VedicYogaDoshaResult['pendingExpertReview'];
+  /** 可直接交给在线 AI 的自包含排盘正文（与 qi_zheng / astrolabe 同构） */
+  prompt?: string;
   evidenceTrail?: EvidenceTrail;
   timestamp: number;
 }

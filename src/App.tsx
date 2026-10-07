@@ -333,6 +333,7 @@ const VideoChannelPage = lazy(() => import('./pages/video/VideoChannelPage'));
 // 七政四余 / 八宅独立排盘栏目页 + 全站站点地图
 const QizhengPage = lazy(() => import('./pages/qizheng/QizhengPage'));
 const BazhaiPage = lazy(() => import('./pages/fengshui/BazhaiPage'));
+const VedicPage = lazy(() => import('./pages/vedic/VedicPage'));
 const SiteMapPage = lazy(() => import('./pages/platform/SiteMapPage'));
 
 // 批3a D21C21：社区/会员(C) + 咨询/专家/账户/商城/联盟(D) 路由接线
@@ -498,6 +499,7 @@ export default function App() {
                 {/* 独立排盘栏目页 + 全站站点地图 */}
                 <Route path="/qizheng" element={<QizhengPage />} />
                 <Route path="/fengshui/bazhai" element={<BazhaiPage />} />
+                <Route path="/vedic" element={<VedicPage />} />
                 <Route path="/sitemap" element={<SiteMapPage />} />
                 <Route path="/faq" element={<FaqPage />} />
                 <Route path="/favorites" element={<FavoritesPage />} />

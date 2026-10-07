@@ -30,7 +30,8 @@ import {
   GRAHA_LORD_LABELS,
 } from './tables';
 import { longitudeToNavamsa } from './varga';
-import { computeVimshottari } from './vimshottari';
+import { computeVimshottari, formatVimshottariDate } from './vimshottari';
+import { computeYogaDosha } from './yoga-dosha';
 import { buildVedicEvidenceTrail } from './vedicEvidence';
 import type { VedicBirthInput, VedicData, VedicPoint, VedicVargaPlacement } from './types';
 
@@ -145,6 +146,68 @@ function buildPoint(opts: {
  * @param input 出生信息（字段风格对齐 AstrolabeBirthInput）
  * @returns VedicData（含 lagna/grahas/nakshatra/evidenceTrail）
  */
+/**
+ * 生成可直接交给在线 AI 的自包含吠陀排盘正文（与 qi_zheng.prompt 同构）。
+ * 只陈述盘面事实与传统依据，不作确定性断语（合规红线：娱乐/参考视角）。
+ */
+function buildVedicPrompt(
+  result: VedicData,
+  yogaDosha: ReturnType<typeof computeYogaDosha>,
+): string {
+  const lines: string[] = [];
+  lines.push('【吠陀占星 · Jyotish / Parashari】');
+  lines.push(
+    `出生时间：${result.birth.dateTime}（${result.birth.location}，时区 UTC${result.birth.timezone >= 0 ? '+' : ''}${result.birth.timezone}）。`,
+  );
+  lines.push(
+    `岁差体系：Lahiri（Chitrapaksha），本盘 Ayanamsa ${result.ayanamsa.degrees.toFixed(4)}°；黄经采用恒星黄经（sidereal）。`,
+  );
+  lines.push(
+    `上升（Lagna）：${result.lagna.formatted}（${result.lagna.rashi}，第 ${result.lagna.bhava} 宫）；宫位制：Whole Sign。`,
+  );
+  lines.push('九曜落位：');
+  for (const g of result.grahas) {
+    lines.push(
+      `  ${g.label}（${g.sanskrit}）：${g.formatted}，第 ${g.bhava} 宫，${g.nakshatra} 第 ${g.pada} 拍${g.retrograde ? '，逆行（R）' : ''}`,
+    );
+  }
+  lines.push(
+    `出生月亮宿（Janma Nakshatra）：${result.nakshatra.birthMoon.sanskrit} 第 ${result.nakshatra.birthMoon.pada} 拍，宿主 ${result.nakshatra.birthMoon.lordLabel}，起运已过 ${(result.nakshatra.birthMoon.balance * 100).toFixed(2)}%。`,
+  );
+  const mahas = result.vimshottari?.mahadashas ?? [];
+  if (mahas.length) {
+    lines.push(
+      `Vimshottari 大运序列：${mahas
+        .map(
+          (m) =>
+            `${m.lordLabel} ${m.durationYears}年（${formatVimshottariDate(m.startMs)} 起）`,
+        )
+        .join('；')}。`,
+    );
+  }
+  const d9 = result.vargas?.D9;
+  if (d9) {
+    lines.push(
+      `D9 Navamsa：${d9.placements.map((p) => `${p.label}→${p.rashi}`).join('；')}。`,
+    );
+  }
+  const activeYogas = yogaDosha.yogas.filter((y) => y.active);
+  lines.push(
+    `Yoga 判定：${activeYogas.length ? activeYogas.map((y) => `${y.name}（${y.condition}）`).join('；') : '本次未命中已实现的 Yoga 条目'}。`,
+  );
+  const activeDoshas = yogaDosha.doshas.filter((d) => d.active);
+  lines.push(
+    `Dosha 判定：${activeDoshas.length ? activeDoshas.map((d) => `${d.name}[${d.severity}]（${d.condition}）`).join('；') : '本次未命中已实现的 Dosha 条目'}。`,
+  );
+  lines.push(
+    `尚未自动化、需命理顾问终审的条目：${yogaDosha.pendingExpertReview.map((p) => p.item).join('、')}。`,
+  );
+  lines.push(
+    '解读口径：以上为星象结构的参考性描述，不构成对健康、法律、财务或人生事件的确定性判断。',
+  );
+  return lines.join('\n');
+}
+
 export function generateVedicChart(input: VedicBirthInput): VedicData {
   const year = requireNumber(input.year, '出生年份');
   const month = requireNumber(input.month, '出生月份');
@@ -280,6 +343,9 @@ export function generateVedicChart(input: VedicBirthInput): VedicData {
     balance: moonNak.elapsedRatio,
   });
 
+  // Yoga / Dosha 判定（1.2-102 / 1.2-103）：基于 D1 盘面确定性推导
+  const yogaDosha = computeYogaDosha(lagna, grahas);
+
   const locationName = readOptionalText(input.locationName, '');
   const standardBirth = { year, month, day, hour, minute };
   const result: VedicData = {
@@ -316,10 +382,13 @@ export function generateVedicChart(input: VedicBirthInput): VedicData {
     },
     vimshottari,
     vargas,
-    yogas: [],
-    doshas: [],
+    yogas: yogaDosha.yogas,
+    doshas: yogaDosha.doshas,
+    yogaDoshaSummary: yogaDosha.summary,
+    yogaDoshaPendingReview: yogaDosha.pendingExpertReview,
     timestamp: Date.now(),
   };
+  result.prompt = buildVedicPrompt(result, yogaDosha);
   result.evidenceTrail = buildVedicEvidenceTrail(result);
   return result;
 }

@@ -41,6 +41,7 @@ export const SYSTEM_CAPABILITY_IDS = [
   'qizheng',
   'xuankong',
   'residential',
+  'vedic',
 ] as const;
 
 export type SystemCapabilityId = (typeof SYSTEM_CAPABILITY_IDS)[number];
@@ -1234,6 +1235,36 @@ const systems: SystemCapability[] = [
     notes: [
       '住宅风水为产品统一入口：后台分别计算八宅与玄空飞星后合参，不生成综合吉凶总分，也不互相改写两套规则。',
       '至少提供山向/门向度数，或居住人出生年与性别/命卦之一；玄空宅运层还必须提供住宅建造年或起运年，缺年时不得用当前年份代替。底层 bazhai 与 xuankong 能力仍保留。',
+    ],
+  },
+  {
+    id: 'vedic',
+    name: '吠陀占星',
+    category: 'chart',
+    available: true,
+    inputs: [birthProfileInput],
+    outputs: [
+      'Lahiri 岁差与恒星黄经',
+      '上升 Lagna 与 Whole Sign 十二宫',
+      '九曜落座落宫与月宿',
+      'Vimshottari 大运与小运',
+      'D9 Navamsa 分盘',
+      'Yoga 判定与依据',
+      'Dosha 判定与局限',
+      '盘式布局（北印度 / 南印度）',
+      '结构化证据',
+    ],
+    supports: {
+      seed: false,
+      customRandomSource: false,
+      trueSolarTime: true,
+      birthTimeRequired: true,
+      birthTimeModes: ['precise-clock-time'],
+      batch: false,
+    },
+    notes: [
+      '天体位置采用 astronomy-engine 星历，与本站西洋星盘、七政四余同源；跨体系七曜黄经偏差实测 ≤0.01°（红线 1.2-81 / 1.2-112）。',
+      '岁差体系当前仅 Lahiri（Chitrapaksha）；D60 分盘、Neecha-Bhanga、合盘 Nadi Dosha 尚未自动化，已在 yogaDoshaPendingReview 显式列出待命理顾问终审。',
     ],
   },
 ];
