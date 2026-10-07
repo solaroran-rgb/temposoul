@@ -1,0 +1,70 @@
+{
+  "_meta": {
+    "sample": "sample-2060-southpole",
+    "task": "T-15C 全样本金标化（S-2 口径扩展至18样本）",
+    "generated_at": "2026-10-08",
+    "purpose": "sample-2060-southpole swisseph 金标，三方对拍基准（swisseph vs celestine vs 引擎）",
+    "local_civil": "2060-06-15 03:00:00 (UTC+12)",
+    "ut": "2060-06-14 15:00:00 UTC",
+    "jd_ut": 2473625.125,
+    "latitude": -89.98,
+    "longitude": 139.27,
+    "location": "南极点附近"
+  },
+  "generation_parameters": {
+    "ephemeris_library": "pyswisseph 2.10.3.2 / Swiss Ephemeris 2.10.03",
+    "ephemeris_mode": "FLG_MOSEPH (内置 Moshier 分析星历，无 *.se1 数据文件)",
+    "deltaT_model": "swe.deltat() (Morrison-Stephenson 多项式, TT-UT)",
+    "deltat_TT_minus_UT_seconds": 0.0009003213219751991,
+    "coordinate_system": "地心视黄经 (geocentric apparent ecliptic longitude)",
+    "epoch": "回归坐标/当日分点 (tropical, equinox of date)",
+    "precession_nutation": "swisseph 默认位置 (当日分点)",
+    "comparison_basis": "与 E-04 / T-15 S-2 口径一致"
+  },
+  "bodies": {
+    "Sun": {
+      "longitude_deg": 84.321322,
+      "longitude_speed_deg_day": 0.955018
+    },
+    "Moon": {
+      "longitude_deg": 269.891836,
+      "longitude_speed_deg_day": 12.767188
+    },
+    "Mercury": {
+      "longitude_deg": 92.670763,
+      "longitude_speed_deg_day": -0.44257
+    },
+    "Venus": {
+      "longitude_deg": 54.552978,
+      "longitude_speed_deg_day": 0.037894
+    },
+    "Mars": {
+      "longitude_deg": 68.277282,
+      "longitude_speed_deg_day": 0.705842
+    },
+    "Jupiter": {
+      "longitude_deg": 76.020547,
+      "longitude_speed_deg_day": 0.231569
+    },
+    "Saturn": {
+      "longitude_deg": 69.172937,
+      "longitude_speed_deg_day": 0.126756
+    },
+    "Uranus": {
+      "longitude_deg": 214.457747,
+      "longitude_speed_deg_day": -0.022218
+    },
+    "Neptune": {
+      "longitude_deg": 78.519154,
+      "longitude_speed_deg_day": 0.037263
+    },
+    "Pluto": {
+      "longitude_deg": 353.052632,
+      "longitude_speed_deg_day": 0.003007
+    },
+    "MeanNode": {
+      "longitude_deg": 35.816667,
+      "longitude_speed_deg_day": -0.05291
+    }
+  }
+}

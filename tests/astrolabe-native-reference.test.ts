@@ -6,6 +6,8 @@ import { AspectType, calculateChart } from 'celestine';
 import { generateAstrolabe } from '@temposoul/core/divination/astrolabe';
 import type { AstrolabeAspect, AstrolabeBirthInput, AstrolabePoint } from '@temposoul/core/types';
 
+import { GOLD_SWISSEPH } from './fixtures/gold-swisseph-map';
+
 const PLANET_LABELS: Record<string, string> = {
   Sun: '太阳',
   Moon: '月亮',
@@ -111,29 +113,18 @@ function assertSamePoint(
 }
 
 /**
- * T-15-S2 Track A 金标（Swiss Ephemeris 2.10.03, Moshier, ΔT=swe_deltat）。
- * sample-1900-beijing = 1900-01-15 12:00 +08:00 北京。
- * 三方对拍结论：engine(astronomy-engine) 与 swisseph 金标全星体吻合 ≤0.12′；
- * celestine 内建星历在 1900 外推失真（Pluto +84.3′、Mercury −9.6′）。
- * 故 1900 样本十大统一天体以金标为准，不再使用 celestine 原生值（裁决①）。
+ * T-15C 全样本金标化：18 样本十大统一天体全部钉 swisseph 金标（pyswisseph 2.10.3.2 /
+ * SwissEph 2.10.03, FLG_MOSEPH, ΔT=swe.deltat, 地心视黄经, 回归当日分点含章动）。
+ * 金标值见 tests/fixtures/gold-swisseph-map.ts（由 18 个 gold-*.json fixture 聚合，口径与
+ * T-15 S-2 完全一致——生成的 1900 fixture 与已提交金标逐值 0 偏差复现）。
+ * 实测三方对拍：引擎(astronomy-engine)对金标 180 点中位 0.029′、max 1.137′（仅 Moon@2080/2100
+ * 两点 >1′，归因 ΔT 模型层：swe.deltat(Morrison-Stephenson) 与引擎 ΔT 在世纪末差约 6s，被月球
+ * 角速度放大）；celestine 内建星历八大行星全 ≤1.01′，失真集中 Pluto(max 86′)/Mercury(max 84′)
+ * —— 截断/外推层（假设 D，失真方为 celestine 低精度星历，非引擎）。
+ * 钉金标容差取实测包络 0.025°(1.5′)：177/180 点实际 ≤0.3′，包络仅罩住世纪末月球 ΔT 离群点；
+ * 较原宽容差冒烟 10° 收紧约 400 倍。
  */
-const GOLD_1900_BEIJING: Record<string, { longitude: number; signName: string; degree: number; minute: number }> = {
-  Sun: { longitude: 294.59155, signName: 'Capricorn', degree: 24, minute: 35 },
-  Moon: { longitude: 107.51468, signName: 'Cancer', degree: 17, minute: 30 },
-  Mercury: { longitude: 278.87145, signName: 'Capricorn', degree: 8, minute: 52 },
-  Venus: { longitude: 323.94613, signName: 'Aquarius', degree: 23, minute: 56 },
-  Mars: { longitude: 294.83938, signName: 'Capricorn', degree: 24, minute: 50 },
-  Jupiter: { longitude: 243.77971, signName: 'Sagittarius', degree: 3, minute: 46 },
-  Saturn: { longitude: 269.32848, signName: 'Sagittarius', degree: 29, minute: 19 },
-  Uranus: { longitude: 250.87754, signName: 'Sagittarius', degree: 10, minute: 52 },
-  Neptune: { longitude: 84.85469, signName: 'Gemini', degree: 24, minute: 51 },
-  Pluto: { longitude: 75.02606, signName: 'Gemini', degree: 15, minute: 1 },
-};
-
-/** 1.2-81 后十大统一天体改用 astronomy-engine（Swiss Ephemeris 金标验证 ≤0.12′）；
- *  celestine 内建星历为低精度实现，历史时段偏差可达数度（1920 水星尤甚）。
- *  1900 样本钉金标（0.002°）；其余样本用宽容差做冒烟校验，全样本金标化登记待办。 */
-const UNIFIED_LONGITUDE_TOLERANCE = 10;
+const GOLD_PIN_TOLERANCE = 0.025;
 
 function assertSameAspect(
   actual: AstrolabeAspect,
@@ -402,12 +393,13 @@ test('西方星盘18张边界与跨世纪盘面应逐项复现 celestine 原生�
       })),
     ];
 
-    // T-15-S2：1900 样本 celestine 内建星历外推失真，十大统一天体改用 swisseph 金标（裁决①）。
+    // T-15C：18 样本十大统一天体一律以 swisseph 金标黄经覆盖 celestine 原生值（裁决①全样本化）。
     const isGold1900 = sample.scope === 'sample-1900-beijing';
-    if (isGold1900) {
+    const gold = GOLD_SWISSEPH[sample.scope];
+    if (gold) {
       for (const p of expectedPoints) {
-        const gold = GOLD_1900_BEIJING[p.name];
-        if (gold) Object.assign(p, gold);
+        const gl = gold[p.name];
+        if (gl !== undefined) p.longitude = gl;
       }
     }
     const UNIFIED = new Set(['Sun','Moon','Mercury','Venus','Mars','Jupiter','Saturn','Uranus','Neptune','Pluto']);
@@ -417,7 +409,7 @@ test('西方星盘18张边界与跨世纪盘面应逐项复现 celestine 原生�
       const exp = expectedPoints[index];
       const isUnified = UNIFIED.has(exp.name);
       assertSamePoint(result.planets[index], exp, `${sample.scope}星体${index}`,
-        isUnified ? { lonTolerance: isGold1900 ? 0.002 : UNIFIED_LONGITUDE_TOLERANCE, relaxDMS: isUnified } : {});
+        isUnified ? { lonTolerance: GOLD_PIN_TOLERANCE, relaxDMS: true } : {});
       pointChecked += 1;
     }
 
