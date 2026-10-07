@@ -8,7 +8,7 @@ export interface ShortcutItem {
 }
 
 export interface ShortcutGroup {
-  groupId: 'chart' | 'divination' | 'almanac' | 'name' | 'westastro';
+  groupId: 'chart' | 'divination' | 'almanac' | 'name' | 'westastro' | 'mystic';
   title: string;
   items: ShortcutItem[];
 }
@@ -70,6 +70,21 @@ export const SHORTCUT_GROUPS: ShortcutGroup[] = [
         target: '/astrolabe/saturn-return',
       },
       { id: 'quiz-western', label: '星盘气质测验', icon: 'icon-quiz', target: '/quiz/western' },
+    ],
+  },
+  {
+    groupId: 'mystic',
+    title: '术数·风水·牌阵',
+    items: [
+      { id: 'taiyi', label: '太乙神数', icon: 'icon-taiyi', target: '/metaphysics/taiyi' },
+      { id: 'liuren', label: '大六壬', icon: 'icon-liuren', target: '/divination/liuren' },
+      { id: 'jinkoujue', label: '金口诀', icon: 'icon-jinkoujue', target: '/divination/jinkoujue' },
+      { id: 'meihua', label: '梅花易数', icon: 'icon-meihua', target: '/divination/meihua' },
+      { id: 'xiaoliuren', label: '小六壬', icon: 'icon-xiaoliuren', target: '/divination/xiaoliuren' },
+      { id: 'lenormand', label: '雷诺曼', icon: 'icon-lenormand', target: '/divination/lenormand' },
+      { id: 'ssgw', label: '三山国王灵签', icon: 'icon-ssgw', target: '/divination/ssgw' },
+      { id: 'xuankong', label: '玄空飞星', icon: 'icon-xuankong', target: '/fengshui/xuankong' },
+      { id: 'residential', label: '住宅风水', icon: 'icon-residential', target: '/fengshui/residential' },
     ],
   },
 ];

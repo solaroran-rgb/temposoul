@@ -79,6 +79,29 @@ const GROUPS: NavGroup[] = [
       { to: '/divination/fengshui-test', label: '阳宅风水测试', desc: '8 题自测' },
       { to: '/divination/superstition', label: '眼跳喷嚏', desc: '测吉凶民俗' },
       { to: '/yijing/hexagrams', label: '易经六十四卦', desc: '卦辞爻辞详解' },
+      { to: '/divination/meihua', label: '梅花易数', desc: '心动起卦·体用生克' },
+      { to: '/divination/xiaoliuren', label: '小六壬', desc: '六宫速断' },
+      { to: '/divination/lenormand', label: '雷诺曼', desc: '36 张象征牌阵' },
+      { to: '/divination/ssgw', label: '三山国王灵签', desc: '地方信仰签诗' },
+    ],
+  },
+  {
+    label: '三式·术数',
+    items: [
+      { to: '/metaphysics/taiyi', label: '太乙神数', desc: '三式之首·国运岁时' },
+      { to: '/divination/qimen', label: '奇门遁甲', desc: '九宫八门·择时方位' },
+      { to: '/divination/liuren', label: '大六壬', desc: '四课三传' },
+      { to: '/divination/jinkoujue', label: '金口诀', desc: '六壬速断' },
+      { to: '/metaphysics/huangji-jingshi', label: '皇极经世', desc: '元会运世·治乱节律' },
+      { to: '/metaphysics/wuyun-liuqi', label: '五运六气', desc: '岁运客气·物候健康' },
+    ],
+  },
+  {
+    label: '风水',
+    items: [
+      { to: '/fengshui/bazhai', label: '八宅风水', desc: '宅命配卦' },
+      { to: '/fengshui/xuankong', label: '玄空飞星', desc: '三元九运·山向飞星' },
+      { to: '/fengshui/residential', label: '住宅风水', desc: '坐向户型·居住参考' },
     ],
   },
   {
