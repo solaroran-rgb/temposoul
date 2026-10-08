@@ -11,6 +11,18 @@ import { buildDailySky, type DailySkyPayload } from '@/lib/daily-sky/daily';
 import { getDailyKey, refreshIfNewDay } from '@/lib/daily-sky/dailyKey';
 import type { DailySkyProfile } from '@/lib/daily-sky/profile';
 import { buildDailyShareUrl } from '@/lib/daily-sky/share';
+// S-6b B4 接线（仅消费 B1/B2/B3 冻结接口，不重复实现）
+import {
+  getFreeReadUsedToday,
+  getStreakState,
+  markFreeReadUsedToday,
+  markVisit,
+  unlockedMilestones,
+} from '@/lib/growth/streak';
+import { isHiddenCardUnlocked, unlockHiddenCard } from '@/lib/growth/hidden-card';
+import { createInviteToken } from '@/lib/growth/invite';
+import { GrowthStrip } from '@/components/growth/GrowthStrip';
+import HiddenSkyCard from '@/components/daily-sky/HiddenSkyCard';
 
 // 类型再导出，兼容首页片从本文件引类型的旧 import 路径。
 export type { DailySkyPayload, DailySkyProfile };
@@ -86,6 +98,11 @@ const CARD_STYLE = `
   font-size: 12px;
   color: var(--text-secondary);
 }
+.ds-toast {
+  margin: var(--sp-2) 0 0;
+  font-size: 13px;
+  color: var(--accent-lunar);
+}
 @media (prefers-reduced-motion: reduce) {
   .ds-card, .ds-card * { transition: none !important; animation: none !important; }
 }
@@ -97,6 +114,12 @@ export default function DailySkyCard({
 }: DailySkyCardProps): ReactElement {
   const [payload, setPayload] = useState<DailySkyPayload | null>(external ?? null);
   const [watchKey, setWatchKey] = useState<string>(() => getDailyKey());
+  // S-6b B4：免费解读额度（1 次/日）、隐藏卡显隐、邀请链接（token 挂载时生成一次，24h 有效）
+  const [freeReadUsed, setFreeReadUsed] = useState<boolean>(() => getFreeReadUsedToday());
+  const [freeReadToast, setFreeReadToast] = useState(false);
+  const [hiddenJustUnlocked, setHiddenJustUnlocked] = useState(false);
+  const [hiddenDismissed, setHiddenDismissed] = useState(false);
+  const [invitePath] = useState(() => `/login?invite=${createInviteToken()}`);
 
   const rebuild = useCallback(() => {
     setPayload(buildDailySky());
@@ -134,16 +157,41 @@ export default function DailySkyCard({
     };
   }, [external, rebuild, watchKey]);
 
+  // S-6b B4：挂载即计一次访问（同日不叠加 / 跨天 +1 / 断签重置边界均在 streak.ts 内实现）。
+  useEffect(() => {
+    markVisit();
+  }, []);
+
+  // 免费解读领取后的中性提示自动消退（不接后端付费/订阅，纯额度标记）。
+  useEffect(() => {
+    if (!freeReadToast) return;
+    const t = window.setTimeout(() => setFreeReadToast(false), 2400);
+    return () => window.clearTimeout(t);
+  }, [freeReadToast]);
+
+  const handleFreeRead = () => {
+    if (getFreeReadUsedToday()) return;
+    markFreeReadUsedToday();
+    setFreeReadUsed(true);
+    setFreeReadToast(true);
+  };
+
   const handleShare = () => {
     if (!payload) return;
     onShare?.(payload);
     try {
       // 静态引用分享片接口（share.ts 已落盘）；达单日上限返回 null 时静默降级。
       const url = buildDailyShareUrl(payload);
-      if (url && typeof window !== 'undefined' && navigator.clipboard) {
-        navigator.clipboard.writeText(window.location.origin + url).catch(() => {
-          /* 复制失败不阻塞 */
-        });
+      if (url) {
+        // S-6b B3 接线：分享成功才解锁当日文化深度隐藏卡（达日上限返回 null 则不解锁）。
+        unlockHiddenCard(payload.dateKey);
+        setHiddenDismissed(false);
+        setHiddenJustUnlocked(true);
+        if (typeof window !== 'undefined' && navigator.clipboard) {
+          navigator.clipboard.writeText(window.location.origin + url).catch(() => {
+            /* 复制失败不阻塞 */
+          });
+        }
       }
     } catch {
       /* 分享片模块未就绪 / 环境不支持时静默降级 */
@@ -159,22 +207,44 @@ export default function DailySkyCard({
     );
   }
 
+  const streak = getStreakState();
+  // 隐藏卡显隐：localStorage 解锁标记或本次分享刚解锁，且未被用户手动关闭。
+  const showHiddenCard =
+    !hiddenDismissed && !!payload && (hiddenJustUnlocked || isHiddenCardUnlocked(payload.dateKey));
+
   return (
-    <section className="ds-card" aria-label="今日星象">
-      <style>{CARD_STYLE}</style>
-      <p className="ds-meta">
-        {payload.dateKey} · {payload.timeZone}
-      </p>
-      <h2 className="ds-title">{payload.skyEventTitle}</h2>
-      <p className="ds-note">{payload.personalNote}</p>
-      {payload.zodiacLine ? <p className="ds-zodiac">{payload.zodiacLine}</p> : null}
-      <blockquote className="ds-quote">「{payload.quote}」</blockquote>
-      <p className="ds-source">—— {payload.source}</p>
-      <p className="ds-compliance">{payload.compliance}</p>
-      <button type="button" className="ds-share" onClick={handleShare}>
-        分享今日星空
-      </button>
-      <p className="ds-sub">今日仅此一版</p>
-    </section>
+    <>
+      <section className="ds-card" aria-label="今日星象">
+        <style>{CARD_STYLE}</style>
+        <p className="ds-meta">
+          {payload.dateKey} · {payload.timeZone}
+        </p>
+        <h2 className="ds-title">{payload.skyEventTitle}</h2>
+        <p className="ds-note">{payload.personalNote}</p>
+        {payload.zodiacLine ? <p className="ds-zodiac">{payload.zodiacLine}</p> : null}
+        <blockquote className="ds-quote">「{payload.quote}」</blockquote>
+        <p className="ds-source">—— {payload.source}</p>
+        <p className="ds-compliance">{payload.compliance}</p>
+        <button type="button" className="ds-share" onClick={handleShare}>
+          分享今日星空
+        </button>
+        <p className="ds-sub">今日仅此一版</p>
+        {/* S-6b B1 接线：卡尾成长条（连续天数/里程碑/免费解读/邀请入口） */}
+        <GrowthStrip
+          state={streak}
+          unlocked={unlockedMilestones(streak)}
+          freeReadUsed={freeReadUsed}
+          onFreeRead={handleFreeRead}
+          inviteUrl={invitePath}
+        />
+        {freeReadToast ? <p className="ds-toast">今日免费解读已领取</p> : null}
+      </section>
+      {/* S-6b B3 接线：分享解锁后，主卡之后追加文化深度隐藏卡 */}
+      {showHiddenCard && payload ? (
+        <div style={{ marginTop: '16px' }}>
+          <HiddenSkyCard dateKey={payload.dateKey} onClose={() => setHiddenDismissed(true)} />
+        </div>
+      ) : null}
+    </>
   );
 }

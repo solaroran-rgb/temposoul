@@ -48,6 +48,8 @@ import {
   inputStateToProfile,
   profileToInputState,
 } from '@/lib/user-profile';
+// S-6b B4 接线：档案区成长面板（连续天数/徽章/邀请种子/解读额度，纯展示）
+import { ProfileGrowthPanel } from '@/components/growth/ProfileGrowthPanel';
 
 type InputEntryMode = 'single' | 'compatibility' | 'divination' | 'almanac';
 
@@ -581,6 +583,9 @@ export function InputPage() {
                 管理档案
               </button>
             </div>
+
+            {/* S-6b B4：档案条区挂成长面板（排盘表单/工具中心/黄历逻辑不动） */}
+            <ProfileGrowthPanel />
 
             <div className="analysis-mode-strip">
               <div className="top-switch-control">
