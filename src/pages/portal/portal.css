@@ -1,0 +1,323 @@
+/* ============================================================
+ * E-12 门户层重审 · 门户页共享样式（A 席视觉：E-11 哲学）
+ * 基底：暗黑星云深色（tokens.css --space-900 #0E1116）
+ * 规范：全深色 + 五色状态 + 白正文禁白卡片 + 主角区/二级区分层
+ * 四门户共用：/academy /stars /living /plus
+ * ============================================================ */
+
+.portal-page {
+  position: relative;
+  min-height: 100vh;
+  color: var(--text-primary, #e6edf3);
+  background:
+    radial-gradient(1100px 520px at 18% -6%, rgba(88, 166, 255, 0.12), transparent 60%),
+    radial-gradient(900px 480px at 88% 12%, rgba(124, 140, 248, 0.1), transparent 55%),
+    linear-gradient(180deg, var(--space-900, #0e1116) 0%, var(--space-950, #070a12) 100%);
+  font-family: var(--font-sans-zh, 'Noto Sans SC', 'Microsoft YaHei', sans-serif);
+  padding: 96px 24px 48px;
+}
+
+.portal-page__inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+/* ---------- Hero（主角即第一眼，无占卜词） ---------- */
+.portal-hero {
+  position: relative;
+  border-radius: var(--radius-lg, 16px);
+  border: 1px solid var(--border-subtle, rgba(201, 214, 232, 0.14));
+  background:
+    radial-gradient(720px 360px at 12% 0%, rgba(88, 166, 255, 0.14), transparent 58%),
+    rgba(14, 17, 22, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  overflow: hidden;
+  padding: 56px 48px;
+}
+
+.portal-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent-primary, #58a6ff);
+  font-weight: 600;
+}
+
+.portal-hero__title {
+  margin: 18px 0 12px;
+  font-family: var(--font-serif-zh, 'Noto Serif SC', 'Songti SC', serif);
+  font-size: clamp(30px, 5vw, 48px);
+  line-height: 1.18;
+  color: #f2f6fb;
+  letter-spacing: 0.02em;
+}
+
+.portal-hero__sub {
+  max-width: 640px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--text-secondary, #8fa3bd);
+}
+
+.portal-hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.portal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  border-radius: var(--radius-pill, 999px);
+  border: 1px solid var(--border-subtle, rgba(201, 214, 232, 0.14));
+  background: transparent;
+  color: var(--text-primary, #e6edf3);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.portal-btn:hover {
+  background: rgba(88, 166, 255, 0.14);
+  border-color: rgba(88, 166, 255, 0.4);
+  color: #f2f6fb;
+}
+
+.portal-btn--primary {
+  background: var(--accent-primary, #58a6ff);
+  border-color: transparent;
+  color: #070a12;
+}
+
+.portal-btn--primary:hover {
+  background: #7cb8ff;
+  color: #070a12;
+}
+
+/* ---------- 分区标题 ---------- */
+.portal-section {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.portal-section__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.portal-section__title {
+  margin: 0;
+  font-family: var(--font-serif-zh, 'Noto Serif SC', 'Songti SC', serif);
+  font-size: 26px;
+  color: #f2f6fb;
+  letter-spacing: 0.02em;
+}
+
+.portal-section__more {
+  font-size: 13px;
+  color: var(--accent-primary, #58a6ff);
+  text-decoration: none;
+}
+
+.portal-section__more:hover {
+  text-decoration: underline;
+}
+
+/* ---------- 内容主角区卡片（深色卡片，禁白） ---------- */
+.portal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.portal-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  border-radius: var(--radius-md, 10px);
+  border: 1px solid var(--border-subtle, rgba(201, 214, 232, 0.14));
+  background: var(--card-bg, rgba(20, 26, 36, 0.72));
+  color: var(--text-primary, #e6edf3);
+  text-decoration: none;
+  transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+}
+
+.portal-card:hover {
+  border-color: rgba(88, 166, 255, 0.45);
+  background: rgba(24, 32, 44, 0.82);
+  transform: translateY(-2px);
+}
+
+.portal-card__tag {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+.portal-card__title {
+  font-size: 17px;
+  font-weight: 600;
+  color: #f2f6fb;
+}
+
+.portal-card__desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-secondary, #8fa3bd);
+}
+
+/* 五色状态点缀 */
+.portal-card--red .portal-card__tag { color: var(--status-red, #ff7b72); }
+.portal-card--yellow .portal-card__tag { color: var(--status-yellow, #f2cc60); }
+.portal-card--indigo .portal-card__tag { color: var(--status-indigo, #7c8cf8); }
+.portal-card--green .portal-card__tag { color: var(--status-green, #7ee787); }
+.portal-card--gray .portal-card__tag { color: var(--status-gray, #8b949e); }
+
+/* ---------- 每日新款入口（今日卡 · 24h IANA 刷新） ---------- */
+.portal-today {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px 28px;
+  border-radius: var(--radius-lg, 16px);
+  border: 1px solid rgba(124, 140, 248, 0.35);
+  background: linear-gradient(120deg, rgba(124, 140, 248, 0.14), rgba(88, 166, 255, 0.08) 60%, transparent);
+}
+
+.portal-today__label {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--status-indigo, #7c8cf8);
+  font-weight: 600;
+}
+
+.portal-today__date {
+  margin: 6px 0 2px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #f2f6fb;
+}
+
+.portal-today__hint {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-secondary, #8fa3bd);
+}
+
+.portal-today__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* 色调变体（PortalTodayCard tone） */
+.portal-today--indigo {
+  border-color: rgba(124, 140, 248, 0.35);
+  background: linear-gradient(120deg, rgba(124, 140, 248, 0.14), rgba(88, 166, 255, 0.08) 60%, transparent);
+}
+
+.portal-today--indigo .portal-today__label { color: var(--status-indigo, #7c8cf8); }
+
+.portal-today--yellow {
+  border-color: rgba(242, 204, 96, 0.35);
+  background: linear-gradient(120deg, rgba(242, 204, 96, 0.13), rgba(88, 166, 255, 0.07) 60%, transparent);
+}
+
+.portal-today--yellow .portal-today__label { color: var(--status-yellow, #f2cc60); }
+
+.portal-today--green {
+  border-color: rgba(126, 231, 135, 0.32);
+  background: linear-gradient(120deg, rgba(126, 231, 135, 0.12), rgba(88, 166, 255, 0.07) 60%, transparent);
+}
+
+.portal-today--green .portal-today__label { color: var(--status-green, #7ee787); }
+
+/* ---------- 二级区（趣味工具带 · 底部弱化） ---------- */
+.portal-tools {
+  border-top: 1px solid var(--border-subtle, rgba(201, 214, 232, 0.1));
+  padding-top: 36px;
+}
+
+.portal-tools__title {
+  margin: 0 0 14px;
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  color: var(--text-secondary, #8fa3bd);
+  text-transform: uppercase;
+}
+
+.portal-tools__belt {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.portal-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: var(--radius-pill, 999px);
+  border: 1px solid var(--border-subtle, rgba(201, 214, 232, 0.14));
+  background: transparent;
+  color: var(--text-secondary, #8fa3bd);
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.16s ease, border-color 0.16s ease;
+}
+
+.portal-chip:hover {
+  color: #f2f6fb;
+  border-color: rgba(88, 166, 255, 0.4);
+}
+
+/* ---------- 合规句 ---------- */
+.portal-compliance {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 24px;
+  border-radius: var(--radius-md, 10px);
+  border: 1px dashed rgba(201, 214, 232, 0.18);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-secondary, #8fa3bd);
+}
+
+.portal-compliance strong {
+  color: var(--status-yellow, #f2cc60);
+  font-weight: 600;
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 720px) {
+  .portal-page { padding: 84px 14px 32px; }
+  .portal-page__inner { gap: 40px; }
+  .portal-hero { padding: 36px 22px; }
+  .portal-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portal-card { transition: none; }
+}

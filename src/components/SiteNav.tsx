@@ -48,6 +48,7 @@ const ENTRIES: NavEntry[] = [
       '/zodiac/buddha',
       '/zodiac/tai-sui',
       '/fortune/crystals',
+      '/living',
     ],
     groups: [
       {
@@ -71,6 +72,7 @@ const ENTRIES: NavEntry[] = [
       {
         heading: '今日黄历',
         items: [
+          { to: '/living', label: '生活历法', desc: '黄历/万年历/择日门户' },
           { to: '/almanac', label: '今日黄历', desc: '每日宜忌/冲煞' },
           { to: '/almanac/select', label: '择日工具', desc: '搬家/结婚/开业吉日' },
           { to: '/almanac/calendar', label: '万年历', desc: '农历公历对照' },
@@ -95,6 +97,7 @@ const ENTRIES: NavEntry[] = [
     homeLabel: '沉浸星空 ›',
     match: [
       '/sky',
+      '/stars',
       '/astrology/',
       '/wiki/astrology',
       '/knowledge/astrology/terms',
@@ -108,6 +111,7 @@ const ENTRIES: NavEntry[] = [
       {
         heading: '星座百科',
         items: [
+          { to: '/stars', label: '星律宇宙', desc: '真实星空 · 月相 · 星象日历' },
           { to: '/astrology/zodiac', label: '星座百科', desc: '四元素×三特质' },
           { to: '/astrology/celebrities', label: '星座名人', desc: '名人星盘资料' },
           { to: '/fortune/zodiac-profile', label: '星座命盘', desc: '性格/爱情/事业' },
@@ -140,11 +144,12 @@ const ENTRIES: NavEntry[] = [
     label: '知识',
     homeTo: '/knowledge',
     homeLabel: '进入知识库 ›',
-    match: ['/knowledge', '/lexicon', '/learn/', '/video', '/news', '/gems', '/faq', '/compliance'],
+    match: ['/knowledge', '/academy', '/lexicon', '/learn/', '/video', '/news', '/gems', '/faq', '/compliance'],
     groups: [
       {
         heading: '知识库',
         items: [
+          { to: '/academy', label: '知识学院', desc: '典籍/词条/课程门户' },
           { to: '/knowledge', label: '知识库', desc: '干支/五行/神煞/文章' },
           { to: '/knowledge/ganzhi', label: '干支知识', desc: '天干地支专题' },
           { to: '/knowledge/planets', label: '行星百科', desc: '行星/星座词条' },
@@ -212,6 +217,7 @@ const ENTRIES: NavEntry[] = [
       '/reminders',
       '/records',
       '/calendar/',
+      '/plus',
     ],
     groups: [
       {
@@ -233,6 +239,7 @@ const ENTRIES: NavEntry[] = [
       {
         heading: '会员与账户',
         items: [
+          { to: '/plus', label: '专家与会员', desc: '会员权益/专家/定价' },
           { to: '/vip', label: '会员权益', desc: 'VIP 会员权益' },
           { to: '/account/points', label: '积分中心', desc: '积分展示与任务' },
           { to: '/account/rewards', label: '奖励中心', desc: '任务/流水' },
