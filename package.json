@@ -65,6 +65,7 @@
     "@types/react-dom": "^19.1.9",
     "@types/three": "^0.186.0",
     "@vitejs/plugin-react": "^5.0.2",
+    "agentation": "^3.1.2",
     "cnchar": "3.2.6",
     "cnchar-trad": "3.2.6",
     "eslint": "^10.3.0",
