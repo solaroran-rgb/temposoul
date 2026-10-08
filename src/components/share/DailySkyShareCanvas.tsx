@@ -50,12 +50,13 @@ function wrapText(ctx: CanvasRenderingContext2D, text: string, maxWidth: number)
 }
 
 function drawNebulaAndStars(ctx: CanvasRenderingContext2D, seed: string): void {
-  // 底：void → bg-base 垂直渐变
-  const bg = ctx.createLinearGradient(0, 0, 0, 432);
+  // 底：void → bg-base 垂直渐变，铺满整张 1080×1080（上下无透明区，浅色字在任何平台可读）
+  const bg = ctx.createLinearGradient(0, 0, 0, H);
   bg.addColorStop(0, C_BG_VOID);
+  bg.addColorStop(0.4, '#0B0E13');
   bg.addColorStop(1, C_BG_BASE);
   ctx.fillStyle = bg;
-  ctx.fillRect(0, 0, W, 432);
+  ctx.fillRect(0, 0, W, H);
 
   // 星云团：两处极淡的青/蓝径向光雾
   const rnd = seededRandom(seed);

@@ -274,3 +274,64 @@
     transition: none !important;
   }
 }
+
+/* ============================================================
+ * 验收⑥修复：首页作用域强制暗黑星云
+ * 根因：styles.css :root 定义浅色 --surface-*（#ffffff 系），暗色覆盖仅在
+ * @media (prefers-color-scheme: dark) 内；浅色系统客户端不命中 → 旧组件白底。
+ * 此处仅在 .input-page-shell（首页根）内覆盖旧 token 族为 E-11 暗黑值，
+ * 级联给所有消费 var(--surface-*) 的旧组件；作用域不出首页，不影响其他页面。
+ * ============================================================ */
+.input-page-shell {
+  color-scheme: dark;
+  min-height: 100vh;
+  min-height: 100svh;
+  background:
+    radial-gradient(1200px 800px at 72% -10%, rgba(88, 166, 255, 0.1), transparent 60%),
+    linear-gradient(180deg, #0e1116 0%, #070a12 100%);
+
+  /* 旧 surface token 族 → 暗黑星云值 */
+  --surface-page: #0e1116;
+  --surface-page-end: #141a24;
+  --surface-base: #141a24;
+  --surface-base-rgb: 20 26 36;
+  --surface-panel: rgba(20, 26, 36, 0.82);
+  --surface-elevated: rgba(20, 26, 36, 0.9);
+  --surface-elevated-strong: rgba(20, 26, 36, 0.96);
+  --surface-soft: rgba(20, 26, 36, 0.9);
+  --surface-soft-solid: #141a24;
+  --surface-muted: rgba(27, 36, 48, 0.9);
+  --surface-muted-solid: #1b2430;
+  --surface-overlay: rgba(14, 17, 22, 0.92);
+
+  /* 旧 text token 族 → 白正文 */
+  --text-primary: #e6edf3;
+  --text-strong: #f2f6fb;
+  --text-secondary: #8fa3bd;
+  --text-muted: #c9d6e8;
+  --text-soft: #8b949e;
+
+  /* 旧 border token 族 → 冷灰边 */
+  --border-soft: rgba(201, 214, 232, 0.14);
+  --border-strong: rgba(201, 214, 232, 0.24);
+  --border-contrast: rgba(201, 214, 232, 0.2);
+
+  /* 浅粉/紫 accent 面压暗，避免暗底上洗出浅色块 */
+  --accent-surface: rgba(88, 166, 255, 0.1);
+  --accent-surface-solid: #1b2430;
+  --accent-soft: rgba(88, 166, 255, 0.12);
+  --accent-soft-strong: rgba(88, 166, 255, 0.18);
+  --secondary-soft: rgba(201, 214, 232, 0.1);
+  --secondary-soft-strong: rgba(201, 214, 232, 0.16);
+  --highlight-soft: rgba(88, 166, 255, 0.12);
+}
+
+/* 硬编码对比修补（首页作用域内）：
+ * .secondary-page-button 文字色 = var(--surface-base)，覆盖后变深色，在暗紫按钮上不可见 → 翻白；
+ * segmented 激活态文字色 = 旧 accent-deep（暗粉）在暗指示器上对比不足 → 亮青。 */
+.input-page-shell .secondary-page-button {
+  color: #e6edf3;
+}
+.input-page-shell .segmented-control-item-react.active {
+  color: #7ee7ff;
+}
