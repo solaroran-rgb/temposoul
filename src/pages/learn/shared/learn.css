@@ -138,3 +138,66 @@
   color: #8d8aa8;
   line-height: 1.7;
 }
+
+/* 课程目录（服务端优先，/learn/ziwei 主入口） */
+.learn-catalog {
+  margin: 4px 0 32px;
+}
+.learn-section-title {
+  font-size: 18px;
+  margin: 0 0 12px;
+  color: #e8e6f2;
+}
+.learn-catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+}
+.learn-course {
+  gap: 8px;
+}
+.learn-course.is-static {
+  cursor: default;
+}
+.learn-course__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.learn-tag {
+  font-size: 11px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  border: 1px solid;
+}
+.learn-tag--free {
+  color: #7ee0a3;
+  border-color: rgba(126, 224, 163, 0.4);
+  background: rgba(126, 224, 163, 0.08);
+}
+.learn-tag--member {
+  color: #ffd166;
+  border-color: rgba(255, 209, 102, 0.4);
+  background: rgba(255, 209, 102, 0.08);
+}
+.learn-tag--soon {
+  color: #8d8aa8;
+  border-color: rgba(141, 138, 168, 0.35);
+  background: rgba(141, 138, 168, 0.08);
+}
+.learn-course__cta {
+  font-size: 13px;
+  color: #a99fe8;
+}
+.learn-gate {
+  padding: 32px 20px;
+  text-align: center;
+  border: 1px dashed rgba(140, 130, 210, 0.35);
+  border-radius: 10px;
+  color: #b7b3cf;
+  line-height: 1.8;
+}
+.learn-gate a {
+  color: #a99fe8;
+  text-decoration: none;
+}

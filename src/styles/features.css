@@ -246,6 +246,38 @@
   color: var(--accent-strong, #cb4f97);
 }
 
+/* 登录方式切换（密码 / 邮箱验证码） */
+.auth-tabs {
+  display: flex;
+  gap: 6px;
+}
+
+.auth-tab {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid var(--border-strong, rgba(180, 161, 199, 0.3));
+  border-radius: 10px;
+  background: transparent;
+  font-size: 13px;
+  color: var(--text-secondary, #65566f);
+  cursor: pointer;
+}
+
+.auth-tab.active {
+  border-color: var(--accent, #de5aa6);
+  color: var(--accent-strong, #cb4f97);
+  font-weight: 600;
+}
+
+.auth-otp-send {
+  margin-top: 0;
+  background: var(--surface-base, #fff);
+  color: var(--accent-strong, #cb4f97);
+  border: 1px solid var(--accent, #de5aa6);
+  font-size: 14px;
+  font-weight: 600;
+}
+
 .auth-notice,
 .auth-error {
   margin: 0;
@@ -446,6 +478,75 @@
   margin: 0;
   font-size: 12px;
   color: var(--text-muted, #877992);
+}
+
+/* 经典典籍区块（服务端优先 + 静态降级，深色星云风卡片） */
+.lexicon-degraded-note {
+  margin: 0 0 12px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  color: #ffd166;
+  border: 1px solid rgba(255, 209, 102, 0.35);
+  background: rgba(40, 34, 20, 0.45);
+}
+
+.lexicon-classics {
+  margin-top: 40px;
+}
+
+.lexicon-classics__title {
+  margin: 0 0 4px;
+  font-size: 20px;
+  color: #e8e6f2;
+}
+
+.lexicon-classics__sub {
+  margin: 0 0 16px;
+  font-size: 13px;
+  color: #8d8aa8;
+}
+
+.lexicon-classics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.lexicon-classic-card {
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(140, 130, 210, 0.25);
+  background: rgba(20, 18, 40, 0.55);
+}
+
+.lexicon-classic-card h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  color: #e8e6f2;
+}
+
+.lexicon-classic-card__meta {
+  margin: 0 0 8px;
+  font-size: 12px;
+  color: #a99fe8;
+}
+
+.lexicon-classic-card p {
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #b7b3cf;
+}
+
+.lexicon-classic-card__foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lexicon-ready {
+  color: #7ee0a3;
 }
 
 /* ===== 信任引擎 TrustBanner（T0–T6 信任漏斗横幅） ===== */
