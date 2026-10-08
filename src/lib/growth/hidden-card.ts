@@ -11,13 +11,13 @@
 //   djb2 种子思路参考 daily-sky/corpus.ts 的 pickDailyQuote，但引文库与哈希在此独立
 //   实现，避免与每日片形成循环依赖。
 // - 全部文案过 filterBannedWords；任一字段命中禁词 → 整条中性兜底。
-// - 隐藏卡=内容权益，无现金措辞；合规句为规格冻结的「此为传统命律观点」。
+// - 隐藏卡=内容权益，无现金措辞；合规句对齐全站统一的「此为传统命理观点」。
 
 import { filterBannedWords, hasBannedWord } from '@/lib/client-compliance';
 import { getDailyKey } from '@/lib/daily-sky/dailyKey';
 
-/** 全站统一合规句（本批隐藏卡冻结措辞）。 */
-export const COMPLIANCE_LINE = '此为传统命律观点' as const;
+/** 全站统一合规句（对齐 daily.ts COMPLIANCE_LINE，全站唯一措辞）。 */
+export const COMPLIANCE_LINE = '此为传统命理观点' as const;
 
 /** 隐藏卡内容（规格 §2.4 冻结字段）。 */
 export interface HiddenCardContent {

@@ -89,9 +89,9 @@ test('内容全字段 hasBannedWord === false（跨多个 dateKey 扫描）', ()
 });
 
 test('compliance 字段恒为全站统一合规句', () => {
-  assert.equal(COMPLIANCE_LINE, '此为传统命律观点');
+  assert.equal(COMPLIANCE_LINE, '此为传统命理观点');
   for (let i = 1; i <= 10; i += 1) {
     const d = `2026-11-${String(i).padStart(2, '0')}`;
-    assert.equal(getHiddenCardContent(d).compliance, '此为传统命律观点');
+    assert.equal(getHiddenCardContent(d).compliance, '此为传统命理观点');
   }
 });
