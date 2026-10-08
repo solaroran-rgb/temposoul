@@ -228,6 +228,27 @@ const CONTENT_LOADERS: Record<string, () => Promise<{ default: KnowledgeArticle 
   "jieqi-nongshi-intro": () => import('./content/solar-terms/jieqi-nongshi-intro'),
   "lvlv-houqi-intro": () => import('./content/solar-terms/lvlv-houqi-intro'),
   "suishi-jieri-intro": () => import('./content/solar-terms/suishi-jieri-intro'),
+  // T-18E 续批 III · WP-18 十段词条（20 篇，2026-10-09：星官补遗/生活美学/经典思想/星辰民俗）
+  "shi-bi-su-intro": () => import('./content/board-terms/shi-bi-su-intro'),
+  "kuilouwei-su-intro": () => import('./content/board-terms/kuilouwei-su-intro'),
+  "bizi-su-intro": () => import('./content/board-terms/bizi-su-intro'),
+  "jinggui-su-intro": () => import('./content/board-terms/jinggui-su-intro'),
+  "liuxingzhang-su-intro": () => import('./content/board-terms/liuxingzhang-su-intro'),
+  "yizhen-su-intro": () => import('./content/board-terms/yizhen-su-intro'),
+  "shierci-intro": () => import('./content/board-terms/shierci-intro'),
+  "sixiang-siji-intro": () => import('./content/board-terms/sixiang-siji-intro'),
+  "qixi-wenhua-intro": () => import('./content/board-terms/qixi-wenhua-intro'),
+  "zhongqiu-baiyue-intro": () => import('./content/board-terms/zhongqiu-baiyue-intro'),
+  "cha-dao-intro": () => import('./content/board-terms/cha-dao-intro'),
+  "xiangdao-intro": () => import('./content/board-terms/xiangdao-intro'),
+  "qindao-intro": () => import('./content/board-terms/qindao-intro'),
+  "yuanlin-meixue-intro": () => import('./content/board-terms/yuanlin-meixue-intro'),
+  "shufa-zhi-mei-intro": () => import('./content/board-terms/shufa-zhi-mei-intro'),
+  "qiwu-yacheng-intro": () => import('./content/board-terms/qiwu-yacheng-intro'),
+  "shijing-guanju-intro": () => import('./content/board-terms/shijing-guanju-intro'),
+  "lunyu-xueer-intro": () => import('./content/board-terms/lunyu-xueer-intro'),
+  "zhuangzi-qiushui-intro": () => import('./content/board-terms/zhuangzi-qiushui-intro'),
+  "sunzi-shiji-intro": () => import('./content/board-terms/sunzi-shiji-intro'),
 };
 
 /** ② 干支真值表 → 文章编译器（1 表驱动 22 页，永不与引擎分叉） */
