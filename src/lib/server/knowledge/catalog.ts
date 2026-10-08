@@ -57,8 +57,9 @@ export const LEXICON_CATEGORIES: readonly LexiconCategory[] = [
 ] as const;
 
 // 穷举校验：若 LexiconCategory 新增成员而漏收，下面类型为 false，编译报错。
+// export 该类型以规避 noUnusedLocals（tsconfig.app.json 开启），不影响运行时与对外接口形状。
 type Assert<T extends true> = T;
-type _CategoriesCoverUnion = Assert<
+export type _CategoriesCoverUnion = Assert<
   [LexiconCategory] extends [(typeof LEXICON_CATEGORIES)[number]] ? true : false
 >;
 
