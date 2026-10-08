@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
+import AgentationHost from '@/components/AgentationHost';
 import { I18nProvider } from '@/i18n';
 import { AuthProvider } from '@/lib/auth/AuthContext';
 import { registerServiceWorker } from './registerServiceWorker';
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <AuthProvider>
         <BrowserRouter>
           <App />
+          <AgentationHost />
         </BrowserRouter>
       </AuthProvider>
     </I18nProvider>

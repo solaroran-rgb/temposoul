@@ -140,6 +140,9 @@ const isAiBuiltinEnabled = aiBuiltinFlag === 'true' && hasAiApiKey;
 const isAiDefaultEnabled = isAiBuiltinEnabled && readBuildEnv('AI_DEFAULT_ENABLED') === 'true';
 const aiProviderName = readBuildEnv('AI_PROVIDER_NAME') ?? '';
 const isDonationBoxEnabled = readBuildEnv('VITE_ENABLE_DONATION_BOX') === 'true';
+// dev-only 标注工具栏开关（默认关闭；开启时由 AgentationHost 动态 import 包，
+// 关闭时整分支被 tree-shake，产物不含 agentation 代码）
+const isAgentationEnabled = readBuildEnv('VITE_ENABLE_AGENTATION') === 'true';
 
 /**
  * iztro-vendor 是 CommonJS 整包（无 ESM 子路径），main build 与 worker build
@@ -176,6 +179,9 @@ export default defineConfig({
     'import.meta.env.VITE_AI_PROVIDER_NAME': JSON.stringify(aiProviderName),
     'import.meta.env.VITE_ENABLE_DONATION_BOX': JSON.stringify(
       isDonationBoxEnabled ? 'true' : 'false',
+    ),
+    'import.meta.env.VITE_ENABLE_AGENTATION': JSON.stringify(
+      isAgentationEnabled ? 'true' : 'false',
     ),
   },
   plugins: [react(), aiProxyDevPlugin(), preloadLandingChunkPlugin()],
