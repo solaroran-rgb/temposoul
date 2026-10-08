@@ -182,6 +182,27 @@ const CONTENT_LOADERS: Record<string, () => Promise<{ default: KnowledgeArticle 
   "ziwei-fuyao-intro": () => import('./content/board-terms/ziwei-fuyao-intro'),
   "western-zodiac-intro": () => import('./content/board-terms/western-zodiac-intro'),
   "vedic-uccha-intro": () => import('./content/board-terms/vedic-uccha-intro'),
+  // T-18C 续批 · WP-18 十段词条（20 篇，2026-10-08：星空/天文历法/节律美学/易经文化/命理术语）
+  'beidou-intro': () => import('./content/board-terms/beidou-intro'),
+  'dizhi-xiangpo-intro': () => import('./content/board-terms/dizhi-xiangpo-intro'),
+  'guolaoxingzong-intro': () => import('./content/board-terms/guolaoxingzong-intro'),
+  'liushisi-gua-intro': () => import('./content/board-terms/liushisi-gua-intro'),
+  'lunar-cycle-intro': () => import('./content/board-terms/lunar-cycle-intro'),
+  'meiyu-intro': () => import('./content/solar-terms/meiyu-intro'),
+  'riyue-shi-intro': () => import('./content/board-terms/riyue-shi-intro'),
+  'runyue-intro': () => import('./content/board-terms/runyue-intro'),
+  'sanfu-intro': () => import('./content/solar-terms/sanfu-intro'),
+  'sanyuan-intro': () => import('./content/board-terms/sanyuan-intro'),
+  'shaoshi-shenshu-intro': () => import('./content/board-terms/shaoshi-shenshu-intro'),
+  'shenxiu-intro': () => import('./content/board-terms/shenxiu-intro'),
+  'shier-xiaoxi-gua-intro': () => import('./content/board-terms/shier-xiaoxi-gua-intro'),
+  'shujiu-intro': () => import('./content/solar-terms/shujiu-intro'),
+  'suixing-jinian-intro': () => import('./content/board-terms/suixing-jinian-intro'),
+  'tianqian-wuhe-intro': () => import('./content/board-terms/tianqian-wuhe-intro'),
+  'tieban-shenshu-intro': () => import('./content/board-terms/tieban-shenshu-intro'),
+  'yanqin-intro': () => import('./content/board-terms/yanqin-intro'),
+  'yuefen-yacheng-intro': () => import('./content/solar-terms/yuefen-yacheng-intro'),
+  'zhinv-niulang-intro': () => import('./content/board-terms/zhinv-niulang-intro'),
 };
 
 /** ② 干支真值表 → 文章编译器（1 表驱动 22 页，永不与引擎分叉） */
