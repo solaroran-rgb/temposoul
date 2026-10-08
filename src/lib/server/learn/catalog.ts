@@ -1,14 +1,24 @@
 /**
  * N-14 课程目录（服务端权威真值源）
  *
+ * 课程（对齐 B 线 N-14，共 4 门，id 即 B 线课程 id）：
+ *   - bazi-101    八字入门
+ *   - ziwei-101    紫微斗数入门
+ *   - tarot-101    塔罗入门
+ *   - astro-201    西洋占星入门
+ *
  * 纪律：
  *   - 价格/权益状态只从服务端读，前端不得硬编码；
  *   - 课时正文复用 src/data/content/learn（与前端同源，单一真值源）；
- *   - 反假红线：当前全部课程 access=free / priceCents=0，未开售前不虚构价格。
+ *   - 反假红线：当前全部课程 access=free / priceCents=0，未开售前不虚构价格；
+ *   - 占卜入门（divination-tutorial.data.ts）不在 B 线 4 门内，已从本目录移除，
+ *     文件保留供前端静态降级页使用。
  */
 
 import { ZIWEI_TUTORIAL } from '../../../data/content/learn/ziwei-tutorial.data';
-import { DIV_TUTORIAL } from '../../../data/content/learn/divination-tutorial.data';
+import { BAZI_TUTORIAL } from '../../../data/content/learn/bazi-tutorial.data';
+import { TAROT_TUTORIAL } from '../../../data/content/learn/tarot-tutorial.data';
+import { ASTRO_TUTORIAL } from '../../../data/content/learn/astro-tutorial.data';
 import { LEARN_DISCLAIMER, type LessonRecord } from '../../../data/content/learn/types';
 
 export type CourseAccess = 'free' | 'member';
@@ -30,8 +40,20 @@ export interface CourseMeta {
 
 export const COURSES: readonly CourseMeta[] = [
   {
-    id: 'course-ziwei',
-    slug: 'ziwei',
+    id: 'bazi-101',
+    slug: 'bazi-101',
+    title: '八字入门',
+    desc: '四柱、干支、五行十神到用神，五章建立子平命理的文化框架与理性边界。',
+    level: 'beginner',
+    access: 'free',
+    priceCents: 0,
+    currency: 'CNY',
+    lessons: BAZI_TUTORIAL,
+    aiPendingReview: true,
+  },
+  {
+    id: 'ziwei-101',
+    slug: 'ziwei-101',
     title: '紫微斗数入门',
     desc: '从十四主星、十二宫到四化与大运，六章建立读盘的基本框架。',
     level: 'beginner',
@@ -42,15 +64,27 @@ export const COURSES: readonly CourseMeta[] = [
     aiPendingReview: true,
   },
   {
-    id: 'course-divination',
-    slug: 'divination',
-    title: '占卜入门',
-    desc: '六爻、梅花与塔罗的入门路径，四章讲清起卦、取象与解读边界。',
+    id: 'tarot-101',
+    slug: 'tarot-101',
+    title: '塔罗入门',
+    desc: '七十八张牌的构成、大小阿卡那与牌阵解读，五章把塔罗用成自我对话的镜子。',
     level: 'beginner',
     access: 'free',
     priceCents: 0,
     currency: 'CNY',
-    lessons: DIV_TUTORIAL,
+    lessons: TAROT_TUTORIAL,
+    aiPendingReview: true,
+  },
+  {
+    id: 'astro-201',
+    slug: 'astro-201',
+    title: '西洋占星入门',
+    desc: '星盘、黄道十二宫、行星到宫位相位，五章读懂一张本命盘的大意。',
+    level: 'beginner',
+    access: 'free',
+    priceCents: 0,
+    currency: 'CNY',
+    lessons: ASTRO_TUTORIAL,
     aiPendingReview: true,
   },
 ];
