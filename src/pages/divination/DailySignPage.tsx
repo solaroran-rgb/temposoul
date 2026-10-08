@@ -64,6 +64,8 @@ export default function DailySignPage({ type }: Props) {
     [searchParams],
   );
   const chart = useMemo(() => {
+    // 无出生参数直连（如 /lingsign/guanyin 无 ?year= 等）时跳过排盘，避免 buildPersonFromInput 抛"出生年份必须是整数"
+    if (!input.year || !input.month || !input.day) return null;
     try {
       const person = buildPersonFromInput({
         gender: input.gender,
