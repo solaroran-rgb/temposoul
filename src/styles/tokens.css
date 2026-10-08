@@ -1,0 +1,102 @@
+/* ============================================================
+ * E-11 终审裁决 · A 席视觉 Tokens 落库（S-6 首页重构批）
+ * 主视觉：月相银辉 × 瑞士编辑部；暗黑星云深色基底；白正文禁白卡片。
+ * 来源：专家论证稿_20261008_034942.md §四（A 席 tokens 全文）+ 兼容桥。
+ * 追加（本批）：--holo-accent-cyan 过渡别名 + 既有 holographic 令牌兼容桥，
+ *   保证现有组件（holographic-tokens.ts 注入族）视觉零回归。
+ * ============================================================ */
+:root {
+  /* primitive: space */
+  --space-950: #070A12;
+  --space-900: #0E1116;
+  --space-800: #141A24;
+  --space-700: #1B2430;
+
+  /* primitive: lunar */
+  --lunar-100: #F2F6FB;
+  --lunar-300: #C9D6E8;
+  --lunar-500: #8FA3BD;
+
+  /* primitive: cyan */
+  --cyan-500: #58A6FF;
+
+  /* primitive: status (五色状态) */
+  --status-red: #FF7B72;
+  --status-yellow: #F2CC60;
+  --status-indigo: #7C8CF8;
+  --status-green: #7EE787;
+  --status-gray: #8B949E;
+
+  /* semantic */
+  --bg-base: var(--space-900);
+  --bg-elevated: var(--space-800);
+  --bg-overlay: rgba(14, 17, 22, 0.72);
+  --text-primary: #E6EDF3;
+  --text-secondary: var(--lunar-500);
+  --accent-primary: var(--cyan-500);
+  --accent-lunar: var(--lunar-300);
+  --border-subtle: rgba(201, 214, 232, 0.14);
+  --focus-ring: var(--cyan-500);
+
+  /* transition: holo-accent-cyan 迁移过渡，R3 后删除（当前仓库实测 0 处引用，保留作兼容别名） */
+  --holo-accent-cyan: var(--accent-primary);
+
+  /* component */
+  --button-primary-bg: var(--accent-lunar);
+  --button-primary-text: var(--space-950);
+  --button-secondary-bg: transparent;
+  --button-secondary-border: var(--border-subtle);
+  --card-bg: rgba(20, 26, 36, 0.72);
+  --card-border: var(--border-subtle);
+  --nav-bg: rgba(14, 17, 22, 0.86);
+
+  /* spacing: 8pt */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+  --sp-24: 96px;
+
+  /* radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* typography */
+  --font-serif-en: "Source Serif 4", "EB Garamond", Georgia, serif;
+  --font-sans-en: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif-zh: "Noto Serif SC", "Songti SC", serif;
+  --font-sans-zh: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+
+  /* motion */
+  --motion-fast: 120ms;
+  --motion-base: 220ms;
+  --motion-slow: 420ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* ============ 兼容桥（既有 holographic-tokens 族，防视觉回归） ============ */
+  --bg-void: #000000;
+  --grid-dark: rgba(0, 229, 255, 0.08);
+  --cyan-core: #00E5FF;
+  --cyan-glow: rgba(0, 229, 255, 0.35);
+  --cyan-dim: #008B99;
+  --cyan-constellation: rgba(77, 208, 225, 0.4);
+  --text-bright: #FFFFFF;
+  --text-dim: rgba(255, 255, 255, 0.6);
+  --accent-warm: #FF8C00;
+  --font-mono: 'JetBrains Mono', 'Space Grotesk', monospace;
+  --neon-pink: #FF4D6D;
+  --neon-cyan: #4DC3FF;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-fast: 0ms;
+    --motion-base: 0ms;
+    --motion-slow: 0ms;
+  }
+}

@@ -33,8 +33,10 @@ import AlmanacShareCard from '@/components/AlmanacShareCard';
 import { AlmanacCard } from '@/components/almanac/AlmanacCard';
 import { RhythmCard } from '@/components/fortune/RhythmCard';
 import { HomeShortcuts } from '@/components/home/HomeShortcuts';
-import { DualEntryGate } from '@/components/home/DualEntryGate';
-import { StarfieldBackground } from '@/components/StarfieldBackground';
+import { HomeHero } from '@/components/home/HomeHero';
+import { HomeExploreSection } from '@/components/home/HomeExploreSection';
+import { HomeToolsSection } from '@/components/home/HomeToolsSection';
+import '@/components/home/home.css';
 import { SeoHead } from '@/components/SeoHead';
 import { FeatureHighlights } from './InputPage.FeatureHighlights';
 import { SubmitProgress } from './InputPage.SubmitProgress';
@@ -56,6 +58,9 @@ const LazyDivinationPanel = lazy(async () => {
   const module = await import('@/components/DivinationPanel');
   return { default: module.DivinationPanel };
 });
+
+// ② 今日星象卡：每日片模块（当前为 TEMP 占位），首屏经 Suspense 占位保底、非空
+const LazyDailySkyCard = lazy(() => import('@/components/daily-sky/DailySkyCard'));
 
 export function InputPage() {
   const navigate = useNavigate();
@@ -117,6 +122,15 @@ export function InputPage() {
           };
     });
   }, [searchParams]);
+
+  // E-11 S-6：DualEntryGate 已从首屏移除，一次性清理 localStorage 'user-track' 遗留键（防技术债）
+  useEffect(() => {
+    try {
+      window.localStorage.removeItem('user-track');
+    } catch {
+      /* 隐私模式下不可用，忽略 */
+    }
+  }, []);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -479,6 +493,16 @@ export function InputPage() {
     </div>
   );
 
+  // ② 今日星象卡 Suspense 静态占位：保证首屏非空（TEMP 卡就绪后被真实内容替换）
+  const dailySkyFallback = (
+    <article className="daily-sky home-card" aria-hidden="true">
+      <p className="daily-sky__meta">正在校准今日星象…</p>
+      <h2 className="daily-sky__title home-skeleton-line" />
+      <p className="daily-sky__note home-skeleton-line home-skeleton-line--long" />
+      <p className="daily-sky__compliance">此为传统命理观点</p>
+    </article>
+  );
+
   return (
     <div
       className={`page-shell input-page-shell ${tutorialEntryPinned ? 'has-floating-tutorial-entry' : ''}`}
@@ -489,84 +513,226 @@ export function InputPage() {
         description="免费在线八字排盘、紫微斗数、西洋星盘与每日运势，输入出生信息即可获得 AI 深度命理解读。"
       />
       <div className="bazi-view-container">
+        {/* ① HomeHero：真实星空全屏（WebGL2→Canvas2D→SVG 三层降级） */}
+        <HomeHero />
+
+        {/* ② 今日星象卡：Suspense 静态占位保底，首屏非空 */}
+        <section id="today-sky" className="home-today">
+          <Suspense fallback={dailySkyFallback}>
+            <LazyDailySkyCard />
+          </Suspense>
+        </section>
+
+        {/* ③ 知识双轨入口 */}
+        <HomeExploreSection />
+
         <div className="input-page-main-content" ref={mainContentRef}>
           <PrivacyHint />
           {/* P1-2 Trust Engine: 输入页挂载 — 覆盖 T0/T3（空表单）/ T5（已填）/ T4（占卜·择日）。 */}
           <TrustBanner inputMode={entryMode} inputHasContent={inputHasContent} />
 
-          {/* H02 · 档案一次录入：当前档案快捷条（自动复用 + 管理入口） */}
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 10,
-              maxWidth: 600,
-              margin: '0 auto 14px',
-              padding: '10px 14px',
-              borderRadius: 12,
-              border: '1px solid rgba(255,255,255,0.08)',
-              background: 'rgba(15,23,42,0.45)',
-              fontSize: 13,
-              color: '#94a3b8',
-              flexWrap: 'wrap',
-            }}
-          >
-            <span style={{ fontWeight: 600, color: '#cbd5e1' }}>个人档案</span>
-            {currentProfile ? (
-              <span style={{ flex: '1 1 auto', minWidth: 160 }}>
-                {currentProfile.name}
-                <span style={{ color: '#64748b' }}>
-                  （{formatProfileSummary(currentProfile)}）
-                </span>
-                <span style={{ color: '#64748b' }}> · 已自动带入</span>
-              </span>
-            ) : (
-              <span style={{ flex: '1 1 auto', minWidth: 160, color: '#64748b' }}>
-                首次排盘将自动保存为档案，下次自动复用
-              </span>
-            )}
-            <button
-              type="button"
-              className="top-ai-settings-icon-button"
-              onClick={() => navigate('/profile')}
+          {/* ④ 工具中心区：排盘表单全部收进此处，既有功能零删改 */}
+          <HomeToolsSection>
+            {/* H02 · 档案一次录入：当前档案快捷条（自动复用 + 管理入口） */}
+            <div
               style={{
-                border: '1px solid rgba(255,255,255,0.14)',
-                borderRadius: 8,
-                padding: '5px 10px',
-                fontSize: 12,
-                whiteSpace: 'nowrap',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 10,
+                maxWidth: 600,
+                margin: '0 auto 14px',
+                padding: '10px 14px',
+                borderRadius: 12,
+                border: '1px solid rgba(255,255,255,0.08)',
+                background: 'rgba(15,23,42,0.45)',
+                fontSize: 13,
+                color: '#94a3b8',
+                flexWrap: 'wrap',
               }}
-              aria-label="管理档案"
-              title="管理档案"
             >
-              管理档案
-            </button>
-          </div>
-
-          <div className="analysis-mode-strip">
-            <div className="top-switch-control">
-              <SegmentedControl
-                value={entryMode}
-                options={[
-                  { label: '排盘', value: 'single' as const },
-                  { label: '合盘', value: 'compatibility' as const },
-                  { label: '占卜', value: 'divination' as const },
-                  { label: '择日', value: 'almanac' as const },
-                ]}
-                onChange={updateEntryMode}
-              />
+              <span style={{ fontWeight: 600, color: '#cbd5e1' }}>个人档案</span>
+              {currentProfile ? (
+                <span style={{ flex: '1 1 auto', minWidth: 160 }}>
+                  {currentProfile.name}
+                  <span style={{ color: '#64748b' }}>
+                    （{formatProfileSummary(currentProfile)}）
+                  </span>
+                  <span style={{ color: '#64748b' }}> · 已自动带入</span>
+                </span>
+              ) : (
+                <span style={{ flex: '1 1 auto', minWidth: 160, color: '#64748b' }}>
+                  首次排盘将自动保存为档案，下次自动复用
+                </span>
+              )}
               <button
                 type="button"
                 className="top-ai-settings-icon-button"
-                onClick={() => setIsAiSettingsModalOpen(true)}
-                aria-label="AI 设置"
-                title="AI 设置"
+                onClick={() => navigate('/profile')}
+                style={{
+                  border: '1px solid rgba(255,255,255,0.14)',
+                  borderRadius: 8,
+                  padding: '5px 10px',
+                  fontSize: 12,
+                  whiteSpace: 'nowrap',
+                }}
+                aria-label="管理档案"
+                title="管理档案"
               >
-                <span aria-hidden="true">⚙</span>
+                管理档案
               </button>
             </div>
-          </div>
 
+            <div className="analysis-mode-strip">
+              <div className="top-switch-control">
+                <SegmentedControl
+                  value={entryMode}
+                  options={[
+                    { label: '排盘', value: 'single' as const },
+                    { label: '合盘', value: 'compatibility' as const },
+                    { label: '占卜', value: 'divination' as const },
+                    { label: '择日', value: 'almanac' as const },
+                  ]}
+                  onChange={updateEntryMode}
+                />
+                <button
+                  type="button"
+                  className="top-ai-settings-icon-button"
+                  onClick={() => setIsAiSettingsModalOpen(true)}
+                  aria-label="AI 设置"
+                  title="AI 设置"
+                >
+                  <span aria-hidden="true">⚙</span>
+                </button>
+              </div>
+            </div>
+
+            {/* X1-D-03 · 合参首页入口卡：双盘并置对照互参 */}
+            <button
+              type="button"
+              onClick={() => navigate('/synthesis')}
+              style={{
+                display: 'flex',
+                width: '100%',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: 12,
+                margin: '0 0 16px',
+                padding: '14px 16px',
+                textAlign: 'left',
+                borderRadius: 12,
+                border: '1px solid rgba(255, 77, 109, 0.28)',
+                background:
+                  'linear-gradient(135deg, rgba(255,77,109,0.10) 0%, rgba(77,195,255,0.10) 100%)',
+                cursor: 'pointer',
+              }}
+            >
+              <span>
+                <span style={{ display: 'block', fontSize: 15, fontWeight: 600, color: '#f1f5f9' }}>
+                  八字紫微合参
+                </span>
+                <span
+                  style={{
+                    display: 'block',
+                    fontSize: 12,
+                    color: '#94a3b8',
+                    marginTop: 4,
+                    lineHeight: 1.6,
+                  }}
+                >
+                  并置八字与紫微两套命盘，逐主题结构化对照互参
+                </span>
+              </span>
+              <span style={{ fontSize: 18, color: '#ff4d6d', flexShrink: 0 }}>›</span>
+            </button>
+
+            {/* 7.2 十二项特色功能清单：每个排盘项目一句"本项特色" */}
+            <FeatureHighlights />
+
+            <div className="analysis-view">
+              {entryMode === 'divination' || entryMode === 'almanac' ? (
+                <Suspense fallback={divinationPanelFallback}>
+                  <LazyDivinationPanel
+                    initialMethod={entryMode === 'almanac' ? 'almanac' : undefined}
+                    lockedMethod={entryMode === 'almanac' ? 'almanac' : undefined}
+                  />
+                </Suspense>
+              ) : (
+                <div className="form-wrapper">
+                  <>
+                    <PersonForm
+                      role="self"
+                      form={form}
+                      updatePersonField={updatePersonField}
+                      updateNumericField={updateNumericField}
+                      updateBirthTime={updateBirthTime}
+                      openBirthPlaceModal={birthPlace.openBirthPlaceModal}
+                      historyHint={
+                        form.analysisMode === 'single'
+                          ? '填写一份个人信息，自动生成八字、紫微和住宅风水入口；填写精准时间与出生地后，同时生成星盘和七政四余。'
+                          : undefined
+                      }
+                    />
+                    {entryMode === 'compatibility' ? (
+                      <PersonForm
+                        role="partner"
+                        form={form}
+                        updatePersonField={updatePersonField}
+                        updateNumericField={updateNumericField}
+                        updateBirthTime={updateBirthTime}
+                        openBirthPlaceModal={birthPlace.openBirthPlaceModal}
+                      />
+                    ) : null}
+
+                    {error ? (
+                      <div
+                        className="form-error-text global-form-error"
+                        role="alert"
+                        aria-live="polite"
+                      >
+                        {error}
+                      </div>
+                    ) : null}
+
+                    <div
+                      className="form-actions page-submit-actions"
+                      style={{
+                        width: '100%',
+                        gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+                        justifyItems: 'stretch',
+                      }}
+                    >
+                      <button
+                        className="secondary-page-button"
+                        type="button"
+                        style={{ width: '100%' }}
+                        onClick={() =>
+                          navigate(
+                            `/records?tab=${entryMode === 'compatibility' ? 'compatibility' : 'personal'}`,
+                          )
+                        }
+                      >
+                        历史记录
+                      </button>
+                      <button
+                        className="primary-button start-submit-button"
+                        type="button"
+                        onClick={handleSubmit}
+                        disabled={submitBusy}
+                        style={{ width: '100%' }}
+                      >
+                        开始排盘
+                      </button>
+                    </div>
+                  </>
+                </div>
+              )}
+            </div>
+
+            {/* HomeShortcuts 折叠面板收进工具区（既有多组，非首屏主推） */}
+            <HomeShortcuts />
+          </HomeToolsSection>
+
+          {/* ⑤ 黄历/节律卡等既有区块照旧（useAlmanacData 逻辑不动） */}
           {almanacSectionVisible && (
             <section
               className="input-page__almanac-section"
@@ -579,141 +745,6 @@ export function InputPage() {
               <RhythmCard />
             </section>
           )}
-
-          {/* 7.1 情绪增长：星空情感锚点（首页默认星空背景 + 情绪文案） */}
-          <section
-            className="sky-emotion-hero"
-            style={{
-              textAlign: 'center',
-              padding: '18px 12px 14px',
-              marginBottom: 16,
-              background: 'linear-gradient(180deg, rgba(10,14,26,0) 0%, rgba(15,23,42,0.55) 100%)',
-              borderRadius: 12,
-              border: '1px solid rgba(255,255,255,0.06)',
-            }}
-          >
-            <StarfieldBackground />
-            <div style={{ fontSize: 13, color: '#94a3b8', lineHeight: 1.7, letterSpacing: '0.03em' }}>
-              ☽ 这是你出生时的真太阳时星空
-            </div>
-            <div style={{ fontSize: 11, color: '#64748b', marginTop: 4 }}>
-              每一颗星星，都是那一刻宇宙给你的第一份礼物
-            </div>
-          </section>
-
-          {/* F03 · 首页双分流门：先选普通 / 专业入口，再进入下方排盘区 */}
-          <DualEntryGate />
-
-          <HomeShortcuts />
-
-          {/* X1-D-03 · 合参首页入口卡：双盘并置对照互参 */}
-          <button
-            type="button"
-            onClick={() => navigate('/synthesis')}
-            style={{
-              display: 'flex',
-              width: '100%',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              gap: 12,
-              margin: '0 0 16px',
-              padding: '14px 16px',
-              textAlign: 'left',
-              borderRadius: 12,
-              border: '1px solid rgba(255, 77, 109, 0.28)',
-              background: 'linear-gradient(135deg, rgba(255,77,109,0.10) 0%, rgba(77,195,255,0.10) 100%)',
-              cursor: 'pointer',
-            }}
-          >
-            <span>
-              <span style={{ display: 'block', fontSize: 15, fontWeight: 600, color: '#f1f5f9' }}>
-                八字紫微合参
-              </span>
-              <span style={{ display: 'block', fontSize: 12, color: '#94a3b8', marginTop: 4, lineHeight: 1.6 }}>
-                并置八字与紫微两套命盘，逐主题结构化对照互参
-              </span>
-            </span>
-            <span style={{ fontSize: 18, color: '#ff4d6d', flexShrink: 0 }}>›</span>
-          </button>
-
-          {/* 7.2 十二项特色功能清单：每个排盘项目一句"本项特色" */}
-          <FeatureHighlights />
-
-          <div className="analysis-view">
-            {entryMode === 'divination' || entryMode === 'almanac' ? (
-              <Suspense fallback={divinationPanelFallback}>
-                <LazyDivinationPanel
-                  initialMethod={entryMode === 'almanac' ? 'almanac' : undefined}
-                  lockedMethod={entryMode === 'almanac' ? 'almanac' : undefined}
-                />
-              </Suspense>
-            ) : (
-              <div className="form-wrapper">
-                <>
-                  <PersonForm
-                    role="self"
-                    form={form}
-                    updatePersonField={updatePersonField}
-                    updateNumericField={updateNumericField}
-                    updateBirthTime={updateBirthTime}
-                    openBirthPlaceModal={birthPlace.openBirthPlaceModal}
-                    historyHint={
-                      form.analysisMode === 'single'
-                        ? '填写一份个人信息，自动生成八字、紫微和住宅风水入口；填写精准时间与出生地后，同时生成星盘和七政四余。'
-                        : undefined
-                    }
-                  />
-                  {entryMode === 'compatibility' ? (
-                    <PersonForm
-                      role="partner"
-                      form={form}
-                      updatePersonField={updatePersonField}
-                      updateNumericField={updateNumericField}
-                      updateBirthTime={updateBirthTime}
-                      openBirthPlaceModal={birthPlace.openBirthPlaceModal}
-                    />
-                  ) : null}
-
-                  {error ? (
-                    <div className="form-error-text global-form-error" role="alert" aria-live="polite">
-                      {error}
-                    </div>
-                  ) : null}
-
-                  <div
-                    className="form-actions page-submit-actions"
-                    style={{
-                      width: '100%',
-                      gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-                      justifyItems: 'stretch',
-                    }}
-                  >
-                    <button
-                      className="secondary-page-button"
-                      type="button"
-                      style={{ width: '100%' }}
-                      onClick={() =>
-                        navigate(
-                          `/records?tab=${entryMode === 'compatibility' ? 'compatibility' : 'personal'}`,
-                        )
-                      }
-                    >
-                      历史记录
-                    </button>
-                    <button
-                      className="primary-button start-submit-button"
-                      type="button"
-                      onClick={handleSubmit}
-                      disabled={submitBusy}
-                      style={{ width: '100%' }}
-                    >
-                      开始排盘
-                    </button>
-                  </div>
-                </>
-              </div>
-            )}
-          </div>
         </div>
 
         <div

@@ -1,0 +1,276 @@
+/* ============================================================
+ * E-11 S-6 · 首页片（L0/L1）新区块样式
+ * 只消费 tokens（src/styles/tokens.css）；暗黑星云底 / 白正文 / 禁白卡片。
+ * ============================================================ */
+
+/* ---------- 通用区块 ---------- */
+.home-section {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: var(--sp-12) var(--sp-6);
+}
+.home-section__title {
+  font-family: var(--font-serif-zh), var(--font-serif-en);
+  font-size: 26px;
+  line-height: 1.3;
+  color: var(--text-primary);
+  margin: 0 0 var(--sp-2);
+}
+.home-section__desc {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin: 0 0 var(--sp-6);
+}
+
+/* 卡片：半透明深色，禁白底 */
+.home-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-6);
+  color: var(--text-primary);
+  text-align: left;
+}
+
+/* 按钮状态机 */
+.home-btn {
+  border-radius: var(--radius-md);
+  padding: 12px 28px;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    filter var(--motion-base) var(--ease-out),
+    border-color var(--motion-base) var(--ease-out),
+    box-shadow var(--motion-base) var(--ease-out),
+    transform var(--motion-fast) var(--ease-out);
+}
+.home-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+.home-btn--primary {
+  background: var(--button-primary-bg);
+  color: var(--button-primary-text);
+  border: 1px solid transparent;
+}
+.home-btn--primary:hover:not(:disabled) {
+  filter: brightness(1.08);
+  box-shadow: 0 8px 24px rgba(88, 166, 255, 0.22);
+}
+.home-btn--secondary {
+  background: var(--button-secondary-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--button-secondary-border);
+}
+.home-btn--secondary:hover:not(:disabled) {
+  border-color: var(--accent-primary);
+  color: #ffffff;
+}
+.home-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+.home-btn:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* ---------- ① HomeHero：真实星空全屏（三层降级） ---------- */
+.home-hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--bg-base);
+}
+/* 第 3 层（最底，永远在位）：深空渐变 + SVG 静态星点 data-URI 兜底 */
+.home-hero__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(1200px 800px at 72% -10%, rgba(88, 166, 255, 0.14), transparent 60%),
+    radial-gradient(900px 700px at 12% 112%, rgba(201, 214, 232, 0.08), transparent 60%),
+    linear-gradient(180deg, #0b0e16 0%, #0e1116 45%, #070a12 100%);
+}
+.home-hero__bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'%3E%3Cg fill='%23E6EDF3'%3E%3Ccircle cx='96' cy='144' r='1.4' opacity='0.85'/%3E%3Ccircle cx='264' cy='64' r='1' opacity='0.6'/%3E%3Ccircle cx='420' cy='200' r='1.6' opacity='0.9'/%3E%3Ccircle cx='576' cy='96' r='0.9' opacity='0.5'/%3E%3Ccircle cx='720' cy='240' r='1.3' opacity='0.7'/%3E%3Ccircle cx='900' cy='80' r='1.5' opacity='0.85'/%3E%3Ccircle cx='1056' cy='176' r='1' opacity='0.6'/%3E%3Ccircle cx='144' cy='360' r='1.1' opacity='0.5'/%3E%3Ccircle cx='336' cy='464' r='0.9' opacity='0.4'/%3E%3Ccircle cx='528' cy='336' r='1.4' opacity='0.7'/%3E%3Ccircle cx='792' cy='440' r='1' opacity='0.5'/%3E%3Ccircle cx='984' cy='384' r='1.2' opacity='0.65'/%3E%3Ccircle cx='1140' cy='480' r='0.9' opacity='0.4'/%3E%3Ccircle cx='216' cy='600' r='1.1' opacity='0.55'/%3E%3Ccircle cx='480' cy='656' r='1' opacity='0.45'/%3E%3Ccircle cx='696' cy='576' r='1.5' opacity='0.75'/%3E%3Ccircle cx='936' cy='680' r='0.9' opacity='0.4'/%3E%3Ccircle cx='1080' cy='304' r='1.1' opacity='0.5'/%3E%3Ccircle cx='60' cy='496' r='1' opacity='0.5'/%3E%3Ccircle cx='840' cy='144' r='0.8' opacity='0.35'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: cover;
+  background-position: center;
+}
+/* 第 2 层：Canvas2D 粒子（覆盖 features.css 的 fixed 全视口定位，限定在 Hero 内） */
+.home-hero .starfield-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+/* 第 1 层（最上）：WebGL2 createSkyScene 成功后覆盖；失败时下方两层可见 */
+.home-hero__webgl {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+.home-hero__webgl canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+/* Hero 文案层 */
+.home-hero__inner {
+  position: relative;
+  z-index: 3;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 var(--sp-6);
+  text-align: center;
+}
+.home-hero__brand {
+  font-size: 13px;
+  letter-spacing: 0.32em;
+  color: var(--accent-primary);
+  margin: 0 0 var(--sp-4);
+}
+.home-hero__title {
+  font-family: var(--font-serif-zh), var(--font-serif-en);
+  font-size: clamp(30px, 6vw, 52px);
+  line-height: 1.25;
+  color: var(--text-primary);
+  margin: 0 0 var(--sp-4);
+}
+.home-hero__subtitle {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--text-secondary);
+  margin: 0 0 var(--sp-8);
+}
+.home-hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  justify-content: center;
+  margin-bottom: var(--sp-8);
+}
+.home-hero__trust {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ---------- ② 今日星象卡 ---------- */
+.home-today {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--sp-8) var(--sp-6) 0;
+}
+.daily-sky .daily-sky__meta {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  margin: 0 0 var(--sp-3);
+}
+.daily-sky .daily-sky__title {
+  font-family: var(--font-serif-zh), var(--font-serif-en);
+  font-size: 24px;
+  line-height: 1.4;
+  color: var(--text-primary);
+  margin: 0 0 var(--sp-3);
+}
+.daily-sky .daily-sky__note {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin: 0 0 var(--sp-4);
+}
+.daily-sky .daily-sky__quote {
+  margin: 0 0 var(--sp-4);
+  padding: var(--sp-3) var(--sp-4);
+  border-left: 2px solid var(--accent-primary);
+  font-family: var(--font-serif-zh), var(--font-serif-en);
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--accent-lunar);
+}
+.daily-sky .daily-sky__quote cite {
+  display: block;
+  margin-top: var(--sp-2);
+  font-size: 12px;
+  font-style: normal;
+  color: var(--text-secondary);
+}
+.daily-sky .daily-sky__compliance {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin: 0 0 var(--sp-4);
+}
+/* Suspense 占位骨架（首屏非空保底） */
+.home-skeleton-line {
+  height: 18px;
+  border-radius: var(--radius-sm);
+  background: rgba(201, 214, 232, 0.12);
+  margin-bottom: var(--sp-3);
+}
+.home-skeleton-line--long {
+  width: 72%;
+}
+
+/* ---------- ③ 知识双轨 ---------- */
+.home-explore__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--sp-4);
+}
+.home-explore__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  cursor: pointer;
+  transition:
+    border-color var(--motion-base) var(--ease-out),
+    transform var(--motion-fast) var(--ease-out);
+}
+.home-explore__card:hover {
+  border-color: var(--accent-primary);
+}
+.home-explore__card:active {
+  transform: scale(0.98);
+}
+.home-explore__card:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+.home-explore__tag {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--accent-primary);
+}
+.home-explore__title {
+  font-family: var(--font-serif-zh), var(--font-serif-en);
+  font-size: 19px;
+  color: var(--text-primary);
+}
+.home-explore__desc {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+/* ---------- ④ 工具中心 ---------- */
+.home-tools__head {
+  text-align: center;
+  margin-bottom: var(--sp-8);
+}
+
+/* prefers-reduced-motion：动效归零 */
+@media (prefers-reduced-motion: reduce) {
+  .home-btn,
+  .home-explore__card {
+    transition: none !important;
+  }
+}

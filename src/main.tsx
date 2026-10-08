@@ -9,6 +9,8 @@ import { initErrorTracking } from '@/lib/client/errlog';
 import './styles.css';
 import './styles/features.css';
 import './styles/print.css';
+// E-11 S-6：全站视觉 tokens（放最后 = 最高优先级），首页片负责引入
+import './styles/tokens.css';
 
 // 全局未捕获错误/未处理 Promise 拒绝埋点（仅生产、采样 10%、不含个人信息）
 initErrorTracking();

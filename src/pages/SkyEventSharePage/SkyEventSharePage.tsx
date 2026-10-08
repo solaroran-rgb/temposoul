@@ -3,11 +3,12 @@
  * 复用真实天文引擎（createSkyScene + setTimeLocation）按快照冻结渲染某一时刻的星空，
  * 叠加纪念文案 / 地点 / 时间 HUD。无需登录；数据来自 /api/v1/sky-events/share/:token。
  */
-import { useState, useRef, useEffect, type CSSProperties } from 'react';
+import { useState, useRef, useEffect, type CSSProperties, type ReactElement } from 'react';
 import { useParams } from 'react-router-dom';
 import { createSkyScene, type SkySceneApi } from '@/lib/sky/SkyScene';
 import { injectHolographicTokens } from '@/theme/holographic-tokens';
 import { getPublicSkyEvent, buildShareUrl, type PublicSkyEvent } from '@/lib/skyevent/api';
+import { decodeDailyShareToken, type DailySkyPayload } from '@/lib/daily-sky/share';
 
 function fmtTime(iso: string): string {
   const d = new Date(iso);
@@ -32,6 +33,8 @@ export function SkyEventSharePage() {
       setState('notfound');
       return;
     }
+    // daily- 前缀 token 自包含 payload，客户端解码渲染，不打 getPublicSkyEvent 后端
+    if (token.startsWith('daily-')) return;
     getPublicSkyEvent(token)
       .then((evt) => {
         if (cancelled) return;
@@ -77,10 +80,17 @@ export function SkyEventSharePage() {
     };
   }, [state, event]);
 
+  // daily- 前缀分支：客户端解码渲染每日星象落地卡（路由复用 /sky-event/:token，不新增路由）。
+  // 解码失败/24h 过期 → 中性失效提示；解码成功 → 每日星象落地卡。
+  const dailyPayload: DailySkyPayload | null | undefined = token?.startsWith('daily-')
+    ? decodeDailyShareToken(token)
+    : undefined;
+  if (dailyPayload !== undefined) {
+    return dailyPayload ? <DailyLandingCard payload={dailyPayload} /> : <DailyExpiredCard />;
+  }
+
   if (state === 'loading') {
-    return (
-      <div style={center}>正在读取这片星空…</div>
-    );
+    return <div style={center}>正在读取这片星空…</div>;
   }
   if (state === 'notfound' || state === 'error') {
     return (
@@ -135,7 +145,9 @@ export function SkyEventSharePage() {
           boxShadow: '0 0 20px rgba(0,229,255,0.15)',
         }}
       >
-        <h1 style={{ margin: 0, fontSize: 18, letterSpacing: 6, color: '#e0f7ff', fontWeight: 300 }}>
+        <h1
+          style={{ margin: 0, fontSize: 18, letterSpacing: 6, color: '#e0f7ff', fontWeight: 300 }}
+        >
           命律 · TEMPOSOUL
         </h1>
         <div style={{ fontSize: 10, color: 'rgba(0,229,255,0.7)', marginTop: 6, letterSpacing: 3 }}>
@@ -275,3 +287,93 @@ const linkBtn: CSSProperties = {
   ...hudBtn,
   marginTop: 12,
 };
+
+/** 每日星象落地卡（daily- token 客户端解码渲染，零后端请求） */
+function DailyLandingCard({ payload }: { payload: DailySkyPayload }): ReactElement {
+  return (
+    <div
+      style={{
+        position: 'fixed',
+        inset: 0,
+        background: '#030305',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 18,
+        padding: 24,
+        fontFamily: "'Inter','Noto Sans SC',system-ui,sans-serif",
+        letterSpacing: '0.05em',
+        textAlign: 'center',
+      }}
+    >
+      <div style={{ fontSize: 12, color: 'rgba(0,229,255,0.7)', letterSpacing: 4 }}>
+        命律 · TEMPOSOUL · {payload.dateKey} · {payload.moonPhase}
+      </div>
+      <h1
+        style={{
+          margin: 0,
+          fontSize: 34,
+          color: '#E6EDF3',
+          fontWeight: 300,
+          fontFamily: "'Noto Serif SC','Songti SC',serif",
+          letterSpacing: 4,
+        }}
+      >
+        {payload.skyEventTitle}
+      </h1>
+      <div style={{ fontSize: 15, color: 'rgba(201,214,232,0.9)', lineHeight: 1.9, maxWidth: 560 }}>
+        {payload.personalNote}
+      </div>
+      {payload.zodiacLine && (
+        <div
+          style={{ fontSize: 13, color: 'rgba(143,227,255,0.75)', lineHeight: 1.8, maxWidth: 560 }}
+        >
+          {payload.zodiacLine}
+        </div>
+      )}
+      <div
+        style={{
+          fontSize: 16,
+          color: '#E6EDF3',
+          fontFamily: "'Noto Serif SC','Songti SC',serif",
+          maxWidth: 560,
+          lineHeight: 1.9,
+        }}
+      >
+        「{payload.quote}」
+        <span style={{ fontSize: 12, color: 'rgba(201,214,232,0.6)' }}> —— {payload.source}</span>
+      </div>
+      <div style={{ fontSize: 11, color: 'rgba(201,214,232,0.5)', letterSpacing: 2 }}>
+        {payload.compliance}
+      </div>
+      <a
+        href="/"
+        style={{
+          ...hudBtn,
+          marginTop: 10,
+          background: 'rgba(0,229,255,0.12)',
+          textTransform: 'none',
+          fontSize: 14,
+          padding: '12px 32px',
+        }}
+      >
+        开始今日星象
+      </a>
+    </div>
+  );
+}
+
+/** daily token 失效/过期（中性文案，不制造焦虑） */
+function DailyExpiredCard(): ReactElement {
+  return (
+    <div style={center}>
+      <div style={{ fontSize: 18, color: '#e0f7ff', letterSpacing: 2 }}>
+        此分享已过期，去看看今天的星象
+      </div>
+      <a href="/" style={linkBtn}>
+        返回命律
+      </a>
+    </div>
+  );
+}
