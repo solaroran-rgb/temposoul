@@ -18,7 +18,7 @@ import { useAuth } from '@/lib/auth/AuthContext';
 import { useDocumentMeta } from '@/lib/use-document-meta';
 import { fetchCourses, fetchCourseDetail, type CourseSummary } from '@/lib/learn/api';
 import { ZIWEI_TUTORIAL } from '@/data/content/learn';
-import './learn.css';
+import '../shared/learn.css';
 
 /** 服务端课程 slug → 前端既有路由（路由表冻结：仅 ziwei-101 有对应页面）。 */
 const COURSE_ROUTES: Record<string, string> = {

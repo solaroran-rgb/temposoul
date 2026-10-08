@@ -13,7 +13,7 @@ import { useDocumentMeta } from '@/lib/use-document-meta';
 import { fetchLesson, type LessonDetail } from '@/lib/learn/api';
 import { ZIWEI_TUTORIAL, LEARN_DISCLAIMER } from '@/data/content/learn';
 import LessonDetailPage from '../shared/LessonDetailPage';
-import './learn.css';
+import '../shared/learn.css';
 
 export default function ZiweiLearnDetail() {
   const { chapter = '' } = useParams();
